@@ -162,6 +162,32 @@ public class Venn extends SeparateChart {
         return "";
     }
 
+    private List<Venn> setData1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Venn data(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Venn item : setData1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private String dataSeparator;
     private List<Venn> setDataSeparator = new ArrayList<>();
 
@@ -1784,6 +1810,7 @@ public class Venn extends SeparateChart {
         js.append(generateJSgetPalette());
         js.append(generateJSgetSelected());
         js.append(generateJSsetData());
+        js.append(generateJSsetData1());
         js.append(generateJSsetDataSeparator());
         js.append(generateJSsetFill());
         js.append(generateJSsetFill1());

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class CHO extends JsObject {
 
     
     private Double fastPeriod;
+    private List<CHO> setFastPeriod = new ArrayList<>();
 
     /**
      * Setter for the fast period.
@@ -58,9 +56,20 @@ public class CHO extends JsObject {
         }
         return this;
     }
+    private String generateJSsetFastPeriod() {
+        if (!setFastPeriod.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CHO item : setFastPeriod) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private MovingAverageType maType;
     private String maType1;
+    private List<CHO> setMaType = new ArrayList<>();
 
     /**
      * Setter for the indicator smoothing type.
@@ -86,7 +95,18 @@ public class CHO extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMaType() {
+        if (!setMaType.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CHO item : setMaType) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CHO> setMaType1 = new ArrayList<>();
 
     /**
      * Setter for the indicator smoothing type.
@@ -112,6 +132,16 @@ public class CHO extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMaType1() {
+        if (!setMaType1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CHO item : setMaType1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private StockSeriesBase getSeries;
 
@@ -127,6 +157,7 @@ public class CHO extends JsObject {
 
     private StockSeriesType type;
     private String type1;
+    private List<CHO> setSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator series.
@@ -152,7 +183,18 @@ public class CHO extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSeries() {
+        if (!setSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CHO item : setSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CHO> setSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator series.
@@ -178,8 +220,19 @@ public class CHO extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSeries1() {
+        if (!setSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CHO item : setSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double slowPeriod;
+    private List<CHO> setSlowPeriod = new ArrayList<>();
 
     /**
      * Setter for the slow period.
@@ -201,6 +254,16 @@ public class CHO extends JsObject {
             }
         }
         return this;
+    }
+    private String generateJSsetSlowPeriod() {
+        if (!setSlowPeriod.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CHO item : setSlowPeriod) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetSeries() {
@@ -230,6 +293,14 @@ public class CHO extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFastPeriod());
+        js.append(generateJSsetMaType());
+        js.append(generateJSsetMaType1());
+        js.append(generateJSsetSeries());
+        js.append(generateJSsetSeries1());
+        js.append(generateJSsetSlowPeriod());
+        
 
         String result = js.toString();
         js.setLength(0);

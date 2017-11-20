@@ -1,12 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
-
 // class
 /**
  * Encapsulates browser event for anychart.graphics.
@@ -54,6 +47,8 @@ public class BrowserEvent extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        
 
         String result = js.toString();
         js.setLength(0);

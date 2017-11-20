@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
 
     
     private Fill fallingFill;
+    private List<StockSeriesBase> setFallingFill = new ArrayList<>();
 
     /**
      * Setter for the falling fill settings using a string.
@@ -51,13 +49,26 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s)", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new StockSeriesBase(jsBase);
+        StockSeriesBase item = new StockSeriesBase("setFallingFill" + variableIndex);
+        setFallingFill.add(item);
+        return item;
+    }
+    private String generateJSsetFallingFill() {
+        if (!setFallingFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setFallingFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private PatternFill getFallingHatchFill;
@@ -80,6 +91,7 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
     private String color;
     private Double thickness;
     private Double size;
+    private List<StockSeriesBase> setFallingHatchFill = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
@@ -106,15 +118,29 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
-        return new StockSeriesBase(jsBase);
+        StockSeriesBase item = new StockSeriesBase("setFallingHatchFill" + variableIndex);
+        setFallingHatchFill.add(item);
+        return item;
+    }
+    private String generateJSsetFallingHatchFill() {
+        if (!setFallingHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setFallingHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesBase> setFallingHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
@@ -141,15 +167,29 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
-        return new StockSeriesBase(jsBase);
+        StockSeriesBase item = new StockSeriesBase("setFallingHatchFill1" + variableIndex);
+        setFallingHatchFill1.add(item);
+        return item;
+    }
+    private String generateJSsetFallingHatchFill1() {
+        if (!setFallingHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setFallingHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesBase> setFallingHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
@@ -176,15 +216,29 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
-        return new StockSeriesBase(jsBase);
+        StockSeriesBase item = new StockSeriesBase("setFallingHatchFill2" + variableIndex);
+        setFallingHatchFill2.add(item);
+        return item;
+    }
+    private String generateJSsetFallingHatchFill2() {
+        if (!setFallingHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setFallingHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesBase> setFallingHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
@@ -211,15 +265,29 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
-        return new StockSeriesBase(jsBase);
+        StockSeriesBase item = new StockSeriesBase("setFallingHatchFill3" + variableIndex);
+        setFallingHatchFill3.add(item);
+        return item;
+    }
+    private String generateJSsetFallingHatchFill3() {
+        if (!setFallingHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setFallingHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesBase> setFallingHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
@@ -246,16 +314,30 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
-        return new StockSeriesBase(jsBase);
+        StockSeriesBase item = new StockSeriesBase("setFallingHatchFill4" + variableIndex);
+        setFallingHatchFill4.add(item);
+        return item;
+    }
+    private String generateJSsetFallingHatchFill4() {
+        if (!setFallingHatchFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setFallingHatchFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill risingFill;
+    private List<StockSeriesBase> setRisingFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using string.
@@ -270,13 +352,26 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s)", ((risingFill != null) ? risingFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new StockSeriesBase(jsBase);
+        StockSeriesBase item = new StockSeriesBase("setRisingFill" + variableIndex);
+        setRisingFill.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill() {
+        if (!setRisingFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setRisingFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private PatternFill getRisingHatchFill;
@@ -299,6 +394,7 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
     private String color1;
     private Double thickness1;
     private Double size1;
+    private List<StockSeriesBase> setRisingHatchFill = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
@@ -339,15 +435,29 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color1), thickness1, size1));
                 js.setLength(0);
             }
         }
-        return new StockSeriesBase(jsBase);
+        StockSeriesBase item = new StockSeriesBase("setRisingHatchFill" + variableIndex);
+        setRisingHatchFill.add(item);
+        return item;
+    }
+    private String generateJSsetRisingHatchFill() {
+        if (!setRisingHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setRisingHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesBase> setRisingHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
@@ -388,15 +498,29 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color1), thickness1, size1));
                 js.setLength(0);
             }
         }
-        return new StockSeriesBase(jsBase);
+        StockSeriesBase item = new StockSeriesBase("setRisingHatchFill1" + variableIndex);
+        setRisingHatchFill1.add(item);
+        return item;
+    }
+    private String generateJSsetRisingHatchFill1() {
+        if (!setRisingHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setRisingHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesBase> setRisingHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
@@ -437,15 +561,29 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color1), thickness1, size1));
                 js.setLength(0);
             }
         }
-        return new StockSeriesBase(jsBase);
+        StockSeriesBase item = new StockSeriesBase("setRisingHatchFill2" + variableIndex);
+        setRisingHatchFill2.add(item);
+        return item;
+    }
+    private String generateJSsetRisingHatchFill2() {
+        if (!setRisingHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setRisingHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesBase> setRisingHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
@@ -486,15 +624,29 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color1), thickness1, size1));
                 js.setLength(0);
             }
         }
-        return new StockSeriesBase(jsBase);
+        StockSeriesBase item = new StockSeriesBase("setRisingHatchFill3" + variableIndex);
+        setRisingHatchFill3.add(item);
+        return item;
+    }
+    private String generateJSsetRisingHatchFill3() {
+        if (!setRisingHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setRisingHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesBase> setRisingHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
@@ -535,13 +687,26 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState9, wrapQuotes(color1), thickness1, size1));
                 js.setLength(0);
             }
         }
-        return new StockSeriesBase(jsBase);
+        StockSeriesBase item = new StockSeriesBase("setRisingHatchFill4" + variableIndex);
+        setRisingHatchFill4.add(item);
+        return item;
+    }
+    private String generateJSsetRisingHatchFill4() {
+        if (!setRisingHatchFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setRisingHatchFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetFallingHatchFill() {
@@ -579,6 +744,20 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFallingFill());
+        js.append(generateJSsetFallingHatchFill());
+        js.append(generateJSsetFallingHatchFill1());
+        js.append(generateJSsetFallingHatchFill2());
+        js.append(generateJSsetFallingHatchFill3());
+        js.append(generateJSsetFallingHatchFill4());
+        js.append(generateJSsetRisingFill());
+        js.append(generateJSsetRisingHatchFill());
+        js.append(generateJSsetRisingHatchFill1());
+        js.append(generateJSsetRisingHatchFill2());
+        js.append(generateJSsetRisingHatchFill3());
+        js.append(generateJSsetRisingHatchFill4());
+        
 
         String result = js.toString();
         js.setLength(0);

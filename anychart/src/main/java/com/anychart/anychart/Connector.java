@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class Connector extends MapSeriesBaseWithMarkers {
     
     private Double curvature;
     private String curvature1;
+    private List<Connector> setCurvature = new ArrayList<>();
 
     /**
      * Setter for the curvature of connector point.
@@ -62,7 +60,18 @@ public class Connector extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
+    private String generateJSsetCurvature() {
+        if (!setCurvature.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Connector item : setCurvature) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Connector> setCurvature1 = new ArrayList<>();
 
     /**
      * Setter for the curvature of connector point.
@@ -87,6 +96,16 @@ public class Connector extends MapSeriesBaseWithMarkers {
             }
         }
         return this;
+    }
+    private String generateJSsetCurvature1() {
+        if (!setCurvature1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Connector item : setCurvature1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private List<Connector> getEndSize = new ArrayList<>();
@@ -113,6 +132,7 @@ public class Connector extends MapSeriesBaseWithMarkers {
 
     private Double startSize;
     private String startSize1;
+    private List<Connector> setStartSize = new ArrayList<>();
 
     /**
      * Setter for the connector width in the start point.
@@ -138,7 +158,18 @@ public class Connector extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
+    private String generateJSsetStartSize() {
+        if (!setStartSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Connector item : setStartSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Connector> setStartSize1 = new ArrayList<>();
 
     /**
      * Setter for the connector width in the start point.
@@ -163,6 +194,16 @@ public class Connector extends MapSeriesBaseWithMarkers {
             }
         }
         return this;
+    }
+    private String generateJSsetStartSize1() {
+        if (!setStartSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Connector item : setStartSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetEndSize() {
@@ -210,6 +251,12 @@ public class Connector extends MapSeriesBaseWithMarkers {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetCurvature());
+        js.append(generateJSsetCurvature1());
+        js.append(generateJSsetStartSize());
+        js.append(generateJSsetStartSize1());
+        
 
         String result = js.toString();
         js.setLength(0);

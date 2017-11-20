@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -38,6 +35,7 @@ public class CoreAxesLinear extends VisualBase {
 
     
     private Boolean drawFirstLabel;
+    private List<CoreAxesLinear> setDrawFirstLabel = new ArrayList<>();
 
     /**
      * Setter for the first label drawing flag.
@@ -60,8 +58,19 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetDrawFirstLabel() {
+        if (!setDrawFirstLabel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setDrawFirstLabel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean drawLastLabel;
+    private List<CoreAxesLinear> setDrawLastLabel = new ArrayList<>();
 
     /**
      * Setter for the last label drawing flag.
@@ -84,6 +93,16 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetDrawLastLabel() {
+        if (!setDrawLastLabel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setDrawLastLabel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiLabelsFactory getLabels;
 
@@ -99,6 +118,7 @@ public class CoreAxesLinear extends VisualBase {
 
     private String labels;
     private Boolean labels1;
+    private List<CoreAxesLinear> setLabels = new ArrayList<>();
 
     /**
      * Setter for axis labels.
@@ -124,7 +144,18 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLabels() {
+        if (!setLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxesLinear> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for axis labels.
@@ -150,6 +181,16 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLabels1() {
+        if (!setLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiLabelsFactory getMinorLabels;
 
@@ -165,6 +206,7 @@ public class CoreAxesLinear extends VisualBase {
 
     private String minorLabels;
     private Boolean minorLabels1;
+    private List<CoreAxesLinear> setMinorLabels = new ArrayList<>();
 
     /**
      * Setter for axis minor labels.
@@ -190,7 +232,18 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetMinorLabels() {
+        if (!setMinorLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setMinorLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxesLinear> setMinorLabels1 = new ArrayList<>();
 
     /**
      * Setter for axis minor labels.
@@ -216,6 +269,16 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetMinorLabels1() {
+        if (!setMinorLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setMinorLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Ticks getMinorTicks;
 
@@ -231,6 +294,7 @@ public class CoreAxesLinear extends VisualBase {
 
     private String minorTicks;
     private Boolean minorTicks1;
+    private List<CoreAxesLinear> setMinorTicks = new ArrayList<>();
 
     /**
      * Setter for minor axis ticks.
@@ -256,7 +320,18 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetMinorTicks() {
+        if (!setMinorTicks.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setMinorTicks) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxesLinear> setMinorTicks1 = new ArrayList<>();
 
     /**
      * Setter for minor axis ticks.
@@ -282,9 +357,20 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetMinorTicks1() {
+        if (!setMinorTicks1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setMinorTicks1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Orientation orientation;
     private String orientation1;
+    private List<CoreAxesLinear> setOrientation = new ArrayList<>();
 
     /**
      * Setter for the axis orientation.
@@ -310,7 +396,18 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetOrientation() {
+        if (!setOrientation.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setOrientation) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxesLinear> setOrientation1 = new ArrayList<>();
 
     /**
      * Setter for the axis orientation.
@@ -336,9 +433,20 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetOrientation1() {
+        if (!setOrientation1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setOrientation1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private LabelsOverlapMode overlapMode;
     private String overlapMode1;
+    private List<CoreAxesLinear> setOverlapMode = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -364,7 +472,18 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetOverlapMode() {
+        if (!setOverlapMode.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setOverlapMode) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxesLinear> setOverlapMode1 = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -390,6 +509,16 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetOverlapMode1() {
+        if (!setOverlapMode1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setOverlapMode1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private ScalesBase getScale;
 
@@ -407,6 +536,7 @@ public class CoreAxesLinear extends VisualBase {
     private String scale1;
     private ScaleTypes scale2;
     private String scale3;
+    private List<CoreAxesLinear> setScale = new ArrayList<>();
 
     /**
      * Setter for the axis scale.
@@ -432,7 +562,18 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetScale() {
+        if (!setScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxesLinear> setScale1 = new ArrayList<>();
 
     /**
      * Setter for the axis scale.
@@ -460,7 +601,18 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetScale1() {
+        if (!setScale1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setScale1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxesLinear> setScale2 = new ArrayList<>();
 
     /**
      * Setter for the axis scale.
@@ -488,8 +640,19 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetScale2() {
+        if (!setScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double staggerLines;
+    private List<CoreAxesLinear> setStaggerLines = new ArrayList<>();
 
     /**
      * Setter for stagger lines.<br/>
@@ -513,8 +676,19 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStaggerLines() {
+        if (!setStaggerLines.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setStaggerLines) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double staggerMaxLines;
+    private List<CoreAxesLinear> setStaggerMaxLines = new ArrayList<>();
 
     /**
      * Setter for maximum stagger lines in autocalculation mode (if {@link anychart.core.axes.Linear#staggerLines} passed null).
@@ -537,8 +711,19 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStaggerMaxLines() {
+        if (!setStaggerMaxLines.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setStaggerMaxLines) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean staggerMode;
+    private List<CoreAxesLinear> setStaggerMode = new ArrayList<>();
 
     /**
      * Setter for the stagger mode state.
@@ -561,6 +746,16 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStaggerMode() {
+        if (!setStaggerMode.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setStaggerMode) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke stroke;
     private ColoredFill stroke1;
@@ -569,6 +764,7 @@ public class CoreAxesLinear extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<CoreAxesLinear> setStroke = new ArrayList<>();
 
     /**
      * Setter for axis stroke settings.
@@ -604,7 +800,18 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxesLinear> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for axis stroke settings.
@@ -640,7 +847,18 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxesLinear> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for axis stroke settings.
@@ -676,6 +894,16 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Ticks getTicks;
 
@@ -691,6 +919,7 @@ public class CoreAxesLinear extends VisualBase {
 
     private String ticks;
     private Boolean ticks1;
+    private List<CoreAxesLinear> setTicks = new ArrayList<>();
 
     /**
      * Setter for axis ticks.
@@ -716,7 +945,18 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTicks() {
+        if (!setTicks.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setTicks) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxesLinear> setTicks1 = new ArrayList<>();
 
     /**
      * Setter for axis ticks.
@@ -742,6 +982,16 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTicks1() {
+        if (!setTicks1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setTicks1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiTitle getTitle;
 
@@ -758,6 +1008,7 @@ public class CoreAxesLinear extends VisualBase {
     private Boolean title;
     private String title1;
     private String title2;
+    private List<CoreAxesLinear> setTitle = new ArrayList<>();
 
     /**
      * Setter for the axis title.
@@ -784,7 +1035,18 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTitle() {
+        if (!setTitle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setTitle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxesLinear> setTitle1 = new ArrayList<>();
 
     /**
      * Setter for the axis title.
@@ -811,9 +1073,20 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTitle1() {
+        if (!setTitle1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setTitle1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double width;
     private String width1;
+    private List<CoreAxesLinear> setWidth = new ArrayList<>();
 
     /**
      * Setter for the axis width.
@@ -839,7 +1112,18 @@ public class CoreAxesLinear extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetWidth() {
+        if (!setWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxesLinear> setWidth1 = new ArrayList<>();
 
     /**
      * Setter for the axis width.
@@ -864,6 +1148,16 @@ public class CoreAxesLinear extends VisualBase {
             }
         }
         return this;
+    }
+    private String generateJSsetWidth1() {
+        if (!setWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxesLinear item : setWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetLabels() {
@@ -933,6 +1227,35 @@ public class CoreAxesLinear extends VisualBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetDrawFirstLabel());
+        js.append(generateJSsetDrawLastLabel());
+        js.append(generateJSsetLabels());
+        js.append(generateJSsetLabels1());
+        js.append(generateJSsetMinorLabels());
+        js.append(generateJSsetMinorLabels1());
+        js.append(generateJSsetMinorTicks());
+        js.append(generateJSsetMinorTicks1());
+        js.append(generateJSsetOrientation());
+        js.append(generateJSsetOrientation1());
+        js.append(generateJSsetOverlapMode());
+        js.append(generateJSsetOverlapMode1());
+        js.append(generateJSsetScale());
+        js.append(generateJSsetScale1());
+        js.append(generateJSsetScale2());
+        js.append(generateJSsetStaggerLines());
+        js.append(generateJSsetStaggerMaxLines());
+        js.append(generateJSsetStaggerMode());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        js.append(generateJSsetTicks());
+        js.append(generateJSsetTicks1());
+        js.append(generateJSsetTitle());
+        js.append(generateJSsetTitle1());
+        js.append(generateJSsetWidth());
+        js.append(generateJSsetWidth1());
+        
 
         String result = js.toString();
         js.setLength(0);

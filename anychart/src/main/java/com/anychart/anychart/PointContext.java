@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -49,6 +44,7 @@ public class PointContext extends RenderingsettingsContext {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getDataValue(%s)", wrapQuotes(name)));
@@ -76,6 +72,8 @@ public class PointContext extends RenderingsettingsContext {
         }
 
         js.append(generateJsGetters());
+
+        
 
         String result = js.toString();
         js.setLength(0);

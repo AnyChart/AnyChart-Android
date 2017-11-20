@@ -264,6 +264,32 @@ public class HeatMap extends SeparateChart {
         return "";
     }
 
+    private List<HeatMap> setData1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public HeatMap data(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HeatMap item : setData1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private Fill fill;
     private List<HeatMap> setFill = new ArrayList<>();
 
@@ -2630,6 +2656,7 @@ public class HeatMap extends SeparateChart {
         js.append(generateJSsetColorScale1());
         js.append(generateJSsetColorScale2());
         js.append(generateJSsetData());
+        js.append(generateJSsetData1());
         js.append(generateJSsetFill());
         js.append(generateJSsetFill1());
         js.append(generateJSsetFill2());

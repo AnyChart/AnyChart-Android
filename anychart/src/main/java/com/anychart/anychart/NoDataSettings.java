@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -51,6 +48,7 @@ public class NoDataSettings extends CoreBase {
     private String label;
     private String label1;
     private Boolean label2;
+    private List<NoDataSettings> setLabel = new ArrayList<>();
 
     /**
      * Setter for no data label.
@@ -77,7 +75,18 @@ public class NoDataSettings extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetLabel() {
+        if (!setLabel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (NoDataSettings item : setLabel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<NoDataSettings> setLabel1 = new ArrayList<>();
 
     /**
      * Setter for no data label.
@@ -103,6 +112,16 @@ public class NoDataSettings extends CoreBase {
             }
         }
         return this;
+    }
+    private String generateJSsetLabel1() {
+        if (!setLabel1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (NoDataSettings item : setLabel1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetLabel() {
@@ -132,6 +151,10 @@ public class NoDataSettings extends CoreBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetLabel());
+        js.append(generateJSsetLabel1());
+        
 
         String result = js.toString();
         js.setLength(0);

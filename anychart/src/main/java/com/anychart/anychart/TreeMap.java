@@ -340,6 +340,32 @@ public class TreeMap extends SeparateChart {
         return "";
     }
 
+    private List<TreeMap> setData1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public TreeMap data(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeMap item : setData1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private TreeDataItem target;
     private String[] target1;
     private String target2;
@@ -1740,6 +1766,7 @@ Ascending, Descending and No sorting is supported.
         js.append(generateJSsetColorScale2());
         js.append(generateJSsetColorScale3());
         js.append(generateJSsetData());
+        js.append(generateJSsetData1());
         js.append(generateJSsetFill());
         js.append(generateJSsetFill1());
         js.append(generateJSsetFill2());

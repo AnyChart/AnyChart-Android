@@ -1,12 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
-
 // class
 /**
  * Special event for changes in dirty states.
@@ -54,6 +47,8 @@ public class SignalEvent extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        
 
         String result = js.toString();
         js.setLength(0);

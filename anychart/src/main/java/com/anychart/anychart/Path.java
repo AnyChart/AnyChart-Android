@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -50,6 +47,7 @@ public class Path extends JsObject {
     private Double ry;
     private Double fromAngle;
     private Double extent;
+    private List<Path> setArcTo = new ArrayList<>();
 
     /**
      * Adds a command to the path that draws an arc of an ellipse.<br/>
@@ -81,11 +79,22 @@ of the Y-axis, that is clockwise.
         }
         return this;
     }
+    private String generateJSsetArcTo() {
+        if (!setArcTo.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Path item : setArcTo) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double rx1;
     private Double ry1;
     private Double fromAngle1;
     private Double extent1;
+    private List<Path> setArcToAsCurves = new ArrayList<>();
 
     /**
      * This method is similar to {@link anychart.graphics.vector.Path#arcTo}, but in this case the arc is approximated by Bezier curves.
@@ -126,6 +135,16 @@ of the Y-axis, that is clockwise.
         }
         return this;
     }
+    private String generateJSsetArcToAsCurves() {
+        if (!setArcToAsCurves.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Path item : setArcToAsCurves) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double x;
     private Double y;
@@ -133,6 +152,7 @@ of the Y-axis, that is clockwise.
     private Double ry2;
     private Boolean largeArc;
     private Boolean clockwiseArc;
+    private List<Path> setArcToByEndPoint = new ArrayList<>();
 
     /**
      * Adds a command to the path that draws an arc of an ellipse.<br/>
@@ -176,6 +196,16 @@ Read more at {@link https://www.w3.org/TR/SVG/implnote.html#ArcImplementationNot
         }
         return this;
     }
+    private String generateJSsetArcToByEndPoint() {
+        if (!setArcToByEndPoint.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Path item : setArcToByEndPoint) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double cx;
     private Double cy;
@@ -184,6 +214,7 @@ Read more at {@link https://www.w3.org/TR/SVG/implnote.html#ArcImplementationNot
     private Double fromAngle2;
     private Double sweep;
     private Boolean lineTo;
+    private List<Path> setCircularArc = new ArrayList<>();
 
     /**
      * Adds a command to the path that draws a circular arc.<br/>
@@ -234,6 +265,16 @@ with clockwise and counterclock drawing option.
         }
         return this;
     }
+    private String generateJSsetCircularArc() {
+        if (!setCircularArc.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Path item : setCircularArc) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double controlX;
     private Double controlY;
@@ -242,6 +283,7 @@ with clockwise and counterclock drawing option.
     private Double endX;
     private Double endY;
     private Double var_args;
+    private List<Path> setCurveTo = new ArrayList<>();
 
     /**
      * Adds specified points to the path, drawing sequentially a cubic Bezier curve from the current point to the next.<br/>
@@ -289,10 +331,21 @@ Each curve is defined by 3 points (6 coordinates) – two control points and an 
         }
         return this;
     }
+    private String generateJSsetCurveTo() {
+        if (!setCurveTo.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Path item : setCurveTo) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double x1;
     private Double y1;
     private Double var_args1;
+    private List<Path> setLineTo = new ArrayList<>();
 
     /**
      * Adds specified points to the current path, drawing sequentially a straight line through the specified coordinates.
@@ -328,9 +381,20 @@ Each curve is defined by 3 points (6 coordinates) – two control points and an 
         }
         return this;
     }
+    private String generateJSsetLineTo() {
+        if (!setLineTo.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Path item : setLineTo) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double x2;
     private Double y2;
+    private List<Path> setMoveTo = new ArrayList<>();
 
     /**
      * Moves path cursor position to a specified coordinate.</br>
@@ -364,12 +428,23 @@ Remember that if you call the <b>moveTo</b> method a few times in a row, only th
         }
         return this;
     }
+    private String generateJSsetMoveTo() {
+        if (!setMoveTo.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Path item : setMoveTo) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double controlX2;
     private Double controlY2;
     private Double endX1;
     private Double endY1;
     private Double var_args2;
+    private List<Path> setQuadraticCurveTo = new ArrayList<>();
 
     /**
      * Adds specified points to the path, drawing sequentially a quadratic Bezier curve from the current point to the next.
@@ -419,6 +494,16 @@ Each curve is defined by 2 points (4 coordinates) – a control point and an end
         }
         return this;
     }
+    private String generateJSsetQuadraticCurveTo() {
+        if (!setQuadraticCurveTo.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Path item : setQuadraticCurveTo) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -439,6 +524,16 @@ Each curve is defined by 2 points (4 coordinates) – a control point and an end
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetArcTo());
+        js.append(generateJSsetArcToAsCurves());
+        js.append(generateJSsetArcToByEndPoint());
+        js.append(generateJSsetCircularArc());
+        js.append(generateJSsetCurveTo());
+        js.append(generateJSsetLineTo());
+        js.append(generateJSsetMoveTo());
+        js.append(generateJSsetQuadraticCurveTo());
+        
 
         String result = js.toString();
         js.setLength(0);

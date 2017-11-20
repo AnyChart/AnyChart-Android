@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class AnnotationsEllipse extends AnnotationsBase {
 
     
     private Fill fill;
+    private List<AnnotationsEllipse> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -59,9 +57,20 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<AnnotationsEllipse> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -86,6 +95,16 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -94,6 +113,7 @@ public class AnnotationsEllipse extends AnnotationsBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<AnnotationsEllipse> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -133,7 +153,18 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsEllipse> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -173,7 +204,18 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsEllipse> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -213,7 +255,18 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsEllipse> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -253,7 +306,18 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsEllipse> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -293,7 +357,18 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsEllipse> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -333,6 +408,16 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -342,6 +427,7 @@ public class AnnotationsEllipse extends AnnotationsBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<AnnotationsEllipse> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -391,7 +477,18 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsEllipse> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -441,6 +538,16 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private PatternFill getHatchFill;
@@ -463,6 +570,7 @@ public class AnnotationsEllipse extends AnnotationsBase {
     private String color1;
     private Double thickness;
     private Double size;
+    private List<AnnotationsEllipse> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -500,7 +608,18 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill() {
+        if (!setHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsEllipse> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -538,7 +657,18 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill1() {
+        if (!setHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsEllipse> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -576,7 +706,18 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill2() {
+        if (!setHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsEllipse> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -614,7 +755,18 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill3() {
+        if (!setHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsEllipse> setHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -652,6 +804,16 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill4() {
+        if (!setHatchFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setHatchFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color2;
     private ColoredFill color3;
@@ -660,6 +822,7 @@ public class AnnotationsEllipse extends AnnotationsBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<AnnotationsEllipse> setStroke = new ArrayList<>();
 
     /**
      * Setter for annotation stroke settings.
@@ -700,7 +863,18 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsEllipse> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for annotation stroke settings.
@@ -741,7 +915,18 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsEllipse> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for annotation stroke settings.
@@ -782,6 +967,16 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
@@ -810,6 +1005,26 @@ public class AnnotationsEllipse extends AnnotationsBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetFill2());
+        js.append(generateJSsetFill3());
+        js.append(generateJSsetFill4());
+        js.append(generateJSsetFill5());
+        js.append(generateJSsetFill6());
+        js.append(generateJSsetFill7());
+        js.append(generateJSsetFill8());
+        js.append(generateJSsetFill9());
+        js.append(generateJSsetHatchFill());
+        js.append(generateJSsetHatchFill1());
+        js.append(generateJSsetHatchFill2());
+        js.append(generateJSsetHatchFill3());
+        js.append(generateJSsetHatchFill4());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        
 
         String result = js.toString();
         js.setLength(0);

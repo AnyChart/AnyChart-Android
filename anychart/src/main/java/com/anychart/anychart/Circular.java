@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -38,6 +35,7 @@ public class Circular extends VisualBase {
     
     private Double cornersRounding;
     private String cornersRounding1;
+    private List<Circular> setCornersRounding = new ArrayList<>();
 
     /**
      * Setter for the rounding of corners.
@@ -64,7 +62,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetCornersRounding() {
+        if (!setCornersRounding.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setCornersRounding) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setCornersRounding1 = new ArrayList<>();
 
     /**
      * Setter for the rounding of corners.
@@ -91,8 +100,19 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetCornersRounding1() {
+        if (!setCornersRounding1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setCornersRounding1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean drawFirstLabel;
+    private List<Circular> setDrawFirstLabel = new ArrayList<>();
 
     /**
      * Setter for the first label drawing flag.
@@ -115,8 +135,19 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetDrawFirstLabel() {
+        if (!setDrawFirstLabel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setDrawFirstLabel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean drawLastLabel;
+    private List<Circular> setDrawLastLabel = new ArrayList<>();
 
     /**
      * Setter for the last label drawing flag.
@@ -139,9 +170,20 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetDrawLastLabel() {
+        if (!setDrawLastLabel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setDrawLastLabel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill fill;
     private String fill1;
+    private List<Circular> setFill = new ArrayList<>();
 
     /**
      * Setter for axis fill settings using an array or a string.
@@ -168,7 +210,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setFill1 = new ArrayList<>();
 
     /**
      * Setter for axis fill settings using an array or a string.
@@ -195,9 +248,20 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<Circular> setFill2 = new ArrayList<>();
 
     /**
      * Axis fill color with opacity. Fill as a string or an object.
@@ -222,6 +286,16 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -230,6 +304,7 @@ Round off the ends of axes to the specified radius.
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<Circular> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient axis fill.
@@ -269,7 +344,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient axis fill.
@@ -309,7 +395,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient axis fill.
@@ -349,7 +446,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient axis fill.
@@ -389,7 +497,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient axis fill.
@@ -429,7 +548,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setFill8 = new ArrayList<>();
 
     /**
      * Linear gradient axis fill.
@@ -469,6 +599,16 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -478,6 +618,7 @@ Round off the ends of axes to the specified radius.
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<Circular> setFill9 = new ArrayList<>();
 
     /**
      * Radial axis fill.
@@ -527,7 +668,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setFill10 = new ArrayList<>();
 
     /**
      * Radial axis fill.
@@ -577,6 +729,16 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetFill10() {
+        if (!setFill10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setFill10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private UiLabelsFactory getLabels;
@@ -593,6 +755,7 @@ Round off the ends of axes to the specified radius.
 
     private String labels;
     private Boolean labels1;
+    private List<Circular> setLabels = new ArrayList<>();
 
     /**
      * Setter for labels.
@@ -618,7 +781,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetLabels() {
+        if (!setLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for labels.
@@ -644,6 +818,16 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetLabels1() {
+        if (!setLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiLabelsFactory getMinorLabels;
 
@@ -659,6 +843,7 @@ Round off the ends of axes to the specified radius.
 
     private String minorLabels;
     private Boolean minorLabels1;
+    private List<Circular> setMinorLabels = new ArrayList<>();
 
     /**
      * Setter for minor labels.
@@ -684,7 +869,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetMinorLabels() {
+        if (!setMinorLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setMinorLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setMinorLabels1 = new ArrayList<>();
 
     /**
      * Setter for minor labels.
@@ -710,6 +906,16 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetMinorLabels1() {
+        if (!setMinorLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setMinorLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private CircularTicks getMinorTicks;
 
@@ -725,6 +931,7 @@ Round off the ends of axes to the specified radius.
 
     private String minorTicks;
     private Boolean minorTicks1;
+    private List<Circular> setMinorTicks = new ArrayList<>();
 
     /**
      * Setter for minor axis ticks.
@@ -750,7 +957,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetMinorTicks() {
+        if (!setMinorTicks.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setMinorTicks) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setMinorTicks1 = new ArrayList<>();
 
     /**
      * Setter for minor axis ticks.
@@ -776,10 +994,21 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetMinorTicks1() {
+        if (!setMinorTicks1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setMinorTicks1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private LabelsOverlapMode overlapMode;
     private String overlapMode1;
     private Boolean overlapMode2;
+    private List<Circular> setOverlapMode = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -806,7 +1035,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetOverlapMode() {
+        if (!setOverlapMode.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setOverlapMode) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setOverlapMode1 = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -833,7 +1073,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetOverlapMode1() {
+        if (!setOverlapMode1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setOverlapMode1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setOverlapMode2 = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -860,9 +1111,20 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetOverlapMode2() {
+        if (!setOverlapMode2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setOverlapMode2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double radius;
     private String radius1;
+    private List<Circular> setRadius = new ArrayList<>();
 
     /**
      * Setter for the axis radius.
@@ -888,7 +1150,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetRadius() {
+        if (!setRadius.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setRadius) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setRadius1 = new ArrayList<>();
 
     /**
      * Setter for the axis radius.
@@ -914,6 +1187,16 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetRadius1() {
+        if (!setRadius1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setRadius1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private ScalesLinear getScale;
 
@@ -931,6 +1214,7 @@ Round off the ends of axes to the specified radius.
     private String scale1;
     private ScalesLinear scale2;
     private String scale3;
+    private List<Circular> setScale = new ArrayList<>();
 
     /**
      * Setter for the axis scale.
@@ -958,7 +1242,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetScale() {
+        if (!setScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setScale1 = new ArrayList<>();
 
     /**
      * Setter for the axis scale.
@@ -986,7 +1281,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetScale1() {
+        if (!setScale1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setScale1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setScale2 = new ArrayList<>();
 
     /**
      * Setter for the axis scale.
@@ -1012,9 +1318,20 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetScale2() {
+        if (!setScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String startAngle;
     private Double startAngle1;
+    private List<Circular> setStartAngle = new ArrayList<>();
 
     /**
      * Setter for the start angle.
@@ -1040,7 +1357,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetStartAngle() {
+        if (!setStartAngle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setStartAngle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setStartAngle1 = new ArrayList<>();
 
     /**
      * Setter for the start angle.
@@ -1066,9 +1394,20 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetStartAngle1() {
+        if (!setStartAngle1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setStartAngle1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String sweepAngle;
     private Double sweepAngle1;
+    private List<Circular> setSweepAngle = new ArrayList<>();
 
     /**
      * Setter for the sweep angle.
@@ -1094,7 +1433,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetSweepAngle() {
+        if (!setSweepAngle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setSweepAngle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setSweepAngle1 = new ArrayList<>();
 
     /**
      * Setter for the sweep angle.
@@ -1120,6 +1470,16 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetSweepAngle1() {
+        if (!setSweepAngle1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setSweepAngle1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private CircularTicks getTicks;
 
@@ -1135,6 +1495,7 @@ Round off the ends of axes to the specified radius.
 
     private String ticks;
     private Boolean ticks1;
+    private List<Circular> setTicks = new ArrayList<>();
 
     /**
      * Setter for circular ticks.
@@ -1160,7 +1521,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetTicks() {
+        if (!setTicks.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setTicks) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setTicks1 = new ArrayList<>();
 
     /**
      * Setter for circular ticks.
@@ -1186,9 +1558,20 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetTicks1() {
+        if (!setTicks1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setTicks1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double width;
     private String width1;
+    private List<Circular> setWidth = new ArrayList<>();
 
     /**
      * Setter for the axis width.
@@ -1214,7 +1597,18 @@ Round off the ends of axes to the specified radius.
         }
         return this;
     }
+    private String generateJSsetWidth() {
+        if (!setWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Circular> setWidth1 = new ArrayList<>();
 
     /**
      * Setter for the axis width.
@@ -1239,6 +1633,16 @@ Round off the ends of axes to the specified radius.
             }
         }
         return this;
+    }
+    private String generateJSsetWidth1() {
+        if (!setWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circular item : setWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetLabels() {
@@ -1300,6 +1704,45 @@ Round off the ends of axes to the specified radius.
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetCornersRounding());
+        js.append(generateJSsetCornersRounding1());
+        js.append(generateJSsetDrawFirstLabel());
+        js.append(generateJSsetDrawLastLabel());
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetFill2());
+        js.append(generateJSsetFill3());
+        js.append(generateJSsetFill4());
+        js.append(generateJSsetFill5());
+        js.append(generateJSsetFill6());
+        js.append(generateJSsetFill7());
+        js.append(generateJSsetFill8());
+        js.append(generateJSsetFill9());
+        js.append(generateJSsetFill10());
+        js.append(generateJSsetLabels());
+        js.append(generateJSsetLabels1());
+        js.append(generateJSsetMinorLabels());
+        js.append(generateJSsetMinorLabels1());
+        js.append(generateJSsetMinorTicks());
+        js.append(generateJSsetMinorTicks1());
+        js.append(generateJSsetOverlapMode());
+        js.append(generateJSsetOverlapMode1());
+        js.append(generateJSsetOverlapMode2());
+        js.append(generateJSsetRadius());
+        js.append(generateJSsetRadius1());
+        js.append(generateJSsetScale());
+        js.append(generateJSsetScale1());
+        js.append(generateJSsetScale2());
+        js.append(generateJSsetStartAngle());
+        js.append(generateJSsetStartAngle1());
+        js.append(generateJSsetSweepAngle());
+        js.append(generateJSsetSweepAngle1());
+        js.append(generateJSsetTicks());
+        js.append(generateJSsetTicks1());
+        js.append(generateJSsetWidth());
+        js.append(generateJSsetWidth1());
+        
 
         String result = js.toString();
         js.setLength(0);

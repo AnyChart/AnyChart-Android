@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class VisualBaseWithBounds extends VisualBase {
     
     private Double bottom;
     private String bottom1;
+    private List<VisualBaseWithBounds> setBottom = new ArrayList<>();
 
     /**
      * Sets element bottom bound setting.
@@ -62,7 +60,18 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetBottom() {
+        if (!setBottom.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBaseWithBounds item : setBottom) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VisualBaseWithBounds> setBottom1 = new ArrayList<>();
 
     /**
      * Sets element bottom bound setting.
@@ -88,6 +97,16 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetBottom1() {
+        if (!setBottom1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBaseWithBounds item : setBottom1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Bounds getBounds;
 
@@ -104,6 +123,7 @@ public class VisualBaseWithBounds extends VisualBase {
     private RectObj bounds;
     private AnychartMathRect bounds1;
     private Bounds bounds2;
+    private List<VisualBase> setBounds = new ArrayList<>();
 
     /**
      * Sets bounds of the element using one parameter.
@@ -121,15 +141,29 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s)", ((bounds != null) ? bounds.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new VisualBase(jsBase);
+        VisualBase item = new VisualBase("setBounds" + variableIndex);
+        setBounds.add(item);
+        return item;
+    }
+    private String generateJSsetBounds() {
+        if (!setBounds.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBase item : setBounds) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<VisualBase> setBounds1 = new ArrayList<>();
 
     /**
      * Sets bounds of the element using one parameter.
@@ -152,9 +186,22 @@ public class VisualBaseWithBounds extends VisualBase {
 
             js.append(String.format(Locale.US, ".bounds(%s);",  ((bounds1 != null) ? bounds1.getJsBase() : "null")));
         }
-        return new VisualBase(jsBase);
+        VisualBase item = new VisualBase("setBounds1" + variableIndex);
+        setBounds1.add(item);
+        return item;
+    }
+    private String generateJSsetBounds1() {
+        if (!setBounds1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBase item : setBounds1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<VisualBase> setBounds2 = new ArrayList<>();
 
     /**
      * Sets bounds of the element using one parameter.
@@ -177,7 +224,19 @@ public class VisualBaseWithBounds extends VisualBase {
 
             js.append(String.format(Locale.US, ".bounds(%s);",  ((bounds2 != null) ? bounds2.getJsBase() : "null")));
         }
-        return new VisualBase(jsBase);
+        VisualBase item = new VisualBase("setBounds2" + variableIndex);
+        setBounds2.add(item);
+        return item;
+    }
+    private String generateJSsetBounds2() {
+        if (!setBounds2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBase item : setBounds2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double x;
@@ -188,6 +247,7 @@ public class VisualBaseWithBounds extends VisualBase {
     private String width1;
     private Double height;
     private String height1;
+    private List<VisualBase> setBounds3 = new ArrayList<>();
 
     /**
      * Setter for the element bounds settings.
@@ -219,15 +279,29 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s)", wrapQuotes(x1), wrapQuotes(y1), wrapQuotes(width1), wrapQuotes(height1)));
                 js.setLength(0);
             }
         }
-        return new VisualBase(jsBase);
+        VisualBase item = new VisualBase("setBounds3" + variableIndex);
+        setBounds3.add(item);
+        return item;
+    }
+    private String generateJSsetBounds3() {
+        if (!setBounds3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBase item : setBounds3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<VisualBase> setBounds4 = new ArrayList<>();
 
     /**
      * Setter for the element bounds settings.
@@ -259,17 +333,31 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f)", x, y, width, height));
                 js.setLength(0);
             }
         }
-        return new VisualBase(jsBase);
+        VisualBase item = new VisualBase("setBounds4" + variableIndex);
+        setBounds4.add(item);
+        return item;
+    }
+    private String generateJSsetBounds4() {
+        if (!setBounds4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBase item : setBounds4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double height2;
     private String height3;
+    private List<VisualBaseWithBounds> setHeight = new ArrayList<>();
 
     /**
      * Sets element height setting.
@@ -297,7 +385,18 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetHeight() {
+        if (!setHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBaseWithBounds item : setHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VisualBaseWithBounds> setHeight1 = new ArrayList<>();
 
     /**
      * Sets element height setting.
@@ -325,9 +424,20 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetHeight1() {
+        if (!setHeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBaseWithBounds item : setHeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double left;
     private String left1;
+    private List<VisualBaseWithBounds> setLeft = new ArrayList<>();
 
     /**
      * Sets element left bound setting.
@@ -353,7 +463,18 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLeft() {
+        if (!setLeft.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBaseWithBounds item : setLeft) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VisualBaseWithBounds> setLeft1 = new ArrayList<>();
 
     /**
      * Sets element left bound setting.
@@ -379,9 +500,20 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLeft1() {
+        if (!setLeft1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBaseWithBounds item : setLeft1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double maxHeight;
     private String maxHeight1;
+    private List<VisualBase> setMaxHeight = new ArrayList<>();
 
     /**
      * Setter for maximum height.
@@ -398,15 +530,29 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%f)", maxHeight));
                 js.setLength(0);
             }
         }
-        return new VisualBase(jsBase);
+        VisualBase item = new VisualBase("setMaxHeight" + variableIndex);
+        setMaxHeight.add(item);
+        return item;
+    }
+    private String generateJSsetMaxHeight() {
+        if (!setMaxHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBase item : setMaxHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<VisualBase> setMaxHeight1 = new ArrayList<>();
 
     /**
      * Setter for maximum height.
@@ -423,17 +569,31 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%s)", wrapQuotes(maxHeight1)));
                 js.setLength(0);
             }
         }
-        return new VisualBase(jsBase);
+        VisualBase item = new VisualBase("setMaxHeight1" + variableIndex);
+        setMaxHeight1.add(item);
+        return item;
+    }
+    private String generateJSsetMaxHeight1() {
+        if (!setMaxHeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBase item : setMaxHeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double maxWidth;
     private String maxWidth1;
+    private List<VisualBase> setMaxWidth = new ArrayList<>();
 
     /**
      * Setter for maximum width.
@@ -450,15 +610,29 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%f)", maxWidth));
                 js.setLength(0);
             }
         }
-        return new VisualBase(jsBase);
+        VisualBase item = new VisualBase("setMaxWidth" + variableIndex);
+        setMaxWidth.add(item);
+        return item;
+    }
+    private String generateJSsetMaxWidth() {
+        if (!setMaxWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBase item : setMaxWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<VisualBase> setMaxWidth1 = new ArrayList<>();
 
     /**
      * Setter for maximum width.
@@ -475,17 +649,31 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%s)", wrapQuotes(maxWidth1)));
                 js.setLength(0);
             }
         }
-        return new VisualBase(jsBase);
+        VisualBase item = new VisualBase("setMaxWidth1" + variableIndex);
+        setMaxWidth1.add(item);
+        return item;
+    }
+    private String generateJSsetMaxWidth1() {
+        if (!setMaxWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBase item : setMaxWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double minHeight;
     private String minHeight1;
+    private List<VisualBase> setMinHeight = new ArrayList<>();
 
     /**
      * Setter for minimum height.
@@ -502,15 +690,29 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%f)", minHeight));
                 js.setLength(0);
             }
         }
-        return new VisualBase(jsBase);
+        VisualBase item = new VisualBase("setMinHeight" + variableIndex);
+        setMinHeight.add(item);
+        return item;
+    }
+    private String generateJSsetMinHeight() {
+        if (!setMinHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBase item : setMinHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<VisualBase> setMinHeight1 = new ArrayList<>();
 
     /**
      * Setter for minimum height.
@@ -527,17 +729,31 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%s)", wrapQuotes(minHeight1)));
                 js.setLength(0);
             }
         }
-        return new VisualBase(jsBase);
+        VisualBase item = new VisualBase("setMinHeight1" + variableIndex);
+        setMinHeight1.add(item);
+        return item;
+    }
+    private String generateJSsetMinHeight1() {
+        if (!setMinHeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBase item : setMinHeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double minWidth;
     private String minWidth1;
+    private List<VisualBase> setMinWidth = new ArrayList<>();
 
     /**
      * Setter for minimum width.
@@ -554,15 +770,29 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%f)", minWidth));
                 js.setLength(0);
             }
         }
-        return new VisualBase(jsBase);
+        VisualBase item = new VisualBase("setMinWidth" + variableIndex);
+        setMinWidth.add(item);
+        return item;
+    }
+    private String generateJSsetMinWidth() {
+        if (!setMinWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBase item : setMinWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<VisualBase> setMinWidth1 = new ArrayList<>();
 
     /**
      * Setter for minimum width.
@@ -579,17 +809,31 @@ public class VisualBaseWithBounds extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%s)", wrapQuotes(minWidth1)));
                 js.setLength(0);
             }
         }
-        return new VisualBase(jsBase);
+        VisualBase item = new VisualBase("setMinWidth1" + variableIndex);
+        setMinWidth1.add(item);
+        return item;
+    }
+    private String generateJSsetMinWidth1() {
+        if (!setMinWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBase item : setMinWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double right;
     private String right1;
+    private List<VisualBaseWithBounds> setRight = new ArrayList<>();
 
     /**
      * Sets element right bound setting.
@@ -615,7 +859,18 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetRight() {
+        if (!setRight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBaseWithBounds item : setRight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VisualBaseWithBounds> setRight1 = new ArrayList<>();
 
     /**
      * Sets element right bound setting.
@@ -641,9 +896,20 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetRight1() {
+        if (!setRight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBaseWithBounds item : setRight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double top;
     private String top1;
+    private List<VisualBaseWithBounds> setTop = new ArrayList<>();
 
     /**
      * Sets element top bound setting.
@@ -669,7 +935,18 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTop() {
+        if (!setTop.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBaseWithBounds item : setTop) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VisualBaseWithBounds> setTop1 = new ArrayList<>();
 
     /**
      * Sets element top bound setting.
@@ -695,9 +972,20 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTop1() {
+        if (!setTop1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBaseWithBounds item : setTop1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double width2;
     private String width3;
+    private List<VisualBaseWithBounds> setWidth = new ArrayList<>();
 
     /**
      * Sets element width setting.
@@ -725,7 +1013,18 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetWidth() {
+        if (!setWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBaseWithBounds item : setWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VisualBaseWithBounds> setWidth1 = new ArrayList<>();
 
     /**
      * Sets element width setting.
@@ -752,6 +1051,16 @@ public class VisualBaseWithBounds extends VisualBase {
             }
         }
         return this;
+    }
+    private String generateJSsetWidth1() {
+        if (!setWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBaseWithBounds item : setWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetBounds() {
@@ -781,6 +1090,33 @@ public class VisualBaseWithBounds extends VisualBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetBottom());
+        js.append(generateJSsetBottom1());
+        js.append(generateJSsetBounds());
+        js.append(generateJSsetBounds1());
+        js.append(generateJSsetBounds2());
+        js.append(generateJSsetBounds3());
+        js.append(generateJSsetBounds4());
+        js.append(generateJSsetHeight());
+        js.append(generateJSsetHeight1());
+        js.append(generateJSsetLeft());
+        js.append(generateJSsetLeft1());
+        js.append(generateJSsetMaxHeight());
+        js.append(generateJSsetMaxHeight1());
+        js.append(generateJSsetMaxWidth());
+        js.append(generateJSsetMaxWidth1());
+        js.append(generateJSsetMinHeight());
+        js.append(generateJSsetMinHeight1());
+        js.append(generateJSsetMinWidth());
+        js.append(generateJSsetMinWidth1());
+        js.append(generateJSsetRight());
+        js.append(generateJSsetRight1());
+        js.append(generateJSsetTop());
+        js.append(generateJSsetTop1());
+        js.append(generateJSsetWidth());
+        js.append(generateJSsetWidth1());
+        
 
         String result = js.toString();
         js.setLength(0);

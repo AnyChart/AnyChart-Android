@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -49,6 +46,7 @@ public class StandalonesScroller extends UiScroller {
 
     private String container;
     private Element container1;
+    private List<StandalonesScroller> setContainer = new ArrayList<>();
 
     /**
      * Setter for the scroller container.
@@ -74,7 +72,18 @@ public class StandalonesScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetContainer() {
+        if (!setContainer.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesScroller item : setContainer) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesScroller> setContainer1 = new ArrayList<>();
 
     /**
      * Setter for the scroller container.
@@ -98,8 +107,19 @@ public class StandalonesScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetContainer1() {
+        if (!setContainer1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesScroller item : setContainer1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double endRatio;
+    private List<StandalonesScroller> setEndRatio = new ArrayList<>();
 
     /**
      * Setter for the ending ratio.
@@ -123,6 +143,16 @@ public class StandalonesScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetEndRatio() {
+        if (!setEndRatio.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesScroller item : setEndRatio) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private AnychartMathRect getParentBounds;
 
@@ -138,6 +168,7 @@ public class StandalonesScroller extends UiScroller {
 
     private AnychartMathRect parentBounds;
     private String parentBounds1;
+    private List<StandalonesScroller> setParentBounds = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -161,7 +192,18 @@ public class StandalonesScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetParentBounds() {
+        if (!setParentBounds.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesScroller item : setParentBounds) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesScroller> setParentBounds1 = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -187,11 +229,22 @@ public class StandalonesScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetParentBounds1() {
+        if (!setParentBounds1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesScroller item : setParentBounds1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double left;
     private Double top;
     private Double width;
     private Double height;
+    private List<StandalonesScroller> setParentBounds2 = new ArrayList<>();
 
     /**
      * Setter for bounds using several value.
@@ -220,9 +273,20 @@ public class StandalonesScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetParentBounds2() {
+        if (!setParentBounds2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesScroller item : setParentBounds2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double startRatio;
     private Double endRatio1;
+    private List<StandalonesScroller> setSetRange = new ArrayList<>();
 
     /**
      * Changes current selected range to the passed one.
@@ -250,8 +314,19 @@ public class StandalonesScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetSetRange() {
+        if (!setSetRange.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesScroller item : setSetRange) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double startRatio1;
+    private List<StandalonesScroller> setStartRatio = new ArrayList<>();
 
     /**
      * Setter for the starting ratio.
@@ -277,6 +352,16 @@ public class StandalonesScroller extends UiScroller {
             }
         }
         return this;
+    }
+    private String generateJSsetStartRatio() {
+        if (!setStartRatio.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesScroller item : setStartRatio) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetContainer() {
@@ -314,6 +399,16 @@ public class StandalonesScroller extends UiScroller {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetContainer());
+        js.append(generateJSsetContainer1());
+        js.append(generateJSsetEndRatio());
+        js.append(generateJSsetParentBounds());
+        js.append(generateJSsetParentBounds1());
+        js.append(generateJSsetParentBounds2());
+        js.append(generateJSsetSetRange());
+        js.append(generateJSsetStartRatio());
+        
 
         String result = js.toString();
         js.setLength(0);

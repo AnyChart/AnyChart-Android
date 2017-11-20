@@ -1,11 +1,9 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +35,7 @@ public class Geo extends CoreBase {
     
     private Double x;
     private Double y;
+    private List<Geo> setExtendDataRange = new ArrayList<>();
 
     /**
      * Extends the current input domain with the passed values (if such don't exist in the domain).
@@ -61,8 +60,19 @@ public class Geo extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetExtendDataRange() {
+        if (!setExtendDataRange.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setExtendDataRange) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double gap;
+    private List<Geo> setGap = new ArrayList<>();
 
     /**
      * Setter for the gap setting.
@@ -85,8 +95,19 @@ public class Geo extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetGap() {
+        if (!setGap.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setGap) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double maxTicksCount;
+    private List<Geo> setMaxTicksCount = new ArrayList<>();
 
     /**
      * Setter for maximum ticks count.<br/>
@@ -111,8 +132,19 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         }
         return this;
     }
+    private String generateJSsetMaxTicksCount() {
+        if (!setMaxTicksCount.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setMaxTicksCount) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double maximumX;
+    private List<Geo> setMaximumX = new ArrayList<>();
 
     /**
      * Setter for the maximum X.
@@ -135,8 +167,19 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         }
         return this;
     }
+    private String generateJSsetMaximumX() {
+        if (!setMaximumX.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setMaximumX) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double maximumY;
+    private List<Geo> setMaximumY = new ArrayList<>();
 
     /**
      * Setter for the maximum Y.
@@ -159,8 +202,19 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         }
         return this;
     }
+    private String generateJSsetMaximumY() {
+        if (!setMaximumY.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setMaximumY) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double minimumX;
+    private List<Geo> setMinimumX = new ArrayList<>();
 
     /**
      * Setter for the minimum X.
@@ -183,8 +237,19 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         }
         return this;
     }
+    private String generateJSsetMinimumX() {
+        if (!setMinimumX.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setMinimumX) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double minimumY;
+    private List<Geo> setMinimumY = new ArrayList<>();
 
     /**
      * Setter for the minimum Y.
@@ -207,8 +272,19 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         }
         return this;
     }
+    private String generateJSsetMinimumY() {
+        if (!setMinimumY.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setMinimumY) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double[] precision;
+    private List<Geo> setPrecision = new ArrayList<>();
 
     /**
      * Setter for the precision using one value.
@@ -231,9 +307,20 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         }
         return this;
     }
+    private String generateJSsetPrecision() {
+        if (!setPrecision.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setPrecision) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double xPrecision;
     private Double yPrecision;
+    private List<Geo> setPrecision1 = new ArrayList<>();
 
     /**
      * Setter for the precision using several values.
@@ -258,6 +345,16 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         }
         return this;
     }
+    private String generateJSsetPrecision1() {
+        if (!setPrecision1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setPrecision1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GeoTicks getXMinorTicks;
 
@@ -273,6 +370,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
 
     private String xMinorTicks;
     private String[] xMinorTicks1;
+    private List<Geo> setXMinorTicks = new ArrayList<>();
 
     /**
      * Setter for the set of scale x minor ticks.
@@ -298,7 +396,18 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         }
         return this;
     }
+    private String generateJSsetXMinorTicks() {
+        if (!setXMinorTicks.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setXMinorTicks) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Geo> setXMinorTicks1 = new ArrayList<>();
 
     /**
      * Setter for the set of scale x minor ticks.
@@ -324,6 +433,16 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         }
         return this;
     }
+    private String generateJSsetXMinorTicks1() {
+        if (!setXMinorTicks1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setXMinorTicks1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GeoTicks getXTicks;
 
@@ -339,6 +458,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
 
     private String xTicks;
     private String[] xTicks1;
+    private List<Geo> setXTicks = new ArrayList<>();
 
     /**
      * Setter for the set of scale x ticks.
@@ -364,7 +484,18 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         }
         return this;
     }
+    private String generateJSsetXTicks() {
+        if (!setXTicks.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setXTicks) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Geo> setXTicks1 = new ArrayList<>();
 
     /**
      * Setter for the set of scale x ticks.
@@ -390,6 +521,16 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         }
         return this;
     }
+    private String generateJSsetXTicks1() {
+        if (!setXTicks1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setXTicks1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GeoTicks getYMinorTicks;
 
@@ -405,6 +546,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
 
     private String yMinorTicks;
     private String[] yMinorTicks1;
+    private List<Geo> setYMinorTicks = new ArrayList<>();
 
     /**
      * Setter for the set of scale y minor ticks.
@@ -430,7 +572,18 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         }
         return this;
     }
+    private String generateJSsetYMinorTicks() {
+        if (!setYMinorTicks.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setYMinorTicks) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Geo> setYMinorTicks1 = new ArrayList<>();
 
     /**
      * Setter for the set of scale y minor ticks.
@@ -456,6 +609,16 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         }
         return this;
     }
+    private String generateJSsetYMinorTicks1() {
+        if (!setYMinorTicks1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setYMinorTicks1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GeoTicks getYTicks;
 
@@ -471,6 +634,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
 
     private String yTicks;
     private String[] yTicks1;
+    private List<Geo> setYTicks = new ArrayList<>();
 
     /**
      * Setter for the set of scale y ticks.
@@ -496,7 +660,18 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         }
         return this;
     }
+    private String generateJSsetYTicks() {
+        if (!setYTicks.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setYTicks) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Geo> setYTicks1 = new ArrayList<>();
 
     /**
      * Setter for the set of scale y ticks.
@@ -521,6 +696,16 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
             }
         }
         return this;
+    }
+    private String generateJSsetYTicks1() {
+        if (!setYTicks1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Geo item : setYTicks1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetXMinorTicks() {
@@ -574,6 +759,25 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetExtendDataRange());
+        js.append(generateJSsetGap());
+        js.append(generateJSsetMaxTicksCount());
+        js.append(generateJSsetMaximumX());
+        js.append(generateJSsetMaximumY());
+        js.append(generateJSsetMinimumX());
+        js.append(generateJSsetMinimumY());
+        js.append(generateJSsetPrecision());
+        js.append(generateJSsetPrecision1());
+        js.append(generateJSsetXMinorTicks());
+        js.append(generateJSsetXMinorTicks1());
+        js.append(generateJSsetXTicks());
+        js.append(generateJSsetXTicks1());
+        js.append(generateJSsetYMinorTicks());
+        js.append(generateJSsetYMinorTicks1());
+        js.append(generateJSsetYTicks());
+        js.append(generateJSsetYTicks1());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -40,6 +37,7 @@ public class TableMapping extends CoreBase {
     private AggregationType type;
     private String type1;
     private Double weightsColumn;
+    private List<TableMapping> setAddField = new ArrayList<>();
 
     /**
      * Adds a field to the mapping.
@@ -71,7 +69,18 @@ public class TableMapping extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetAddField() {
+        if (!setAddField.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableMapping item : setAddField) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TableMapping> setAddField1 = new ArrayList<>();
 
     /**
      * Adds a field to the mapping.
@@ -103,6 +112,16 @@ public class TableMapping extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetAddField1() {
+        if (!setAddField1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableMapping item : setAddField1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -123,6 +142,10 @@ public class TableMapping extends CoreBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAddField());
+        js.append(generateJSsetAddField1());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -149,6 +149,20 @@ public class Cartesian extends SeparateChart {
     }
 
 
+    /**
+     * 
+     */
+    public void addSeries(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+    }
+
+
     private PlotController getAnnotations;
 
     /**
@@ -227,6 +241,34 @@ public class Cartesian extends SeparateChart {
         return "";
     }
 
+    private List<CartesianSeriesArea> setArea1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesArea area(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setArea1" + ++variableIndex + " = " + jsBase + ".area(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesArea item = new CartesianSeriesArea("setArea1" + variableIndex);
+        setArea1.add(item);
+        return item;
+    }
+    private String generateJSsetArea1() {
+        if (!setArea1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesArea item : setArea1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<SeriesBar> setBar = new ArrayList<>();
 
     /**
@@ -257,6 +299,34 @@ public class Cartesian extends SeparateChart {
         if (!setBar.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (SeriesBar item : setBar) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<SeriesBar> setBar1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public SeriesBar bar(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setBar1" + ++variableIndex + " = " + jsBase + ".bar(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        SeriesBar item = new SeriesBar("setBar1" + variableIndex);
+        setBar1.add(item);
+        return item;
+    }
+    private String generateJSsetBar1() {
+        if (!setBar1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesBar item : setBar1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -363,6 +433,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return "";
     }
 
+    private List<Box> setBox1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Box box(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setBox1" + ++variableIndex + " = " + jsBase + ".box(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        Box item = new Box("setBox1" + variableIndex);
+        setBox1.add(item);
+        return item;
+    }
+    private String generateJSsetBox1() {
+        if (!setBox1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Box item : setBox1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<CartesianSeriesBubble> setBubble = new ArrayList<>();
 
     /**
@@ -393,6 +491,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         if (!setBubble.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (CartesianSeriesBubble item : setBubble) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesBubble> setBubble1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesBubble bubble(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setBubble1" + ++variableIndex + " = " + jsBase + ".bubble(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesBubble item = new CartesianSeriesBubble("setBubble1" + variableIndex);
+        setBubble1.add(item);
+        return item;
+    }
+    private String generateJSsetBubble1() {
+        if (!setBubble1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBubble item : setBubble1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -437,6 +563,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return "";
     }
 
+    private List<CartesianSeriesCandlestick> setCandlestick1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesCandlestick candlestick(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setCandlestick1" + ++variableIndex + " = " + jsBase + ".candlestick(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesCandlestick item = new CartesianSeriesCandlestick("setCandlestick1" + variableIndex);
+        setCandlestick1.add(item);
+        return item;
+    }
+    private String generateJSsetCandlestick1() {
+        if (!setCandlestick1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesCandlestick item : setCandlestick1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<CartesianSeriesColumn> setColumn = new ArrayList<>();
 
     /**
@@ -467,6 +621,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         if (!setColumn.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (CartesianSeriesColumn item : setColumn) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesColumn> setColumn1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesColumn column(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setColumn1" + ++variableIndex + " = " + jsBase + ".column(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesColumn item = new CartesianSeriesColumn("setColumn1" + variableIndex);
+        setColumn1.add(item);
+        return item;
+    }
+    private String generateJSsetColumn1() {
+        if (!setColumn1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesColumn item : setColumn1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -586,6 +768,32 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         if (!setData.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (Cartesian item : setData) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian> setData1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Cartesian data(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian item : setData1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -836,6 +1044,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return "";
     }
 
+    private List<CartesianSeriesHilo> setHilo1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesHilo hilo(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setHilo1" + ++variableIndex + " = " + jsBase + ".hilo(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesHilo item = new CartesianSeriesHilo("setHilo1" + variableIndex);
+        setHilo1.add(item);
+        return item;
+    }
+    private String generateJSsetHilo1() {
+        if (!setHilo1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesHilo item : setHilo1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
 
     private StateSettings getHovered;
 
@@ -945,6 +1181,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return "";
     }
 
+    private List<CartesianSeriesJumpLine> setJumpLine1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesJumpLine jumpLine(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setJumpLine1" + ++variableIndex + " = " + jsBase + ".jumpLine(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesJumpLine item = new CartesianSeriesJumpLine("setJumpLine1" + variableIndex);
+        setJumpLine1.add(item);
+        return item;
+    }
+    private String generateJSsetJumpLine1() {
+        if (!setJumpLine1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesJumpLine item : setJumpLine1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
 
     private UiLabelsFactory getLabels;
 
@@ -1047,6 +1311,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         if (!setLine.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (CartesianSeriesLine item : setLine) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesLine> setLine1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesLine line(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesLine item = new CartesianSeriesLine("setLine1" + variableIndex);
+        setLine1.add(item);
+        return item;
+    }
+    private String generateJSsetLine1() {
+        if (!setLine1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesLine item : setLine1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1228,6 +1520,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         if (!setMarker.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (CartesianSeriesMarker item : setMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesMarker> setMarker1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesMarker marker(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesMarker item = new CartesianSeriesMarker("setMarker1" + variableIndex);
+        setMarker1.add(item);
+        return item;
+    }
+    private String generateJSsetMarker1() {
+        if (!setMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setMarker1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1684,6 +2004,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return "";
     }
 
+    private List<CartesianSeriesOHLC> setOhlc1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesOHLC ohlc(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setOhlc1" + ++variableIndex + " = " + jsBase + ".ohlc(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesOHLC item = new CartesianSeriesOHLC("setOhlc1" + variableIndex);
+        setOhlc1.add(item);
+        return item;
+    }
+    private String generateJSsetOhlc1() {
+        if (!setOhlc1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesOHLC item : setOhlc1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
 
     private RangeColors getPalette;
 
@@ -1909,6 +2257,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return "";
     }
 
+    private List<CartesianSeriesRangeArea> setRangeArea1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesRangeArea rangeArea(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setRangeArea1" + ++variableIndex + " = " + jsBase + ".rangeArea(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesRangeArea item = new CartesianSeriesRangeArea("setRangeArea1" + variableIndex);
+        setRangeArea1.add(item);
+        return item;
+    }
+    private String generateJSsetRangeArea1() {
+        if (!setRangeArea1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeArea item : setRangeArea1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<SeriesRangeBar> setRangeBar = new ArrayList<>();
 
     /**
@@ -1946,6 +2322,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return "";
     }
 
+    private List<SeriesRangeBar> setRangeBar1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public SeriesRangeBar rangeBar(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setRangeBar1" + ++variableIndex + " = " + jsBase + ".rangeBar(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        SeriesRangeBar item = new SeriesRangeBar("setRangeBar1" + variableIndex);
+        setRangeBar1.add(item);
+        return item;
+    }
+    private String generateJSsetRangeBar1() {
+        if (!setRangeBar1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesRangeBar item : setRangeBar1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<CartesianSeriesRangeColumn> setRangeColumn = new ArrayList<>();
 
     /**
@@ -1976,6 +2380,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         if (!setRangeColumn.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (CartesianSeriesRangeColumn item : setRangeColumn) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesRangeColumn> setRangeColumn1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesRangeColumn rangeColumn(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setRangeColumn1" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesRangeColumn item = new CartesianSeriesRangeColumn("setRangeColumn1" + variableIndex);
+        setRangeColumn1.add(item);
+        return item;
+    }
+    private String generateJSsetRangeColumn1() {
+        if (!setRangeColumn1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeColumn item : setRangeColumn1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -2164,6 +2596,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return "";
     }
 
+    private List<CartesianSeriesRangeSplineArea> setRangeSplineArea1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesRangeSplineArea rangeSplineArea(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setRangeSplineArea1" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesRangeSplineArea item = new CartesianSeriesRangeSplineArea("setRangeSplineArea1" + variableIndex);
+        setRangeSplineArea1.add(item);
+        return item;
+    }
+    private String generateJSsetRangeSplineArea1() {
+        if (!setRangeSplineArea1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeSplineArea item : setRangeSplineArea1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<CartesianSeriesRangeStepArea> setRangeStepArea = new ArrayList<>();
 
     /**
@@ -2194,6 +2654,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         if (!setRangeStepArea.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (CartesianSeriesRangeStepArea item : setRangeStepArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesRangeStepArea> setRangeStepArea1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesRangeStepArea rangeStepArea(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setRangeStepArea1" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesRangeStepArea item = new CartesianSeriesRangeStepArea("setRangeStepArea1" + variableIndex);
+        setRangeStepArea1.add(item);
+        return item;
+    }
+    private String generateJSsetRangeStepArea1() {
+        if (!setRangeStepArea1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesRangeStepArea item : setRangeStepArea1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -2370,6 +2858,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return "";
     }
 
+    private List<CartesianSeriesSpline> setSpline1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesSpline spline(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setSpline1" + ++variableIndex + " = " + jsBase + ".spline(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesSpline item = new CartesianSeriesSpline("setSpline1" + variableIndex);
+        setSpline1.add(item);
+        return item;
+    }
+    private String generateJSsetSpline1() {
+        if (!setSpline1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesSpline item : setSpline1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<CartesianSeriesSplineArea> setSplineArea = new ArrayList<>();
 
     /**
@@ -2400,6 +2916,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         if (!setSplineArea.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (CartesianSeriesSplineArea item : setSplineArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesSplineArea> setSplineArea1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesSplineArea splineArea(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setSplineArea1" + ++variableIndex + " = " + jsBase + ".splineArea(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesSplineArea item = new CartesianSeriesSplineArea("setSplineArea1" + variableIndex);
+        setSplineArea1.add(item);
+        return item;
+    }
+    private String generateJSsetSplineArea1() {
+        if (!setSplineArea1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesSplineArea item : setSplineArea1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -2444,6 +2988,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return "";
     }
 
+    private List<CartesianSeriesStepArea> setStepArea1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesStepArea stepArea(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setStepArea1" + ++variableIndex + " = " + jsBase + ".stepArea(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesStepArea item = new CartesianSeriesStepArea("setStepArea1" + variableIndex);
+        setStepArea1.add(item);
+        return item;
+    }
+    private String generateJSsetStepArea1() {
+        if (!setStepArea1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setStepArea1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<CartesianSeriesStepLine> setStepLine = new ArrayList<>();
 
     /**
@@ -2481,6 +3053,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return "";
     }
 
+    private List<CartesianSeriesStepLine> setStepLine1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesStepLine stepLine(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setStepLine1" + ++variableIndex + " = " + jsBase + ".stepLine(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesStepLine item = new CartesianSeriesStepLine("setStepLine1" + variableIndex);
+        setStepLine1.add(item);
+        return item;
+    }
+    private String generateJSsetStepLine1() {
+        if (!setStepLine1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepLine item : setStepLine1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<CartesianSeriesStick> setStick = new ArrayList<>();
 
     /**
@@ -2511,6 +3111,34 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         if (!setStick.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (CartesianSeriesStick item : setStick) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesStick> setStick1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesStick stick(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setStick1" + ++variableIndex + " = " + jsBase + ".stick(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesStick item = new CartesianSeriesStick("setStick1" + variableIndex);
+        setStick1.add(item);
+        return item;
+    }
+    private String generateJSsetStick1() {
+        if (!setStick1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStick item : setStick1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -4259,33 +4887,44 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         js.append(generateJSgetYScale());
         js.append(generateJSsetAnnotations());
         js.append(generateJSsetArea());
+        js.append(generateJSsetArea1());
         js.append(generateJSsetBar());
+        js.append(generateJSsetBar1());
         js.append(generateJSsetBarGroupsPadding());
         js.append(generateJSsetBarsPadding());
         js.append(generateJSsetBox());
+        js.append(generateJSsetBox1());
         js.append(generateJSsetBubble());
+        js.append(generateJSsetBubble1());
         js.append(generateJSsetCandlestick());
+        js.append(generateJSsetCandlestick1());
         js.append(generateJSsetColumn());
+        js.append(generateJSsetColumn1());
         js.append(generateJSsetCrosshair());
         js.append(generateJSsetCrosshair1());
         js.append(generateJSsetData());
+        js.append(generateJSsetData1());
         js.append(generateJSsetDefaultSeriesType());
         js.append(generateJSsetDefaultSeriesType1());
         js.append(generateJSsetHatchFillPalette());
         js.append(generateJSsetHatchFillPalette1());
         js.append(generateJSsetHatchFillPalette2());
         js.append(generateJSsetHilo());
+        js.append(generateJSsetHilo1());
         js.append(generateJSsetHovered());
         js.append(generateJSsetIsVertical());
         js.append(generateJSsetJumpLine());
+        js.append(generateJSsetJumpLine1());
         js.append(generateJSsetLabels());
         js.append(generateJSsetLabels1());
         js.append(generateJSsetLine());
+        js.append(generateJSsetLine1());
         js.append(generateJSsetLineMarker());
         js.append(generateJSsetLineMarker1());
         js.append(generateJSsetLineMarker2());
         js.append(generateJSsetLineMarker3());
         js.append(generateJSsetMarker());
+        js.append(generateJSsetMarker1());
         js.append(generateJSsetMarkerPalette());
         js.append(generateJSsetMarkerPalette1());
         js.append(generateJSsetMarkerPalette2());
@@ -4300,6 +4939,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         js.append(generateJSsetMinPointLength1());
         js.append(generateJSsetNormal());
         js.append(generateJSsetOhlc());
+        js.append(generateJSsetOhlc1());
         js.append(generateJSsetPalette());
         js.append(generateJSsetPalette1());
         js.append(generateJSsetPalette2());
@@ -4307,23 +4947,33 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         js.append(generateJSsetPointWidth());
         js.append(generateJSsetPointWidth1());
         js.append(generateJSsetRangeArea());
+        js.append(generateJSsetRangeArea1());
         js.append(generateJSsetRangeBar());
+        js.append(generateJSsetRangeBar1());
         js.append(generateJSsetRangeColumn());
+        js.append(generateJSsetRangeColumn1());
         js.append(generateJSsetRangeMarker());
         js.append(generateJSsetRangeMarker1());
         js.append(generateJSsetRangeMarker2());
         js.append(generateJSsetRangeMarker3());
         js.append(generateJSsetRangeSplineArea());
+        js.append(generateJSsetRangeSplineArea1());
         js.append(generateJSsetRangeStepArea());
+        js.append(generateJSsetRangeStepArea1());
         js.append(generateJSsetRemoveSeries());
         js.append(generateJSsetRemoveSeries1());
         js.append(generateJSsetRemoveSeriesAt());
         js.append(generateJSsetSelected());
         js.append(generateJSsetSpline());
+        js.append(generateJSsetSpline1());
         js.append(generateJSsetSplineArea());
+        js.append(generateJSsetSplineArea1());
         js.append(generateJSsetStepArea());
+        js.append(generateJSsetStepArea1());
         js.append(generateJSsetStepLine());
+        js.append(generateJSsetStepLine1());
         js.append(generateJSsetStick());
+        js.append(generateJSsetStick1());
         js.append(generateJSsetTextMarker());
         js.append(generateJSsetTextMarker1());
         js.append(generateJSsetTextMarker2());

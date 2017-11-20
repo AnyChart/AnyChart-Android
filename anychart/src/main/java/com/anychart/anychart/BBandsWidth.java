@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class BBandsWidth extends JsObject {
 
     
     private Double deviation;
+    private List<BBandsWidth> setDeviation = new ArrayList<>();
 
     /**
      * Setter for the deviation.
@@ -58,8 +56,19 @@ public class BBandsWidth extends JsObject {
         }
         return this;
     }
+    private String generateJSsetDeviation() {
+        if (!setDeviation.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBandsWidth item : setDeviation) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double period;
+    private List<BBandsWidth> setPeriod = new ArrayList<>();
 
     /**
      * Setter for the period.
@@ -82,6 +91,16 @@ public class BBandsWidth extends JsObject {
         }
         return this;
     }
+    private String generateJSsetPeriod() {
+        if (!setPeriod.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBandsWidth item : setPeriod) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private StockSeriesBase getSeries;
 
@@ -97,6 +116,7 @@ public class BBandsWidth extends JsObject {
 
     private StockSeriesType type;
     private String type1;
+    private List<BBandsWidth> setSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator series.
@@ -122,7 +142,18 @@ public class BBandsWidth extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSeries() {
+        if (!setSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBandsWidth item : setSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<BBandsWidth> setSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator series.
@@ -147,6 +178,16 @@ public class BBandsWidth extends JsObject {
             }
         }
         return this;
+    }
+    private String generateJSsetSeries1() {
+        if (!setSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBandsWidth item : setSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetSeries() {
@@ -176,6 +217,12 @@ public class BBandsWidth extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetDeviation());
+        js.append(generateJSsetPeriod());
+        js.append(generateJSsetSeries());
+        js.append(generateJSsetSeries1());
+        
 
         String result = js.toString();
         js.setLength(0);

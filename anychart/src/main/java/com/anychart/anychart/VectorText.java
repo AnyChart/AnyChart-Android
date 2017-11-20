@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -43,6 +40,7 @@ public class VectorText extends Element {
 
     
     private String color;
+    private List<VectorText> setColor = new ArrayList<>();
 
     /**
      * Setter for the text color.
@@ -65,9 +63,20 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetColor() {
+        if (!setColor.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setColor) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Decoration decoration;
     private String decoration1;
+    private List<VectorText> setDecoration = new ArrayList<>();
 
     /**
      * Setter for text decoration.
@@ -93,7 +102,18 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetDecoration() {
+        if (!setDecoration.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setDecoration) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VectorText> setDecoration1 = new ArrayList<>();
 
     /**
      * Setter for text decoration.
@@ -119,9 +139,20 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetDecoration1() {
+        if (!setDecoration1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setDecoration1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Direction direction;
     private String direction1;
+    private List<VectorText> setDirection = new ArrayList<>();
 
     /**
      * Setter for text direction.
@@ -147,7 +178,18 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetDirection() {
+        if (!setDirection.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setDirection) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VectorText> setDirection1 = new ArrayList<>();
 
     /**
      * Setter for text direction.
@@ -173,8 +215,19 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetDirection1() {
+        if (!setDirection1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setDirection1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fontFamily;
+    private List<VectorText> setFontFamily = new ArrayList<>();
 
     /**
      * Setter for font family of text.
@@ -197,9 +250,20 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetFontFamily() {
+        if (!setFontFamily.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setFontFamily) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fontSize;
     private Double fontSize1;
+    private List<VectorText> setFontSize = new ArrayList<>();
 
     /**
      * Setter for font size of text.
@@ -225,7 +289,18 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetFontSize() {
+        if (!setFontSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setFontSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VectorText> setFontSize1 = new ArrayList<>();
 
     /**
      * Setter for font size of text.
@@ -251,9 +326,20 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetFontSize1() {
+        if (!setFontSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setFontSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TextFontStyle fontStyle;
     private String fontStyle1;
+    private List<VectorText> setFontStyle = new ArrayList<>();
 
     /**
      * Setter for font style of text.
@@ -279,7 +365,18 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetFontStyle() {
+        if (!setFontStyle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setFontStyle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VectorText> setFontStyle1 = new ArrayList<>();
 
     /**
      * Setter for font style of text.
@@ -305,9 +402,20 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetFontStyle1() {
+        if (!setFontStyle1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setFontStyle1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TextFontVariant fontVariant;
     private String fontVariant1;
+    private List<VectorText> setFontVariant = new ArrayList<>();
 
     /**
      * Setter for font variant of text.
@@ -333,7 +441,18 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetFontVariant() {
+        if (!setFontVariant.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setFontVariant) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VectorText> setFontVariant1 = new ArrayList<>();
 
     /**
      * Setter for font variant of text.
@@ -359,9 +478,20 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetFontVariant1() {
+        if (!setFontVariant1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setFontVariant1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fontWeight;
     private Double fontWeight1;
+    private List<VectorText> setFontWeight = new ArrayList<>();
 
     /**
      * Setter for font weight of text.
@@ -387,7 +517,18 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetFontWeight() {
+        if (!setFontWeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setFontWeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VectorText> setFontWeight1 = new ArrayList<>();
 
     /**
      * Setter for font weight of text.
@@ -413,9 +554,20 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetFontWeight1() {
+        if (!setFontWeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setFontWeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TextHAlign hAlign;
     private String hAlign1;
+    private List<VectorText> setHAlign = new ArrayList<>();
 
     /**
      * Setter for horizontal align of text.
@@ -441,7 +593,18 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetHAlign() {
+        if (!setHAlign.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setHAlign) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VectorText> setHAlign1 = new ArrayList<>();
 
     /**
      * Setter for horizontal align of text.
@@ -467,9 +630,20 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetHAlign1() {
+        if (!setHAlign1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setHAlign1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double height;
     private String height1;
+    private List<VectorText> setHeight = new ArrayList<>();
 
     /**
      * Sets a height.
@@ -495,7 +669,18 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetHeight() {
+        if (!setHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VectorText> setHeight1 = new ArrayList<>();
 
     /**
      * Sets a height.
@@ -521,8 +706,19 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetHeight1() {
+        if (!setHeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setHeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String htmlText;
+    private List<VectorText> setHtmlText = new ArrayList<>();
 
     /**
      * Setter for the HTML format.
@@ -545,9 +741,20 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetHtmlText() {
+        if (!setHtmlText.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setHtmlText) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String letterSpacing;
     private Double letterSpacing1;
+    private List<VectorText> setLetterSpacing = new ArrayList<>();
 
     /**
      * Setter for letter spacing of text.
@@ -573,7 +780,18 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetLetterSpacing() {
+        if (!setLetterSpacing.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setLetterSpacing) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VectorText> setLetterSpacing1 = new ArrayList<>();
 
     /**
      * Setter for letter spacing of text.
@@ -599,9 +817,20 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetLetterSpacing1() {
+        if (!setLetterSpacing1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setLetterSpacing1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String lineHeight;
     private Double lineHeight1;
+    private List<VectorText> setLineHeight = new ArrayList<>();
 
     /**
      * Sets line height, either as ratio or in pixels.
@@ -627,7 +856,18 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetLineHeight() {
+        if (!setLineHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setLineHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VectorText> setLineHeight1 = new ArrayList<>();
 
     /**
      * Sets line height, either as ratio or in pixels.
@@ -653,8 +893,19 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetLineHeight1() {
+        if (!setLineHeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setLineHeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double opacity;
+    private List<VectorText> setOpacity = new ArrayList<>();
 
     /**
      * Setter for text opacity.
@@ -677,6 +928,16 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetOpacity() {
+        if (!setOpacity.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setOpacity) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Path getPath;
 
@@ -691,6 +952,7 @@ public class VectorText extends Element {
     }
 
     private Path path;
+    private List<VectorText> setPath = new ArrayList<>();
 
     /**
      * Setter for the path element.
@@ -711,8 +973,19 @@ public class VectorText extends Element {
         }
         return this;
     }
+    private String generateJSsetPath() {
+        if (!setPath.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setPath) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean selectable;
+    private List<VectorText> setSelectable = new ArrayList<>();
 
     /**
      * Setter for the text selectable property.<br/>
@@ -736,8 +1009,19 @@ Defines whether text can be selected. If <b>false</b> - no selection.
         }
         return this;
     }
+    private String generateJSsetSelectable() {
+        if (!setSelectable.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setSelectable) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String text;
+    private List<VectorText> setText = new ArrayList<>();
 
     /**
      * Setter for the text.
@@ -760,8 +1044,19 @@ Defines whether text can be selected. If <b>false</b> - no selection.
         }
         return this;
     }
+    private String generateJSsetText() {
+        if (!setText.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setText) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double textIndent;
+    private List<VectorText> setTextIndent = new ArrayList<>();
 
     /**
      * Setter for text indent.<br/>
@@ -785,9 +1080,20 @@ The text-indent property specifies the indentation of the first line in a text-b
         }
         return this;
     }
+    private String generateJSsetTextIndent() {
+        if (!setTextIndent.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setTextIndent) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TextOverflow textOverflow;
     private String textOverflow1;
+    private List<VectorText> setTextOverflow = new ArrayList<>();
 
     /**
      * Setter for the text overflow mode.
@@ -813,7 +1119,18 @@ The text-indent property specifies the indentation of the first line in a text-b
         }
         return this;
     }
+    private String generateJSsetTextOverflow() {
+        if (!setTextOverflow.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setTextOverflow) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VectorText> setTextOverflow1 = new ArrayList<>();
 
     /**
      * Setter for the text overflow mode.
@@ -839,9 +1156,20 @@ The text-indent property specifies the indentation of the first line in a text-b
         }
         return this;
     }
+    private String generateJSsetTextOverflow1() {
+        if (!setTextOverflow1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setTextOverflow1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TextVAlign vAlign;
     private String vAlign1;
+    private List<VectorText> setVAlign = new ArrayList<>();
 
     /**
      * Setter for vertical align of text.
@@ -867,7 +1195,18 @@ The text-indent property specifies the indentation of the first line in a text-b
         }
         return this;
     }
+    private String generateJSsetVAlign() {
+        if (!setVAlign.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setVAlign) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VectorText> setVAlign1 = new ArrayList<>();
 
     /**
      * Setter for vertical align of text.
@@ -893,9 +1232,20 @@ The text-indent property specifies the indentation of the first line in a text-b
         }
         return this;
     }
+    private String generateJSsetVAlign1() {
+        if (!setVAlign1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setVAlign1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double width;
     private String width1;
+    private List<VectorText> setWidth = new ArrayList<>();
 
     /**
      * Sets a width.
@@ -921,7 +1271,18 @@ The text-indent property specifies the indentation of the first line in a text-b
         }
         return this;
     }
+    private String generateJSsetWidth() {
+        if (!setWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VectorText> setWidth1 = new ArrayList<>();
 
     /**
      * Sets a width.
@@ -947,9 +1308,20 @@ The text-indent property specifies the indentation of the first line in a text-b
         }
         return this;
     }
+    private String generateJSsetWidth1() {
+        if (!setWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String wordBreak;
     private TextWordBreak wordBreak1;
+    private List<VectorText> setWordBreak = new ArrayList<>();
 
     /**
      * Setter for word break of text.
@@ -975,7 +1347,18 @@ The text-indent property specifies the indentation of the first line in a text-b
         }
         return this;
     }
+    private String generateJSsetWordBreak() {
+        if (!setWordBreak.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setWordBreak) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VectorText> setWordBreak1 = new ArrayList<>();
 
     /**
      * Setter for word break of text.
@@ -1001,9 +1384,20 @@ The text-indent property specifies the indentation of the first line in a text-b
         }
         return this;
     }
+    private String generateJSsetWordBreak1() {
+        if (!setWordBreak1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setWordBreak1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String wordWrap;
     private TextWordWrap wordWrap1;
+    private List<VectorText> setWordWrap = new ArrayList<>();
 
     /**
      * Setter for word-wrap of text.
@@ -1030,7 +1424,18 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
         }
         return this;
     }
+    private String generateJSsetWordWrap() {
+        if (!setWordWrap.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setWordWrap) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<VectorText> setWordWrap1 = new ArrayList<>();
 
     /**
      * Setter for word-wrap of text.
@@ -1057,8 +1462,19 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
         }
         return this;
     }
+    private String generateJSsetWordWrap1() {
+        if (!setWordWrap1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setWordWrap1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double x;
+    private List<VectorText> setX = new ArrayList<>();
 
     /**
      * Setter for X coordinate of text.
@@ -1081,8 +1497,19 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
         }
         return this;
     }
+    private String generateJSsetX() {
+        if (!setX.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setX) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double y;
+    private List<VectorText> setY = new ArrayList<>();
 
     /**
      * Setter for Y coordinate of text.
@@ -1104,6 +1531,16 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
             }
         }
         return this;
+    }
+    private String generateJSsetY() {
+        if (!setY.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setY) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetPath() {
@@ -1133,6 +1570,48 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetColor());
+        js.append(generateJSsetDecoration());
+        js.append(generateJSsetDecoration1());
+        js.append(generateJSsetDirection());
+        js.append(generateJSsetDirection1());
+        js.append(generateJSsetFontFamily());
+        js.append(generateJSsetFontSize());
+        js.append(generateJSsetFontSize1());
+        js.append(generateJSsetFontStyle());
+        js.append(generateJSsetFontStyle1());
+        js.append(generateJSsetFontVariant());
+        js.append(generateJSsetFontVariant1());
+        js.append(generateJSsetFontWeight());
+        js.append(generateJSsetFontWeight1());
+        js.append(generateJSsetHAlign());
+        js.append(generateJSsetHAlign1());
+        js.append(generateJSsetHeight());
+        js.append(generateJSsetHeight1());
+        js.append(generateJSsetHtmlText());
+        js.append(generateJSsetLetterSpacing());
+        js.append(generateJSsetLetterSpacing1());
+        js.append(generateJSsetLineHeight());
+        js.append(generateJSsetLineHeight1());
+        js.append(generateJSsetOpacity());
+        js.append(generateJSsetPath());
+        js.append(generateJSsetSelectable());
+        js.append(generateJSsetText());
+        js.append(generateJSsetTextIndent());
+        js.append(generateJSsetTextOverflow());
+        js.append(generateJSsetTextOverflow1());
+        js.append(generateJSsetVAlign());
+        js.append(generateJSsetVAlign1());
+        js.append(generateJSsetWidth());
+        js.append(generateJSsetWidth1());
+        js.append(generateJSsetWordBreak());
+        js.append(generateJSsetWordBreak1());
+        js.append(generateJSsetWordWrap());
+        js.append(generateJSsetWordWrap1());
+        js.append(generateJSsetX());
+        js.append(generateJSsetY());
+        
 
         String result = js.toString();
         js.setLength(0);

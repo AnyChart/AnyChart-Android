@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -38,6 +35,7 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
 
     
     private Fill fill;
+    private List<CartesianSeriesStepArea> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -61,9 +59,20 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<CartesianSeriesStepArea> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -88,6 +97,16 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -96,6 +115,7 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<CartesianSeriesStepArea> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -135,7 +155,18 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesStepArea> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -175,7 +206,18 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesStepArea> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -215,7 +257,18 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesStepArea> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -255,7 +308,18 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesStepArea> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -295,7 +359,18 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesStepArea> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -335,6 +410,16 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -344,6 +429,7 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<CartesianSeriesStepArea> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -393,7 +479,18 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesStepArea> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -443,6 +540,16 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private PatternFill getHatchFill;
@@ -464,6 +571,7 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
     private String color1;
     private Double thickness;
     private Double size;
+    private List<CartesianSeriesStepArea> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -501,7 +609,18 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill() {
+        if (!setHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesStepArea> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -539,7 +658,18 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill1() {
+        if (!setHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesStepArea> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -577,7 +707,18 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill2() {
+        if (!setHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesStepArea> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -615,9 +756,20 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill3() {
+        if (!setHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private StepDirection stepDirection;
     private String stepDirection1;
+    private List<CartesianSeriesStepArea> setStepDirection = new ArrayList<>();
 
     /**
      * Setter for the step direction.
@@ -643,7 +795,18 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetStepDirection() {
+        if (!setStepDirection.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setStepDirection) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesStepArea> setStepDirection1 = new ArrayList<>();
 
     /**
      * Setter for the step direction.
@@ -669,6 +832,16 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetStepDirection1() {
+        if (!setStepDirection1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setStepDirection1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color2;
     private ColoredFill color3;
@@ -677,6 +850,7 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<CartesianSeriesStepArea> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -717,7 +891,18 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesStepArea> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -758,7 +943,18 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesStepArea> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -799,6 +995,16 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepArea item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
@@ -827,6 +1033,27 @@ public class CartesianSeriesStepArea extends CartesianSeriesContinuousBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetFill2());
+        js.append(generateJSsetFill3());
+        js.append(generateJSsetFill4());
+        js.append(generateJSsetFill5());
+        js.append(generateJSsetFill6());
+        js.append(generateJSsetFill7());
+        js.append(generateJSsetFill8());
+        js.append(generateJSsetFill9());
+        js.append(generateJSsetHatchFill());
+        js.append(generateJSsetHatchFill1());
+        js.append(generateJSsetHatchFill2());
+        js.append(generateJSsetHatchFill3());
+        js.append(generateJSsetStepDirection());
+        js.append(generateJSsetStepDirection1());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        
 
         String result = js.toString();
         js.setLength(0);

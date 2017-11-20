@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
 
     
     private Fill fallingFill;
+    private List<ScrollerseriesCandlestick> setFallingFill = new ArrayList<>();
 
     /**
      * Setter for the falling fill settings using an object or a string.
@@ -60,9 +58,20 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
+    private String generateJSsetFallingFill() {
+        if (!setFallingFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesCandlestick item : setFallingFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<ScrollerseriesCandlestick> setFallingFill1 = new ArrayList<>();
 
     /**
      * Falling fill color with opacity.
@@ -87,6 +96,16 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
+    private String generateJSsetFallingFill1() {
+        if (!setFallingFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesCandlestick item : setFallingFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -95,6 +114,7 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<ScrollerseriesCandlestick> setFallingFill2 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -134,7 +154,18 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
+    private String generateJSsetFallingFill2() {
+        if (!setFallingFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesCandlestick item : setFallingFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesCandlestick> setFallingFill3 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -174,7 +205,18 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
+    private String generateJSsetFallingFill3() {
+        if (!setFallingFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesCandlestick item : setFallingFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesCandlestick> setFallingFill4 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -214,7 +256,18 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
+    private String generateJSsetFallingFill4() {
+        if (!setFallingFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesCandlestick item : setFallingFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesCandlestick> setFallingFill5 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -254,7 +307,18 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
+    private String generateJSsetFallingFill5() {
+        if (!setFallingFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesCandlestick item : setFallingFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesCandlestick> setFallingFill6 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -294,7 +358,18 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
+    private String generateJSsetFallingFill6() {
+        if (!setFallingFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesCandlestick item : setFallingFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesCandlestick> setFallingFill7 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -334,6 +409,16 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
+    private String generateJSsetFallingFill7() {
+        if (!setFallingFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesCandlestick item : setFallingFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -343,6 +428,7 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<ScrollerseriesCandlestick> setFallingFill8 = new ArrayList<>();
 
     /**
      * Radial gradient falling fill.
@@ -392,7 +478,18 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
+    private String generateJSsetFallingFill8() {
+        if (!setFallingFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesCandlestick item : setFallingFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesCandlestick> setFallingFill9 = new ArrayList<>();
 
     /**
      * Radial gradient falling fill.
@@ -442,6 +539,16 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
+    private String generateJSsetFallingFill9() {
+        if (!setFallingFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesCandlestick item : setFallingFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private PatternFill getFallingHatchFill;
@@ -464,6 +571,7 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private String color1;
     private Double thickness;
     private Double size;
+    private List<ScrollerseriesBase> setFallingHatchFill = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
@@ -493,15 +601,29 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setFallingHatchFill" + variableIndex);
+        setFallingHatchFill.add(item);
+        return item;
+    }
+    private String generateJSsetFallingHatchFill() {
+        if (!setFallingHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setFallingHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesBase> setFallingHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
@@ -531,15 +653,29 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setFallingHatchFill1" + variableIndex);
+        setFallingHatchFill1.add(item);
+        return item;
+    }
+    private String generateJSsetFallingHatchFill1() {
+        if (!setFallingHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setFallingHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesBase> setFallingHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
@@ -569,15 +705,29 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setFallingHatchFill2" + variableIndex);
+        setFallingHatchFill2.add(item);
+        return item;
+    }
+    private String generateJSsetFallingHatchFill2() {
+        if (!setFallingHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setFallingHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesBase> setFallingHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
@@ -607,15 +757,29 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setFallingHatchFill3" + variableIndex);
+        setFallingHatchFill3.add(item);
+        return item;
+    }
+    private String generateJSsetFallingHatchFill3() {
+        if (!setFallingHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setFallingHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesBase> setFallingHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
@@ -645,16 +809,30 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setFallingHatchFill4" + variableIndex);
+        setFallingHatchFill4.add(item);
+        return item;
+    }
+    private String generateJSsetFallingHatchFill4() {
+        if (!setFallingHatchFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setFallingHatchFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill risingFill;
+    private List<ScrollerseriesBase> setRisingFill = new ArrayList<>();
 
     /**
      * Setter for the rising fill settings using an object or a string.
@@ -669,17 +847,31 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s)", ((risingFill != null) ? risingFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setRisingFill" + variableIndex);
+        setRisingFill.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill() {
+        if (!setRisingFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setRisingFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String color2;
     private Double opacity3;
+    private List<ScrollerseriesBase> setRisingFill1 = new ArrayList<>();
 
     /**
      * Rising fill color with opacity.
@@ -704,13 +896,26 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f)", wrapQuotes(color2), opacity3));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setRisingFill1" + variableIndex);
+        setRisingFill1.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill1() {
+        if (!setRisingFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setRisingFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys4;
@@ -720,6 +925,7 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private VectorRect mode5;
     private String mode6;
     private Double opacity4;
+    private List<ScrollerseriesBase> setRisingFill2 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -764,15 +970,29 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setRisingFill2" + variableIndex);
+        setRisingFill2.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill2() {
+        if (!setRisingFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setRisingFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesBase> setRisingFill3 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -817,15 +1037,29 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setRisingFill3" + variableIndex);
+        setRisingFill3.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill3() {
+        if (!setRisingFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setRisingFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesBase> setRisingFill4 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -870,15 +1104,29 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setRisingFill4" + variableIndex);
+        setRisingFill4.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill4() {
+        if (!setRisingFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setRisingFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesBase> setRisingFill5 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -923,15 +1171,29 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setRisingFill5" + variableIndex);
+        setRisingFill5.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill5() {
+        if (!setRisingFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setRisingFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesBase> setRisingFill6 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -976,15 +1238,29 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setRisingFill6" + variableIndex);
+        setRisingFill6.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill6() {
+        if (!setRisingFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setRisingFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesBase> setRisingFill7 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -1029,13 +1305,26 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setRisingFill7" + variableIndex);
+        setRisingFill7.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill7() {
+        if (!setRisingFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setRisingFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys6;
@@ -1046,6 +1335,7 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private Double opacity5;
     private Double fx1;
     private Double fy1;
+    private List<ScrollerseriesCandlestick> setRisingFill8 = new ArrayList<>();
 
     /**
      * Radial gradient rising fill.
@@ -1118,7 +1408,18 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
+    private String generateJSsetRisingFill8() {
+        if (!setRisingFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesCandlestick item : setRisingFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesCandlestick> setRisingFill9 = new ArrayList<>();
 
     /**
      * Radial gradient rising fill.
@@ -1191,6 +1492,16 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
+    private String generateJSsetRisingFill9() {
+        if (!setRisingFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesCandlestick item : setRisingFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings1;
     private PatternFill getRisingHatchFill;
@@ -1213,6 +1524,7 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private String color3;
     private Double thickness1;
     private Double size1;
+    private List<ScrollerseriesBase> setRisingHatchFill = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
@@ -1255,15 +1567,29 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setRisingHatchFill" + variableIndex);
+        setRisingHatchFill.add(item);
+        return item;
+    }
+    private String generateJSsetRisingHatchFill() {
+        if (!setRisingHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setRisingHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesBase> setRisingHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
@@ -1306,15 +1632,29 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setRisingHatchFill1" + variableIndex);
+        setRisingHatchFill1.add(item);
+        return item;
+    }
+    private String generateJSsetRisingHatchFill1() {
+        if (!setRisingHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setRisingHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesBase> setRisingHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
@@ -1357,15 +1697,29 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setRisingHatchFill2" + variableIndex);
+        setRisingHatchFill2.add(item);
+        return item;
+    }
+    private String generateJSsetRisingHatchFill2() {
+        if (!setRisingHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setRisingHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesBase> setRisingHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
@@ -1408,15 +1762,29 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setRisingHatchFill3" + variableIndex);
+        setRisingHatchFill3.add(item);
+        return item;
+    }
+    private String generateJSsetRisingHatchFill3() {
+        if (!setRisingHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setRisingHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesBase> setRisingHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
@@ -1459,13 +1827,26 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState9, wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesBase(jsBase);
+        ScrollerseriesBase item = new ScrollerseriesBase("setRisingHatchFill4" + variableIndex);
+        setRisingHatchFill4.add(item);
+        return item;
+    }
+    private String generateJSsetRisingHatchFill4() {
+        if (!setRisingHatchFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesBase item : setRisingHatchFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetFallingHatchFill() {
@@ -1503,6 +1884,38 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFallingFill());
+        js.append(generateJSsetFallingFill1());
+        js.append(generateJSsetFallingFill2());
+        js.append(generateJSsetFallingFill3());
+        js.append(generateJSsetFallingFill4());
+        js.append(generateJSsetFallingFill5());
+        js.append(generateJSsetFallingFill6());
+        js.append(generateJSsetFallingFill7());
+        js.append(generateJSsetFallingFill8());
+        js.append(generateJSsetFallingFill9());
+        js.append(generateJSsetFallingHatchFill());
+        js.append(generateJSsetFallingHatchFill1());
+        js.append(generateJSsetFallingHatchFill2());
+        js.append(generateJSsetFallingHatchFill3());
+        js.append(generateJSsetFallingHatchFill4());
+        js.append(generateJSsetRisingFill());
+        js.append(generateJSsetRisingFill1());
+        js.append(generateJSsetRisingFill2());
+        js.append(generateJSsetRisingFill3());
+        js.append(generateJSsetRisingFill4());
+        js.append(generateJSsetRisingFill5());
+        js.append(generateJSsetRisingFill6());
+        js.append(generateJSsetRisingFill7());
+        js.append(generateJSsetRisingFill8());
+        js.append(generateJSsetRisingFill9());
+        js.append(generateJSsetRisingHatchFill());
+        js.append(generateJSsetRisingHatchFill1());
+        js.append(generateJSsetRisingHatchFill2());
+        js.append(generateJSsetRisingHatchFill3());
+        js.append(generateJSsetRisingHatchFill4());
+        
 
         String result = js.toString();
         js.setLength(0);

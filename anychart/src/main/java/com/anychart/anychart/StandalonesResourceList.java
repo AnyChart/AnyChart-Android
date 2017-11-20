@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -51,6 +48,7 @@ public class StandalonesResourceList extends ResourceResourceList {
     private Stage container1;
     private String container2;
     private Element container3;
+    private List<StandalonesResourceList> setContainer = new ArrayList<>();
 
     /**
      * Setter for the resource list container.
@@ -76,7 +74,18 @@ public class StandalonesResourceList extends ResourceResourceList {
         }
         return this;
     }
+    private String generateJSsetContainer() {
+        if (!setContainer.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesResourceList item : setContainer) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesResourceList> setContainer1 = new ArrayList<>();
 
     /**
      * Setter for the resource list container.
@@ -102,7 +111,18 @@ public class StandalonesResourceList extends ResourceResourceList {
         }
         return this;
     }
+    private String generateJSsetContainer1() {
+        if (!setContainer1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesResourceList item : setContainer1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesResourceList> setContainer2 = new ArrayList<>();
 
     /**
      * Setter for the resource list container.
@@ -130,7 +150,18 @@ public class StandalonesResourceList extends ResourceResourceList {
         }
         return this;
     }
+    private String generateJSsetContainer2() {
+        if (!setContainer2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesResourceList item : setContainer2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesResourceList> setContainer3 = new ArrayList<>();
 
     /**
      * Setter for the resource list container.
@@ -156,6 +187,16 @@ public class StandalonesResourceList extends ResourceResourceList {
         }
         return this;
     }
+    private String generateJSsetContainer3() {
+        if (!setContainer3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesResourceList item : setContainer3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private AnychartMathRect getParentBounds;
 
@@ -171,6 +212,7 @@ public class StandalonesResourceList extends ResourceResourceList {
 
     private AnychartMathRect parentBounds;
     private String parentBounds1;
+    private List<StandalonesResourceList> setParentBounds = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -194,7 +236,18 @@ public class StandalonesResourceList extends ResourceResourceList {
         }
         return this;
     }
+    private String generateJSsetParentBounds() {
+        if (!setParentBounds.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesResourceList item : setParentBounds) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesResourceList> setParentBounds1 = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -220,11 +273,22 @@ public class StandalonesResourceList extends ResourceResourceList {
         }
         return this;
     }
+    private String generateJSsetParentBounds1() {
+        if (!setParentBounds1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesResourceList item : setParentBounds1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double left;
     private Double top;
     private Double width;
     private Double height;
+    private List<StandalonesResourceList> setParentBounds2 = new ArrayList<>();
 
     /**
      * Setter for bounds using several values.
@@ -252,6 +316,16 @@ public class StandalonesResourceList extends ResourceResourceList {
             }
         }
         return this;
+    }
+    private String generateJSsetParentBounds2() {
+        if (!setParentBounds2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesResourceList item : setParentBounds2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetContainer() {
@@ -289,6 +363,15 @@ public class StandalonesResourceList extends ResourceResourceList {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetContainer());
+        js.append(generateJSsetContainer1());
+        js.append(generateJSsetContainer2());
+        js.append(generateJSsetContainer3());
+        js.append(generateJSsetParentBounds());
+        js.append(generateJSsetParentBounds1());
+        js.append(generateJSsetParentBounds2());
+        
 
         String result = js.toString();
         js.setLength(0);

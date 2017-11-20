@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class StockSeriesMarker extends StockSeriesBase {
 
     
     private Fill fill;
+    private List<StockSeriesMarker> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using a string.
@@ -60,6 +58,16 @@ public class StockSeriesMarker extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesMarker item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private PatternFill getHatchFill;
 
@@ -80,6 +88,7 @@ public class StockSeriesMarker extends StockSeriesBase {
     private String color;
     private Double thickness;
     private Double size;
+    private List<StockSeriesMarker> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -114,7 +123,18 @@ public class StockSeriesMarker extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill() {
+        if (!setHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesMarker item : setHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesMarker> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -149,7 +169,18 @@ public class StockSeriesMarker extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill1() {
+        if (!setHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesMarker item : setHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesMarker> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -184,7 +215,18 @@ public class StockSeriesMarker extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill2() {
+        if (!setHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesMarker item : setHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesMarker> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -219,8 +261,19 @@ public class StockSeriesMarker extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill3() {
+        if (!setHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesMarker item : setHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double size1;
+    private List<StockSeriesMarker> setSize = new ArrayList<>();
 
     /**
      * Setter for marker size.
@@ -246,6 +299,16 @@ public class StockSeriesMarker extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetSize() {
+        if (!setSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesMarker item : setSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color1;
     private ColoredFill color2;
@@ -254,6 +317,7 @@ public class StockSeriesMarker extends StockSeriesBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<StockSeriesMarker> setStroke = new ArrayList<>();
 
     /**
      * Setter for the stroke settings.
@@ -293,7 +357,18 @@ public class StockSeriesMarker extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesMarker item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesMarker> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for the stroke settings.
@@ -333,7 +408,18 @@ public class StockSeriesMarker extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesMarker item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesMarker> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for the stroke settings.
@@ -373,9 +459,20 @@ public class StockSeriesMarker extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesMarker item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private MarkerType type;
     private String type1;
+    private List<StockSeriesMarker> setType = new ArrayList<>();
 
     /**
      * Setter for marker type settings.
@@ -401,7 +498,18 @@ public class StockSeriesMarker extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetType() {
+        if (!setType.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesMarker item : setType) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesMarker> setType1 = new ArrayList<>();
 
     /**
      * Setter for marker type settings.
@@ -426,6 +534,16 @@ public class StockSeriesMarker extends StockSeriesBase {
             }
         }
         return this;
+    }
+    private String generateJSsetType1() {
+        if (!setType1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesMarker item : setType1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetHatchFill() {
@@ -455,6 +573,19 @@ public class StockSeriesMarker extends StockSeriesBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFill());
+        js.append(generateJSsetHatchFill());
+        js.append(generateJSsetHatchFill1());
+        js.append(generateJSsetHatchFill2());
+        js.append(generateJSsetHatchFill3());
+        js.append(generateJSsetSize());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        js.append(generateJSsetType());
+        js.append(generateJSsetType1());
+        
 
         String result = js.toString();
         js.setLength(0);

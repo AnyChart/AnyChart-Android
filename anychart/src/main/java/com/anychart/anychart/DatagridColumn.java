@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class DatagridColumn extends VisualBase {
     
     private EnumsCursor valueCursor;
     private String valueCursor1;
+    private List<DatagridColumn> setButtonCursor = new ArrayList<>();
 
     /**
      * Setter for the button cursor.
@@ -62,7 +60,18 @@ public class DatagridColumn extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetButtonCursor() {
+        if (!setButtonCursor.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DatagridColumn item : setButtonCursor) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<DatagridColumn> setButtonCursor1 = new ArrayList<>();
 
     /**
      * Setter for the button cursor.
@@ -88,6 +97,16 @@ public class DatagridColumn extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetButtonCursor1() {
+        if (!setButtonCursor1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DatagridColumn item : setButtonCursor1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiLabelsFactory getCellTextSettings;
 
@@ -102,6 +121,7 @@ public class DatagridColumn extends VisualBase {
     }
 
     private String cellTextSettings;
+    private List<DatagridColumn> setCellTextSettings = new ArrayList<>();
 
     /**
      * Setter for label factory to decorate cells.
@@ -124,8 +144,19 @@ public class DatagridColumn extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetCellTextSettings() {
+        if (!setCellTextSettings.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DatagridColumn item : setCellTextSettings) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean collapseExpandButtons;
+    private List<DatagridColumn> setCollapseExpandButtons = new ArrayList<>();
 
     /**
      * Setter for expanding or collapse buttons.
@@ -148,8 +179,19 @@ public class DatagridColumn extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetCollapseExpandButtons() {
+        if (!setCollapseExpandButtons.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DatagridColumn item : setCollapseExpandButtons) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double defaultWidth;
+    private List<DatagridColumn> setDefaultWidth = new ArrayList<>();
 
     /**
      * Setter for the column default width.
@@ -172,8 +214,19 @@ public class DatagridColumn extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetDefaultWidth() {
+        if (!setDefaultWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DatagridColumn item : setDefaultWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double depthPaddingMultiplier;
+    private List<DatagridColumn> setDepthPaddingMultiplier = new ArrayList<>();
 
     /**
      * Setter for the multiplier to choose a left padding.
@@ -196,10 +249,21 @@ public class DatagridColumn extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetDepthPaddingMultiplier() {
+        if (!setDepthPaddingMultiplier.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DatagridColumn item : setDepthPaddingMultiplier) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fieldName;
     private ColumnFormats presetValue;
     private String presetValue1;
+    private List<DatagridColumn> setSetColumnFormat = new ArrayList<>();
 
     /**
      * Sets column format using enum.
@@ -227,7 +291,18 @@ public class DatagridColumn extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetSetColumnFormat() {
+        if (!setSetColumnFormat.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DatagridColumn item : setSetColumnFormat) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<DatagridColumn> setSetColumnFormat1 = new ArrayList<>();
 
     /**
      * Sets column format using enum.
@@ -255,6 +330,16 @@ public class DatagridColumn extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetSetColumnFormat1() {
+        if (!setSetColumnFormat1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DatagridColumn item : setSetColumnFormat1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fieldName1;
     private String settings;
@@ -273,6 +358,7 @@ public class DatagridColumn extends VisualBase {
     private Boolean title;
     private String title1;
     private String title2;
+    private List<DatagridColumn> setTitle = new ArrayList<>();
 
     /**
      * Setter for the column title.
@@ -299,7 +385,18 @@ public class DatagridColumn extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTitle() {
+        if (!setTitle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DatagridColumn item : setTitle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<DatagridColumn> setTitle1 = new ArrayList<>();
 
     /**
      * Setter for the column title.
@@ -326,9 +423,20 @@ public class DatagridColumn extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTitle1() {
+        if (!setTitle1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DatagridColumn item : setTitle1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double width;
     private String width1;
+    private List<DatagridColumn> setWidth = new ArrayList<>();
 
     /**
      * Setter for the column width.
@@ -354,7 +462,18 @@ public class DatagridColumn extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetWidth() {
+        if (!setWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DatagridColumn item : setWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<DatagridColumn> setWidth1 = new ArrayList<>();
 
     /**
      * Setter for the column width.
@@ -379,6 +498,16 @@ public class DatagridColumn extends VisualBase {
             }
         }
         return this;
+    }
+    private String generateJSsetWidth1() {
+        if (!setWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DatagridColumn item : setWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetCellTextSettings() {
@@ -416,6 +545,20 @@ public class DatagridColumn extends VisualBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetButtonCursor());
+        js.append(generateJSsetButtonCursor1());
+        js.append(generateJSsetCellTextSettings());
+        js.append(generateJSsetCollapseExpandButtons());
+        js.append(generateJSsetDefaultWidth());
+        js.append(generateJSsetDepthPaddingMultiplier());
+        js.append(generateJSsetSetColumnFormat());
+        js.append(generateJSsetSetColumnFormat1());
+        js.append(generateJSsetTitle());
+        js.append(generateJSsetTitle1());
+        js.append(generateJSsetWidth());
+        js.append(generateJSsetWidth1());
+        
 
         String result = js.toString();
         js.setLength(0);

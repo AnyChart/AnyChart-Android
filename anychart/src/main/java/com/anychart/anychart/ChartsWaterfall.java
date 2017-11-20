@@ -142,6 +142,20 @@ public class ChartsWaterfall extends SeparateChart {
     }
 
 
+    /**
+     * 
+     */
+    public void addSeries(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+    }
+
+
     private PlotController getAnnotations;
 
     /**
@@ -389,6 +403,32 @@ public class ChartsWaterfall extends SeparateChart {
         if (!setData.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (ChartsWaterfall item : setData) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ChartsWaterfall> setData1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public ChartsWaterfall data(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsWaterfall item : setData1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -3212,6 +3252,7 @@ public class ChartsWaterfall extends SeparateChart {
         js.append(generateJSsetCrosshair());
         js.append(generateJSsetCrosshair1());
         js.append(generateJSsetData());
+        js.append(generateJSsetData1());
         js.append(generateJSsetDataMode());
         js.append(generateJSsetDataMode1());
         js.append(generateJSsetHatchFillPalette());

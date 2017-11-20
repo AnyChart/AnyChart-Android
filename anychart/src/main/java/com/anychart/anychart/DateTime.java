@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class DateTime extends ScatterBase {
 
     
     private Double maximumGap;
+    private List<DateTime> setMaximumGap = new ArrayList<>();
 
     /**
      * Setter for the scale maximum gap.
@@ -59,8 +57,19 @@ public class DateTime extends ScatterBase {
         }
         return this;
     }
+    private String generateJSsetMaximumGap() {
+        if (!setMaximumGap.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTime item : setMaximumGap) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double minimumGap;
+    private List<DateTime> setMinimumGap = new ArrayList<>();
 
     /**
      * Setter for the scale minimum gap.
@@ -83,6 +92,16 @@ public class DateTime extends ScatterBase {
         }
         return this;
     }
+    private String generateJSsetMinimumGap() {
+        if (!setMinimumGap.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTime item : setMinimumGap) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private DateTimeTicks getMinorTicks;
 
@@ -98,6 +117,7 @@ public class DateTime extends ScatterBase {
 
     private String minorTicks;
     private String[] minorTicks1;
+    private List<DateTime> setMinorTicks = new ArrayList<>();
 
     /**
      * Setter for set of scale ticks in terms of data values.
@@ -123,7 +143,18 @@ public class DateTime extends ScatterBase {
         }
         return this;
     }
+    private String generateJSsetMinorTicks() {
+        if (!setMinorTicks.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTime item : setMinorTicks) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<DateTime> setMinorTicks1 = new ArrayList<>();
 
     /**
      * Setter for set of scale ticks in terms of data values.
@@ -149,8 +180,19 @@ public class DateTime extends ScatterBase {
         }
         return this;
     }
+    private String generateJSsetMinorTicks1() {
+        if (!setMinorTicks1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTime item : setMinorTicks1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double softMaximum;
+    private List<DateTime> setSoftMaximum = new ArrayList<>();
 
     /**
      * Setter for soft maximum.
@@ -173,8 +215,19 @@ public class DateTime extends ScatterBase {
         }
         return this;
     }
+    private String generateJSsetSoftMaximum() {
+        if (!setSoftMaximum.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTime item : setSoftMaximum) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double softMinimum;
+    private List<DateTime> setSoftMinimum = new ArrayList<>();
 
     /**
      * Setter for soft minimum.
@@ -197,6 +250,16 @@ public class DateTime extends ScatterBase {
         }
         return this;
     }
+    private String generateJSsetSoftMinimum() {
+        if (!setSoftMinimum.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTime item : setSoftMinimum) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private DateTimeTicks getTicks;
 
@@ -212,6 +275,7 @@ public class DateTime extends ScatterBase {
 
     private String ticks;
     private String[] ticks1;
+    private List<DateTime> setTicks = new ArrayList<>();
 
     /**
      * Setter for set of scale ticks in terms of data values.
@@ -237,7 +301,18 @@ public class DateTime extends ScatterBase {
         }
         return this;
     }
+    private String generateJSsetTicks() {
+        if (!setTicks.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTime item : setTicks) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<DateTime> setTicks1 = new ArrayList<>();
 
     /**
      * Setter for set of scale ticks in terms of data values.
@@ -262,6 +337,16 @@ public class DateTime extends ScatterBase {
             }
         }
         return this;
+    }
+    private String generateJSsetTicks1() {
+        if (!setTicks1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTime item : setTicks1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetMinorTicks() {
@@ -299,6 +384,16 @@ public class DateTime extends ScatterBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetMaximumGap());
+        js.append(generateJSsetMinimumGap());
+        js.append(generateJSsetMinorTicks());
+        js.append(generateJSsetMinorTicks1());
+        js.append(generateJSsetSoftMaximum());
+        js.append(generateJSsetSoftMinimum());
+        js.append(generateJSsetTicks());
+        js.append(generateJSsetTicks1());
+        
 
         String result = js.toString();
         js.setLength(0);

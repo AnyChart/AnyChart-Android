@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class CircularRange extends VisualBase {
 
     
     private Double index;
+    private List<CircularRange> setAxisIndex = new ArrayList<>();
 
     /**
      * Setter for the axis index.
@@ -58,9 +56,20 @@ public class CircularRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetAxisIndex() {
+        if (!setAxisIndex.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularRange item : setAxisIndex) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double cornersRounding;
     private String cornersRounding1;
+    private List<CircularRange> setCornersRounding = new ArrayList<>();
 
     /**
      * Setter for the rounding of circular ranges.<br/>
@@ -87,7 +96,18 @@ Round off the ends of circular ranges to the specified radius.
         }
         return this;
     }
+    private String generateJSsetCornersRounding() {
+        if (!setCornersRounding.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularRange item : setCornersRounding) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CircularRange> setCornersRounding1 = new ArrayList<>();
 
     /**
      * Setter for the rounding of circular ranges.<br/>
@@ -114,9 +134,20 @@ Round off the ends of circular ranges to the specified radius.
         }
         return this;
     }
+    private String generateJSsetCornersRounding1() {
+        if (!setCornersRounding1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularRange item : setCornersRounding1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double endSize;
     private String endSize1;
+    private List<CircularRange> setEndSize = new ArrayList<>();
 
     /**
      * Setter for the range end size.
@@ -142,7 +173,18 @@ Round off the ends of circular ranges to the specified radius.
         }
         return this;
     }
+    private String generateJSsetEndSize() {
+        if (!setEndSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularRange item : setEndSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CircularRange> setEndSize1 = new ArrayList<>();
 
     /**
      * Setter for the range end size.
@@ -168,8 +210,19 @@ Round off the ends of circular ranges to the specified radius.
         }
         return this;
     }
+    private String generateJSsetEndSize1() {
+        if (!setEndSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularRange item : setEndSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill fill;
+    private List<CircularRange> setFill = new ArrayList<>();
 
     /**
      * Setter for the range fill.
@@ -192,8 +245,19 @@ Round off the ends of circular ranges to the specified radius.
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularRange item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double from;
+    private List<CircularRange> setFrom = new ArrayList<>();
 
     /**
      * Setter for the starting range value.
@@ -216,9 +280,20 @@ Round off the ends of circular ranges to the specified radius.
         }
         return this;
     }
+    private String generateJSsetFrom() {
+        if (!setFrom.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularRange item : setFrom) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GaugeSidePosition position;
     private String position1;
+    private List<CircularRange> setPosition = new ArrayList<>();
 
     /**
      * Setter for the range position.
@@ -244,7 +319,18 @@ Round off the ends of circular ranges to the specified radius.
         }
         return this;
     }
+    private String generateJSsetPosition() {
+        if (!setPosition.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularRange item : setPosition) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CircularRange> setPosition1 = new ArrayList<>();
 
     /**
      * Setter for the range position.
@@ -270,9 +356,20 @@ Round off the ends of circular ranges to the specified radius.
         }
         return this;
     }
+    private String generateJSsetPosition1() {
+        if (!setPosition1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularRange item : setPosition1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double radius;
     private String radius1;
+    private List<CircularRange> setRadius = new ArrayList<>();
 
     /**
      * Setter for the range radius.
@@ -298,7 +395,18 @@ Round off the ends of circular ranges to the specified radius.
         }
         return this;
     }
+    private String generateJSsetRadius() {
+        if (!setRadius.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularRange item : setRadius) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CircularRange> setRadius1 = new ArrayList<>();
 
     /**
      * Setter for the range radius.
@@ -324,9 +432,20 @@ Round off the ends of circular ranges to the specified radius.
         }
         return this;
     }
+    private String generateJSsetRadius1() {
+        if (!setRadius1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularRange item : setRadius1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double startSize;
     private String startSize1;
+    private List<CircularRange> setStartSize = new ArrayList<>();
 
     /**
      * Setter for the range start size.
@@ -352,7 +471,18 @@ Round off the ends of circular ranges to the specified radius.
         }
         return this;
     }
+    private String generateJSsetStartSize() {
+        if (!setStartSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularRange item : setStartSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CircularRange> setStartSize1 = new ArrayList<>();
 
     /**
      * Setter for the range start size.
@@ -378,8 +508,19 @@ Round off the ends of circular ranges to the specified radius.
         }
         return this;
     }
+    private String generateJSsetStartSize1() {
+        if (!setStartSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularRange item : setStartSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double to;
+    private List<CircularRange> setTo = new ArrayList<>();
 
     /**
      * Setter for the ending range value.
@@ -402,6 +543,16 @@ Round off the ends of circular ranges to the specified radius.
         }
         return this;
     }
+    private String generateJSsetTo() {
+        if (!setTo.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularRange item : setTo) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -422,6 +573,22 @@ Round off the ends of circular ranges to the specified radius.
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAxisIndex());
+        js.append(generateJSsetCornersRounding());
+        js.append(generateJSsetCornersRounding1());
+        js.append(generateJSsetEndSize());
+        js.append(generateJSsetEndSize1());
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFrom());
+        js.append(generateJSsetPosition());
+        js.append(generateJSsetPosition1());
+        js.append(generateJSsetRadius());
+        js.append(generateJSsetRadius1());
+        js.append(generateJSsetStartSize());
+        js.append(generateJSsetStartSize1());
+        js.append(generateJSsetTo());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class MapTicks extends VisualBase {
     
     private Double length;
     private String length1;
+    private List<MapTicks> setLength = new ArrayList<>();
 
     /**
      * Setter for ticks length.
@@ -62,7 +60,18 @@ public class MapTicks extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLength() {
+        if (!setLength.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapTicks item : setLength) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<MapTicks> setLength1 = new ArrayList<>();
 
     /**
      * Setter for ticks length.
@@ -88,9 +97,20 @@ public class MapTicks extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLength1() {
+        if (!setLength1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapTicks item : setLength1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private SidePosition position;
     private String position1;
+    private List<MapTicks> setPosition = new ArrayList<>();
 
     /**
      * Setter for ticks position.
@@ -116,7 +136,18 @@ public class MapTicks extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetPosition() {
+        if (!setPosition.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapTicks item : setPosition) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<MapTicks> setPosition1 = new ArrayList<>();
 
     /**
      * Setter for ticks position.
@@ -142,6 +173,16 @@ public class MapTicks extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetPosition1() {
+        if (!setPosition1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapTicks item : setPosition1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color;
     private String color1;
@@ -149,6 +190,7 @@ public class MapTicks extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<MapTicks> setStroke = new ArrayList<>();
 
     /**
      * Setter for ticks stroke settings.
@@ -182,7 +224,18 @@ public class MapTicks extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapTicks item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<MapTicks> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for ticks stroke settings.
@@ -216,6 +269,16 @@ public class MapTicks extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapTicks item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -236,6 +299,14 @@ public class MapTicks extends VisualBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetLength());
+        js.append(generateJSsetLength1());
+        js.append(generateJSsetPosition());
+        js.append(generateJSsetPosition1());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        
 
         String result = js.toString();
         js.setLength(0);

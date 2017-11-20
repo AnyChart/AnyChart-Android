@@ -570,6 +570,32 @@ public class CircularGauge extends Chart {
         return "";
     }
 
+    private List<CircularGauge> setData1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CircularGauge data(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularGauge item : setData1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private Boolean encloseWithStraightLine;
     private List<CircularGauge> setEncloseWithStraightLine = new ArrayList<>();
 
@@ -1891,6 +1917,7 @@ public class CircularGauge extends Chart {
         js.append(generateJSsetCircularPadding());
         js.append(generateJSsetCircularPadding1());
         js.append(generateJSsetData());
+        js.append(generateJSsetData1());
         js.append(generateJSsetEncloseWithStraightLine());
         js.append(generateJSsetFill());
         js.append(generateJSsetFill1());

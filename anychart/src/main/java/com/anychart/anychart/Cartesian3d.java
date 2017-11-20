@@ -159,6 +159,34 @@ public class Cartesian3d extends SeparateChart {
         return "";
     }
 
+    private List<Area3d> setArea1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Area3d area(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setArea1" + ++variableIndex + " = " + jsBase + ".area(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        Area3d item = new Area3d("setArea1" + variableIndex);
+        setArea1.add(item);
+        return item;
+    }
+    private String generateJSsetArea1() {
+        if (!setArea1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Area3d item : setArea1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<Bar3d> setBar = new ArrayList<>();
 
     /**
@@ -196,6 +224,34 @@ public class Cartesian3d extends SeparateChart {
         return "";
     }
 
+    private List<Bar3d> setBar1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Bar3d bar(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setBar1" + ++variableIndex + " = " + jsBase + ".bar(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        Bar3d item = new Bar3d("setBar1" + variableIndex);
+        setBar1.add(item);
+        return item;
+    }
+    private String generateJSsetBar1() {
+        if (!setBar1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Bar3d item : setBar1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<Column3d> setColumn = new ArrayList<>();
 
     /**
@@ -226,6 +282,34 @@ public class Cartesian3d extends SeparateChart {
         if (!setColumn.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (Column3d item : setColumn) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Column3d> setColumn1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Column3d column(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setColumn1" + ++variableIndex + " = " + jsBase + ".column(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        Column3d item = new Column3d("setColumn1" + variableIndex);
+        setColumn1.add(item);
+        return item;
+    }
+    private String generateJSsetColumn1() {
+        if (!setColumn1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Column3d item : setColumn1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -273,6 +357,32 @@ public class Cartesian3d extends SeparateChart {
         if (!setData.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (Cartesian3d item : setData) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Cartesian3d> setData1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Cartesian3d data(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cartesian3d item : setData1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -431,6 +541,34 @@ public class Cartesian3d extends SeparateChart {
         return "";
     }
 
+    private List<Line3d> setLine1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Line3d line(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        Line3d item = new Line3d("setLine1" + variableIndex);
+        setLine1.add(item);
+        return item;
+    }
+    private String generateJSsetLine1() {
+        if (!setLine1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Line3d item : setLine1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<CartesianSeriesLine> setLine2d = new ArrayList<>();
 
     /**
@@ -461,6 +599,34 @@ public class Cartesian3d extends SeparateChart {
         if (!setLine2d.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (CartesianSeriesLine item : setLine2d) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<CartesianSeriesLine> setLine2d1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public CartesianSeriesLine line2d(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setLine2d1" + ++variableIndex + " = " + jsBase + ".line2d(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        CartesianSeriesLine item = new CartesianSeriesLine("setLine2d1" + variableIndex);
+        setLine2d1.add(item);
+        return item;
+    }
+    private String generateJSsetLine2d1() {
+        if (!setLine2d1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesLine item : setLine2d1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -2138,14 +2304,20 @@ public class Cartesian3d extends SeparateChart {
         js.append(generateJSgetYMinorGrid1());
         js.append(generateJSgetYScale());
         js.append(generateJSsetArea());
+        js.append(generateJSsetArea1());
         js.append(generateJSsetBar());
+        js.append(generateJSsetBar1());
         js.append(generateJSsetColumn());
+        js.append(generateJSsetColumn1());
         js.append(generateJSsetData());
+        js.append(generateJSsetData1());
         js.append(generateJSsetHovered());
         js.append(generateJSsetLabels());
         js.append(generateJSsetLabels1());
         js.append(generateJSsetLine());
+        js.append(generateJSsetLine1());
         js.append(generateJSsetLine2d());
+        js.append(generateJSsetLine2d1());
         js.append(generateJSsetMaxPointWidth());
         js.append(generateJSsetMaxPointWidth1());
         js.append(generateJSsetMinPointLength());

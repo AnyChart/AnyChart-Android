@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class CircularlabelsfactoryLabel extends LabelsfactoryLabel {
 
     
     private Boolean autoRotate;
+    private List<CircularlabelsfactoryLabel> setAutoRotate = new ArrayList<>();
 
     /**
      * Setter for the label rotation.<br/>
@@ -60,6 +58,16 @@ Auto rotates a label around an anchor.
         }
         return this;
     }
+    private String generateJSsetAutoRotate() {
+        if (!setAutoRotate.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CircularlabelsfactoryLabel item : setAutoRotate) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -80,6 +88,9 @@ Auto rotates a label around an anchor.
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAutoRotate());
+        
 
         String result = js.toString();
         js.setLength(0);

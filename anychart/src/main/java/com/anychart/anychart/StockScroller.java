@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -106,6 +103,7 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", arrayToStringWrapQuotes(var_args2)));
@@ -117,6 +115,7 @@ public class StockScroller extends UiScroller {
     private TableMapping mapping;
     private StockSeriesType seriesType;
     private String seriesType1;
+    private List<ADL> setAdl = new ArrayList<>();
 
     /**
      * Creates an Accumulation Distribution Line indicator on the scroller.
@@ -135,15 +134,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", ((seriesType != null) ? seriesType.generateJs() : "null"), ((mapping != null) ? mapping.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new ADL(jsBase);
+        ADL item = new ADL("setAdl" + variableIndex);
+        setAdl.add(item);
+        return item;
+    }
+    private String generateJSsetAdl() {
+        if (!setAdl.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ADL item : setAdl) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ADL> setAdl1 = new ArrayList<>();
 
     /**
      * Creates an Accumulation Distribution Line indicator on the scroller.
@@ -162,13 +175,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", wrapQuotes(seriesType1), ((mapping != null) ? mapping.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new ADL(jsBase);
+        ADL item = new ADL("setAdl1" + variableIndex);
+        setAdl1.add(item);
+        return item;
+    }
+    private String generateJSsetAdl1() {
+        if (!setAdl1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ADL item : setAdl1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping1;
@@ -177,6 +203,7 @@ public class StockScroller extends UiScroller {
     private Double slowPeriod;
     private StockSeriesType seriesType2;
     private String seriesType3;
+    private List<AMA> setAma = new ArrayList<>();
 
     /**
      * Creates AMA (Adaptive Moving Average) indicator on the scroller.
@@ -206,15 +233,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", ((seriesType2 != null) ? seriesType2.generateJs() : "null"), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
                 js.setLength(0);
             }
         }
-        return new AMA(jsBase);
+        AMA item = new AMA("setAma" + variableIndex);
+        setAma.add(item);
+        return item;
+    }
+    private String generateJSsetAma() {
+        if (!setAma.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AMA item : setAma) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<AMA> setAma1 = new ArrayList<>();
 
     /**
      * Creates AMA (Adaptive Moving Average) indicator on the scroller.
@@ -244,13 +285,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", wrapQuotes(seriesType3), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
                 js.setLength(0);
             }
         }
-        return new AMA(jsBase);
+        AMA item = new AMA("setAma1" + variableIndex);
+        setAma1.add(item);
+        return item;
+    }
+    private String generateJSsetAma1() {
+        if (!setAma1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AMA item : setAma1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping data;
@@ -259,6 +313,7 @@ public class StockScroller extends UiScroller {
     private String data3;
     private String mappingSettings;
     private String csvSettings;
+    private List<ScrollerseriesArea> setArea = new ArrayList<>();
 
     /**
      * Creates and returns a new Area series.
@@ -281,15 +336,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesArea(jsBase);
+        ScrollerseriesArea item = new ScrollerseriesArea("setArea" + variableIndex);
+        setArea.add(item);
+        return item;
+    }
+    private String generateJSsetArea() {
+        if (!setArea.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesArea item : setArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesArea> setArea1 = new ArrayList<>();
 
     /**
      * Creates and returns a new Area series.
@@ -312,15 +381,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesArea(jsBase);
+        ScrollerseriesArea item = new ScrollerseriesArea("setArea1" + variableIndex);
+        setArea1.add(item);
+        return item;
+    }
+    private String generateJSsetArea1() {
+        if (!setArea1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesArea item : setArea1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesArea> setArea2 = new ArrayList<>();
 
     /**
      * Creates and returns a new Area series.
@@ -343,13 +426,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesArea(jsBase);
+        ScrollerseriesArea item = new ScrollerseriesArea("setArea2" + variableIndex);
+        setArea2.add(item);
+        return item;
+    }
+    private String generateJSsetArea2() {
+        if (!setArea2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesArea item : setArea2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping2;
@@ -358,6 +454,7 @@ public class StockScroller extends UiScroller {
     private String upSeriesType1;
     private StockSeriesType downSeriesType;
     private String downSeriesType1;
+    private List<Aroon> setAroon = new ArrayList<>();
 
     /**
      * Creates Aroon indicator on the scroller.
@@ -390,15 +487,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
             }
         }
-        return new Aroon(jsBase);
+        Aroon item = new Aroon("setAroon" + variableIndex);
+        setAroon.add(item);
+        return item;
+    }
+    private String generateJSsetAroon() {
+        if (!setAroon.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Aroon item : setAroon) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Aroon> setAroon1 = new ArrayList<>();
 
     /**
      * Creates Aroon indicator on the scroller.
@@ -431,15 +542,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
             }
         }
-        return new Aroon(jsBase);
+        Aroon item = new Aroon("setAroon1" + variableIndex);
+        setAroon1.add(item);
+        return item;
+    }
+    private String generateJSsetAroon1() {
+        if (!setAroon1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Aroon item : setAroon1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Aroon> setAroon2 = new ArrayList<>();
 
     /**
      * Creates Aroon indicator on the scroller.
@@ -472,15 +597,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
             }
         }
-        return new Aroon(jsBase);
+        Aroon item = new Aroon("setAroon2" + variableIndex);
+        setAroon2.add(item);
+        return item;
+    }
+    private String generateJSsetAroon2() {
+        if (!setAroon2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Aroon item : setAroon2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Aroon> setAroon3 = new ArrayList<>();
 
     /**
      * Creates Aroon indicator on the scroller.
@@ -513,19 +652,33 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
             }
         }
-        return new Aroon(jsBase);
+        Aroon item = new Aroon("setAroon3" + variableIndex);
+        setAroon3.add(item);
+        return item;
+    }
+    private String generateJSsetAroon3() {
+        if (!setAroon3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Aroon item : setAroon3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping3;
     private Double period2;
     private StockSeriesType seriesType4;
     private String seriesType5;
+    private List<ATR> setAtr = new ArrayList<>();
 
     /**
      * Creates an Average True Range indicator on the chart.
@@ -559,15 +712,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", ((seriesType4 != null) ? seriesType4.generateJs() : "null"), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
                 js.setLength(0);
             }
         }
-        return new ATR(jsBase);
+        ATR item = new ATR("setAtr" + variableIndex);
+        setAtr.add(item);
+        return item;
+    }
+    private String generateJSsetAtr() {
+        if (!setAtr.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ATR item : setAtr) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ATR> setAtr1 = new ArrayList<>();
 
     /**
      * Creates an Average True Range indicator on the chart.
@@ -601,13 +768,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", wrapQuotes(seriesType5), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
                 js.setLength(0);
             }
         }
-        return new ATR(jsBase);
+        ATR item = new ATR("setAtr1" + variableIndex);
+        setAtr1.add(item);
+        return item;
+    }
+    private String generateJSsetAtr1() {
+        if (!setAtr1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ATR item : setAtr1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping4;
@@ -619,6 +799,7 @@ public class StockScroller extends UiScroller {
     private String lowerSeriesType1;
     private StockSeriesType middleSeriesType;
     private String middleSeriesType1;
+    private List<BBands> setBbands = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands indicator on the scroller.
@@ -662,15 +843,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
-        return new BBands(jsBase);
+        BBands item = new BBands("setBbands" + variableIndex);
+        setBbands.add(item);
+        return item;
+    }
+    private String generateJSsetBbands() {
+        if (!setBbands.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setBbands) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBands> setBbands1 = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands indicator on the scroller.
@@ -714,15 +909,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
-        return new BBands(jsBase);
+        BBands item = new BBands("setBbands1" + variableIndex);
+        setBbands1.add(item);
+        return item;
+    }
+    private String generateJSsetBbands1() {
+        if (!setBbands1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setBbands1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBands> setBbands2 = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands indicator on the scroller.
@@ -766,15 +975,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
-        return new BBands(jsBase);
+        BBands item = new BBands("setBbands2" + variableIndex);
+        setBbands2.add(item);
+        return item;
+    }
+    private String generateJSsetBbands2() {
+        if (!setBbands2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setBbands2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBands> setBbands3 = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands indicator on the scroller.
@@ -818,15 +1041,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
-        return new BBands(jsBase);
+        BBands item = new BBands("setBbands3" + variableIndex);
+        setBbands3.add(item);
+        return item;
+    }
+    private String generateJSsetBbands3() {
+        if (!setBbands3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setBbands3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBands> setBbands4 = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands indicator on the scroller.
@@ -870,15 +1107,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
-        return new BBands(jsBase);
+        BBands item = new BBands("setBbands4" + variableIndex);
+        setBbands4.add(item);
+        return item;
+    }
+    private String generateJSsetBbands4() {
+        if (!setBbands4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setBbands4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBands> setBbands5 = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands indicator on the scroller.
@@ -922,15 +1173,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
-        return new BBands(jsBase);
+        BBands item = new BBands("setBbands5" + variableIndex);
+        setBbands5.add(item);
+        return item;
+    }
+    private String generateJSsetBbands5() {
+        if (!setBbands5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setBbands5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBands> setBbands6 = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands indicator on the scroller.
@@ -974,15 +1239,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
-        return new BBands(jsBase);
+        BBands item = new BBands("setBbands6" + variableIndex);
+        setBbands6.add(item);
+        return item;
+    }
+    private String generateJSsetBbands6() {
+        if (!setBbands6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setBbands6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBands> setBbands7 = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands indicator on the scroller.
@@ -1026,13 +1305,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
-        return new BBands(jsBase);
+        BBands item = new BBands("setBbands7" + variableIndex);
+        setBbands7.add(item);
+        return item;
+    }
+    private String generateJSsetBbands7() {
+        if (!setBbands7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setBbands7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping5;
@@ -1040,6 +1332,7 @@ public class StockScroller extends UiScroller {
     private Double deviation1;
     private StockSeriesType seriesType6;
     private String seriesType7;
+    private List<BBandsB> setBbandsB = new ArrayList<>();
 
     /**
      * Creates %B indicator on the scroller.
@@ -1084,15 +1377,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", ((seriesType6 != null) ? seriesType6.generateJs() : "null"), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
                 js.setLength(0);
             }
         }
-        return new BBandsB(jsBase);
+        BBandsB item = new BBandsB("setBbandsB" + variableIndex);
+        setBbandsB.add(item);
+        return item;
+    }
+    private String generateJSsetBbandsB() {
+        if (!setBbandsB.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBandsB item : setBbandsB) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBandsB> setBbandsB1 = new ArrayList<>();
 
     /**
      * Creates %B indicator on the scroller.
@@ -1137,13 +1444,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", wrapQuotes(seriesType7), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
                 js.setLength(0);
             }
         }
-        return new BBandsB(jsBase);
+        BBandsB item = new BBandsB("setBbandsB1" + variableIndex);
+        setBbandsB1.add(item);
+        return item;
+    }
+    private String generateJSsetBbandsB1() {
+        if (!setBbandsB1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBandsB item : setBbandsB1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping6;
@@ -1151,6 +1471,7 @@ public class StockScroller extends UiScroller {
     private Double deviation2;
     private StockSeriesType seriesType8;
     private String seriesType9;
+    private List<BBandsWidth> setBbandsWidth = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands Width indicator on the scroller.
@@ -1200,15 +1521,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", ((seriesType8 != null) ? seriesType8.generateJs() : "null"), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
                 js.setLength(0);
             }
         }
-        return new BBandsWidth(jsBase);
+        BBandsWidth item = new BBandsWidth("setBbandsWidth" + variableIndex);
+        setBbandsWidth.add(item);
+        return item;
+    }
+    private String generateJSsetBbandsWidth() {
+        if (!setBbandsWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBandsWidth item : setBbandsWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBandsWidth> setBbandsWidth1 = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands Width indicator on the scroller.
@@ -1258,13 +1593,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", wrapQuotes(seriesType9), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
                 js.setLength(0);
             }
         }
-        return new BBandsWidth(jsBase);
+        BBandsWidth item = new BBandsWidth("setBbandsWidth1" + variableIndex);
+        setBbandsWidth1.add(item);
+        return item;
+    }
+    private String generateJSsetBbandsWidth1() {
+        if (!setBbandsWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBandsWidth item : setBbandsWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping data4;
@@ -1273,6 +1621,7 @@ public class StockScroller extends UiScroller {
     private String data7;
     private String mappingSettings1;
     private String csvSettings1;
+    private List<ScrollerseriesCandlestick> setCandlestick = new ArrayList<>();
 
     /**
      * Creates and returns a new Candlestick series.
@@ -1305,15 +1654,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", ((data4 != null) ? data4.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesCandlestick(jsBase);
+        ScrollerseriesCandlestick item = new ScrollerseriesCandlestick("setCandlestick" + variableIndex);
+        setCandlestick.add(item);
+        return item;
+    }
+    private String generateJSsetCandlestick() {
+        if (!setCandlestick.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesCandlestick item : setCandlestick) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesCandlestick> setCandlestick1 = new ArrayList<>();
 
     /**
      * Creates and returns a new Candlestick series.
@@ -1346,15 +1709,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", ((data5 != null) ? data5.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesCandlestick(jsBase);
+        ScrollerseriesCandlestick item = new ScrollerseriesCandlestick("setCandlestick1" + variableIndex);
+        setCandlestick1.add(item);
+        return item;
+    }
+    private String generateJSsetCandlestick1() {
+        if (!setCandlestick1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesCandlestick item : setCandlestick1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesCandlestick> setCandlestick2 = new ArrayList<>();
 
     /**
      * Creates and returns a new Candlestick series.
@@ -1387,19 +1764,33 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", wrapQuotes(data6), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesCandlestick(jsBase);
+        ScrollerseriesCandlestick item = new ScrollerseriesCandlestick("setCandlestick2" + variableIndex);
+        setCandlestick2.add(item);
+        return item;
+    }
+    private String generateJSsetCandlestick2() {
+        if (!setCandlestick2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesCandlestick item : setCandlestick2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping7;
     private Double period6;
     private StockSeriesType seriesType10;
     private String seriesType11;
+    private List<CCI> setCci = new ArrayList<>();
 
     /**
      * Creates a Commodity Channel Index indicator on the scroller.
@@ -1447,15 +1838,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", ((seriesType10 != null) ? seriesType10.generateJs() : "null"), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
                 js.setLength(0);
             }
         }
-        return new CCI(jsBase);
+        CCI item = new CCI("setCci" + variableIndex);
+        setCci.add(item);
+        return item;
+    }
+    private String generateJSsetCci() {
+        if (!setCci.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CCI item : setCci) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CCI> setCci1 = new ArrayList<>();
 
     /**
      * Creates a Commodity Channel Index indicator on the scroller.
@@ -1503,13 +1908,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", wrapQuotes(seriesType11), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
                 js.setLength(0);
             }
         }
-        return new CCI(jsBase);
+        CCI item = new CCI("setCci1" + variableIndex);
+        setCci1.add(item);
+        return item;
+    }
+    private String generateJSsetCci1() {
+        if (!setCci1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CCI item : setCci1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping8;
@@ -1518,6 +1936,7 @@ public class StockScroller extends UiScroller {
     private String maType;
     private StockSeriesType seriesType12;
     private String seriesType13;
+    private List<CHO> setCho = new ArrayList<>();
 
     /**
      * Creates a Chaikin Oscillator indicator on the chart.
@@ -1570,15 +1989,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s)", ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType)));
                 js.setLength(0);
             }
         }
-        return new CHO(jsBase);
+        CHO item = new CHO("setCho" + variableIndex);
+        setCho.add(item);
+        return item;
+    }
+    private String generateJSsetCho() {
+        if (!setCho.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CHO item : setCho) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CHO> setCho1 = new ArrayList<>();
 
     /**
      * Creates a Chaikin Oscillator indicator on the chart.
@@ -1631,19 +2064,33 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s)", wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType)));
                 js.setLength(0);
             }
         }
-        return new CHO(jsBase);
+        CHO item = new CHO("setCho1" + variableIndex);
+        setCho1.add(item);
+        return item;
+    }
+    private String generateJSsetCho1() {
+        if (!setCho1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CHO item : setCho1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping9;
     private Double period7;
     private StockSeriesType seriesType14;
     private String seriesType15;
+    private List<CMF> setCmf = new ArrayList<>();
 
     /**
      * Creates a Chaikin Money Flow indicator on the chart.
@@ -1698,15 +2145,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", ((seriesType14 != null) ? seriesType14.generateJs() : "null"), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
                 js.setLength(0);
             }
         }
-        return new CMF(jsBase);
+        CMF item = new CMF("setCmf" + variableIndex);
+        setCmf.add(item);
+        return item;
+    }
+    private String generateJSsetCmf() {
+        if (!setCmf.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CMF item : setCmf) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CMF> setCmf1 = new ArrayList<>();
 
     /**
      * Creates a Chaikin Money Flow indicator on the chart.
@@ -1761,13 +2222,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", wrapQuotes(seriesType15), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
                 js.setLength(0);
             }
         }
-        return new CMF(jsBase);
+        CMF item = new CMF("setCmf1" + variableIndex);
+        setCmf1.add(item);
+        return item;
+    }
+    private String generateJSsetCmf1() {
+        if (!setCmf1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CMF item : setCmf1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping data8;
@@ -1776,6 +2250,7 @@ public class StockScroller extends UiScroller {
     private String data11;
     private String mappingSettings2;
     private String csvSettings2;
+    private List<ScrollerseriesColumn> setColumn = new ArrayList<>();
 
     /**
      * Creates and returns a new column series.
@@ -1814,15 +2289,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", ((data8 != null) ? data8.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesColumn(jsBase);
+        ScrollerseriesColumn item = new ScrollerseriesColumn("setColumn" + variableIndex);
+        setColumn.add(item);
+        return item;
+    }
+    private String generateJSsetColumn() {
+        if (!setColumn.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesColumn item : setColumn) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesColumn> setColumn1 = new ArrayList<>();
 
     /**
      * Creates and returns a new column series.
@@ -1861,15 +2350,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", ((data9 != null) ? data9.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesColumn(jsBase);
+        ScrollerseriesColumn item = new ScrollerseriesColumn("setColumn1" + variableIndex);
+        setColumn1.add(item);
+        return item;
+    }
+    private String generateJSsetColumn1() {
+        if (!setColumn1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesColumn item : setColumn1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesColumn> setColumn2 = new ArrayList<>();
 
     /**
      * Creates and returns a new column series.
@@ -1908,17 +2411,31 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", wrapQuotes(data10), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesColumn(jsBase);
+        ScrollerseriesColumn item = new ScrollerseriesColumn("setColumn2" + variableIndex);
+        setColumn2.add(item);
+        return item;
+    }
+    private String generateJSsetColumn2() {
+        if (!setColumn2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesColumn item : setColumn2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private StockSeriesType defaultSeriesType;
     private String defaultSeriesType1;
+    private List<StockScroller> setDefaultSeriesType = new ArrayList<>();
 
     /**
      * Setter for the stock scroller default series type.<br/>
@@ -1945,7 +2462,18 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetDefaultSeriesType() {
+        if (!setDefaultSeriesType.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setDefaultSeriesType) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockScroller> setDefaultSeriesType1 = new ArrayList<>();
 
     /**
      * Setter for the stock scroller default series type.<br/>
@@ -1972,6 +2500,16 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetDefaultSeriesType1() {
+        if (!setDefaultSeriesType1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setDefaultSeriesType1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TableMapping mapping10;
     private Double period8;
@@ -1983,6 +2521,7 @@ public class StockScroller extends UiScroller {
     private String ndiSeriesType1;
     private StockSeriesType adxSeriesType;
     private String adxSeriesType1;
+    private List<DMI> setDmi = new ArrayList<>();
 
     /**
      * Creates a Directional Movement Index indicator on the chart.
@@ -2039,15 +2578,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
-        return new DMI(jsBase);
+        DMI item = new DMI("setDmi" + variableIndex);
+        setDmi.add(item);
+        return item;
+    }
+    private String generateJSsetDmi() {
+        if (!setDmi.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : setDmi) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<DMI> setDmi1 = new ArrayList<>();
 
     /**
      * Creates a Directional Movement Index indicator on the chart.
@@ -2104,15 +2657,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
-        return new DMI(jsBase);
+        DMI item = new DMI("setDmi1" + variableIndex);
+        setDmi1.add(item);
+        return item;
+    }
+    private String generateJSsetDmi1() {
+        if (!setDmi1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : setDmi1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<DMI> setDmi2 = new ArrayList<>();
 
     /**
      * Creates a Directional Movement Index indicator on the chart.
@@ -2169,15 +2736,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
-        return new DMI(jsBase);
+        DMI item = new DMI("setDmi2" + variableIndex);
+        setDmi2.add(item);
+        return item;
+    }
+    private String generateJSsetDmi2() {
+        if (!setDmi2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : setDmi2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<DMI> setDmi3 = new ArrayList<>();
 
     /**
      * Creates a Directional Movement Index indicator on the chart.
@@ -2234,15 +2815,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
-        return new DMI(jsBase);
+        DMI item = new DMI("setDmi3" + variableIndex);
+        setDmi3.add(item);
+        return item;
+    }
+    private String generateJSsetDmi3() {
+        if (!setDmi3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : setDmi3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<DMI> setDmi4 = new ArrayList<>();
 
     /**
      * Creates a Directional Movement Index indicator on the chart.
@@ -2299,15 +2894,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
-        return new DMI(jsBase);
+        DMI item = new DMI("setDmi4" + variableIndex);
+        setDmi4.add(item);
+        return item;
+    }
+    private String generateJSsetDmi4() {
+        if (!setDmi4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : setDmi4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<DMI> setDmi5 = new ArrayList<>();
 
     /**
      * Creates a Directional Movement Index indicator on the chart.
@@ -2364,15 +2973,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
-        return new DMI(jsBase);
+        DMI item = new DMI("setDmi5" + variableIndex);
+        setDmi5.add(item);
+        return item;
+    }
+    private String generateJSsetDmi5() {
+        if (!setDmi5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : setDmi5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<DMI> setDmi6 = new ArrayList<>();
 
     /**
      * Creates a Directional Movement Index indicator on the chart.
@@ -2429,15 +3052,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
-        return new DMI(jsBase);
+        DMI item = new DMI("setDmi6" + variableIndex);
+        setDmi6.add(item);
+        return item;
+    }
+    private String generateJSsetDmi6() {
+        if (!setDmi6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : setDmi6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<DMI> setDmi7 = new ArrayList<>();
 
     /**
      * Creates a Directional Movement Index indicator on the chart.
@@ -2494,19 +3131,33 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
-        return new DMI(jsBase);
+        DMI item = new DMI("setDmi7" + variableIndex);
+        setDmi7.add(item);
+        return item;
+    }
+    private String generateJSsetDmi7() {
+        if (!setDmi7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : setDmi7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping11;
     private Double period9;
     private StockSeriesType seriesType16;
     private String seriesType17;
+    private List<EMA> setEma = new ArrayList<>();
 
     /**
      * Creates EMA (Exponential Moving Average) indicator on the scroller.
@@ -2567,15 +3218,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", ((seriesType16 != null) ? seriesType16.generateJs() : "null"), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
                 js.setLength(0);
             }
         }
-        return new EMA(jsBase);
+        EMA item = new EMA("setEma" + variableIndex);
+        setEma.add(item);
+        return item;
+    }
+    private String generateJSsetEma() {
+        if (!setEma.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (EMA item : setEma) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<EMA> setEma1 = new ArrayList<>();
 
     /**
      * Creates EMA (Exponential Moving Average) indicator on the scroller.
@@ -2636,13 +3301,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", wrapQuotes(seriesType17), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
                 js.setLength(0);
             }
         }
-        return new EMA(jsBase);
+        EMA item = new EMA("setEma1" + variableIndex);
+        setEma1.add(item);
+        return item;
+    }
+    private String generateJSsetEma1() {
+        if (!setEma1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (EMA item : setEma1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private List<ScrollerseriesBase> getGetSeries = new ArrayList<>();
@@ -2693,6 +3371,7 @@ public class StockScroller extends UiScroller {
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
+    private List<StockScroller> setHatchFillPalette = new ArrayList<>();
 
     /**
      * Hatch fill palette settings.
@@ -2719,7 +3398,18 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetHatchFillPalette() {
+        if (!setHatchFillPalette.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setHatchFillPalette) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockScroller> setHatchFillPalette1 = new ArrayList<>();
 
     /**
      * Hatch fill palette settings.
@@ -2746,7 +3436,18 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetHatchFillPalette1() {
+        if (!setHatchFillPalette1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setHatchFillPalette1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockScroller> setHatchFillPalette2 = new ArrayList<>();
 
     /**
      * Hatch fill palette settings.
@@ -2771,6 +3472,16 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetHatchFillPalette2() {
+        if (!setHatchFillPalette2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setHatchFillPalette2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TableMapping data12;
     private DataTable data13;
@@ -2778,6 +3489,7 @@ public class StockScroller extends UiScroller {
     private String data15;
     private String mappingSettings3;
     private String csvSettings3;
+    private List<ScrollerseriesHilo> setHilo = new ArrayList<>();
 
     /**
      * Creates and returns a new HiLo series.
@@ -2822,15 +3534,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", ((data12 != null) ? data12.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesHilo(jsBase);
+        ScrollerseriesHilo item = new ScrollerseriesHilo("setHilo" + variableIndex);
+        setHilo.add(item);
+        return item;
+    }
+    private String generateJSsetHilo() {
+        if (!setHilo.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesHilo item : setHilo) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesHilo> setHilo1 = new ArrayList<>();
 
     /**
      * Creates and returns a new HiLo series.
@@ -2875,15 +3601,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", ((data13 != null) ? data13.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesHilo(jsBase);
+        ScrollerseriesHilo item = new ScrollerseriesHilo("setHilo1" + variableIndex);
+        setHilo1.add(item);
+        return item;
+    }
+    private String generateJSsetHilo1() {
+        if (!setHilo1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesHilo item : setHilo1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesHilo> setHilo2 = new ArrayList<>();
 
     /**
      * Creates and returns a new HiLo series.
@@ -2928,13 +3668,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", wrapQuotes(data14), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesHilo(jsBase);
+        ScrollerseriesHilo item = new ScrollerseriesHilo("setHilo2" + variableIndex);
+        setHilo2.add(item);
+        return item;
+    }
+    private String generateJSsetHilo2() {
+        if (!setHilo2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesHilo item : setHilo2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping data16;
@@ -2943,6 +3696,7 @@ public class StockScroller extends UiScroller {
     private String data19;
     private String mappingSettings4;
     private String csvSettings4;
+    private List<ScrollerseriesJumpLine> setJumpLine = new ArrayList<>();
 
     /**
      * Creates and returns a new Jump Line series.
@@ -2993,15 +3747,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", ((data16 != null) ? data16.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesJumpLine(jsBase);
+        ScrollerseriesJumpLine item = new ScrollerseriesJumpLine("setJumpLine" + variableIndex);
+        setJumpLine.add(item);
+        return item;
+    }
+    private String generateJSsetJumpLine() {
+        if (!setJumpLine.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesJumpLine item : setJumpLine) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesJumpLine> setJumpLine1 = new ArrayList<>();
 
     /**
      * Creates and returns a new Jump Line series.
@@ -3052,15 +3820,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", ((data17 != null) ? data17.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesJumpLine(jsBase);
+        ScrollerseriesJumpLine item = new ScrollerseriesJumpLine("setJumpLine1" + variableIndex);
+        setJumpLine1.add(item);
+        return item;
+    }
+    private String generateJSsetJumpLine1() {
+        if (!setJumpLine1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesJumpLine item : setJumpLine1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesJumpLine> setJumpLine2 = new ArrayList<>();
 
     /**
      * Creates and returns a new Jump Line series.
@@ -3111,13 +3893,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", wrapQuotes(data18), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesJumpLine(jsBase);
+        ScrollerseriesJumpLine item = new ScrollerseriesJumpLine("setJumpLine2" + variableIndex);
+        setJumpLine2.add(item);
+        return item;
+    }
+    private String generateJSsetJumpLine2() {
+        if (!setJumpLine2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesJumpLine item : setJumpLine2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping12;
@@ -3136,6 +3931,7 @@ public class StockScroller extends UiScroller {
     private String dSeriesType1;
     private StockSeriesType jSeriesType;
     private String jSeriesType1;
+    private List<KDJ> setKdj = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -3198,15 +3994,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj" + variableIndex);
+        setKdj.add(item);
+        return item;
+    }
+    private String generateJSsetKdj() {
+        if (!setKdj.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj1 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -3269,15 +4079,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj1" + variableIndex);
+        setKdj1.add(item);
+        return item;
+    }
+    private String generateJSsetKdj1() {
+        if (!setKdj1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj2 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -3340,15 +4164,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj2" + variableIndex);
+        setKdj2.add(item);
+        return item;
+    }
+    private String generateJSsetKdj2() {
+        if (!setKdj2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj3 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -3411,15 +4249,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj3" + variableIndex);
+        setKdj3.add(item);
+        return item;
+    }
+    private String generateJSsetKdj3() {
+        if (!setKdj3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj4 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -3482,15 +4334,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj4" + variableIndex);
+        setKdj4.add(item);
+        return item;
+    }
+    private String generateJSsetKdj4() {
+        if (!setKdj4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj5 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -3553,15 +4419,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj5" + variableIndex);
+        setKdj5.add(item);
+        return item;
+    }
+    private String generateJSsetKdj5() {
+        if (!setKdj5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj6 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -3624,15 +4504,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj6" + variableIndex);
+        setKdj6.add(item);
+        return item;
+    }
+    private String generateJSsetKdj6() {
+        if (!setKdj6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj7 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -3695,15 +4589,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj7" + variableIndex);
+        setKdj7.add(item);
+        return item;
+    }
+    private String generateJSsetKdj7() {
+        if (!setKdj7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj8 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -3766,15 +4674,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj8" + variableIndex);
+        setKdj8.add(item);
+        return item;
+    }
+    private String generateJSsetKdj8() {
+        if (!setKdj8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj9 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -3837,15 +4759,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj9" + variableIndex);
+        setKdj9.add(item);
+        return item;
+    }
+    private String generateJSsetKdj9() {
+        if (!setKdj9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj10 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -3908,15 +4844,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj10" + variableIndex);
+        setKdj10.add(item);
+        return item;
+    }
+    private String generateJSsetKdj10() {
+        if (!setKdj10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj11 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -3979,15 +4929,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj11" + variableIndex);
+        setKdj11.add(item);
+        return item;
+    }
+    private String generateJSsetKdj11() {
+        if (!setKdj11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj12 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -4050,15 +5014,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj12" + variableIndex);
+        setKdj12.add(item);
+        return item;
+    }
+    private String generateJSsetKdj12() {
+        if (!setKdj12.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj12) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj13 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -4121,15 +5099,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj13" + variableIndex);
+        setKdj13.add(item);
+        return item;
+    }
+    private String generateJSsetKdj13() {
+        if (!setKdj13.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj13) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj14 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -4192,15 +5184,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj14" + variableIndex);
+        setKdj14.add(item);
+        return item;
+    }
+    private String generateJSsetKdj14() {
+        if (!setKdj14.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj14) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj15 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -4263,15 +5269,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj15" + variableIndex);
+        setKdj15.add(item);
+        return item;
+    }
+    private String generateJSsetKdj15() {
+        if (!setKdj15.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj15) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj16 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -4334,15 +5354,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj16" + variableIndex);
+        setKdj16.add(item);
+        return item;
+    }
+    private String generateJSsetKdj16() {
+        if (!setKdj16.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj16) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj17 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -4405,15 +5439,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj17" + variableIndex);
+        setKdj17.add(item);
+        return item;
+    }
+    private String generateJSsetKdj17() {
+        if (!setKdj17.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj17) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj18 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -4476,15 +5524,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj18" + variableIndex);
+        setKdj18.add(item);
+        return item;
+    }
+    private String generateJSsetKdj18() {
+        if (!setKdj18.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj18) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj19 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -4547,15 +5609,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj19" + variableIndex);
+        setKdj19.add(item);
+        return item;
+    }
+    private String generateJSsetKdj19() {
+        if (!setKdj19.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj19) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj20 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -4618,15 +5694,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj20" + variableIndex);
+        setKdj20.add(item);
+        return item;
+    }
+    private String generateJSsetKdj20() {
+        if (!setKdj20.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj20) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj21 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -4689,15 +5779,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj21" + variableIndex);
+        setKdj21.add(item);
+        return item;
+    }
+    private String generateJSsetKdj21() {
+        if (!setKdj21.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj21) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj22 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -4760,15 +5864,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj22" + variableIndex);
+        setKdj22.add(item);
+        return item;
+    }
+    private String generateJSsetKdj22() {
+        if (!setKdj22.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj22) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj23 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -4831,15 +5949,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj23" + variableIndex);
+        setKdj23.add(item);
+        return item;
+    }
+    private String generateJSsetKdj23() {
+        if (!setKdj23.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj23) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj24 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -4902,15 +6034,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj24" + variableIndex);
+        setKdj24.add(item);
+        return item;
+    }
+    private String generateJSsetKdj24() {
+        if (!setKdj24.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj24) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj25 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -4973,15 +6119,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj25" + variableIndex);
+        setKdj25.add(item);
+        return item;
+    }
+    private String generateJSsetKdj25() {
+        if (!setKdj25.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj25) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj26 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -5044,15 +6204,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj26" + variableIndex);
+        setKdj26.add(item);
+        return item;
+    }
+    private String generateJSsetKdj26() {
+        if (!setKdj26.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj26) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj27 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -5115,15 +6289,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj27" + variableIndex);
+        setKdj27.add(item);
+        return item;
+    }
+    private String generateJSsetKdj27() {
+        if (!setKdj27.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj27) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj28 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -5186,15 +6374,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj28" + variableIndex);
+        setKdj28.add(item);
+        return item;
+    }
+    private String generateJSsetKdj28() {
+        if (!setKdj28.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj28) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj29 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -5257,15 +6459,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj29" + variableIndex);
+        setKdj29.add(item);
+        return item;
+    }
+    private String generateJSsetKdj29() {
+        if (!setKdj29.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj29) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj30 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -5328,15 +6544,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj30" + variableIndex);
+        setKdj30.add(item);
+        return item;
+    }
+    private String generateJSsetKdj30() {
+        if (!setKdj30.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj30) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj31 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the scroller.
@@ -5399,13 +6629,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj31" + variableIndex);
+        setKdj31.add(item);
+        return item;
+    }
+    private String generateJSsetKdj31() {
+        if (!setKdj31.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj31) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping data20;
@@ -5414,6 +6657,7 @@ public class StockScroller extends UiScroller {
     private String data23;
     private String mappingSettings5;
     private String csvSettings5;
+    private List<ScrollerseriesLine> setLine = new ArrayList<>();
 
     /**
      * Creates and returns a new line series.
@@ -5470,15 +6714,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", ((data20 != null) ? data20.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesLine(jsBase);
+        ScrollerseriesLine item = new ScrollerseriesLine("setLine" + variableIndex);
+        setLine.add(item);
+        return item;
+    }
+    private String generateJSsetLine() {
+        if (!setLine.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesLine item : setLine) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesLine> setLine1 = new ArrayList<>();
 
     /**
      * Creates and returns a new line series.
@@ -5535,15 +6793,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", ((data21 != null) ? data21.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesLine(jsBase);
+        ScrollerseriesLine item = new ScrollerseriesLine("setLine1" + variableIndex);
+        setLine1.add(item);
+        return item;
+    }
+    private String generateJSsetLine1() {
+        if (!setLine1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesLine item : setLine1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesLine> setLine2 = new ArrayList<>();
 
     /**
      * Creates and returns a new line series.
@@ -5600,13 +6872,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", wrapQuotes(data22), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesLine(jsBase);
+        ScrollerseriesLine item = new ScrollerseriesLine("setLine2" + variableIndex);
+        setLine2.add(item);
+        return item;
+    }
+    private String generateJSsetLine2() {
+        if (!setLine2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesLine item : setLine2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping13;
@@ -5619,6 +6904,7 @@ public class StockScroller extends UiScroller {
     private String signalSeriesType1;
     private StockSeriesType histogramSeriesType;
     private String histogramSeriesType1;
+    private List<MACD> setMacd = new ArrayList<>();
 
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
@@ -5676,15 +6962,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
-        return new MACD(jsBase);
+        MACD item = new MACD("setMacd" + variableIndex);
+        setMacd.add(item);
+        return item;
+    }
+    private String generateJSsetMacd() {
+        if (!setMacd.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MACD item : setMacd) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<MACD> setMacd1 = new ArrayList<>();
 
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
@@ -5742,15 +7042,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
-        return new MACD(jsBase);
+        MACD item = new MACD("setMacd1" + variableIndex);
+        setMacd1.add(item);
+        return item;
+    }
+    private String generateJSsetMacd1() {
+        if (!setMacd1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MACD item : setMacd1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<MACD> setMacd2 = new ArrayList<>();
 
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
@@ -5808,15 +7122,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
-        return new MACD(jsBase);
+        MACD item = new MACD("setMacd2" + variableIndex);
+        setMacd2.add(item);
+        return item;
+    }
+    private String generateJSsetMacd2() {
+        if (!setMacd2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MACD item : setMacd2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<MACD> setMacd3 = new ArrayList<>();
 
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
@@ -5874,15 +7202,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
-        return new MACD(jsBase);
+        MACD item = new MACD("setMacd3" + variableIndex);
+        setMacd3.add(item);
+        return item;
+    }
+    private String generateJSsetMacd3() {
+        if (!setMacd3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MACD item : setMacd3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<MACD> setMacd4 = new ArrayList<>();
 
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
@@ -5940,15 +7282,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
-        return new MACD(jsBase);
+        MACD item = new MACD("setMacd4" + variableIndex);
+        setMacd4.add(item);
+        return item;
+    }
+    private String generateJSsetMacd4() {
+        if (!setMacd4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MACD item : setMacd4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<MACD> setMacd5 = new ArrayList<>();
 
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
@@ -6006,15 +7362,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
-        return new MACD(jsBase);
+        MACD item = new MACD("setMacd5" + variableIndex);
+        setMacd5.add(item);
+        return item;
+    }
+    private String generateJSsetMacd5() {
+        if (!setMacd5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MACD item : setMacd5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<MACD> setMacd6 = new ArrayList<>();
 
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
@@ -6072,15 +7442,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
-        return new MACD(jsBase);
+        MACD item = new MACD("setMacd6" + variableIndex);
+        setMacd6.add(item);
+        return item;
+    }
+    private String generateJSsetMacd6() {
+        if (!setMacd6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MACD item : setMacd6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<MACD> setMacd7 = new ArrayList<>();
 
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
@@ -6138,13 +7522,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
-        return new MACD(jsBase);
+        MACD item = new MACD("setMacd7" + variableIndex);
+        setMacd7.add(item);
+        return item;
+    }
+    private String generateJSsetMacd7() {
+        if (!setMacd7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MACD item : setMacd7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping data24;
@@ -6153,6 +7550,7 @@ public class StockScroller extends UiScroller {
     private String data27;
     private String mappingSettings6;
     private String csvSettings6;
+    private List<ScrollerseriesMarker> setMarker = new ArrayList<>();
 
     /**
      * Creates and returns a new Marker series.
@@ -6215,15 +7613,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", ((data24 != null) ? data24.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesMarker(jsBase);
+        ScrollerseriesMarker item = new ScrollerseriesMarker("setMarker" + variableIndex);
+        setMarker.add(item);
+        return item;
+    }
+    private String generateJSsetMarker() {
+        if (!setMarker.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesMarker> setMarker1 = new ArrayList<>();
 
     /**
      * Creates and returns a new Marker series.
@@ -6286,15 +7698,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", ((data25 != null) ? data25.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesMarker(jsBase);
+        ScrollerseriesMarker item = new ScrollerseriesMarker("setMarker1" + variableIndex);
+        setMarker1.add(item);
+        return item;
+    }
+    private String generateJSsetMarker1() {
+        if (!setMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesMarker> setMarker2 = new ArrayList<>();
 
     /**
      * Creates and returns a new Marker series.
@@ -6357,19 +7783,33 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", wrapQuotes(data26), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesMarker(jsBase);
+        ScrollerseriesMarker item = new ScrollerseriesMarker("setMarker2" + variableIndex);
+        setMarker2.add(item);
+        return item;
+    }
+    private String generateJSsetMarker2() {
+        if (!setMarker2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setMarker2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping14;
     private Double period10;
     private StockSeriesType seriesType18;
     private String seriesType19;
+    private List<MMA> setMma = new ArrayList<>();
 
     /**
      * Creates MMA (Modified Moving Average) indicator on the scroller.
@@ -6436,15 +7876,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", ((seriesType18 != null) ? seriesType18.generateJs() : "null"), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
                 js.setLength(0);
             }
         }
-        return new MMA(jsBase);
+        MMA item = new MMA("setMma" + variableIndex);
+        setMma.add(item);
+        return item;
+    }
+    private String generateJSsetMma() {
+        if (!setMma.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MMA item : setMma) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<MMA> setMma1 = new ArrayList<>();
 
     /**
      * Creates MMA (Modified Moving Average) indicator on the scroller.
@@ -6511,13 +7965,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", wrapQuotes(seriesType19), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
                 js.setLength(0);
             }
         }
-        return new MMA(jsBase);
+        MMA item = new MMA("setMma1" + variableIndex);
+        setMma1.add(item);
+        return item;
+    }
+    private String generateJSsetMma1() {
+        if (!setMma1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MMA item : setMma1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping data28;
@@ -6526,6 +7993,7 @@ public class StockScroller extends UiScroller {
     private String data31;
     private String mappingSettings7;
     private String csvSettings7;
+    private List<ScrollerseriesOHLC> setOhlc = new ArrayList<>();
 
     /**
      * Creates and returns a new OHLC series.
@@ -6594,15 +8062,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", ((data28 != null) ? data28.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesOHLC(jsBase);
+        ScrollerseriesOHLC item = new ScrollerseriesOHLC("setOhlc" + variableIndex);
+        setOhlc.add(item);
+        return item;
+    }
+    private String generateJSsetOhlc() {
+        if (!setOhlc.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesOHLC item : setOhlc) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesOHLC> setOhlc1 = new ArrayList<>();
 
     /**
      * Creates and returns a new OHLC series.
@@ -6671,15 +8153,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", ((data29 != null) ? data29.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesOHLC(jsBase);
+        ScrollerseriesOHLC item = new ScrollerseriesOHLC("setOhlc1" + variableIndex);
+        setOhlc1.add(item);
+        return item;
+    }
+    private String generateJSsetOhlc1() {
+        if (!setOhlc1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesOHLC item : setOhlc1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesOHLC> setOhlc2 = new ArrayList<>();
 
     /**
      * Creates and returns a new OHLC series.
@@ -6748,13 +8244,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", wrapQuotes(data30), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesOHLC(jsBase);
+        ScrollerseriesOHLC item = new ScrollerseriesOHLC("setOhlc2" + variableIndex);
+        setOhlc2.add(item);
+        return item;
+    }
+    private String generateJSsetOhlc2() {
+        if (!setOhlc2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesOHLC item : setOhlc2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private RangeColors getPalette;
@@ -6773,6 +8282,7 @@ public class StockScroller extends UiScroller {
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
+    private List<StockScroller> setPalette = new ArrayList<>();
 
     /**
      * Setter for the scroller colors palette.
@@ -6798,7 +8308,18 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetPalette() {
+        if (!setPalette.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setPalette) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockScroller> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for the scroller colors palette.
@@ -6824,7 +8345,18 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetPalette1() {
+        if (!setPalette1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setPalette1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockScroller> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for the scroller colors palette.
@@ -6852,7 +8384,18 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetPalette2() {
+        if (!setPalette2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setPalette2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockScroller> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for the scroller colors palette.
@@ -6880,6 +8423,16 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetPalette3() {
+        if (!setPalette3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setPalette3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TableMapping data32;
     private DataTable data33;
@@ -6887,6 +8440,7 @@ public class StockScroller extends UiScroller {
     private String data35;
     private String mappingSettings8;
     private String csvSettings8;
+    private List<ScrollerseriesRangeArea> setRangeArea = new ArrayList<>();
 
     /**
      * Creates and returns a new Range Area series.
@@ -6961,15 +8515,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", ((data32 != null) ? data32.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesRangeArea(jsBase);
+        ScrollerseriesRangeArea item = new ScrollerseriesRangeArea("setRangeArea" + variableIndex);
+        setRangeArea.add(item);
+        return item;
+    }
+    private String generateJSsetRangeArea() {
+        if (!setRangeArea.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setRangeArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesRangeArea> setRangeArea1 = new ArrayList<>();
 
     /**
      * Creates and returns a new Range Area series.
@@ -7044,15 +8612,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", ((data33 != null) ? data33.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesRangeArea(jsBase);
+        ScrollerseriesRangeArea item = new ScrollerseriesRangeArea("setRangeArea1" + variableIndex);
+        setRangeArea1.add(item);
+        return item;
+    }
+    private String generateJSsetRangeArea1() {
+        if (!setRangeArea1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setRangeArea1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesRangeArea> setRangeArea2 = new ArrayList<>();
 
     /**
      * Creates and returns a new Range Area series.
@@ -7127,13 +8709,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", wrapQuotes(data34), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesRangeArea(jsBase);
+        ScrollerseriesRangeArea item = new ScrollerseriesRangeArea("setRangeArea2" + variableIndex);
+        setRangeArea2.add(item);
+        return item;
+    }
+    private String generateJSsetRangeArea2() {
+        if (!setRangeArea2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setRangeArea2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping data36;
@@ -7142,6 +8737,7 @@ public class StockScroller extends UiScroller {
     private String data39;
     private String mappingSettings9;
     private String csvSettings9;
+    private List<ScrollerseriesRangeColumn> setRangeColumn = new ArrayList<>();
 
     /**
      * Creates and returns a new Range Column series.
@@ -7222,15 +8818,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", ((data36 != null) ? data36.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesRangeColumn(jsBase);
+        ScrollerseriesRangeColumn item = new ScrollerseriesRangeColumn("setRangeColumn" + variableIndex);
+        setRangeColumn.add(item);
+        return item;
+    }
+    private String generateJSsetRangeColumn() {
+        if (!setRangeColumn.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeColumn item : setRangeColumn) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesRangeColumn> setRangeColumn1 = new ArrayList<>();
 
     /**
      * Creates and returns a new Range Column series.
@@ -7311,15 +8921,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", ((data37 != null) ? data37.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesRangeColumn(jsBase);
+        ScrollerseriesRangeColumn item = new ScrollerseriesRangeColumn("setRangeColumn1" + variableIndex);
+        setRangeColumn1.add(item);
+        return item;
+    }
+    private String generateJSsetRangeColumn1() {
+        if (!setRangeColumn1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeColumn item : setRangeColumn1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesRangeColumn> setRangeColumn2 = new ArrayList<>();
 
     /**
      * Creates and returns a new Range Column series.
@@ -7400,13 +9024,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", wrapQuotes(data38), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesRangeColumn(jsBase);
+        ScrollerseriesRangeColumn item = new ScrollerseriesRangeColumn("setRangeColumn2" + variableIndex);
+        setRangeColumn2.add(item);
+        return item;
+    }
+    private String generateJSsetRangeColumn2() {
+        if (!setRangeColumn2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeColumn item : setRangeColumn2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping data40;
@@ -7415,6 +9052,7 @@ public class StockScroller extends UiScroller {
     private String data43;
     private String mappingSettings10;
     private String csvSettings10;
+    private List<ScrollerseriesRangeSplineArea> setRangeSplineArea = new ArrayList<>();
 
     /**
      * Creates and returns a new Range Spline Area series.
@@ -7501,15 +9139,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", ((data40 != null) ? data40.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesRangeSplineArea(jsBase);
+        ScrollerseriesRangeSplineArea item = new ScrollerseriesRangeSplineArea("setRangeSplineArea" + variableIndex);
+        setRangeSplineArea.add(item);
+        return item;
+    }
+    private String generateJSsetRangeSplineArea() {
+        if (!setRangeSplineArea.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeSplineArea item : setRangeSplineArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesRangeSplineArea> setRangeSplineArea1 = new ArrayList<>();
 
     /**
      * Creates and returns a new Range Spline Area series.
@@ -7596,15 +9248,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", ((data41 != null) ? data41.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesRangeSplineArea(jsBase);
+        ScrollerseriesRangeSplineArea item = new ScrollerseriesRangeSplineArea("setRangeSplineArea1" + variableIndex);
+        setRangeSplineArea1.add(item);
+        return item;
+    }
+    private String generateJSsetRangeSplineArea1() {
+        if (!setRangeSplineArea1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeSplineArea item : setRangeSplineArea1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesRangeSplineArea> setRangeSplineArea2 = new ArrayList<>();
 
     /**
      * Creates and returns a new Range Spline Area series.
@@ -7691,13 +9357,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", wrapQuotes(data42), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesRangeSplineArea(jsBase);
+        ScrollerseriesRangeSplineArea item = new ScrollerseriesRangeSplineArea("setRangeSplineArea2" + variableIndex);
+        setRangeSplineArea2.add(item);
+        return item;
+    }
+    private String generateJSsetRangeSplineArea2() {
+        if (!setRangeSplineArea2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeSplineArea item : setRangeSplineArea2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping data44;
@@ -7706,6 +9385,7 @@ public class StockScroller extends UiScroller {
     private String data47;
     private String mappingSettings11;
     private String csvSettings11;
+    private List<ScrollerseriesRangeStepArea> setRangeStepArea = new ArrayList<>();
 
     /**
      * Creates and returns a new rangeStepArea series.
@@ -7798,15 +9478,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", ((data44 != null) ? data44.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesRangeStepArea(jsBase);
+        ScrollerseriesRangeStepArea item = new ScrollerseriesRangeStepArea("setRangeStepArea" + variableIndex);
+        setRangeStepArea.add(item);
+        return item;
+    }
+    private String generateJSsetRangeStepArea() {
+        if (!setRangeStepArea.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeStepArea item : setRangeStepArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesRangeStepArea> setRangeStepArea1 = new ArrayList<>();
 
     /**
      * Creates and returns a new rangeStepArea series.
@@ -7899,15 +9593,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", ((data45 != null) ? data45.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesRangeStepArea(jsBase);
+        ScrollerseriesRangeStepArea item = new ScrollerseriesRangeStepArea("setRangeStepArea1" + variableIndex);
+        setRangeStepArea1.add(item);
+        return item;
+    }
+    private String generateJSsetRangeStepArea1() {
+        if (!setRangeStepArea1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeStepArea item : setRangeStepArea1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesRangeStepArea> setRangeStepArea2 = new ArrayList<>();
 
     /**
      * Creates and returns a new rangeStepArea series.
@@ -8000,17 +9708,31 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", wrapQuotes(data46), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesRangeStepArea(jsBase);
+        ScrollerseriesRangeStepArea item = new ScrollerseriesRangeStepArea("setRangeStepArea2" + variableIndex);
+        setRangeStepArea2.add(item);
+        return item;
+    }
+    private String generateJSsetRangeStepArea2() {
+        if (!setRangeStepArea2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeStepArea item : setRangeStepArea2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double id;
     private String id1;
+    private List<StockScroller> setRemoveSeries = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -8036,7 +9758,18 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetRemoveSeries() {
+        if (!setRemoveSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setRemoveSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockScroller> setRemoveSeries1 = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -8062,8 +9795,19 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetRemoveSeries1() {
+        if (!setRemoveSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setRemoveSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index;
+    private List<StockScroller> setRemoveSeriesAt = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its index.
@@ -8086,11 +9830,22 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetRemoveSeriesAt() {
+        if (!setRemoveSeriesAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setRemoveSeriesAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TableMapping mapping15;
     private Double period11;
     private StockSeriesType seriesType20;
     private String seriesType21;
+    private List<RoC> setRoc = new ArrayList<>();
 
     /**
      * Creates RoC (Rate of Change) indicator on the scroller.
@@ -8161,15 +9916,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", ((seriesType20 != null) ? seriesType20.generateJs() : "null"), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
                 js.setLength(0);
             }
         }
-        return new RoC(jsBase);
+        RoC item = new RoC("setRoc" + variableIndex);
+        setRoc.add(item);
+        return item;
+    }
+    private String generateJSsetRoc() {
+        if (!setRoc.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RoC item : setRoc) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<RoC> setRoc1 = new ArrayList<>();
 
     /**
      * Creates RoC (Rate of Change) indicator on the scroller.
@@ -8240,19 +10009,33 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", wrapQuotes(seriesType21), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
                 js.setLength(0);
             }
         }
-        return new RoC(jsBase);
+        RoC item = new RoC("setRoc1" + variableIndex);
+        setRoc1.add(item);
+        return item;
+    }
+    private String generateJSsetRoc1() {
+        if (!setRoc1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RoC item : setRoc1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping16;
     private Double period12;
     private StockSeriesType seriesType22;
     private String seriesType23;
+    private List<RSI> setRsi = new ArrayList<>();
 
     /**
      * Creates RSI (Relative Strength Index) indicator on the scroller.
@@ -8327,15 +10110,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", ((seriesType22 != null) ? seriesType22.generateJs() : "null"), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
                 js.setLength(0);
             }
         }
-        return new RSI(jsBase);
+        RSI item = new RSI("setRsi" + variableIndex);
+        setRsi.add(item);
+        return item;
+    }
+    private String generateJSsetRsi() {
+        if (!setRsi.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RSI item : setRsi) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<RSI> setRsi1 = new ArrayList<>();
 
     /**
      * Creates RSI (Relative Strength Index) indicator on the scroller.
@@ -8410,19 +10207,33 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", wrapQuotes(seriesType23), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
                 js.setLength(0);
             }
         }
-        return new RSI(jsBase);
+        RSI item = new RSI("setRsi1" + variableIndex);
+        setRsi1.add(item);
+        return item;
+    }
+    private String generateJSsetRsi1() {
+        if (!setRsi1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RSI item : setRsi1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping17;
     private Double period13;
     private StockSeriesType seriesType24;
     private String seriesType25;
+    private List<SMA> setSma = new ArrayList<>();
 
     /**
      * Creates SMA (Simple Moving Average) indicator on the scroller.
@@ -8501,15 +10312,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", ((seriesType24 != null) ? seriesType24.generateJs() : "null"), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
                 js.setLength(0);
             }
         }
-        return new SMA(jsBase);
+        SMA item = new SMA("setSma" + variableIndex);
+        setSma.add(item);
+        return item;
+    }
+    private String generateJSsetSma() {
+        if (!setSma.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SMA item : setSma) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<SMA> setSma1 = new ArrayList<>();
 
     /**
      * Creates SMA (Simple Moving Average) indicator on the scroller.
@@ -8588,13 +10413,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", wrapQuotes(seriesType25), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
                 js.setLength(0);
             }
         }
-        return new SMA(jsBase);
+        SMA item = new SMA("setSma1" + variableIndex);
+        setSma1.add(item);
+        return item;
+    }
+    private String generateJSsetSma1() {
+        if (!setSma1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SMA item : setSma1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping data48;
@@ -8603,6 +10441,7 @@ public class StockScroller extends UiScroller {
     private String data51;
     private String mappingSettings12;
     private String csvSettings12;
+    private List<ScrollerseriesSpline> setSpline = new ArrayList<>();
 
     /**
      * Creates and returns a new Spline series.
@@ -8701,15 +10540,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", ((data48 != null) ? data48.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesSpline(jsBase);
+        ScrollerseriesSpline item = new ScrollerseriesSpline("setSpline" + variableIndex);
+        setSpline.add(item);
+        return item;
+    }
+    private String generateJSsetSpline() {
+        if (!setSpline.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesSpline item : setSpline) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesSpline> setSpline1 = new ArrayList<>();
 
     /**
      * Creates and returns a new Spline series.
@@ -8808,15 +10661,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", ((data49 != null) ? data49.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesSpline(jsBase);
+        ScrollerseriesSpline item = new ScrollerseriesSpline("setSpline1" + variableIndex);
+        setSpline1.add(item);
+        return item;
+    }
+    private String generateJSsetSpline1() {
+        if (!setSpline1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesSpline item : setSpline1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesSpline> setSpline2 = new ArrayList<>();
 
     /**
      * Creates and returns a new Spline series.
@@ -8915,13 +10782,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", wrapQuotes(data50), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesSpline(jsBase);
+        ScrollerseriesSpline item = new ScrollerseriesSpline("setSpline2" + variableIndex);
+        setSpline2.add(item);
+        return item;
+    }
+    private String generateJSsetSpline2() {
+        if (!setSpline2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesSpline item : setSpline2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping data52;
@@ -8930,6 +10810,7 @@ public class StockScroller extends UiScroller {
     private String data55;
     private String mappingSettings13;
     private String csvSettings13;
+    private List<ScrollerseriesSplineArea> setSplineArea = new ArrayList<>();
 
     /**
      * Creates and returns a new Spline Area series.
@@ -9034,15 +10915,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", ((data52 != null) ? data52.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesSplineArea(jsBase);
+        ScrollerseriesSplineArea item = new ScrollerseriesSplineArea("setSplineArea" + variableIndex);
+        setSplineArea.add(item);
+        return item;
+    }
+    private String generateJSsetSplineArea() {
+        if (!setSplineArea.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesSplineArea item : setSplineArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesSplineArea> setSplineArea1 = new ArrayList<>();
 
     /**
      * Creates and returns a new Spline Area series.
@@ -9147,15 +11042,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", ((data53 != null) ? data53.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesSplineArea(jsBase);
+        ScrollerseriesSplineArea item = new ScrollerseriesSplineArea("setSplineArea1" + variableIndex);
+        setSplineArea1.add(item);
+        return item;
+    }
+    private String generateJSsetSplineArea1() {
+        if (!setSplineArea1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesSplineArea item : setSplineArea1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesSplineArea> setSplineArea2 = new ArrayList<>();
 
     /**
      * Creates and returns a new Spline Area series.
@@ -9260,13 +11169,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", wrapQuotes(data54), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesSplineArea(jsBase);
+        ScrollerseriesSplineArea item = new ScrollerseriesSplineArea("setSplineArea2" + variableIndex);
+        setSplineArea2.add(item);
+        return item;
+    }
+    private String generateJSsetSplineArea2() {
+        if (!setSplineArea2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesSplineArea item : setSplineArea2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping data56;
@@ -9275,6 +11197,7 @@ public class StockScroller extends UiScroller {
     private String data59;
     private String mappingSettings14;
     private String csvSettings14;
+    private List<ScrollerseriesStepArea> setStepArea = new ArrayList<>();
 
     /**
      * Creates and returns a new Step Area series.
@@ -9385,15 +11308,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", ((data56 != null) ? data56.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesStepArea(jsBase);
+        ScrollerseriesStepArea item = new ScrollerseriesStepArea("setStepArea" + variableIndex);
+        setStepArea.add(item);
+        return item;
+    }
+    private String generateJSsetStepArea() {
+        if (!setStepArea.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesStepArea item : setStepArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesStepArea> setStepArea1 = new ArrayList<>();
 
     /**
      * Creates and returns a new Step Area series.
@@ -9504,15 +11441,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", ((data57 != null) ? data57.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesStepArea(jsBase);
+        ScrollerseriesStepArea item = new ScrollerseriesStepArea("setStepArea1" + variableIndex);
+        setStepArea1.add(item);
+        return item;
+    }
+    private String generateJSsetStepArea1() {
+        if (!setStepArea1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesStepArea item : setStepArea1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesStepArea> setStepArea2 = new ArrayList<>();
 
     /**
      * Creates and returns a new Step Area series.
@@ -9623,13 +11574,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", wrapQuotes(data58), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesStepArea(jsBase);
+        ScrollerseriesStepArea item = new ScrollerseriesStepArea("setStepArea2" + variableIndex);
+        setStepArea2.add(item);
+        return item;
+    }
+    private String generateJSsetStepArea2() {
+        if (!setStepArea2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesStepArea item : setStepArea2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping data60;
@@ -9638,6 +11602,7 @@ public class StockScroller extends UiScroller {
     private String data63;
     private String mappingSettings15;
     private String csvSettings15;
+    private List<ScrollerseriesStepLine> setStepLine = new ArrayList<>();
 
     /**
      * Creates and returns a new Step Line series.
@@ -9754,15 +11719,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", ((data60 != null) ? data60.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesStepLine(jsBase);
+        ScrollerseriesStepLine item = new ScrollerseriesStepLine("setStepLine" + variableIndex);
+        setStepLine.add(item);
+        return item;
+    }
+    private String generateJSsetStepLine() {
+        if (!setStepLine.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesStepLine item : setStepLine) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesStepLine> setStepLine1 = new ArrayList<>();
 
     /**
      * Creates and returns a new Step Line series.
@@ -9879,15 +11858,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", ((data61 != null) ? data61.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesStepLine(jsBase);
+        ScrollerseriesStepLine item = new ScrollerseriesStepLine("setStepLine1" + variableIndex);
+        setStepLine1.add(item);
+        return item;
+    }
+    private String generateJSsetStepLine1() {
+        if (!setStepLine1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesStepLine item : setStepLine1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesStepLine> setStepLine2 = new ArrayList<>();
 
     /**
      * Creates and returns a new Step Line series.
@@ -10004,13 +11997,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", wrapQuotes(data62), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesStepLine(jsBase);
+        ScrollerseriesStepLine item = new ScrollerseriesStepLine("setStepLine2" + variableIndex);
+        setStepLine2.add(item);
+        return item;
+    }
+    private String generateJSsetStepLine2() {
+        if (!setStepLine2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesStepLine item : setStepLine2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping data64;
@@ -10019,6 +12025,7 @@ public class StockScroller extends UiScroller {
     private String data67;
     private String mappingSettings16;
     private String csvSettings16;
+    private List<ScrollerseriesStick> setStick = new ArrayList<>();
 
     /**
      * Creates and returns a new Stick series.
@@ -10141,15 +12148,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", ((data64 != null) ? data64.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesStick(jsBase);
+        ScrollerseriesStick item = new ScrollerseriesStick("setStick" + variableIndex);
+        setStick.add(item);
+        return item;
+    }
+    private String generateJSsetStick() {
+        if (!setStick.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesStick item : setStick) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesStick> setStick1 = new ArrayList<>();
 
     /**
      * Creates and returns a new Stick series.
@@ -10272,15 +12293,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", ((data65 != null) ? data65.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesStick(jsBase);
+        ScrollerseriesStick item = new ScrollerseriesStick("setStick1" + variableIndex);
+        setStick1.add(item);
+        return item;
+    }
+    private String generateJSsetStick1() {
+        if (!setStick1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesStick item : setStick1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ScrollerseriesStick> setStick2 = new ArrayList<>();
 
     /**
      * Creates and returns a new Stick series.
@@ -10403,13 +12438,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", wrapQuotes(data66), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
             }
         }
-        return new ScrollerseriesStick(jsBase);
+        ScrollerseriesStick item = new ScrollerseriesStick("setStick2" + variableIndex);
+        setStick2.add(item);
+        return item;
+    }
+    private String generateJSsetStick2() {
+        if (!setStick2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesStick item : setStick2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping18;
@@ -10424,6 +12472,7 @@ public class StockScroller extends UiScroller {
     private String kSeriesType3;
     private StockSeriesType dSeriesType2;
     private String dSeriesType3;
+    private List<Stochastic> setStochastic = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the scroller.
@@ -10500,15 +12549,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic" + variableIndex);
+        setStochastic.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic() {
+        if (!setStochastic.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic1 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the scroller.
@@ -10585,15 +12648,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic1" + variableIndex);
+        setStochastic1.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic1() {
+        if (!setStochastic1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic2 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the scroller.
@@ -10670,15 +12747,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic2" + variableIndex);
+        setStochastic2.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic2() {
+        if (!setStochastic2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic3 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the scroller.
@@ -10755,15 +12846,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic3" + variableIndex);
+        setStochastic3.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic3() {
+        if (!setStochastic3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic4 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the scroller.
@@ -10840,15 +12945,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic4" + variableIndex);
+        setStochastic4.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic4() {
+        if (!setStochastic4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic5 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the scroller.
@@ -10925,15 +13044,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic5" + variableIndex);
+        setStochastic5.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic5() {
+        if (!setStochastic5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic6 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the scroller.
@@ -11010,15 +13143,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic6" + variableIndex);
+        setStochastic6.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic6() {
+        if (!setStochastic6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic7 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the scroller.
@@ -11095,15 +13242,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic7" + variableIndex);
+        setStochastic7.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic7() {
+        if (!setStochastic7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic8 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the scroller.
@@ -11180,15 +13341,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic8" + variableIndex);
+        setStochastic8.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic8() {
+        if (!setStochastic8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic9 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the scroller.
@@ -11265,15 +13440,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic9" + variableIndex);
+        setStochastic9.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic9() {
+        if (!setStochastic9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic10 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the scroller.
@@ -11350,15 +13539,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic10" + variableIndex);
+        setStochastic10.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic10() {
+        if (!setStochastic10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic11 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the scroller.
@@ -11435,15 +13638,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic11" + variableIndex);
+        setStochastic11.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic11() {
+        if (!setStochastic11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic12 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the scroller.
@@ -11520,15 +13737,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic12" + variableIndex);
+        setStochastic12.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic12() {
+        if (!setStochastic12.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic12) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic13 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the scroller.
@@ -11605,15 +13836,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic13" + variableIndex);
+        setStochastic13.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic13() {
+        if (!setStochastic13.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic13) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic14 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the scroller.
@@ -11690,15 +13935,29 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic14" + variableIndex);
+        setStochastic14.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic14() {
+        if (!setStochastic14.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic14) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic15 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the scroller.
@@ -11775,13 +14034,26 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic15" + variableIndex);
+        setStochastic15.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic15() {
+        if (!setStochastic15.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic15) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private StockDateTime getXAxis;
@@ -11798,6 +14070,7 @@ public class StockScroller extends UiScroller {
 
     private String xAxis;
     private Boolean xAxis1;
+    private List<StockScroller> setXAxis = new ArrayList<>();
 
     /**
      * Setter for the scroller X-axis.
@@ -11823,7 +14096,18 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetXAxis() {
+        if (!setXAxis.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setXAxis) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockScroller> setXAxis1 = new ArrayList<>();
 
     /**
      * Setter for the scroller X-axis.
@@ -11849,6 +14133,16 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetXAxis1() {
+        if (!setXAxis1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setXAxis1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private ScatterBase getYScale;
 
@@ -11866,6 +14160,7 @@ public class StockScroller extends UiScroller {
     private String yScale1;
     private ScatterBase yScale2;
     private String yScale3;
+    private List<StockScroller> setYScale = new ArrayList<>();
 
     /**
      * Setter for the scroller Y-scale.
@@ -11893,7 +14188,18 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetYScale() {
+        if (!setYScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setYScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockScroller> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the scroller Y-scale.
@@ -11921,7 +14227,18 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
+    private String generateJSsetYScale1() {
+        if (!setYScale1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setYScale1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockScroller> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the scroller Y-scale.
@@ -11946,6 +14263,16 @@ public class StockScroller extends UiScroller {
             js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
         }
         return this;
+    }
+    private String generateJSsetYScale2() {
+        if (!setYScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockScroller item : setYScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetGetSeries() {
@@ -12038,6 +14365,178 @@ public class StockScroller extends UiScroller {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAdl());
+        js.append(generateJSsetAdl1());
+        js.append(generateJSsetAma());
+        js.append(generateJSsetAma1());
+        js.append(generateJSsetArea());
+        js.append(generateJSsetArea1());
+        js.append(generateJSsetArea2());
+        js.append(generateJSsetAroon());
+        js.append(generateJSsetAroon1());
+        js.append(generateJSsetAroon2());
+        js.append(generateJSsetAroon3());
+        js.append(generateJSsetAtr());
+        js.append(generateJSsetAtr1());
+        js.append(generateJSsetBbands());
+        js.append(generateJSsetBbands1());
+        js.append(generateJSsetBbands2());
+        js.append(generateJSsetBbands3());
+        js.append(generateJSsetBbands4());
+        js.append(generateJSsetBbands5());
+        js.append(generateJSsetBbands6());
+        js.append(generateJSsetBbands7());
+        js.append(generateJSsetBbandsB());
+        js.append(generateJSsetBbandsB1());
+        js.append(generateJSsetBbandsWidth());
+        js.append(generateJSsetBbandsWidth1());
+        js.append(generateJSsetCandlestick());
+        js.append(generateJSsetCandlestick1());
+        js.append(generateJSsetCandlestick2());
+        js.append(generateJSsetCci());
+        js.append(generateJSsetCci1());
+        js.append(generateJSsetCho());
+        js.append(generateJSsetCho1());
+        js.append(generateJSsetCmf());
+        js.append(generateJSsetCmf1());
+        js.append(generateJSsetColumn());
+        js.append(generateJSsetColumn1());
+        js.append(generateJSsetColumn2());
+        js.append(generateJSsetDefaultSeriesType());
+        js.append(generateJSsetDefaultSeriesType1());
+        js.append(generateJSsetDmi());
+        js.append(generateJSsetDmi1());
+        js.append(generateJSsetDmi2());
+        js.append(generateJSsetDmi3());
+        js.append(generateJSsetDmi4());
+        js.append(generateJSsetDmi5());
+        js.append(generateJSsetDmi6());
+        js.append(generateJSsetDmi7());
+        js.append(generateJSsetEma());
+        js.append(generateJSsetEma1());
+        js.append(generateJSsetHatchFillPalette());
+        js.append(generateJSsetHatchFillPalette1());
+        js.append(generateJSsetHatchFillPalette2());
+        js.append(generateJSsetHilo());
+        js.append(generateJSsetHilo1());
+        js.append(generateJSsetHilo2());
+        js.append(generateJSsetJumpLine());
+        js.append(generateJSsetJumpLine1());
+        js.append(generateJSsetJumpLine2());
+        js.append(generateJSsetKdj());
+        js.append(generateJSsetKdj1());
+        js.append(generateJSsetKdj2());
+        js.append(generateJSsetKdj3());
+        js.append(generateJSsetKdj4());
+        js.append(generateJSsetKdj5());
+        js.append(generateJSsetKdj6());
+        js.append(generateJSsetKdj7());
+        js.append(generateJSsetKdj8());
+        js.append(generateJSsetKdj9());
+        js.append(generateJSsetKdj10());
+        js.append(generateJSsetKdj11());
+        js.append(generateJSsetKdj12());
+        js.append(generateJSsetKdj13());
+        js.append(generateJSsetKdj14());
+        js.append(generateJSsetKdj15());
+        js.append(generateJSsetKdj16());
+        js.append(generateJSsetKdj17());
+        js.append(generateJSsetKdj18());
+        js.append(generateJSsetKdj19());
+        js.append(generateJSsetKdj20());
+        js.append(generateJSsetKdj21());
+        js.append(generateJSsetKdj22());
+        js.append(generateJSsetKdj23());
+        js.append(generateJSsetKdj24());
+        js.append(generateJSsetKdj25());
+        js.append(generateJSsetKdj26());
+        js.append(generateJSsetKdj27());
+        js.append(generateJSsetKdj28());
+        js.append(generateJSsetKdj29());
+        js.append(generateJSsetKdj30());
+        js.append(generateJSsetKdj31());
+        js.append(generateJSsetLine());
+        js.append(generateJSsetLine1());
+        js.append(generateJSsetLine2());
+        js.append(generateJSsetMacd());
+        js.append(generateJSsetMacd1());
+        js.append(generateJSsetMacd2());
+        js.append(generateJSsetMacd3());
+        js.append(generateJSsetMacd4());
+        js.append(generateJSsetMacd5());
+        js.append(generateJSsetMacd6());
+        js.append(generateJSsetMacd7());
+        js.append(generateJSsetMarker());
+        js.append(generateJSsetMarker1());
+        js.append(generateJSsetMarker2());
+        js.append(generateJSsetMma());
+        js.append(generateJSsetMma1());
+        js.append(generateJSsetOhlc());
+        js.append(generateJSsetOhlc1());
+        js.append(generateJSsetOhlc2());
+        js.append(generateJSsetPalette());
+        js.append(generateJSsetPalette1());
+        js.append(generateJSsetPalette2());
+        js.append(generateJSsetPalette3());
+        js.append(generateJSsetRangeArea());
+        js.append(generateJSsetRangeArea1());
+        js.append(generateJSsetRangeArea2());
+        js.append(generateJSsetRangeColumn());
+        js.append(generateJSsetRangeColumn1());
+        js.append(generateJSsetRangeColumn2());
+        js.append(generateJSsetRangeSplineArea());
+        js.append(generateJSsetRangeSplineArea1());
+        js.append(generateJSsetRangeSplineArea2());
+        js.append(generateJSsetRangeStepArea());
+        js.append(generateJSsetRangeStepArea1());
+        js.append(generateJSsetRangeStepArea2());
+        js.append(generateJSsetRemoveSeries());
+        js.append(generateJSsetRemoveSeries1());
+        js.append(generateJSsetRemoveSeriesAt());
+        js.append(generateJSsetRoc());
+        js.append(generateJSsetRoc1());
+        js.append(generateJSsetRsi());
+        js.append(generateJSsetRsi1());
+        js.append(generateJSsetSma());
+        js.append(generateJSsetSma1());
+        js.append(generateJSsetSpline());
+        js.append(generateJSsetSpline1());
+        js.append(generateJSsetSpline2());
+        js.append(generateJSsetSplineArea());
+        js.append(generateJSsetSplineArea1());
+        js.append(generateJSsetSplineArea2());
+        js.append(generateJSsetStepArea());
+        js.append(generateJSsetStepArea1());
+        js.append(generateJSsetStepArea2());
+        js.append(generateJSsetStepLine());
+        js.append(generateJSsetStepLine1());
+        js.append(generateJSsetStepLine2());
+        js.append(generateJSsetStick());
+        js.append(generateJSsetStick1());
+        js.append(generateJSsetStick2());
+        js.append(generateJSsetStochastic());
+        js.append(generateJSsetStochastic1());
+        js.append(generateJSsetStochastic2());
+        js.append(generateJSsetStochastic3());
+        js.append(generateJSsetStochastic4());
+        js.append(generateJSsetStochastic5());
+        js.append(generateJSsetStochastic6());
+        js.append(generateJSsetStochastic7());
+        js.append(generateJSsetStochastic8());
+        js.append(generateJSsetStochastic9());
+        js.append(generateJSsetStochastic10());
+        js.append(generateJSsetStochastic11());
+        js.append(generateJSsetStochastic12());
+        js.append(generateJSsetStochastic13());
+        js.append(generateJSsetStochastic14());
+        js.append(generateJSsetStochastic15());
+        js.append(generateJSsetXAxis());
+        js.append(generateJSsetXAxis1());
+        js.append(generateJSsetYScale());
+        js.append(generateJSsetYScale1());
+        js.append(generateJSsetYScale2());
+        
 
         String result = js.toString();
         js.setLength(0);

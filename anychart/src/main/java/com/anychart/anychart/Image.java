@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -41,6 +38,7 @@ public class Image extends Element {
 
     
     private ImageAlign align;
+    private List<Image> setAlign = new ArrayList<>();
 
     /**
      * Setter for the align.
@@ -63,9 +61,20 @@ public class Image extends Element {
         }
         return this;
     }
+    private String generateJSsetAlign() {
+        if (!setAlign.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Image item : setAlign) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fitting fittingMode;
     private String fittingMode1;
+    private List<Image> setFittingMode = new ArrayList<>();
 
     /**
      * Setter for the fitting mode.
@@ -91,7 +100,18 @@ public class Image extends Element {
         }
         return this;
     }
+    private String generateJSsetFittingMode() {
+        if (!setFittingMode.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Image item : setFittingMode) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Image> setFittingMode1 = new ArrayList<>();
 
     /**
      * Setter for the fitting mode.
@@ -117,8 +137,19 @@ public class Image extends Element {
         }
         return this;
     }
+    private String generateJSsetFittingMode1() {
+        if (!setFittingMode1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Image item : setFittingMode1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double height;
+    private List<Image> setHeight = new ArrayList<>();
 
     /**
      * Setter for the image height.
@@ -141,8 +172,19 @@ public class Image extends Element {
         }
         return this;
     }
+    private String generateJSsetHeight() {
+        if (!setHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Image item : setHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String src;
+    private List<Image> setSrc = new ArrayList<>();
 
     /**
      * Setter for the image source.<br/>
@@ -166,8 +208,19 @@ Set null value for non-display image.
         }
         return this;
     }
+    private String generateJSsetSrc() {
+        if (!setSrc.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Image item : setSrc) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double width;
+    private List<Image> setWidth = new ArrayList<>();
 
     /**
      * Setter for the image width.
@@ -190,8 +243,19 @@ Set null value for non-display image.
         }
         return this;
     }
+    private String generateJSsetWidth() {
+        if (!setWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Image item : setWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double x;
+    private List<Image> setX = new ArrayList<>();
 
     /**
      * Setter for X coordinate.
@@ -214,8 +278,19 @@ Set null value for non-display image.
         }
         return this;
     }
+    private String generateJSsetX() {
+        if (!setX.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Image item : setX) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double y;
+    private List<Image> setY = new ArrayList<>();
 
     /**
      * Setter for the Y coordinate.
@@ -238,6 +313,16 @@ Set null value for non-display image.
         }
         return this;
     }
+    private String generateJSsetY() {
+        if (!setY.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Image item : setY) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -258,6 +343,16 @@ Set null value for non-display image.
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAlign());
+        js.append(generateJSsetFittingMode());
+        js.append(generateJSsetFittingMode1());
+        js.append(generateJSsetHeight());
+        js.append(generateJSsetSrc());
+        js.append(generateJSsetWidth());
+        js.append(generateJSsetX());
+        js.append(generateJSsetY());
+        
 
         String result = js.toString();
         js.setLength(0);

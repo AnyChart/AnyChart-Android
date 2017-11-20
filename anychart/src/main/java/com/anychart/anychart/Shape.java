@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class Shape extends Element {
 
     
     private Fill fill;
+    private List<Shape> setFill = new ArrayList<>();
 
     /**
      * Sets a fill as an object or a string.<br/>
@@ -59,9 +57,20 @@ public class Shape extends Element {
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Shape item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<Shape> setFill1 = new ArrayList<>();
 
     /**
      * Sets a fill with opacity.<br/>
@@ -86,6 +95,16 @@ public class Shape extends Element {
         }
         return this;
     }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Shape item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -94,6 +113,7 @@ public class Shape extends Element {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<Shape> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -132,7 +152,18 @@ public class Shape extends Element {
         }
         return this;
     }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Shape item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Shape> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -171,7 +202,18 @@ public class Shape extends Element {
         }
         return this;
     }
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Shape item : setFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Shape> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -210,7 +252,18 @@ public class Shape extends Element {
         }
         return this;
     }
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Shape item : setFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Shape> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -249,7 +302,18 @@ public class Shape extends Element {
         }
         return this;
     }
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Shape item : setFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Shape> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -288,7 +352,18 @@ public class Shape extends Element {
         }
         return this;
     }
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Shape item : setFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Shape> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -327,6 +402,16 @@ public class Shape extends Element {
         }
         return this;
     }
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Shape item : setFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -336,6 +421,7 @@ public class Shape extends Element {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<Shape> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -384,7 +470,18 @@ public class Shape extends Element {
         }
         return this;
     }
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Shape item : setFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Shape> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -433,6 +530,16 @@ public class Shape extends Element {
         }
         return this;
     }
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Shape item : setFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke stroke;
     private ColoredFill stroke1;
@@ -454,6 +561,7 @@ public class Shape extends Element {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
@@ -479,6 +587,7 @@ public class Shape extends Element {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s)", ((stroke1 != null) ? stroke1.generateJs() : "null")));
@@ -504,6 +613,7 @@ public class Shape extends Element {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s)", wrapQuotes(stroke2)));
@@ -519,6 +629,7 @@ public class Shape extends Element {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<Shape> setStroke = new ArrayList<>();
 
     /**
      * Sets stroke settings using several parameter.
@@ -556,7 +667,18 @@ public class Shape extends Element {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Shape item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Shape> setStroke1 = new ArrayList<>();
 
     /**
      * Sets stroke settings using several parameter.
@@ -594,7 +716,18 @@ public class Shape extends Element {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Shape item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Shape> setStroke2 = new ArrayList<>();
 
     /**
      * Sets stroke settings using several parameter.
@@ -632,8 +765,19 @@ public class Shape extends Element {
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Shape item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double strokeThickness;
+    private List<Shape> setStrokeThickness = new ArrayList<>();
 
     /**
      * Sets a stroke thickness.
@@ -656,6 +800,16 @@ public class Shape extends Element {
         }
         return this;
     }
+    private String generateJSsetStrokeThickness() {
+        if (!setStrokeThickness.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Shape item : setStrokeThickness) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -676,6 +830,22 @@ public class Shape extends Element {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetFill2());
+        js.append(generateJSsetFill3());
+        js.append(generateJSsetFill4());
+        js.append(generateJSsetFill5());
+        js.append(generateJSsetFill6());
+        js.append(generateJSsetFill7());
+        js.append(generateJSsetFill8());
+        js.append(generateJSsetFill9());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        js.append(generateJSsetStrokeThickness());
+        
 
         String result = js.toString();
         js.setLength(0);

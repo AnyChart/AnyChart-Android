@@ -1,11 +1,9 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 /**
@@ -42,6 +40,7 @@ public class UiBackground extends VisualBaseWithBounds {
     private Stroke bottomStroke;
     private ColoredFill bottomStroke1;
     private String bottomStroke2;
+    private List<UiBackground> setBottomStroke = new ArrayList<>();
 
     /**
      * Setter for bottom stroke settings using one parameter.
@@ -68,7 +67,18 @@ public class UiBackground extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBottomStroke() {
+        if (!setBottomStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setBottomStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setBottomStroke1 = new ArrayList<>();
 
     /**
      * Setter for bottom stroke settings using one parameter.
@@ -95,7 +105,18 @@ public class UiBackground extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBottomStroke1() {
+        if (!setBottomStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setBottomStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setBottomStroke2 = new ArrayList<>();
 
     /**
      * Setter for bottom stroke settings using one parameter.
@@ -122,6 +143,16 @@ public class UiBackground extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBottomStroke2() {
+        if (!setBottomStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setBottomStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke bottomStroke3;
     private String bottomStroke4;
@@ -129,6 +160,7 @@ public class UiBackground extends VisualBaseWithBounds {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<UiBackground> setBottomStroke3 = new ArrayList<>();
 
     /**
      * Setter for bottom stroke settings.
@@ -165,7 +197,18 @@ public class UiBackground extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBottomStroke3() {
+        if (!setBottomStroke3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setBottomStroke3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setBottomStroke4 = new ArrayList<>();
 
     /**
      * Setter for bottom stroke settings.
@@ -202,9 +245,20 @@ public class UiBackground extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBottomStroke4() {
+        if (!setBottomStroke4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setBottomStroke4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private BackgroundCornersType cornerType;
     private String cornerType1;
+    private List<UiBackground> setCornerType = new ArrayList<>();
 
     /**
      * Setter for the corner type.
@@ -230,7 +284,18 @@ public class UiBackground extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetCornerType() {
+        if (!setCornerType.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setCornerType) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setCornerType1 = new ArrayList<>();
 
     /**
      * Setter for the corner type.
@@ -256,10 +321,21 @@ public class UiBackground extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetCornerType1() {
+        if (!setCornerType1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setCornerType1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double corners;
     private String corners1;
     private Double[] corners2;
+    private List<UiBackground> setCorners = new ArrayList<>();
 
     /**
      * Setter for the corner radius by one value.
@@ -286,7 +362,18 @@ public class UiBackground extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetCorners() {
+        if (!setCorners.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setCorners) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setCorners1 = new ArrayList<>();
 
     /**
      * Setter for the corner radius by one value.
@@ -313,6 +400,16 @@ public class UiBackground extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetCorners1() {
+        if (!setCorners1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setCorners1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double topLeft;
     private String topLeft1;
@@ -322,6 +419,7 @@ public class UiBackground extends VisualBaseWithBounds {
     private String bottomRight1;
     private Double bottomLeft;
     private String bottomLeft1;
+    private List<UiBackground> setCorners2 = new ArrayList<>();
 
     /**
      * Setter for the corner radius by each value.
@@ -362,7 +460,18 @@ public class UiBackground extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetCorners2() {
+        if (!setCorners2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setCorners2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setCorners3 = new ArrayList<>();
 
     /**
      * Setter for the corner radius by each value.
@@ -403,8 +512,19 @@ public class UiBackground extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetCorners3() {
+        if (!setCorners3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setCorners3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill fill;
+    private List<UiBackground> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an object or a string.<br/>
@@ -436,9 +556,20 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<UiBackground> setFill1 = new ArrayList<>();
 
     /**
      * Fill as a color with opacity.
@@ -463,6 +594,16 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -471,6 +612,7 @@ e.g. "red 0.5".
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<UiBackground> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -509,7 +651,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -548,7 +701,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -587,7 +751,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -626,7 +801,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -665,7 +851,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -704,6 +901,16 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -713,6 +920,7 @@ e.g. "red 0.5".
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<UiBackground> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -761,7 +969,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -810,9 +1029,20 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke leftStroke;
     private String leftStroke1;
+    private List<UiBackground> setLeftStroke = new ArrayList<>();
 
     /**
      * Setter for left stroke settings using one parameter.
@@ -838,7 +1068,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetLeftStroke() {
+        if (!setLeftStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setLeftStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setLeftStroke1 = new ArrayList<>();
 
     /**
      * Setter for left stroke settings using one parameter.
@@ -864,6 +1105,16 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetLeftStroke1() {
+        if (!setLeftStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setLeftStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke leftStroke2;
     private String leftStroke3;
@@ -871,6 +1122,7 @@ e.g. "red 0.5".
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
+    private List<UiBackground> setLeftStroke2 = new ArrayList<>();
 
     /**
      * Setter for left stroke settings.
@@ -918,7 +1170,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetLeftStroke2() {
+        if (!setLeftStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setLeftStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setLeftStroke3 = new ArrayList<>();
 
     /**
      * Setter for left stroke settings.
@@ -966,10 +1229,21 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetLeftStroke3() {
+        if (!setLeftStroke3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setLeftStroke3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke rightStroke;
     private ColoredFill rightStroke1;
     private String rightStroke2;
+    private List<UiBackground> setRightStroke = new ArrayList<>();
 
     /**
      * Setter for right stroke settings using one parameter.
@@ -996,7 +1270,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetRightStroke() {
+        if (!setRightStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setRightStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setRightStroke1 = new ArrayList<>();
 
     /**
      * Setter for right stroke settings using one parameter.
@@ -1023,7 +1308,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetRightStroke1() {
+        if (!setRightStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setRightStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setRightStroke2 = new ArrayList<>();
 
     /**
      * Setter for right stroke settings using one parameter.
@@ -1050,6 +1346,16 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetRightStroke2() {
+        if (!setRightStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setRightStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke rightStroke3;
     private String rightStroke4;
@@ -1057,6 +1363,7 @@ e.g. "red 0.5".
     private String dashpattern2;
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
+    private List<UiBackground> setRightStroke3 = new ArrayList<>();
 
     /**
      * Setter for right stroke settings.
@@ -1109,7 +1416,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetRightStroke3() {
+        if (!setRightStroke3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setRightStroke3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setRightStroke4 = new ArrayList<>();
 
     /**
      * Setter for right stroke settings.
@@ -1162,10 +1480,21 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetRightStroke4() {
+        if (!setRightStroke4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setRightStroke4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke stroke;
     private ColoredFill stroke1;
     private String stroke2;
+    private List<UiBackground> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings using one parameter.
@@ -1192,7 +1521,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings using one parameter.
@@ -1219,7 +1559,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke settings using one parameter.
@@ -1246,6 +1597,16 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke stroke3;
     private String stroke4;
@@ -1253,6 +1614,7 @@ e.g. "red 0.5".
     private String dashpattern3;
     private StrokeLineJoin lineJoin3;
     private StrokeLineCap lineCap3;
+    private List<UiBackground> setStroke3 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -1309,7 +1671,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetStroke3() {
+        if (!setStroke3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setStroke3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setStroke4 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -1366,10 +1739,21 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetStroke4() {
+        if (!setStroke4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setStroke4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke topStroke;
     private ColoredFill topStroke1;
     private String topStroke2;
+    private List<UiBackground> setTopStroke = new ArrayList<>();
 
     /**
      * Setter for top stroke settings using one parameter.
@@ -1396,7 +1780,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetTopStroke() {
+        if (!setTopStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setTopStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setTopStroke1 = new ArrayList<>();
 
     /**
      * Setter for top stroke settings using one parameter.
@@ -1423,7 +1818,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetTopStroke1() {
+        if (!setTopStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setTopStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setTopStroke2 = new ArrayList<>();
 
     /**
      * Setter for top stroke settings using one parameter.
@@ -1450,6 +1856,16 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetTopStroke2() {
+        if (!setTopStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setTopStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke topStroke3;
     private String topStroke4;
@@ -1457,6 +1873,7 @@ e.g. "red 0.5".
     private String dashpattern4;
     private StrokeLineJoin lineJoin4;
     private StrokeLineCap lineCap4;
+    private List<UiBackground> setTopStroke3 = new ArrayList<>();
 
     /**
      * Setter for top stroke settings.
@@ -1517,7 +1934,18 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetTopStroke3() {
+        if (!setTopStroke3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setTopStroke3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiBackground> setTopStroke4 = new ArrayList<>();
 
     /**
      * Setter for top stroke settings.
@@ -1578,6 +2006,16 @@ e.g. "red 0.5".
         }
         return this;
     }
+    private String generateJSsetTopStroke4() {
+        if (!setTopStroke4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiBackground item : setTopStroke4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -1598,6 +2036,48 @@ e.g. "red 0.5".
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetBottomStroke());
+        js.append(generateJSsetBottomStroke1());
+        js.append(generateJSsetBottomStroke2());
+        js.append(generateJSsetBottomStroke3());
+        js.append(generateJSsetBottomStroke4());
+        js.append(generateJSsetCornerType());
+        js.append(generateJSsetCornerType1());
+        js.append(generateJSsetCorners());
+        js.append(generateJSsetCorners1());
+        js.append(generateJSsetCorners2());
+        js.append(generateJSsetCorners3());
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetFill2());
+        js.append(generateJSsetFill3());
+        js.append(generateJSsetFill4());
+        js.append(generateJSsetFill5());
+        js.append(generateJSsetFill6());
+        js.append(generateJSsetFill7());
+        js.append(generateJSsetFill8());
+        js.append(generateJSsetFill9());
+        js.append(generateJSsetLeftStroke());
+        js.append(generateJSsetLeftStroke1());
+        js.append(generateJSsetLeftStroke2());
+        js.append(generateJSsetLeftStroke3());
+        js.append(generateJSsetRightStroke());
+        js.append(generateJSsetRightStroke1());
+        js.append(generateJSsetRightStroke2());
+        js.append(generateJSsetRightStroke3());
+        js.append(generateJSsetRightStroke4());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        js.append(generateJSsetStroke3());
+        js.append(generateJSsetStroke4());
+        js.append(generateJSsetTopStroke());
+        js.append(generateJSsetTopStroke1());
+        js.append(generateJSsetTopStroke2());
+        js.append(generateJSsetTopStroke3());
+        js.append(generateJSsetTopStroke4());
+        
 
         String result = js.toString();
         js.setLength(0);

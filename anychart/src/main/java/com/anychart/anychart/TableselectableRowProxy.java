@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -49,6 +44,7 @@ public class TableselectableRowProxy extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", wrapQuotes(field)));
@@ -71,6 +67,7 @@ public class TableselectableRowProxy extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getColumn(%f)", column));
@@ -98,6 +95,8 @@ public class TableselectableRowProxy extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        
 
         String result = js.toString();
         js.setLength(0);

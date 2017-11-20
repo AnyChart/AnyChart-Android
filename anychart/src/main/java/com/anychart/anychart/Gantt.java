@@ -252,6 +252,32 @@ The collapseTask() method should be used after drawing a chart.
         return "";
     }
 
+    private List<Gantt> setData1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Gantt data(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Gantt item : setData1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
 
     private UiDataGrid getDataGrid;
 
@@ -1632,6 +1658,7 @@ The scrollToEnd() method should be used after drawing a chart.
         js.append(generateJSsetColumnStroke());
         js.append(generateJSsetColumnStroke1());
         js.append(generateJSsetData());
+        js.append(generateJSsetData1());
         js.append(generateJSsetDataGrid());
         js.append(generateJSsetDefaultRowHeight());
         js.append(generateJSsetEditing());

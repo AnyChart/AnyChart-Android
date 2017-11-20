@@ -204,6 +204,32 @@ public class Pert extends SeparateChart {
         return "";
     }
 
+    private List<Pert> setData1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Pert data(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pert item : setData1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private Double horizontalSpacing;
     private String horizontalSpacing1;
     private List<Pert> setHorizontalSpacing = new ArrayList<>();
@@ -449,6 +475,7 @@ public class Pert extends SeparateChart {
         js.append(generateJSgetTasks());
         js.append(generateJSsetCriticalPath());
         js.append(generateJSsetData());
+        js.append(generateJSsetData1());
         js.append(generateJSsetHorizontalSpacing());
         js.append(generateJSsetHorizontalSpacing1());
         js.append(generateJSsetMilestones());

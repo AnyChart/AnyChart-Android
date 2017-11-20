@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
 
     
     private Fill fill;
+    private List<RadarSeriesArea> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -60,9 +58,20 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<RadarSeriesArea> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -87,6 +96,16 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -95,6 +114,7 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<RadarSeriesArea> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -134,7 +154,18 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RadarSeriesArea> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -174,7 +205,18 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RadarSeriesArea> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -214,7 +256,18 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RadarSeriesArea> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -254,7 +307,18 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RadarSeriesArea> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -294,7 +358,18 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RadarSeriesArea> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -334,6 +409,16 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -343,6 +428,7 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<RadarSeriesArea> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -392,7 +478,18 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RadarSeriesArea> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -442,6 +539,16 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private PatternFill getHatchFill;
@@ -463,6 +570,7 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
     private String color1;
     private Double thickness;
     private Double size;
+    private List<RadarSeriesArea> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -500,7 +608,18 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill() {
+        if (!setHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RadarSeriesArea> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -538,7 +657,18 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill1() {
+        if (!setHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RadarSeriesArea> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -576,7 +706,18 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill2() {
+        if (!setHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RadarSeriesArea> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -614,6 +755,16 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill3() {
+        if (!setHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color2;
     private ColoredFill color3;
@@ -622,6 +773,7 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<RadarSeriesArea> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -662,7 +814,18 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RadarSeriesArea> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -703,7 +866,18 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RadarSeriesArea> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -744,6 +918,16 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
@@ -772,6 +956,25 @@ public class RadarSeriesArea extends RadarSeriesContinuousBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetFill2());
+        js.append(generateJSsetFill3());
+        js.append(generateJSsetFill4());
+        js.append(generateJSsetFill5());
+        js.append(generateJSsetFill6());
+        js.append(generateJSsetFill7());
+        js.append(generateJSsetFill8());
+        js.append(generateJSsetFill9());
+        js.append(generateJSsetHatchFill());
+        js.append(generateJSsetHatchFill1());
+        js.append(generateJSsetHatchFill2());
+        js.append(generateJSsetHatchFill3());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -38,6 +35,7 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
 
     
     private Fill fill;
+    private List<CartesianSeriesMarker> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -61,9 +59,20 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<CartesianSeriesMarker> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -88,6 +97,16 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -96,6 +115,7 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<CartesianSeriesMarker> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -135,7 +155,18 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesMarker> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -175,7 +206,18 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesMarker> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -215,7 +257,18 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesMarker> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -255,7 +308,18 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesMarker> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -295,7 +359,18 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesMarker> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -335,6 +410,16 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -344,6 +429,7 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<CartesianSeriesMarker> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -393,7 +479,18 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesMarker> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -443,6 +540,16 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private PatternFill getHatchFill;
@@ -464,6 +571,7 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
     private String color1;
     private Double thickness;
     private Double size;
+    private List<CartesianSeriesMarker> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -501,7 +609,18 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill() {
+        if (!setHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesMarker> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -539,7 +658,18 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill1() {
+        if (!setHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesMarker> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -577,7 +707,18 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill2() {
+        if (!setHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesMarker> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -615,8 +756,19 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill3() {
+        if (!setHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double size1;
+    private List<CartesianSeriesMarker> setSize = new ArrayList<>();
 
     /**
      * Setter for the marker size.
@@ -642,6 +794,16 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetSize() {
+        if (!setSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color2;
     private ColoredFill color3;
@@ -650,6 +812,7 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<CartesianSeriesMarker> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -690,7 +853,18 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesMarker> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -731,7 +905,18 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesMarker> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -772,9 +957,20 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private MarkerType type;
     private String type1;
+    private List<CartesianSeriesMarker> setType = new ArrayList<>();
 
     /**
      * Setter for marker type settings.
@@ -800,7 +996,18 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
         return this;
     }
+    private String generateJSsetType() {
+        if (!setType.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setType) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesMarker> setType1 = new ArrayList<>();
 
     /**
      * Setter for marker type settings.
@@ -825,6 +1032,16 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
             }
         }
         return this;
+    }
+    private String generateJSsetType1() {
+        if (!setType1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesMarker item : setType1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetHatchFill() {
@@ -854,6 +1071,28 @@ public class CartesianSeriesMarker extends CartesianSeriesBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetFill2());
+        js.append(generateJSsetFill3());
+        js.append(generateJSsetFill4());
+        js.append(generateJSsetFill5());
+        js.append(generateJSsetFill6());
+        js.append(generateJSsetFill7());
+        js.append(generateJSsetFill8());
+        js.append(generateJSsetFill9());
+        js.append(generateJSsetHatchFill());
+        js.append(generateJSsetHatchFill1());
+        js.append(generateJSsetHatchFill2());
+        js.append(generateJSsetHatchFill3());
+        js.append(generateJSsetSize());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        js.append(generateJSsetType());
+        js.append(generateJSsetType1());
+        
 
         String result = js.toString();
         js.setLength(0);

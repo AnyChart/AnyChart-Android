@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class AMA extends JsObject {
 
     
     private Double fastPeriod;
+    private List<AMA> setFastPeriod = new ArrayList<>();
 
     /**
      * Setter for the fast indicator period.
@@ -59,8 +57,19 @@ public class AMA extends JsObject {
         }
         return this;
     }
+    private String generateJSsetFastPeriod() {
+        if (!setFastPeriod.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AMA item : setFastPeriod) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double period;
+    private List<AMA> setPeriod = new ArrayList<>();
 
     /**
      * Setter for the indicator period.
@@ -83,6 +92,16 @@ public class AMA extends JsObject {
         }
         return this;
     }
+    private String generateJSsetPeriod() {
+        if (!setPeriod.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AMA item : setPeriod) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private StockSeriesBase getSeries;
 
@@ -98,6 +117,7 @@ public class AMA extends JsObject {
 
     private StockSeriesType type;
     private String type1;
+    private List<AMA> setSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator series.
@@ -123,7 +143,18 @@ public class AMA extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSeries() {
+        if (!setSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AMA item : setSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AMA> setSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator series.
@@ -149,8 +180,19 @@ public class AMA extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSeries1() {
+        if (!setSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AMA item : setSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double slowPeriod;
+    private List<AMA> setSlowPeriod = new ArrayList<>();
 
     /**
      * Setter for the slow indicator period.
@@ -172,6 +214,16 @@ public class AMA extends JsObject {
             }
         }
         return this;
+    }
+    private String generateJSsetSlowPeriod() {
+        if (!setSlowPeriod.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AMA item : setSlowPeriod) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetSeries() {
@@ -201,6 +253,13 @@ public class AMA extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFastPeriod());
+        js.append(generateJSsetPeriod());
+        js.append(generateJSsetSeries());
+        js.append(generateJSsetSeries1());
+        js.append(generateJSsetSlowPeriod());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -38,6 +35,7 @@ public class ChartCredits extends CoreBase {
 
     
     private String alt;
+    private List<ChartCredits> setAlt = new ArrayList<>();
 
     /**
      * Setter for credits alt.
@@ -60,8 +58,19 @@ public class ChartCredits extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetAlt() {
+        if (!setAlt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartCredits item : setAlt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean enabled;
+    private List<ChartCredits> setEnabled = new ArrayList<>();
 
     /**
      * Setter for the credits state.
@@ -84,8 +93,19 @@ public class ChartCredits extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetEnabled() {
+        if (!setEnabled.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartCredits item : setEnabled) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String imgAlt;
+    private List<ChartCredits> setImgAlt = new ArrayList<>();
 
     /**
      * Setter for the image alternative text.
@@ -108,8 +128,19 @@ public class ChartCredits extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetImgAlt() {
+        if (!setImgAlt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartCredits item : setImgAlt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String logoSrc;
+    private List<ChartCredits> setLogoSrc = new ArrayList<>();
 
     /**
      * Setter for credits logo source value.<br/>
@@ -133,8 +164,19 @@ public class ChartCredits extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetLogoSrc() {
+        if (!setLogoSrc.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartCredits item : setLogoSrc) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String text;
+    private List<ChartCredits> setText = new ArrayList<>();
 
     /**
      * Setter for credits text value.
@@ -157,8 +199,19 @@ public class ChartCredits extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetText() {
+        if (!setText.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartCredits item : setText) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String url;
+    private List<ChartCredits> setUrl = new ArrayList<>();
 
     /**
      * Setter for credits url.
@@ -181,6 +234,16 @@ public class ChartCredits extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetUrl() {
+        if (!setUrl.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartCredits item : setUrl) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -201,6 +264,14 @@ public class ChartCredits extends CoreBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAlt());
+        js.append(generateJSsetEnabled());
+        js.append(generateJSsetImgAlt());
+        js.append(generateJSsetLogoSrc());
+        js.append(generateJSsetText());
+        js.append(generateJSsetUrl());
+        
 
         String result = js.toString();
         js.setLength(0);

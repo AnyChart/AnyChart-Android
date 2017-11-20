@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class RadialTicks extends VisualBase {
 
     
     private Double length;
+    private List<RadialTicks> setLength = new ArrayList<>();
 
     /**
      * Setter for ticks length.<br/>
@@ -60,8 +58,19 @@ public class RadialTicks extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLength() {
+        if (!setLength.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadialTicks item : setLength) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke stroke;
+    private List<Ticks> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings via single parameter.<br/>
@@ -76,13 +85,26 @@ public class RadialTicks extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new Ticks(jsBase);
+        Ticks item = new Ticks("setStroke" + variableIndex);
+        setStroke.add(item);
+        return item;
+    }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Ticks item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String color;
@@ -90,6 +112,7 @@ public class RadialTicks extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<RadialTicks> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings via several parameter.<br/>
@@ -135,6 +158,16 @@ The following options are acceptable:
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadialTicks item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -155,6 +188,11 @@ The following options are acceptable:
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetLength());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        
 
         String result = js.toString();
         js.setLength(0);

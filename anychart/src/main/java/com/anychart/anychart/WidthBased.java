@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
     
     private Double maxPointWidth;
     private String maxPointWidth1;
+    private List<WidthBased> setMaxPointWidth = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -62,7 +60,18 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
         }
         return this;
     }
+    private String generateJSsetMaxPointWidth() {
+        if (!setMaxPointWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (WidthBased item : setMaxPointWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<WidthBased> setMaxPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -88,9 +97,20 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
         }
         return this;
     }
+    private String generateJSsetMaxPointWidth1() {
+        if (!setMaxPointWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (WidthBased item : setMaxPointWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double minPointLength;
     private String minPointLength1;
+    private List<WidthBased> setMinPointLength = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -116,7 +136,18 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
         }
         return this;
     }
+    private String generateJSsetMinPointLength() {
+        if (!setMinPointLength.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (WidthBased item : setMinPointLength) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<WidthBased> setMinPointLength1 = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -142,9 +173,20 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
         }
         return this;
     }
+    private String generateJSsetMinPointLength1() {
+        if (!setMinPointLength1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (WidthBased item : setMinPointLength1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double pointWidth;
     private String pointWidth1;
+    private List<WidthBased> setPointWidth = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -170,7 +212,18 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
         }
         return this;
     }
+    private String generateJSsetPointWidth() {
+        if (!setPointWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (WidthBased item : setPointWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<WidthBased> setPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -196,6 +249,16 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
         }
         return this;
     }
+    private String generateJSsetPointWidth1() {
+        if (!setPointWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (WidthBased item : setPointWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -216,6 +279,14 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetMaxPointWidth());
+        js.append(generateJSsetMaxPointWidth1());
+        js.append(generateJSsetMinPointLength());
+        js.append(generateJSsetMinPointLength1());
+        js.append(generateJSsetPointWidth());
+        js.append(generateJSsetPointWidth1());
+        
 
         String result = js.toString();
         js.setLength(0);

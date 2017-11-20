@@ -33,6 +33,7 @@ public class UiTimeline extends JsObject {
 
     
     private Fill backgroundFill;
+    private List<UiTimeline> setBackgroundFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -56,9 +57,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill() {
+        if (!setBackgroundFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBackgroundFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<UiTimeline> setBackgroundFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -83,6 +95,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill1() {
+        if (!setBackgroundFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBackgroundFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -91,6 +113,7 @@ public class UiTimeline extends JsObject {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<UiTimeline> setBackgroundFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -130,7 +153,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill2() {
+        if (!setBackgroundFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBackgroundFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBackgroundFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -170,7 +204,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill3() {
+        if (!setBackgroundFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBackgroundFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBackgroundFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -210,7 +255,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill4() {
+        if (!setBackgroundFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBackgroundFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBackgroundFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -250,7 +306,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill5() {
+        if (!setBackgroundFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBackgroundFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBackgroundFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -290,7 +357,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill6() {
+        if (!setBackgroundFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBackgroundFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBackgroundFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -330,6 +408,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill7() {
+        if (!setBackgroundFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBackgroundFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -339,6 +427,7 @@ public class UiTimeline extends JsObject {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<UiTimeline> setBackgroundFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -388,7 +477,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill8() {
+        if (!setBackgroundFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBackgroundFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBackgroundFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -438,9 +538,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill9() {
+        if (!setBackgroundFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBackgroundFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private Fill baseFill;
+    private List<UiTimeline> setBaseFill = new ArrayList<>();
 
     /**
      * Setter for base fill settings using an object or a string.
@@ -464,9 +575,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaseFill() {
+        if (!setBaseFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaseFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color1;
     private Double opacity3;
+    private List<UiTimeline> setBaseFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -499,6 +621,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaseFill1() {
+        if (!setBaseFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaseFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys4;
     private String[] keys5;
@@ -507,6 +639,7 @@ public class UiTimeline extends JsObject {
     private VectorRect mode5;
     private String mode6;
     private Double opacity4;
+    private List<UiTimeline> setBaseFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -560,7 +693,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaseFill2() {
+        if (!setBaseFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaseFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaseFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -614,7 +758,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaseFill3() {
+        if (!setBaseFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaseFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaseFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -668,7 +823,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaseFill4() {
+        if (!setBaseFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaseFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaseFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -722,7 +888,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaseFill5() {
+        if (!setBaseFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaseFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaseFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -776,7 +953,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaseFill6() {
+        if (!setBaseFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaseFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaseFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -830,6 +1018,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaseFill7() {
+        if (!setBaseFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaseFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys6;
     private String[] keys7;
@@ -839,6 +1037,7 @@ public class UiTimeline extends JsObject {
     private Double opacity5;
     private Double fx1;
     private Double fy1;
+    private List<UiTimeline> setBaseFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -911,7 +1110,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaseFill8() {
+        if (!setBaseFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaseFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaseFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -984,6 +1194,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaseFill9() {
+        if (!setBaseFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaseFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings1;
     private UiLabelsFactory getBaseLabels;
@@ -1000,6 +1220,7 @@ public class UiTimeline extends JsObject {
 
     private String baseLabels;
     private Boolean baseLabels1;
+    private List<UiTimeline> setBaseLabels = new ArrayList<>();
 
     /**
      * Setter for base labels.
@@ -1025,7 +1246,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaseLabels() {
+        if (!setBaseLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaseLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaseLabels1 = new ArrayList<>();
 
     /**
      * Setter for base labels.
@@ -1051,6 +1283,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaseLabels1() {
+        if (!setBaseLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaseLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke baseStroke;
     private ColoredFill baseStroke1;
@@ -1059,6 +1301,7 @@ public class UiTimeline extends JsObject {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<UiTimeline> setBaseStroke = new ArrayList<>();
 
     /**
      * Setter for the base stroke settings.
@@ -1094,7 +1337,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaseStroke() {
+        if (!setBaseStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaseStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaseStroke1 = new ArrayList<>();
 
     /**
      * Setter for the base stroke settings.
@@ -1130,7 +1384,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaseStroke1() {
+        if (!setBaseStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaseStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaseStroke2 = new ArrayList<>();
 
     /**
      * Setter for the base stroke settings.
@@ -1166,8 +1431,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaseStroke2() {
+        if (!setBaseStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaseStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean baselineAbove;
+    private List<UiTimeline> setBaselineAbove = new ArrayList<>();
 
     /**
      * Setter for the "baseline above" flag.
@@ -1190,8 +1466,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaselineAbove() {
+        if (!setBaselineAbove.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaselineAbove) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill baselineFill;
+    private List<UiTimeline> setBaselineFill = new ArrayList<>();
 
     /**
      * Setter for baseline fill settings using an object or a string.
@@ -1215,9 +1502,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaselineFill() {
+        if (!setBaselineFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaselineFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color2;
     private Double opacity6;
+    private List<UiTimeline> setBaselineFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -1254,6 +1552,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaselineFill1() {
+        if (!setBaselineFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaselineFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys8;
     private String[] keys9;
@@ -1262,6 +1570,7 @@ public class UiTimeline extends JsObject {
     private VectorRect mode9;
     private String mode10;
     private Double opacity7;
+    private List<UiTimeline> setBaselineFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1327,7 +1636,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaselineFill2() {
+        if (!setBaselineFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaselineFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaselineFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1393,7 +1713,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaselineFill3() {
+        if (!setBaselineFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaselineFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaselineFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1459,7 +1790,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaselineFill4() {
+        if (!setBaselineFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaselineFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaselineFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1525,7 +1867,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaselineFill5() {
+        if (!setBaselineFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaselineFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaselineFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1591,7 +1944,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaselineFill6() {
+        if (!setBaselineFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaselineFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaselineFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1657,6 +2021,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaselineFill7() {
+        if (!setBaselineFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaselineFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys10;
     private String[] keys11;
@@ -1666,6 +2040,7 @@ public class UiTimeline extends JsObject {
     private Double opacity8;
     private Double fx2;
     private Double fy2;
+    private List<UiTimeline> setBaselineFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -1753,7 +2128,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaselineFill8() {
+        if (!setBaselineFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaselineFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaselineFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -1841,6 +2227,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaselineFill9() {
+        if (!setBaselineFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaselineFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings2;
     private UiLabelsFactory getBaselineLabels;
@@ -1857,6 +2253,7 @@ public class UiTimeline extends JsObject {
 
     private String baselineLabels;
     private Boolean baselineLabels1;
+    private List<UiTimeline> setBaselineLabels = new ArrayList<>();
 
     /**
      * Setter for base line labels.
@@ -1882,7 +2279,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaselineLabels() {
+        if (!setBaselineLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaselineLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaselineLabels1 = new ArrayList<>();
 
     /**
      * Setter for base line labels.
@@ -1908,6 +2316,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaselineLabels1() {
+        if (!setBaselineLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaselineLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke baselineStroke;
     private ColoredFill baselineStroke1;
@@ -1916,6 +2334,7 @@ public class UiTimeline extends JsObject {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
+    private List<UiTimeline> setBaselineStroke = new ArrayList<>();
 
     /**
      * Setter for the baseline stroke settings.
@@ -1963,7 +2382,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaselineStroke() {
+        if (!setBaselineStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaselineStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaselineStroke1 = new ArrayList<>();
 
     /**
      * Setter for the baseline stroke settings.
@@ -2011,7 +2441,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaselineStroke1() {
+        if (!setBaselineStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaselineStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setBaselineStroke2 = new ArrayList<>();
 
     /**
      * Setter for the baseline stroke settings.
@@ -2059,9 +2500,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBaselineStroke2() {
+        if (!setBaselineStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setBaselineStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke columnStroke;
     private String columnStroke1;
+    private List<UiTimeline> setColumnStroke = new ArrayList<>();
 
     /**
      * Setter for the column stroke.
@@ -2087,7 +2539,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetColumnStroke() {
+        if (!setColumnStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setColumnStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setColumnStroke1 = new ArrayList<>();
 
     /**
      * Setter for the column stroke.
@@ -2113,6 +2576,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetColumnStroke1() {
+        if (!setColumnStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setColumnStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill connectorFill;
     private GradientKey[] connectorFill1;
@@ -2123,6 +2596,7 @@ public class UiTimeline extends JsObject {
     private Double opacity9;
     private Double fx3;
     private Double fy3;
+    private List<UiTimeline> setConnectorFill = new ArrayList<>();
 
     /**
      * Setter for connector fill settings using an object or a string.
@@ -2193,7 +2667,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetConnectorFill() {
+        if (!setConnectorFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setConnectorFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setConnectorFill1 = new ArrayList<>();
 
     /**
      * Setter for connector fill settings using an object or a string.
@@ -2264,7 +2749,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetConnectorFill1() {
+        if (!setConnectorFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setConnectorFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setConnectorFill2 = new ArrayList<>();
 
     /**
      * Setter for connector fill settings using an object or a string.
@@ -2335,6 +2831,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetConnectorFill2() {
+        if (!setConnectorFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setConnectorFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke connectorPreviewStroke;
     private ColoredFill connectorPreviewStroke1;
@@ -2343,6 +2849,7 @@ public class UiTimeline extends JsObject {
     private String dashpattern2;
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
+    private List<UiTimeline> setConnectorPreviewStroke = new ArrayList<>();
 
     /**
      * Setter for the connector preview stroke.
@@ -2394,7 +2901,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetConnectorPreviewStroke() {
+        if (!setConnectorPreviewStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setConnectorPreviewStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setConnectorPreviewStroke1 = new ArrayList<>();
 
     /**
      * Setter for the connector preview stroke.
@@ -2446,7 +2964,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetConnectorPreviewStroke1() {
+        if (!setConnectorPreviewStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setConnectorPreviewStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setConnectorPreviewStroke2 = new ArrayList<>();
 
     /**
      * Setter for the connector preview stroke.
@@ -2498,6 +3027,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetConnectorPreviewStroke2() {
+        if (!setConnectorPreviewStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setConnectorPreviewStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke connectorStroke;
     private ColoredFill connectorStroke1;
@@ -2506,6 +3045,7 @@ public class UiTimeline extends JsObject {
     private String dashpattern3;
     private StrokeLineJoin lineJoin3;
     private StrokeLineCap lineCap3;
+    private List<UiTimeline> setConnectorStroke = new ArrayList<>();
 
     /**
      * Setter for the connector stroke settings.
@@ -2561,7 +3101,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetConnectorStroke() {
+        if (!setConnectorStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setConnectorStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setConnectorStroke1 = new ArrayList<>();
 
     /**
      * Setter for the connector stroke settings.
@@ -2617,7 +3168,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetConnectorStroke1() {
+        if (!setConnectorStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setConnectorStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setConnectorStroke2 = new ArrayList<>();
 
     /**
      * Setter for the connector stroke settings.
@@ -2673,8 +3235,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetConnectorStroke2() {
+        if (!setConnectorStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setConnectorStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill editConnectorThumbFill;
+    private List<UiTimeline> setEditConnectorThumbFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -2698,9 +3271,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditConnectorThumbFill() {
+        if (!setEditConnectorThumbFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditConnectorThumbFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color3;
     private Double opacity10;
+    private List<UiTimeline> setEditConnectorThumbFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -2742,6 +3326,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditConnectorThumbFill1() {
+        if (!setEditConnectorThumbFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditConnectorThumbFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys12;
     private String[] keys13;
@@ -2750,6 +3344,7 @@ public class UiTimeline extends JsObject {
     private VectorRect mode13;
     private String mode14;
     private Double opacity11;
+    private List<UiTimeline> setEditConnectorThumbFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2828,7 +3423,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditConnectorThumbFill2() {
+        if (!setEditConnectorThumbFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditConnectorThumbFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditConnectorThumbFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2907,7 +3513,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditConnectorThumbFill3() {
+        if (!setEditConnectorThumbFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditConnectorThumbFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditConnectorThumbFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2986,7 +3603,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditConnectorThumbFill4() {
+        if (!setEditConnectorThumbFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditConnectorThumbFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditConnectorThumbFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3065,7 +3693,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditConnectorThumbFill5() {
+        if (!setEditConnectorThumbFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditConnectorThumbFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditConnectorThumbFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3144,7 +3783,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditConnectorThumbFill6() {
+        if (!setEditConnectorThumbFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditConnectorThumbFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditConnectorThumbFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3223,6 +3873,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditConnectorThumbFill7() {
+        if (!setEditConnectorThumbFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditConnectorThumbFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys14;
     private String[] keys15;
@@ -3232,6 +3892,7 @@ public class UiTimeline extends JsObject {
     private Double opacity12;
     private Double fx4;
     private Double fy4;
+    private List<UiTimeline> setEditConnectorThumbFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -3339,7 +4000,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditConnectorThumbFill8() {
+        if (!setEditConnectorThumbFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditConnectorThumbFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditConnectorThumbFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -3447,6 +4119,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditConnectorThumbFill9() {
+        if (!setEditConnectorThumbFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditConnectorThumbFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings3;
     private Stroke editConnectorThumbStroke;
@@ -3456,6 +4138,7 @@ public class UiTimeline extends JsObject {
     private String dashpattern4;
     private StrokeLineJoin lineJoin4;
     private StrokeLineCap lineCap4;
+    private List<UiTimeline> setEditConnectorThumbStroke = new ArrayList<>();
 
     /**
      * Setter for the edit connector thumb stroke.
@@ -3515,7 +4198,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditConnectorThumbStroke() {
+        if (!setEditConnectorThumbStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditConnectorThumbStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditConnectorThumbStroke1 = new ArrayList<>();
 
     /**
      * Setter for the edit connector thumb stroke.
@@ -3575,7 +4269,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditConnectorThumbStroke1() {
+        if (!setEditConnectorThumbStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditConnectorThumbStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditConnectorThumbStroke2 = new ArrayList<>();
 
     /**
      * Setter for the edit connector thumb stroke.
@@ -3635,8 +4340,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditConnectorThumbStroke2() {
+        if (!setEditConnectorThumbStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditConnectorThumbStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double editFinishConnectorMarkerHorizontalOffset;
+    private List<UiTimeline> setEditFinishConnectorMarkerHorizontalOffset = new ArrayList<>();
 
     /**
      * Setter for the finish edit connector control horizontal offset.
@@ -3659,8 +4375,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditFinishConnectorMarkerHorizontalOffset() {
+        if (!setEditFinishConnectorMarkerHorizontalOffset.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditFinishConnectorMarkerHorizontalOffset) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double editFinishConnectorMarkerSize;
+    private List<UiTimeline> setEditFinishConnectorMarkerSize = new ArrayList<>();
 
     /**
      * Setter for the finish edit connector control size.
@@ -3683,6 +4410,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditFinishConnectorMarkerSize() {
+        if (!setEditFinishConnectorMarkerSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditFinishConnectorMarkerSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private MarkerType editFinishConnectorMarkerType;
     private String editFinishConnectorMarkerType1;
@@ -3702,6 +4439,7 @@ public class UiTimeline extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s)", ((editFinishConnectorMarkerType != null) ? editFinishConnectorMarkerType.generateJs() : "null")));
@@ -3726,6 +4464,7 @@ public class UiTimeline extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s)", wrapQuotes(editFinishConnectorMarkerType1)));
@@ -3735,6 +4474,7 @@ public class UiTimeline extends JsObject {
     }
 
     private Double editFinishConnectorMarkerVerticalOffset;
+    private List<UiTimeline> setEditFinishConnectorMarkerVerticalOffset = new ArrayList<>();
 
     /**
      * Setter for the finish edit connector control vertical offset.
@@ -3757,8 +4497,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditFinishConnectorMarkerVerticalOffset() {
+        if (!setEditFinishConnectorMarkerVerticalOffset.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditFinishConnectorMarkerVerticalOffset) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill editIntervalThumbFill;
+    private List<UiTimeline> setEditIntervalThumbFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -3782,9 +4533,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditIntervalThumbFill() {
+        if (!setEditIntervalThumbFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditIntervalThumbFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color4;
     private Double opacity13;
+    private List<UiTimeline> setEditIntervalThumbFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -3830,6 +4592,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditIntervalThumbFill1() {
+        if (!setEditIntervalThumbFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditIntervalThumbFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys16;
     private String[] keys17;
@@ -3838,6 +4610,7 @@ public class UiTimeline extends JsObject {
     private VectorRect mode17;
     private String mode18;
     private Double opacity14;
+    private List<UiTimeline> setEditIntervalThumbFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3928,7 +4701,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditIntervalThumbFill2() {
+        if (!setEditIntervalThumbFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditIntervalThumbFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditIntervalThumbFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -4019,7 +4803,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditIntervalThumbFill3() {
+        if (!setEditIntervalThumbFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditIntervalThumbFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditIntervalThumbFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -4110,7 +4905,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditIntervalThumbFill4() {
+        if (!setEditIntervalThumbFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditIntervalThumbFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditIntervalThumbFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -4201,7 +5007,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditIntervalThumbFill5() {
+        if (!setEditIntervalThumbFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditIntervalThumbFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditIntervalThumbFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -4292,7 +5109,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditIntervalThumbFill6() {
+        if (!setEditIntervalThumbFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditIntervalThumbFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditIntervalThumbFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -4383,6 +5211,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditIntervalThumbFill7() {
+        if (!setEditIntervalThumbFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditIntervalThumbFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys18;
     private String[] keys19;
@@ -4392,6 +5230,7 @@ public class UiTimeline extends JsObject {
     private Double opacity15;
     private Double fx5;
     private Double fy5;
+    private List<UiTimeline> setEditIntervalThumbFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -4514,7 +5353,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditIntervalThumbFill8() {
+        if (!setEditIntervalThumbFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditIntervalThumbFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditIntervalThumbFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -4637,6 +5487,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditIntervalThumbFill9() {
+        if (!setEditIntervalThumbFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditIntervalThumbFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings4;
     private Stroke editIntervalThumbStroke;
@@ -4646,6 +5506,7 @@ public class UiTimeline extends JsObject {
     private String dashpattern5;
     private StrokeLineJoin lineJoin5;
     private StrokeLineCap lineCap5;
+    private List<UiTimeline> setEditIntervalThumbStroke = new ArrayList<>();
 
     /**
      * Setter for the edit interval thumb stroke.
@@ -4709,7 +5570,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditIntervalThumbStroke() {
+        if (!setEditIntervalThumbStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditIntervalThumbStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditIntervalThumbStroke1 = new ArrayList<>();
 
     /**
      * Setter for the edit interval thumb stroke.
@@ -4773,7 +5645,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditIntervalThumbStroke1() {
+        if (!setEditIntervalThumbStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditIntervalThumbStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditIntervalThumbStroke2 = new ArrayList<>();
 
     /**
      * Setter for the edit interval thumb stroke.
@@ -4837,8 +5720,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditIntervalThumbStroke2() {
+        if (!setEditIntervalThumbStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditIntervalThumbStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double editIntervalWidth;
+    private List<UiTimeline> setEditIntervalWidth = new ArrayList<>();
 
     /**
      * Setter for the interval edit control width.
@@ -4861,8 +5755,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditIntervalWidth() {
+        if (!setEditIntervalWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditIntervalWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill editPreviewFill;
+    private List<UiTimeline> setEditPreviewFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -4886,9 +5791,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditPreviewFill() {
+        if (!setEditPreviewFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditPreviewFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color5;
     private Double opacity16;
+    private List<UiTimeline> setEditPreviewFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -4938,6 +5854,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditPreviewFill1() {
+        if (!setEditPreviewFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditPreviewFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys20;
     private String[] keys21;
@@ -4946,6 +5872,7 @@ public class UiTimeline extends JsObject {
     private VectorRect mode21;
     private String mode22;
     private Double opacity17;
+    private List<UiTimeline> setEditPreviewFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -5048,7 +5975,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditPreviewFill2() {
+        if (!setEditPreviewFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditPreviewFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditPreviewFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -5151,7 +6089,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditPreviewFill3() {
+        if (!setEditPreviewFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditPreviewFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditPreviewFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -5254,7 +6203,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditPreviewFill4() {
+        if (!setEditPreviewFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditPreviewFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditPreviewFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -5357,7 +6317,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditPreviewFill5() {
+        if (!setEditPreviewFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditPreviewFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditPreviewFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -5460,7 +6431,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditPreviewFill6() {
+        if (!setEditPreviewFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditPreviewFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditPreviewFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -5563,6 +6545,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditPreviewFill7() {
+        if (!setEditPreviewFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditPreviewFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys22;
     private String[] keys23;
@@ -5572,6 +6564,7 @@ public class UiTimeline extends JsObject {
     private Double opacity18;
     private Double fx6;
     private Double fy6;
+    private List<UiTimeline> setEditPreviewFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -5709,7 +6702,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditPreviewFill8() {
+        if (!setEditPreviewFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditPreviewFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditPreviewFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -5847,6 +6851,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditPreviewFill9() {
+        if (!setEditPreviewFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditPreviewFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings5;
     private Stroke editPreviewStroke;
@@ -5856,6 +6870,7 @@ public class UiTimeline extends JsObject {
     private String dashpattern6;
     private StrokeLineJoin lineJoin6;
     private StrokeLineCap lineCap6;
+    private List<UiTimeline> setEditPreviewStroke = new ArrayList<>();
 
     /**
      * Setter for the edit preview stroke.
@@ -5923,7 +6938,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditPreviewStroke() {
+        if (!setEditPreviewStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditPreviewStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditPreviewStroke1 = new ArrayList<>();
 
     /**
      * Setter for the edit preview stroke.
@@ -5991,7 +7017,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditPreviewStroke1() {
+        if (!setEditPreviewStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditPreviewStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditPreviewStroke2 = new ArrayList<>();
 
     /**
      * Setter for the edit preview stroke.
@@ -6059,8 +7096,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditPreviewStroke2() {
+        if (!setEditPreviewStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditPreviewStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill editProgressFill;
+    private List<UiTimeline> setEditProgressFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -6084,9 +7132,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditProgressFill() {
+        if (!setEditProgressFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditProgressFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color6;
     private Double opacity19;
+    private List<UiTimeline> setEditProgressFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -6140,6 +7199,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditProgressFill1() {
+        if (!setEditProgressFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditProgressFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys24;
     private String[] keys25;
@@ -6148,6 +7217,7 @@ public class UiTimeline extends JsObject {
     private VectorRect mode25;
     private String mode26;
     private Double opacity20;
+    private List<UiTimeline> setEditProgressFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -6262,7 +7332,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditProgressFill2() {
+        if (!setEditProgressFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditProgressFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditProgressFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -6377,7 +7458,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditProgressFill3() {
+        if (!setEditProgressFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditProgressFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditProgressFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -6492,7 +7584,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditProgressFill4() {
+        if (!setEditProgressFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditProgressFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditProgressFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -6607,7 +7710,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditProgressFill5() {
+        if (!setEditProgressFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditProgressFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditProgressFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -6722,7 +7836,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditProgressFill6() {
+        if (!setEditProgressFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditProgressFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditProgressFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -6837,6 +7962,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditProgressFill7() {
+        if (!setEditProgressFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditProgressFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys26;
     private String[] keys27;
@@ -6846,6 +7981,7 @@ public class UiTimeline extends JsObject {
     private Double opacity21;
     private Double fx7;
     private Double fy7;
+    private List<UiTimeline> setEditProgressFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -6998,7 +8134,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditProgressFill8() {
+        if (!setEditProgressFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditProgressFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditProgressFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -7151,6 +8298,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditProgressFill9() {
+        if (!setEditProgressFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditProgressFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings6;
     private Stroke editProgressStroke;
@@ -7160,6 +8317,7 @@ public class UiTimeline extends JsObject {
     private String dashpattern7;
     private StrokeLineJoin lineJoin7;
     private StrokeLineCap lineCap7;
+    private List<UiTimeline> setEditProgressStroke = new ArrayList<>();
 
     /**
      * Setter for the edit progress stroke.
@@ -7231,7 +8389,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditProgressStroke() {
+        if (!setEditProgressStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditProgressStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditProgressStroke1 = new ArrayList<>();
 
     /**
      * Setter for the edit progress stroke.
@@ -7303,7 +8472,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditProgressStroke1() {
+        if (!setEditProgressStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditProgressStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditProgressStroke2 = new ArrayList<>();
 
     /**
      * Setter for the edit progress stroke.
@@ -7375,8 +8555,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditProgressStroke2() {
+        if (!setEditProgressStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditProgressStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double editStartConnectorMarkerHorizontalOffset;
+    private List<UiTimeline> setEditStartConnectorMarkerHorizontalOffset = new ArrayList<>();
 
     /**
      * Setter for the start edit connector control horizontal offset.
@@ -7399,8 +8590,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStartConnectorMarkerHorizontalOffset() {
+        if (!setEditStartConnectorMarkerHorizontalOffset.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStartConnectorMarkerHorizontalOffset) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double editStartConnectorMarkerSize;
+    private List<UiTimeline> setEditStartConnectorMarkerSize = new ArrayList<>();
 
     /**
      * Setter for the start edit connector control size.
@@ -7423,6 +8625,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStartConnectorMarkerSize() {
+        if (!setEditStartConnectorMarkerSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStartConnectorMarkerSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private MarkerType editStartConnectorMarkerType;
     private String editStartConnectorMarkerType1;
@@ -7442,6 +8654,7 @@ public class UiTimeline extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s)", ((editStartConnectorMarkerType != null) ? editStartConnectorMarkerType.generateJs() : "null")));
@@ -7466,6 +8679,7 @@ public class UiTimeline extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s)", wrapQuotes(editStartConnectorMarkerType1)));
@@ -7475,6 +8689,7 @@ public class UiTimeline extends JsObject {
     }
 
     private Double editStartConnectorMarkerVerticalOffset;
+    private List<UiTimeline> setEditStartConnectorMarkerVerticalOffset = new ArrayList<>();
 
     /**
      * Setter for the start edit connector control vertical offset.
@@ -7497,6 +8712,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStartConnectorMarkerVerticalOffset() {
+        if (!setEditStartConnectorMarkerVerticalOffset.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStartConnectorMarkerVerticalOffset) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke editStructurePreviewDashStroke;
     private ColoredFill editStructurePreviewDashStroke1;
@@ -7505,6 +8730,7 @@ public class UiTimeline extends JsObject {
     private String dashpattern8;
     private StrokeLineJoin lineJoin8;
     private StrokeLineCap lineCap8;
+    private List<UiTimeline> setEditStructurePreviewDashStroke = new ArrayList<>();
 
     /**
      * Setter for the preview dash stroke when editing structure.
@@ -7580,7 +8806,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewDashStroke() {
+        if (!setEditStructurePreviewDashStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStructurePreviewDashStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditStructurePreviewDashStroke1 = new ArrayList<>();
 
     /**
      * Setter for the preview dash stroke when editing structure.
@@ -7656,7 +8893,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewDashStroke1() {
+        if (!setEditStructurePreviewDashStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStructurePreviewDashStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditStructurePreviewDashStroke2 = new ArrayList<>();
 
     /**
      * Setter for the preview dash stroke when editing structure.
@@ -7732,8 +8980,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewDashStroke2() {
+        if (!setEditStructurePreviewDashStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStructurePreviewDashStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill editStructurePreviewFill;
+    private List<UiTimeline> setEditStructurePreviewFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -7757,9 +9016,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill() {
+        if (!setEditStructurePreviewFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStructurePreviewFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color7;
     private Double opacity22;
+    private List<UiTimeline> setEditStructurePreviewFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -7817,6 +9087,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill1() {
+        if (!setEditStructurePreviewFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStructurePreviewFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys28;
     private String[] keys29;
@@ -7825,6 +9105,7 @@ public class UiTimeline extends JsObject {
     private VectorRect mode29;
     private String mode30;
     private Double opacity23;
+    private List<UiTimeline> setEditStructurePreviewFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -7951,7 +9232,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill2() {
+        if (!setEditStructurePreviewFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStructurePreviewFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditStructurePreviewFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -8078,7 +9370,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill3() {
+        if (!setEditStructurePreviewFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStructurePreviewFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditStructurePreviewFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -8205,7 +9508,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill4() {
+        if (!setEditStructurePreviewFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStructurePreviewFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditStructurePreviewFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -8332,7 +9646,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill5() {
+        if (!setEditStructurePreviewFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStructurePreviewFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditStructurePreviewFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -8459,7 +9784,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill6() {
+        if (!setEditStructurePreviewFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStructurePreviewFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditStructurePreviewFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -8586,6 +9922,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill7() {
+        if (!setEditStructurePreviewFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStructurePreviewFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys30;
     private String[] keys31;
@@ -8595,6 +9941,7 @@ public class UiTimeline extends JsObject {
     private Double opacity24;
     private Double fx8;
     private Double fy8;
+    private List<UiTimeline> setEditStructurePreviewFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -8762,7 +10109,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill8() {
+        if (!setEditStructurePreviewFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStructurePreviewFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditStructurePreviewFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -8930,6 +10288,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill9() {
+        if (!setEditStructurePreviewFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStructurePreviewFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings7;
     private Stroke editStructurePreviewStroke;
@@ -8939,6 +10307,7 @@ public class UiTimeline extends JsObject {
     private String dashpattern9;
     private StrokeLineJoin lineJoin9;
     private StrokeLineCap lineCap9;
+    private List<UiTimeline> setEditStructurePreviewStroke = new ArrayList<>();
 
     /**
      * Setter for the preview stroke when editing structure.
@@ -9018,7 +10387,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewStroke() {
+        if (!setEditStructurePreviewStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStructurePreviewStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditStructurePreviewStroke1 = new ArrayList<>();
 
     /**
      * Setter for the preview stroke when editing structure.
@@ -9098,7 +10478,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewStroke1() {
+        if (!setEditStructurePreviewStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStructurePreviewStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setEditStructurePreviewStroke2 = new ArrayList<>();
 
     /**
      * Setter for the preview stroke when editing structure.
@@ -9178,8 +10569,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewStroke2() {
+        if (!setEditStructurePreviewStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditStructurePreviewStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean editing;
+    private List<UiTimeline> setEditing = new ArrayList<>();
 
     /**
      * Enables or disables live edit mode.
@@ -9202,6 +10604,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEditing() {
+        if (!setEditing.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setEditing) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TimelineHeader getHeader;
 
@@ -9216,6 +10628,7 @@ public class UiTimeline extends JsObject {
     }
 
     private String header;
+    private List<UiTimeline> setHeader = new ArrayList<>();
 
     /**
      * Setter for the timeline header.
@@ -9238,6 +10651,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetHeader() {
+        if (!setHeader.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setHeader) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private ScrollBar getHorizontalScrollBar;
 
@@ -9252,6 +10675,7 @@ public class UiTimeline extends JsObject {
     }
 
     private String horizontalScrollBar;
+    private List<UiTimeline> setHorizontalScrollBar = new ArrayList<>();
 
     /**
      * Setter for the horizontal scroll bar.
@@ -9274,6 +10698,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetHorizontalScrollBar() {
+        if (!setHorizontalScrollBar.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setHorizontalScrollBar) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiLabelsFactory getLabels;
 
@@ -9288,6 +10722,7 @@ public class UiTimeline extends JsObject {
     }
 
     private String labels;
+    private List<UiTimeline> setLabels = new ArrayList<>();
 
     /**
      * Setter for the labels factory.
@@ -9310,6 +10745,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetLabels() {
+        if (!setLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private List<GanttLine> getLineMarker = new ArrayList<>();
 
@@ -9324,6 +10769,7 @@ public class UiTimeline extends JsObject {
 
     private String lineMarker;
     private Boolean lineMarker1;
+    private List<UiTimeline> setLineMarker = new ArrayList<>();
 
     /**
      * Setter for the line marker.
@@ -9349,7 +10795,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetLineMarker() {
+        if (!setLineMarker.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setLineMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setLineMarker1 = new ArrayList<>();
 
     /**
      * Setter for the line marker.
@@ -9375,12 +10832,23 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetLineMarker1() {
+        if (!setLineMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setLineMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index;
     private String lineMarker2;
     private Boolean lineMarker3;
     private GanttDateTimeMarkers lineMarker4;
     private String lineMarker5;
+    private List<UiTimeline> setLineMarker2 = new ArrayList<>();
 
     /**
      * Setter for the line marker by index.
@@ -9412,7 +10880,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetLineMarker2() {
+        if (!setLineMarker2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setLineMarker2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setLineMarker3 = new ArrayList<>();
 
     /**
      * Setter for the line marker by index.
@@ -9444,7 +10923,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetLineMarker3() {
+        if (!setLineMarker3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setLineMarker3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setLineMarker4 = new ArrayList<>();
 
     /**
      * Setter for the line marker by index.
@@ -9476,6 +10966,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetLineMarker4() {
+        if (!setLineMarker4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setLineMarker4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiMarkersFactory getMarkers;
 
@@ -9490,6 +10990,7 @@ public class UiTimeline extends JsObject {
     }
 
     private String markers;
+    private List<UiTimeline> setMarkers = new ArrayList<>();
 
     /**
      * Setter for the markers factory.
@@ -9512,8 +11013,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMarkers() {
+        if (!setMarkers.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setMarkers) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill milestoneFill;
+    private List<UiTimeline> setMilestoneFill = new ArrayList<>();
 
     /**
      * Setter for milestone fill settings using an object or a string.
@@ -9537,9 +11049,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMilestoneFill() {
+        if (!setMilestoneFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setMilestoneFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color8;
     private Double opacity25;
+    private List<UiTimeline> setMilestoneFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -9601,6 +11124,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMilestoneFill1() {
+        if (!setMilestoneFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setMilestoneFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys32;
     private String[] keys33;
@@ -9609,6 +11142,7 @@ public class UiTimeline extends JsObject {
     private VectorRect mode33;
     private String mode34;
     private Double opacity26;
+    private List<UiTimeline> setMilestoneFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -9747,7 +11281,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMilestoneFill2() {
+        if (!setMilestoneFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setMilestoneFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setMilestoneFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -9886,7 +11431,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMilestoneFill3() {
+        if (!setMilestoneFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setMilestoneFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setMilestoneFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -10025,7 +11581,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMilestoneFill4() {
+        if (!setMilestoneFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setMilestoneFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setMilestoneFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -10164,7 +11731,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMilestoneFill5() {
+        if (!setMilestoneFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setMilestoneFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setMilestoneFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -10303,7 +11881,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMilestoneFill6() {
+        if (!setMilestoneFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setMilestoneFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setMilestoneFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -10442,6 +12031,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMilestoneFill7() {
+        if (!setMilestoneFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setMilestoneFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys34;
     private String[] keys35;
@@ -10451,6 +12050,7 @@ public class UiTimeline extends JsObject {
     private Double opacity27;
     private Double fx9;
     private Double fy9;
+    private List<UiTimeline> setMilestoneFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -10633,7 +12233,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMilestoneFill8() {
+        if (!setMilestoneFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setMilestoneFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setMilestoneFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -10816,6 +12427,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMilestoneFill9() {
+        if (!setMilestoneFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setMilestoneFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings8;
     private UiLabelsFactory getMilestoneLabels;
@@ -10832,6 +12453,7 @@ public class UiTimeline extends JsObject {
 
     private String milestoneLabels;
     private Boolean milestoneLabels1;
+    private List<UiTimeline> setMilestoneLabels = new ArrayList<>();
 
     /**
      * Setter for milestone labels.
@@ -10857,7 +12479,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMilestoneLabels() {
+        if (!setMilestoneLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setMilestoneLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setMilestoneLabels1 = new ArrayList<>();
 
     /**
      * Setter for milestone labels.
@@ -10883,6 +12516,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMilestoneLabels1() {
+        if (!setMilestoneLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setMilestoneLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke milestoneStroke;
     private ColoredFill milestoneStroke1;
@@ -10891,6 +12534,7 @@ public class UiTimeline extends JsObject {
     private String dashpattern10;
     private StrokeLineJoin lineJoin10;
     private StrokeLineCap lineCap10;
+    private List<UiTimeline> setMilestoneStroke = new ArrayList<>();
 
     /**
      * Setter for the milestone stroke settings.
@@ -10973,7 +12617,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMilestoneStroke() {
+        if (!setMilestoneStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setMilestoneStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setMilestoneStroke1 = new ArrayList<>();
 
     /**
      * Setter for the milestone stroke settings.
@@ -11056,7 +12711,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMilestoneStroke1() {
+        if (!setMilestoneStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setMilestoneStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setMilestoneStroke2 = new ArrayList<>();
 
     /**
      * Setter for the milestone stroke settings.
@@ -11139,8 +12805,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMilestoneStroke2() {
+        if (!setMilestoneStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setMilestoneStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill parentFill;
+    private List<UiTimeline> setParentFill = new ArrayList<>();
 
     /**
      * Setter for parent fill settings using an array or a string.
@@ -11164,9 +12841,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetParentFill() {
+        if (!setParentFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setParentFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color9;
     private Double opacity28;
+    private List<UiTimeline> setParentFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -11232,6 +12920,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetParentFill1() {
+        if (!setParentFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setParentFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys36;
     private String[] keys37;
@@ -11240,6 +12938,7 @@ public class UiTimeline extends JsObject {
     private VectorRect mode37;
     private String mode38;
     private Double opacity29;
+    private List<UiTimeline> setParentFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -11390,7 +13089,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetParentFill2() {
+        if (!setParentFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setParentFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setParentFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -11541,7 +13251,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetParentFill3() {
+        if (!setParentFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setParentFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setParentFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -11692,7 +13413,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetParentFill4() {
+        if (!setParentFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setParentFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setParentFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -11843,7 +13575,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetParentFill5() {
+        if (!setParentFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setParentFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setParentFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -11994,7 +13737,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetParentFill6() {
+        if (!setParentFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setParentFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setParentFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -12145,6 +13899,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetParentFill7() {
+        if (!setParentFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setParentFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys38;
     private String[] keys39;
@@ -12154,6 +13918,7 @@ public class UiTimeline extends JsObject {
     private Double opacity30;
     private Double fx10;
     private Double fy10;
+    private List<UiTimeline> setParentFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -12351,7 +14116,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetParentFill8() {
+        if (!setParentFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setParentFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setParentFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -12549,6 +14325,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetParentFill9() {
+        if (!setParentFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setParentFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings9;
     private UiLabelsFactory getParentLabels;
@@ -12565,6 +14351,7 @@ public class UiTimeline extends JsObject {
 
     private String parentLabels;
     private Boolean parentLabels1;
+    private List<UiTimeline> setParentLabels = new ArrayList<>();
 
     /**
      * Setter for parent labels.
@@ -12590,7 +14377,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetParentLabels() {
+        if (!setParentLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setParentLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setParentLabels1 = new ArrayList<>();
 
     /**
      * Setter for parent labels.
@@ -12616,6 +14414,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetParentLabels1() {
+        if (!setParentLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setParentLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke parentStroke;
     private ColoredFill parentStroke1;
@@ -12624,6 +14432,7 @@ public class UiTimeline extends JsObject {
     private String dashpattern11;
     private StrokeLineJoin lineJoin11;
     private StrokeLineCap lineCap11;
+    private List<UiTimeline> setParentStroke = new ArrayList<>();
 
     /**
      * Setter for the parent stroke settings.
@@ -12711,7 +14520,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetParentStroke() {
+        if (!setParentStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setParentStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setParentStroke1 = new ArrayList<>();
 
     /**
      * Setter for the parent stroke settings.
@@ -12799,7 +14619,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetParentStroke1() {
+        if (!setParentStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setParentStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setParentStroke2 = new ArrayList<>();
 
     /**
      * Setter for the parent stroke settings.
@@ -12887,8 +14718,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetParentStroke2() {
+        if (!setParentStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setParentStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill progressFill;
+    private List<UiTimeline> setProgressFill = new ArrayList<>();
 
     /**
      * Setter for progress fill settings using an object or a string.
@@ -12912,9 +14754,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetProgressFill() {
+        if (!setProgressFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setProgressFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color10;
     private Double opacity31;
+    private List<UiTimeline> setProgressFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -12984,6 +14837,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetProgressFill1() {
+        if (!setProgressFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setProgressFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys40;
     private String[] keys41;
@@ -12992,6 +14855,7 @@ public class UiTimeline extends JsObject {
     private VectorRect mode41;
     private String mode42;
     private Double opacity32;
+    private List<UiTimeline> setProgressFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -13154,7 +15018,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetProgressFill2() {
+        if (!setProgressFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setProgressFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setProgressFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -13317,7 +15192,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetProgressFill3() {
+        if (!setProgressFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setProgressFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setProgressFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -13480,7 +15366,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetProgressFill4() {
+        if (!setProgressFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setProgressFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setProgressFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -13643,7 +15540,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetProgressFill5() {
+        if (!setProgressFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setProgressFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setProgressFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -13806,7 +15714,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetProgressFill6() {
+        if (!setProgressFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setProgressFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setProgressFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -13969,6 +15888,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetProgressFill7() {
+        if (!setProgressFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setProgressFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys42;
     private String[] keys43;
@@ -13978,6 +15907,7 @@ public class UiTimeline extends JsObject {
     private Double opacity33;
     private Double fx11;
     private Double fy11;
+    private List<UiTimeline> setProgressFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -14190,7 +16120,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetProgressFill8() {
+        if (!setProgressFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setProgressFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setProgressFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -14403,6 +16344,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetProgressFill9() {
+        if (!setProgressFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setProgressFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings10;
     private UiLabelsFactory getProgressLabels;
@@ -14419,6 +16370,7 @@ public class UiTimeline extends JsObject {
 
     private String progressLabels;
     private Boolean progressLabels1;
+    private List<UiTimeline> setProgressLabels = new ArrayList<>();
 
     /**
      * Setter for progress labels.
@@ -14444,7 +16396,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetProgressLabels() {
+        if (!setProgressLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setProgressLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setProgressLabels1 = new ArrayList<>();
 
     /**
      * Setter for progress labels.
@@ -14470,6 +16433,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetProgressLabels1() {
+        if (!setProgressLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setProgressLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke progressStroke;
     private ColoredFill progressStroke1;
@@ -14478,6 +16451,7 @@ public class UiTimeline extends JsObject {
     private String dashpattern12;
     private StrokeLineJoin lineJoin12;
     private StrokeLineCap lineCap12;
+    private List<UiTimeline> setProgressStroke = new ArrayList<>();
 
     /**
      * Setter for the progress bar stroke settings.
@@ -14569,7 +16543,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetProgressStroke() {
+        if (!setProgressStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setProgressStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setProgressStroke1 = new ArrayList<>();
 
     /**
      * Setter for the progress bar stroke settings.
@@ -14661,7 +16646,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetProgressStroke1() {
+        if (!setProgressStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setProgressStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setProgressStroke2 = new ArrayList<>();
 
     /**
      * Setter for the progress bar stroke settings.
@@ -14753,6 +16749,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetProgressStroke2() {
+        if (!setProgressStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setProgressStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private List<GanttRange> getRangeMarker = new ArrayList<>();
 
@@ -14767,6 +16773,7 @@ public class UiTimeline extends JsObject {
 
     private String rangeMarker;
     private Boolean rangeMarker1;
+    private List<UiTimeline> setRangeMarker = new ArrayList<>();
 
     /**
      * Setter for the range marker.
@@ -14792,7 +16799,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRangeMarker() {
+        if (!setRangeMarker.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRangeMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRangeMarker1 = new ArrayList<>();
 
     /**
      * Setter for the range marker.
@@ -14818,12 +16836,23 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRangeMarker1() {
+        if (!setRangeMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRangeMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index1;
     private String rangeMarker2;
     private Boolean rangeMarker3;
     private GanttDateTimeMarkers rangeMarker4;
     private String rangeMarker5;
+    private List<UiTimeline> setRangeMarker2 = new ArrayList<>();
 
     /**
      * Setter for the range marker by index.
@@ -14858,7 +16887,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRangeMarker2() {
+        if (!setRangeMarker2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRangeMarker2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRangeMarker3 = new ArrayList<>();
 
     /**
      * Setter for the range marker by index.
@@ -14893,7 +16933,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRangeMarker3() {
+        if (!setRangeMarker3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRangeMarker3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRangeMarker4 = new ArrayList<>();
 
     /**
      * Setter for the range marker by index.
@@ -14928,8 +16979,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRangeMarker4() {
+        if (!setRangeMarker4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRangeMarker4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill rowEvenFill;
+    private List<UiTimeline> setRowEvenFill = new ArrayList<>();
 
     /**
      * Setter for row even fill settings using an object or a string.
@@ -14953,9 +17015,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowEvenFill() {
+        if (!setRowEvenFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowEvenFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color11;
     private Double opacity34;
+    private List<UiTimeline> setRowEvenFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -15029,6 +17102,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowEvenFill1() {
+        if (!setRowEvenFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowEvenFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys44;
     private String[] keys45;
@@ -15037,6 +17120,7 @@ public class UiTimeline extends JsObject {
     private VectorRect mode45;
     private String mode46;
     private Double opacity35;
+    private List<UiTimeline> setRowEvenFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -15211,7 +17295,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowEvenFill2() {
+        if (!setRowEvenFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowEvenFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowEvenFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -15386,7 +17481,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowEvenFill3() {
+        if (!setRowEvenFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowEvenFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowEvenFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -15561,7 +17667,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowEvenFill4() {
+        if (!setRowEvenFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowEvenFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowEvenFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -15736,7 +17853,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowEvenFill5() {
+        if (!setRowEvenFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowEvenFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowEvenFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -15911,7 +18039,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowEvenFill6() {
+        if (!setRowEvenFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowEvenFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowEvenFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -16086,6 +18225,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowEvenFill7() {
+        if (!setRowEvenFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowEvenFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys46;
     private String[] keys47;
@@ -16095,6 +18244,7 @@ public class UiTimeline extends JsObject {
     private Double opacity36;
     private Double fx12;
     private Double fy12;
+    private List<UiTimeline> setRowEvenFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -16322,7 +18472,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowEvenFill8() {
+        if (!setRowEvenFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowEvenFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowEvenFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -16550,9 +18711,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowEvenFill9() {
+        if (!setRowEvenFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowEvenFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings11;
     private Fill rowFill;
+    private List<UiTimeline> setRowFill = new ArrayList<>();
 
     /**
      * Setter for row fill settings using an array or a string. Resets odd fill and even fill.
@@ -16576,9 +18748,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowFill() {
+        if (!setRowFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color12;
     private Double opacity37;
+    private List<UiTimeline> setRowFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -16656,6 +18839,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowFill1() {
+        if (!setRowFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys48;
     private String[] keys49;
@@ -16664,6 +18857,7 @@ public class UiTimeline extends JsObject {
     private VectorRect mode49;
     private String mode50;
     private Double opacity38;
+    private List<UiTimeline> setRowFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -16850,7 +19044,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowFill2() {
+        if (!setRowFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -17037,7 +19242,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowFill3() {
+        if (!setRowFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -17224,7 +19440,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowFill4() {
+        if (!setRowFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -17411,7 +19638,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowFill5() {
+        if (!setRowFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -17598,7 +19836,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowFill6() {
+        if (!setRowFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -17785,6 +20034,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowFill7() {
+        if (!setRowFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys50;
     private String[] keys51;
@@ -17794,6 +20053,7 @@ public class UiTimeline extends JsObject {
     private Double opacity39;
     private Double fx13;
     private Double fy13;
+    private List<UiTimeline> setRowFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -18036,7 +20296,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowFill8() {
+        if (!setRowFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -18279,9 +20550,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowFill9() {
+        if (!setRowFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings12;
     private Fill rowHoverFill;
+    private List<UiTimeline> setRowHoverFill = new ArrayList<>();
 
     /**
      * Setter for row hover fill settings using an array or a string.
@@ -18305,9 +20587,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowHoverFill() {
+        if (!setRowHoverFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowHoverFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color13;
     private Double opacity40;
+    private List<UiTimeline> setRowHoverFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -18389,6 +20682,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowHoverFill1() {
+        if (!setRowHoverFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowHoverFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys52;
     private String[] keys53;
@@ -18397,6 +20700,7 @@ public class UiTimeline extends JsObject {
     private VectorRect mode53;
     private String mode54;
     private Double opacity41;
+    private List<UiTimeline> setRowHoverFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -18595,7 +20899,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowHoverFill2() {
+        if (!setRowHoverFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowHoverFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowHoverFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -18794,7 +21109,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowHoverFill3() {
+        if (!setRowHoverFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowHoverFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowHoverFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -18993,7 +21319,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowHoverFill4() {
+        if (!setRowHoverFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowHoverFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowHoverFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -19192,7 +21529,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowHoverFill5() {
+        if (!setRowHoverFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowHoverFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowHoverFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -19391,7 +21739,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowHoverFill6() {
+        if (!setRowHoverFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowHoverFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowHoverFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -19590,6 +21949,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowHoverFill7() {
+        if (!setRowHoverFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowHoverFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys54;
     private String[] keys55;
@@ -19599,6 +21968,7 @@ public class UiTimeline extends JsObject {
     private Double opacity42;
     private Double fx14;
     private Double fy14;
+    private List<UiTimeline> setRowHoverFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -19856,7 +22226,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowHoverFill8() {
+        if (!setRowHoverFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowHoverFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowHoverFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -20114,8 +22495,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowHoverFill9() {
+        if (!setRowHoverFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowHoverFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill rowOddFill;
+    private List<UiTimeline> setRowOddFill = new ArrayList<>();
 
     /**
      * Setter for row odd fill settings using an object or a string.
@@ -20139,9 +22531,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowOddFill() {
+        if (!setRowOddFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowOddFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color14;
     private Double opacity43;
+    private List<UiTimeline> setRowOddFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -20227,6 +22630,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowOddFill1() {
+        if (!setRowOddFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowOddFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys56;
     private String[] keys57;
@@ -20235,6 +22648,7 @@ public class UiTimeline extends JsObject {
     private VectorRect mode57;
     private String mode58;
     private Double opacity44;
+    private List<UiTimeline> setRowOddFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -20445,7 +22859,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowOddFill2() {
+        if (!setRowOddFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowOddFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowOddFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -20656,7 +23081,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowOddFill3() {
+        if (!setRowOddFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowOddFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowOddFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -20867,7 +23303,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowOddFill4() {
+        if (!setRowOddFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowOddFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowOddFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -21078,7 +23525,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowOddFill5() {
+        if (!setRowOddFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowOddFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowOddFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -21289,7 +23747,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowOddFill6() {
+        if (!setRowOddFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowOddFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowOddFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -21500,6 +23969,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowOddFill7() {
+        if (!setRowOddFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowOddFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys58;
     private String[] keys59;
@@ -21509,6 +23988,7 @@ public class UiTimeline extends JsObject {
     private Double opacity45;
     private Double fx15;
     private Double fy15;
+    private List<UiTimeline> setRowOddFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -21781,7 +24261,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowOddFill8() {
+        if (!setRowOddFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowOddFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowOddFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -22054,9 +24545,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowOddFill9() {
+        if (!setRowOddFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowOddFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings13;
     private Fill rowSelectedFill;
+    private List<UiTimeline> setRowSelectedFill = new ArrayList<>();
 
     /**
      * Setter for row fill settings in selected mode using an array or a string.
@@ -22080,9 +24582,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill() {
+        if (!setRowSelectedFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowSelectedFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color15;
     private Double opacity46;
+    private List<UiTimeline> setRowSelectedFill1 = new ArrayList<>();
 
     /**
      * Fill color in selected mode with opacity. Fill as a string or an object.
@@ -22172,6 +24685,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill1() {
+        if (!setRowSelectedFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowSelectedFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys60;
     private String[] keys61;
@@ -22179,6 +24702,7 @@ public class UiTimeline extends JsObject {
     private Boolean mode60;
     private VectorRect mode61;
     private String mode62;
+    private List<UiTimeline> setRowSelectedFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -22350,7 +24874,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill2() {
+        if (!setRowSelectedFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowSelectedFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowSelectedFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -22522,7 +25057,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill3() {
+        if (!setRowSelectedFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowSelectedFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowSelectedFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -22694,7 +25240,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill4() {
+        if (!setRowSelectedFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowSelectedFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowSelectedFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -22866,7 +25423,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill5() {
+        if (!setRowSelectedFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowSelectedFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowSelectedFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -23038,7 +25606,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill6() {
+        if (!setRowSelectedFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowSelectedFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowSelectedFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -23210,6 +25789,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill7() {
+        if (!setRowSelectedFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowSelectedFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys62;
     private String[] keys63;
@@ -23219,6 +25808,7 @@ public class UiTimeline extends JsObject {
     private Double opacity47;
     private Double fx16;
     private Double fy16;
+    private List<UiTimeline> setRowSelectedFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill in selected mode.
@@ -23505,7 +26095,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill8() {
+        if (!setRowSelectedFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowSelectedFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setRowSelectedFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill in selected mode.
@@ -23792,6 +26393,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill9() {
+        if (!setRowSelectedFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setRowSelectedFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings14;
     private GanttDateTime getScale;
@@ -23807,6 +26418,7 @@ public class UiTimeline extends JsObject {
     }
 
     private String scale;
+    private List<UiTimeline> setScale = new ArrayList<>();
 
     /**
      * Setter for the timeline scale.
@@ -23829,8 +26441,19 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetScale() {
+        if (!setScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill selectedElementFill;
+    private List<UiTimeline> setSelectedElementFill = new ArrayList<>();
 
     /**
      * Setter for selected element fill settings using an object or a string.
@@ -23854,9 +26477,20 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelectedElementFill() {
+        if (!setSelectedElementFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setSelectedElementFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color16;
     private Double opacity48;
+    private List<UiTimeline> setSelectedElementFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -23949,6 +26583,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelectedElementFill1() {
+        if (!setSelectedElementFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setSelectedElementFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys64;
     private String[] keys65;
@@ -23957,6 +26601,7 @@ public class UiTimeline extends JsObject {
     private VectorRect mode65;
     private String mode66;
     private Double opacity49;
+    private List<UiTimeline> setSelectedElementFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -24190,7 +26835,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelectedElementFill2() {
+        if (!setSelectedElementFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setSelectedElementFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setSelectedElementFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -24424,7 +27080,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelectedElementFill3() {
+        if (!setSelectedElementFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setSelectedElementFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setSelectedElementFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -24658,7 +27325,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelectedElementFill4() {
+        if (!setSelectedElementFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setSelectedElementFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setSelectedElementFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -24892,7 +27570,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelectedElementFill5() {
+        if (!setSelectedElementFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setSelectedElementFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setSelectedElementFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -25126,7 +27815,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelectedElementFill6() {
+        if (!setSelectedElementFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setSelectedElementFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setSelectedElementFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -25360,6 +28060,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelectedElementFill7() {
+        if (!setSelectedElementFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setSelectedElementFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys66;
     private String[] keys67;
@@ -25369,6 +28079,7 @@ public class UiTimeline extends JsObject {
     private Double opacity50;
     private Double fx17;
     private Double fy17;
+    private List<UiTimeline> setSelectedElementFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -25670,7 +28381,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelectedElementFill8() {
+        if (!setSelectedElementFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setSelectedElementFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setSelectedElementFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -25972,6 +28694,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelectedElementFill9() {
+        if (!setSelectedElementFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setSelectedElementFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings15;
     private Stroke selectedElementStroke;
@@ -25981,6 +28713,7 @@ public class UiTimeline extends JsObject {
     private String dashpattern13;
     private StrokeLineJoin lineJoin13;
     private StrokeLineCap lineCap13;
+    private List<UiTimeline> setSelectedElementStroke = new ArrayList<>();
 
     /**
      * Setter for the selected element on timeline stroke settings.
@@ -26076,7 +28809,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelectedElementStroke() {
+        if (!setSelectedElementStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setSelectedElementStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setSelectedElementStroke1 = new ArrayList<>();
 
     /**
      * Setter for the selected element on timeline stroke settings.
@@ -26172,7 +28916,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelectedElementStroke1() {
+        if (!setSelectedElementStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setSelectedElementStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setSelectedElementStroke2 = new ArrayList<>();
 
     /**
      * Setter for the selected element on timeline stroke settings.
@@ -26268,6 +29023,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelectedElementStroke2() {
+        if (!setSelectedElementStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setSelectedElementStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private List<GanttText> getTextMarker = new ArrayList<>();
 
@@ -26282,6 +29047,7 @@ public class UiTimeline extends JsObject {
 
     private String textMarker;
     private Boolean textMarker1;
+    private List<UiTimeline> setTextMarker = new ArrayList<>();
 
     /**
      * Setter for the text marker.
@@ -26307,7 +29073,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetTextMarker() {
+        if (!setTextMarker.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setTextMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setTextMarker1 = new ArrayList<>();
 
     /**
      * Setter for the text marker.
@@ -26333,12 +29110,23 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetTextMarker1() {
+        if (!setTextMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setTextMarker1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index2;
     private String textMarker2;
     private Boolean textMarker3;
     private GanttDateTimeMarkers textMarker4;
     private String textMarker5;
+    private List<UiTimeline> setTextMarker2 = new ArrayList<>();
 
     /**
      * Setter for text marker by index.
@@ -26374,7 +29162,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetTextMarker2() {
+        if (!setTextMarker2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setTextMarker2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setTextMarker3 = new ArrayList<>();
 
     /**
      * Setter for text marker by index.
@@ -26410,7 +29209,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetTextMarker3() {
+        if (!setTextMarker3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setTextMarker3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setTextMarker4 = new ArrayList<>();
 
     /**
      * Setter for text marker by index.
@@ -26446,6 +29256,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetTextMarker4() {
+        if (!setTextMarker4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setTextMarker4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Tooltip getTooltip;
 
@@ -26461,6 +29281,7 @@ public class UiTimeline extends JsObject {
 
     private String tooltip;
     private Boolean tooltip1;
+    private List<UiTimeline> setTooltip = new ArrayList<>();
 
     /**
      * Setter for the tooltip.
@@ -26486,7 +29307,18 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetTooltip() {
+        if (!setTooltip.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setTooltip) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTimeline> setTooltip1 = new ArrayList<>();
 
     /**
      * Setter for the tooltip.
@@ -26512,6 +29344,16 @@ public class UiTimeline extends JsObject {
         }
         return this;
     }
+    private String generateJSsetTooltip1() {
+        if (!setTooltip1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setTooltip1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private ScrollBar getVerticalScrollBar;
 
@@ -26526,6 +29368,7 @@ public class UiTimeline extends JsObject {
     }
 
     private String verticalScrollBar;
+    private List<UiTimeline> setVerticalScrollBar = new ArrayList<>();
 
     /**
      * Setter for the vertical scroll bar.
@@ -26547,6 +29390,16 @@ public class UiTimeline extends JsObject {
             }
         }
         return this;
+    }
+    private String generateJSsetVerticalScrollBar() {
+        if (!setVerticalScrollBar.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTimeline item : setVerticalScrollBar) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetBaseLabels() {
@@ -26703,6 +29556,267 @@ public class UiTimeline extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetBackgroundFill());
+        js.append(generateJSsetBackgroundFill1());
+        js.append(generateJSsetBackgroundFill2());
+        js.append(generateJSsetBackgroundFill3());
+        js.append(generateJSsetBackgroundFill4());
+        js.append(generateJSsetBackgroundFill5());
+        js.append(generateJSsetBackgroundFill6());
+        js.append(generateJSsetBackgroundFill7());
+        js.append(generateJSsetBackgroundFill8());
+        js.append(generateJSsetBackgroundFill9());
+        js.append(generateJSsetBaseFill());
+        js.append(generateJSsetBaseFill1());
+        js.append(generateJSsetBaseFill2());
+        js.append(generateJSsetBaseFill3());
+        js.append(generateJSsetBaseFill4());
+        js.append(generateJSsetBaseFill5());
+        js.append(generateJSsetBaseFill6());
+        js.append(generateJSsetBaseFill7());
+        js.append(generateJSsetBaseFill8());
+        js.append(generateJSsetBaseFill9());
+        js.append(generateJSsetBaseLabels());
+        js.append(generateJSsetBaseLabels1());
+        js.append(generateJSsetBaseStroke());
+        js.append(generateJSsetBaseStroke1());
+        js.append(generateJSsetBaseStroke2());
+        js.append(generateJSsetBaselineAbove());
+        js.append(generateJSsetBaselineFill());
+        js.append(generateJSsetBaselineFill1());
+        js.append(generateJSsetBaselineFill2());
+        js.append(generateJSsetBaselineFill3());
+        js.append(generateJSsetBaselineFill4());
+        js.append(generateJSsetBaselineFill5());
+        js.append(generateJSsetBaselineFill6());
+        js.append(generateJSsetBaselineFill7());
+        js.append(generateJSsetBaselineFill8());
+        js.append(generateJSsetBaselineFill9());
+        js.append(generateJSsetBaselineLabels());
+        js.append(generateJSsetBaselineLabels1());
+        js.append(generateJSsetBaselineStroke());
+        js.append(generateJSsetBaselineStroke1());
+        js.append(generateJSsetBaselineStroke2());
+        js.append(generateJSsetColumnStroke());
+        js.append(generateJSsetColumnStroke1());
+        js.append(generateJSsetConnectorFill());
+        js.append(generateJSsetConnectorFill1());
+        js.append(generateJSsetConnectorFill2());
+        js.append(generateJSsetConnectorPreviewStroke());
+        js.append(generateJSsetConnectorPreviewStroke1());
+        js.append(generateJSsetConnectorPreviewStroke2());
+        js.append(generateJSsetConnectorStroke());
+        js.append(generateJSsetConnectorStroke1());
+        js.append(generateJSsetConnectorStroke2());
+        js.append(generateJSsetEditConnectorThumbFill());
+        js.append(generateJSsetEditConnectorThumbFill1());
+        js.append(generateJSsetEditConnectorThumbFill2());
+        js.append(generateJSsetEditConnectorThumbFill3());
+        js.append(generateJSsetEditConnectorThumbFill4());
+        js.append(generateJSsetEditConnectorThumbFill5());
+        js.append(generateJSsetEditConnectorThumbFill6());
+        js.append(generateJSsetEditConnectorThumbFill7());
+        js.append(generateJSsetEditConnectorThumbFill8());
+        js.append(generateJSsetEditConnectorThumbFill9());
+        js.append(generateJSsetEditConnectorThumbStroke());
+        js.append(generateJSsetEditConnectorThumbStroke1());
+        js.append(generateJSsetEditConnectorThumbStroke2());
+        js.append(generateJSsetEditFinishConnectorMarkerHorizontalOffset());
+        js.append(generateJSsetEditFinishConnectorMarkerSize());
+        js.append(generateJSsetEditFinishConnectorMarkerVerticalOffset());
+        js.append(generateJSsetEditIntervalThumbFill());
+        js.append(generateJSsetEditIntervalThumbFill1());
+        js.append(generateJSsetEditIntervalThumbFill2());
+        js.append(generateJSsetEditIntervalThumbFill3());
+        js.append(generateJSsetEditIntervalThumbFill4());
+        js.append(generateJSsetEditIntervalThumbFill5());
+        js.append(generateJSsetEditIntervalThumbFill6());
+        js.append(generateJSsetEditIntervalThumbFill7());
+        js.append(generateJSsetEditIntervalThumbFill8());
+        js.append(generateJSsetEditIntervalThumbFill9());
+        js.append(generateJSsetEditIntervalThumbStroke());
+        js.append(generateJSsetEditIntervalThumbStroke1());
+        js.append(generateJSsetEditIntervalThumbStroke2());
+        js.append(generateJSsetEditIntervalWidth());
+        js.append(generateJSsetEditPreviewFill());
+        js.append(generateJSsetEditPreviewFill1());
+        js.append(generateJSsetEditPreviewFill2());
+        js.append(generateJSsetEditPreviewFill3());
+        js.append(generateJSsetEditPreviewFill4());
+        js.append(generateJSsetEditPreviewFill5());
+        js.append(generateJSsetEditPreviewFill6());
+        js.append(generateJSsetEditPreviewFill7());
+        js.append(generateJSsetEditPreviewFill8());
+        js.append(generateJSsetEditPreviewFill9());
+        js.append(generateJSsetEditPreviewStroke());
+        js.append(generateJSsetEditPreviewStroke1());
+        js.append(generateJSsetEditPreviewStroke2());
+        js.append(generateJSsetEditProgressFill());
+        js.append(generateJSsetEditProgressFill1());
+        js.append(generateJSsetEditProgressFill2());
+        js.append(generateJSsetEditProgressFill3());
+        js.append(generateJSsetEditProgressFill4());
+        js.append(generateJSsetEditProgressFill5());
+        js.append(generateJSsetEditProgressFill6());
+        js.append(generateJSsetEditProgressFill7());
+        js.append(generateJSsetEditProgressFill8());
+        js.append(generateJSsetEditProgressFill9());
+        js.append(generateJSsetEditProgressStroke());
+        js.append(generateJSsetEditProgressStroke1());
+        js.append(generateJSsetEditProgressStroke2());
+        js.append(generateJSsetEditStartConnectorMarkerHorizontalOffset());
+        js.append(generateJSsetEditStartConnectorMarkerSize());
+        js.append(generateJSsetEditStartConnectorMarkerVerticalOffset());
+        js.append(generateJSsetEditStructurePreviewDashStroke());
+        js.append(generateJSsetEditStructurePreviewDashStroke1());
+        js.append(generateJSsetEditStructurePreviewDashStroke2());
+        js.append(generateJSsetEditStructurePreviewFill());
+        js.append(generateJSsetEditStructurePreviewFill1());
+        js.append(generateJSsetEditStructurePreviewFill2());
+        js.append(generateJSsetEditStructurePreviewFill3());
+        js.append(generateJSsetEditStructurePreviewFill4());
+        js.append(generateJSsetEditStructurePreviewFill5());
+        js.append(generateJSsetEditStructurePreviewFill6());
+        js.append(generateJSsetEditStructurePreviewFill7());
+        js.append(generateJSsetEditStructurePreviewFill8());
+        js.append(generateJSsetEditStructurePreviewFill9());
+        js.append(generateJSsetEditStructurePreviewStroke());
+        js.append(generateJSsetEditStructurePreviewStroke1());
+        js.append(generateJSsetEditStructurePreviewStroke2());
+        js.append(generateJSsetEditing());
+        js.append(generateJSsetHeader());
+        js.append(generateJSsetHorizontalScrollBar());
+        js.append(generateJSsetLabels());
+        js.append(generateJSsetLineMarker());
+        js.append(generateJSsetLineMarker1());
+        js.append(generateJSsetLineMarker2());
+        js.append(generateJSsetLineMarker3());
+        js.append(generateJSsetLineMarker4());
+        js.append(generateJSsetMarkers());
+        js.append(generateJSsetMilestoneFill());
+        js.append(generateJSsetMilestoneFill1());
+        js.append(generateJSsetMilestoneFill2());
+        js.append(generateJSsetMilestoneFill3());
+        js.append(generateJSsetMilestoneFill4());
+        js.append(generateJSsetMilestoneFill5());
+        js.append(generateJSsetMilestoneFill6());
+        js.append(generateJSsetMilestoneFill7());
+        js.append(generateJSsetMilestoneFill8());
+        js.append(generateJSsetMilestoneFill9());
+        js.append(generateJSsetMilestoneLabels());
+        js.append(generateJSsetMilestoneLabels1());
+        js.append(generateJSsetMilestoneStroke());
+        js.append(generateJSsetMilestoneStroke1());
+        js.append(generateJSsetMilestoneStroke2());
+        js.append(generateJSsetParentFill());
+        js.append(generateJSsetParentFill1());
+        js.append(generateJSsetParentFill2());
+        js.append(generateJSsetParentFill3());
+        js.append(generateJSsetParentFill4());
+        js.append(generateJSsetParentFill5());
+        js.append(generateJSsetParentFill6());
+        js.append(generateJSsetParentFill7());
+        js.append(generateJSsetParentFill8());
+        js.append(generateJSsetParentFill9());
+        js.append(generateJSsetParentLabels());
+        js.append(generateJSsetParentLabels1());
+        js.append(generateJSsetParentStroke());
+        js.append(generateJSsetParentStroke1());
+        js.append(generateJSsetParentStroke2());
+        js.append(generateJSsetProgressFill());
+        js.append(generateJSsetProgressFill1());
+        js.append(generateJSsetProgressFill2());
+        js.append(generateJSsetProgressFill3());
+        js.append(generateJSsetProgressFill4());
+        js.append(generateJSsetProgressFill5());
+        js.append(generateJSsetProgressFill6());
+        js.append(generateJSsetProgressFill7());
+        js.append(generateJSsetProgressFill8());
+        js.append(generateJSsetProgressFill9());
+        js.append(generateJSsetProgressLabels());
+        js.append(generateJSsetProgressLabels1());
+        js.append(generateJSsetProgressStroke());
+        js.append(generateJSsetProgressStroke1());
+        js.append(generateJSsetProgressStroke2());
+        js.append(generateJSsetRangeMarker());
+        js.append(generateJSsetRangeMarker1());
+        js.append(generateJSsetRangeMarker2());
+        js.append(generateJSsetRangeMarker3());
+        js.append(generateJSsetRangeMarker4());
+        js.append(generateJSsetRowEvenFill());
+        js.append(generateJSsetRowEvenFill1());
+        js.append(generateJSsetRowEvenFill2());
+        js.append(generateJSsetRowEvenFill3());
+        js.append(generateJSsetRowEvenFill4());
+        js.append(generateJSsetRowEvenFill5());
+        js.append(generateJSsetRowEvenFill6());
+        js.append(generateJSsetRowEvenFill7());
+        js.append(generateJSsetRowEvenFill8());
+        js.append(generateJSsetRowEvenFill9());
+        js.append(generateJSsetRowFill());
+        js.append(generateJSsetRowFill1());
+        js.append(generateJSsetRowFill2());
+        js.append(generateJSsetRowFill3());
+        js.append(generateJSsetRowFill4());
+        js.append(generateJSsetRowFill5());
+        js.append(generateJSsetRowFill6());
+        js.append(generateJSsetRowFill7());
+        js.append(generateJSsetRowFill8());
+        js.append(generateJSsetRowFill9());
+        js.append(generateJSsetRowHoverFill());
+        js.append(generateJSsetRowHoverFill1());
+        js.append(generateJSsetRowHoverFill2());
+        js.append(generateJSsetRowHoverFill3());
+        js.append(generateJSsetRowHoverFill4());
+        js.append(generateJSsetRowHoverFill5());
+        js.append(generateJSsetRowHoverFill6());
+        js.append(generateJSsetRowHoverFill7());
+        js.append(generateJSsetRowHoverFill8());
+        js.append(generateJSsetRowHoverFill9());
+        js.append(generateJSsetRowOddFill());
+        js.append(generateJSsetRowOddFill1());
+        js.append(generateJSsetRowOddFill2());
+        js.append(generateJSsetRowOddFill3());
+        js.append(generateJSsetRowOddFill4());
+        js.append(generateJSsetRowOddFill5());
+        js.append(generateJSsetRowOddFill6());
+        js.append(generateJSsetRowOddFill7());
+        js.append(generateJSsetRowOddFill8());
+        js.append(generateJSsetRowOddFill9());
+        js.append(generateJSsetRowSelectedFill());
+        js.append(generateJSsetRowSelectedFill1());
+        js.append(generateJSsetRowSelectedFill2());
+        js.append(generateJSsetRowSelectedFill3());
+        js.append(generateJSsetRowSelectedFill4());
+        js.append(generateJSsetRowSelectedFill5());
+        js.append(generateJSsetRowSelectedFill6());
+        js.append(generateJSsetRowSelectedFill7());
+        js.append(generateJSsetRowSelectedFill8());
+        js.append(generateJSsetRowSelectedFill9());
+        js.append(generateJSsetScale());
+        js.append(generateJSsetSelectedElementFill());
+        js.append(generateJSsetSelectedElementFill1());
+        js.append(generateJSsetSelectedElementFill2());
+        js.append(generateJSsetSelectedElementFill3());
+        js.append(generateJSsetSelectedElementFill4());
+        js.append(generateJSsetSelectedElementFill5());
+        js.append(generateJSsetSelectedElementFill6());
+        js.append(generateJSsetSelectedElementFill7());
+        js.append(generateJSsetSelectedElementFill8());
+        js.append(generateJSsetSelectedElementFill9());
+        js.append(generateJSsetSelectedElementStroke());
+        js.append(generateJSsetSelectedElementStroke1());
+        js.append(generateJSsetSelectedElementStroke2());
+        js.append(generateJSsetTextMarker());
+        js.append(generateJSsetTextMarker1());
+        js.append(generateJSsetTextMarker2());
+        js.append(generateJSsetTextMarker3());
+        js.append(generateJSsetTextMarker4());
+        js.append(generateJSsetTooltip());
+        js.append(generateJSsetTooltip1());
+        js.append(generateJSsetVerticalScrollBar());
+        
 
         String result = js.toString();
         js.setLength(0);

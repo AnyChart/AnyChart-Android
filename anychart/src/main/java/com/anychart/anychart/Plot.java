@@ -56,6 +56,7 @@ public class Plot extends VisualBaseWithBounds {
     private TableMapping mapping;
     private StockSeriesType seriesType;
     private String seriesType1;
+    private List<ADL> setAdl = new ArrayList<>();
 
     /**
      * Creates an Accumulation Distribution Line indicator on the plot.
@@ -74,15 +75,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", ((seriesType != null) ? seriesType.generateJs() : "null"), ((mapping != null) ? mapping.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new ADL(jsBase);
+        ADL item = new ADL("setAdl" + variableIndex);
+        setAdl.add(item);
+        return item;
+    }
+    private String generateJSsetAdl() {
+        if (!setAdl.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ADL item : setAdl) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ADL> setAdl1 = new ArrayList<>();
 
     /**
      * Creates an Accumulation Distribution Line indicator on the plot.
@@ -101,13 +116,26 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", wrapQuotes(seriesType1), ((mapping != null) ? mapping.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new ADL(jsBase);
+        ADL item = new ADL("setAdl1" + variableIndex);
+        setAdl1.add(item);
+        return item;
+    }
+    private String generateJSsetAdl1() {
+        if (!setAdl1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ADL item : setAdl1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping1;
@@ -116,6 +144,7 @@ public class Plot extends VisualBaseWithBounds {
     private Double slowPeriod;
     private StockSeriesType seriesType2;
     private String seriesType3;
+    private List<AMA> setAma = new ArrayList<>();
 
     /**
      * Creates AMA (Adaptive Moving Average) indicator on the plot.
@@ -145,15 +174,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", ((seriesType2 != null) ? seriesType2.generateJs() : "null"), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
                 js.setLength(0);
             }
         }
-        return new AMA(jsBase);
+        AMA item = new AMA("setAma" + variableIndex);
+        setAma.add(item);
+        return item;
+    }
+    private String generateJSsetAma() {
+        if (!setAma.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AMA item : setAma) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<AMA> setAma1 = new ArrayList<>();
 
     /**
      * Creates AMA (Adaptive Moving Average) indicator on the plot.
@@ -183,13 +226,26 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", wrapQuotes(seriesType3), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
                 js.setLength(0);
             }
         }
-        return new AMA(jsBase);
+        AMA item = new AMA("setAma1" + variableIndex);
+        setAma1.add(item);
+        return item;
+    }
+    private String generateJSsetAma1() {
+        if (!setAma1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AMA item : setAma1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private PlotController getAnnotations;
@@ -205,6 +261,7 @@ public class Plot extends VisualBaseWithBounds {
     }
 
     private String[] annotationsList;
+    private List<Plot> setAnnotations = new ArrayList<>();
 
     /**
      * Setter for the plot annotations.
@@ -227,7 +284,18 @@ public class Plot extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetAnnotations() {
+        if (!setAnnotations.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setAnnotations) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesArea> setArea = new ArrayList<>();
 
     /**
      * Creates and returns a new Area series.
@@ -241,9 +309,21 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(mapping.generateJs());
-            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            js.append(String.format(Locale.US, "var setArea" + ++variableIndex + " = " + jsBase + ".area(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesArea(jsBase);
+        StockSeriesArea item = new StockSeriesArea("setArea" + variableIndex);
+        setArea.add(item);
+        return item;
+    }
+    private String generateJSsetArea() {
+        if (!setArea.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesArea item : setArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping2;
@@ -252,6 +332,7 @@ public class Plot extends VisualBaseWithBounds {
     private String upSeriesType1;
     private StockSeriesType downSeriesType;
     private String downSeriesType1;
+    private List<Aroon> setAroon = new ArrayList<>();
 
     /**
      * Creates Aroon indicator on the plot.
@@ -284,15 +365,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
             }
         }
-        return new Aroon(jsBase);
+        Aroon item = new Aroon("setAroon" + variableIndex);
+        setAroon.add(item);
+        return item;
+    }
+    private String generateJSsetAroon() {
+        if (!setAroon.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Aroon item : setAroon) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Aroon> setAroon1 = new ArrayList<>();
 
     /**
      * Creates Aroon indicator on the plot.
@@ -325,15 +420,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
             }
         }
-        return new Aroon(jsBase);
+        Aroon item = new Aroon("setAroon1" + variableIndex);
+        setAroon1.add(item);
+        return item;
+    }
+    private String generateJSsetAroon1() {
+        if (!setAroon1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Aroon item : setAroon1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Aroon> setAroon2 = new ArrayList<>();
 
     /**
      * Creates Aroon indicator on the plot.
@@ -366,15 +475,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
             }
         }
-        return new Aroon(jsBase);
+        Aroon item = new Aroon("setAroon2" + variableIndex);
+        setAroon2.add(item);
+        return item;
+    }
+    private String generateJSsetAroon2() {
+        if (!setAroon2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Aroon item : setAroon2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Aroon> setAroon3 = new ArrayList<>();
 
     /**
      * Creates Aroon indicator on the plot.
@@ -407,19 +530,33 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
                 js.setLength(0);
             }
         }
-        return new Aroon(jsBase);
+        Aroon item = new Aroon("setAroon3" + variableIndex);
+        setAroon3.add(item);
+        return item;
+    }
+    private String generateJSsetAroon3() {
+        if (!setAroon3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Aroon item : setAroon3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping3;
     private Double period2;
     private StockSeriesType seriesType4;
     private String seriesType5;
+    private List<ATR> setAtr = new ArrayList<>();
 
     /**
      * Creates an Average True Range indicator on the plot.
@@ -453,15 +590,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", ((seriesType4 != null) ? seriesType4.generateJs() : "null"), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
                 js.setLength(0);
             }
         }
-        return new ATR(jsBase);
+        ATR item = new ATR("setAtr" + variableIndex);
+        setAtr.add(item);
+        return item;
+    }
+    private String generateJSsetAtr() {
+        if (!setAtr.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ATR item : setAtr) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<ATR> setAtr1 = new ArrayList<>();
 
     /**
      * Creates an Average True Range indicator on the plot.
@@ -495,13 +646,26 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", wrapQuotes(seriesType5), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
                 js.setLength(0);
             }
         }
-        return new ATR(jsBase);
+        ATR item = new ATR("setAtr1" + variableIndex);
+        setAtr1.add(item);
+        return item;
+    }
+    private String generateJSsetAtr1() {
+        if (!setAtr1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ATR item : setAtr1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private UiBackground getBackground;
@@ -519,6 +683,7 @@ public class Plot extends VisualBaseWithBounds {
     private String background;
     private String background1;
     private Boolean background2;
+    private List<Plot> setBackground = new ArrayList<>();
 
     /**
      * Setter for the plot background.
@@ -545,7 +710,18 @@ public class Plot extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBackground() {
+        if (!setBackground.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setBackground) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setBackground1 = new ArrayList<>();
 
     /**
      * Setter for the plot background.
@@ -572,6 +748,16 @@ public class Plot extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBackground1() {
+        if (!setBackground1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setBackground1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TableMapping mapping4;
     private Double period3;
@@ -582,6 +768,7 @@ public class Plot extends VisualBaseWithBounds {
     private String lowerSeriesType1;
     private StockSeriesType middleSeriesType;
     private String middleSeriesType1;
+    private List<BBands> setBbands = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands indicator on the plot.
@@ -625,15 +812,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
-        return new BBands(jsBase);
+        BBands item = new BBands("setBbands" + variableIndex);
+        setBbands.add(item);
+        return item;
+    }
+    private String generateJSsetBbands() {
+        if (!setBbands.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setBbands) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBands> setBbands1 = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands indicator on the plot.
@@ -677,15 +878,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
-        return new BBands(jsBase);
+        BBands item = new BBands("setBbands1" + variableIndex);
+        setBbands1.add(item);
+        return item;
+    }
+    private String generateJSsetBbands1() {
+        if (!setBbands1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setBbands1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBands> setBbands2 = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands indicator on the plot.
@@ -729,15 +944,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
-        return new BBands(jsBase);
+        BBands item = new BBands("setBbands2" + variableIndex);
+        setBbands2.add(item);
+        return item;
+    }
+    private String generateJSsetBbands2() {
+        if (!setBbands2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setBbands2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBands> setBbands3 = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands indicator on the plot.
@@ -781,15 +1010,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
-        return new BBands(jsBase);
+        BBands item = new BBands("setBbands3" + variableIndex);
+        setBbands3.add(item);
+        return item;
+    }
+    private String generateJSsetBbands3() {
+        if (!setBbands3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setBbands3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBands> setBbands4 = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands indicator on the plot.
@@ -833,15 +1076,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
-        return new BBands(jsBase);
+        BBands item = new BBands("setBbands4" + variableIndex);
+        setBbands4.add(item);
+        return item;
+    }
+    private String generateJSsetBbands4() {
+        if (!setBbands4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setBbands4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBands> setBbands5 = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands indicator on the plot.
@@ -885,15 +1142,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
-        return new BBands(jsBase);
+        BBands item = new BBands("setBbands5" + variableIndex);
+        setBbands5.add(item);
+        return item;
+    }
+    private String generateJSsetBbands5() {
+        if (!setBbands5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setBbands5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBands> setBbands6 = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands indicator on the plot.
@@ -937,15 +1208,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
-        return new BBands(jsBase);
+        BBands item = new BBands("setBbands6" + variableIndex);
+        setBbands6.add(item);
+        return item;
+    }
+    private String generateJSsetBbands6() {
+        if (!setBbands6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setBbands6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBands> setBbands7 = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands indicator on the plot.
@@ -989,13 +1274,26 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
                 js.setLength(0);
             }
         }
-        return new BBands(jsBase);
+        BBands item = new BBands("setBbands7" + variableIndex);
+        setBbands7.add(item);
+        return item;
+    }
+    private String generateJSsetBbands7() {
+        if (!setBbands7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setBbands7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping5;
@@ -1003,6 +1301,7 @@ public class Plot extends VisualBaseWithBounds {
     private Double deviation1;
     private StockSeriesType seriesType6;
     private String seriesType7;
+    private List<BBandsB> setBbandsB = new ArrayList<>();
 
     /**
      * Creates %B indicator on the plot.
@@ -1047,15 +1346,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", ((seriesType6 != null) ? seriesType6.generateJs() : "null"), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
                 js.setLength(0);
             }
         }
-        return new BBandsB(jsBase);
+        BBandsB item = new BBandsB("setBbandsB" + variableIndex);
+        setBbandsB.add(item);
+        return item;
+    }
+    private String generateJSsetBbandsB() {
+        if (!setBbandsB.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBandsB item : setBbandsB) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBandsB> setBbandsB1 = new ArrayList<>();
 
     /**
      * Creates %B indicator on the plot.
@@ -1100,13 +1413,26 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", wrapQuotes(seriesType7), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
                 js.setLength(0);
             }
         }
-        return new BBandsB(jsBase);
+        BBandsB item = new BBandsB("setBbandsB1" + variableIndex);
+        setBbandsB1.add(item);
+        return item;
+    }
+    private String generateJSsetBbandsB1() {
+        if (!setBbandsB1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBandsB item : setBbandsB1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping6;
@@ -1114,6 +1440,7 @@ public class Plot extends VisualBaseWithBounds {
     private Double deviation2;
     private StockSeriesType seriesType8;
     private String seriesType9;
+    private List<BBandsWidth> setBbandsWidth = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands Width indicator on the plot.
@@ -1163,15 +1490,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", ((seriesType8 != null) ? seriesType8.generateJs() : "null"), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
                 js.setLength(0);
             }
         }
-        return new BBandsWidth(jsBase);
+        BBandsWidth item = new BBandsWidth("setBbandsWidth" + variableIndex);
+        setBbandsWidth.add(item);
+        return item;
+    }
+    private String generateJSsetBbandsWidth() {
+        if (!setBbandsWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBandsWidth item : setBbandsWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<BBandsWidth> setBbandsWidth1 = new ArrayList<>();
 
     /**
      * Creates Bollinger Bands Width indicator on the plot.
@@ -1221,15 +1562,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", wrapQuotes(seriesType9), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
                 js.setLength(0);
             }
         }
-        return new BBandsWidth(jsBase);
+        BBandsWidth item = new BBandsWidth("setBbandsWidth1" + variableIndex);
+        setBbandsWidth1.add(item);
+        return item;
+    }
+    private String generateJSsetBbandsWidth1() {
+        if (!setBbandsWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBandsWidth item : setBbandsWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesCandlestick> setCandlestick = new ArrayList<>();
 
     /**
      * Creates and returns a new Candlestick series.
@@ -1243,15 +1598,28 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(mapping.generateJs());
-            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            js.append(String.format(Locale.US, "var setCandlestick" + ++variableIndex + " = " + jsBase + ".candlestick(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesCandlestick(jsBase);
+        StockSeriesCandlestick item = new StockSeriesCandlestick("setCandlestick" + variableIndex);
+        setCandlestick.add(item);
+        return item;
+    }
+    private String generateJSsetCandlestick() {
+        if (!setCandlestick.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesCandlestick item : setCandlestick) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping7;
     private Double period6;
     private StockSeriesType seriesType10;
     private String seriesType11;
+    private List<CCI> setCci = new ArrayList<>();
 
     /**
      * Creates a Commodity Channel Index indicator on the chart.
@@ -1299,15 +1667,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", ((seriesType10 != null) ? seriesType10.generateJs() : "null"), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
                 js.setLength(0);
             }
         }
-        return new CCI(jsBase);
+        CCI item = new CCI("setCci" + variableIndex);
+        setCci.add(item);
+        return item;
+    }
+    private String generateJSsetCci() {
+        if (!setCci.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CCI item : setCci) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CCI> setCci1 = new ArrayList<>();
 
     /**
      * Creates a Commodity Channel Index indicator on the chart.
@@ -1355,13 +1737,26 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", wrapQuotes(seriesType11), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
                 js.setLength(0);
             }
         }
-        return new CCI(jsBase);
+        CCI item = new CCI("setCci1" + variableIndex);
+        setCci1.add(item);
+        return item;
+    }
+    private String generateJSsetCci1() {
+        if (!setCci1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CCI item : setCci1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping8;
@@ -1371,6 +1766,7 @@ public class Plot extends VisualBaseWithBounds {
     private String maType1;
     private StockSeriesType seriesType12;
     private String seriesType13;
+    private List<CHO> setCho = new ArrayList<>();
 
     /**
      * Creates a Chaikin Oscillator indicator on the chart.
@@ -1426,15 +1822,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", ((maType != null) ? maType.generateJs() : "null"), ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
                 js.setLength(0);
             }
         }
-        return new CHO(jsBase);
+        CHO item = new CHO("setCho" + variableIndex);
+        setCho.add(item);
+        return item;
+    }
+    private String generateJSsetCho() {
+        if (!setCho.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CHO item : setCho) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CHO> setCho1 = new ArrayList<>();
 
     /**
      * Creates a Chaikin Oscillator indicator on the chart.
@@ -1490,15 +1900,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", ((maType != null) ? maType.generateJs() : "null"), wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
                 js.setLength(0);
             }
         }
-        return new CHO(jsBase);
+        CHO item = new CHO("setCho1" + variableIndex);
+        setCho1.add(item);
+        return item;
+    }
+    private String generateJSsetCho1() {
+        if (!setCho1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CHO item : setCho1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CHO> setCho2 = new ArrayList<>();
 
     /**
      * Creates a Chaikin Oscillator indicator on the chart.
@@ -1554,15 +1978,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", wrapQuotes(maType1), ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
                 js.setLength(0);
             }
         }
-        return new CHO(jsBase);
+        CHO item = new CHO("setCho2" + variableIndex);
+        setCho2.add(item);
+        return item;
+    }
+    private String generateJSsetCho2() {
+        if (!setCho2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CHO item : setCho2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CHO> setCho3 = new ArrayList<>();
 
     /**
      * Creates a Chaikin Oscillator indicator on the chart.
@@ -1618,19 +2056,33 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", wrapQuotes(maType1), wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
                 js.setLength(0);
             }
         }
-        return new CHO(jsBase);
+        CHO item = new CHO("setCho3" + variableIndex);
+        setCho3.add(item);
+        return item;
+    }
+    private String generateJSsetCho3() {
+        if (!setCho3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CHO item : setCho3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping9;
     private Double period7;
     private StockSeriesType seriesType14;
     private String seriesType15;
+    private List<CMF> setCmf = new ArrayList<>();
 
     /**
      * Creates a Chaikin Money Flow indicator on the chart.
@@ -1685,15 +2137,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", ((seriesType14 != null) ? seriesType14.generateJs() : "null"), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
                 js.setLength(0);
             }
         }
-        return new CMF(jsBase);
+        CMF item = new CMF("setCmf" + variableIndex);
+        setCmf.add(item);
+        return item;
+    }
+    private String generateJSsetCmf() {
+        if (!setCmf.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CMF item : setCmf) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CMF> setCmf1 = new ArrayList<>();
 
     /**
      * Creates a Chaikin Money Flow indicator on the chart.
@@ -1748,15 +2214,29 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", wrapQuotes(seriesType15), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
                 js.setLength(0);
             }
         }
-        return new CMF(jsBase);
+        CMF item = new CMF("setCmf1" + variableIndex);
+        setCmf1.add(item);
+        return item;
+    }
+    private String generateJSsetCmf1() {
+        if (!setCmf1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CMF item : setCmf1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesColumn> setColumn = new ArrayList<>();
 
     /**
      * Creates and returns a new Column series.
@@ -1770,9 +2250,21 @@ public class Plot extends VisualBaseWithBounds {
             }
 
             js.append(mapping.generateJs());
-            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            js.append(String.format(Locale.US, "var setColumn" + ++variableIndex + " = " + jsBase + ".column(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesColumn(jsBase);
+        StockSeriesColumn item = new StockSeriesColumn("setColumn" + variableIndex);
+        setColumn.add(item);
+        return item;
+    }
+    private String generateJSsetColumn() {
+        if (!setColumn.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesColumn item : setColumn) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Crosshair getCrosshair;
@@ -1789,6 +2281,7 @@ public class Plot extends VisualBaseWithBounds {
 
     private String crosshair;
     private Boolean crosshair1;
+    private List<Plot> setCrosshair = new ArrayList<>();
 
     /**
      * Setter for crosshair settings.<br/>
@@ -1815,7 +2308,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetCrosshair() {
+        if (!setCrosshair.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setCrosshair) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setCrosshair1 = new ArrayList<>();
 
     /**
      * Setter for crosshair settings.<br/>
@@ -1842,9 +2346,20 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetCrosshair1() {
+        if (!setCrosshair1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setCrosshair1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private StockSeriesType defaultSeriesType;
     private String defaultSeriesType1;
+    private List<Plot> setDefaultSeriesType = new ArrayList<>();
 
     /**
      * Setter for the stock plot defaultSeriesType.
@@ -1870,7 +2385,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetDefaultSeriesType() {
+        if (!setDefaultSeriesType.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setDefaultSeriesType) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setDefaultSeriesType1 = new ArrayList<>();
 
     /**
      * Setter for the stock plot defaultSeriesType.
@@ -1896,6 +2422,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetDefaultSeriesType1() {
+        if (!setDefaultSeriesType1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setDefaultSeriesType1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TableMapping mapping10;
     private Double period8;
@@ -1907,6 +2443,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private String ndiSeriesType1;
     private StockSeriesType adxSeriesType;
     private String adxSeriesType1;
+    private List<DMI> setDmi = new ArrayList<>();
 
     /**
      * Creates a Directional Movement Index indicator on the chart.
@@ -1963,15 +2500,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
-        return new DMI(jsBase);
+        DMI item = new DMI("setDmi" + variableIndex);
+        setDmi.add(item);
+        return item;
+    }
+    private String generateJSsetDmi() {
+        if (!setDmi.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : setDmi) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<DMI> setDmi1 = new ArrayList<>();
 
     /**
      * Creates a Directional Movement Index indicator on the chart.
@@ -2028,15 +2579,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
-        return new DMI(jsBase);
+        DMI item = new DMI("setDmi1" + variableIndex);
+        setDmi1.add(item);
+        return item;
+    }
+    private String generateJSsetDmi1() {
+        if (!setDmi1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : setDmi1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<DMI> setDmi2 = new ArrayList<>();
 
     /**
      * Creates a Directional Movement Index indicator on the chart.
@@ -2093,15 +2658,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
-        return new DMI(jsBase);
+        DMI item = new DMI("setDmi2" + variableIndex);
+        setDmi2.add(item);
+        return item;
+    }
+    private String generateJSsetDmi2() {
+        if (!setDmi2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : setDmi2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<DMI> setDmi3 = new ArrayList<>();
 
     /**
      * Creates a Directional Movement Index indicator on the chart.
@@ -2158,15 +2737,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
-        return new DMI(jsBase);
+        DMI item = new DMI("setDmi3" + variableIndex);
+        setDmi3.add(item);
+        return item;
+    }
+    private String generateJSsetDmi3() {
+        if (!setDmi3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : setDmi3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<DMI> setDmi4 = new ArrayList<>();
 
     /**
      * Creates a Directional Movement Index indicator on the chart.
@@ -2223,15 +2816,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
-        return new DMI(jsBase);
+        DMI item = new DMI("setDmi4" + variableIndex);
+        setDmi4.add(item);
+        return item;
+    }
+    private String generateJSsetDmi4() {
+        if (!setDmi4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : setDmi4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<DMI> setDmi5 = new ArrayList<>();
 
     /**
      * Creates a Directional Movement Index indicator on the chart.
@@ -2288,15 +2895,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
-        return new DMI(jsBase);
+        DMI item = new DMI("setDmi5" + variableIndex);
+        setDmi5.add(item);
+        return item;
+    }
+    private String generateJSsetDmi5() {
+        if (!setDmi5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : setDmi5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<DMI> setDmi6 = new ArrayList<>();
 
     /**
      * Creates a Directional Movement Index indicator on the chart.
@@ -2353,15 +2974,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
-        return new DMI(jsBase);
+        DMI item = new DMI("setDmi6" + variableIndex);
+        setDmi6.add(item);
+        return item;
+    }
+    private String generateJSsetDmi6() {
+        if (!setDmi6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : setDmi6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<DMI> setDmi7 = new ArrayList<>();
 
     /**
      * Creates a Directional Movement Index indicator on the chart.
@@ -2418,19 +3053,33 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
                 js.setLength(0);
             }
         }
-        return new DMI(jsBase);
+        DMI item = new DMI("setDmi7" + variableIndex);
+        setDmi7.add(item);
+        return item;
+    }
+    private String generateJSsetDmi7() {
+        if (!setDmi7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DMI item : setDmi7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping11;
     private Double period9;
     private StockSeriesType seriesType16;
     private String seriesType17;
+    private List<EMA> setEma = new ArrayList<>();
 
     /**
      * Creates EMA (Exponential Moving Average) indicator on the plot.
@@ -2491,15 +3140,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", ((seriesType16 != null) ? seriesType16.generateJs() : "null"), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
                 js.setLength(0);
             }
         }
-        return new EMA(jsBase);
+        EMA item = new EMA("setEma" + variableIndex);
+        setEma.add(item);
+        return item;
+    }
+    private String generateJSsetEma() {
+        if (!setEma.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (EMA item : setEma) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<EMA> setEma1 = new ArrayList<>();
 
     /**
      * Creates EMA (Exponential Moving Average) indicator on the plot.
@@ -2560,13 +3223,26 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", wrapQuotes(seriesType17), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
                 js.setLength(0);
             }
         }
-        return new EMA(jsBase);
+        EMA item = new EMA("setEma1" + variableIndex);
+        setEma1.add(item);
+        return item;
+    }
+    private String generateJSsetEma1() {
+        if (!setEma1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (EMA item : setEma1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private List<StockSeriesBase> getGetSeries = new ArrayList<>();
@@ -2617,6 +3293,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
+    private List<HatchFills> setHatchFillPalette = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -2634,15 +3311,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
                 js.setLength(0);
             }
         }
-        return new HatchFills(jsBase);
+        HatchFills item = new HatchFills("setHatchFillPalette" + variableIndex);
+        setHatchFillPalette.add(item);
+        return item;
+    }
+    private String generateJSsetHatchFillPalette() {
+        if (!setHatchFillPalette.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setHatchFillPalette) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<HatchFills> setHatchFillPalette1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -2660,15 +3351,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
                 js.setLength(0);
             }
         }
-        return new HatchFills(jsBase);
+        HatchFills item = new HatchFills("setHatchFillPalette1" + variableIndex);
+        setHatchFillPalette1.add(item);
+        return item;
+    }
+    private String generateJSsetHatchFillPalette1() {
+        if (!setHatchFillPalette1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setHatchFillPalette1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<HatchFills> setHatchFillPalette2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -2691,9 +3396,22 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
             js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         }
-        return new HatchFills(jsBase);
+        HatchFills item = new HatchFills("setHatchFillPalette2" + variableIndex);
+        setHatchFillPalette2.add(item);
+        return item;
+    }
+    private String generateJSsetHatchFillPalette2() {
+        if (!setHatchFillPalette2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setHatchFillPalette2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesHilo> setHilo = new ArrayList<>();
 
     /**
      * Creates and returns a new HiLo series.
@@ -2709,9 +3427,22 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesHilo(jsBase);
+        StockSeriesHilo item = new StockSeriesHilo("setHilo" + variableIndex);
+        setHilo.add(item);
+        return item;
+    }
+    private String generateJSsetHilo() {
+        if (!setHilo.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesHilo item : setHilo) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesJumpLine> setJumpLine = new ArrayList<>();
 
     /**
      * Creates and returns a new Jump Line series.
@@ -2725,9 +3456,21 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
 
             js.append(mapping.generateJs());
-            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            js.append(String.format(Locale.US, "var setJumpLine" + ++variableIndex + " = " + jsBase + ".jumpLine(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesJumpLine(jsBase);
+        StockSeriesJumpLine item = new StockSeriesJumpLine("setJumpLine" + variableIndex);
+        setJumpLine.add(item);
+        return item;
+    }
+    private String generateJSsetJumpLine() {
+        if (!setJumpLine.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesJumpLine item : setJumpLine) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping12;
@@ -2746,6 +3489,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private String dSeriesType1;
     private StockSeriesType jSeriesType;
     private String jSeriesType1;
+    private List<KDJ> setKdj = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -2808,15 +3552,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj" + variableIndex);
+        setKdj.add(item);
+        return item;
+    }
+    private String generateJSsetKdj() {
+        if (!setKdj.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj1 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -2879,15 +3637,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj1" + variableIndex);
+        setKdj1.add(item);
+        return item;
+    }
+    private String generateJSsetKdj1() {
+        if (!setKdj1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj2 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -2950,15 +3722,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj2" + variableIndex);
+        setKdj2.add(item);
+        return item;
+    }
+    private String generateJSsetKdj2() {
+        if (!setKdj2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj3 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -3021,15 +3807,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj3" + variableIndex);
+        setKdj3.add(item);
+        return item;
+    }
+    private String generateJSsetKdj3() {
+        if (!setKdj3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj4 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -3092,15 +3892,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj4" + variableIndex);
+        setKdj4.add(item);
+        return item;
+    }
+    private String generateJSsetKdj4() {
+        if (!setKdj4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj5 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -3163,15 +3977,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj5" + variableIndex);
+        setKdj5.add(item);
+        return item;
+    }
+    private String generateJSsetKdj5() {
+        if (!setKdj5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj6 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -3234,15 +4062,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj6" + variableIndex);
+        setKdj6.add(item);
+        return item;
+    }
+    private String generateJSsetKdj6() {
+        if (!setKdj6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj7 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -3305,15 +4147,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj7" + variableIndex);
+        setKdj7.add(item);
+        return item;
+    }
+    private String generateJSsetKdj7() {
+        if (!setKdj7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj8 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -3376,15 +4232,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj8" + variableIndex);
+        setKdj8.add(item);
+        return item;
+    }
+    private String generateJSsetKdj8() {
+        if (!setKdj8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj9 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -3447,15 +4317,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj9" + variableIndex);
+        setKdj9.add(item);
+        return item;
+    }
+    private String generateJSsetKdj9() {
+        if (!setKdj9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj10 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -3518,15 +4402,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj10" + variableIndex);
+        setKdj10.add(item);
+        return item;
+    }
+    private String generateJSsetKdj10() {
+        if (!setKdj10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj11 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -3589,15 +4487,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj11" + variableIndex);
+        setKdj11.add(item);
+        return item;
+    }
+    private String generateJSsetKdj11() {
+        if (!setKdj11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj12 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -3660,15 +4572,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj12" + variableIndex);
+        setKdj12.add(item);
+        return item;
+    }
+    private String generateJSsetKdj12() {
+        if (!setKdj12.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj12) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj13 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -3731,15 +4657,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj13" + variableIndex);
+        setKdj13.add(item);
+        return item;
+    }
+    private String generateJSsetKdj13() {
+        if (!setKdj13.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj13) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj14 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -3802,15 +4742,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj14" + variableIndex);
+        setKdj14.add(item);
+        return item;
+    }
+    private String generateJSsetKdj14() {
+        if (!setKdj14.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj14) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj15 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -3873,15 +4827,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj15" + variableIndex);
+        setKdj15.add(item);
+        return item;
+    }
+    private String generateJSsetKdj15() {
+        if (!setKdj15.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj15) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj16 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -3944,15 +4912,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj16" + variableIndex);
+        setKdj16.add(item);
+        return item;
+    }
+    private String generateJSsetKdj16() {
+        if (!setKdj16.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj16) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj17 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -4015,15 +4997,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj17" + variableIndex);
+        setKdj17.add(item);
+        return item;
+    }
+    private String generateJSsetKdj17() {
+        if (!setKdj17.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj17) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj18 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -4086,15 +5082,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj18" + variableIndex);
+        setKdj18.add(item);
+        return item;
+    }
+    private String generateJSsetKdj18() {
+        if (!setKdj18.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj18) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj19 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -4157,15 +5167,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj19" + variableIndex);
+        setKdj19.add(item);
+        return item;
+    }
+    private String generateJSsetKdj19() {
+        if (!setKdj19.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj19) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj20 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -4228,15 +5252,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj20" + variableIndex);
+        setKdj20.add(item);
+        return item;
+    }
+    private String generateJSsetKdj20() {
+        if (!setKdj20.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj20) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj21 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -4299,15 +5337,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj21" + variableIndex);
+        setKdj21.add(item);
+        return item;
+    }
+    private String generateJSsetKdj21() {
+        if (!setKdj21.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj21) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj22 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -4370,15 +5422,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj22" + variableIndex);
+        setKdj22.add(item);
+        return item;
+    }
+    private String generateJSsetKdj22() {
+        if (!setKdj22.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj22) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj23 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -4441,15 +5507,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj23" + variableIndex);
+        setKdj23.add(item);
+        return item;
+    }
+    private String generateJSsetKdj23() {
+        if (!setKdj23.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj23) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj24 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -4512,15 +5592,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj24" + variableIndex);
+        setKdj24.add(item);
+        return item;
+    }
+    private String generateJSsetKdj24() {
+        if (!setKdj24.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj24) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj25 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -4583,15 +5677,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj25" + variableIndex);
+        setKdj25.add(item);
+        return item;
+    }
+    private String generateJSsetKdj25() {
+        if (!setKdj25.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj25) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj26 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -4654,15 +5762,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj26" + variableIndex);
+        setKdj26.add(item);
+        return item;
+    }
+    private String generateJSsetKdj26() {
+        if (!setKdj26.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj26) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj27 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -4725,15 +5847,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj27" + variableIndex);
+        setKdj27.add(item);
+        return item;
+    }
+    private String generateJSsetKdj27() {
+        if (!setKdj27.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj27) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj28 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -4796,15 +5932,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj28" + variableIndex);
+        setKdj28.add(item);
+        return item;
+    }
+    private String generateJSsetKdj28() {
+        if (!setKdj28.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj28) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj29 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -4867,15 +6017,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj29" + variableIndex);
+        setKdj29.add(item);
+        return item;
+    }
+    private String generateJSsetKdj29() {
+        if (!setKdj29.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj29) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj30 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -4938,15 +6102,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj30" + variableIndex);
+        setKdj30.add(item);
+        return item;
+    }
+    private String generateJSsetKdj30() {
+        if (!setKdj30.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj30) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<KDJ> setKdj31 = new ArrayList<>();
 
     /**
      * Creates a KDJ indicator on the plot.
@@ -5009,13 +6187,26 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
                 js.setLength(0);
             }
         }
-        return new KDJ(jsBase);
+        KDJ item = new KDJ("setKdj31" + variableIndex);
+        setKdj31.add(item);
+        return item;
+    }
+    private String generateJSsetKdj31() {
+        if (!setKdj31.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (KDJ item : setKdj31) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private UiLegend getLegend;
@@ -5032,6 +6223,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private String legend;
     private Boolean legend1;
+    private List<Plot> setLegend = new ArrayList<>();
 
     /**
      * Setter for the plot legend setting.
@@ -5057,7 +6249,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetLegend() {
+        if (!setLegend.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setLegend) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setLegend1 = new ArrayList<>();
 
     /**
      * Setter for the plot legend setting.
@@ -5083,7 +6286,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetLegend1() {
+        if (!setLegend1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setLegend1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesLine> setLine = new ArrayList<>();
 
     /**
      * Creates and returns a new Line series.
@@ -5097,9 +6311,21 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
 
             js.append(mapping.generateJs());
-            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesLine(jsBase);
+        StockSeriesLine item = new StockSeriesLine("setLine" + variableIndex);
+        setLine.add(item);
+        return item;
+    }
+    private String generateJSsetLine() {
+        if (!setLine.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesLine item : setLine) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping13;
@@ -5112,6 +6338,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private String signalSeriesType1;
     private StockSeriesType histogramSeriesType;
     private String histogramSeriesType1;
+    private List<MACD> setMacd = new ArrayList<>();
 
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
@@ -5169,15 +6396,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
-        return new MACD(jsBase);
+        MACD item = new MACD("setMacd" + variableIndex);
+        setMacd.add(item);
+        return item;
+    }
+    private String generateJSsetMacd() {
+        if (!setMacd.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MACD item : setMacd) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<MACD> setMacd1 = new ArrayList<>();
 
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
@@ -5235,15 +6476,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
-        return new MACD(jsBase);
+        MACD item = new MACD("setMacd1" + variableIndex);
+        setMacd1.add(item);
+        return item;
+    }
+    private String generateJSsetMacd1() {
+        if (!setMacd1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MACD item : setMacd1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<MACD> setMacd2 = new ArrayList<>();
 
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
@@ -5301,15 +6556,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
-        return new MACD(jsBase);
+        MACD item = new MACD("setMacd2" + variableIndex);
+        setMacd2.add(item);
+        return item;
+    }
+    private String generateJSsetMacd2() {
+        if (!setMacd2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MACD item : setMacd2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<MACD> setMacd3 = new ArrayList<>();
 
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
@@ -5367,15 +6636,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
-        return new MACD(jsBase);
+        MACD item = new MACD("setMacd3" + variableIndex);
+        setMacd3.add(item);
+        return item;
+    }
+    private String generateJSsetMacd3() {
+        if (!setMacd3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MACD item : setMacd3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<MACD> setMacd4 = new ArrayList<>();
 
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
@@ -5433,15 +6716,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
-        return new MACD(jsBase);
+        MACD item = new MACD("setMacd4" + variableIndex);
+        setMacd4.add(item);
+        return item;
+    }
+    private String generateJSsetMacd4() {
+        if (!setMacd4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MACD item : setMacd4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<MACD> setMacd5 = new ArrayList<>();
 
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
@@ -5499,15 +6796,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
-        return new MACD(jsBase);
+        MACD item = new MACD("setMacd5" + variableIndex);
+        setMacd5.add(item);
+        return item;
+    }
+    private String generateJSsetMacd5() {
+        if (!setMacd5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MACD item : setMacd5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<MACD> setMacd6 = new ArrayList<>();
 
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
@@ -5565,15 +6876,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
-        return new MACD(jsBase);
+        MACD item = new MACD("setMacd6" + variableIndex);
+        setMacd6.add(item);
+        return item;
+    }
+    private String generateJSsetMacd6() {
+        if (!setMacd6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MACD item : setMacd6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<MACD> setMacd7 = new ArrayList<>();
 
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
@@ -5631,15 +6956,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
                 js.setLength(0);
             }
         }
-        return new MACD(jsBase);
+        MACD item = new MACD("setMacd7" + variableIndex);
+        setMacd7.add(item);
+        return item;
+    }
+    private String generateJSsetMacd7() {
+        if (!setMacd7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MACD item : setMacd7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesMarker> setMarker = new ArrayList<>();
 
     /**
      * Creates and returns a new Marker series.
@@ -5653,9 +6992,21 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
 
             js.append(mapping.generateJs());
-            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesMarker(jsBase);
+        StockSeriesMarker item = new StockSeriesMarker("setMarker" + variableIndex);
+        setMarker.add(item);
+        return item;
+    }
+    private String generateJSsetMarker() {
+        if (!setMarker.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesMarker item : setMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Markers getMarkerPalette;
@@ -5674,6 +7025,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private String markerPalette1;
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
+    private List<Plot> setMarkerPalette = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -5699,7 +7051,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetMarkerPalette() {
+        if (!setMarkerPalette.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setMarkerPalette) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setMarkerPalette1 = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -5727,7 +7090,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetMarkerPalette1() {
+        if (!setMarkerPalette1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setMarkerPalette1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setMarkerPalette2 = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -5755,7 +7129,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetMarkerPalette2() {
+        if (!setMarkerPalette2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setMarkerPalette2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setMarkerPalette3 = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -5783,9 +7168,20 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetMarkerPalette3() {
+        if (!setMarkerPalette3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setMarkerPalette3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double maxPointWidth;
     private String maxPointWidth1;
+    private List<Plot> setMaxPointWidth = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -5811,7 +7207,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetMaxPointWidth() {
+        if (!setMaxPointWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setMaxPointWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setMaxPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -5837,9 +7244,20 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetMaxPointWidth1() {
+        if (!setMaxPointWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setMaxPointWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double minPointLength;
     private String minPointLength1;
+    private List<Plot> setMinPointLength = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -5865,7 +7283,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetMinPointLength() {
+        if (!setMinPointLength.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setMinPointLength) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setMinPointLength1 = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -5891,11 +7320,22 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetMinPointLength1() {
+        if (!setMinPointLength1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setMinPointLength1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TableMapping mapping14;
     private Double period10;
     private StockSeriesType seriesType18;
     private String seriesType19;
+    private List<MMA> setMma = new ArrayList<>();
 
     /**
      * Creates MMA (Modified Moving Average) indicator on the plot.
@@ -5962,15 +7402,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", ((seriesType18 != null) ? seriesType18.generateJs() : "null"), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
                 js.setLength(0);
             }
         }
-        return new MMA(jsBase);
+        MMA item = new MMA("setMma" + variableIndex);
+        setMma.add(item);
+        return item;
+    }
+    private String generateJSsetMma() {
+        if (!setMma.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MMA item : setMma) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<MMA> setMma1 = new ArrayList<>();
 
     /**
      * Creates MMA (Modified Moving Average) indicator on the plot.
@@ -6037,13 +7491,26 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", wrapQuotes(seriesType19), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
                 js.setLength(0);
             }
         }
-        return new MMA(jsBase);
+        MMA item = new MMA("setMma1" + variableIndex);
+        setMma1.add(item);
+        return item;
+    }
+    private String generateJSsetMma1() {
+        if (!setMma1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MMA item : setMma1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private NoDataSettings getNoData;
@@ -6059,6 +7526,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     }
 
     private String noData;
+    private List<Plot> setNoData = new ArrayList<>();
 
     /**
      * Setter for noData settings.<br/>
@@ -6082,7 +7550,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetNoData() {
+        if (!setNoData.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setNoData) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesOHLC> setOhlc = new ArrayList<>();
 
     /**
      * Creates and returns a new OHLC series.
@@ -6096,9 +7575,21 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
 
             js.append(mapping.generateJs());
-            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            js.append(String.format(Locale.US, "var setOhlc" + ++variableIndex + " = " + jsBase + ".ohlc(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesOHLC(jsBase);
+        StockSeriesOHLC item = new StockSeriesOHLC("setOhlc" + variableIndex);
+        setOhlc.add(item);
+        return item;
+    }
+    private String generateJSsetOhlc() {
+        if (!setOhlc.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesOHLC item : setOhlc) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private RangeColors getPalette;
@@ -6117,6 +7608,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
+    private List<Plot> setPalette = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -6142,7 +7634,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetPalette() {
+        if (!setPalette.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setPalette) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -6168,7 +7671,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetPalette1() {
+        if (!setPalette1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setPalette1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -6196,7 +7710,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetPalette2() {
+        if (!setPalette2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setPalette2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -6224,9 +7749,20 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetPalette3() {
+        if (!setPalette3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setPalette3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double pointWidth;
     private String pointWidth1;
+    private List<Plot> setPointWidth = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -6252,7 +7788,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetPointWidth() {
+        if (!setPointWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setPointWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -6278,6 +7825,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetPointWidth1() {
+        if (!setPointWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setPointWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private List<CurrentPriceIndicator> getPriceIndicator = new ArrayList<>();
 
@@ -6292,6 +7849,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private String priceIndicator;
     private Boolean priceIndicator1;
+    private List<Plot> setPriceIndicator = new ArrayList<>();
 
     /**
      * Setter for the stock price indicator settings.
@@ -6317,7 +7875,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetPriceIndicator() {
+        if (!setPriceIndicator.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setPriceIndicator) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setPriceIndicator1 = new ArrayList<>();
 
     /**
      * Setter for the stock price indicator settings.
@@ -6343,10 +7912,21 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetPriceIndicator1() {
+        if (!setPriceIndicator1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setPriceIndicator1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index;
     private String priceIndicator2;
     private Boolean priceIndicator3;
+    private List<Plot> setPriceIndicator2 = new ArrayList<>();
 
     /**
      * Setter for the stock price indicator settings by index.
@@ -6376,7 +7956,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetPriceIndicator2() {
+        if (!setPriceIndicator2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setPriceIndicator2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setPriceIndicator3 = new ArrayList<>();
 
     /**
      * Setter for the stock price indicator settings by index.
@@ -6406,7 +7997,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetPriceIndicator3() {
+        if (!setPriceIndicator3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setPriceIndicator3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesRangeArea> setRangeArea = new ArrayList<>();
 
     /**
      * Creates and returns a new Range Area series.
@@ -6420,11 +8022,24 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
 
             js.append(mapping.generateJs());
-            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            js.append(String.format(Locale.US, "var setRangeArea" + ++variableIndex + " = " + jsBase + ".rangeArea(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesRangeArea(jsBase);
+        StockSeriesRangeArea item = new StockSeriesRangeArea("setRangeArea" + variableIndex);
+        setRangeArea.add(item);
+        return item;
+    }
+    private String generateJSsetRangeArea() {
+        if (!setRangeArea.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesRangeArea item : setRangeArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesRangeColumn> setRangeColumn = new ArrayList<>();
 
     /**
      * Creates and returns a new Range Column series.
@@ -6438,11 +8053,24 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
 
             js.append(mapping.generateJs());
-            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            js.append(String.format(Locale.US, "var setRangeColumn" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesRangeColumn(jsBase);
+        StockSeriesRangeColumn item = new StockSeriesRangeColumn("setRangeColumn" + variableIndex);
+        setRangeColumn.add(item);
+        return item;
+    }
+    private String generateJSsetRangeColumn() {
+        if (!setRangeColumn.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesRangeColumn item : setRangeColumn) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesRangeSplineArea> setRangeSplineArea = new ArrayList<>();
 
     /**
      * Creates and returns a new Range Spline Area series.
@@ -6456,11 +8084,24 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
 
             js.append(mapping.generateJs());
-            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            js.append(String.format(Locale.US, "var setRangeSplineArea" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesRangeSplineArea(jsBase);
+        StockSeriesRangeSplineArea item = new StockSeriesRangeSplineArea("setRangeSplineArea" + variableIndex);
+        setRangeSplineArea.add(item);
+        return item;
+    }
+    private String generateJSsetRangeSplineArea() {
+        if (!setRangeSplineArea.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesRangeSplineArea item : setRangeSplineArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesRangeStepArea> setRangeStepArea = new ArrayList<>();
 
     /**
      * Creates and returns a new Range Step Area series.
@@ -6474,13 +8115,26 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
 
             js.append(mapping.generateJs());
-            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            js.append(String.format(Locale.US, "var setRangeStepArea" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesRangeStepArea(jsBase);
+        StockSeriesRangeStepArea item = new StockSeriesRangeStepArea("setRangeStepArea" + variableIndex);
+        setRangeStepArea.add(item);
+        return item;
+    }
+    private String generateJSsetRangeStepArea() {
+        if (!setRangeStepArea.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesRangeStepArea item : setRangeStepArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double id;
     private String id1;
+    private List<Plot> setRemoveSeries = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -6506,7 +8160,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetRemoveSeries() {
+        if (!setRemoveSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setRemoveSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setRemoveSeries1 = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -6532,8 +8197,19 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetRemoveSeries1() {
+        if (!setRemoveSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setRemoveSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index1;
+    private List<Plot> setRemoveSeriesAt = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its index.
@@ -6559,11 +8235,22 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetRemoveSeriesAt() {
+        if (!setRemoveSeriesAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setRemoveSeriesAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TableMapping mapping15;
     private Double period11;
     private StockSeriesType seriesType20;
     private String seriesType21;
+    private List<RoC> setRoc = new ArrayList<>();
 
     /**
      * Creates RoC (Rate of Change) indicator on the plot.
@@ -6634,15 +8321,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", ((seriesType20 != null) ? seriesType20.generateJs() : "null"), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
                 js.setLength(0);
             }
         }
-        return new RoC(jsBase);
+        RoC item = new RoC("setRoc" + variableIndex);
+        setRoc.add(item);
+        return item;
+    }
+    private String generateJSsetRoc() {
+        if (!setRoc.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RoC item : setRoc) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<RoC> setRoc1 = new ArrayList<>();
 
     /**
      * Creates RoC (Rate of Change) indicator on the plot.
@@ -6713,19 +8414,33 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", wrapQuotes(seriesType21), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
                 js.setLength(0);
             }
         }
-        return new RoC(jsBase);
+        RoC item = new RoC("setRoc1" + variableIndex);
+        setRoc1.add(item);
+        return item;
+    }
+    private String generateJSsetRoc1() {
+        if (!setRoc1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RoC item : setRoc1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping16;
     private Double period12;
     private StockSeriesType seriesType22;
     private String seriesType23;
+    private List<RSI> setRsi = new ArrayList<>();
 
     /**
      * Creates RSI (Relative Strength Index) indicator on the plot.
@@ -6800,15 +8515,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", ((seriesType22 != null) ? seriesType22.generateJs() : "null"), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
                 js.setLength(0);
             }
         }
-        return new RSI(jsBase);
+        RSI item = new RSI("setRsi" + variableIndex);
+        setRsi.add(item);
+        return item;
+    }
+    private String generateJSsetRsi() {
+        if (!setRsi.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RSI item : setRsi) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<RSI> setRsi1 = new ArrayList<>();
 
     /**
      * Creates RSI (Relative Strength Index) indicator on the plot.
@@ -6883,19 +8612,33 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", wrapQuotes(seriesType23), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
                 js.setLength(0);
             }
         }
-        return new RSI(jsBase);
+        RSI item = new RSI("setRsi1" + variableIndex);
+        setRsi1.add(item);
+        return item;
+    }
+    private String generateJSsetRsi1() {
+        if (!setRsi1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RSI item : setRsi1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping17;
     private Double period13;
     private StockSeriesType seriesType24;
     private String seriesType25;
+    private List<SMA> setSma = new ArrayList<>();
 
     /**
      * Creates SMA (Simple Moving Average) indicator on the plot.
@@ -6974,15 +8717,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", ((seriesType24 != null) ? seriesType24.generateJs() : "null"), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
                 js.setLength(0);
             }
         }
-        return new SMA(jsBase);
+        SMA item = new SMA("setSma" + variableIndex);
+        setSma.add(item);
+        return item;
+    }
+    private String generateJSsetSma() {
+        if (!setSma.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SMA item : setSma) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<SMA> setSma1 = new ArrayList<>();
 
     /**
      * Creates SMA (Simple Moving Average) indicator on the plot.
@@ -7061,15 +8818,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", wrapQuotes(seriesType25), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
                 js.setLength(0);
             }
         }
-        return new SMA(jsBase);
+        SMA item = new SMA("setSma1" + variableIndex);
+        setSma1.add(item);
+        return item;
+    }
+    private String generateJSsetSma1() {
+        if (!setSma1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SMA item : setSma1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesSpline> setSpline = new ArrayList<>();
 
     /**
      * Creates and returns a new Spline series.
@@ -7083,11 +8854,24 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
 
             js.append(mapping.generateJs());
-            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            js.append(String.format(Locale.US, "var setSpline" + ++variableIndex + " = " + jsBase + ".spline(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesSpline(jsBase);
+        StockSeriesSpline item = new StockSeriesSpline("setSpline" + variableIndex);
+        setSpline.add(item);
+        return item;
+    }
+    private String generateJSsetSpline() {
+        if (!setSpline.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesSpline item : setSpline) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesSplineArea> setSplineArea = new ArrayList<>();
 
     /**
      * Creates and returns a new Spline Area series.
@@ -7101,11 +8885,24 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
 
             js.append(mapping.generateJs());
-            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            js.append(String.format(Locale.US, "var setSplineArea" + ++variableIndex + " = " + jsBase + ".splineArea(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesSplineArea(jsBase);
+        StockSeriesSplineArea item = new StockSeriesSplineArea("setSplineArea" + variableIndex);
+        setSplineArea.add(item);
+        return item;
+    }
+    private String generateJSsetSplineArea() {
+        if (!setSplineArea.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesSplineArea item : setSplineArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesStepArea> setStepArea = new ArrayList<>();
 
     /**
      * Creates and returns a new Step Area series.
@@ -7119,11 +8916,24 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
 
             js.append(mapping.generateJs());
-            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            js.append(String.format(Locale.US, "var setStepArea" + ++variableIndex + " = " + jsBase + ".stepArea(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesStepArea(jsBase);
+        StockSeriesStepArea item = new StockSeriesStepArea("setStepArea" + variableIndex);
+        setStepArea.add(item);
+        return item;
+    }
+    private String generateJSsetStepArea() {
+        if (!setStepArea.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesStepArea item : setStepArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesStepLine> setStepLine = new ArrayList<>();
 
     /**
      * Creates and returns a new Step Line series.
@@ -7137,11 +8947,24 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
 
             js.append(mapping.generateJs());
-            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            js.append(String.format(Locale.US, "var setStepLine" + ++variableIndex + " = " + jsBase + ".stepLine(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesStepLine(jsBase);
+        StockSeriesStepLine item = new StockSeriesStepLine("setStepLine" + variableIndex);
+        setStepLine.add(item);
+        return item;
+    }
+    private String generateJSsetStepLine() {
+        if (!setStepLine.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesStepLine item : setStepLine) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<StockSeriesStick> setStick = new ArrayList<>();
 
     /**
      * Creates and returns a new Stick series.
@@ -7155,9 +8978,21 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
 
             js.append(mapping.generateJs());
-            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            js.append(String.format(Locale.US, "var setStick" + ++variableIndex + " = " + jsBase + ".stick(%s);", mapping.getJsBase()));
         }
-        return new StockSeriesStick(jsBase);
+        StockSeriesStick item = new StockSeriesStick("setStick" + variableIndex);
+        setStick.add(item);
+        return item;
+    }
+    private String generateJSsetStick() {
+        if (!setStick.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesStick item : setStick) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TableMapping mapping18;
@@ -7172,6 +9007,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private String kSeriesType3;
     private StockSeriesType dSeriesType2;
     private String dSeriesType3;
+    private List<Stochastic> setStochastic = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the plot.
@@ -7248,15 +9084,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic" + variableIndex);
+        setStochastic.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic() {
+        if (!setStochastic.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic1 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the plot.
@@ -7333,15 +9183,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic1" + variableIndex);
+        setStochastic1.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic1() {
+        if (!setStochastic1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic2 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the plot.
@@ -7418,15 +9282,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic2" + variableIndex);
+        setStochastic2.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic2() {
+        if (!setStochastic2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic3 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the plot.
@@ -7503,15 +9381,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic3" + variableIndex);
+        setStochastic3.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic3() {
+        if (!setStochastic3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic4 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the plot.
@@ -7588,15 +9480,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic4" + variableIndex);
+        setStochastic4.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic4() {
+        if (!setStochastic4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic5 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the plot.
@@ -7673,15 +9579,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic5" + variableIndex);
+        setStochastic5.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic5() {
+        if (!setStochastic5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic6 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the plot.
@@ -7758,15 +9678,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic6" + variableIndex);
+        setStochastic6.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic6() {
+        if (!setStochastic6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic7 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the plot.
@@ -7843,15 +9777,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic7" + variableIndex);
+        setStochastic7.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic7() {
+        if (!setStochastic7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic8 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the plot.
@@ -7928,15 +9876,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic8" + variableIndex);
+        setStochastic8.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic8() {
+        if (!setStochastic8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic9 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the plot.
@@ -8013,15 +9975,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic9" + variableIndex);
+        setStochastic9.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic9() {
+        if (!setStochastic9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic10 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the plot.
@@ -8098,15 +10074,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic10" + variableIndex);
+        setStochastic10.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic10() {
+        if (!setStochastic10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic11 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the plot.
@@ -8183,15 +10173,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic11" + variableIndex);
+        setStochastic11.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic11() {
+        if (!setStochastic11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic12 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the plot.
@@ -8268,15 +10272,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic12" + variableIndex);
+        setStochastic12.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic12() {
+        if (!setStochastic12.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic12) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic13 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the plot.
@@ -8353,15 +10371,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic13" + variableIndex);
+        setStochastic13.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic13() {
+        if (!setStochastic13.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic13) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic14 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the plot.
@@ -8438,15 +10470,29 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic14" + variableIndex);
+        setStochastic14.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic14() {
+        if (!setStochastic14.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic14) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Stochastic> setStochastic15 = new ArrayList<>();
 
     /**
      * Creates a Stochastic indicator on the plot.
@@ -8523,13 +10569,26 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
                 js.setLength(0);
             }
         }
-        return new Stochastic(jsBase);
+        Stochastic item = new Stochastic("setStochastic15" + variableIndex);
+        setStochastic15.add(item);
+        return item;
+    }
+    private String generateJSsetStochastic15() {
+        if (!setStochastic15.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Stochastic item : setStochastic15) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private StockDateTime getXAxis;
@@ -8546,6 +10605,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private String xAxis;
     private Boolean xAxis1;
+    private List<Plot> setXAxis = new ArrayList<>();
 
     /**
      * Setter for the X-axis.
@@ -8571,7 +10631,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetXAxis() {
+        if (!setXAxis.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setXAxis) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setXAxis1 = new ArrayList<>();
 
     /**
      * Setter for the X-axis.
@@ -8597,6 +10668,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetXAxis1() {
+        if (!setXAxis1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setXAxis1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private List<GridsStock> getXGrid = new ArrayList<>();
 
@@ -8611,6 +10692,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private String xGrid;
     private Boolean xGrid1;
+    private List<Plot> setXGrid = new ArrayList<>();
 
     /**
      * Setter for the plot grid by X-scale.
@@ -8636,7 +10718,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetXGrid() {
+        if (!setXGrid.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setXGrid) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setXGrid1 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by X-scale.
@@ -8662,10 +10755,21 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetXGrid1() {
+        if (!setXGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setXGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index2;
     private String xGrid2;
     private Boolean xGrid3;
+    private List<Plot> setXGrid2 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by index.
@@ -8699,7 +10803,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetXGrid2() {
+        if (!setXGrid2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setXGrid2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setXGrid3 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by index.
@@ -8733,6 +10848,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetXGrid3() {
+        if (!setXGrid3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setXGrid3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private List<GridsStock> getXMinorGrid = new ArrayList<>();
 
@@ -8747,6 +10872,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private String xMinorGrid;
     private Boolean xMinorGrid1;
+    private List<Plot> setXMinorGrid = new ArrayList<>();
 
     /**
      * Setter for the plot grid by X-scale.
@@ -8772,7 +10898,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetXMinorGrid() {
+        if (!setXMinorGrid.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setXMinorGrid) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setXMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by X-scale.
@@ -8798,10 +10935,21 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetXMinorGrid1() {
+        if (!setXMinorGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setXMinorGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double indexOrValue;
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
+    private List<Plot> setXMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by index.
@@ -8831,7 +10979,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetXMinorGrid2() {
+        if (!setXMinorGrid2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setXMinorGrid2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setXMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by index.
@@ -8861,6 +11020,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetXMinorGrid3() {
+        if (!setXMinorGrid3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setXMinorGrid3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private List<CoreAxesLinear> getYAxis = new ArrayList<>();
 
@@ -8875,6 +11044,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private String yAxis;
     private Boolean yAxis1;
+    private List<Plot> setYAxis = new ArrayList<>();
 
     /**
      * Setter for the plot Y-axis.
@@ -8900,7 +11070,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetYAxis() {
+        if (!setYAxis.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setYAxis) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setYAxis1 = new ArrayList<>();
 
     /**
      * Setter for the plot Y-axis.
@@ -8926,10 +11107,21 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetYAxis1() {
+        if (!setYAxis1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setYAxis1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index3;
     private String yAxis2;
     private Boolean yAxis3;
+    private List<Plot> setYAxis2 = new ArrayList<>();
 
     /**
      * Setter for the Y-axis by index.
@@ -8964,7 +11156,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetYAxis2() {
+        if (!setYAxis2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setYAxis2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setYAxis3 = new ArrayList<>();
 
     /**
      * Setter for the Y-axis by index.
@@ -8999,6 +11202,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetYAxis3() {
+        if (!setYAxis3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setYAxis3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private List<GridsStock> getYGrid = new ArrayList<>();
 
@@ -9013,6 +11226,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private String yGrid;
     private Boolean yGrid1;
+    private List<Plot> setYGrid = new ArrayList<>();
 
     /**
      * Setter for the plot grid by Y-scale.
@@ -9038,7 +11252,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetYGrid() {
+        if (!setYGrid.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setYGrid) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setYGrid1 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by Y-scale.
@@ -9064,10 +11289,21 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetYGrid1() {
+        if (!setYGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setYGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index4;
     private String yGrid2;
     private Boolean yGrid3;
+    private List<Plot> setYGrid2 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by index.
@@ -9103,7 +11339,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetYGrid2() {
+        if (!setYGrid2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setYGrid2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setYGrid3 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by index.
@@ -9139,6 +11386,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetYGrid3() {
+        if (!setYGrid3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setYGrid3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private List<GridsStock> getYMinorGrid = new ArrayList<>();
 
@@ -9153,6 +11410,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private String yMinorGrid;
     private Boolean yMinorGrid1;
+    private List<Plot> setYMinorGrid = new ArrayList<>();
 
     /**
      * Setter for the plot grid by Y-scale.
@@ -9178,7 +11436,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetYMinorGrid() {
+        if (!setYMinorGrid.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setYMinorGrid) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setYMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by Y-scale.
@@ -9204,10 +11473,21 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetYMinorGrid1() {
+        if (!setYMinorGrid1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setYMinorGrid1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double indexOrValue1;
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
+    private List<Plot> setYMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by index.
@@ -9240,7 +11520,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetYMinorGrid2() {
+        if (!setYMinorGrid2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setYMinorGrid2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setYMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by index.
@@ -9273,6 +11564,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetYMinorGrid3() {
+        if (!setYMinorGrid3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setYMinorGrid3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private ScatterBase getYScale;
 
@@ -9290,6 +11591,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private String yScale1;
     private ScatterBase yScale2;
     private String yScale3;
+    private List<Plot> setYScale = new ArrayList<>();
 
     /**
      * Setter for the plot Y-scale.
@@ -9317,7 +11619,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetYScale() {
+        if (!setYScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setYScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the plot Y-scale.
@@ -9345,7 +11658,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
+    private String generateJSsetYScale1() {
+        if (!setYScale1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setYScale1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Plot> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the plot Y-scale.
@@ -9370,6 +11694,16 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
         }
         return this;
+    }
+    private String generateJSsetYScale2() {
+        if (!setYScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Plot item : setYScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetAnnotations() {
@@ -9588,6 +11922,188 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAdl());
+        js.append(generateJSsetAdl1());
+        js.append(generateJSsetAma());
+        js.append(generateJSsetAma1());
+        js.append(generateJSsetAnnotations());
+        js.append(generateJSsetArea());
+        js.append(generateJSsetAroon());
+        js.append(generateJSsetAroon1());
+        js.append(generateJSsetAroon2());
+        js.append(generateJSsetAroon3());
+        js.append(generateJSsetAtr());
+        js.append(generateJSsetAtr1());
+        js.append(generateJSsetBackground());
+        js.append(generateJSsetBackground1());
+        js.append(generateJSsetBbands());
+        js.append(generateJSsetBbands1());
+        js.append(generateJSsetBbands2());
+        js.append(generateJSsetBbands3());
+        js.append(generateJSsetBbands4());
+        js.append(generateJSsetBbands5());
+        js.append(generateJSsetBbands6());
+        js.append(generateJSsetBbands7());
+        js.append(generateJSsetBbandsB());
+        js.append(generateJSsetBbandsB1());
+        js.append(generateJSsetBbandsWidth());
+        js.append(generateJSsetBbandsWidth1());
+        js.append(generateJSsetCandlestick());
+        js.append(generateJSsetCci());
+        js.append(generateJSsetCci1());
+        js.append(generateJSsetCho());
+        js.append(generateJSsetCho1());
+        js.append(generateJSsetCho2());
+        js.append(generateJSsetCho3());
+        js.append(generateJSsetCmf());
+        js.append(generateJSsetCmf1());
+        js.append(generateJSsetColumn());
+        js.append(generateJSsetCrosshair());
+        js.append(generateJSsetCrosshair1());
+        js.append(generateJSsetDefaultSeriesType());
+        js.append(generateJSsetDefaultSeriesType1());
+        js.append(generateJSsetDmi());
+        js.append(generateJSsetDmi1());
+        js.append(generateJSsetDmi2());
+        js.append(generateJSsetDmi3());
+        js.append(generateJSsetDmi4());
+        js.append(generateJSsetDmi5());
+        js.append(generateJSsetDmi6());
+        js.append(generateJSsetDmi7());
+        js.append(generateJSsetEma());
+        js.append(generateJSsetEma1());
+        js.append(generateJSsetHatchFillPalette());
+        js.append(generateJSsetHatchFillPalette1());
+        js.append(generateJSsetHatchFillPalette2());
+        js.append(generateJSsetHilo());
+        js.append(generateJSsetJumpLine());
+        js.append(generateJSsetKdj());
+        js.append(generateJSsetKdj1());
+        js.append(generateJSsetKdj2());
+        js.append(generateJSsetKdj3());
+        js.append(generateJSsetKdj4());
+        js.append(generateJSsetKdj5());
+        js.append(generateJSsetKdj6());
+        js.append(generateJSsetKdj7());
+        js.append(generateJSsetKdj8());
+        js.append(generateJSsetKdj9());
+        js.append(generateJSsetKdj10());
+        js.append(generateJSsetKdj11());
+        js.append(generateJSsetKdj12());
+        js.append(generateJSsetKdj13());
+        js.append(generateJSsetKdj14());
+        js.append(generateJSsetKdj15());
+        js.append(generateJSsetKdj16());
+        js.append(generateJSsetKdj17());
+        js.append(generateJSsetKdj18());
+        js.append(generateJSsetKdj19());
+        js.append(generateJSsetKdj20());
+        js.append(generateJSsetKdj21());
+        js.append(generateJSsetKdj22());
+        js.append(generateJSsetKdj23());
+        js.append(generateJSsetKdj24());
+        js.append(generateJSsetKdj25());
+        js.append(generateJSsetKdj26());
+        js.append(generateJSsetKdj27());
+        js.append(generateJSsetKdj28());
+        js.append(generateJSsetKdj29());
+        js.append(generateJSsetKdj30());
+        js.append(generateJSsetKdj31());
+        js.append(generateJSsetLegend());
+        js.append(generateJSsetLegend1());
+        js.append(generateJSsetLine());
+        js.append(generateJSsetMacd());
+        js.append(generateJSsetMacd1());
+        js.append(generateJSsetMacd2());
+        js.append(generateJSsetMacd3());
+        js.append(generateJSsetMacd4());
+        js.append(generateJSsetMacd5());
+        js.append(generateJSsetMacd6());
+        js.append(generateJSsetMacd7());
+        js.append(generateJSsetMarker());
+        js.append(generateJSsetMarkerPalette());
+        js.append(generateJSsetMarkerPalette1());
+        js.append(generateJSsetMarkerPalette2());
+        js.append(generateJSsetMarkerPalette3());
+        js.append(generateJSsetMaxPointWidth());
+        js.append(generateJSsetMaxPointWidth1());
+        js.append(generateJSsetMinPointLength());
+        js.append(generateJSsetMinPointLength1());
+        js.append(generateJSsetMma());
+        js.append(generateJSsetMma1());
+        js.append(generateJSsetNoData());
+        js.append(generateJSsetOhlc());
+        js.append(generateJSsetPalette());
+        js.append(generateJSsetPalette1());
+        js.append(generateJSsetPalette2());
+        js.append(generateJSsetPalette3());
+        js.append(generateJSsetPointWidth());
+        js.append(generateJSsetPointWidth1());
+        js.append(generateJSsetPriceIndicator());
+        js.append(generateJSsetPriceIndicator1());
+        js.append(generateJSsetPriceIndicator2());
+        js.append(generateJSsetPriceIndicator3());
+        js.append(generateJSsetRangeArea());
+        js.append(generateJSsetRangeColumn());
+        js.append(generateJSsetRangeSplineArea());
+        js.append(generateJSsetRangeStepArea());
+        js.append(generateJSsetRemoveSeries());
+        js.append(generateJSsetRemoveSeries1());
+        js.append(generateJSsetRemoveSeriesAt());
+        js.append(generateJSsetRoc());
+        js.append(generateJSsetRoc1());
+        js.append(generateJSsetRsi());
+        js.append(generateJSsetRsi1());
+        js.append(generateJSsetSma());
+        js.append(generateJSsetSma1());
+        js.append(generateJSsetSpline());
+        js.append(generateJSsetSplineArea());
+        js.append(generateJSsetStepArea());
+        js.append(generateJSsetStepLine());
+        js.append(generateJSsetStick());
+        js.append(generateJSsetStochastic());
+        js.append(generateJSsetStochastic1());
+        js.append(generateJSsetStochastic2());
+        js.append(generateJSsetStochastic3());
+        js.append(generateJSsetStochastic4());
+        js.append(generateJSsetStochastic5());
+        js.append(generateJSsetStochastic6());
+        js.append(generateJSsetStochastic7());
+        js.append(generateJSsetStochastic8());
+        js.append(generateJSsetStochastic9());
+        js.append(generateJSsetStochastic10());
+        js.append(generateJSsetStochastic11());
+        js.append(generateJSsetStochastic12());
+        js.append(generateJSsetStochastic13());
+        js.append(generateJSsetStochastic14());
+        js.append(generateJSsetStochastic15());
+        js.append(generateJSsetXAxis());
+        js.append(generateJSsetXAxis1());
+        js.append(generateJSsetXGrid());
+        js.append(generateJSsetXGrid1());
+        js.append(generateJSsetXGrid2());
+        js.append(generateJSsetXGrid3());
+        js.append(generateJSsetXMinorGrid());
+        js.append(generateJSsetXMinorGrid1());
+        js.append(generateJSsetXMinorGrid2());
+        js.append(generateJSsetXMinorGrid3());
+        js.append(generateJSsetYAxis());
+        js.append(generateJSsetYAxis1());
+        js.append(generateJSsetYAxis2());
+        js.append(generateJSsetYAxis3());
+        js.append(generateJSsetYGrid());
+        js.append(generateJSsetYGrid1());
+        js.append(generateJSsetYGrid2());
+        js.append(generateJSsetYGrid3());
+        js.append(generateJSsetYMinorGrid());
+        js.append(generateJSsetYMinorGrid1());
+        js.append(generateJSsetYMinorGrid2());
+        js.append(generateJSsetYMinorGrid3());
+        js.append(generateJSsetYScale());
+        js.append(generateJSsetYScale1());
+        js.append(generateJSsetYScale2());
+        
 
         String result = js.toString();
         js.setLength(0);

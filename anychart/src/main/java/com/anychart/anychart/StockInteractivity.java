@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class StockInteractivity extends Interactivity {
 
     
     private Boolean scrollOnMouseWheel;
+    private List<StockInteractivity> setScrollOnMouseWheel = new ArrayList<>();
 
     /**
      * Setter for the scrolling.<br/>
@@ -59,8 +57,19 @@ Allows use mouse wheel for scrolling. Press "ctrl" or "shift" and scroll mouse w
         }
         return this;
     }
+    private String generateJSsetScrollOnMouseWheel() {
+        if (!setScrollOnMouseWheel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockInteractivity item : setScrollOnMouseWheel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean zoomOnMouseWheel;
+    private List<StockInteractivity> setZoomOnMouseWheel = new ArrayList<>();
 
     /**
      * Setter for the zoom.<br/>
@@ -84,6 +93,16 @@ Allows use mouse wheel for zooming. Press "ctrl" or "shift" and zoom mouse wheel
         }
         return this;
     }
+    private String generateJSsetZoomOnMouseWheel() {
+        if (!setZoomOnMouseWheel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockInteractivity item : setZoomOnMouseWheel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -104,6 +123,10 @@ Allows use mouse wheel for zooming. Press "ctrl" or "shift" and zoom mouse wheel
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetScrollOnMouseWheel());
+        js.append(generateJSsetZoomOnMouseWheel());
+        
 
         String result = js.toString();
         js.setLength(0);

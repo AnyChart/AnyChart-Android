@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
 
     
     private Fill fill;
+    private List<ScrollerseriesMarker> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -60,9 +58,20 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<ScrollerseriesMarker> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -87,6 +96,16 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -95,6 +114,7 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<ScrollerseriesMarker> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -134,7 +154,18 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesMarker> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -174,7 +205,18 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesMarker> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -214,7 +256,18 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesMarker> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -254,7 +307,18 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesMarker> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -294,7 +358,18 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesMarker> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -334,6 +409,16 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -343,6 +428,7 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<ScrollerseriesMarker> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -392,7 +478,18 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesMarker> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -442,6 +539,16 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private PatternFill getHatchFill;
@@ -463,6 +570,7 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     private String color1;
     private Double thickness;
     private Double size;
+    private List<ScrollerseriesMarker> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -500,7 +608,18 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill() {
+        if (!setHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesMarker> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -538,7 +657,18 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill1() {
+        if (!setHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesMarker> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -576,7 +706,18 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill2() {
+        if (!setHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesMarker> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -614,8 +755,19 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill3() {
+        if (!setHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double size1;
+    private List<ScrollerseriesMarker> setSize = new ArrayList<>();
 
     /**
      * Setter for the marker size.
@@ -641,6 +793,16 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetSize() {
+        if (!setSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color2;
     private ColoredFill color3;
@@ -649,6 +811,7 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<ScrollerseriesMarker> setStroke = new ArrayList<>();
 
     /**
      * Setter for the stroke settings.
@@ -689,7 +852,18 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesMarker> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for the stroke settings.
@@ -730,7 +904,18 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesMarker> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for the stroke settings.
@@ -771,9 +956,20 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private MarkerType type;
     private String type1;
+    private List<ScrollerseriesMarker> setType = new ArrayList<>();
 
     /**
      * Setter for the marker type settings.
@@ -799,7 +995,18 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetType() {
+        if (!setType.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setType) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesMarker> setType1 = new ArrayList<>();
 
     /**
      * Setter for the marker type settings.
@@ -824,6 +1031,16 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
             }
         }
         return this;
+    }
+    private String generateJSsetType1() {
+        if (!setType1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesMarker item : setType1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetHatchFill() {
@@ -853,6 +1070,28 @@ public class ScrollerseriesMarker extends ScrollerseriesBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetFill2());
+        js.append(generateJSsetFill3());
+        js.append(generateJSsetFill4());
+        js.append(generateJSsetFill5());
+        js.append(generateJSsetFill6());
+        js.append(generateJSsetFill7());
+        js.append(generateJSsetFill8());
+        js.append(generateJSsetFill9());
+        js.append(generateJSsetHatchFill());
+        js.append(generateJSsetHatchFill1());
+        js.append(generateJSsetHatchFill2());
+        js.append(generateJSsetHatchFill3());
+        js.append(generateJSsetSize());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        js.append(generateJSsetType());
+        js.append(generateJSsetType1());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -50,6 +47,7 @@ public class GanttToolbar extends JsObject {
 
     private String element;
     private Element element1;
+    private List<GanttToolbar> setContainer = new ArrayList<>();
 
     /**
      * Setter for the Gantt chart toolbar container.
@@ -75,7 +73,18 @@ public class GanttToolbar extends JsObject {
         }
         return this;
     }
+    private String generateJSsetContainer() {
+        if (!setContainer.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttToolbar item : setContainer) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<GanttToolbar> setContainer1 = new ArrayList<>();
 
     /**
      * Setter for the Gantt chart toolbar container.
@@ -99,8 +108,19 @@ public class GanttToolbar extends JsObject {
         }
         return this;
     }
+    private String generateJSsetContainer1() {
+        if (!setContainer1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttToolbar item : setContainer1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private PaperSize[] printPaperSizes;
+    private List<GanttToolbar> setPrintPaperSizes = new ArrayList<>();
 
     /**
      * Setter for the print paper sizes.
@@ -123,6 +143,16 @@ public class GanttToolbar extends JsObject {
         }
         return this;
     }
+    private String generateJSsetPrintPaperSizes() {
+        if (!setPrintPaperSizes.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttToolbar item : setPrintPaperSizes) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Chart getTarget;
 
@@ -137,6 +167,7 @@ public class GanttToolbar extends JsObject {
     }
 
     private Chart target;
+    private List<GanttToolbar> setTarget = new ArrayList<>();
 
     /**
      * Setter for the current toolbar target.
@@ -156,6 +187,16 @@ public class GanttToolbar extends JsObject {
             js.append(String.format(Locale.US, ".target(%s);",  ((target != null) ? target.getJsBase() : "null")));
         }
         return this;
+    }
+    private String generateJSsetTarget() {
+        if (!setTarget.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttToolbar item : setTarget) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetContainer() {
@@ -193,6 +234,12 @@ public class GanttToolbar extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetContainer());
+        js.append(generateJSsetContainer1());
+        js.append(generateJSsetPrintPaperSizes());
+        js.append(generateJSsetTarget());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -53,6 +50,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
     private String data3;
     private String mappingSettings;
     private String csvSettings;
+    private List<StockSeriesBase> setData = new ArrayList<>();
 
     /**
      * Sets data for the series.
@@ -84,7 +82,18 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetData() {
+        if (!setData.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setData) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesBase> setData1 = new ArrayList<>();
 
     /**
      * Sets data for the series.
@@ -116,7 +125,18 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setData1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesBase> setData2 = new ArrayList<>();
 
     /**
      * Sets data for the series.
@@ -148,6 +168,16 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetData2() {
+        if (!setData2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setData2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private StateSettings getHovered;
 
@@ -162,6 +192,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
     }
 
     private String hovered;
+    private List<StockSeriesBase> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -184,6 +215,16 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetHovered() {
+        if (!setHovered.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setHovered) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private LegendItemSettings getLegendItem;
 
@@ -198,6 +239,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
     }
 
     private String legendItem;
+    private List<StockSeriesBase> setLegendItem = new ArrayList<>();
 
     /**
      * Sets the legend item setting for series.
@@ -220,6 +262,16 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetLegendItem() {
+        if (!setLegendItem.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setLegendItem) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiMarkersFactory getMarkers;
 
@@ -236,6 +288,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
     private String markers;
     private Boolean markers1;
     private String markers2;
+    private List<StockSeriesBase> setMarkers = new ArrayList<>();
 
     /**
      * Setter for the data markers.
@@ -262,7 +315,18 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMarkers() {
+        if (!setMarkers.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setMarkers) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesBase> setMarkers1 = new ArrayList<>();
 
     /**
      * Setter for the data markers.
@@ -289,9 +353,20 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMarkers1() {
+        if (!setMarkers1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setMarkers1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double maxPointWidth;
     private String maxPointWidth1;
+    private List<StockSeriesBase> setMaxPointWidth = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -317,7 +392,18 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMaxPointWidth() {
+        if (!setMaxPointWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setMaxPointWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesBase> setMaxPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -343,9 +429,20 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMaxPointWidth1() {
+        if (!setMaxPointWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setMaxPointWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double minPointLength;
     private String minPointLength1;
+    private List<StockSeriesBase> setMinPointLength = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -371,7 +468,18 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMinPointLength() {
+        if (!setMinPointLength.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setMinPointLength) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesBase> setMinPointLength1 = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -397,8 +505,19 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMinPointLength1() {
+        if (!setMinPointLength1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setMinPointLength1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String name;
+    private List<StockSeriesBase> setName = new ArrayList<>();
 
     /**
      * Sets the series name.
@@ -421,6 +540,16 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetName() {
+        if (!setName.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setName) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private StateSettings getNormal;
 
@@ -435,6 +564,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
     }
 
     private String normal;
+    private List<StockSeriesBase> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -457,9 +587,20 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetNormal() {
+        if (!setNormal.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setNormal) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double pointWidth;
     private String pointWidth1;
+    private List<StockSeriesBase> setPointWidth = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -485,7 +626,18 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetPointWidth() {
+        if (!setPointWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setPointWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesBase> setPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -511,6 +663,16 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetPointWidth1() {
+        if (!setPointWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setPointWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private RenderingSettings getRendering;
 
@@ -525,6 +687,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
     }
 
     private String rendering;
+    private List<StockSeriesBase> setRendering = new ArrayList<>();
 
     /**
      * Setter for the series rendering settings.
@@ -547,8 +710,19 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetRendering() {
+        if (!setRendering.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setRendering) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String seriesType;
+    private List<StockSeriesBase> setSeriesType = new ArrayList<>();
 
     /**
      * Setter for switching of the series type.
@@ -571,6 +745,16 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetSeriesType() {
+        if (!setSeriesType.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setSeriesType) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Tooltip getTooltip;
 
@@ -586,6 +770,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
 
     private String tooltip;
     private Boolean tooltip1;
+    private List<StockSeriesBase> setTooltip = new ArrayList<>();
 
     /**
      * Setter for the tooltip.
@@ -611,7 +796,18 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetTooltip() {
+        if (!setTooltip.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setTooltip) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesBase> setTooltip1 = new ArrayList<>();
 
     /**
      * Setter for the tooltip.
@@ -637,6 +833,16 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetTooltip1() {
+        if (!setTooltip1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setTooltip1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private ScatterBase getYScale;
 
@@ -654,6 +860,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
     private String yScale1;
     private ScaleTypes yScale2;
     private String yScale3;
+    private List<StockSeriesBase> setYScale = new ArrayList<>();
 
     /**
      * Setter for the Y-scale.
@@ -679,7 +886,18 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetYScale() {
+        if (!setYScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setYScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesBase> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the Y-scale.
@@ -707,7 +925,18 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetYScale1() {
+        if (!setYScale1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setYScale1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesBase> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the Y-scale.
@@ -734,6 +963,16 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             }
         }
         return this;
+    }
+    private String generateJSsetYScale2() {
+        if (!setYScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesBase item : setYScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetData() {
@@ -819,6 +1058,30 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetData());
+        js.append(generateJSsetData1());
+        js.append(generateJSsetData2());
+        js.append(generateJSsetHovered());
+        js.append(generateJSsetLegendItem());
+        js.append(generateJSsetMarkers());
+        js.append(generateJSsetMarkers1());
+        js.append(generateJSsetMaxPointWidth());
+        js.append(generateJSsetMaxPointWidth1());
+        js.append(generateJSsetMinPointLength());
+        js.append(generateJSsetMinPointLength1());
+        js.append(generateJSsetName());
+        js.append(generateJSsetNormal());
+        js.append(generateJSsetPointWidth());
+        js.append(generateJSsetPointWidth1());
+        js.append(generateJSsetRendering());
+        js.append(generateJSsetSeriesType());
+        js.append(generateJSsetTooltip());
+        js.append(generateJSsetTooltip1());
+        js.append(generateJSsetYScale());
+        js.append(generateJSsetYScale1());
+        js.append(generateJSsetYScale2());
+        
 
         String result = js.toString();
         js.setLength(0);

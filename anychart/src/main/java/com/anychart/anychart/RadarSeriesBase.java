@@ -1,11 +1,9 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 /**
@@ -59,6 +57,7 @@ public class RadarSeriesBase extends AnychartSeriesBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%f)", indexes));
@@ -83,6 +82,7 @@ public class RadarSeriesBase extends AnychartSeriesBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%s)", Arrays.toString(indexes1)));
@@ -111,6 +111,7 @@ public class RadarSeriesBase extends AnychartSeriesBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%f)", indexes2));
@@ -137,6 +138,7 @@ public class RadarSeriesBase extends AnychartSeriesBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%s)", Arrays.toString(indexes3)));
@@ -167,6 +169,7 @@ public class RadarSeriesBase extends AnychartSeriesBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f)", indexes4));
@@ -195,6 +198,7 @@ public class RadarSeriesBase extends AnychartSeriesBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s)", Arrays.toString(indexes5)));
@@ -217,6 +221,7 @@ public class RadarSeriesBase extends AnychartSeriesBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".transformXY(%f)", xSubRangeRatio));
@@ -241,6 +246,7 @@ public class RadarSeriesBase extends AnychartSeriesBase {
     private String xScale1;
     private ScaleTypes xScale2;
     private String xScale3;
+    private List<RadarSeriesBase> setXScale = new ArrayList<>();
 
     /**
      * Setter for the series X scale.
@@ -266,7 +272,18 @@ public class RadarSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
+    private String generateJSsetXScale() {
+        if (!setXScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesBase item : setXScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RadarSeriesBase> setXScale1 = new ArrayList<>();
 
     /**
      * Setter for the series X scale.
@@ -294,7 +311,18 @@ public class RadarSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
+    private String generateJSsetXScale1() {
+        if (!setXScale1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesBase item : setXScale1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RadarSeriesBase> setXScale2 = new ArrayList<>();
 
     /**
      * Setter for the series X scale.
@@ -322,6 +350,16 @@ public class RadarSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
+    private String generateJSsetXScale2() {
+        if (!setXScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesBase item : setXScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private ScalesBase getYScale;
 
@@ -339,6 +377,7 @@ public class RadarSeriesBase extends AnychartSeriesBase {
     private String yScale1;
     private ScaleTypes yScale2;
     private String yScale3;
+    private List<RadarSeriesBase> setYScale = new ArrayList<>();
 
     /**
      * Setter for the series Y scale.
@@ -364,7 +403,18 @@ public class RadarSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
+    private String generateJSsetYScale() {
+        if (!setYScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesBase item : setYScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RadarSeriesBase> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the series Y scale.
@@ -392,7 +442,18 @@ public class RadarSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
+    private String generateJSsetYScale1() {
+        if (!setYScale1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesBase item : setYScale1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RadarSeriesBase> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the series Y scale.
@@ -419,6 +480,16 @@ public class RadarSeriesBase extends AnychartSeriesBase {
             }
         }
         return this;
+    }
+    private String generateJSsetYScale2() {
+        if (!setYScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesBase item : setYScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetXScale() {
@@ -456,6 +527,14 @@ public class RadarSeriesBase extends AnychartSeriesBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetXScale());
+        js.append(generateJSsetXScale1());
+        js.append(generateJSsetXScale2());
+        js.append(generateJSsetYScale());
+        js.append(generateJSsetYScale1());
+        js.append(generateJSsetYScale2());
+        
 
         String result = js.toString();
         js.setLength(0);

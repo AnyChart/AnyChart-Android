@@ -3,10 +3,10 @@ package com.anychart.anychart;
 import com.anychart.anychart.application.MyApplication;
 import com.anychart.anychart.chart.common.ListenersInterface;
 
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
+import java.util.Locale;
 
 // chart class
 /**
@@ -510,6 +510,32 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         if (!setData.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (Resource item : setData) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Resource> setData1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Resource data(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Resource item : setData1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1754,6 +1780,7 @@ Zooms chart to the level denoted by the passed index or identifier.
         js.append(generateJSsetCurrentStartDate());
         js.append(generateJSsetCurrentStartDate1());
         js.append(generateJSsetData());
+        js.append(generateJSsetData1());
         js.append(generateJSsetDefaultMinutesPerDay());
         js.append(generateJSsetGrid());
         js.append(generateJSsetGrid1());

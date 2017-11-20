@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class StockSeriesRangeArea extends StockSeriesBase {
 
     
     private Fill fill;
+    private List<StockSeriesRangeArea> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -60,9 +58,20 @@ public class StockSeriesRangeArea extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesRangeArea item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<StockSeriesRangeArea> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -87,6 +96,16 @@ public class StockSeriesRangeArea extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesRangeArea item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private PatternFill getHatchFill;
 
@@ -107,6 +126,7 @@ public class StockSeriesRangeArea extends StockSeriesBase {
     private String color1;
     private Double thickness;
     private Double size;
+    private List<StockSeriesRangeArea> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -144,7 +164,18 @@ public class StockSeriesRangeArea extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill() {
+        if (!setHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesRangeArea item : setHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesRangeArea> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -182,7 +213,18 @@ public class StockSeriesRangeArea extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill1() {
+        if (!setHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesRangeArea item : setHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesRangeArea> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -220,7 +262,18 @@ public class StockSeriesRangeArea extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill2() {
+        if (!setHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesRangeArea item : setHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesRangeArea> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -258,6 +311,16 @@ public class StockSeriesRangeArea extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill3() {
+        if (!setHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesRangeArea item : setHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color2;
     private ColoredFill color3;
@@ -266,6 +329,7 @@ public class StockSeriesRangeArea extends StockSeriesBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<StockSeriesRangeArea> setHighStroke = new ArrayList<>();
 
     /**
      * Setter for series high stroke settings.
@@ -306,7 +370,18 @@ public class StockSeriesRangeArea extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetHighStroke() {
+        if (!setHighStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesRangeArea item : setHighStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesRangeArea> setHighStroke1 = new ArrayList<>();
 
     /**
      * Setter for series high stroke settings.
@@ -347,7 +422,18 @@ public class StockSeriesRangeArea extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetHighStroke1() {
+        if (!setHighStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesRangeArea item : setHighStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesRangeArea> setHighStroke2 = new ArrayList<>();
 
     /**
      * Setter for series high stroke settings.
@@ -388,6 +474,16 @@ public class StockSeriesRangeArea extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetHighStroke2() {
+        if (!setHighStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesRangeArea item : setHighStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color5;
     private ColoredFill color6;
@@ -396,6 +492,7 @@ public class StockSeriesRangeArea extends StockSeriesBase {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
+    private List<StockSeriesRangeArea> setLowStroke = new ArrayList<>();
 
     /**
      * Setter for low stroke settings.
@@ -449,7 +546,18 @@ public class StockSeriesRangeArea extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetLowStroke() {
+        if (!setLowStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesRangeArea item : setLowStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesRangeArea> setLowStroke1 = new ArrayList<>();
 
     /**
      * Setter for low stroke settings.
@@ -503,7 +611,18 @@ public class StockSeriesRangeArea extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetLowStroke1() {
+        if (!setLowStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesRangeArea item : setLowStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StockSeriesRangeArea> setLowStroke2 = new ArrayList<>();
 
     /**
      * Setter for low stroke settings.
@@ -557,6 +676,16 @@ public class StockSeriesRangeArea extends StockSeriesBase {
         }
         return this;
     }
+    private String generateJSsetLowStroke2() {
+        if (!setLowStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StockSeriesRangeArea item : setLowStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
@@ -585,6 +714,20 @@ public class StockSeriesRangeArea extends StockSeriesBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetHatchFill());
+        js.append(generateJSsetHatchFill1());
+        js.append(generateJSsetHatchFill2());
+        js.append(generateJSsetHatchFill3());
+        js.append(generateJSsetHighStroke());
+        js.append(generateJSsetHighStroke1());
+        js.append(generateJSsetHighStroke2());
+        js.append(generateJSsetLowStroke());
+        js.append(generateJSsetLowStroke1());
+        js.append(generateJSsetLowStroke2());
+        
 
         String result = js.toString();
         js.setLength(0);

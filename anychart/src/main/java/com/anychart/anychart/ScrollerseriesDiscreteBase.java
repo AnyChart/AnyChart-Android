@@ -1,12 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
-
 // class
 /**
  * DiscreteBase series class.
@@ -54,6 +47,8 @@ public class ScrollerseriesDiscreteBase extends ScrollerseriesBase {
         }
 
         js.append(generateJsGetters());
+
+        
 
         String result = js.toString();
         js.setLength(0);

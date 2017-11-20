@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class StandalonesGridsRadar extends CoreGridsRadar {
     
     private String innerRadius;
     private Double innerRadius1;
+    private List<CoreGridsRadar> setInnerRadius = new ArrayList<>();
 
     /**
      * Setter for the inner radius.
@@ -53,15 +51,29 @@ public class StandalonesGridsRadar extends CoreGridsRadar {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".innerRadius(%s)", wrapQuotes(innerRadius)));
                 js.setLength(0);
             }
         }
-        return new CoreGridsRadar(jsBase);
+        CoreGridsRadar item = new CoreGridsRadar("setInnerRadius" + variableIndex);
+        setInnerRadius.add(item);
+        return item;
+    }
+    private String generateJSsetInnerRadius() {
+        if (!setInnerRadius.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsRadar item : setInnerRadius) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CoreGridsRadar> setInnerRadius1 = new ArrayList<>();
 
     /**
      * Setter for the inner radius.
@@ -78,17 +90,31 @@ public class StandalonesGridsRadar extends CoreGridsRadar {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".innerRadius(%f)", innerRadius1));
                 js.setLength(0);
             }
         }
-        return new CoreGridsRadar(jsBase);
+        CoreGridsRadar item = new CoreGridsRadar("setInnerRadius1" + variableIndex);
+        setInnerRadius1.add(item);
+        return item;
+    }
+    private String generateJSsetInnerRadius1() {
+        if (!setInnerRadius1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreGridsRadar item : setInnerRadius1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Layout layout;
     private String layout1;
+    private List<StandalonesGridsRadar> setLayout = new ArrayList<>();
 
     /**
      * Setter for the grid layout.
@@ -114,7 +140,18 @@ public class StandalonesGridsRadar extends CoreGridsRadar {
         }
         return this;
     }
+    private String generateJSsetLayout() {
+        if (!setLayout.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesGridsRadar item : setLayout) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesGridsRadar> setLayout1 = new ArrayList<>();
 
     /**
      * Setter for the grid layout.
@@ -140,6 +177,16 @@ public class StandalonesGridsRadar extends CoreGridsRadar {
         }
         return this;
     }
+    private String generateJSsetLayout1() {
+        if (!setLayout1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesGridsRadar item : setLayout1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -160,6 +207,12 @@ public class StandalonesGridsRadar extends CoreGridsRadar {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetInnerRadius());
+        js.append(generateJSsetInnerRadius1());
+        js.append(generateJSsetLayout());
+        js.append(generateJSsetLayout1());
+        
 
         String result = js.toString();
         js.setLength(0);

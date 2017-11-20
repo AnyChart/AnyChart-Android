@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class OrdinalTicks extends CoreBase {
 
     
     private Double interval;
+    private List<OrdinalTicks> setInterval = new ArrayList<>();
 
     /**
      * Setter for ticks interval value. Passed value as rounded and defaults to 1 in case of incorrect settings.
@@ -58,8 +56,19 @@ public class OrdinalTicks extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetInterval() {
+        if (!setInterval.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (OrdinalTicks item : setInterval) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String[] values;
+    private List<OrdinalTicks> setNames = new ArrayList<>();
 
     /**
      * Setter for tick names.
@@ -82,8 +91,19 @@ public class OrdinalTicks extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetNames() {
+        if (!setNames.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (OrdinalTicks item : setNames) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String[] ticks;
+    private List<OrdinalTicks> setSet = new ArrayList<>();
 
     /**
      * Setups ticks as an explicit array of fixed ticks.
@@ -106,6 +126,16 @@ public class OrdinalTicks extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetSet() {
+        if (!setSet.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (OrdinalTicks item : setSet) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -126,6 +156,11 @@ public class OrdinalTicks extends CoreBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetInterval());
+        js.append(generateJSsetNames());
+        js.append(generateJSsetSet());
+        
 
         String result = js.toString();
         js.setLength(0);

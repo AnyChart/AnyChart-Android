@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class GanttDateTime extends CoreBase {
 
     
     private Double maximum;
+    private List<GanttDateTime> setMaximum = new ArrayList<>();
 
     /**
      * Setter for the scale maximum.
@@ -58,8 +56,19 @@ public class GanttDateTime extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetMaximum() {
+        if (!setMaximum.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttDateTime item : setMaximum) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double maximumGap;
+    private List<GanttDateTime> setMaximumGap = new ArrayList<>();
 
     /**
      * Setter for the maximum gap.
@@ -82,8 +91,19 @@ public class GanttDateTime extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetMaximumGap() {
+        if (!setMaximumGap.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttDateTime item : setMaximumGap) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double minimum;
+    private List<GanttDateTime> setMinimum = new ArrayList<>();
 
     /**
      * Setter for the scale minimum.
@@ -106,8 +126,19 @@ public class GanttDateTime extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetMinimum() {
+        if (!setMinimum.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttDateTime item : setMinimum) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double minimumGap;
+    private List<GanttDateTime> setMinimumGap = new ArrayList<>();
 
     /**
      * Setter for the minimum gap.
@@ -130,8 +161,19 @@ public class GanttDateTime extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetMinimumGap() {
+        if (!setMinimumGap.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttDateTime item : setMinimumGap) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double softMaximum;
+    private List<GanttDateTime> setSoftMaximum = new ArrayList<>();
 
     /**
      * Setter for the scale soft maximum.
@@ -154,8 +196,19 @@ public class GanttDateTime extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetSoftMaximum() {
+        if (!setSoftMaximum.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttDateTime item : setSoftMaximum) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double softMinimum;
+    private List<GanttDateTime> setSoftMinimum = new ArrayList<>();
 
     /**
      * Setter for the scale soft minimum.
@@ -178,6 +231,16 @@ public class GanttDateTime extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetSoftMinimum() {
+        if (!setSoftMinimum.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttDateTime item : setSoftMinimum) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -198,6 +261,14 @@ public class GanttDateTime extends CoreBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetMaximum());
+        js.append(generateJSsetMaximumGap());
+        js.append(generateJSsetMinimum());
+        js.append(generateJSsetMinimumGap());
+        js.append(generateJSsetSoftMaximum());
+        js.append(generateJSsetSoftMinimum());
+        
 
         String result = js.toString();
         js.setLength(0);

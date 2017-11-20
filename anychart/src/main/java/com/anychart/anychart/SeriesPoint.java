@@ -1,12 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
-
 // class
 /**
  * Point representing all points that belongs to series-based chart.
@@ -74,6 +67,8 @@ public class SeriesPoint extends Point {
         }
 
         js.append(generateJsGetters());
+
+        
 
         String result = js.toString();
         js.setLength(0);

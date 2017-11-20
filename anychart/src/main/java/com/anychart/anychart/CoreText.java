@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class CoreText extends VisualBase {
 
     
     private Boolean disablePointerEvents;
+    private List<CoreText> setDisablePointerEvents = new ArrayList<>();
 
     /**
      * Setter for the pointer events.
@@ -58,8 +56,19 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetDisablePointerEvents() {
+        if (!setDisablePointerEvents.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setDisablePointerEvents) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fontColor;
+    private List<CoreText> setFontColor = new ArrayList<>();
 
     /**
      * Setter for the text font color.<br/>
@@ -83,9 +92,20 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFontColor() {
+        if (!setFontColor.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setFontColor) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Decoration fontDecoration;
     private String fontDecoration1;
+    private List<CoreText> setFontDecoration = new ArrayList<>();
 
     /**
      * Setter for the text font decoration.
@@ -111,7 +131,18 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFontDecoration() {
+        if (!setFontDecoration.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setFontDecoration) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreText> setFontDecoration1 = new ArrayList<>();
 
     /**
      * Setter for the text font decoration.
@@ -137,8 +168,19 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFontDecoration1() {
+        if (!setFontDecoration1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setFontDecoration1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fontFamily;
+    private List<CoreText> setFontFamily = new ArrayList<>();
 
     /**
      * Setter for font family.
@@ -161,8 +203,19 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFontFamily() {
+        if (!setFontFamily.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setFontFamily) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double fontOpacity;
+    private List<CoreText> setFontOpacity = new ArrayList<>();
 
     /**
      * Setter for the text font opacity. Double value from 0 to 1.
@@ -185,9 +238,20 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFontOpacity() {
+        if (!setFontOpacity.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setFontOpacity) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fontSize;
     private Double fontSize1;
+    private List<CoreText> setFontSize = new ArrayList<>();
 
     /**
      * Setter for text font size.
@@ -213,7 +277,18 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFontSize() {
+        if (!setFontSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setFontSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreText> setFontSize1 = new ArrayList<>();
 
     /**
      * Setter for text font size.
@@ -239,9 +314,20 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFontSize1() {
+        if (!setFontSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setFontSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TextFontStyle fontStyle;
     private String fontStyle1;
+    private List<CoreText> setFontStyle = new ArrayList<>();
 
     /**
      * Setter for the text font style.
@@ -267,7 +353,18 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFontStyle() {
+        if (!setFontStyle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setFontStyle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreText> setFontStyle1 = new ArrayList<>();
 
     /**
      * Setter for the text font style.
@@ -293,9 +390,20 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFontStyle1() {
+        if (!setFontStyle1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setFontStyle1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TextFontVariant fontVariant;
     private String fontVariant1;
+    private List<CoreText> setFontVariant = new ArrayList<>();
 
     /**
      * Setter for the text font variant.
@@ -321,7 +429,18 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFontVariant() {
+        if (!setFontVariant.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setFontVariant) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreText> setFontVariant1 = new ArrayList<>();
 
     /**
      * Setter for the text font variant.
@@ -347,9 +466,20 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFontVariant1() {
+        if (!setFontVariant1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setFontVariant1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fontWeight;
     private Double fontWeight1;
+    private List<CoreText> setFontWeight = new ArrayList<>();
 
     /**
      * Setter for the text font weight.<br/>
@@ -376,7 +506,18 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFontWeight() {
+        if (!setFontWeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setFontWeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreText> setFontWeight1 = new ArrayList<>();
 
     /**
      * Setter for the text font weight.<br/>
@@ -403,9 +544,20 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFontWeight1() {
+        if (!setFontWeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setFontWeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TextHAlign hAlign;
     private String hAlign1;
+    private List<CoreText> setHAlign = new ArrayList<>();
 
     /**
      * Setter for the text horizontal align.
@@ -431,7 +583,18 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetHAlign() {
+        if (!setHAlign.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setHAlign) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreText> setHAlign1 = new ArrayList<>();
 
     /**
      * Setter for the text horizontal align.
@@ -457,9 +620,20 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetHAlign1() {
+        if (!setHAlign1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setHAlign1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String letterSpacing;
     private Double letterSpacing1;
+    private List<CoreText> setLetterSpacing = new ArrayList<>();
 
     /**
      * Setter for the text letter spacing.<br/>
@@ -486,7 +660,18 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLetterSpacing() {
+        if (!setLetterSpacing.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setLetterSpacing) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreText> setLetterSpacing1 = new ArrayList<>();
 
     /**
      * Setter for the text letter spacing.<br/>
@@ -513,9 +698,20 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLetterSpacing1() {
+        if (!setLetterSpacing1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setLetterSpacing1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String lineHeight;
     private Double lineHeight1;
+    private List<CoreText> setLineHeight = new ArrayList<>();
 
     /**
      * Setter for the text line height.<br/>
@@ -542,7 +738,18 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLineHeight() {
+        if (!setLineHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setLineHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreText> setLineHeight1 = new ArrayList<>();
 
     /**
      * Setter for the text line height.<br/>
@@ -569,8 +776,19 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLineHeight1() {
+        if (!setLineHeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setLineHeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean selectable;
+    private List<CoreText> setSelectable = new ArrayList<>();
 
     /**
      * Setter for the text selectable.
@@ -593,9 +811,20 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetSelectable() {
+        if (!setSelectable.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setSelectable) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Direction textDirection;
     private String textDirection1;
+    private List<CoreText> setTextDirection = new ArrayList<>();
 
     /**
      * Setter for the text direction.
@@ -621,7 +850,18 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTextDirection() {
+        if (!setTextDirection.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setTextDirection) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreText> setTextDirection1 = new ArrayList<>();
 
     /**
      * Setter for the text direction.
@@ -647,8 +887,19 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTextDirection1() {
+        if (!setTextDirection1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setTextDirection1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double textIndent;
+    private List<CoreText> setTextIndent = new ArrayList<>();
 
     /**
      * Setter for the text indent.
@@ -671,9 +922,20 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTextIndent() {
+        if (!setTextIndent.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setTextIndent) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TextOverflow textOverflow;
     private String textOverflow1;
+    private List<CoreText> setTextOverflow = new ArrayList<>();
 
     /**
      * Setter for the text overflow settings.
@@ -699,7 +961,18 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTextOverflow() {
+        if (!setTextOverflow.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setTextOverflow) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreText> setTextOverflow1 = new ArrayList<>();
 
     /**
      * Setter for the text overflow settings.
@@ -725,8 +998,19 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTextOverflow1() {
+        if (!setTextOverflow1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setTextOverflow1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String objectWithSettings;
+    private List<CoreText> setTextSettings = new ArrayList<>();
 
     /**
      * Setter for text appearance settings.
@@ -749,11 +1033,22 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTextSettings() {
+        if (!setTextSettings.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setTextSettings) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String name;
     private String textSettings;
     private Double textSettings1;
     private Boolean textSettings2;
+    private List<CoreText> setTextSettings1 = new ArrayList<>();
 
     /**
      * Setter for the text appearance settings.
@@ -782,7 +1077,18 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTextSettings1() {
+        if (!setTextSettings1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setTextSettings1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreText> setTextSettings2 = new ArrayList<>();
 
     /**
      * Setter for the text appearance settings.
@@ -811,7 +1117,18 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTextSettings2() {
+        if (!setTextSettings2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setTextSettings2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreText> setTextSettings3 = new ArrayList<>();
 
     /**
      * Setter for the text appearance settings.
@@ -840,8 +1157,19 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTextSettings3() {
+        if (!setTextSettings3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setTextSettings3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean useHtml;
+    private List<CoreText> setUseHtml = new ArrayList<>();
 
     /**
      * Setter for flag useHTML.
@@ -864,9 +1192,20 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetUseHtml() {
+        if (!setUseHtml.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setUseHtml) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TextVAlign vAlign;
     private String vAlign1;
+    private List<CoreText> setVAlign = new ArrayList<>();
 
     /**
      * Setter for the text vertical align.
@@ -892,7 +1231,18 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetVAlign() {
+        if (!setVAlign.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setVAlign) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreText> setVAlign1 = new ArrayList<>();
 
     /**
      * Setter for the text vertical align.
@@ -918,9 +1268,20 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetVAlign1() {
+        if (!setVAlign1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setVAlign1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private EnumsWordBreak wordBreak;
     private String wordBreak1;
+    private List<CoreText> setWordBreak = new ArrayList<>();
 
     /**
      * Setter for the word-break mode.
@@ -946,7 +1307,18 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetWordBreak() {
+        if (!setWordBreak.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setWordBreak) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreText> setWordBreak1 = new ArrayList<>();
 
     /**
      * Setter for the word-break mode.
@@ -972,9 +1344,20 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetWordBreak1() {
+        if (!setWordBreak1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setWordBreak1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private EnumsWordWrap wordWrap;
     private String wordWrap1;
+    private List<CoreText> setWordWrap = new ArrayList<>();
 
     /**
      * Setter for the word-wrap mode.
@@ -1000,7 +1383,18 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetWordWrap() {
+        if (!setWordWrap.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setWordWrap) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreText> setWordWrap1 = new ArrayList<>();
 
     /**
      * Setter for the word-wrap mode.
@@ -1026,6 +1420,16 @@ public class CoreText extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetWordWrap1() {
+        if (!setWordWrap1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreText item : setWordWrap1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -1046,6 +1450,45 @@ public class CoreText extends VisualBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetDisablePointerEvents());
+        js.append(generateJSsetFontColor());
+        js.append(generateJSsetFontDecoration());
+        js.append(generateJSsetFontDecoration1());
+        js.append(generateJSsetFontFamily());
+        js.append(generateJSsetFontOpacity());
+        js.append(generateJSsetFontSize());
+        js.append(generateJSsetFontSize1());
+        js.append(generateJSsetFontStyle());
+        js.append(generateJSsetFontStyle1());
+        js.append(generateJSsetFontVariant());
+        js.append(generateJSsetFontVariant1());
+        js.append(generateJSsetFontWeight());
+        js.append(generateJSsetFontWeight1());
+        js.append(generateJSsetHAlign());
+        js.append(generateJSsetHAlign1());
+        js.append(generateJSsetLetterSpacing());
+        js.append(generateJSsetLetterSpacing1());
+        js.append(generateJSsetLineHeight());
+        js.append(generateJSsetLineHeight1());
+        js.append(generateJSsetSelectable());
+        js.append(generateJSsetTextDirection());
+        js.append(generateJSsetTextDirection1());
+        js.append(generateJSsetTextIndent());
+        js.append(generateJSsetTextOverflow());
+        js.append(generateJSsetTextOverflow1());
+        js.append(generateJSsetTextSettings());
+        js.append(generateJSsetTextSettings1());
+        js.append(generateJSsetTextSettings2());
+        js.append(generateJSsetTextSettings3());
+        js.append(generateJSsetUseHtml());
+        js.append(generateJSsetVAlign());
+        js.append(generateJSsetVAlign1());
+        js.append(generateJSsetWordBreak());
+        js.append(generateJSsetWordBreak1());
+        js.append(generateJSsetWordWrap());
+        js.append(generateJSsetWordWrap1());
+        
 
         String result = js.toString();
         js.setLength(0);

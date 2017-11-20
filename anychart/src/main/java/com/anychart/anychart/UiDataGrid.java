@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     
     private Fill backgroundFill;
+    private List<UiDataGrid> setBackgroundFill = new ArrayList<>();
 
     /**
      * Setter for background fill settings using an array or a string.
@@ -60,9 +58,20 @@ public class UiDataGrid extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill() {
+        if (!setBackgroundFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setBackgroundFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<UiDataGrid> setBackgroundFill1 = new ArrayList<>();
 
     /**
      * Background fill color with opacity.
@@ -87,6 +96,16 @@ public class UiDataGrid extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill1() {
+        if (!setBackgroundFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setBackgroundFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -95,6 +114,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<UiDataGrid> setBackgroundFill2 = new ArrayList<>();
 
     /**
      * Linear gradient background fill.
@@ -134,7 +154,18 @@ public class UiDataGrid extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill2() {
+        if (!setBackgroundFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setBackgroundFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setBackgroundFill3 = new ArrayList<>();
 
     /**
      * Linear gradient background fill.
@@ -174,7 +205,18 @@ public class UiDataGrid extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill3() {
+        if (!setBackgroundFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setBackgroundFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setBackgroundFill4 = new ArrayList<>();
 
     /**
      * Linear gradient background fill.
@@ -214,7 +256,18 @@ public class UiDataGrid extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill4() {
+        if (!setBackgroundFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setBackgroundFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setBackgroundFill5 = new ArrayList<>();
 
     /**
      * Linear gradient background fill.
@@ -254,7 +307,18 @@ public class UiDataGrid extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill5() {
+        if (!setBackgroundFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setBackgroundFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setBackgroundFill6 = new ArrayList<>();
 
     /**
      * Linear gradient background fill.
@@ -294,7 +358,18 @@ public class UiDataGrid extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill6() {
+        if (!setBackgroundFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setBackgroundFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setBackgroundFill7 = new ArrayList<>();
 
     /**
      * Linear gradient background fill.
@@ -334,6 +409,16 @@ public class UiDataGrid extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill7() {
+        if (!setBackgroundFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setBackgroundFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -343,6 +428,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<UiDataGrid> setBackgroundFill8 = new ArrayList<>();
 
     /**
      * Radial gradient background fill.
@@ -392,7 +478,18 @@ public class UiDataGrid extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill8() {
+        if (!setBackgroundFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setBackgroundFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setBackgroundFill9 = new ArrayList<>();
 
     /**
      * Radial gradient background fill.
@@ -442,6 +539,16 @@ public class UiDataGrid extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBackgroundFill9() {
+        if (!setBackgroundFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setBackgroundFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private List<DatagridColumn> getColumn = new ArrayList<>();
@@ -457,6 +564,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
     }
 
     private DatagridColumn column;
+    private List<UiDataGrid> setColumn = new ArrayList<>();
 
     /**
      * Setter for the first column.
@@ -477,9 +585,20 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetColumn() {
+        if (!setColumn.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setColumn) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index;
     private DatagridColumn column1;
+    private List<UiDataGrid> setColumn1 = new ArrayList<>();
 
     /**
      * Setter for the column by index.
@@ -507,9 +626,20 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetColumn1() {
+        if (!setColumn1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setColumn1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke columnStroke;
     private String columnStroke1;
+    private List<UiDataGrid> setColumnStroke = new ArrayList<>();
 
     /**
      * Setter for the column stroke.
@@ -535,7 +665,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetColumnStroke() {
+        if (!setColumnStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setColumnStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setColumnStroke1 = new ArrayList<>();
 
     /**
      * Setter for the column stroke.
@@ -561,6 +702,16 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetColumnStroke1() {
+        if (!setColumnStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setColumnStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Tree getData;
 
@@ -575,6 +726,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
     }
 
     private Tree data;
+    private List<UiDataGrid> setData = new ArrayList<>();
 
     /**
      * Setter for new data.
@@ -595,9 +747,20 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetData() {
+        if (!setData.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setData) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke editStructurePreviewDashStroke;
     private String editStructurePreviewDashStroke1;
+    private List<UiDataGrid> setEditStructurePreviewDashStroke = new ArrayList<>();
 
     /**
      * Setter for the structure preview dash stroke in edit mode.
@@ -623,7 +786,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewDashStroke() {
+        if (!setEditStructurePreviewDashStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setEditStructurePreviewDashStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setEditStructurePreviewDashStroke1 = new ArrayList<>();
 
     /**
      * Setter for the structure preview dash stroke in edit mode.
@@ -649,8 +823,19 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewDashStroke1() {
+        if (!setEditStructurePreviewDashStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setEditStructurePreviewDashStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill editStructurePreviewFill;
+    private List<UiDataGrid> setEditStructurePreviewFill = new ArrayList<>();
 
     /**
      * Setter for structure preview fill settings in edit mode using an array or a string.
@@ -674,9 +859,20 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill() {
+        if (!setEditStructurePreviewFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setEditStructurePreviewFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color1;
     private Double opacity3;
+    private List<UiDataGrid> setEditStructurePreviewFill1 = new ArrayList<>();
 
     /**
      * Structure preview fill color in edit mode with opacity.
@@ -709,6 +905,16 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill1() {
+        if (!setEditStructurePreviewFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setEditStructurePreviewFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys4;
     private String[] keys5;
@@ -717,6 +923,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
     private VectorRect mode5;
     private String mode6;
     private Double opacity4;
+    private List<UiDataGrid> setEditStructurePreviewFill2 = new ArrayList<>();
 
     /**
      * Linear gradient structure preview fill in edit mode.
@@ -770,7 +977,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill2() {
+        if (!setEditStructurePreviewFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setEditStructurePreviewFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setEditStructurePreviewFill3 = new ArrayList<>();
 
     /**
      * Linear gradient structure preview fill in edit mode.
@@ -824,7 +1042,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill3() {
+        if (!setEditStructurePreviewFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setEditStructurePreviewFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setEditStructurePreviewFill4 = new ArrayList<>();
 
     /**
      * Linear gradient structure preview fill in edit mode.
@@ -878,7 +1107,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill4() {
+        if (!setEditStructurePreviewFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setEditStructurePreviewFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setEditStructurePreviewFill5 = new ArrayList<>();
 
     /**
      * Linear gradient structure preview fill in edit mode.
@@ -932,7 +1172,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill5() {
+        if (!setEditStructurePreviewFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setEditStructurePreviewFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setEditStructurePreviewFill6 = new ArrayList<>();
 
     /**
      * Linear gradient structure preview fill in edit mode.
@@ -986,7 +1237,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill6() {
+        if (!setEditStructurePreviewFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setEditStructurePreviewFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setEditStructurePreviewFill7 = new ArrayList<>();
 
     /**
      * Linear gradient structure preview fill in edit mode.
@@ -1040,6 +1302,16 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill7() {
+        if (!setEditStructurePreviewFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setEditStructurePreviewFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys6;
     private String[] keys7;
@@ -1049,6 +1321,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
     private Double opacity5;
     private Double fx1;
     private Double fy1;
+    private List<UiDataGrid> setEditStructurePreviewFill8 = new ArrayList<>();
 
     /**
      * Radial gradient structure preview fill in edit mode.
@@ -1121,7 +1394,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill8() {
+        if (!setEditStructurePreviewFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setEditStructurePreviewFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setEditStructurePreviewFill9 = new ArrayList<>();
 
     /**
      * Radial gradient structure preview fill in edit mode.
@@ -1194,10 +1478,21 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewFill9() {
+        if (!setEditStructurePreviewFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setEditStructurePreviewFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings1;
     private Stroke editStructurePreviewStroke;
     private String editStructurePreviewStroke1;
+    private List<UiDataGrid> setEditStructurePreviewStroke = new ArrayList<>();
 
     /**
      * Setter for the structure preview stroke in edit mode.
@@ -1223,7 +1518,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewStroke() {
+        if (!setEditStructurePreviewStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setEditStructurePreviewStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setEditStructurePreviewStroke1 = new ArrayList<>();
 
     /**
      * Setter for the structure preview stroke in edit mode.
@@ -1249,8 +1555,19 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetEditStructurePreviewStroke1() {
+        if (!setEditStructurePreviewStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setEditStructurePreviewStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean editing;
+    private List<StandalonesDataGrid> setEditing = new ArrayList<>();
 
     /**
      * Enables or disables live edit mode.
@@ -1264,16 +1581,30 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editing(%b)", editing));
                 js.setLength(0);
             }
         }
-        return new StandalonesDataGrid(jsBase);
+        StandalonesDataGrid item = new StandalonesDataGrid("setEditing" + variableIndex);
+        setEditing.add(item);
+        return item;
+    }
+    private String generateJSsetEditing() {
+        if (!setEditing.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesDataGrid item : setEditing) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double endIndex;
+    private List<UiDataGrid> setEndIndex = new ArrayList<>();
 
     /**
      * Setter for the end index.
@@ -1296,8 +1627,19 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetEndIndex() {
+        if (!setEndIndex.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setEndIndex) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double horizontalOffset;
+    private List<UiDataGrid> setHorizontalOffset = new ArrayList<>();
 
     /**
      * Setter for the horizontal offset.
@@ -1320,6 +1662,16 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetHorizontalOffset() {
+        if (!setHorizontalOffset.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setHorizontalOffset) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private ScrollBar getHorizontalScrollBar;
 
@@ -1334,6 +1686,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
     }
 
     private String horizontalScrollBar;
+    private List<UiDataGrid> setHorizontalScrollBar = new ArrayList<>();
 
     /**
      * Setter for the horizontal scroll bar.
@@ -1356,8 +1709,19 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetHorizontalScrollBar() {
+        if (!setHorizontalScrollBar.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setHorizontalScrollBar) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill rowEvenFill;
+    private List<UiDataGrid> setRowEvenFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an object or a string.
@@ -1381,9 +1745,20 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowEvenFill() {
+        if (!setRowEvenFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowEvenFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color2;
     private Double opacity6;
+    private List<UiDataGrid> setRowEvenFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -1420,6 +1795,16 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowEvenFill1() {
+        if (!setRowEvenFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowEvenFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys8;
     private String[] keys9;
@@ -1428,6 +1813,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
     private VectorRect mode9;
     private String mode10;
     private Double opacity7;
+    private List<UiDataGrid> setRowEvenFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1493,7 +1879,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowEvenFill2() {
+        if (!setRowEvenFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowEvenFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowEvenFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1559,7 +1956,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowEvenFill3() {
+        if (!setRowEvenFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowEvenFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowEvenFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1625,7 +2033,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowEvenFill4() {
+        if (!setRowEvenFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowEvenFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowEvenFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1691,7 +2110,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowEvenFill5() {
+        if (!setRowEvenFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowEvenFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowEvenFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1757,7 +2187,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowEvenFill6() {
+        if (!setRowEvenFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowEvenFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowEvenFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1823,6 +2264,16 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowEvenFill7() {
+        if (!setRowEvenFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowEvenFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys10;
     private String[] keys11;
@@ -1832,6 +2283,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
     private Double opacity8;
     private Double fx2;
     private Double fy2;
+    private List<UiDataGrid> setRowEvenFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -1919,7 +2371,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowEvenFill8() {
+        if (!setRowEvenFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowEvenFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowEvenFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -2007,9 +2470,20 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowEvenFill9() {
+        if (!setRowEvenFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowEvenFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings2;
     private Fill rowFill;
+    private List<UiDataGrid> setRowFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an object or a string.
@@ -2033,9 +2507,20 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowFill() {
+        if (!setRowFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color3;
     private Double opacity9;
+    private List<UiDataGrid> setRowFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -2076,6 +2561,16 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowFill1() {
+        if (!setRowFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys12;
     private String[] keys13;
@@ -2084,6 +2579,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
     private VectorRect mode13;
     private String mode14;
     private Double opacity10;
+    private List<UiDataGrid> setRowFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2161,7 +2657,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowFill2() {
+        if (!setRowFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2239,7 +2746,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowFill3() {
+        if (!setRowFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2317,7 +2835,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowFill4() {
+        if (!setRowFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2395,7 +2924,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowFill5() {
+        if (!setRowFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2473,7 +3013,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowFill6() {
+        if (!setRowFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2551,6 +3102,16 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowFill7() {
+        if (!setRowFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys14;
     private String[] keys15;
@@ -2560,6 +3121,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
     private Double opacity11;
     private Double fx3;
     private Double fy3;
+    private List<UiDataGrid> setRowFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -2662,7 +3224,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowFill8() {
+        if (!setRowFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -2765,9 +3338,20 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowFill9() {
+        if (!setRowFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings3;
     private Fill rowHoverFill;
+    private List<UiDataGrid> setRowHoverFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an object or a string.
@@ -2791,9 +3375,20 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowHoverFill() {
+        if (!setRowHoverFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowHoverFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color4;
     private Double opacity12;
+    private List<UiDataGrid> setRowHoverFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -2838,6 +3433,16 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowHoverFill1() {
+        if (!setRowHoverFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowHoverFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys16;
     private String[] keys17;
@@ -2846,6 +3451,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
     private VectorRect mode17;
     private String mode18;
     private Double opacity13;
+    private List<UiDataGrid> setRowHoverFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2935,7 +3541,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowHoverFill2() {
+        if (!setRowHoverFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowHoverFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowHoverFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3025,7 +3642,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowHoverFill3() {
+        if (!setRowHoverFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowHoverFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowHoverFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3115,7 +3743,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowHoverFill4() {
+        if (!setRowHoverFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowHoverFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowHoverFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3205,7 +3844,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowHoverFill5() {
+        if (!setRowHoverFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowHoverFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowHoverFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3295,7 +3945,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowHoverFill6() {
+        if (!setRowHoverFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowHoverFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowHoverFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3385,6 +4046,16 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowHoverFill7() {
+        if (!setRowHoverFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowHoverFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys18;
     private String[] keys19;
@@ -3394,6 +4065,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
     private Double opacity14;
     private Double fx4;
     private Double fy4;
+    private List<UiDataGrid> setRowHoverFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -3511,7 +4183,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowHoverFill8() {
+        if (!setRowHoverFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowHoverFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowHoverFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -3629,9 +4312,20 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowHoverFill9() {
+        if (!setRowHoverFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowHoverFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings4;
     private Fill rowOddFill;
+    private List<UiDataGrid> setRowOddFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an object or a string.
@@ -3655,9 +4349,20 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowOddFill() {
+        if (!setRowOddFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowOddFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color5;
     private Double opacity15;
+    private List<UiDataGrid> setRowOddFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -3706,6 +4411,16 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowOddFill1() {
+        if (!setRowOddFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowOddFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys20;
     private String[] keys21;
@@ -3714,6 +4429,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
     private VectorRect mode21;
     private String mode22;
     private Double opacity16;
+    private List<UiDataGrid> setRowOddFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3815,7 +4531,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowOddFill2() {
+        if (!setRowOddFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowOddFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowOddFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3917,7 +4644,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowOddFill3() {
+        if (!setRowOddFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowOddFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowOddFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -4019,7 +4757,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowOddFill4() {
+        if (!setRowOddFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowOddFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowOddFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -4121,7 +4870,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowOddFill5() {
+        if (!setRowOddFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowOddFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowOddFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -4223,7 +4983,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowOddFill6() {
+        if (!setRowOddFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowOddFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowOddFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -4325,6 +5096,16 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowOddFill7() {
+        if (!setRowOddFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowOddFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys22;
     private String[] keys23;
@@ -4334,6 +5115,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
     private Double opacity17;
     private Double fx5;
     private Double fy5;
+    private List<UiDataGrid> setRowOddFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -4466,7 +5248,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowOddFill8() {
+        if (!setRowOddFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowOddFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowOddFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -4599,9 +5392,20 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowOddFill9() {
+        if (!setRowOddFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowOddFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings5;
     private Fill rowSelectedFill;
+    private List<UiDataGrid> setRowSelectedFill = new ArrayList<>();
 
     /**
      * Setter for row fill settings in selected mode using an array or a string.
@@ -4625,9 +5429,20 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill() {
+        if (!setRowSelectedFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowSelectedFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color6;
     private Double opacity18;
+    private List<UiDataGrid> setRowSelectedFill1 = new ArrayList<>();
 
     /**
      * Fill color in selected mode with opacity. Fill as a string or an object.
@@ -4680,6 +5495,16 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill1() {
+        if (!setRowSelectedFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowSelectedFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys24;
     private String[] keys25;
@@ -4687,6 +5512,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
     private Boolean mode24;
     private VectorRect mode25;
     private String mode26;
+    private List<UiDataGrid> setRowSelectedFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -4777,7 +5603,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill2() {
+        if (!setRowSelectedFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowSelectedFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowSelectedFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -4868,7 +5705,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill3() {
+        if (!setRowSelectedFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowSelectedFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowSelectedFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -4959,7 +5807,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill4() {
+        if (!setRowSelectedFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowSelectedFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowSelectedFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -5050,7 +5909,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill5() {
+        if (!setRowSelectedFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowSelectedFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowSelectedFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -5141,7 +6011,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill6() {
+        if (!setRowSelectedFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowSelectedFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowSelectedFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -5232,6 +6113,16 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill7() {
+        if (!setRowSelectedFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowSelectedFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys26;
     private String[] keys27;
@@ -5241,6 +6132,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
     private Double opacity19;
     private Double fx6;
     private Double fy6;
+    private List<UiDataGrid> setRowSelectedFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill in selected mode.
@@ -5387,7 +6279,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill8() {
+        if (!setRowSelectedFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowSelectedFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiDataGrid> setRowSelectedFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill in selected mode.
@@ -5534,9 +6437,20 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
         return this;
     }
+    private String generateJSsetRowSelectedFill9() {
+        if (!setRowSelectedFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setRowSelectedFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings6;
     private Double startIndex;
+    private List<UiDataGrid> setStartIndex = new ArrayList<>();
 
     /**
      * Setter for the start index.
@@ -5558,6 +6472,16 @@ Gets column by index or creates a new one if column doesn't exist yet.
             }
         }
         return this;
+    }
+    private String generateJSsetStartIndex() {
+        if (!setStartIndex.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setStartIndex) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Tooltip getTooltip;
@@ -5595,6 +6519,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
     }
 
     private Double verticalOffset;
+    private List<UiDataGrid> setVerticalOffset = new ArrayList<>();
 
     /**
      * Setter for the vertical offset.
@@ -5616,6 +6541,16 @@ Gets column by index or creates a new one if column doesn't exist yet.
             }
         }
         return this;
+    }
+    private String generateJSsetVerticalOffset() {
+        if (!setVerticalOffset.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiDataGrid item : setVerticalOffset) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetColumn() {
@@ -5700,6 +6635,93 @@ Gets column by index or creates a new one if column doesn't exist yet.
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetBackgroundFill());
+        js.append(generateJSsetBackgroundFill1());
+        js.append(generateJSsetBackgroundFill2());
+        js.append(generateJSsetBackgroundFill3());
+        js.append(generateJSsetBackgroundFill4());
+        js.append(generateJSsetBackgroundFill5());
+        js.append(generateJSsetBackgroundFill6());
+        js.append(generateJSsetBackgroundFill7());
+        js.append(generateJSsetBackgroundFill8());
+        js.append(generateJSsetBackgroundFill9());
+        js.append(generateJSsetColumn());
+        js.append(generateJSsetColumn1());
+        js.append(generateJSsetColumnStroke());
+        js.append(generateJSsetColumnStroke1());
+        js.append(generateJSsetData());
+        js.append(generateJSsetEditStructurePreviewDashStroke());
+        js.append(generateJSsetEditStructurePreviewDashStroke1());
+        js.append(generateJSsetEditStructurePreviewFill());
+        js.append(generateJSsetEditStructurePreviewFill1());
+        js.append(generateJSsetEditStructurePreviewFill2());
+        js.append(generateJSsetEditStructurePreviewFill3());
+        js.append(generateJSsetEditStructurePreviewFill4());
+        js.append(generateJSsetEditStructurePreviewFill5());
+        js.append(generateJSsetEditStructurePreviewFill6());
+        js.append(generateJSsetEditStructurePreviewFill7());
+        js.append(generateJSsetEditStructurePreviewFill8());
+        js.append(generateJSsetEditStructurePreviewFill9());
+        js.append(generateJSsetEditStructurePreviewStroke());
+        js.append(generateJSsetEditStructurePreviewStroke1());
+        js.append(generateJSsetEditing());
+        js.append(generateJSsetEndIndex());
+        js.append(generateJSsetHorizontalOffset());
+        js.append(generateJSsetHorizontalScrollBar());
+        js.append(generateJSsetRowEvenFill());
+        js.append(generateJSsetRowEvenFill1());
+        js.append(generateJSsetRowEvenFill2());
+        js.append(generateJSsetRowEvenFill3());
+        js.append(generateJSsetRowEvenFill4());
+        js.append(generateJSsetRowEvenFill5());
+        js.append(generateJSsetRowEvenFill6());
+        js.append(generateJSsetRowEvenFill7());
+        js.append(generateJSsetRowEvenFill8());
+        js.append(generateJSsetRowEvenFill9());
+        js.append(generateJSsetRowFill());
+        js.append(generateJSsetRowFill1());
+        js.append(generateJSsetRowFill2());
+        js.append(generateJSsetRowFill3());
+        js.append(generateJSsetRowFill4());
+        js.append(generateJSsetRowFill5());
+        js.append(generateJSsetRowFill6());
+        js.append(generateJSsetRowFill7());
+        js.append(generateJSsetRowFill8());
+        js.append(generateJSsetRowFill9());
+        js.append(generateJSsetRowHoverFill());
+        js.append(generateJSsetRowHoverFill1());
+        js.append(generateJSsetRowHoverFill2());
+        js.append(generateJSsetRowHoverFill3());
+        js.append(generateJSsetRowHoverFill4());
+        js.append(generateJSsetRowHoverFill5());
+        js.append(generateJSsetRowHoverFill6());
+        js.append(generateJSsetRowHoverFill7());
+        js.append(generateJSsetRowHoverFill8());
+        js.append(generateJSsetRowHoverFill9());
+        js.append(generateJSsetRowOddFill());
+        js.append(generateJSsetRowOddFill1());
+        js.append(generateJSsetRowOddFill2());
+        js.append(generateJSsetRowOddFill3());
+        js.append(generateJSsetRowOddFill4());
+        js.append(generateJSsetRowOddFill5());
+        js.append(generateJSsetRowOddFill6());
+        js.append(generateJSsetRowOddFill7());
+        js.append(generateJSsetRowOddFill8());
+        js.append(generateJSsetRowOddFill9());
+        js.append(generateJSsetRowSelectedFill());
+        js.append(generateJSsetRowSelectedFill1());
+        js.append(generateJSsetRowSelectedFill2());
+        js.append(generateJSsetRowSelectedFill3());
+        js.append(generateJSsetRowSelectedFill4());
+        js.append(generateJSsetRowSelectedFill5());
+        js.append(generateJSsetRowSelectedFill6());
+        js.append(generateJSsetRowSelectedFill7());
+        js.append(generateJSsetRowSelectedFill8());
+        js.append(generateJSsetRowSelectedFill9());
+        js.append(generateJSsetStartIndex());
+        js.append(generateJSsetVerticalOffset());
+        
 
         String result = js.toString();
         js.setLength(0);

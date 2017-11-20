@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class UnboundRegionsSettings extends JsObject {
 
     
     private Boolean enabled;
+    private List<UnboundRegionsSettings> setEnabled = new ArrayList<>();
 
     /**
      * Setter for the element enabled state.
@@ -59,8 +57,19 @@ public class UnboundRegionsSettings extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEnabled() {
+        if (!setEnabled.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UnboundRegionsSettings item : setEnabled) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill fill;
+    private List<UnboundRegionsSettings> setFill = new ArrayList<>();
 
     /**
      * Sets fill settings using an array or a string.
@@ -84,9 +93,20 @@ public class UnboundRegionsSettings extends JsObject {
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UnboundRegionsSettings item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<UnboundRegionsSettings> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -111,6 +131,16 @@ public class UnboundRegionsSettings extends JsObject {
         }
         return this;
     }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UnboundRegionsSettings item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -119,6 +149,7 @@ public class UnboundRegionsSettings extends JsObject {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<UnboundRegionsSettings> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -158,7 +189,18 @@ public class UnboundRegionsSettings extends JsObject {
         }
         return this;
     }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UnboundRegionsSettings item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UnboundRegionsSettings> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -198,7 +240,18 @@ public class UnboundRegionsSettings extends JsObject {
         }
         return this;
     }
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UnboundRegionsSettings item : setFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UnboundRegionsSettings> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -238,7 +291,18 @@ public class UnboundRegionsSettings extends JsObject {
         }
         return this;
     }
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UnboundRegionsSettings item : setFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UnboundRegionsSettings> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -278,7 +342,18 @@ public class UnboundRegionsSettings extends JsObject {
         }
         return this;
     }
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UnboundRegionsSettings item : setFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UnboundRegionsSettings> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -318,7 +393,18 @@ public class UnboundRegionsSettings extends JsObject {
         }
         return this;
     }
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UnboundRegionsSettings item : setFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UnboundRegionsSettings> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -358,6 +444,16 @@ public class UnboundRegionsSettings extends JsObject {
         }
         return this;
     }
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UnboundRegionsSettings item : setFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -367,6 +463,7 @@ public class UnboundRegionsSettings extends JsObject {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<UnboundRegionsSettings> setFill8 = new ArrayList<>();
 
     /**
      * Radial fill.
@@ -416,7 +513,18 @@ public class UnboundRegionsSettings extends JsObject {
         }
         return this;
     }
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UnboundRegionsSettings item : setFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UnboundRegionsSettings> setFill9 = new ArrayList<>();
 
     /**
      * Radial fill.
@@ -466,6 +574,16 @@ public class UnboundRegionsSettings extends JsObject {
         }
         return this;
     }
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UnboundRegionsSettings item : setFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private Stroke stroke;
@@ -475,6 +593,7 @@ public class UnboundRegionsSettings extends JsObject {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<UnboundRegionsSettings> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke for unbounded regions.
@@ -509,7 +628,18 @@ public class UnboundRegionsSettings extends JsObject {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UnboundRegionsSettings item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UnboundRegionsSettings> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke for unbounded regions.
@@ -544,7 +674,18 @@ public class UnboundRegionsSettings extends JsObject {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UnboundRegionsSettings item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UnboundRegionsSettings> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke for unbounded regions.
@@ -579,6 +720,16 @@ public class UnboundRegionsSettings extends JsObject {
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UnboundRegionsSettings item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -599,6 +750,22 @@ public class UnboundRegionsSettings extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetEnabled());
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetFill2());
+        js.append(generateJSsetFill3());
+        js.append(generateJSsetFill4());
+        js.append(generateJSsetFill5());
+        js.append(generateJSsetFill6());
+        js.append(generateJSsetFill7());
+        js.append(generateJSsetFill8());
+        js.append(generateJSsetFill9());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        
 
         String result = js.toString();
         js.setLength(0);

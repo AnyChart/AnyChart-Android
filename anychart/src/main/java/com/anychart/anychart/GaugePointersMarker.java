@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class GaugePointersMarker extends GaugePointersBase {
     
     private GaugeSidePosition position;
     private String position1;
+    private List<GaugePointersMarker> setPosition = new ArrayList<>();
 
     /**
      * Setter for the marker position.
@@ -62,7 +60,18 @@ public class GaugePointersMarker extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetPosition() {
+        if (!setPosition.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersMarker item : setPosition) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<GaugePointersMarker> setPosition1 = new ArrayList<>();
 
     /**
      * Setter for the marker position.
@@ -88,9 +97,20 @@ public class GaugePointersMarker extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetPosition1() {
+        if (!setPosition1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersMarker item : setPosition1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double radius;
     private String radius1;
+    private List<GaugePointersMarker> setRadius = new ArrayList<>();
 
     /**
      * Setter for the marker radius.
@@ -116,7 +136,18 @@ public class GaugePointersMarker extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetRadius() {
+        if (!setRadius.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersMarker item : setRadius) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<GaugePointersMarker> setRadius1 = new ArrayList<>();
 
     /**
      * Setter for the marker radius.
@@ -142,9 +173,20 @@ public class GaugePointersMarker extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetRadius1() {
+        if (!setRadius1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersMarker item : setRadius1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double size;
     private String size1;
+    private List<GaugePointersMarker> setSize = new ArrayList<>();
 
     /**
      * Setter for the marker size.
@@ -170,7 +212,18 @@ public class GaugePointersMarker extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetSize() {
+        if (!setSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersMarker item : setSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<GaugePointersMarker> setSize1 = new ArrayList<>();
 
     /**
      * Setter for the marker size.
@@ -196,10 +249,21 @@ public class GaugePointersMarker extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetSize1() {
+        if (!setSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersMarker item : setSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private MarkerType type;
     private String type1;
     private String type2;
+    private List<GaugePointersMarker> setType = new ArrayList<>();
 
     /**
      * Setter for the marker type.
@@ -226,7 +290,18 @@ public class GaugePointersMarker extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetType() {
+        if (!setType.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersMarker item : setType) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<GaugePointersMarker> setType1 = new ArrayList<>();
 
     /**
      * Setter for the marker type.
@@ -253,6 +328,16 @@ public class GaugePointersMarker extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetType1() {
+        if (!setType1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GaugePointersMarker item : setType1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -273,6 +358,16 @@ public class GaugePointersMarker extends GaugePointersBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetPosition());
+        js.append(generateJSsetPosition1());
+        js.append(generateJSsetRadius());
+        js.append(generateJSsetRadius1());
+        js.append(generateJSsetSize());
+        js.append(generateJSsetSize1());
+        js.append(generateJSsetType());
+        js.append(generateJSsetType1());
+        
 
         String result = js.toString();
         js.setLength(0);

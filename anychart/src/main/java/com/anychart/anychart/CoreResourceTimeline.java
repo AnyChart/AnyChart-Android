@@ -1,6 +1,8 @@
 package com.anychart.anychart;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 // class
@@ -35,6 +37,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     private Boolean[] adjustOrAdjustByWidth1;
     private String adjustOrAdjustByWidth2;
     private Boolean adjustByHeight;
+    private List<CoreResourceTimeline> setAdjustFontSize = new ArrayList<>();
 
     /**
      * Setter for the adjusting font size.
@@ -63,7 +66,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetAdjustFontSize() {
+        if (!setAdjustFontSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setAdjustFontSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setAdjustFontSize1 = new ArrayList<>();
 
     /**
      * Setter for the adjusting font size.
@@ -92,7 +106,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetAdjustFontSize1() {
+        if (!setAdjustFontSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setAdjustFontSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setAdjustFontSize2 = new ArrayList<>();
 
     /**
      * Setter for the adjusting font size.
@@ -121,6 +146,16 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetAdjustFontSize2() {
+        if (!setAdjustFontSize2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setAdjustFontSize2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiBackground getBackground;
 
@@ -137,6 +172,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     private String background;
     private String background1;
     private Boolean background2;
+    private List<CoreResourceTimeline> setBackground = new ArrayList<>();
 
     /**
      * Setter for the background.
@@ -163,7 +199,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBackground() {
+        if (!setBackground.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setBackground) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setBackground1 = new ArrayList<>();
 
     /**
      * Setter for the background.
@@ -190,8 +237,19 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBackground1() {
+        if (!setBackground1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setBackground1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean disablePointerEvents;
+    private List<CoreResourceTimeline> setDisablePointerEvents = new ArrayList<>();
 
     /**
      * Setter for the pointer events setting.
@@ -214,8 +272,19 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetDisablePointerEvents() {
+        if (!setDisablePointerEvents.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setDisablePointerEvents) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean drawBottomLine;
+    private List<Grid> setDrawBottomLine = new ArrayList<>();
 
     /**
      * Setter for the bottom line drawing flag.
@@ -229,16 +298,30 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawBottomLine(%b)", drawBottomLine));
                 js.setLength(0);
             }
         }
-        return new Grid(jsBase);
+        Grid item = new Grid("setDrawBottomLine" + variableIndex);
+        setDrawBottomLine.add(item);
+        return item;
+    }
+    private String generateJSsetDrawBottomLine() {
+        if (!setDrawBottomLine.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Grid item : setDrawBottomLine) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Boolean drawLeftLine;
+    private List<Grid> setDrawLeftLine = new ArrayList<>();
 
     /**
      * Setter for the left line drawing flag.
@@ -252,16 +335,30 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawLeftLine(%b)", drawLeftLine));
                 js.setLength(0);
             }
         }
-        return new Grid(jsBase);
+        Grid item = new Grid("setDrawLeftLine" + variableIndex);
+        setDrawLeftLine.add(item);
+        return item;
+    }
+    private String generateJSsetDrawLeftLine() {
+        if (!setDrawLeftLine.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Grid item : setDrawLeftLine) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Boolean drawRightLine;
+    private List<Grid> setDrawRightLine = new ArrayList<>();
 
     /**
      * Setter for the right line drawing flag.
@@ -275,16 +372,30 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawRightLine(%b)", drawRightLine));
                 js.setLength(0);
             }
         }
-        return new Grid(jsBase);
+        Grid item = new Grid("setDrawRightLine" + variableIndex);
+        setDrawRightLine.add(item);
+        return item;
+    }
+    private String generateJSsetDrawRightLine() {
+        if (!setDrawRightLine.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Grid item : setDrawRightLine) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Boolean drawTopLine;
+    private List<Grid> setDrawTopLine = new ArrayList<>();
 
     /**
      * Setter for the top line drawing flag.
@@ -298,16 +409,30 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawTopLine(%b)", drawTopLine));
                 js.setLength(0);
             }
         }
-        return new Grid(jsBase);
+        Grid item = new Grid("setDrawTopLine" + variableIndex);
+        setDrawTopLine.add(item);
+        return item;
+    }
+    private String generateJSsetDrawTopLine() {
+        if (!setDrawTopLine.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Grid item : setDrawTopLine) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill fill;
+    private List<CoreResourceTimeline> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -331,9 +456,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<CoreResourceTimeline> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -358,6 +494,16 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -366,6 +512,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<CoreResourceTimeline> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -405,7 +552,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -445,7 +603,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -485,7 +654,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -525,7 +705,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -565,7 +756,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -605,6 +807,16 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -614,6 +826,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<CoreResourceTimeline> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -663,7 +876,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -713,9 +937,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private String fontColor;
+    private List<CoreResourceTimeline> setFontColor = new ArrayList<>();
 
     /**
      * Setter for font color settings.
@@ -738,9 +973,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFontColor() {
+        if (!setFontColor.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFontColor) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Decoration fontDecoration;
     private String fontDecoration1;
+    private List<CoreResourceTimeline> setFontDecoration = new ArrayList<>();
 
     /**
      * Setter for font decoration settings.
@@ -766,7 +1012,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFontDecoration() {
+        if (!setFontDecoration.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFontDecoration) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setFontDecoration1 = new ArrayList<>();
 
     /**
      * Setter for font decoration settings.
@@ -792,8 +1049,19 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFontDecoration1() {
+        if (!setFontDecoration1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFontDecoration1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fontFamily;
+    private List<CoreResourceTimeline> setFontFamily = new ArrayList<>();
 
     /**
      * Setter for font family settings.
@@ -816,8 +1084,19 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFontFamily() {
+        if (!setFontFamily.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFontFamily) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double fontOpacity;
+    private List<CoreResourceTimeline> setFontOpacity = new ArrayList<>();
 
     /**
      * Setter for font opacity settings.
@@ -840,9 +1119,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFontOpacity() {
+        if (!setFontOpacity.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFontOpacity) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double fontSize;
     private String fontSize1;
+    private List<CoreResourceTimeline> setFontSize = new ArrayList<>();
 
     /**
      * Setter for font size settings.
@@ -868,7 +1158,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFontSize() {
+        if (!setFontSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFontSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setFontSize1 = new ArrayList<>();
 
     /**
      * Setter for font size settings.
@@ -894,9 +1195,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFontSize1() {
+        if (!setFontSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFontSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fontStyle;
     private TextFontStyle fontStyle1;
+    private List<CoreResourceTimeline> setFontStyle = new ArrayList<>();
 
     /**
      * Setter for font style settings.
@@ -922,7 +1234,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFontStyle() {
+        if (!setFontStyle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFontStyle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setFontStyle1 = new ArrayList<>();
 
     /**
      * Setter for font style settings.
@@ -948,9 +1271,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFontStyle1() {
+        if (!setFontStyle1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFontStyle1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fontVariant;
     private TextFontVariant fontVariant1;
+    private List<CoreResourceTimeline> setFontVariant = new ArrayList<>();
 
     /**
      * Setter for font variant settings.
@@ -976,7 +1310,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFontVariant() {
+        if (!setFontVariant.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFontVariant) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setFontVariant1 = new ArrayList<>();
 
     /**
      * Setter for font variant settings.
@@ -1002,9 +1347,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFontVariant1() {
+        if (!setFontVariant1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFontVariant1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fontWeight;
     private Double fontWeight1;
+    private List<CoreResourceTimeline> setFontWeight = new ArrayList<>();
 
     /**
      * Setter for font weight settings.
@@ -1030,7 +1386,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFontWeight() {
+        if (!setFontWeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFontWeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setFontWeight1 = new ArrayList<>();
 
     /**
      * Setter for font weight settings.
@@ -1056,8 +1423,19 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFontWeight1() {
+        if (!setFontWeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFontWeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String format;
+    private List<CoreResourceTimeline> setFormat = new ArrayList<>();
 
     /**
      * Setter for the function content text.<br/>
@@ -1081,9 +1459,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetFormat() {
+        if (!setFormat.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFormat) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String hAlign;
     private TextHAlign hAlign1;
+    private List<CoreResourceTimeline> setHAlign = new ArrayList<>();
 
     /**
      * Setter for the text horizontal align settings.
@@ -1109,7 +1498,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetHAlign() {
+        if (!setHAlign.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setHAlign) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setHAlign1 = new ArrayList<>();
 
     /**
      * Setter for the text horizontal align settings.
@@ -1135,6 +1535,16 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetHAlign1() {
+        if (!setHAlign1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setHAlign1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private CoreResourceTimeline getHolidays;
 
@@ -1149,6 +1559,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     }
 
     private String holidays;
+    private List<CoreResourceTimeline> setHolidays = new ArrayList<>();
 
     /**
      * Setter for holidays settings.
@@ -1171,9 +1582,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetHolidays() {
+        if (!setHolidays.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setHolidays) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double letterSpacing;
     private String letterSpacing1;
+    private List<CoreResourceTimeline> setLetterSpacing = new ArrayList<>();
 
     /**
      * Setter for text letter spacing settings.
@@ -1199,7 +1621,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetLetterSpacing() {
+        if (!setLetterSpacing.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setLetterSpacing) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setLetterSpacing1 = new ArrayList<>();
 
     /**
      * Setter for text letter spacing settings.
@@ -1225,8 +1658,19 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetLetterSpacing1() {
+        if (!setLetterSpacing1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setLetterSpacing1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double levelHeight;
+    private List<CoreResourceTimeline> setLevelHeight = new ArrayList<>();
 
     /**
      * Setter for the level height.
@@ -1249,9 +1693,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetLevelHeight() {
+        if (!setLevelHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setLevelHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double lineHeight;
     private String lineHeight1;
+    private List<CoreResourceTimeline> setLineHeight = new ArrayList<>();
 
     /**
      * Setter for text line height settings.
@@ -1277,7 +1732,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetLineHeight() {
+        if (!setLineHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setLineHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setLineHeight1 = new ArrayList<>();
 
     /**
      * Setter for text line height settings.
@@ -1303,9 +1769,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetLineHeight1() {
+        if (!setLineHeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setLineHeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double maxFontSize;
     private String maxFontSize1;
+    private List<CoreResourceTimeline> setMaxFontSize = new ArrayList<>();
 
     /**
      * Setter for the maximum font size.
@@ -1331,7 +1808,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMaxFontSize() {
+        if (!setMaxFontSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setMaxFontSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setMaxFontSize1 = new ArrayList<>();
 
     /**
      * Setter for the maximum font size.
@@ -1357,9 +1845,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMaxFontSize1() {
+        if (!setMaxFontSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setMaxFontSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double minFontSize;
     private String minFontSize1;
+    private List<CoreResourceTimeline> setMinFontSize = new ArrayList<>();
 
     /**
      * Setter for the minimum font size.
@@ -1385,7 +1884,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMinFontSize() {
+        if (!setMinFontSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setMinFontSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setMinFontSize1 = new ArrayList<>();
 
     /**
      * Setter for the minimum font size.
@@ -1411,6 +1921,16 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMinFontSize1() {
+        if (!setMinFontSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setMinFontSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Overlay getOverlay;
 
@@ -1426,6 +1946,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
 
     private String overlay;
     private Boolean overlay1;
+    private List<CoreResourceTimeline> setOverlay = new ArrayList<>();
 
     /**
      * Setter for the overlay element.
@@ -1451,7 +1972,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetOverlay() {
+        if (!setOverlay.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setOverlay) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setOverlay1 = new ArrayList<>();
 
     /**
      * Setter for the overlay element.
@@ -1477,6 +2009,16 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetOverlay1() {
+        if (!setOverlay1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setOverlay1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UtilsPadding getPadding;
 
@@ -1493,6 +2035,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     private Double[] padding;
     private String[] padding1;
     private String padding2;
+    private List<CoreResourceTimeline> setPadding = new ArrayList<>();
 
     /**
      * Setter for paddings in pixels using a single value.
@@ -1519,7 +2062,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetPadding() {
+        if (!setPadding.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setPadding) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setPadding1 = new ArrayList<>();
 
     /**
      * Setter for paddings in pixels using a single value.
@@ -1546,7 +2100,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetPadding1() {
+        if (!setPadding1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setPadding1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setPadding2 = new ArrayList<>();
 
     /**
      * Setter for paddings in pixels using a single value.
@@ -1573,6 +2138,16 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetPadding2() {
+        if (!setPadding2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setPadding2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String value;
     private Double value1;
@@ -1582,6 +2157,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     private Double value5;
     private String value6;
     private Double value7;
+    private List<CoreResourceTimeline> setPadding3 = new ArrayList<>();
 
     /**
      * Setter for paddings in pixels using several numbers.
@@ -1646,7 +2222,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetPadding3() {
+        if (!setPadding3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setPadding3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setPadding4 = new ArrayList<>();
 
     /**
      * Setter for paddings in pixels using several numbers.
@@ -1711,8 +2298,19 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetPadding4() {
+        if (!setPadding4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setPadding4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean selectable;
+    private List<CoreResourceTimeline> setSelectable = new ArrayList<>();
 
     /**
      * Setter for the text selectable option.
@@ -1735,6 +2333,16 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetSelectable() {
+        if (!setSelectable.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setSelectable) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color1;
     private ColoredFill color2;
@@ -1743,6 +2351,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<CoreResourceTimeline> setStroke = new ArrayList<>();
 
     /**
      * Setter for the stroke.
@@ -1779,7 +2388,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for the stroke.
@@ -1816,7 +2436,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for the stroke.
@@ -1853,9 +2484,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String textDirection;
     private Direction textDirection1;
+    private List<CoreResourceTimeline> setTextDirection = new ArrayList<>();
 
     /**
      * Setter for text direction settings.
@@ -1881,7 +2523,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetTextDirection() {
+        if (!setTextDirection.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setTextDirection) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setTextDirection1 = new ArrayList<>();
 
     /**
      * Setter for text direction settings.
@@ -1907,8 +2560,19 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetTextDirection1() {
+        if (!setTextDirection1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setTextDirection1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double textIndent;
+    private List<CoreResourceTimeline> setTextIndent = new ArrayList<>();
 
     /**
      * Setter for text-indent settings.
@@ -1931,9 +2595,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetTextIndent() {
+        if (!setTextIndent.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setTextIndent) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TextOverflow textOverflow;
     private String textOverflow1;
+    private List<CoreResourceTimeline> setTextOverflow = new ArrayList<>();
 
     /**
      * Setter for text overflow settings.
@@ -1959,7 +2634,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetTextOverflow() {
+        if (!setTextOverflow.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setTextOverflow) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setTextOverflow1 = new ArrayList<>();
 
     /**
      * Setter for text overflow settings.
@@ -1985,8 +2671,19 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetTextOverflow1() {
+        if (!setTextOverflow1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setTextOverflow1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean useHtml;
+    private List<CoreResourceTimeline> setUseHtml = new ArrayList<>();
 
     /**
      * Setter for the useHTML flag.
@@ -2009,9 +2706,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetUseHtml() {
+        if (!setUseHtml.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setUseHtml) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String vAlign;
     private TextVAlign vAlign1;
+    private List<CoreResourceTimeline> setVAlign = new ArrayList<>();
 
     /**
      * Setter for text vertical align settings.
@@ -2037,7 +2745,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetVAlign() {
+        if (!setVAlign.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setVAlign) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setVAlign1 = new ArrayList<>();
 
     /**
      * Setter for text vertical align settings.
@@ -2063,9 +2782,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetVAlign1() {
+        if (!setVAlign1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setVAlign1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private EnumsWordBreak wordBreak;
     private String wordBreak1;
+    private List<CoreResourceTimeline> setWordBreak = new ArrayList<>();
 
     /**
      * Setter for the word-break mode.
@@ -2091,7 +2821,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetWordBreak() {
+        if (!setWordBreak.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setWordBreak) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setWordBreak1 = new ArrayList<>();
 
     /**
      * Setter for the word-break mode.
@@ -2117,9 +2858,20 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetWordBreak1() {
+        if (!setWordBreak1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setWordBreak1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private EnumsWordWrap wordWrap;
     private String wordWrap1;
+    private List<CoreResourceTimeline> setWordWrap = new ArrayList<>();
 
     /**
      * Setter for the word-wrap mode.
@@ -2145,7 +2897,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetWordWrap() {
+        if (!setWordWrap.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setWordWrap) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreResourceTimeline> setWordWrap1 = new ArrayList<>();
 
     /**
      * Setter for the word-wrap mode.
@@ -2170,6 +2933,16 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
             }
         }
         return this;
+    }
+    private String generateJSsetWordWrap1() {
+        if (!setWordWrap1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setWordWrap1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetBackground() {
@@ -2223,6 +2996,77 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAdjustFontSize());
+        js.append(generateJSsetAdjustFontSize1());
+        js.append(generateJSsetAdjustFontSize2());
+        js.append(generateJSsetBackground());
+        js.append(generateJSsetBackground1());
+        js.append(generateJSsetDisablePointerEvents());
+        js.append(generateJSsetDrawBottomLine());
+        js.append(generateJSsetDrawLeftLine());
+        js.append(generateJSsetDrawRightLine());
+        js.append(generateJSsetDrawTopLine());
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetFill2());
+        js.append(generateJSsetFill3());
+        js.append(generateJSsetFill4());
+        js.append(generateJSsetFill5());
+        js.append(generateJSsetFill6());
+        js.append(generateJSsetFill7());
+        js.append(generateJSsetFill8());
+        js.append(generateJSsetFill9());
+        js.append(generateJSsetFontColor());
+        js.append(generateJSsetFontDecoration());
+        js.append(generateJSsetFontDecoration1());
+        js.append(generateJSsetFontFamily());
+        js.append(generateJSsetFontOpacity());
+        js.append(generateJSsetFontSize());
+        js.append(generateJSsetFontSize1());
+        js.append(generateJSsetFontStyle());
+        js.append(generateJSsetFontStyle1());
+        js.append(generateJSsetFontVariant());
+        js.append(generateJSsetFontVariant1());
+        js.append(generateJSsetFontWeight());
+        js.append(generateJSsetFontWeight1());
+        js.append(generateJSsetFormat());
+        js.append(generateJSsetHAlign());
+        js.append(generateJSsetHAlign1());
+        js.append(generateJSsetHolidays());
+        js.append(generateJSsetLetterSpacing());
+        js.append(generateJSsetLetterSpacing1());
+        js.append(generateJSsetLevelHeight());
+        js.append(generateJSsetLineHeight());
+        js.append(generateJSsetLineHeight1());
+        js.append(generateJSsetMaxFontSize());
+        js.append(generateJSsetMaxFontSize1());
+        js.append(generateJSsetMinFontSize());
+        js.append(generateJSsetMinFontSize1());
+        js.append(generateJSsetOverlay());
+        js.append(generateJSsetOverlay1());
+        js.append(generateJSsetPadding());
+        js.append(generateJSsetPadding1());
+        js.append(generateJSsetPadding2());
+        js.append(generateJSsetPadding3());
+        js.append(generateJSsetPadding4());
+        js.append(generateJSsetSelectable());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        js.append(generateJSsetTextDirection());
+        js.append(generateJSsetTextDirection1());
+        js.append(generateJSsetTextIndent());
+        js.append(generateJSsetTextOverflow());
+        js.append(generateJSsetTextOverflow1());
+        js.append(generateJSsetUseHtml());
+        js.append(generateJSsetVAlign());
+        js.append(generateJSsetVAlign1());
+        js.append(generateJSsetWordBreak());
+        js.append(generateJSsetWordBreak1());
+        js.append(generateJSsetWordWrap());
+        js.append(generateJSsetWordWrap1());
+        
 
         String result = js.toString();
         js.setLength(0);

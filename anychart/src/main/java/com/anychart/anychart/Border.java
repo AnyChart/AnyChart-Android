@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -42,6 +39,7 @@ public class Border extends JsObject {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<Border> setBottom = new ArrayList<>();
 
     /**
      * Setter for bottom border settings.
@@ -77,7 +75,18 @@ public class Border extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBottom() {
+        if (!setBottom.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Border item : setBottom) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Border> setBottom1 = new ArrayList<>();
 
     /**
      * Setter for bottom border settings.
@@ -113,7 +122,18 @@ public class Border extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBottom1() {
+        if (!setBottom1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Border item : setBottom1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Border> setBottom2 = new ArrayList<>();
 
     /**
      * Setter for bottom border settings.
@@ -149,6 +169,16 @@ public class Border extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBottom2() {
+        if (!setBottom2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Border item : setBottom2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color3;
     private ColoredFill color4;
@@ -157,6 +187,7 @@ public class Border extends JsObject {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
+    private List<Border> setLeft = new ArrayList<>();
 
     /**
      * Setter for left border settings.
@@ -207,7 +238,18 @@ public class Border extends JsObject {
         }
         return this;
     }
+    private String generateJSsetLeft() {
+        if (!setLeft.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Border item : setLeft) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Border> setLeft1 = new ArrayList<>();
 
     /**
      * Setter for left border settings.
@@ -258,7 +300,18 @@ public class Border extends JsObject {
         }
         return this;
     }
+    private String generateJSsetLeft1() {
+        if (!setLeft1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Border item : setLeft1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Border> setLeft2 = new ArrayList<>();
 
     /**
      * Setter for left border settings.
@@ -309,6 +362,16 @@ public class Border extends JsObject {
         }
         return this;
     }
+    private String generateJSsetLeft2() {
+        if (!setLeft2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Border item : setLeft2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color6;
     private ColoredFill color7;
@@ -317,6 +380,7 @@ public class Border extends JsObject {
     private String dashpattern2;
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
+    private List<Border> setRight = new ArrayList<>();
 
     /**
      * Setter for right border settings.
@@ -374,7 +438,18 @@ public class Border extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRight() {
+        if (!setRight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Border item : setRight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Border> setRight1 = new ArrayList<>();
 
     /**
      * Setter for right border settings.
@@ -432,7 +507,18 @@ public class Border extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRight1() {
+        if (!setRight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Border item : setRight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Border> setRight2 = new ArrayList<>();
 
     /**
      * Setter for right border settings.
@@ -490,6 +576,16 @@ public class Border extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRight2() {
+        if (!setRight2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Border item : setRight2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color9;
     private ColoredFill color10;
@@ -498,6 +594,7 @@ public class Border extends JsObject {
     private String dashpattern3;
     private StrokeLineJoin lineJoin3;
     private StrokeLineCap lineCap3;
+    private List<Border> setTop = new ArrayList<>();
 
     /**
      * Setter for top border settings.
@@ -562,7 +659,18 @@ public class Border extends JsObject {
         }
         return this;
     }
+    private String generateJSsetTop() {
+        if (!setTop.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Border item : setTop) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Border> setTop1 = new ArrayList<>();
 
     /**
      * Setter for top border settings.
@@ -627,7 +735,18 @@ public class Border extends JsObject {
         }
         return this;
     }
+    private String generateJSsetTop1() {
+        if (!setTop1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Border item : setTop1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Border> setTop2 = new ArrayList<>();
 
     /**
      * Setter for top border settings.
@@ -692,6 +811,16 @@ public class Border extends JsObject {
         }
         return this;
     }
+    private String generateJSsetTop2() {
+        if (!setTop2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Border item : setTop2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -712,6 +841,20 @@ public class Border extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetBottom());
+        js.append(generateJSsetBottom1());
+        js.append(generateJSsetBottom2());
+        js.append(generateJSsetLeft());
+        js.append(generateJSsetLeft1());
+        js.append(generateJSsetLeft2());
+        js.append(generateJSsetRight());
+        js.append(generateJSsetRight1());
+        js.append(generateJSsetRight2());
+        js.append(generateJSsetTop());
+        js.append(generateJSsetTop1());
+        js.append(generateJSsetTop2());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -235,6 +235,32 @@ public class Bullet extends Chart {
         return "";
     }
 
+    private List<Bullet> setData1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Bullet data(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Bullet item : setData1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private Layout layout;
     private String layout1;
     private List<Bullet> setLayout = new ArrayList<>();
@@ -845,6 +871,7 @@ public class Bullet extends Chart {
         js.append(generateJSsetAxis());
         js.append(generateJSsetAxis1());
         js.append(generateJSsetData());
+        js.append(generateJSsetData1());
         js.append(generateJSsetLayout());
         js.append(generateJSsetLayout1());
         js.append(generateJSsetMarkerPalette());

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class StandalonesGridsLinear extends CoreGridsLinear {
     
     private Layout layout;
     private String layout1;
+    private List<StandalonesGridsLinear> setLayout = new ArrayList<>();
 
     /**
      * Setter for the grid layout.
@@ -62,7 +60,18 @@ public class StandalonesGridsLinear extends CoreGridsLinear {
         }
         return this;
     }
+    private String generateJSsetLayout() {
+        if (!setLayout.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesGridsLinear item : setLayout) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesGridsLinear> setLayout1 = new ArrayList<>();
 
     /**
      * Setter for the grid layout.
@@ -88,6 +97,16 @@ public class StandalonesGridsLinear extends CoreGridsLinear {
         }
         return this;
     }
+    private String generateJSsetLayout1() {
+        if (!setLayout1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesGridsLinear item : setLayout1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -108,6 +127,10 @@ public class StandalonesGridsLinear extends CoreGridsLinear {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetLayout());
+        js.append(generateJSsetLayout1());
+        
 
         String result = js.toString();
         js.setLength(0);

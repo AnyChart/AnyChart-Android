@@ -1,11 +1,9 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 /**
@@ -38,6 +36,7 @@ public class UiLabelsFactory extends CoreText {
     
     private Boolean adjustByWidth;
     private Boolean adjustByHeight;
+    private List<UiLabelsFactory> setAdjustFontSize = new ArrayList<>();
 
     /**
      * Setter for the adjusting font size by two parameters width and height.
@@ -62,10 +61,21 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetAdjustFontSize() {
+        if (!setAdjustFontSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setAdjustFontSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String adjustFontSize;
     private Boolean[] adjustFontSize1;
     private Boolean adjustFontSize2;
+    private List<UiLabelsFactory> setAdjustFontSize1 = new ArrayList<>();
 
     /**
      * Setter for the adjusting font size by one parameter.
@@ -92,7 +102,18 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetAdjustFontSize1() {
+        if (!setAdjustFontSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setAdjustFontSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiLabelsFactory> setAdjustFontSize2 = new ArrayList<>();
 
     /**
      * Setter for the adjusting font size by one parameter.
@@ -119,7 +140,18 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetAdjustFontSize2() {
+        if (!setAdjustFontSize2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setAdjustFontSize2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiLabelsFactory> setAdjustFontSize3 = new ArrayList<>();
 
     /**
      * Setter for the adjusting font size by one parameter.
@@ -146,9 +178,20 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetAdjustFontSize3() {
+        if (!setAdjustFontSize3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setAdjustFontSize3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private EnumsAnchor anchor;
     private String anchor1;
+    private List<UiLabelsFactory> setAnchor = new ArrayList<>();
 
     /**
      * Setter for the labels anchor settings.
@@ -174,7 +217,18 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetAnchor() {
+        if (!setAnchor.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setAnchor) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiLabelsFactory> setAnchor1 = new ArrayList<>();
 
     /**
      * Setter for the labels anchor settings.
@@ -200,6 +254,16 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetAnchor1() {
+        if (!setAnchor1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setAnchor1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiBackground getBackground;
 
@@ -216,6 +280,7 @@ public class UiLabelsFactory extends CoreText {
     private String background;
     private String background1;
     private Boolean background2;
+    private List<UiLabelsFactory> setBackground = new ArrayList<>();
 
     /**
      * Setter for the labels background settings.
@@ -242,7 +307,18 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetBackground() {
+        if (!setBackground.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setBackground) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiLabelsFactory> setBackground1 = new ArrayList<>();
 
     /**
      * Setter for the labels background settings.
@@ -269,6 +345,16 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetBackground1() {
+        if (!setBackground1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setBackground1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private List<UiLabelsFactory> getConnectorStroke = new ArrayList<>();
 
@@ -293,6 +379,7 @@ public class UiLabelsFactory extends CoreText {
     }
 
     private String token;
+    private List<UiLabelsFactory> setFormat = new ArrayList<>();
 
     /**
      * Setter for the labels text formatter.<br/>
@@ -316,8 +403,19 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetFormat() {
+        if (!setFormat.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setFormat) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index;
+    private List<LabelsfactoryLabel> setGetLabel = new ArrayList<>();
 
     /**
      * Returns label by index.
@@ -331,17 +429,31 @@ public class UiLabelsFactory extends CoreText {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getLabel(%f)", index));
                 js.setLength(0);
             }
         }
-        return new LabelsfactoryLabel(jsBase);
+        LabelsfactoryLabel item = new LabelsfactoryLabel("setGetLabel" + variableIndex);
+        setGetLabel.add(item);
+        return item;
+    }
+    private String generateJSsetGetLabel() {
+        if (!setGetLabel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (LabelsfactoryLabel item : setGetLabel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double height;
     private String height1;
+    private List<UiLabelsFactory> setHeight = new ArrayList<>();
 
     /**
      * Setter for labels height settings.
@@ -367,7 +479,18 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetHeight() {
+        if (!setHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiLabelsFactory> setHeight1 = new ArrayList<>();
 
     /**
      * Setter for labels height settings.
@@ -393,9 +516,20 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetHeight1() {
+        if (!setHeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setHeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double maxFontSize;
     private String maxFontSize1;
+    private List<UiLabelsFactory> setMaxFontSize = new ArrayList<>();
 
     /**
      * Setter for maximum font size settings for adjust text to.
@@ -421,7 +555,18 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetMaxFontSize() {
+        if (!setMaxFontSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setMaxFontSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiLabelsFactory> setMaxFontSize1 = new ArrayList<>();
 
     /**
      * Setter for maximum font size settings for adjust text to.
@@ -447,9 +592,20 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetMaxFontSize1() {
+        if (!setMaxFontSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setMaxFontSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double minFontSize;
     private String minFontSize1;
+    private List<UiLabelsFactory> setMinFontSize = new ArrayList<>();
 
     /**
      * Setter for the minimum font size settings for adjust text from.
@@ -475,7 +631,18 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetMinFontSize() {
+        if (!setMinFontSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setMinFontSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiLabelsFactory> setMinFontSize1 = new ArrayList<>();
 
     /**
      * Setter for the minimum font size settings for adjust text from.
@@ -501,9 +668,20 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetMinFontSize1() {
+        if (!setMinFontSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setMinFontSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double offsetX;
     private String offsetX1;
+    private List<UiLabelsFactory> setOffsetX = new ArrayList<>();
 
     /**
      * Setter for the labels offsetX settings.
@@ -529,7 +707,18 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetOffsetX() {
+        if (!setOffsetX.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setOffsetX) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiLabelsFactory> setOffsetX1 = new ArrayList<>();
 
     /**
      * Setter for the labels offsetX settings.
@@ -555,9 +744,20 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetOffsetX1() {
+        if (!setOffsetX1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setOffsetX1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double offsetY;
     private String offsetY1;
+    private List<UiLabelsFactory> setOffsetY = new ArrayList<>();
 
     /**
      * Setter for the labels offsetY settings.
@@ -583,7 +783,18 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetOffsetY() {
+        if (!setOffsetY.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setOffsetY) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiLabelsFactory> setOffsetY1 = new ArrayList<>();
 
     /**
      * Setter for the labels offsetY settings.
@@ -609,6 +820,16 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetOffsetY1() {
+        if (!setOffsetY1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setOffsetY1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UtilsPadding getPadding;
 
@@ -627,6 +848,7 @@ public class UiLabelsFactory extends CoreText {
     private String padding2;
     private Double padding3;
     private String padding4;
+    private List<UiLabelsFactory> setPadding = new ArrayList<>();
 
     /**
      * Setter for labels padding in pixels using a single value.
@@ -655,7 +877,18 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetPadding() {
+        if (!setPadding.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setPadding) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiLabelsFactory> setPadding1 = new ArrayList<>();
 
     /**
      * Setter for labels padding in pixels using a single value.
@@ -684,6 +917,16 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetPadding1() {
+        if (!setPadding1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setPadding1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String value;
     private Double value1;
@@ -693,6 +936,7 @@ public class UiLabelsFactory extends CoreText {
     private Double value5;
     private String value6;
     private Double value7;
+    private List<UiLabelsFactory> setPadding2 = new ArrayList<>();
 
     /**
      * Setter for labels padding settings in pixels using several value.
@@ -757,7 +1001,18 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetPadding2() {
+        if (!setPadding2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setPadding2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiLabelsFactory> setPadding3 = new ArrayList<>();
 
     /**
      * Setter for labels padding settings in pixels using several value.
@@ -822,8 +1077,19 @@ public class UiLabelsFactory extends CoreText {
         }
         return this;
     }
+    private String generateJSsetPadding3() {
+        if (!setPadding3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setPadding3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String position;
+    private List<UiLabelsFactory> setPosition = new ArrayList<>();
 
     /**
      * Setter for the labels position settings.<br>
@@ -848,8 +1114,19 @@ Find more information in the detailed description.
         }
         return this;
     }
+    private String generateJSsetPosition() {
+        if (!setPosition.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setPosition) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double rotation;
+    private List<UiLabelsFactory> setRotation = new ArrayList<>();
 
     /**
      * Setter for the rotation angle around an anchor.
@@ -872,9 +1149,20 @@ Find more information in the detailed description.
         }
         return this;
     }
+    private String generateJSsetRotation() {
+        if (!setRotation.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setRotation) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double width;
     private String width1;
+    private List<UiLabelsFactory> setWidth = new ArrayList<>();
 
     /**
      * Setter for labels width settings.
@@ -900,7 +1188,18 @@ Find more information in the detailed description.
         }
         return this;
     }
+    private String generateJSsetWidth() {
+        if (!setWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiLabelsFactory> setWidth1 = new ArrayList<>();
 
     /**
      * Setter for labels width settings.
@@ -925,6 +1224,16 @@ Find more information in the detailed description.
             }
         }
         return this;
+    }
+    private String generateJSsetWidth1() {
+        if (!setWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiLabelsFactory item : setWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetBackground() {
@@ -988,6 +1297,36 @@ Find more information in the detailed description.
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAdjustFontSize());
+        js.append(generateJSsetAdjustFontSize1());
+        js.append(generateJSsetAdjustFontSize2());
+        js.append(generateJSsetAdjustFontSize3());
+        js.append(generateJSsetAnchor());
+        js.append(generateJSsetAnchor1());
+        js.append(generateJSsetBackground());
+        js.append(generateJSsetBackground1());
+        js.append(generateJSsetFormat());
+        js.append(generateJSsetGetLabel());
+        js.append(generateJSsetHeight());
+        js.append(generateJSsetHeight1());
+        js.append(generateJSsetMaxFontSize());
+        js.append(generateJSsetMaxFontSize1());
+        js.append(generateJSsetMinFontSize());
+        js.append(generateJSsetMinFontSize1());
+        js.append(generateJSsetOffsetX());
+        js.append(generateJSsetOffsetX1());
+        js.append(generateJSsetOffsetY());
+        js.append(generateJSsetOffsetY1());
+        js.append(generateJSsetPadding());
+        js.append(generateJSsetPadding1());
+        js.append(generateJSsetPadding2());
+        js.append(generateJSsetPadding3());
+        js.append(generateJSsetPosition());
+        js.append(generateJSsetRotation());
+        js.append(generateJSsetWidth());
+        js.append(generateJSsetWidth1());
+        
 
         String result = js.toString();
         js.setLength(0);

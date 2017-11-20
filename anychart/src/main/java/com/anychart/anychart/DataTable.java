@@ -1,5 +1,6 @@
 package com.anychart.anychart;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -35,7 +36,7 @@ public class DataTable extends CoreBase {
             js.append(dataEntry.generateJs()).append(",");
         }
         js.setLength(js.length() - 1);
-        js.append("]);");
+        js.append("])");
 
         return this;
     }
@@ -50,6 +51,7 @@ public class DataTable extends CoreBase {
     private Boolean removeFromStart;
     private Double removeFromStart1;
     private String csvSettings;
+    private List<DataTable> setAddData = new ArrayList<>();
 
     /**
      * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
@@ -82,7 +84,18 @@ public class DataTable extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetAddData() {
+        if (!setAddData.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DataTable item : setAddData) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<DataTable> setAddData1 = new ArrayList<>();
 
     /**
      * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
@@ -115,7 +128,18 @@ public class DataTable extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetAddData1() {
+        if (!setAddData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DataTable item : setAddData1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<DataTable> setAddData2 = new ArrayList<>();
 
     /**
      * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
@@ -148,7 +172,18 @@ public class DataTable extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetAddData2() {
+        if (!setAddData2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DataTable item : setAddData2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<DataTable> setAddData3 = new ArrayList<>();
 
     /**
      * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
@@ -181,9 +216,20 @@ public class DataTable extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetAddData3() {
+        if (!setAddData3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DataTable item : setAddData3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TableMapping mappingSettingsOrMapping;
     private String mappingSettingsOrMapping1;
+    private List<TableComputer> setCreateComputer = new ArrayList<>();
 
     /**
      * Creates new computer with given input fields.
@@ -205,9 +251,22 @@ public class DataTable extends CoreBase {
 
             js.append(String.format(Locale.US, ".createComputer(%s);",  ((mappingSettingsOrMapping != null) ? mappingSettingsOrMapping.getJsBase() : "null")));
         }
-        return new TableComputer(jsBase);
+        TableComputer item = new TableComputer("setCreateComputer" + variableIndex);
+        setCreateComputer.add(item);
+        return item;
+    }
+    private String generateJSsetCreateComputer() {
+        if (!setCreateComputer.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableComputer item : setCreateComputer) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TableComputer> setCreateComputer1 = new ArrayList<>();
 
     /**
      * Creates new computer with given input fields.
@@ -224,16 +283,30 @@ public class DataTable extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".createComputer(%s)", wrapQuotes(mappingSettingsOrMapping1)));
                 js.setLength(0);
             }
         }
-        return new TableComputer(jsBase);
+        TableComputer item = new TableComputer("setCreateComputer1" + variableIndex);
+        setCreateComputer1.add(item);
+        return item;
+    }
+    private String generateJSsetCreateComputer1() {
+        if (!setCreateComputer1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableComputer item : setCreateComputer1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String fields;
+    private List<TableMapping> setMapAs = new ArrayList<>();
 
     /**
      * Returns a new mapping for the table.
@@ -248,21 +321,31 @@ You can add fields to table mappings after the mapping is created using it's add
                 js.append(";");
                 isChain = false;
             }
-            js.append(String.format(Locale.US, "var mapping = " + jsBase + ".mapAs(%s);", wrapQuotes(fields)));
-            
+            js.append(String.format(Locale.US, "var setMapAs" + ++variableIndex + " = " + jsBase + ".mapAs(%s);", wrapQuotes(fields)));
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", wrapQuotes(fields)));
                 js.setLength(0);
             }
         }
-        return new TableMapping(js, "mapping", false);
+        return new TableMapping(js, "setMapAs" + variableIndex, false);
+    }
+    private String generateJSsetMapAs() {
+        if (!setMapAs.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableMapping item : setMapAs) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double startKey;
     private String startKey1;
     private Double endKey;
     private String endKey1;
+    private List<DataTable> setRemove = new ArrayList<>();
 
     /**
      * Removes all items between start and end keys.
@@ -293,7 +376,18 @@ You can add fields to table mappings after the mapping is created using it's add
         }
         return this;
     }
+    private String generateJSsetRemove() {
+        if (!setRemove.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DataTable item : setRemove) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<DataTable> setRemove1 = new ArrayList<>();
 
     /**
      * Removes all items between start and end keys.
@@ -324,7 +418,18 @@ You can add fields to table mappings after the mapping is created using it's add
         }
         return this;
     }
+    private String generateJSsetRemove1() {
+        if (!setRemove1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DataTable item : setRemove1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<DataTable> setRemove2 = new ArrayList<>();
 
     /**
      * Removes all items between start and end keys.
@@ -355,7 +460,18 @@ You can add fields to table mappings after the mapping is created using it's add
         }
         return this;
     }
+    private String generateJSsetRemove2() {
+        if (!setRemove2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DataTable item : setRemove2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<DataTable> setRemove3 = new ArrayList<>();
 
     /**
      * Removes all items between start and end keys.
@@ -386,8 +502,19 @@ You can add fields to table mappings after the mapping is created using it's add
         }
         return this;
     }
+    private String generateJSsetRemove3() {
+        if (!setRemove3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DataTable item : setRemove3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double count;
+    private List<DataTable> setRemoveFirst = new ArrayList<>();
 
     /**
      * Removes first opt_count rows from the storage also considering appended but not yet committed rows.
@@ -410,6 +537,16 @@ You can add fields to table mappings after the mapping is created using it's add
         }
         return this;
     }
+    private String generateJSsetRemoveFirst() {
+        if (!setRemoveFirst.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DataTable item : setRemoveFirst) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -430,6 +567,20 @@ You can add fields to table mappings after the mapping is created using it's add
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAddData());
+        js.append(generateJSsetAddData1());
+        js.append(generateJSsetAddData2());
+        js.append(generateJSsetAddData3());
+        js.append(generateJSsetCreateComputer());
+        js.append(generateJSsetCreateComputer1());
+        js.append(generateJSsetMapAs());
+        js.append(generateJSsetRemove());
+        js.append(generateJSsetRemove1());
+        js.append(generateJSsetRemove2());
+        js.append(generateJSsetRemove3());
+        js.append(generateJSsetRemoveFirst());
+        
 
         String result = js.toString();
         js.setLength(0);

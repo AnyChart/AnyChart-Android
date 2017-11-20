@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -49,6 +46,7 @@ public class ContextMenu extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addClassName(%s)", wrapQuotes(className)));
@@ -60,6 +58,7 @@ public class ContextMenu extends JsObject {
     private Element target;
     private Chart target1;
     private Boolean capture;
+    private List<ContextMenu> setAttach = new ArrayList<>();
 
     /**
      * Attaches the context menu to a chart or DOM element.
@@ -87,7 +86,18 @@ public class ContextMenu extends JsObject {
         }
         return this;
     }
+    private String generateJSsetAttach() {
+        if (!setAttach.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ContextMenu item : setAttach) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ContextMenu> setAttach1 = new ArrayList<>();
 
     /**
      * Attaches the context menu to a chart or DOM element.
@@ -115,9 +125,20 @@ public class ContextMenu extends JsObject {
         }
         return this;
     }
+    private String generateJSsetAttach1() {
+        if (!setAttach1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ContextMenu item : setAttach1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Element target2;
     private Boolean capture1;
+    private List<ContextMenu> setDetach = new ArrayList<>();
 
     /**
      * Detaches the context menu from a given element or chart.
@@ -149,8 +170,19 @@ public class ContextMenu extends JsObject {
         }
         return this;
     }
+    private String generateJSsetDetach() {
+        if (!setDetach.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ContextMenu item : setDetach) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean enabled;
+    private List<ContextMenu> setEnabled = new ArrayList<>();
 
     /**
      * Setter for the context menu enabled state.
@@ -173,8 +205,19 @@ public class ContextMenu extends JsObject {
         }
         return this;
     }
+    private String generateJSsetEnabled() {
+        if (!setEnabled.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ContextMenu item : setEnabled) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Item[] items;
+    private List<ContextMenu> setItems = new ArrayList<>();
 
     /**
      * Setter for the current context menu items.
@@ -197,6 +240,16 @@ public class ContextMenu extends JsObject {
         }
         return this;
     }
+    private String generateJSsetItems() {
+        if (!setItems.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ContextMenu item : setItems) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String type;
     private Boolean useCapture;
@@ -218,6 +271,7 @@ public class ContextMenu extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s)", wrapQuotes(type), useCapture, wrapQuotes(listenerScope)));
@@ -243,6 +297,7 @@ public class ContextMenu extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeClassName(%s)", wrapQuotes(className1)));
@@ -256,6 +311,7 @@ public class ContextMenu extends JsObject {
     private Double var_args2;
     private String var_args3;
     private Boolean var_args4;
+    private List<ContextMenu> setSetup = new ArrayList<>();
 
     /**
      * Setups the element using passed configuration value.
@@ -284,7 +340,18 @@ public class ContextMenu extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSetup() {
+        if (!setSetup.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ContextMenu item : setSetup) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ContextMenu> setSetup1 = new ArrayList<>();
 
     /**
      * Setups the element using passed configuration value.
@@ -313,7 +380,18 @@ public class ContextMenu extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSetup1() {
+        if (!setSetup1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ContextMenu item : setSetup1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ContextMenu> setSetup2 = new ArrayList<>();
 
     /**
      * Setups the element using passed configuration value.
@@ -342,7 +420,18 @@ public class ContextMenu extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSetup2() {
+        if (!setSetup2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ContextMenu item : setSetup2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ContextMenu> setSetup3 = new ArrayList<>();
 
     /**
      * Setups the element using passed configuration value.
@@ -371,6 +460,16 @@ public class ContextMenu extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSetup3() {
+        if (!setSetup3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ContextMenu item : setSetup3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double x;
     private Double y;
@@ -389,6 +488,7 @@ public class ContextMenu extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".show(%f, %f)", x, y));
@@ -426,6 +526,7 @@ public class ContextMenu extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s)", wrapQuotes(type1), useCapture1, wrapQuotes(listenerScope1)));
@@ -453,6 +554,17 @@ public class ContextMenu extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAttach());
+        js.append(generateJSsetAttach1());
+        js.append(generateJSsetDetach());
+        js.append(generateJSsetEnabled());
+        js.append(generateJSsetItems());
+        js.append(generateJSsetSetup());
+        js.append(generateJSsetSetup1());
+        js.append(generateJSsetSetup2());
+        js.append(generateJSsetSetup3());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class TablePadding extends JsObject {
     
     private Double bottom;
     private String bottom1;
+    private List<TablePadding> setBottom = new ArrayList<>();
 
     /**
      * Setter for bottom padding.
@@ -62,7 +60,18 @@ public class TablePadding extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBottom() {
+        if (!setBottom.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TablePadding item : setBottom) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TablePadding> setBottom1 = new ArrayList<>();
 
     /**
      * Setter for bottom padding.
@@ -88,9 +97,20 @@ public class TablePadding extends JsObject {
         }
         return this;
     }
+    private String generateJSsetBottom1() {
+        if (!setBottom1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TablePadding item : setBottom1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double left;
     private String left1;
+    private List<TablePadding> setLeft = new ArrayList<>();
 
     /**
      * Setter for left padding.
@@ -116,7 +136,18 @@ public class TablePadding extends JsObject {
         }
         return this;
     }
+    private String generateJSsetLeft() {
+        if (!setLeft.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TablePadding item : setLeft) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TablePadding> setLeft1 = new ArrayList<>();
 
     /**
      * Setter for left padding.
@@ -142,9 +173,20 @@ public class TablePadding extends JsObject {
         }
         return this;
     }
+    private String generateJSsetLeft1() {
+        if (!setLeft1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TablePadding item : setLeft1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double right;
     private String right1;
+    private List<TablePadding> setRight = new ArrayList<>();
 
     /**
      * Setter for right padding.
@@ -170,7 +212,18 @@ public class TablePadding extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRight() {
+        if (!setRight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TablePadding item : setRight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TablePadding> setRight1 = new ArrayList<>();
 
     /**
      * Setter for right padding.
@@ -196,9 +249,20 @@ public class TablePadding extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRight1() {
+        if (!setRight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TablePadding item : setRight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double top;
     private String top1;
+    private List<TablePadding> setTop = new ArrayList<>();
 
     /**
      * Setter for top padding.
@@ -224,7 +288,18 @@ public class TablePadding extends JsObject {
         }
         return this;
     }
+    private String generateJSsetTop() {
+        if (!setTop.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TablePadding item : setTop) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TablePadding> setTop1 = new ArrayList<>();
 
     /**
      * Setter for top padding.
@@ -250,6 +325,16 @@ public class TablePadding extends JsObject {
         }
         return this;
     }
+    private String generateJSsetTop1() {
+        if (!setTop1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TablePadding item : setTop1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -270,6 +355,16 @@ public class TablePadding extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetBottom());
+        js.append(generateJSsetBottom1());
+        js.append(generateJSsetLeft());
+        js.append(generateJSsetLeft1());
+        js.append(generateJSsetRight());
+        js.append(generateJSsetRight1());
+        js.append(generateJSsetTop());
+        js.append(generateJSsetTop1());
+        
 
         String result = js.toString();
         js.setLength(0);

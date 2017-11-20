@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class Tree extends CoreBase {
 
     
     private String child;
+    private List<TreeDataItem> setAddChild = new ArrayList<>();
 
     /**
      * Adds a new root element and return it.
@@ -49,19 +47,33 @@ public class Tree extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s)", wrapQuotes(child)));
                 js.setLength(0);
             }
         }
-        return new TreeDataItem(jsBase);
+        TreeDataItem item = new TreeDataItem("setAddChild" + variableIndex);
+        setAddChild.add(item);
+        return item;
+    }
+    private String generateJSsetAddChild() {
+        if (!setAddChild.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : setAddChild) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String child1;
     private TreeDataItem child2;
     private TreeviewDataItem child3;
     private Double index;
+    private List<TreeDataItem> setAddChildAt = new ArrayList<>();
 
     /**
      * Inserts a new root element into a specified position by index and return it.
@@ -82,15 +94,29 @@ public class Tree extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", wrapQuotes(child1), index));
                 js.setLength(0);
             }
         }
-        return new TreeDataItem(jsBase);
+        TreeDataItem item = new TreeDataItem("setAddChildAt" + variableIndex);
+        setAddChildAt.add(item);
+        return item;
+    }
+    private String generateJSsetAddChildAt() {
+        if (!setAddChildAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : setAddChildAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TreeDataItem> setAddChildAt1 = new ArrayList<>();
 
     /**
      * Inserts a new root element into a specified position by index and return it.
@@ -111,15 +137,29 @@ public class Tree extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", ((child2 != null) ? child2.generateJs() : "null"), index));
                 js.setLength(0);
             }
         }
-        return new TreeDataItem(jsBase);
+        TreeDataItem item = new TreeDataItem("setAddChildAt1" + variableIndex);
+        setAddChildAt1.add(item);
+        return item;
+    }
+    private String generateJSsetAddChildAt1() {
+        if (!setAddChildAt1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : setAddChildAt1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TreeDataItem> setAddChildAt2 = new ArrayList<>();
 
     /**
      * Inserts a new root element into a specified position by index and return it.
@@ -140,13 +180,26 @@ public class Tree extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", ((child3 != null) ? child3.generateJs() : "null"), index));
                 js.setLength(0);
             }
         }
-        return new TreeDataItem(jsBase);
+        TreeDataItem item = new TreeDataItem("setAddChildAt2" + variableIndex);
+        setAddChildAt2.add(item);
+        return item;
+    }
+    private String generateJSsetAddChildAt2() {
+        if (!setAddChildAt2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : setAddChildAt2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String data;
@@ -155,6 +208,7 @@ public class Tree extends CoreBase {
     private String fillingMethod1;
     private String csvSettingsOrDeps;
     private Dependency[] csvSettingsOrDeps1;
+    private List<Tree> setAddData = new ArrayList<>();
 
     /**
      * Adds a data.
@@ -190,7 +244,18 @@ public class Tree extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetAddData() {
+        if (!setAddData.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Tree item : setAddData) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Tree> setAddData1 = new ArrayList<>();
 
     /**
      * Adds a data.
@@ -226,7 +291,18 @@ public class Tree extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetAddData1() {
+        if (!setAddData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Tree item : setAddData1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Tree> setAddData2 = new ArrayList<>();
 
     /**
      * Adds a data.
@@ -262,7 +338,18 @@ public class Tree extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetAddData2() {
+        if (!setAddData2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Tree item : setAddData2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Tree> setAddData3 = new ArrayList<>();
 
     /**
      * Adds a data.
@@ -298,9 +385,20 @@ public class Tree extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetAddData3() {
+        if (!setAddData3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Tree item : setAddData3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String field;
     private Boolean asString;
+    private List<Tree> setCreateIndexOn = new ArrayList<>();
 
     /**
      * Creates an index on a specified field.</br>
@@ -326,8 +424,19 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
         }
         return this;
     }
+    private String generateJSsetCreateIndexOn() {
+        if (!setCreateIndexOn.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Tree item : setCreateIndexOn) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean dispatchEvents;
+    private List<Tree> setDispatchEvents = new ArrayList<>();
 
     /**
      * Starts or stops tree CRUD events dispatching.
@@ -350,6 +459,16 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
         }
         return this;
     }
+    private String generateJSsetDispatchEvents() {
+        if (!setDispatchEvents.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Tree item : setDispatchEvents) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private List<TreeDataItem> getGetChildAt = new ArrayList<>();
 
@@ -363,6 +482,7 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
     }
 
     private String mapping;
+    private List<TreeView> setMapAs = new ArrayList<>();
 
     /**
      * Returns a new mapping for the tree.
@@ -376,16 +496,30 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", wrapQuotes(mapping)));
                 js.setLength(0);
             }
         }
-        return new TreeView(jsBase);
+        TreeView item = new TreeView("setMapAs" + variableIndex);
+        setMapAs.add(item);
+        return item;
+    }
+    private String generateJSsetMapAs() {
+        if (!setMapAs.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeView item : setMapAs) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private TreeDataItem child4;
+    private List<TreeDataItem> setRemoveChild = new ArrayList<>();
 
     /**
      * Removes tree's root data item.
@@ -410,10 +544,23 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
 
             js.append(String.format(Locale.US, ".removeChild(%s);",  ((child4 != null) ? child4.getJsBase() : "null")));
         }
-        return new TreeDataItem(jsBase);
+        TreeDataItem item = new TreeDataItem("setRemoveChild" + variableIndex);
+        setRemoveChild.add(item);
+        return item;
+    }
+    private String generateJSsetRemoveChild() {
+        if (!setRemoveChild.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : setRemoveChild) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double index1;
+    private List<TreeDataItem> setRemoveChildAt = new ArrayList<>();
 
     /**
      * Removes child at specified position.
@@ -430,16 +577,30 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f)", index1));
                 js.setLength(0);
             }
         }
-        return new TreeDataItem(jsBase);
+        TreeDataItem item = new TreeDataItem("setRemoveChildAt" + variableIndex);
+        setRemoveChildAt.add(item);
+        return item;
+    }
+    private String generateJSsetRemoveChildAt() {
+        if (!setRemoveChildAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : setRemoveChildAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String field1;
+    private List<Tree> setRemoveIndexOn = new ArrayList<>();
 
     /**
      * Removes index on a specified field.
@@ -465,11 +626,22 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
         }
         return this;
     }
+    private String generateJSsetRemoveIndexOn() {
+        if (!setRemoveIndexOn.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Tree item : setRemoveIndexOn) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String soughtField;
     private String search;
     private Double search1;
     private Boolean search2;
+    private List<TreeDataItem> setSearch = new ArrayList<>();
 
     /**
      * Performs a data search.
@@ -489,15 +661,29 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %s)", wrapQuotes(search), wrapQuotes(soughtField)));
                 js.setLength(0);
             }
         }
-        return new TreeDataItem(jsBase);
+        TreeDataItem item = new TreeDataItem("setSearch" + variableIndex);
+        setSearch.add(item);
+        return item;
+    }
+    private String generateJSsetSearch() {
+        if (!setSearch.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : setSearch) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TreeDataItem> setSearch1 = new ArrayList<>();
 
     /**
      * Performs a data search.
@@ -517,15 +703,29 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%f, %s)", search1, wrapQuotes(soughtField)));
                 js.setLength(0);
             }
         }
-        return new TreeDataItem(jsBase);
+        TreeDataItem item = new TreeDataItem("setSearch1" + variableIndex);
+        setSearch1.add(item);
+        return item;
+    }
+    private String generateJSsetSearch1() {
+        if (!setSearch1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : setSearch1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TreeDataItem> setSearch2 = new ArrayList<>();
 
     /**
      * Performs a data search.
@@ -545,13 +745,26 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%b, %s)", search2, wrapQuotes(soughtField)));
                 js.setLength(0);
             }
         }
-        return new TreeDataItem(jsBase);
+        TreeDataItem item = new TreeDataItem("setSearch2" + variableIndex);
+        setSearch2.add(item);
+        return item;
+    }
+    private String generateJSsetSearch2() {
+        if (!setSearch2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : setSearch2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String soughtField1;
@@ -580,6 +793,7 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %s)", wrapQuotes(searchItems), wrapQuotes(soughtField1)));
@@ -610,6 +824,7 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%f, %s)", searchItems1, wrapQuotes(soughtField1)));
@@ -640,6 +855,7 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%b, %s)", searchItems2, wrapQuotes(soughtField1)));
@@ -680,6 +896,25 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAddChild());
+        js.append(generateJSsetAddChildAt());
+        js.append(generateJSsetAddChildAt1());
+        js.append(generateJSsetAddChildAt2());
+        js.append(generateJSsetAddData());
+        js.append(generateJSsetAddData1());
+        js.append(generateJSsetAddData2());
+        js.append(generateJSsetAddData3());
+        js.append(generateJSsetCreateIndexOn());
+        js.append(generateJSsetDispatchEvents());
+        js.append(generateJSsetMapAs());
+        js.append(generateJSsetRemoveChild());
+        js.append(generateJSsetRemoveChildAt());
+        js.append(generateJSsetRemoveIndexOn());
+        js.append(generateJSsetSearch());
+        js.append(generateJSsetSearch1());
+        js.append(generateJSsetSearch2());
+        
 
         String result = js.toString();
         js.setLength(0);

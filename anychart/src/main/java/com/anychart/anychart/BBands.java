@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class BBands extends JsObject {
 
     
     private Double deviation;
+    private List<BBands> setDeviation = new ArrayList<>();
 
     /**
      * Setter for the deviation.
@@ -58,6 +56,16 @@ public class BBands extends JsObject {
         }
         return this;
     }
+    private String generateJSsetDeviation() {
+        if (!setDeviation.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setDeviation) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private StockSeriesBase getLowerSeries;
 
@@ -73,6 +81,7 @@ public class BBands extends JsObject {
 
     private StockSeriesType type;
     private String type1;
+    private List<BBands> setLowerSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator Lower Series.
@@ -98,7 +107,18 @@ public class BBands extends JsObject {
         }
         return this;
     }
+    private String generateJSsetLowerSeries() {
+        if (!setLowerSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setLowerSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<BBands> setLowerSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator Lower Series.
@@ -124,6 +144,16 @@ public class BBands extends JsObject {
         }
         return this;
     }
+    private String generateJSsetLowerSeries1() {
+        if (!setLowerSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setLowerSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private StockSeriesBase getMiddleSeries;
 
@@ -139,6 +169,7 @@ public class BBands extends JsObject {
 
     private StockSeriesType type2;
     private String type3;
+    private List<BBands> setMiddleSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator Middle Series.
@@ -166,7 +197,18 @@ public class BBands extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMiddleSeries() {
+        if (!setMiddleSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setMiddleSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<BBands> setMiddleSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator Middle Series.
@@ -194,8 +236,19 @@ public class BBands extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMiddleSeries1() {
+        if (!setMiddleSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setMiddleSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double period;
+    private List<BBands> setPeriod = new ArrayList<>();
 
     /**
      * Setter for the period.
@@ -218,6 +271,16 @@ public class BBands extends JsObject {
         }
         return this;
     }
+    private String generateJSsetPeriod() {
+        if (!setPeriod.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setPeriod) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private StockSeriesBase getUpperSeries;
 
@@ -233,6 +296,7 @@ public class BBands extends JsObject {
 
     private StockSeriesType type4;
     private String type5;
+    private List<BBands> setUpperSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator Upper Series.
@@ -262,7 +326,18 @@ public class BBands extends JsObject {
         }
         return this;
     }
+    private String generateJSsetUpperSeries() {
+        if (!setUpperSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setUpperSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<BBands> setUpperSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator Upper Series.
@@ -291,6 +366,16 @@ public class BBands extends JsObject {
             }
         }
         return this;
+    }
+    private String generateJSsetUpperSeries1() {
+        if (!setUpperSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBands item : setUpperSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetLowerSeries() {
@@ -336,6 +421,16 @@ public class BBands extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetDeviation());
+        js.append(generateJSsetLowerSeries());
+        js.append(generateJSsetLowerSeries1());
+        js.append(generateJSsetMiddleSeries());
+        js.append(generateJSsetMiddleSeries1());
+        js.append(generateJSsetPeriod());
+        js.append(generateJSsetUpperSeries());
+        js.append(generateJSsetUpperSeries1());
+        
 
         String result = js.toString();
         js.setLength(0);

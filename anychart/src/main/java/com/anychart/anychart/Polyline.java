@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -42,6 +39,7 @@ public class Polyline extends PolarSeriesContinuousBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<Polyline> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -77,7 +75,18 @@ public class Polyline extends PolarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Polyline item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Polyline> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -113,7 +122,18 @@ public class Polyline extends PolarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Polyline item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Polyline> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -149,6 +169,16 @@ public class Polyline extends PolarSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Polyline item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -169,6 +199,11 @@ public class Polyline extends PolarSeriesContinuousBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        
 
         String result = js.toString();
         js.setLength(0);

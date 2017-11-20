@@ -356,6 +356,32 @@ public class ChartsLinearGauge extends SeparateChart {
         return "";
     }
 
+    private List<ChartsLinearGauge> setData1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public ChartsLinearGauge data(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartsLinearGauge item : setData1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private LinearGaugePointerType defaultPointerType;
     private String defaultPointerType1;
     private List<ChartsLinearGauge> setDefaultPointerType = new ArrayList<>();
@@ -1610,6 +1636,7 @@ public class ChartsLinearGauge extends SeparateChart {
         js.append(generateJSsetAxis3());
         js.append(generateJSsetBar());
         js.append(generateJSsetData());
+        js.append(generateJSsetData1());
         js.append(generateJSsetDefaultPointerType());
         js.append(generateJSsetDefaultPointerType1());
         js.append(generateJSsetGetPointer());

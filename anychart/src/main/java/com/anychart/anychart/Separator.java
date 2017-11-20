@@ -1,11 +1,9 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +34,7 @@ public class Separator extends VisualBase {
 
     
     private Fill fill;
+    private List<Separator> setFill = new ArrayList<>();
 
     /**
      * Setter for separator fill settings using an array or a string.
@@ -59,9 +58,20 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<Separator> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -86,6 +96,16 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -94,6 +114,7 @@ public class Separator extends VisualBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<Separator> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill for the separator.
@@ -133,7 +154,18 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Separator> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill for the separator.
@@ -173,7 +205,18 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Separator> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill for the separator.
@@ -213,7 +256,18 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Separator> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill for the separator.
@@ -253,7 +307,18 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Separator> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill for the separator.
@@ -293,7 +358,18 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Separator> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill for the separator.
@@ -333,6 +409,16 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -342,6 +428,7 @@ public class Separator extends VisualBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<Separator> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill for the separator.
@@ -391,7 +478,18 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Separator> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill for the separator.
@@ -441,10 +539,21 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private Double height;
     private String height1;
+    private List<Separator> setHeight = new ArrayList<>();
 
     /**
      * Setter for separator height.
@@ -470,7 +579,18 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetHeight() {
+        if (!setHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Separator> setHeight1 = new ArrayList<>();
 
     /**
      * Setter for separator height.
@@ -496,6 +616,16 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetHeight1() {
+        if (!setHeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setHeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Margin getMargin;
 
@@ -520,6 +650,7 @@ public class Separator extends VisualBase {
     private Double bottom1;
     private String left;
     private Double left1;
+    private List<Separator> setMargin = new ArrayList<>();
 
     /**
      * Setter for the margin of the separator.
@@ -548,7 +679,18 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetMargin() {
+        if (!setMargin.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setMargin) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Separator> setMargin1 = new ArrayList<>();
 
     /**
      * Setter for the margin of the separator.
@@ -577,7 +719,18 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetMargin1() {
+        if (!setMargin1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setMargin1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Separator> setMargin2 = new ArrayList<>();
 
     /**
      * Setter for the margin of the separator.
@@ -621,6 +774,16 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetMargin2() {
+        if (!setMargin2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setMargin2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private List<Separator> getOrientation = new ArrayList<>();
 
@@ -651,6 +814,7 @@ public class Separator extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<Separator> setStroke = new ArrayList<>();
 
     /**
      * Separator stroke.
@@ -685,7 +849,18 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Separator> setStroke1 = new ArrayList<>();
 
     /**
      * Separator stroke.
@@ -720,7 +895,18 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Separator> setStroke2 = new ArrayList<>();
 
     /**
      * Separator stroke.
@@ -755,9 +941,20 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double width;
     private String width1;
+    private List<Separator> setWidth = new ArrayList<>();
 
     /**
      * Setter for separator width.
@@ -783,7 +980,18 @@ public class Separator extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetWidth() {
+        if (!setWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Separator> setWidth1 = new ArrayList<>();
 
     /**
      * Setter for separator width.
@@ -808,6 +1016,16 @@ public class Separator extends VisualBase {
             }
         }
         return this;
+    }
+    private String generateJSsetWidth1() {
+        if (!setWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Separator item : setWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetMargin() {
@@ -863,6 +1081,28 @@ public class Separator extends VisualBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetFill2());
+        js.append(generateJSsetFill3());
+        js.append(generateJSsetFill4());
+        js.append(generateJSsetFill5());
+        js.append(generateJSsetFill6());
+        js.append(generateJSsetFill7());
+        js.append(generateJSsetFill8());
+        js.append(generateJSsetFill9());
+        js.append(generateJSsetHeight());
+        js.append(generateJSsetHeight1());
+        js.append(generateJSsetMargin());
+        js.append(generateJSsetMargin1());
+        js.append(generateJSsetMargin2());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        js.append(generateJSsetWidth());
+        js.append(generateJSsetWidth1());
+        
 
         String result = js.toString();
         js.setLength(0);

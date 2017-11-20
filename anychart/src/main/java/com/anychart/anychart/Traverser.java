@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -61,6 +58,7 @@ public class Traverser extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", wrapQuotes(key)));
@@ -70,6 +68,7 @@ public class Traverser extends JsObject {
     }
 
     private String key1;
+    private List<Traverser> setSet = new ArrayList<>();
 
     /**
      * Sets current item's value by key specified.
@@ -94,6 +93,16 @@ public class Traverser extends JsObject {
             }
         }
         return this;
+    }
+    private String generateJSsetSet() {
+        if (!setSet.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Traverser item : setSet) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetCurrent() {
@@ -123,6 +132,9 @@ public class Traverser extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetSet());
+        
 
         String result = js.toString();
         js.setLength(0);

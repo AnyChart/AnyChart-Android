@@ -1,11 +1,9 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 /**
@@ -51,6 +49,7 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     private Stage container1;
     private String container2;
     private Element container3;
+    private List<StandalonesAxesLinear> setContainer = new ArrayList<>();
 
     /**
      * Setter for the axis container.
@@ -76,7 +75,18 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         }
         return this;
     }
+    private String generateJSsetContainer() {
+        if (!setContainer.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesLinear item : setContainer) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesAxesLinear> setContainer1 = new ArrayList<>();
 
     /**
      * Setter for the axis container.
@@ -102,7 +112,18 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         }
         return this;
     }
+    private String generateJSsetContainer1() {
+        if (!setContainer1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesLinear item : setContainer1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesAxesLinear> setContainer2 = new ArrayList<>();
 
     /**
      * Setter for the axis container.
@@ -130,7 +151,18 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         }
         return this;
     }
+    private String generateJSsetContainer2() {
+        if (!setContainer2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesLinear item : setContainer2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesAxesLinear> setContainer3 = new ArrayList<>();
 
     /**
      * Setter for the axis container.
@@ -156,6 +188,16 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         }
         return this;
     }
+    private String generateJSsetContainer3() {
+        if (!setContainer3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesLinear item : setContainer3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UtilsPadding getPadding;
 
@@ -172,6 +214,7 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     private Double[] padding;
     private String[] padding1;
     private String padding2;
+    private List<StandalonesAxesLinear> setPadding = new ArrayList<>();
 
     /**
      * Setter for the axis paddings in pixels using a single value.
@@ -198,7 +241,18 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         }
         return this;
     }
+    private String generateJSsetPadding() {
+        if (!setPadding.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesLinear item : setPadding) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesAxesLinear> setPadding1 = new ArrayList<>();
 
     /**
      * Setter for the axis paddings in pixels using a single value.
@@ -225,7 +279,18 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         }
         return this;
     }
+    private String generateJSsetPadding1() {
+        if (!setPadding1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesLinear item : setPadding1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesAxesLinear> setPadding2 = new ArrayList<>();
 
     /**
      * Setter for the axis paddings in pixels using a single value.
@@ -252,6 +317,16 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         }
         return this;
     }
+    private String generateJSsetPadding2() {
+        if (!setPadding2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesLinear item : setPadding2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String value;
     private Double value1;
@@ -261,6 +336,7 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     private Double value5;
     private String value6;
     private Double value7;
+    private List<StandalonesAxesLinear> setPadding3 = new ArrayList<>();
 
     /**
      * Setter for the axis paddings in pixels using several numbers.
@@ -325,7 +401,18 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         }
         return this;
     }
+    private String generateJSsetPadding3() {
+        if (!setPadding3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesLinear item : setPadding3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesAxesLinear> setPadding4 = new ArrayList<>();
 
     /**
      * Setter for the axis paddings in pixels using several numbers.
@@ -390,6 +477,16 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         }
         return this;
     }
+    private String generateJSsetPadding4() {
+        if (!setPadding4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesLinear item : setPadding4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private AnychartMathRect getParentBounds;
 
@@ -405,6 +502,7 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
 
     private AnychartMathRect parentBounds;
     private String parentBounds1;
+    private List<StandalonesAxesLinear> setParentBounds = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -428,7 +526,18 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         }
         return this;
     }
+    private String generateJSsetParentBounds() {
+        if (!setParentBounds.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesLinear item : setParentBounds) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesAxesLinear> setParentBounds1 = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -454,11 +563,22 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         }
         return this;
     }
+    private String generateJSsetParentBounds1() {
+        if (!setParentBounds1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesLinear item : setParentBounds1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double left;
     private Double top;
     private Double width;
     private Double height;
+    private List<StandalonesAxesLinear> setParentBounds2 = new ArrayList<>();
 
     /**
      * Setter for bounds using several values.
@@ -486,6 +606,16 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
             }
         }
         return this;
+    }
+    private String generateJSsetParentBounds2() {
+        if (!setParentBounds2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesLinear item : setParentBounds2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetContainer() {
@@ -531,6 +661,20 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetContainer());
+        js.append(generateJSsetContainer1());
+        js.append(generateJSsetContainer2());
+        js.append(generateJSsetContainer3());
+        js.append(generateJSsetPadding());
+        js.append(generateJSsetPadding1());
+        js.append(generateJSsetPadding2());
+        js.append(generateJSsetPadding3());
+        js.append(generateJSsetPadding4());
+        js.append(generateJSsetParentBounds());
+        js.append(generateJSsetParentBounds1());
+        js.append(generateJSsetParentBounds2());
+        
 
         String result = js.toString();
         js.setLength(0);

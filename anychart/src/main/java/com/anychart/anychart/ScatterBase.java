@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -51,6 +48,7 @@ public class ScatterBase extends ScalesBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f)", ratio));
@@ -60,6 +58,7 @@ public class ScatterBase extends ScalesBase {
     }
 
     private Double maxTicksCount;
+    private List<ScatterBase> setMaxTicksCount = new ArrayList<>();
 
     /**
      * Setter for maximum ticks count.<br/>
@@ -82,8 +81,19 @@ public class ScatterBase extends ScalesBase {
         }
         return this;
     }
+    private String generateJSsetMaxTicksCount() {
+        if (!setMaxTicksCount.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterBase item : setMaxTicksCount) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double maximum;
+    private List<ScatterBase> setMaximum = new ArrayList<>();
 
     /**
      * Setter for scale maximum.
@@ -106,8 +116,19 @@ public class ScatterBase extends ScalesBase {
         }
         return this;
     }
+    private String generateJSsetMaximum() {
+        if (!setMaximum.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterBase item : setMaximum) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double minimum;
+    private List<ScatterBase> setMinimum = new ArrayList<>();
 
     /**
      * Setter for scale minimum.
@@ -130,6 +151,16 @@ public class ScatterBase extends ScalesBase {
         }
         return this;
     }
+    private String generateJSsetMinimum() {
+        if (!setMinimum.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterBase item : setMinimum) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -150,6 +181,11 @@ public class ScatterBase extends ScalesBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetMaxTicksCount());
+        js.append(generateJSsetMaximum());
+        js.append(generateJSsetMinimum());
+        
 
         String result = js.toString();
         js.setLength(0);

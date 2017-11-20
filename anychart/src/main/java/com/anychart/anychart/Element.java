@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -44,6 +41,7 @@ public class Element extends JsObject {
     private Double m3;
     private Double m4;
     private Double m5;
+    private List<Element> setAppendTransformationMatrix = new ArrayList<>();
 
     /**
      * Combines the current transformation with the given transformation matrix.
@@ -118,8 +116,19 @@ public class Element extends JsObject {
         }
         return this;
     }
+    private String generateJSsetAppendTransformationMatrix() {
+        if (!setAppendTransformationMatrix.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setAppendTransformationMatrix) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String key;
+    private List<Element> setAttr = new ArrayList<>();
 
     /**
      * Setter for the attribute.
@@ -142,6 +151,16 @@ public class Element extends JsObject {
         }
         return this;
     }
+    private String generateJSsetAttr() {
+        if (!setAttr.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setAttr) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GraphicsMathRect getClip;
 
@@ -157,6 +176,7 @@ public class Element extends JsObject {
 
     private GraphicsMathRect clip;
     private String clip1;
+    private List<Element> setClip = new ArrayList<>();
 
     /**
      * Sets the clipping rectangle.
@@ -180,7 +200,18 @@ public class Element extends JsObject {
         }
         return this;
     }
+    private String generateJSsetClip() {
+        if (!setClip.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setClip) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Element> setClip1 = new ArrayList<>();
 
     /**
      * Sets the clipping rectangle.
@@ -206,8 +237,19 @@ public class Element extends JsObject {
         }
         return this;
     }
+    private String generateJSsetClip1() {
+        if (!setClip1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setClip1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private VectorCursor cursor;
+    private List<Element> setCursor = new ArrayList<>();
 
     /**
      * Setter for the cursor type.
@@ -230,8 +272,19 @@ public class Element extends JsObject {
         }
         return this;
     }
+    private String generateJSsetCursor() {
+        if (!setCursor.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setCursor) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String desc;
+    private List<Element> setDesc = new ArrayList<>();
 
     /**
      * Setter for the element description value.
@@ -254,8 +307,19 @@ public class Element extends JsObject {
         }
         return this;
     }
+    private String generateJSsetDesc() {
+        if (!setDesc.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setDesc) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean disablePointerEvents;
+    private List<Element> setDisablePointerEvents = new ArrayList<>();
 
     /**
      * Disables the pointer events.
@@ -278,8 +342,19 @@ public class Element extends JsObject {
         }
         return this;
     }
+    private String generateJSsetDisablePointerEvents() {
+        if (!setDisablePointerEvents.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setDisablePointerEvents) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean disableStrokeScaling;
+    private List<Element> setDisableStrokeScaling = new ArrayList<>();
 
     /**
      * Setter for the element's vector effect property.<br/>
@@ -303,9 +378,20 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetDisableStrokeScaling() {
+        if (!setDisableStrokeScaling.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setDisableStrokeScaling) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean drag;
     private GraphicsMathRect drag1;
+    private List<Element> setDrag = new ArrayList<>();
 
     /**
      * Turns off/on dragging (moving) of an element.
@@ -331,7 +417,18 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetDrag() {
+        if (!setDrag.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setDrag) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Element> setDrag1 = new ArrayList<>();
 
     /**
      * Turns off/on dragging (moving) of an element.
@@ -355,6 +452,16 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetDrag1() {
+        if (!setDrag1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setDrag1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GraphicsMathRect getGetAbsoluteBounds;
 
@@ -369,6 +476,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
     }
 
     private String id;
+    private List<Element> setId = new ArrayList<>();
 
     /**
      * Sets the element identifier.
@@ -391,6 +499,16 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetId() {
+        if (!setId.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setId) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String type;
     private Boolean useCapture;
@@ -412,6 +530,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s)", wrapQuotes(type), useCapture, wrapQuotes(listenerScope)));
@@ -449,6 +568,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s)", wrapQuotes(type1), useCapture1, wrapQuotes(listenerScope1)));
@@ -459,6 +579,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
 
     private Layer parent;
     private Stage parent1;
+    private List<Element> setParent = new ArrayList<>();
 
     /**
      * Adds element to the given layer.
@@ -482,7 +603,18 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetParent() {
+        if (!setParent.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setParent) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Element> setParent1 = new ArrayList<>();
 
     /**
      * Adds element to the given layer.
@@ -506,6 +638,16 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetParent1() {
+        if (!setParent1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setParent1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String type2;
 
@@ -525,6 +667,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s)", wrapQuotes(type2)));
@@ -536,6 +679,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
     private Double degrees;
     private Double cx;
     private Double cy;
+    private List<Element> setRotate = new ArrayList<>();
 
     /**
      * Rotates a shape around the given rotation point.
@@ -562,10 +706,21 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetRotate() {
+        if (!setRotate.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setRotate) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double degrees1;
     private VectorAnchor anchor;
     private String anchor1;
+    private List<Element> setRotateByAnchor = new ArrayList<>();
 
     /**
      * Rotates a shape around the given anchor.
@@ -596,7 +751,18 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetRotateByAnchor() {
+        if (!setRotateByAnchor.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setRotateByAnchor) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Element> setRotateByAnchor1 = new ArrayList<>();
 
     /**
      * Rotates a shape around the given anchor.
@@ -627,11 +793,22 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetRotateByAnchor1() {
+        if (!setRotateByAnchor1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setRotateByAnchor1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double sx;
     private Double sy;
     private Double cx1;
     private Double cy1;
+    private List<Element> setScale = new ArrayList<>();
 
     /**
      * Scales a shape. Scaling center is set in the coordinate system of the parent.
@@ -666,11 +843,22 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetScale() {
+        if (!setScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double sx1;
     private Double sy1;
     private VectorAnchor anchor2;
     private String anchor3;
+    private List<Element> setScaleByAnchor = new ArrayList<>();
 
     /**
      * Scales a shape by anchor. Scaling center is set as an anchor.
@@ -708,7 +896,18 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetScaleByAnchor() {
+        if (!setScaleByAnchor.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setScaleByAnchor) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Element> setScaleByAnchor1 = new ArrayList<>();
 
     /**
      * Scales a shape by anchor. Scaling center is set as an anchor.
@@ -746,9 +945,20 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetScaleByAnchor1() {
+        if (!setScaleByAnchor1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setScaleByAnchor1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double x;
     private Double y;
+    private List<Element> setSetPosition = new ArrayList<>();
 
     /**
      * Sets top left corner of a shape (transformation taken into account) in the coordinate system of the parent.
@@ -773,10 +983,21 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetSetPosition() {
+        if (!setSetPosition.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setSetPosition) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double degrees2;
     private Double cx2;
     private Double cy2;
+    private List<Element> setSetRotation = new ArrayList<>();
 
     /**
      * Rotates a shape around the given point.
@@ -815,10 +1036,21 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetSetRotation() {
+        if (!setSetRotation.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setSetRotation) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double degrees3;
     private VectorAnchor anchor4;
     private String anchor5;
+    private List<Element> setSetRotationByAnchor = new ArrayList<>();
 
     /**
      * Rotates a shape around the given anchor.
@@ -855,7 +1087,18 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetSetRotationByAnchor() {
+        if (!setSetRotationByAnchor.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setSetRotationByAnchor) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Element> setSetRotationByAnchor1 = new ArrayList<>();
 
     /**
      * Rotates a shape around the given anchor.
@@ -892,6 +1135,16 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetSetRotationByAnchor1() {
+        if (!setSetRotationByAnchor1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setSetRotationByAnchor1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double m6;
     private Double m7;
@@ -899,6 +1152,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
     private Double m9;
     private Double m10;
     private Double m11;
+    private List<Element> setSetTransformationMatrix = new ArrayList<>();
 
     /**
      * Sets the transformation matrix.
@@ -1009,8 +1263,19 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetSetTransformationMatrix() {
+        if (!setSetTransformationMatrix.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setSetTransformationMatrix) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String title;
+    private List<Element> setTitle = new ArrayList<>();
 
     /**
      * Setter for the element title value.
@@ -1033,9 +1298,20 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetTitle() {
+        if (!setTitle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setTitle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double tx;
     private Double ty;
+    private List<Element> setTranslate = new ArrayList<>();
 
     /**
      * Moves a shape taking an account the current transformation.
@@ -1059,6 +1335,16 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             }
         }
         return this;
+    }
+    private String generateJSsetTranslate() {
+        if (!setTranslate.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setTranslate) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String type3;
@@ -1094,6 +1380,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s)", wrapQuotes(type3), useCapture2, wrapQuotes(listenerScope2)));
@@ -1119,6 +1406,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s)", wrapQuotes(key1)));
@@ -1128,6 +1416,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
     }
 
     private Boolean isVisible;
+    private List<Element> setVisible = new ArrayList<>();
 
     /**
      * Hides or shows an element.
@@ -1150,8 +1439,19 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
         return this;
     }
+    private String generateJSsetVisible() {
+        if (!setVisible.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setVisible) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double zIndex;
+    private List<Element> setZIndex = new ArrayList<>();
 
     /**
      * Sets the element's zIndex.
@@ -1173,6 +1473,16 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             }
         }
         return this;
+    }
+    private String generateJSsetZIndex() {
+        if (!setZIndex.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setZIndex) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetClip() {
@@ -1210,6 +1520,36 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAppendTransformationMatrix());
+        js.append(generateJSsetAttr());
+        js.append(generateJSsetClip());
+        js.append(generateJSsetClip1());
+        js.append(generateJSsetCursor());
+        js.append(generateJSsetDesc());
+        js.append(generateJSsetDisablePointerEvents());
+        js.append(generateJSsetDisableStrokeScaling());
+        js.append(generateJSsetDrag());
+        js.append(generateJSsetDrag1());
+        js.append(generateJSsetId());
+        js.append(generateJSsetParent());
+        js.append(generateJSsetParent1());
+        js.append(generateJSsetRotate());
+        js.append(generateJSsetRotateByAnchor());
+        js.append(generateJSsetRotateByAnchor1());
+        js.append(generateJSsetScale());
+        js.append(generateJSsetScaleByAnchor());
+        js.append(generateJSsetScaleByAnchor1());
+        js.append(generateJSsetSetPosition());
+        js.append(generateJSsetSetRotation());
+        js.append(generateJSsetSetRotationByAnchor());
+        js.append(generateJSsetSetRotationByAnchor1());
+        js.append(generateJSsetSetTransformationMatrix());
+        js.append(generateJSsetTitle());
+        js.append(generateJSsetTranslate());
+        js.append(generateJSsetVisible());
+        js.append(generateJSsetZIndex());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -47,6 +44,7 @@ public class Layer extends Element {
 
     
     private Element element;
+    private List<Layer> setAddChild = new ArrayList<>();
 
     /**
      * Add element to a layer, to the top (maximal index).<br/>
@@ -69,9 +67,20 @@ All DOM changes will happen instantly, except {@link anychart.graphics.vector.St
         }
         return this;
     }
+    private String generateJSsetAddChild() {
+        if (!setAddChild.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Layer item : setAddChild) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Element element1;
     private Double index;
+    private List<Layer> setAddChildAt = new ArrayList<>();
 
     /**
      * Adds an element to a layer by index. <br/>
@@ -105,10 +114,21 @@ Right image does the same, but star is added to 0 index.<br/>
         }
         return this;
     }
+    private String generateJSsetAddChildAt() {
+        if (!setAddChildAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Layer item : setAddChildAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double cx;
     private Double cy;
     private Double radius;
+    private List<Circle> setCircle = new ArrayList<>();
 
     /**
      * Invokes {@link anychart.graphics.vector.Circle} class constructor.<br/>
@@ -129,19 +149,33 @@ Read more at {@link anychart.graphics.vector.Circle}
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".circle(%f, %f, %f)", cx, cy, radius));
                 js.setLength(0);
             }
         }
-        return new Circle(jsBase);
+        Circle item = new Circle("setCircle" + variableIndex);
+        setCircle.add(item);
+        return item;
+    }
+    private String generateJSsetCircle() {
+        if (!setCircle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Circle item : setCircle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double cx1;
     private Double cy1;
     private Double rx;
     private Double ry;
+    private List<VectorEllipse> setEllipse = new ArrayList<>();
 
     /**
      * Invokes {@link anychart.graphics.vector.Ellipse} class constructor.<br/>
@@ -170,16 +204,30 @@ Read more at {@link anychart.graphics.vector.Ellipse}
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ellipse(%f, %f, %f, %f)", cx1, cy1, rx, ry));
                 js.setLength(0);
             }
         }
-        return new VectorEllipse(jsBase);
+        VectorEllipse item = new VectorEllipse("setEllipse" + variableIndex);
+        setEllipse.add(item);
+        return item;
+    }
+    private String generateJSsetEllipse() {
+        if (!setEllipse.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorEllipse item : setEllipse) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double index1;
+    private List<Element> setGetChildAt = new ArrayList<>();
 
     /**
      * Returns element by index.
@@ -196,13 +244,26 @@ Read more at {@link anychart.graphics.vector.Ellipse}
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getChildAt(%f)", index1));
                 js.setLength(0);
             }
         }
-        return new Element(jsBase);
+        Element item = new Element("setGetChildAt" + variableIndex);
+        setGetChildAt.add(item);
+        return item;
+    }
+    private String generateJSsetGetChildAt() {
+        if (!setGetChildAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setGetChildAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Element element2;
@@ -233,6 +294,7 @@ Read more at {@link anychart.graphics.vector.Ellipse}
     private Double x;
     private Double y;
     private String text;
+    private List<VectorText> setHtml = new ArrayList<>();
 
     /**
      * Invokes {@link anychart.graphics.vector.Text} class constructor and applies {@link anychart.graphics.vector.Text#htmlText} method
@@ -253,13 +315,26 @@ You have to take care of used objects yourself.
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".html(%f, %f, %s)", x, y, wrapQuotes(text)));
                 js.setLength(0);
             }
         }
-        return new VectorText(jsBase);
+        VectorText item = new VectorText("setHtml" + variableIndex);
+        setHtml.add(item);
+        return item;
+    }
+    private String generateJSsetHtml() {
+        if (!setHtml.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setHtml) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String src;
@@ -267,6 +342,7 @@ You have to take care of used objects yourself.
     private Double y1;
     private Double width;
     private Double height;
+    private List<Image> setImage = new ArrayList<>();
 
     /**
      * Invokes {@link anychart.graphics.vector.Image} class constructor.<br/>
@@ -296,13 +372,26 @@ You need to take care of used objects yourself.
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".image(%s, %f, %f, %f, %f)", wrapQuotes(src), x1, y1, width, height));
                 js.setLength(0);
             }
         }
-        return new Image(jsBase);
+        Image item = new Image("setImage" + variableIndex);
+        setImage.add(item);
+        return item;
+    }
+    private String generateJSsetImage() {
+        if (!setImage.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Image item : setImage) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Element element3;
@@ -335,6 +424,7 @@ You need to take care of used objects yourself.
     private Double y2;
     private Double width1;
     private Double height1;
+    private List<VectorRect> setRect = new ArrayList<>();
 
     /**
      * Invokes {@link anychart.graphics.vector.Rect} class constructor.<br/>
@@ -370,16 +460,30 @@ You have to take care of used objects yourself.
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rect(%f, %f, %f, %f)", x2, y2, width1, height1));
                 js.setLength(0);
             }
         }
-        return new VectorRect(jsBase);
+        VectorRect item = new VectorRect("setRect" + variableIndex);
+        setRect.add(item);
+        return item;
+    }
+    private String generateJSsetRect() {
+        if (!setRect.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorRect item : setRect) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Element element4;
+    private List<Element> setRemoveChild = new ArrayList<>();
 
     /**
      * Removes element from a layer.<br/>
@@ -407,10 +511,23 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
 
             js.append(String.format(Locale.US, ".removeChild(%s);",  ((element4 != null) ? element4.getJsBase() : "null")));
         }
-        return new Element(jsBase);
+        Element item = new Element("setRemoveChild" + variableIndex);
+        setRemoveChild.add(item);
+        return item;
+    }
+    private String generateJSsetRemoveChild() {
+        if (!setRemoveChild.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setRemoveChild) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double index2;
+    private List<Element> setRemoveChildAt = new ArrayList<>();
 
     /**
      * Removes element from a layer by index.<br/>
@@ -430,17 +547,31 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f)", index2));
                 js.setLength(0);
             }
         }
-        return new Element(jsBase);
+        Element item = new Element("setRemoveChildAt" + variableIndex);
+        setRemoveChildAt.add(item);
+        return item;
+    }
+    private String generateJSsetRemoveChildAt() {
+        if (!setRemoveChildAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setRemoveChildAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Element element5;
     private Element element6;
+    private List<Layer> setSwapChildren = new ArrayList<>();
 
     /**
      * Swaps children.
@@ -479,9 +610,20 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
         }
         return this;
     }
+    private String generateJSsetSwapChildren() {
+        if (!setSwapChildren.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Layer item : setSwapChildren) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index3;
     private Double index4;
+    private List<Layer> setSwapChildrenAt = new ArrayList<>();
 
     /**
      * Swaps children by indexes.
@@ -518,10 +660,21 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
         }
         return this;
     }
+    private String generateJSsetSwapChildrenAt() {
+        if (!setSwapChildrenAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Layer item : setSwapChildrenAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double x3;
     private Double y3;
     private String text1;
+    private List<VectorText> setText = new ArrayList<>();
 
     /**
      * Invokes {@link anychart.graphics.vector.Text} class constructor.<br/>
@@ -554,13 +707,26 @@ You have to take care of used objects yourself.
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".text(%f, %f, %s)", x3, y3, wrapQuotes(text1)));
                 js.setLength(0);
             }
         }
-        return new VectorText(jsBase);
+        VectorText item = new VectorText("setText" + variableIndex);
+        setText.add(item);
+        return item;
+    }
+    private String generateJSsetText() {
+        if (!setText.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorText item : setText) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
 
@@ -582,6 +748,21 @@ You have to take care of used objects yourself.
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAddChild());
+        js.append(generateJSsetAddChildAt());
+        js.append(generateJSsetCircle());
+        js.append(generateJSsetEllipse());
+        js.append(generateJSsetGetChildAt());
+        js.append(generateJSsetHtml());
+        js.append(generateJSsetImage());
+        js.append(generateJSsetRect());
+        js.append(generateJSsetRemoveChild());
+        js.append(generateJSsetRemoveChildAt());
+        js.append(generateJSsetSwapChildren());
+        js.append(generateJSsetSwapChildrenAt());
+        js.append(generateJSsetText());
+        
 
         String result = js.toString();
         js.setLength(0);

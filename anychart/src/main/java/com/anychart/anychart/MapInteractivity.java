@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class MapInteractivity extends Interactivity {
 
     
     private Boolean drag;
+    private List<MapInteractivity> setDrag = new ArrayList<>();
 
     /**
      * Allows to use drag for map.
@@ -60,8 +58,19 @@ public class MapInteractivity extends Interactivity {
         }
         return this;
     }
+    private String generateJSsetDrag() {
+        if (!setDrag.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapInteractivity item : setDrag) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean keyboardZoomAndMove;
+    private List<Interactivity> setKeyboardZoomAndMove = new ArrayList<>();
 
     /**
      * Allows to use the keyboard to zoom and move.
@@ -75,16 +84,30 @@ public class MapInteractivity extends Interactivity {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".keyboardZoomAndMove(%b)", keyboardZoomAndMove));
                 js.setLength(0);
             }
         }
-        return new Interactivity(jsBase);
+        Interactivity item = new Interactivity("setKeyboardZoomAndMove" + variableIndex);
+        setKeyboardZoomAndMove.add(item);
+        return item;
+    }
+    private String generateJSsetKeyboardZoomAndMove() {
+        if (!setKeyboardZoomAndMove.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Interactivity item : setKeyboardZoomAndMove) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Boolean zoomOnDoubleClick;
+    private List<Interactivity> setZoomOnDoubleClick = new ArrayList<>();
 
     /**
      * Enables double click zoom.
@@ -98,16 +121,30 @@ public class MapInteractivity extends Interactivity {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomOnDoubleClick(%b)", zoomOnDoubleClick));
                 js.setLength(0);
             }
         }
-        return new Interactivity(jsBase);
+        Interactivity item = new Interactivity("setZoomOnDoubleClick" + variableIndex);
+        setZoomOnDoubleClick.add(item);
+        return item;
+    }
+    private String generateJSsetZoomOnDoubleClick() {
+        if (!setZoomOnDoubleClick.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Interactivity item : setZoomOnDoubleClick) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Boolean zoomOnMouseWheel;
+    private List<Interactivity> setZoomOnMouseWheel = new ArrayList<>();
 
     /**
      * Allows use the mouse wheel to zoom.
@@ -121,13 +158,26 @@ public class MapInteractivity extends Interactivity {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomOnMouseWheel(%b)", zoomOnMouseWheel));
                 js.setLength(0);
             }
         }
-        return new Interactivity(jsBase);
+        Interactivity item = new Interactivity("setZoomOnMouseWheel" + variableIndex);
+        setZoomOnMouseWheel.add(item);
+        return item;
+    }
+    private String generateJSsetZoomOnMouseWheel() {
+        if (!setZoomOnMouseWheel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Interactivity item : setZoomOnMouseWheel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
 
@@ -149,6 +199,12 @@ public class MapInteractivity extends Interactivity {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetDrag());
+        js.append(generateJSsetKeyboardZoomAndMove());
+        js.append(generateJSsetZoomOnDoubleClick());
+        js.append(generateJSsetZoomOnMouseWheel());
+        
 
         String result = js.toString();
         js.setLength(0);

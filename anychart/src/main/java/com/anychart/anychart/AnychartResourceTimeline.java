@@ -1,5 +1,7 @@
 package com.anychart.anychart;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 // class
@@ -31,6 +33,7 @@ public class AnychartResourceTimeline extends UiTimeline {
 
     
     private Double defaultRowHeight;
+    private List<AnychartResourceTimeline> setDefaultRowHeight = new ArrayList<>();
 
     /**
      * Setter for the default row height.
@@ -53,6 +56,16 @@ public class AnychartResourceTimeline extends UiTimeline {
         }
         return this;
     }
+    private String generateJSsetDefaultRowHeight() {
+        if (!setDefaultRowHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnychartResourceTimeline item : setDefaultRowHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -73,6 +86,9 @@ public class AnychartResourceTimeline extends UiTimeline {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetDefaultRowHeight());
+        
 
         String result = js.toString();
         js.setLength(0);

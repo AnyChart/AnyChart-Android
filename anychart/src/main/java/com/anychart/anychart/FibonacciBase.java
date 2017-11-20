@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -49,6 +46,7 @@ public class FibonacciBase extends AnnotationsBase {
 
     private String labels;
     private Boolean labels1;
+    private List<FibonacciBase> setLabels = new ArrayList<>();
 
     /**
      * Setter for labels settings.
@@ -74,7 +72,18 @@ public class FibonacciBase extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetLabels() {
+        if (!setLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (FibonacciBase item : setLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<FibonacciBase> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for labels settings.
@@ -100,6 +109,16 @@ public class FibonacciBase extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetLabels1() {
+        if (!setLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (FibonacciBase item : setLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color;
     private ColoredFill color1;
@@ -108,6 +127,7 @@ public class FibonacciBase extends AnnotationsBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<FibonacciBase> setStroke = new ArrayList<>();
 
     /**
      * Setter for annotation stroke settings.
@@ -143,7 +163,18 @@ public class FibonacciBase extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (FibonacciBase item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<FibonacciBase> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for annotation stroke settings.
@@ -179,7 +210,18 @@ public class FibonacciBase extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (FibonacciBase item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<FibonacciBase> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for annotation stroke settings.
@@ -215,6 +257,16 @@ public class FibonacciBase extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (FibonacciBase item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke trend;
     private ColoredFill trend1;
@@ -223,6 +275,7 @@ public class FibonacciBase extends AnnotationsBase {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
+    private List<FibonacciBase> setTrend = new ArrayList<>();
 
     /**
      * Setter for annotation trend settings.
@@ -270,7 +323,18 @@ public class FibonacciBase extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetTrend() {
+        if (!setTrend.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (FibonacciBase item : setTrend) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<FibonacciBase> setTrend1 = new ArrayList<>();
 
     /**
      * Setter for annotation trend settings.
@@ -318,7 +382,18 @@ public class FibonacciBase extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetTrend1() {
+        if (!setTrend1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (FibonacciBase item : setTrend1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<FibonacciBase> setTrend2 = new ArrayList<>();
 
     /**
      * Setter for annotation trend settings.
@@ -366,6 +441,16 @@ public class FibonacciBase extends AnnotationsBase {
         }
         return this;
     }
+    private String generateJSsetTrend2() {
+        if (!setTrend2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (FibonacciBase item : setTrend2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String generateJSgetLabels() {
         if (getLabels != null) {
@@ -394,6 +479,16 @@ public class FibonacciBase extends AnnotationsBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetLabels());
+        js.append(generateJSsetLabels1());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        js.append(generateJSsetTrend());
+        js.append(generateJSsetTrend1());
+        js.append(generateJSsetTrend2());
+        
 
         String result = js.toString();
         js.setLength(0);

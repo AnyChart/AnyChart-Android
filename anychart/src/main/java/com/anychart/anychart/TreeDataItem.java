@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class TreeDataItem extends JsObject {
     
     private String child;
     private TreeDataItem child1;
+    private List<TreeDataItem> setAddChild = new ArrayList<>();
 
     /**
      * Adds a child.
@@ -62,7 +60,18 @@ public class TreeDataItem extends JsObject {
         }
         return this;
     }
+    private String generateJSsetAddChild() {
+        if (!setAddChild.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : setAddChild) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TreeDataItem> setAddChild1 = new ArrayList<>();
 
     /**
      * Adds a child.
@@ -86,11 +95,22 @@ public class TreeDataItem extends JsObject {
         }
         return this;
     }
+    private String generateJSsetAddChild1() {
+        if (!setAddChild1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : setAddChild1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String child2;
     private TreeDataItem child3;
     private TreeviewDataItem child4;
     private Double index;
+    private List<TreeDataItem> setAddChildAt = new ArrayList<>();
 
     /**
      * Inserts a child into a specified position.</br>
@@ -122,7 +142,18 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
         }
         return this;
     }
+    private String generateJSsetAddChildAt() {
+        if (!setAddChildAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : setAddChildAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TreeDataItem> setAddChildAt1 = new ArrayList<>();
 
     /**
      * Inserts a child into a specified position.</br>
@@ -154,7 +185,18 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
         }
         return this;
     }
+    private String generateJSsetAddChildAt1() {
+        if (!setAddChildAt1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : setAddChildAt1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TreeDataItem> setAddChildAt2 = new ArrayList<>();
 
     /**
      * Inserts a child into a specified position.</br>
@@ -185,6 +227,16 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
             }
         }
         return this;
+    }
+    private String generateJSsetAddChildAt2() {
+        if (!setAddChildAt2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : setAddChildAt2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private List<TreeDataItem> getGetChildAt = new ArrayList<>();
@@ -224,6 +276,7 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", wrapQuotes(key)));
@@ -233,6 +286,7 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
     }
 
     private TreeDataItem child5;
+    private List<TreeDataItem> setRemoveChild = new ArrayList<>();
 
     /**
      * Removes data item's child.
@@ -260,8 +314,19 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
         }
         return this;
     }
+    private String generateJSsetRemoveChild() {
+        if (!setRemoveChild.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : setRemoveChild) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index1;
+    private List<TreeDataItem> setRemoveChildAt = new ArrayList<>();
 
     /**
      * Removes child at specified position.
@@ -286,6 +351,16 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
             }
         }
         return this;
+    }
+    private String generateJSsetRemoveChildAt() {
+        if (!setRemoveChildAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeDataItem item : setRemoveChildAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetGetChildAt() {
@@ -328,6 +403,15 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAddChild());
+        js.append(generateJSsetAddChild1());
+        js.append(generateJSsetAddChildAt());
+        js.append(generateJSsetAddChildAt1());
+        js.append(generateJSsetAddChildAt2());
+        js.append(generateJSsetRemoveChild());
+        js.append(generateJSsetRemoveChildAt());
+        
 
         String result = js.toString();
         js.setLength(0);

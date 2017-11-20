@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -49,6 +46,7 @@ public class StandalonesLegend extends UiLegend {
 
     private String container;
     private Element container1;
+    private List<StandalonesLegend> setContainer = new ArrayList<>();
 
     /**
      * Setter for the legend container.
@@ -74,7 +72,18 @@ public class StandalonesLegend extends UiLegend {
         }
         return this;
     }
+    private String generateJSsetContainer() {
+        if (!setContainer.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesLegend item : setContainer) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesLegend> setContainer1 = new ArrayList<>();
 
     /**
      * Setter for the legend container.
@@ -98,6 +107,16 @@ public class StandalonesLegend extends UiLegend {
         }
         return this;
     }
+    private String generateJSsetContainer1() {
+        if (!setContainer1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesLegend item : setContainer1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private SeparateChart getItemsSource;
 
@@ -113,6 +132,7 @@ public class StandalonesLegend extends UiLegend {
 
     private SeparateChart itemsSource;
     private SeparateChart[] itemsSource1;
+    private List<StandalonesLegend> setItemsSource = new ArrayList<>();
 
     /**
      * Setter for items source.
@@ -136,7 +156,18 @@ public class StandalonesLegend extends UiLegend {
         }
         return this;
     }
+    private String generateJSsetItemsSource() {
+        if (!setItemsSource.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesLegend item : setItemsSource) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesLegend> setItemsSource1 = new ArrayList<>();
 
     /**
      * Setter for items source.
@@ -162,6 +193,16 @@ public class StandalonesLegend extends UiLegend {
         }
         return this;
     }
+    private String generateJSsetItemsSource1() {
+        if (!setItemsSource1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesLegend item : setItemsSource1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private AnychartMathRect getParentBounds;
 
@@ -177,6 +218,7 @@ public class StandalonesLegend extends UiLegend {
 
     private AnychartMathRect parentBounds;
     private String parentBounds1;
+    private List<StandalonesLegend> setParentBounds = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -200,7 +242,18 @@ public class StandalonesLegend extends UiLegend {
         }
         return this;
     }
+    private String generateJSsetParentBounds() {
+        if (!setParentBounds.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesLegend item : setParentBounds) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesLegend> setParentBounds1 = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -226,11 +279,22 @@ public class StandalonesLegend extends UiLegend {
         }
         return this;
     }
+    private String generateJSsetParentBounds1() {
+        if (!setParentBounds1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesLegend item : setParentBounds1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double left;
     private Double top;
     private Double width;
     private Double height;
+    private List<StandalonesLegend> setParentBounds2 = new ArrayList<>();
 
     /**
      * Setter for bounds using several value.
@@ -258,6 +322,16 @@ public class StandalonesLegend extends UiLegend {
             }
         }
         return this;
+    }
+    private String generateJSsetParentBounds2() {
+        if (!setParentBounds2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesLegend item : setParentBounds2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetContainer() {
@@ -303,6 +377,15 @@ public class StandalonesLegend extends UiLegend {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetContainer());
+        js.append(generateJSsetContainer1());
+        js.append(generateJSsetItemsSource());
+        js.append(generateJSsetItemsSource1());
+        js.append(generateJSsetParentBounds());
+        js.append(generateJSsetParentBounds1());
+        js.append(generateJSsetParentBounds2());
+        
 
         String result = js.toString();
         js.setLength(0);

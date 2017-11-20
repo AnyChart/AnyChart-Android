@@ -1,11 +1,9 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 /**
@@ -42,6 +40,7 @@ public class UiTitle extends CoreText {
     
     private EnumsAlign align;
     private String align1;
+    private List<UiTitle> setAlign = new ArrayList<>();
 
     /**
      * Setter for the title align.
@@ -67,7 +66,18 @@ public class UiTitle extends CoreText {
         }
         return this;
     }
+    private String generateJSsetAlign() {
+        if (!setAlign.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setAlign) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTitle> setAlign1 = new ArrayList<>();
 
     /**
      * Setter for the title align.
@@ -93,6 +103,16 @@ public class UiTitle extends CoreText {
         }
         return this;
     }
+    private String generateJSsetAlign1() {
+        if (!setAlign1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setAlign1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiBackground getBackground;
 
@@ -109,6 +129,7 @@ public class UiTitle extends CoreText {
     private String background;
     private String background1;
     private Boolean background2;
+    private List<UiTitle> setBackground = new ArrayList<>();
 
     /**
      * Setter for the title background.
@@ -135,7 +156,18 @@ public class UiTitle extends CoreText {
         }
         return this;
     }
+    private String generateJSsetBackground() {
+        if (!setBackground.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setBackground) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTitle> setBackground1 = new ArrayList<>();
 
     /**
      * Setter for the title background.
@@ -162,9 +194,20 @@ public class UiTitle extends CoreText {
         }
         return this;
     }
+    private String generateJSsetBackground1() {
+        if (!setBackground1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setBackground1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double height;
     private String height1;
+    private List<UiTitle> setHeight = new ArrayList<>();
 
     /**
      * Setter for the title height.
@@ -190,7 +233,18 @@ public class UiTitle extends CoreText {
         }
         return this;
     }
+    private String generateJSsetHeight() {
+        if (!setHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTitle> setHeight1 = new ArrayList<>();
 
     /**
      * Setter for the title height.
@@ -216,6 +270,16 @@ public class UiTitle extends CoreText {
         }
         return this;
     }
+    private String generateJSsetHeight1() {
+        if (!setHeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setHeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Margin getMargin;
 
@@ -235,6 +299,7 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
     private Double[] allValues2;
     private String[] allValues3;
     private String allValues4;
+    private List<UiTitle> setMargin = new ArrayList<>();
 
     /**
      * Setter for the title margin in pixels using one complex value.
@@ -263,7 +328,18 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
         }
         return this;
     }
+    private String generateJSsetMargin() {
+        if (!setMargin.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setMargin) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTitle> setMargin1 = new ArrayList<>();
 
     /**
      * Setter for the title margin in pixels using one complex value.
@@ -292,6 +368,16 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
         }
         return this;
     }
+    private String generateJSsetMargin1() {
+        if (!setMargin1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setMargin1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String value;
     private Double value1;
@@ -301,6 +387,7 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
     private Double value5;
     private String value6;
     private Double value7;
+    private List<UiTitle> setMargin2 = new ArrayList<>();
 
     /**
      * Setter for the title margin in pixels using several numbers.
@@ -365,7 +452,18 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
         }
         return this;
     }
+    private String generateJSsetMargin2() {
+        if (!setMargin2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setMargin2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTitle> setMargin3 = new ArrayList<>();
 
     /**
      * Setter for the title margin in pixels using several numbers.
@@ -430,9 +528,20 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
         }
         return this;
     }
+    private String generateJSsetMargin3() {
+        if (!setMargin3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setMargin3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Orientation orientation;
     private String orientation1;
+    private List<UiTitle> setOrientation = new ArrayList<>();
 
     /**
      * Setter for the title orientation.
@@ -458,7 +567,18 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
         }
         return this;
     }
+    private String generateJSsetOrientation() {
+        if (!setOrientation.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setOrientation) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTitle> setOrientation1 = new ArrayList<>();
 
     /**
      * Setter for the title orientation.
@@ -484,6 +604,16 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
         }
         return this;
     }
+    private String generateJSsetOrientation1() {
+        if (!setOrientation1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setOrientation1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UtilsPadding getPadding;
 
@@ -503,6 +633,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
     private Double[] padding2;
     private String[] padding3;
     private String padding4;
+    private List<UiTitle> setPadding = new ArrayList<>();
 
     /**
      * Setter for the title padding in pixels using single value.
@@ -531,7 +662,18 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
         }
         return this;
     }
+    private String generateJSsetPadding() {
+        if (!setPadding.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setPadding) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTitle> setPadding1 = new ArrayList<>();
 
     /**
      * Setter for the title padding in pixels using single value.
@@ -560,6 +702,16 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
         }
         return this;
     }
+    private String generateJSsetPadding1() {
+        if (!setPadding1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setPadding1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String value8;
     private Double value9;
@@ -569,6 +721,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
     private Double value13;
     private String value14;
     private Double value15;
+    private List<UiTitle> setPadding2 = new ArrayList<>();
 
     /**
      * Setter for the title padding in pixels using several numbers.
@@ -665,7 +818,18 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
         }
         return this;
     }
+    private String generateJSsetPadding2() {
+        if (!setPadding2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setPadding2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTitle> setPadding3 = new ArrayList<>();
 
     /**
      * Setter for the title padding in pixels using several numbers.
@@ -762,8 +926,19 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
         }
         return this;
     }
+    private String generateJSsetPadding3() {
+        if (!setPadding3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setPadding3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double rotation;
+    private List<UiTitle> setRotation = new ArrayList<>();
 
     /**
      * Setter for the title rotation.
@@ -786,8 +961,19 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
         }
         return this;
     }
+    private String generateJSsetRotation() {
+        if (!setRotation.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setRotation) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String text;
+    private List<UiTitle> setText = new ArrayList<>();
 
     /**
      * Setter for the text content for the title.
@@ -810,9 +996,20 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
         }
         return this;
     }
+    private String generateJSsetText() {
+        if (!setText.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setText) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double width;
     private String width1;
+    private List<UiTitle> setWidth = new ArrayList<>();
 
     /**
      * Setter for the title width.
@@ -838,7 +1035,18 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
         }
         return this;
     }
+    private String generateJSsetWidth() {
+        if (!setWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiTitle> setWidth1 = new ArrayList<>();
 
     /**
      * Setter for the title width.
@@ -863,6 +1071,16 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
             }
         }
         return this;
+    }
+    private String generateJSsetWidth1() {
+        if (!setWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiTitle item : setWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetBackground() {
@@ -908,6 +1126,28 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAlign());
+        js.append(generateJSsetAlign1());
+        js.append(generateJSsetBackground());
+        js.append(generateJSsetBackground1());
+        js.append(generateJSsetHeight());
+        js.append(generateJSsetHeight1());
+        js.append(generateJSsetMargin());
+        js.append(generateJSsetMargin1());
+        js.append(generateJSsetMargin2());
+        js.append(generateJSsetMargin3());
+        js.append(generateJSsetOrientation());
+        js.append(generateJSsetOrientation1());
+        js.append(generateJSsetPadding());
+        js.append(generateJSsetPadding1());
+        js.append(generateJSsetPadding2());
+        js.append(generateJSsetPadding3());
+        js.append(generateJSsetRotation());
+        js.append(generateJSsetText());
+        js.append(generateJSsetWidth());
+        js.append(generateJSsetWidth1());
+        
 
         String result = js.toString();
         js.setLength(0);

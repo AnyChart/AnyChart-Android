@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -38,6 +35,7 @@ public class TreeviewDataItem extends JsObject {
     private String child;
     private TreeDataItem child1;
     private TreeviewDataItem child2;
+    private List<TreeviewDataItem> setAddChild = new ArrayList<>();
 
     /**
      * Adds a child.
@@ -64,7 +62,18 @@ public class TreeviewDataItem extends JsObject {
         }
         return this;
     }
+    private String generateJSsetAddChild() {
+        if (!setAddChild.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeviewDataItem item : setAddChild) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TreeviewDataItem> setAddChild1 = new ArrayList<>();
 
     /**
      * Adds a child.
@@ -89,7 +98,18 @@ public class TreeviewDataItem extends JsObject {
         }
         return this;
     }
+    private String generateJSsetAddChild1() {
+        if (!setAddChild1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeviewDataItem item : setAddChild1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TreeviewDataItem> setAddChild2 = new ArrayList<>();
 
     /**
      * Adds a child.
@@ -114,11 +134,22 @@ public class TreeviewDataItem extends JsObject {
         }
         return this;
     }
+    private String generateJSsetAddChild2() {
+        if (!setAddChild2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeviewDataItem item : setAddChild2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String child3;
     private TreeDataItem child4;
     private TreeviewDataItem child5;
     private Double index;
+    private List<TreeviewDataItem> setAddChildAt = new ArrayList<>();
 
     /**
      * Inserts a child into a specified position.
@@ -150,7 +181,18 @@ public class TreeviewDataItem extends JsObject {
         }
         return this;
     }
+    private String generateJSsetAddChildAt() {
+        if (!setAddChildAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeviewDataItem item : setAddChildAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TreeviewDataItem> setAddChildAt1 = new ArrayList<>();
 
     /**
      * Inserts a child into a specified position.
@@ -182,7 +224,18 @@ public class TreeviewDataItem extends JsObject {
         }
         return this;
     }
+    private String generateJSsetAddChildAt1() {
+        if (!setAddChildAt1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeviewDataItem item : setAddChildAt1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TreeviewDataItem> setAddChildAt2 = new ArrayList<>();
 
     /**
      * Inserts a child into a specified position.
@@ -213,6 +266,16 @@ public class TreeviewDataItem extends JsObject {
             }
         }
         return this;
+    }
+    private String generateJSsetAddChildAt2() {
+        if (!setAddChildAt2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeviewDataItem item : setAddChildAt2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private List<TreeviewDataItem> getGetChildAt = new ArrayList<>();
@@ -252,6 +315,7 @@ public class TreeviewDataItem extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", wrapQuotes(key)));
@@ -262,6 +326,7 @@ public class TreeviewDataItem extends JsObject {
 
     private TreeDataItem child6;
     private TreeviewDataItem child7;
+    private List<TreeviewDataItem> setRemoveChild = new ArrayList<>();
 
     /**
      * Removes data item's child.
@@ -291,7 +356,18 @@ public class TreeviewDataItem extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRemoveChild() {
+        if (!setRemoveChild.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeviewDataItem item : setRemoveChild) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TreeviewDataItem> setRemoveChild1 = new ArrayList<>();
 
     /**
      * Removes data item's child.
@@ -321,8 +397,19 @@ public class TreeviewDataItem extends JsObject {
         }
         return this;
     }
+    private String generateJSsetRemoveChild1() {
+        if (!setRemoveChild1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeviewDataItem item : setRemoveChild1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index1;
+    private List<TreeviewDataItem> setRemoveChildAt = new ArrayList<>();
 
     /**
      * Removes child at specified position.
@@ -347,6 +434,16 @@ public class TreeviewDataItem extends JsObject {
             }
         }
         return this;
+    }
+    private String generateJSsetRemoveChildAt() {
+        if (!setRemoveChildAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TreeviewDataItem item : setRemoveChildAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetGetChildAt() {
@@ -389,6 +486,17 @@ public class TreeviewDataItem extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAddChild());
+        js.append(generateJSsetAddChild1());
+        js.append(generateJSsetAddChild2());
+        js.append(generateJSsetAddChildAt());
+        js.append(generateJSsetAddChildAt1());
+        js.append(generateJSsetAddChildAt2());
+        js.append(generateJSsetRemoveChild());
+        js.append(generateJSsetRemoveChild1());
+        js.append(generateJSsetRemoveChildAt());
+        
 
         String result = js.toString();
         js.setLength(0);

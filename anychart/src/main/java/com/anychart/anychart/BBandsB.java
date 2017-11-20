@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class BBandsB extends JsObject {
 
     
     private Double deviation;
+    private List<BBandsB> setDeviation = new ArrayList<>();
 
     /**
      * Setter for the deviation.
@@ -57,6 +55,16 @@ public class BBandsB extends JsObject {
             }
         }
         return this;
+    }
+    private String generateJSsetDeviation() {
+        if (!setDeviation.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBandsB item : setDeviation) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private List<BBandsB> getPeriod = new ArrayList<>();
@@ -84,6 +92,7 @@ public class BBandsB extends JsObject {
 
     private StockSeriesType type;
     private String type1;
+    private List<BBandsB> setSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator series.
@@ -109,7 +118,18 @@ public class BBandsB extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSeries() {
+        if (!setSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBandsB item : setSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<BBandsB> setSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator series.
@@ -134,6 +154,16 @@ public class BBandsB extends JsObject {
             }
         }
         return this;
+    }
+    private String generateJSsetSeries1() {
+        if (!setSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (BBandsB item : setSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetPeriod() {
@@ -176,6 +206,11 @@ public class BBandsB extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetDeviation());
+        js.append(generateJSsetSeries());
+        js.append(generateJSsetSeries1());
+        
 
         String result = js.toString();
         js.setLength(0);

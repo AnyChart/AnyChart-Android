@@ -424,6 +424,32 @@ public class TagCloud extends SeparateChart {
         return "";
     }
 
+    private List<TagCloud> setData1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public TagCloud data(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TagCloud item : setData1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private Double fromAngle;
     private List<TagCloud> setFromAngle = new ArrayList<>();
 
@@ -1195,6 +1221,7 @@ public class TagCloud extends SeparateChart {
         js.append(generateJSsetColorScale2());
         js.append(generateJSsetColorScale3());
         js.append(generateJSsetData());
+        js.append(generateJSsetData1());
         js.append(generateJSsetFromAngle());
         js.append(generateJSsetHover());
         js.append(generateJSsetHover1());

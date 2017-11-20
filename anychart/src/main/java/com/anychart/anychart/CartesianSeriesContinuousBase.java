@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class CartesianSeriesContinuousBase extends CartesianSeriesBaseWithMarker
 
     
     private Boolean connectMissingPoints;
+    private List<CartesianSeriesBase> setConnectMissingPoints = new ArrayList<>();
 
     /**
      * Setter for connect missing points settings.
@@ -49,13 +47,26 @@ public class CartesianSeriesContinuousBase extends CartesianSeriesBaseWithMarker
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectMissingPoints(%b)", connectMissingPoints));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setConnectMissingPoints" + variableIndex);
+        setConnectMissingPoints.add(item);
+        return item;
+    }
+    private String generateJSsetConnectMissingPoints() {
+        if (!setConnectMissingPoints.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setConnectMissingPoints) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
 
@@ -77,6 +88,9 @@ public class CartesianSeriesContinuousBase extends CartesianSeriesBaseWithMarker
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetConnectMissingPoints());
+        
 
         String result = js.toString();
         js.setLength(0);

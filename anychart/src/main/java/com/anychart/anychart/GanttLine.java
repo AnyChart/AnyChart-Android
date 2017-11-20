@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class GanttLine extends VisualBase {
     
     private Layout layout;
     private String layout1;
+    private List<GanttLine> setLayout = new ArrayList<>();
 
     /**
      * Setter for the Gantt chart line marker layout.<br/>
@@ -63,7 +61,18 @@ public class GanttLine extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLayout() {
+        if (!setLayout.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttLine item : setLayout) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<GanttLine> setLayout1 = new ArrayList<>();
 
     /**
      * Setter for the Gantt chart line marker layout.<br/>
@@ -90,6 +99,16 @@ public class GanttLine extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLayout1() {
+        if (!setLayout1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttLine item : setLayout1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GanttDateTime getScale;
 
@@ -104,6 +123,7 @@ public class GanttLine extends VisualBase {
     }
 
     private GanttDateTime scale;
+    private List<GanttLine> setScale = new ArrayList<>();
 
     /**
      * Setter for the Gantt chart line marker scale.<br/>
@@ -126,6 +146,16 @@ public class GanttLine extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetScale() {
+        if (!setScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttLine item : setScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke stroke;
     private ColoredFill stroke1;
@@ -134,6 +164,7 @@ public class GanttLine extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<GanttLine> setStroke = new ArrayList<>();
 
     /**
      * Setter for the Gantt chart line marker stroke.
@@ -168,7 +199,18 @@ public class GanttLine extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttLine item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<GanttLine> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for the Gantt chart line marker stroke.
@@ -203,7 +245,18 @@ public class GanttLine extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttLine item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<GanttLine> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for the Gantt chart line marker stroke.
@@ -238,10 +291,21 @@ public class GanttLine extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttLine item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double value;
     private GanttDateTimeMarkers value1;
     private String value2;
+    private List<GanttLine> setValue = new ArrayList<>();
 
     /**
      * Setter for the Gantt chart line marker value.
@@ -268,7 +332,18 @@ public class GanttLine extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetValue() {
+        if (!setValue.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttLine item : setValue) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<GanttLine> setValue1 = new ArrayList<>();
 
     /**
      * Setter for the Gantt chart line marker value.
@@ -295,7 +370,18 @@ public class GanttLine extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetValue1() {
+        if (!setValue1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttLine item : setValue1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<GanttLine> setValue2 = new ArrayList<>();
 
     /**
      * Setter for the Gantt chart line marker value.
@@ -321,6 +407,16 @@ public class GanttLine extends VisualBase {
             }
         }
         return this;
+    }
+    private String generateJSsetValue2() {
+        if (!setValue2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (GanttLine item : setValue2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetScale() {
@@ -350,6 +446,17 @@ public class GanttLine extends VisualBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetLayout());
+        js.append(generateJSsetLayout1());
+        js.append(generateJSsetScale());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        js.append(generateJSsetValue());
+        js.append(generateJSsetValue1());
+        js.append(generateJSsetValue2());
+        
 
         String result = js.toString();
         js.setLength(0);

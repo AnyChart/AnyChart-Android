@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class TextSettings extends SettingsWithMargin {
 
     
     private String fontColor;
+    private List<TextSettings> setFontColor = new ArrayList<>();
 
     /**
      * Setter for the font color.
@@ -58,9 +56,20 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetFontColor() {
+        if (!setFontColor.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setFontColor) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Decoration fontDecoration;
     private String fontDecoration1;
+    private List<TextSettings> setFontDecoration = new ArrayList<>();
 
     /**
      * Setter for the text font decoration.
@@ -86,7 +95,18 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetFontDecoration() {
+        if (!setFontDecoration.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setFontDecoration) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TextSettings> setFontDecoration1 = new ArrayList<>();
 
     /**
      * Setter for the text font decoration.
@@ -112,8 +132,19 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetFontDecoration1() {
+        if (!setFontDecoration1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setFontDecoration1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fontFamily;
+    private List<TextSettings> setFontFamily = new ArrayList<>();
 
     /**
      * Setter for the font family.
@@ -136,8 +167,19 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetFontFamily() {
+        if (!setFontFamily.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setFontFamily) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double fontOpacity;
+    private List<TextSettings> setFontOpacity = new ArrayList<>();
 
     /**
      * Setter for the font opacity.
@@ -160,9 +202,20 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetFontOpacity() {
+        if (!setFontOpacity.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setFontOpacity) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fontSize;
     private Double fontSize1;
+    private List<TextSettings> setFontSize = new ArrayList<>();
 
     /**
      * Setter for the text font size text.
@@ -188,7 +241,18 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetFontSize() {
+        if (!setFontSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setFontSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TextSettings> setFontSize1 = new ArrayList<>();
 
     /**
      * Setter for the text font size text.
@@ -214,9 +278,20 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetFontSize1() {
+        if (!setFontSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setFontSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TextFontStyle fontStyle;
     private String fontStyle1;
+    private List<TextSettings> setFontStyle = new ArrayList<>();
 
     /**
      * Setter for the font style.
@@ -242,7 +317,18 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetFontStyle() {
+        if (!setFontStyle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setFontStyle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TextSettings> setFontStyle1 = new ArrayList<>();
 
     /**
      * Setter for the font style.
@@ -268,9 +354,20 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetFontStyle1() {
+        if (!setFontStyle1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setFontStyle1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TextFontVariant fontVariant;
     private String fontVariant1;
+    private List<TextSettings> setFontVariant = new ArrayList<>();
 
     /**
      * Setter for the font variant.
@@ -296,7 +393,18 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetFontVariant() {
+        if (!setFontVariant.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setFontVariant) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TextSettings> setFontVariant1 = new ArrayList<>();
 
     /**
      * Setter for the font variant.
@@ -322,9 +430,20 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetFontVariant1() {
+        if (!setFontVariant1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setFontVariant1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fontWeight;
     private Double fontWeight1;
+    private List<TextSettings> setFontWeight = new ArrayList<>();
 
     /**
      * Setter for the font weight.
@@ -350,7 +469,18 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetFontWeight() {
+        if (!setFontWeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setFontWeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TextSettings> setFontWeight1 = new ArrayList<>();
 
     /**
      * Setter for the font weight.
@@ -376,9 +506,20 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetFontWeight1() {
+        if (!setFontWeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setFontWeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TextHAlign hAlign;
     private String hAlign1;
+    private List<TextSettings> setHAlign = new ArrayList<>();
 
     /**
      * Setter for the font horizontal align.
@@ -404,7 +545,18 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetHAlign() {
+        if (!setHAlign.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setHAlign) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TextSettings> setHAlign1 = new ArrayList<>();
 
     /**
      * Setter for the font horizontal align.
@@ -430,9 +582,20 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetHAlign1() {
+        if (!setHAlign1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setHAlign1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String letterSpacing;
     private Double letterSpacing1;
+    private List<TextSettings> setLetterSpacing = new ArrayList<>();
 
     /**
      * Setter for the letter spacing.
@@ -458,7 +621,18 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetLetterSpacing() {
+        if (!setLetterSpacing.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setLetterSpacing) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TextSettings> setLetterSpacing1 = new ArrayList<>();
 
     /**
      * Setter for the letter spacing.
@@ -484,9 +658,20 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetLetterSpacing1() {
+        if (!setLetterSpacing1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setLetterSpacing1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String lineHeight;
     private Double lineHeight1;
+    private List<TextSettings> setLineHeight = new ArrayList<>();
 
     /**
      * Setter for the font line height.
@@ -512,7 +697,18 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetLineHeight() {
+        if (!setLineHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setLineHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TextSettings> setLineHeight1 = new ArrayList<>();
 
     /**
      * Setter for the font line height.
@@ -538,8 +734,19 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetLineHeight1() {
+        if (!setLineHeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setLineHeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean selectable;
+    private List<TextSettings> setSelectable = new ArrayList<>();
 
     /**
      * Setter for the text selectable.
@@ -562,9 +769,20 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetSelectable() {
+        if (!setSelectable.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setSelectable) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Direction textDirection;
     private String textDirection1;
+    private List<TextSettings> setTextDirection = new ArrayList<>();
 
     /**
      * Setter for the text direction.
@@ -590,7 +808,18 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetTextDirection() {
+        if (!setTextDirection.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setTextDirection) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TextSettings> setTextDirection1 = new ArrayList<>();
 
     /**
      * Setter for the text direction.
@@ -616,8 +845,19 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetTextDirection1() {
+        if (!setTextDirection1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setTextDirection1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double textIndent;
+    private List<TextSettings> setTextIndent = new ArrayList<>();
 
     /**
      * Setter for text indent settings.
@@ -640,9 +880,20 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetTextIndent() {
+        if (!setTextIndent.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setTextIndent) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TextOverflow textOverflow;
     private String textOverflow1;
+    private List<TextSettings> setTextOverflow = new ArrayList<>();
 
     /**
      * Setter for text overflow settings.
@@ -668,7 +919,18 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetTextOverflow() {
+        if (!setTextOverflow.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setTextOverflow) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TextSettings> setTextOverflow1 = new ArrayList<>();
 
     /**
      * Setter for text overflow settings.
@@ -694,8 +956,19 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetTextOverflow1() {
+        if (!setTextOverflow1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setTextOverflow1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean useHtml;
+    private List<TextSettings> setUseHtml = new ArrayList<>();
 
     /**
      * Setter for the useHTML flag.
@@ -718,9 +991,20 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetUseHtml() {
+        if (!setUseHtml.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setUseHtml) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private TextVAlign vAlign;
     private String vAlign1;
+    private List<TextSettings> setVAlign = new ArrayList<>();
 
     /**
      * Setter for the font vertical align.
@@ -746,7 +1030,18 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetVAlign() {
+        if (!setVAlign.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setVAlign) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TextSettings> setVAlign1 = new ArrayList<>();
 
     /**
      * Setter for the font vertical align.
@@ -772,9 +1067,20 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetVAlign1() {
+        if (!setVAlign1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setVAlign1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private EnumsWordBreak wordBreak;
     private String wordBreak1;
+    private List<TextSettings> setWordBreak = new ArrayList<>();
 
     /**
      * Setter for the word-break mode.
@@ -800,7 +1106,18 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetWordBreak() {
+        if (!setWordBreak.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setWordBreak) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TextSettings> setWordBreak1 = new ArrayList<>();
 
     /**
      * Setter for the word-break mode.
@@ -826,9 +1143,20 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetWordBreak1() {
+        if (!setWordBreak1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setWordBreak1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private EnumsWordWrap wordWrap;
     private String wordWrap1;
+    private List<TextSettings> setWordWrap = new ArrayList<>();
 
     /**
      * Setter for the word-wrap mode.
@@ -854,7 +1182,18 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetWordWrap() {
+        if (!setWordWrap.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setWordWrap) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TextSettings> setWordWrap1 = new ArrayList<>();
 
     /**
      * Setter for the word-wrap mode.
@@ -880,6 +1219,16 @@ public class TextSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetWordWrap1() {
+        if (!setWordWrap1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TextSettings item : setWordWrap1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -900,6 +1249,40 @@ public class TextSettings extends SettingsWithMargin {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFontColor());
+        js.append(generateJSsetFontDecoration());
+        js.append(generateJSsetFontDecoration1());
+        js.append(generateJSsetFontFamily());
+        js.append(generateJSsetFontOpacity());
+        js.append(generateJSsetFontSize());
+        js.append(generateJSsetFontSize1());
+        js.append(generateJSsetFontStyle());
+        js.append(generateJSsetFontStyle1());
+        js.append(generateJSsetFontVariant());
+        js.append(generateJSsetFontVariant1());
+        js.append(generateJSsetFontWeight());
+        js.append(generateJSsetFontWeight1());
+        js.append(generateJSsetHAlign());
+        js.append(generateJSsetHAlign1());
+        js.append(generateJSsetLetterSpacing());
+        js.append(generateJSsetLetterSpacing1());
+        js.append(generateJSsetLineHeight());
+        js.append(generateJSsetLineHeight1());
+        js.append(generateJSsetSelectable());
+        js.append(generateJSsetTextDirection());
+        js.append(generateJSsetTextDirection1());
+        js.append(generateJSsetTextIndent());
+        js.append(generateJSsetTextOverflow());
+        js.append(generateJSsetTextOverflow1());
+        js.append(generateJSsetUseHtml());
+        js.append(generateJSsetVAlign());
+        js.append(generateJSsetVAlign1());
+        js.append(generateJSsetWordBreak());
+        js.append(generateJSsetWordBreak1());
+        js.append(generateJSsetWordWrap());
+        js.append(generateJSsetWordWrap1());
+        
 
         String result = js.toString();
         js.setLength(0);

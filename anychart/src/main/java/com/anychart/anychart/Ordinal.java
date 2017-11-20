@@ -1,11 +1,9 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 /**
@@ -51,6 +49,7 @@ public class Ordinal extends ScalesBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f)", ratio));
@@ -60,6 +59,7 @@ public class Ordinal extends ScalesBase {
     }
 
     private String names;
+    private List<Ordinal> setNames = new ArrayList<>();
 
     /**
      * Setter for scale ticks names.
@@ -82,6 +82,16 @@ public class Ordinal extends ScalesBase {
         }
         return this;
     }
+    private String generateJSsetNames() {
+        if (!setNames.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Ordinal item : setNames) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private OrdinalTicks getTicks;
 
@@ -97,6 +107,7 @@ public class Ordinal extends ScalesBase {
 
     private String ticks;
     private String[] ticks1;
+    private List<Ordinal> setTicks = new ArrayList<>();
 
     /**
      * Setter for set of scale ticks in terms of data values.
@@ -122,7 +133,18 @@ public class Ordinal extends ScalesBase {
         }
         return this;
     }
+    private String generateJSsetTicks() {
+        if (!setTicks.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Ordinal item : setTicks) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Ordinal> setTicks1 = new ArrayList<>();
 
     /**
      * Setter for set of scale ticks in terms of data values.
@@ -148,6 +170,16 @@ public class Ordinal extends ScalesBase {
         }
         return this;
     }
+    private String generateJSsetTicks1() {
+        if (!setTicks1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Ordinal item : setTicks1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double subRangeRatio;
 
@@ -164,6 +196,7 @@ public class Ordinal extends ScalesBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%f)", subRangeRatio));
@@ -173,6 +206,7 @@ public class Ordinal extends ScalesBase {
     }
 
     private Double[] weights;
+    private List<Ordinal> setWeights = new ArrayList<>();
 
     /**
      * Setter for scale weights.
@@ -194,6 +228,16 @@ public class Ordinal extends ScalesBase {
             }
         }
         return this;
+    }
+    private String generateJSsetWeights() {
+        if (!setWeights.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Ordinal item : setWeights) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetTicks() {
@@ -223,6 +267,12 @@ public class Ordinal extends ScalesBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetNames());
+        js.append(generateJSsetTicks());
+        js.append(generateJSsetTicks1());
+        js.append(generateJSsetWeights());
+        
 
         String result = js.toString();
         js.setLength(0);

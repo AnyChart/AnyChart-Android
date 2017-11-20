@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class Logarithmic extends ScalesLinear {
 
     
     private Double logBase;
+    private List<Logarithmic> setLogBase = new ArrayList<>();
 
     /**
      * Setter for Log base value.<br/>
@@ -60,6 +58,16 @@ public class Logarithmic extends ScalesLinear {
         }
         return this;
     }
+    private String generateJSsetLogBase() {
+        if (!setLogBase.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Logarithmic item : setLogBase) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -80,6 +88,9 @@ public class Logarithmic extends ScalesLinear {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetLogBase());
+        
 
         String result = js.toString();
         js.setLength(0);

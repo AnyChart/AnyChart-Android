@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class VisualBase extends CoreBase {
 
     
     private Boolean enabled;
+    private List<VisualBase> setEnabled = new ArrayList<>();
 
     /**
      * Setter for the element enabled state.
@@ -57,6 +55,16 @@ public class VisualBase extends CoreBase {
             }
         }
         return this;
+    }
+    private String generateJSsetEnabled() {
+        if (!setEnabled.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBase item : setEnabled) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private PaperSize paperSizeOrOptions;
@@ -80,6 +88,7 @@ public class VisualBase extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b)", ((paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null"), landscape));
@@ -106,6 +115,7 @@ public class VisualBase extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b)", wrapQuotes(paperSizeOrOptions1), landscape));
@@ -115,6 +125,7 @@ public class VisualBase extends CoreBase {
     }
 
     private Double zIndex;
+    private List<VisualBase> setZIndex = new ArrayList<>();
 
     /**
      * Setter for the Z-index of the element.
@@ -137,6 +148,16 @@ public class VisualBase extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetZIndex() {
+        if (!setZIndex.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VisualBase item : setZIndex) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -157,6 +178,10 @@ public class VisualBase extends CoreBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetEnabled());
+        js.append(generateJSsetZIndex());
+        
 
         String result = js.toString();
         js.setLength(0);

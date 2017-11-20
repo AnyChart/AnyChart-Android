@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class Needle extends GaugePointersBase {
     
     private Double endRadius;
     private String endRadius1;
+    private List<Needle> setEndRadius = new ArrayList<>();
 
     /**
      * Setter for the end radius.
@@ -62,7 +60,18 @@ public class Needle extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetEndRadius() {
+        if (!setEndRadius.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Needle item : setEndRadius) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Needle> setEndRadius1 = new ArrayList<>();
 
     /**
      * Setter for the end radius.
@@ -88,9 +97,20 @@ public class Needle extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetEndRadius1() {
+        if (!setEndRadius1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Needle item : setEndRadius1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double endWidth;
     private String endWidth1;
+    private List<Needle> setEndWidth = new ArrayList<>();
 
     /**
      * Setter for the end width.
@@ -116,7 +136,18 @@ public class Needle extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetEndWidth() {
+        if (!setEndWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Needle item : setEndWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Needle> setEndWidth1 = new ArrayList<>();
 
     /**
      * Setter for the end width.
@@ -142,9 +173,20 @@ public class Needle extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetEndWidth1() {
+        if (!setEndWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Needle item : setEndWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double middleRadius;
     private String middleRadius1;
+    private List<Needle> setMiddleRadius = new ArrayList<>();
 
     /**
      * Setter for the middle radius.
@@ -170,7 +212,18 @@ public class Needle extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetMiddleRadius() {
+        if (!setMiddleRadius.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Needle item : setMiddleRadius) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Needle> setMiddleRadius1 = new ArrayList<>();
 
     /**
      * Setter for the middle radius.
@@ -196,9 +249,20 @@ public class Needle extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetMiddleRadius1() {
+        if (!setMiddleRadius1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Needle item : setMiddleRadius1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double middleWidth;
     private String middleWidth1;
+    private List<Needle> setMiddleWidth = new ArrayList<>();
 
     /**
      * Setter for the middle width
@@ -224,7 +288,18 @@ public class Needle extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetMiddleWidth() {
+        if (!setMiddleWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Needle item : setMiddleWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Needle> setMiddleWidth1 = new ArrayList<>();
 
     /**
      * Setter for the middle width
@@ -250,9 +325,20 @@ public class Needle extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetMiddleWidth1() {
+        if (!setMiddleWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Needle item : setMiddleWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double startRadius;
     private String startRadius1;
+    private List<Needle> setStartRadius = new ArrayList<>();
 
     /**
      * Setter for the start radius.
@@ -278,7 +364,18 @@ public class Needle extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetStartRadius() {
+        if (!setStartRadius.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Needle item : setStartRadius) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Needle> setStartRadius1 = new ArrayList<>();
 
     /**
      * Setter for the start radius.
@@ -304,9 +401,20 @@ public class Needle extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetStartRadius1() {
+        if (!setStartRadius1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Needle item : setStartRadius1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double startWidth;
     private String startWidth1;
+    private List<Needle> setStartWidth = new ArrayList<>();
 
     /**
      * Setter for the start width
@@ -332,7 +440,18 @@ public class Needle extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetStartWidth() {
+        if (!setStartWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Needle item : setStartWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Needle> setStartWidth1 = new ArrayList<>();
 
     /**
      * Setter for the start width
@@ -358,6 +477,16 @@ public class Needle extends GaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetStartWidth1() {
+        if (!setStartWidth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Needle item : setStartWidth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -378,6 +507,20 @@ public class Needle extends GaugePointersBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetEndRadius());
+        js.append(generateJSsetEndRadius1());
+        js.append(generateJSsetEndWidth());
+        js.append(generateJSsetEndWidth1());
+        js.append(generateJSsetMiddleRadius());
+        js.append(generateJSsetMiddleRadius1());
+        js.append(generateJSsetMiddleWidth());
+        js.append(generateJSsetMiddleWidth1());
+        js.append(generateJSsetStartRadius());
+        js.append(generateJSsetStartRadius1());
+        js.append(generateJSsetStartWidth());
+        js.append(generateJSsetStartWidth1());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -39,6 +36,7 @@ public class Iterator extends JsObject {
 
     
     private String name;
+    private List<Iterator> setMeta = new ArrayList<>();
 
     /**
      * Sets metadata value by the field name.
@@ -61,6 +59,16 @@ public class Iterator extends JsObject {
         }
         return this;
     }
+    private String generateJSsetMeta() {
+        if (!setMeta.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Iterator item : setMeta) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index;
 
@@ -76,6 +84,7 @@ public class Iterator extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%f)", index));
@@ -103,6 +112,9 @@ public class Iterator extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetMeta());
+        
 
         String result = js.toString();
         js.setLength(0);

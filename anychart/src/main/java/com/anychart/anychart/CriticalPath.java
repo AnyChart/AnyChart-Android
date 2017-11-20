@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -48,6 +45,7 @@ public class CriticalPath extends CoreBase {
     }
 
     private String milestones;
+    private List<CriticalPath> setMilestones = new ArrayList<>();
 
     /**
      * Setter for milestones settings.
@@ -70,6 +68,16 @@ public class CriticalPath extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetMilestones() {
+        if (!setMilestones.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CriticalPath item : setMilestones) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Tasks getTasks;
 
@@ -84,6 +92,7 @@ public class CriticalPath extends CoreBase {
     }
 
     private String tasks;
+    private List<CriticalPath> setTasks = new ArrayList<>();
 
     /**
      * Setter for tasks settings object.
@@ -105,6 +114,16 @@ public class CriticalPath extends CoreBase {
             }
         }
         return this;
+    }
+    private String generateJSsetTasks() {
+        if (!setTasks.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CriticalPath item : setTasks) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetMilestones() {
@@ -142,6 +161,10 @@ public class CriticalPath extends CoreBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetMilestones());
+        js.append(generateJSsetTasks());
+        
 
         String result = js.toString();
         js.setLength(0);

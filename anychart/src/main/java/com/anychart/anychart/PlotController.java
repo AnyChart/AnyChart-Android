@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -38,6 +35,7 @@ public class PlotController extends VisualBase {
     private AnnotationTypes annotationTypeOrConfig;
     private String annotationTypeOrConfig1;
     private AnnotationJSONFormat annotationTypeOrConfig2;
+    private List<AnnotationsBase> setAdd = new ArrayList<>();
 
     /**
      * Adds annotation on the plot.
@@ -55,15 +53,29 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", ((annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new AnnotationsBase(jsBase);
+        AnnotationsBase item = new AnnotationsBase("setAdd" + variableIndex);
+        setAdd.add(item);
+        return item;
+    }
+    private String generateJSsetAdd() {
+        if (!setAdd.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setAdd) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<AnnotationsBase> setAdd1 = new ArrayList<>();
 
     /**
      * Adds annotation on the plot.
@@ -81,15 +93,29 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", wrapQuotes(annotationTypeOrConfig1)));
                 js.setLength(0);
             }
         }
-        return new AnnotationsBase(jsBase);
+        AnnotationsBase item = new AnnotationsBase("setAdd1" + variableIndex);
+        setAdd1.add(item);
+        return item;
+    }
+    private String generateJSsetAdd1() {
+        if (!setAdd1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setAdd1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<AnnotationsBase> setAdd2 = new ArrayList<>();
 
     /**
      * Adds annotation on the plot.
@@ -107,16 +133,30 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", ((annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new AnnotationsBase(jsBase);
+        AnnotationsBase item = new AnnotationsBase("setAdd2" + variableIndex);
+        setAdd2.add(item);
+        return item;
+    }
+    private String generateJSsetAdd2() {
+        if (!setAdd2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setAdd2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String config;
+    private List<AndrewsPitchfork> setAndrewsPitchfork = new ArrayList<>();
 
     /**
      * Creates and returns an Andrews Pitchfork annotation.
@@ -130,16 +170,30 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".andrewsPitchfork(%s)", wrapQuotes(config)));
                 js.setLength(0);
             }
         }
-        return new AndrewsPitchfork(jsBase);
+        AndrewsPitchfork item = new AndrewsPitchfork("setAndrewsPitchfork" + variableIndex);
+        setAndrewsPitchfork.add(item);
+        return item;
+    }
+    private String generateJSsetAndrewsPitchfork() {
+        if (!setAndrewsPitchfork.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AndrewsPitchfork item : setAndrewsPitchfork) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String config1;
+    private List<AnnotationsEllipse> setEllipse = new ArrayList<>();
 
     /**
      * Creates and returns an Ellipse annotation.
@@ -156,16 +210,30 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ellipse(%s)", wrapQuotes(config1)));
                 js.setLength(0);
             }
         }
-        return new AnnotationsEllipse(jsBase);
+        AnnotationsEllipse item = new AnnotationsEllipse("setEllipse" + variableIndex);
+        setEllipse.add(item);
+        return item;
+    }
+    private String generateJSsetEllipse() {
+        if (!setEllipse.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsEllipse item : setEllipse) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String config2;
+    private List<FibonacciArc> setFibonacciArc = new ArrayList<>();
 
     /**
      * Creates and returns a Fibonacci Arc annotation.
@@ -183,16 +251,30 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciArc(%s)", wrapQuotes(config2)));
                 js.setLength(0);
             }
         }
-        return new FibonacciArc(jsBase);
+        FibonacciArc item = new FibonacciArc("setFibonacciArc" + variableIndex);
+        setFibonacciArc.add(item);
+        return item;
+    }
+    private String generateJSsetFibonacciArc() {
+        if (!setFibonacciArc.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (FibonacciArc item : setFibonacciArc) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String config3;
+    private List<FibonacciFan> setFibonacciFan = new ArrayList<>();
 
     /**
      * Creates and returns a Fibonacci Fan annotation.
@@ -211,16 +293,30 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciFan(%s)", wrapQuotes(config3)));
                 js.setLength(0);
             }
         }
-        return new FibonacciFan(jsBase);
+        FibonacciFan item = new FibonacciFan("setFibonacciFan" + variableIndex);
+        setFibonacciFan.add(item);
+        return item;
+    }
+    private String generateJSsetFibonacciFan() {
+        if (!setFibonacciFan.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (FibonacciFan item : setFibonacciFan) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String config4;
+    private List<FibonacciRetracement> setFibonacciRetracement = new ArrayList<>();
 
     /**
      * Creates and returns a Fibonacci Retracement annotation.
@@ -240,16 +336,30 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciRetracement(%s)", wrapQuotes(config4)));
                 js.setLength(0);
             }
         }
-        return new FibonacciRetracement(jsBase);
+        FibonacciRetracement item = new FibonacciRetracement("setFibonacciRetracement" + variableIndex);
+        setFibonacciRetracement.add(item);
+        return item;
+    }
+    private String generateJSsetFibonacciRetracement() {
+        if (!setFibonacciRetracement.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (FibonacciRetracement item : setFibonacciRetracement) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String config5;
+    private List<FibonacciTimezones> setFibonacciTimezones = new ArrayList<>();
 
     /**
      * Creates and returns a Fibonacci Timezones annotation.
@@ -270,17 +380,31 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciTimezones(%s)", wrapQuotes(config5)));
                 js.setLength(0);
             }
         }
-        return new FibonacciTimezones(jsBase);
+        FibonacciTimezones item = new FibonacciTimezones("setFibonacciTimezones" + variableIndex);
+        setFibonacciTimezones.add(item);
+        return item;
+    }
+    private String generateJSsetFibonacciTimezones() {
+        if (!setFibonacciTimezones.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (FibonacciTimezones item : setFibonacciTimezones) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String config6;
     private String config7;
+    private List<PlotController> setFromJson = new ArrayList<>();
 
     /**
      * Creates annotations list by JSON config.
@@ -312,8 +436,19 @@ public class PlotController extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFromJson() {
+        if (!setFromJson.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PlotController item : setFromJson) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String config8;
+    private List<PlotController> setFromXml = new ArrayList<>();
 
     /**
      * Creates annotations list by XML config.
@@ -346,8 +481,19 @@ public class PlotController extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFromXml() {
+        if (!setFromXml.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PlotController item : setFromXml) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index;
+    private List<AnnotationsBase> setGetAnnotationAt = new ArrayList<>();
 
     /**
      * Returns annotation by index.
@@ -361,16 +507,30 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getAnnotationAt(%f)", index));
                 js.setLength(0);
             }
         }
-        return new AnnotationsBase(jsBase);
+        AnnotationsBase item = new AnnotationsBase("setGetAnnotationAt" + variableIndex);
+        setGetAnnotationAt.add(item);
+        return item;
+    }
+    private String generateJSsetGetAnnotationAt() {
+        if (!setGetAnnotationAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setGetAnnotationAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String config9;
+    private List<HorizontalLine> setHorizontalLine = new ArrayList<>();
 
     /**
      * Creates and returns a Horizontal Line annotation.
@@ -395,16 +555,30 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontalLine(%s)", wrapQuotes(config9)));
                 js.setLength(0);
             }
         }
-        return new HorizontalLine(jsBase);
+        HorizontalLine item = new HorizontalLine("setHorizontalLine" + variableIndex);
+        setHorizontalLine.add(item);
+        return item;
+    }
+    private String generateJSsetHorizontalLine() {
+        if (!setHorizontalLine.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HorizontalLine item : setHorizontalLine) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String config10;
+    private List<InfiniteLine> setInfiniteLine = new ArrayList<>();
 
     /**
      * Creates and returns an Infinite Line annotation.
@@ -430,16 +604,30 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".infiniteLine(%s)", wrapQuotes(config10)));
                 js.setLength(0);
             }
         }
-        return new InfiniteLine(jsBase);
+        InfiniteLine item = new InfiniteLine("setInfiniteLine" + variableIndex);
+        setInfiniteLine.add(item);
+        return item;
+    }
+    private String generateJSsetInfiniteLine() {
+        if (!setInfiniteLine.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (InfiniteLine item : setInfiniteLine) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String config11;
+    private List<AnnotationsLine> setLine = new ArrayList<>();
 
     /**
      * Creates and returns a Line annotation.
@@ -466,16 +654,30 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s)", wrapQuotes(config11)));
                 js.setLength(0);
             }
         }
-        return new AnnotationsLine(jsBase);
+        AnnotationsLine item = new AnnotationsLine("setLine" + variableIndex);
+        setLine.add(item);
+        return item;
+    }
+    private String generateJSsetLine() {
+        if (!setLine.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsLine item : setLine) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String config12;
+    private List<AnnotationsMarker> setMarker = new ArrayList<>();
 
     /**
      * Creates and returns a Marker annotation.
@@ -503,16 +705,30 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s)", wrapQuotes(config12)));
                 js.setLength(0);
             }
         }
-        return new AnnotationsMarker(jsBase);
+        AnnotationsMarker item = new AnnotationsMarker("setMarker" + variableIndex);
+        setMarker.add(item);
+        return item;
+    }
+    private String generateJSsetMarker() {
+        if (!setMarker.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsMarker item : setMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String config13;
+    private List<Ray> setRay = new ArrayList<>();
 
     /**
      * Creates and returns a Ray annotation.
@@ -541,16 +757,30 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ray(%s)", wrapQuotes(config13)));
                 js.setLength(0);
             }
         }
-        return new Ray(jsBase);
+        Ray item = new Ray("setRay" + variableIndex);
+        setRay.add(item);
+        return item;
+    }
+    private String generateJSsetRay() {
+        if (!setRay.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Ray item : setRay) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String config14;
+    private List<Rectangle> setRectangle = new ArrayList<>();
 
     /**
      * Creates and returns a Rectangle annotation.
@@ -580,16 +810,30 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rectangle(%s)", wrapQuotes(config14)));
                 js.setLength(0);
             }
         }
-        return new Rectangle(jsBase);
+        Rectangle item = new Rectangle("setRectangle" + variableIndex);
+        setRectangle.add(item);
+        return item;
+    }
+    private String generateJSsetRectangle() {
+        if (!setRectangle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Rectangle item : setRectangle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private AnnotationsBase annotation;
+    private List<PlotController> setRemoveAnnotation = new ArrayList<>();
 
     /**
      * Removes an annotation from a plot by its instance.
@@ -610,8 +854,19 @@ public class PlotController extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetRemoveAnnotation() {
+        if (!setRemoveAnnotation.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PlotController item : setRemoveAnnotation) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index1;
+    private List<PlotController> setRemoveAnnotationAt = new ArrayList<>();
 
     /**
      * Removes an annotation from a plot by its index.
@@ -637,8 +892,19 @@ public class PlotController extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetRemoveAnnotationAt() {
+        if (!setRemoveAnnotationAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PlotController item : setRemoveAnnotationAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private AnnotationsBase annotation1;
+    private List<PlotController> setSelect = new ArrayList<>();
 
     /**
      * Selects annotation.
@@ -662,10 +928,21 @@ public class PlotController extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetSelect() {
+        if (!setSelect.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PlotController item : setSelect) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private AnnotationTypes annotationTypeOrConfig3;
     private String annotationTypeOrConfig4;
     private AnnotationJSONFormat annotationTypeOrConfig5;
+    private List<AnnotationsBase> setStartDrawing = new ArrayList<>();
 
     /**
      * Starts annotation drawing.<br/>
@@ -687,15 +964,29 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig3 != null) ? annotationTypeOrConfig3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new AnnotationsBase(jsBase);
+        AnnotationsBase item = new AnnotationsBase("setStartDrawing" + variableIndex);
+        setStartDrawing.add(item);
+        return item;
+    }
+    private String generateJSsetStartDrawing() {
+        if (!setStartDrawing.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setStartDrawing) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<AnnotationsBase> setStartDrawing1 = new ArrayList<>();
 
     /**
      * Starts annotation drawing.<br/>
@@ -717,15 +1008,29 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", wrapQuotes(annotationTypeOrConfig4)));
                 js.setLength(0);
             }
         }
-        return new AnnotationsBase(jsBase);
+        AnnotationsBase item = new AnnotationsBase("setStartDrawing1" + variableIndex);
+        setStartDrawing1.add(item);
+        return item;
+    }
+    private String generateJSsetStartDrawing1() {
+        if (!setStartDrawing1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setStartDrawing1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<AnnotationsBase> setStartDrawing2 = new ArrayList<>();
 
     /**
      * Starts annotation drawing.<br/>
@@ -747,13 +1052,26 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig5 != null) ? annotationTypeOrConfig5.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new AnnotationsBase(jsBase);
+        AnnotationsBase item = new AnnotationsBase("setStartDrawing2" + variableIndex);
+        setStartDrawing2.add(item);
+        return item;
+    }
+    private String generateJSsetStartDrawing2() {
+        if (!setStartDrawing2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setStartDrawing2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Boolean stringify;
@@ -770,6 +1088,7 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toJson(%b)", stringify));
@@ -792,6 +1111,7 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toXml(%b)", asXmlNode));
@@ -801,6 +1121,7 @@ public class PlotController extends VisualBase {
     }
 
     private String config15;
+    private List<TrendChannel> setTrendChannel = new ArrayList<>();
 
     /**
      * Creates and returns a Trend Channel annotation.
@@ -831,16 +1152,30 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".trendChannel(%s)", wrapQuotes(config15)));
                 js.setLength(0);
             }
         }
-        return new TrendChannel(jsBase);
+        TrendChannel item = new TrendChannel("setTrendChannel" + variableIndex);
+        setTrendChannel.add(item);
+        return item;
+    }
+    private String generateJSsetTrendChannel() {
+        if (!setTrendChannel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TrendChannel item : setTrendChannel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String config16;
+    private List<Triangle> setTriangle = new ArrayList<>();
 
     /**
      * Creates and returns a Triangle annotation.
@@ -872,16 +1207,30 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".triangle(%s)", wrapQuotes(config16)));
                 js.setLength(0);
             }
         }
-        return new Triangle(jsBase);
+        Triangle item = new Triangle("setTriangle" + variableIndex);
+        setTriangle.add(item);
+        return item;
+    }
+    private String generateJSsetTriangle() {
+        if (!setTriangle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Triangle item : setTriangle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String config17;
+    private List<VerticalLine> setVerticalLine = new ArrayList<>();
 
     /**
      * Creates and returns a Vertical Line annotation.
@@ -914,13 +1263,26 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticalLine(%s)", wrapQuotes(config17)));
                 js.setLength(0);
             }
         }
-        return new VerticalLine(jsBase);
+        VerticalLine item = new VerticalLine("setVerticalLine" + variableIndex);
+        setVerticalLine.add(item);
+        return item;
+    }
+    private String generateJSsetVerticalLine() {
+        if (!setVerticalLine.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VerticalLine item : setVerticalLine) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
 
@@ -942,6 +1304,35 @@ public class PlotController extends VisualBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAdd());
+        js.append(generateJSsetAdd1());
+        js.append(generateJSsetAdd2());
+        js.append(generateJSsetAndrewsPitchfork());
+        js.append(generateJSsetEllipse());
+        js.append(generateJSsetFibonacciArc());
+        js.append(generateJSsetFibonacciFan());
+        js.append(generateJSsetFibonacciRetracement());
+        js.append(generateJSsetFibonacciTimezones());
+        js.append(generateJSsetFromJson());
+        js.append(generateJSsetFromXml());
+        js.append(generateJSsetGetAnnotationAt());
+        js.append(generateJSsetHorizontalLine());
+        js.append(generateJSsetInfiniteLine());
+        js.append(generateJSsetLine());
+        js.append(generateJSsetMarker());
+        js.append(generateJSsetRay());
+        js.append(generateJSsetRectangle());
+        js.append(generateJSsetRemoveAnnotation());
+        js.append(generateJSsetRemoveAnnotationAt());
+        js.append(generateJSsetSelect());
+        js.append(generateJSsetStartDrawing());
+        js.append(generateJSsetStartDrawing1());
+        js.append(generateJSsetStartDrawing2());
+        js.append(generateJSsetTrendChannel());
+        js.append(generateJSsetTriangle());
+        js.append(generateJSsetVerticalLine());
+        
 
         String result = js.toString();
         js.setLength(0);

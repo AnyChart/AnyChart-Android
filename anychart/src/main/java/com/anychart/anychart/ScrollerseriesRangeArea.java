@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
 
     
     private Fill fill;
+    private List<ScrollerseriesRangeArea> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an object or a string.
@@ -60,9 +58,20 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<ScrollerseriesRangeArea> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -87,6 +96,16 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -95,6 +114,7 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<ScrollerseriesRangeArea> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -134,7 +154,18 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesRangeArea> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -174,7 +205,18 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesRangeArea> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -214,7 +256,18 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesRangeArea> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -254,7 +307,18 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesRangeArea> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -294,7 +358,18 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesRangeArea> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -334,6 +409,16 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -343,6 +428,7 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<ScrollerseriesRangeArea> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -392,7 +478,18 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesRangeArea> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -442,6 +539,16 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private PatternFill getHatchFill;
@@ -463,6 +570,7 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
     private String color1;
     private Double thickness;
     private Double size;
+    private List<ScrollerseriesRangeArea> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -500,7 +608,18 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill() {
+        if (!setHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesRangeArea> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -538,7 +657,18 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill1() {
+        if (!setHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesRangeArea> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -576,7 +706,18 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill2() {
+        if (!setHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesRangeArea> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -614,6 +755,16 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetHatchFill3() {
+        if (!setHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color2;
     private ColoredFill color3;
@@ -622,6 +773,7 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<ScrollerseriesRangeArea> setHighStroke = new ArrayList<>();
 
     /**
      * Setter for series high stroke settings.
@@ -662,7 +814,18 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetHighStroke() {
+        if (!setHighStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setHighStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesRangeArea> setHighStroke1 = new ArrayList<>();
 
     /**
      * Setter for series high stroke settings.
@@ -703,7 +866,18 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetHighStroke1() {
+        if (!setHighStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setHighStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesRangeArea> setHighStroke2 = new ArrayList<>();
 
     /**
      * Setter for series high stroke settings.
@@ -744,6 +918,16 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetHighStroke2() {
+        if (!setHighStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setHighStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color5;
     private ColoredFill color6;
@@ -752,6 +936,7 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
+    private List<ScrollerseriesRangeArea> setLowStroke = new ArrayList<>();
 
     /**
      * Setter for the low stroke settings.
@@ -805,7 +990,18 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetLowStroke() {
+        if (!setLowStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setLowStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesRangeArea> setLowStroke1 = new ArrayList<>();
 
     /**
      * Setter for the low stroke settings.
@@ -859,7 +1055,18 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetLowStroke1() {
+        if (!setLowStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setLowStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScrollerseriesRangeArea> setLowStroke2 = new ArrayList<>();
 
     /**
      * Setter for the low stroke settings.
@@ -913,6 +1120,16 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
         return this;
     }
+    private String generateJSsetLowStroke2() {
+        if (!setLowStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScrollerseriesRangeArea item : setLowStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
@@ -941,6 +1158,28 @@ public class ScrollerseriesRangeArea extends ScrollerseriesBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetFill2());
+        js.append(generateJSsetFill3());
+        js.append(generateJSsetFill4());
+        js.append(generateJSsetFill5());
+        js.append(generateJSsetFill6());
+        js.append(generateJSsetFill7());
+        js.append(generateJSsetFill8());
+        js.append(generateJSsetFill9());
+        js.append(generateJSsetHatchFill());
+        js.append(generateJSsetHatchFill1());
+        js.append(generateJSsetHatchFill2());
+        js.append(generateJSsetHatchFill3());
+        js.append(generateJSsetHighStroke());
+        js.append(generateJSsetHighStroke1());
+        js.append(generateJSsetHighStroke2());
+        js.append(generateJSsetLowStroke());
+        js.append(generateJSsetLowStroke1());
+        js.append(generateJSsetLowStroke2());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -48,6 +45,7 @@ public class DateTimeWithCalendar extends ScatterBase {
     }
 
     private Double count;
+    private List<DateTimeWithCalendar> setCount = new ArrayList<>();
 
     /**
      * Setter for the unit count.
@@ -70,6 +68,16 @@ public class DateTimeWithCalendar extends ScatterBase {
         }
         return this;
     }
+    private String generateJSsetCount() {
+        if (!setCount.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTimeWithCalendar item : setCount) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double date;
 
@@ -85,6 +93,7 @@ public class DateTimeWithCalendar extends ScatterBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dateToPix(%f)", date));
@@ -124,6 +133,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f)", ((unit != null) ? unit.generateJs() : "null"), fromPix, toPix, count1));
@@ -158,6 +168,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f)", wrapQuotes(unit1), fromPix, toPix, count1));
@@ -167,6 +178,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
     }
 
     private Double maximumGap;
+    private List<DateTime> setMaximumGap = new ArrayList<>();
 
     /**
      * Setter for the scale maximum gap.
@@ -180,16 +192,30 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumGap(%f)", maximumGap));
                 js.setLength(0);
             }
         }
-        return new DateTime(jsBase);
+        DateTime item = new DateTime("setMaximumGap" + variableIndex);
+        setMaximumGap.add(item);
+        return item;
+    }
+    private String generateJSsetMaximumGap() {
+        if (!setMaximumGap.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTime item : setMaximumGap) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double minimumGap;
+    private List<DateTime> setMinimumGap = new ArrayList<>();
 
     /**
      * Setter for the scale minimum gap.
@@ -203,13 +229,26 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumGap(%f)", minimumGap));
                 js.setLength(0);
             }
         }
-        return new DateTime(jsBase);
+        DateTime item = new DateTime("setMinimumGap" + variableIndex);
+        setMinimumGap.add(item);
+        return item;
+    }
+    private String generateJSsetMinimumGap() {
+        if (!setMinimumGap.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTime item : setMinimumGap) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double pix;
@@ -226,6 +265,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".pixToDate(%f)", pix));
@@ -235,6 +275,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
     }
 
     private Boolean skipHolidays;
+    private List<DateTimeWithCalendar> setSkipHolidays = new ArrayList<>();
 
     /**
      * Setter for skipping holidays.
@@ -257,8 +298,19 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
         }
         return this;
     }
+    private String generateJSsetSkipHolidays() {
+        if (!setSkipHolidays.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTimeWithCalendar item : setSkipHolidays) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double softMaximum;
+    private List<DateTime> setSoftMaximum = new ArrayList<>();
 
     /**
      * Setter for the soft maximum.
@@ -272,16 +324,30 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMaximum(%f)", softMaximum));
                 js.setLength(0);
             }
         }
-        return new DateTime(jsBase);
+        DateTime item = new DateTime("setSoftMaximum" + variableIndex);
+        setSoftMaximum.add(item);
+        return item;
+    }
+    private String generateJSsetSoftMaximum() {
+        if (!setSoftMaximum.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTime item : setSoftMaximum) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double softMinimum;
+    private List<DateTime> setSoftMinimum = new ArrayList<>();
 
     /**
      * Setter for the soft minimum.
@@ -295,17 +361,31 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMinimum(%f)", softMinimum));
                 js.setLength(0);
             }
         }
-        return new DateTime(jsBase);
+        DateTime item = new DateTime("setSoftMinimum" + variableIndex);
+        setSoftMinimum.add(item);
+        return item;
+    }
+    private String generateJSsetSoftMinimum() {
+        if (!setSoftMinimum.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTime item : setSoftMinimum) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Interval unit2;
     private String unit3;
+    private List<DateTimeWithCalendar> setUnit = new ArrayList<>();
 
     /**
      * Setter for the unit interval.
@@ -333,7 +413,18 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
         }
         return this;
     }
+    private String generateJSsetUnit() {
+        if (!setUnit.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTimeWithCalendar item : setUnit) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<DateTimeWithCalendar> setUnit1 = new ArrayList<>();
 
     /**
      * Setter for the unit interval.
@@ -361,9 +452,20 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
         }
         return this;
     }
+    private String generateJSsetUnit1() {
+        if (!setUnit1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTimeWithCalendar item : setUnit1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double unitPixSize;
     private String unitPixSize1;
+    private List<DateTimeWithCalendar> setUnitPixSize = new ArrayList<>();
 
     /**
      * Setter for unit size.
@@ -389,7 +491,18 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
         }
         return this;
     }
+    private String generateJSsetUnitPixSize() {
+        if (!setUnitPixSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTimeWithCalendar item : setUnitPixSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<DateTimeWithCalendar> setUnitPixSize1 = new ArrayList<>();
 
     /**
      * Setter for unit size.
@@ -414,6 +527,16 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
             }
         }
         return this;
+    }
+    private String generateJSsetUnitPixSize1() {
+        if (!setUnitPixSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DateTimeWithCalendar item : setUnitPixSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetCalendar() {
@@ -443,6 +566,18 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetCount());
+        js.append(generateJSsetMaximumGap());
+        js.append(generateJSsetMinimumGap());
+        js.append(generateJSsetSkipHolidays());
+        js.append(generateJSsetSoftMaximum());
+        js.append(generateJSsetSoftMinimum());
+        js.append(generateJSsetUnit());
+        js.append(generateJSsetUnit1());
+        js.append(generateJSsetUnitPixSize());
+        js.append(generateJSsetUnitPixSize1());
+        
 
         String result = js.toString();
         js.setLength(0);

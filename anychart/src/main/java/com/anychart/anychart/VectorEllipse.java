@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -43,6 +40,7 @@ public class VectorEllipse extends Shape {
 
     
     private Coordinate center;
+    private List<VectorEllipse> setCenter = new ArrayList<>();
 
     /**
      * Sets center coordinates.
@@ -65,8 +63,19 @@ public class VectorEllipse extends Shape {
         }
         return this;
     }
+    private String generateJSsetCenter() {
+        if (!setCenter.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorEllipse item : setCenter) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double centerX;
+    private List<VectorEllipse> setCenterX = new ArrayList<>();
 
     /**
      * Sets a center X.
@@ -89,8 +98,19 @@ public class VectorEllipse extends Shape {
         }
         return this;
     }
+    private String generateJSsetCenterX() {
+        if (!setCenterX.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorEllipse item : setCenterX) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double centerY;
+    private List<VectorEllipse> setCenterY = new ArrayList<>();
 
     /**
      * Sets a center Y.
@@ -113,8 +133,19 @@ public class VectorEllipse extends Shape {
         }
         return this;
     }
+    private String generateJSsetCenterY() {
+        if (!setCenterY.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorEllipse item : setCenterY) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double radiusX;
+    private List<VectorEllipse> setRadiusX = new ArrayList<>();
 
     /**
      * Sets a X radius.
@@ -137,8 +168,19 @@ public class VectorEllipse extends Shape {
         }
         return this;
     }
+    private String generateJSsetRadiusX() {
+        if (!setRadiusX.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorEllipse item : setRadiusX) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double radiusY;
+    private List<VectorEllipse> setRadiusY = new ArrayList<>();
 
     /**
      * Sets a Y radius.
@@ -161,9 +203,20 @@ public class VectorEllipse extends Shape {
         }
         return this;
     }
+    private String generateJSsetRadiusY() {
+        if (!setRadiusY.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorEllipse item : setRadiusY) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double rx;
     private Double ry;
+    private List<VectorEllipse> setSetRadius = new ArrayList<>();
 
     /**
      * Sets radius.
@@ -188,6 +241,16 @@ public class VectorEllipse extends Shape {
         }
         return this;
     }
+    private String generateJSsetSetRadius() {
+        if (!setSetRadius.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (VectorEllipse item : setSetRadius) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -208,6 +271,14 @@ public class VectorEllipse extends Shape {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetCenter());
+        js.append(generateJSsetCenterX());
+        js.append(generateJSsetCenterY());
+        js.append(generateJSsetRadiusX());
+        js.append(generateJSsetRadiusY());
+        js.append(generateJSsetSetRadius());
+        
 
         String result = js.toString();
         js.setLength(0);

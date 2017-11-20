@@ -1,11 +1,9 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 /**
@@ -54,6 +52,7 @@ public class Row extends TableBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<TableBase> setCellBorder = new ArrayList<>();
 
     /**
      * Setter for cell border settings.
@@ -80,15 +79,29 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellBorder" + variableIndex);
+        setCellBorder.add(item);
+        return item;
+    }
+    private String generateJSsetCellBorder() {
+        if (!setCellBorder.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellBorder) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TableBase> setCellBorder1 = new ArrayList<>();
 
     /**
      * Setter for cell border settings.
@@ -115,15 +128,29 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellBorder1" + variableIndex);
+        setCellBorder1.add(item);
+        return item;
+    }
+    private String generateJSsetCellBorder1() {
+        if (!setCellBorder1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellBorder1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TableBase> setCellBorder2 = new ArrayList<>();
 
     /**
      * Setter for cell border settings.
@@ -150,16 +177,30 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellBorder2" + variableIndex);
+        setCellBorder2.add(item);
+        return item;
+    }
+    private String generateJSsetCellBorder2() {
+        if (!setCellBorder2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellBorder2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill cellFill;
+    private List<TableBase> setCellFill = new ArrayList<>();
 
     /**
      * Sets fill settings using an object or a string.
@@ -174,17 +215,31 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s)", ((cellFill != null) ? cellFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellFill" + variableIndex);
+        setCellFill.add(item);
+        return item;
+    }
+    private String generateJSsetCellFill() {
+        if (!setCellFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String color3;
     private Double opacity;
+    private List<TableBase> setCellFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -205,13 +260,26 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f)", wrapQuotes(color3), opacity));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellFill1" + variableIndex);
+        setCellFill1.add(item);
+        return item;
+    }
+    private String generateJSsetCellFill1() {
+        if (!setCellFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys;
@@ -221,6 +289,7 @@ public class Row extends TableBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<TableBase> setCellFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -251,15 +320,29 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellFill2" + variableIndex);
+        setCellFill2.add(item);
+        return item;
+    }
+    private String generateJSsetCellFill2() {
+        if (!setCellFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TableBase> setCellFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -290,15 +373,29 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellFill3" + variableIndex);
+        setCellFill3.add(item);
+        return item;
+    }
+    private String generateJSsetCellFill3() {
+        if (!setCellFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TableBase> setCellFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -329,15 +426,29 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellFill4" + variableIndex);
+        setCellFill4.add(item);
+        return item;
+    }
+    private String generateJSsetCellFill4() {
+        if (!setCellFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TableBase> setCellFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -368,15 +479,29 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellFill5" + variableIndex);
+        setCellFill5.add(item);
+        return item;
+    }
+    private String generateJSsetCellFill5() {
+        if (!setCellFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TableBase> setCellFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -407,15 +532,29 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellFill6" + variableIndex);
+        setCellFill6.add(item);
+        return item;
+    }
+    private String generateJSsetCellFill6() {
+        if (!setCellFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TableBase> setCellFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -446,13 +585,26 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellFill7" + variableIndex);
+        setCellFill7.add(item);
+        return item;
+    }
+    private String generateJSsetCellFill7() {
+        if (!setCellFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys2;
@@ -463,6 +615,7 @@ public class Row extends TableBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<TableBase> setCellFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -503,15 +656,29 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellFill8" + variableIndex);
+        setCellFill8.add(item);
+        return item;
+    }
+    private String generateJSsetCellFill8() {
+        if (!setCellFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TableBase> setCellFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -552,13 +719,26 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellFill9" + variableIndex);
+        setCellFill9.add(item);
+        return item;
+    }
+    private String generateJSsetCellFill9() {
+        if (!setCellFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill imageSettings;
@@ -577,6 +757,7 @@ public class Row extends TableBase {
     private Double[] cellPadding;
     private String[] cellPadding1;
     private String cellPadding2;
+    private List<TableBase> setCellPadding = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using a single value.
@@ -594,15 +775,29 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s)", Arrays.toString(cellPadding)));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellPadding" + variableIndex);
+        setCellPadding.add(item);
+        return item;
+    }
+    private String generateJSsetCellPadding() {
+        if (!setCellPadding.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellPadding) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TableBase> setCellPadding1 = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using a single value.
@@ -620,15 +815,29 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s)", arrayToStringWrapQuotes(cellPadding1)));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellPadding1" + variableIndex);
+        setCellPadding1.add(item);
+        return item;
+    }
+    private String generateJSsetCellPadding1() {
+        if (!setCellPadding1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellPadding1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TableBase> setCellPadding2 = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using a single value.
@@ -646,13 +855,26 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s)", wrapQuotes(cellPadding2)));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellPadding2" + variableIndex);
+        setCellPadding2.add(item);
+        return item;
+    }
+    private String generateJSsetCellPadding2() {
+        if (!setCellPadding2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellPadding2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String value;
@@ -663,6 +885,7 @@ public class Row extends TableBase {
     private Double value5;
     private String value6;
     private Double value7;
+    private List<TableBase> setCellPadding3 = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using several numbers.
@@ -718,15 +941,29 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellPadding3" + variableIndex);
+        setCellPadding3.add(item);
+        return item;
+    }
+    private String generateJSsetCellPadding3() {
+        if (!setCellPadding3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellPadding3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TableBase> setCellPadding4 = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using several numbers.
@@ -782,16 +1019,30 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %f, %f)", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
-        return new TableBase(jsBase);
+        TableBase item = new TableBase("setCellPadding4" + variableIndex);
+        setCellPadding4.add(item);
+        return item;
+    }
+    private String generateJSsetCellPadding4() {
+        if (!setCellPadding4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableBase item : setCellPadding4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double col;
+    private List<Cell> setGetCell = new ArrayList<>();
 
     /**
      * Returns cell of current row by column index.
@@ -805,17 +1056,31 @@ public class Row extends TableBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getCell(%f)", col));
                 js.setLength(0);
             }
         }
-        return new Cell(jsBase);
+        Cell item = new Cell("setGetCell" + variableIndex);
+        setGetCell.add(item);
+        return item;
+    }
+    private String generateJSsetGetCell() {
+        if (!setGetCell.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Cell item : setGetCell) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String height;
     private Double height1;
+    private List<Row> setHeight = new ArrayList<>();
 
     /**
      * Setter for row height settings.
@@ -841,7 +1106,18 @@ public class Row extends TableBase {
         }
         return this;
     }
+    private String generateJSsetHeight() {
+        if (!setHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Row item : setHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Row> setHeight1 = new ArrayList<>();
 
     /**
      * Setter for row height settings.
@@ -866,6 +1142,16 @@ public class Row extends TableBase {
             }
         }
         return this;
+    }
+    private String generateJSsetHeight1() {
+        if (!setHeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Row item : setHeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private List<Row> getMaxHeight = new ArrayList<>();
@@ -892,6 +1178,7 @@ public class Row extends TableBase {
 
     private String minHeight;
     private Double minHeight1;
+    private List<Row> setMinHeight = new ArrayList<>();
 
     /**
      * Setter for row minimum height settings.
@@ -917,7 +1204,18 @@ public class Row extends TableBase {
         }
         return this;
     }
+    private String generateJSsetMinHeight() {
+        if (!setMinHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Row item : setMinHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Row> setMinHeight1 = new ArrayList<>();
 
     /**
      * Setter for row minimum height settings.
@@ -942,6 +1240,16 @@ public class Row extends TableBase {
             }
         }
         return this;
+    }
+    private String generateJSsetMinHeight1() {
+        if (!setMinHeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Row item : setMinHeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetCellBorder() {
@@ -1005,6 +1313,31 @@ public class Row extends TableBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetCellBorder());
+        js.append(generateJSsetCellBorder1());
+        js.append(generateJSsetCellBorder2());
+        js.append(generateJSsetCellFill());
+        js.append(generateJSsetCellFill1());
+        js.append(generateJSsetCellFill2());
+        js.append(generateJSsetCellFill3());
+        js.append(generateJSsetCellFill4());
+        js.append(generateJSsetCellFill5());
+        js.append(generateJSsetCellFill6());
+        js.append(generateJSsetCellFill7());
+        js.append(generateJSsetCellFill8());
+        js.append(generateJSsetCellFill9());
+        js.append(generateJSsetCellPadding());
+        js.append(generateJSsetCellPadding1());
+        js.append(generateJSsetCellPadding2());
+        js.append(generateJSsetCellPadding3());
+        js.append(generateJSsetCellPadding4());
+        js.append(generateJSsetGetCell());
+        js.append(generateJSsetHeight());
+        js.append(generateJSsetHeight1());
+        js.append(generateJSsetMinHeight());
+        js.append(generateJSsetMinHeight1());
+        
 
         String result = js.toString();
         js.setLength(0);

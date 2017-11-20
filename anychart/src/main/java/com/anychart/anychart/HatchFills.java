@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -52,6 +49,7 @@ public class HatchFills extends CoreBase {
     private String color;
     private Double thickness;
     private Double size;
+    private List<HatchFills> setItemAt = new ArrayList<>();
 
     /**
      * Setter for type palette HatchFills from list by index.
@@ -85,7 +83,18 @@ public class HatchFills extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItemAt() {
+        if (!setItemAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setItemAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<HatchFills> setItemAt1 = new ArrayList<>();
 
     /**
      * Setter for type palette HatchFills from list by index.
@@ -119,9 +128,20 @@ public class HatchFills extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItemAt1() {
+        if (!setItemAt1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setItemAt1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index1;
     private PatternFill patternFill;
+    private List<HatchFills> setItemAt2 = new ArrayList<>();
 
     /**
      * Setter for type palette HatchFills from list by index using patternFill.
@@ -149,9 +169,20 @@ public class HatchFills extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItemAt2() {
+        if (!setItemAt2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setItemAt2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index2;
     private HatchFill instance;
+    private List<HatchFills> setItemAt3 = new ArrayList<>();
 
     /**
      * Setter for type palette HatchFills from list by index using instance.
@@ -180,9 +211,20 @@ public class HatchFills extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItemAt3() {
+        if (!setItemAt3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setItemAt3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index3;
     private Boolean state;
+    private List<HatchFills> setItemAt4 = new ArrayList<>();
 
     /**
      * Enables/disables type palette HatchFills from list by index.
@@ -212,6 +254,16 @@ public class HatchFills extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItemAt4() {
+        if (!setItemAt4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setItemAt4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private HatchFill[] items;
     private HatchFillType[] items1;
@@ -219,6 +271,7 @@ public class HatchFills extends CoreBase {
     private HatchFill var_args;
     private HatchFillType var_args1;
     private PatternFill var_args2;
+    private List<HatchFills> setItems = new ArrayList<>();
 
     /**
      * Setter for HatchFills list of palette.
@@ -251,7 +304,18 @@ public class HatchFills extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems() {
+        if (!setItems.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setItems) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<HatchFills> setItems1 = new ArrayList<>();
 
     /**
      * Setter for HatchFills list of palette.
@@ -284,7 +348,18 @@ public class HatchFills extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems1() {
+        if (!setItems1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setItems1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<HatchFills> setItems2 = new ArrayList<>();
 
     /**
      * Setter for HatchFills list of palette.
@@ -317,7 +392,18 @@ public class HatchFills extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems2() {
+        if (!setItems2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setItems2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<HatchFills> setItems3 = new ArrayList<>();
 
     /**
      * Setter for HatchFills list of palette.
@@ -350,7 +436,18 @@ public class HatchFills extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems3() {
+        if (!setItems3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setItems3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<HatchFills> setItems4 = new ArrayList<>();
 
     /**
      * Setter for HatchFills list of palette.
@@ -383,7 +480,18 @@ public class HatchFills extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems4() {
+        if (!setItems4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setItems4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<HatchFills> setItems5 = new ArrayList<>();
 
     /**
      * Setter for HatchFills list of palette.
@@ -416,7 +524,18 @@ public class HatchFills extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems5() {
+        if (!setItems5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setItems5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<HatchFills> setItems6 = new ArrayList<>();
 
     /**
      * Setter for HatchFills list of palette.
@@ -449,7 +568,18 @@ public class HatchFills extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems6() {
+        if (!setItems6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setItems6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<HatchFills> setItems7 = new ArrayList<>();
 
     /**
      * Setter for HatchFills list of palette.
@@ -482,7 +612,18 @@ public class HatchFills extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems7() {
+        if (!setItems7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setItems7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<HatchFills> setItems8 = new ArrayList<>();
 
     /**
      * Setter for HatchFills list of palette.
@@ -514,6 +655,16 @@ public class HatchFills extends CoreBase {
             }
         }
         return this;
+    }
+    private String generateJSsetItems8() {
+        if (!setItems8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (HatchFills item : setItems8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetItemAt() {
@@ -548,6 +699,22 @@ public class HatchFills extends CoreBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetItemAt());
+        js.append(generateJSsetItemAt1());
+        js.append(generateJSsetItemAt2());
+        js.append(generateJSsetItemAt3());
+        js.append(generateJSsetItemAt4());
+        js.append(generateJSsetItems());
+        js.append(generateJSsetItems1());
+        js.append(generateJSsetItems2());
+        js.append(generateJSsetItems3());
+        js.append(generateJSsetItems4());
+        js.append(generateJSsetItems5());
+        js.append(generateJSsetItems6());
+        js.append(generateJSsetItems7());
+        js.append(generateJSsetItems8());
+        
 
         String result = js.toString();
         js.setLength(0);

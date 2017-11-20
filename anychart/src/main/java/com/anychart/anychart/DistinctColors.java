@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class DistinctColors extends CoreBase {
     
     private Double index;
     private Fill color;
+    private List<DistinctColors> setItemAt = new ArrayList<>();
 
     /**
      * Setter for color palette colors from list by index.
@@ -61,10 +59,21 @@ public class DistinctColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItemAt() {
+        if (!setItemAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DistinctColors item : setItemAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill[] items;
     private Fill items1;
     private Fill var_args;
+    private List<DistinctColors> setItems = new ArrayList<>();
 
     /**
      * Setter for color palette colors list.
@@ -92,7 +101,18 @@ public class DistinctColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems() {
+        if (!setItems.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DistinctColors item : setItems) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<DistinctColors> setItems1 = new ArrayList<>();
 
     /**
      * Setter for color palette colors list.
@@ -120,6 +140,16 @@ public class DistinctColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems1() {
+        if (!setItems1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (DistinctColors item : setItems1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -140,6 +170,11 @@ public class DistinctColors extends CoreBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetItemAt());
+        js.append(generateJSsetItems());
+        js.append(generateJSsetItems1());
+        
 
         String result = js.toString();
         js.setLength(0);

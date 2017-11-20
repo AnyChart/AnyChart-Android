@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class SeriesA11y extends A11y {
 
     
     private Boolean enabled;
+    private List<SeriesA11y> setEnabled = new ArrayList<>();
 
     /**
      * Setter for the accessibility enabled state.
@@ -58,8 +56,19 @@ public class SeriesA11y extends A11y {
         }
         return this;
     }
+    private String generateJSsetEnabled() {
+        if (!setEnabled.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesA11y item : setEnabled) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String titleFormat;
+    private List<SeriesA11y> setTitleFormat = new ArrayList<>();
 
     /**
      * Setter for the function to format title.<br/>
@@ -83,6 +92,16 @@ public class SeriesA11y extends A11y {
         }
         return this;
     }
+    private String generateJSsetTitleFormat() {
+        if (!setTitleFormat.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesA11y item : setTitleFormat) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -103,6 +122,10 @@ public class SeriesA11y extends A11y {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetEnabled());
+        js.append(generateJSsetTitleFormat());
+        
 
         String result = js.toString();
         js.setLength(0);

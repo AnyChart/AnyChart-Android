@@ -140,6 +140,20 @@ public class ChartsRadar extends SeparateChart {
         }
     }
 
+
+    /**
+     * 
+     */
+    public void addSeries(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+    }
+
     private List<RadarSeriesArea> setArea = new ArrayList<>();
 
     /**
@@ -170,6 +184,34 @@ public class ChartsRadar extends SeparateChart {
         if (!setArea.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (RadarSeriesArea item : setArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<RadarSeriesArea> setArea1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public RadarSeriesArea area(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setArea1" + ++variableIndex + " = " + jsBase + ".area(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        RadarSeriesArea item = new RadarSeriesArea("setArea1" + variableIndex);
+        setArea1.add(item);
+        return item;
+    }
+    private String generateJSsetArea1() {
+        if (!setArea1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesArea item : setArea1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -594,6 +636,34 @@ public class ChartsRadar extends SeparateChart {
         return "";
     }
 
+    private List<RadarSeriesLine> setLine1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public RadarSeriesLine line(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        RadarSeriesLine item = new RadarSeriesLine("setLine1" + variableIndex);
+        setLine1.add(item);
+        return item;
+    }
+    private String generateJSsetLine1() {
+        if (!setLine1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesLine item : setLine1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<RadarSeriesMarker> setMarker = new ArrayList<>();
 
     /**
@@ -624,6 +694,34 @@ public class ChartsRadar extends SeparateChart {
         if (!setMarker.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (RadarSeriesMarker item : setMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<RadarSeriesMarker> setMarker1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public RadarSeriesMarker marker(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        RadarSeriesMarker item = new RadarSeriesMarker("setMarker1" + variableIndex);
+        setMarker1.add(item);
+        return item;
+    }
+    private String generateJSsetMarker1() {
+        if (!setMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RadarSeriesMarker item : setMarker1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -2219,6 +2317,7 @@ public class ChartsRadar extends SeparateChart {
         js.append(generateJSgetYMinorGrid1());
         js.append(generateJSgetYScale());
         js.append(generateJSsetArea());
+        js.append(generateJSsetArea1());
         js.append(generateJSsetDefaultSeriesType());
         js.append(generateJSsetDefaultSeriesType1());
         js.append(generateJSsetHatchFillPalette());
@@ -2230,7 +2329,9 @@ public class ChartsRadar extends SeparateChart {
         js.append(generateJSsetLabels());
         js.append(generateJSsetLabels1());
         js.append(generateJSsetLine());
+        js.append(generateJSsetLine1());
         js.append(generateJSsetMarker());
+        js.append(generateJSsetMarker1());
         js.append(generateJSsetMarkerPalette());
         js.append(generateJSsetMarkerPalette1());
         js.append(generateJSsetMarkerPalette2());

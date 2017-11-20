@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -49,6 +44,7 @@ public class StockScatterDateTime extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f)", ratio));
@@ -75,6 +71,7 @@ public class StockScatterDateTime extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%f)", transform));
@@ -99,6 +96,7 @@ public class StockScatterDateTime extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%s)", wrapQuotes(transform1)));
@@ -126,6 +124,8 @@ public class StockScatterDateTime extends CoreBase {
         }
 
         js.append(generateJsGetters());
+
+        
 
         String result = js.toString();
         js.setLength(0);

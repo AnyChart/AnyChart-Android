@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class ChartController extends CoreBase {
 
     
     private AnnotationsBase annotation;
+    private List<ChartController> setRemoveAnnotation = new ArrayList<>();
 
     /**
      * Removes one of annotations from plot by its instance.
@@ -56,8 +54,19 @@ public class ChartController extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetRemoveAnnotation() {
+        if (!setRemoveAnnotation.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartController item : setRemoveAnnotation) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private AnnotationsBase annotation1;
+    private List<ChartController> setSelect = new ArrayList<>();
 
     /**
      * Selects annotation.
@@ -81,10 +90,21 @@ public class ChartController extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetSelect() {
+        if (!setSelect.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ChartController item : setSelect) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private AnnotationTypes annotationTypeOrConfig;
     private String annotationTypeOrConfig1;
     private AnnotationJSONFormat annotationTypeOrConfig2;
+    private List<AnnotationsBase> setStartDrawing = new ArrayList<>();
 
     /**
      * Starts annotation drawing.<br/>
@@ -103,15 +123,29 @@ public class ChartController extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new AnnotationsBase(jsBase);
+        AnnotationsBase item = new AnnotationsBase("setStartDrawing" + variableIndex);
+        setStartDrawing.add(item);
+        return item;
+    }
+    private String generateJSsetStartDrawing() {
+        if (!setStartDrawing.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setStartDrawing) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<AnnotationsBase> setStartDrawing1 = new ArrayList<>();
 
     /**
      * Starts annotation drawing.<br/>
@@ -130,15 +164,29 @@ public class ChartController extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", wrapQuotes(annotationTypeOrConfig1)));
                 js.setLength(0);
             }
         }
-        return new AnnotationsBase(jsBase);
+        AnnotationsBase item = new AnnotationsBase("setStartDrawing1" + variableIndex);
+        setStartDrawing1.add(item);
+        return item;
+    }
+    private String generateJSsetStartDrawing1() {
+        if (!setStartDrawing1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setStartDrawing1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<AnnotationsBase> setStartDrawing2 = new ArrayList<>();
 
     /**
      * Starts annotation drawing.<br/>
@@ -157,13 +205,26 @@ public class ChartController extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new AnnotationsBase(jsBase);
+        AnnotationsBase item = new AnnotationsBase("setStartDrawing2" + variableIndex);
+        setStartDrawing2.add(item);
+        return item;
+    }
+    private String generateJSsetStartDrawing2() {
+        if (!setStartDrawing2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setStartDrawing2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
 
@@ -185,6 +246,13 @@ public class ChartController extends CoreBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetRemoveAnnotation());
+        js.append(generateJSsetSelect());
+        js.append(generateJSsetStartDrawing());
+        js.append(generateJSsetStartDrawing1());
+        js.append(generateJSsetStartDrawing2());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -38,6 +35,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
 
     
     private Fill fallingFill;
+    private List<CartesianSeriesBase> setFallingFill = new ArrayList<>();
 
     /**
      * Setter for falling fill settings using an array or a string.
@@ -52,17 +50,31 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s)", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setFallingFill" + variableIndex);
+        setFallingFill.add(item);
+        return item;
+    }
+    private String generateJSsetFallingFill() {
+        if (!setFallingFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setFallingFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String color;
     private Double opacity;
+    private List<CartesianSeriesBase> setFallingFill1 = new ArrayList<>();
 
     /**
      * Falling fill color with opacity.
@@ -78,13 +90,26 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f)", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setFallingFill1" + variableIndex);
+        setFallingFill1.add(item);
+        return item;
+    }
+    private String generateJSsetFallingFill1() {
+        if (!setFallingFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setFallingFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys;
@@ -94,6 +119,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<CartesianSeriesBase> setFallingFill2 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -124,15 +150,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setFallingFill2" + variableIndex);
+        setFallingFill2.add(item);
+        return item;
+    }
+    private String generateJSsetFallingFill2() {
+        if (!setFallingFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setFallingFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setFallingFill3 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -163,15 +203,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setFallingFill3" + variableIndex);
+        setFallingFill3.add(item);
+        return item;
+    }
+    private String generateJSsetFallingFill3() {
+        if (!setFallingFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setFallingFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setFallingFill4 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -202,15 +256,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setFallingFill4" + variableIndex);
+        setFallingFill4.add(item);
+        return item;
+    }
+    private String generateJSsetFallingFill4() {
+        if (!setFallingFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setFallingFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setFallingFill5 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -241,15 +309,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setFallingFill5" + variableIndex);
+        setFallingFill5.add(item);
+        return item;
+    }
+    private String generateJSsetFallingFill5() {
+        if (!setFallingFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setFallingFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setFallingFill6 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -280,15 +362,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setFallingFill6" + variableIndex);
+        setFallingFill6.add(item);
+        return item;
+    }
+    private String generateJSsetFallingFill6() {
+        if (!setFallingFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setFallingFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setFallingFill7 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -319,13 +415,26 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setFallingFill7" + variableIndex);
+        setFallingFill7.add(item);
+        return item;
+    }
+    private String generateJSsetFallingFill7() {
+        if (!setFallingFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setFallingFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys2;
@@ -336,6 +445,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<CartesianSeriesBase> setFallingFill8 = new ArrayList<>();
 
     /**
      * Radial gradient falling fill.
@@ -376,15 +486,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setFallingFill8" + variableIndex);
+        setFallingFill8.add(item);
+        return item;
+    }
+    private String generateJSsetFallingFill8() {
+        if (!setFallingFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setFallingFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setFallingFill9 = new ArrayList<>();
 
     /**
      * Radial gradient falling fill.
@@ -425,13 +549,26 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setFallingFill9" + variableIndex);
+        setFallingFill9.add(item);
+        return item;
+    }
+    private String generateJSsetFallingFill9() {
+        if (!setFallingFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setFallingFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill imageSettings;
@@ -455,6 +592,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     private String color1;
     private Double thickness;
     private Double size;
+    private List<CartesianSeriesBase> setFallingHatchFill = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
@@ -484,15 +622,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setFallingHatchFill" + variableIndex);
+        setFallingHatchFill.add(item);
+        return item;
+    }
+    private String generateJSsetFallingHatchFill() {
+        if (!setFallingHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setFallingHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setFallingHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
@@ -522,15 +674,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setFallingHatchFill1" + variableIndex);
+        setFallingHatchFill1.add(item);
+        return item;
+    }
+    private String generateJSsetFallingHatchFill1() {
+        if (!setFallingHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setFallingHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setFallingHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
@@ -560,15 +726,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setFallingHatchFill2" + variableIndex);
+        setFallingHatchFill2.add(item);
+        return item;
+    }
+    private String generateJSsetFallingHatchFill2() {
+        if (!setFallingHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setFallingHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setFallingHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
@@ -598,15 +778,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setFallingHatchFill3" + variableIndex);
+        setFallingHatchFill3.add(item);
+        return item;
+    }
+    private String generateJSsetFallingHatchFill3() {
+        if (!setFallingHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setFallingHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setFallingHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
@@ -636,16 +830,30 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setFallingHatchFill4" + variableIndex);
+        setFallingHatchFill4.add(item);
+        return item;
+    }
+    private String generateJSsetFallingHatchFill4() {
+        if (!setFallingHatchFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setFallingHatchFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill risingFill;
+    private List<CartesianSeriesBase> setRisingFill = new ArrayList<>();
 
     /**
      * Setter for rising fill settings using an array or a string.
@@ -660,17 +868,31 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s)", ((risingFill != null) ? risingFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setRisingFill" + variableIndex);
+        setRisingFill.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill() {
+        if (!setRisingFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setRisingFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String color2;
     private Double opacity3;
+    private List<CartesianSeriesBase> setRisingFill1 = new ArrayList<>();
 
     /**
      * Rising fill color with opacity.
@@ -695,13 +917,26 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f)", wrapQuotes(color2), opacity3));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setRisingFill1" + variableIndex);
+        setRisingFill1.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill1() {
+        if (!setRisingFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setRisingFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys4;
@@ -711,6 +946,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     private VectorRect mode5;
     private String mode6;
     private Double opacity4;
+    private List<CartesianSeriesBase> setRisingFill2 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -755,15 +991,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setRisingFill2" + variableIndex);
+        setRisingFill2.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill2() {
+        if (!setRisingFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setRisingFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setRisingFill3 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -808,15 +1058,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setRisingFill3" + variableIndex);
+        setRisingFill3.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill3() {
+        if (!setRisingFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setRisingFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setRisingFill4 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -861,15 +1125,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setRisingFill4" + variableIndex);
+        setRisingFill4.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill4() {
+        if (!setRisingFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setRisingFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setRisingFill5 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -914,15 +1192,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setRisingFill5" + variableIndex);
+        setRisingFill5.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill5() {
+        if (!setRisingFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setRisingFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setRisingFill6 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -967,15 +1259,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setRisingFill6" + variableIndex);
+        setRisingFill6.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill6() {
+        if (!setRisingFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setRisingFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setRisingFill7 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -1020,13 +1326,26 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setRisingFill7" + variableIndex);
+        setRisingFill7.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill7() {
+        if (!setRisingFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setRisingFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private GradientKey[] keys6;
@@ -1037,6 +1356,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     private Double opacity5;
     private Double fx1;
     private Double fy1;
+    private List<CartesianSeriesBase> setRisingFill8 = new ArrayList<>();
 
     /**
      * Radial gradient rising fill.
@@ -1100,15 +1420,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setRisingFill8" + variableIndex);
+        setRisingFill8.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill8() {
+        if (!setRisingFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setRisingFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setRisingFill9 = new ArrayList<>();
 
     /**
      * Radial gradient rising fill.
@@ -1172,13 +1506,26 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setRisingFill9" + variableIndex);
+        setRisingFill9.add(item);
+        return item;
+    }
+    private String generateJSsetRisingFill9() {
+        if (!setRisingFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setRisingFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill imageSettings1;
@@ -1202,6 +1549,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     private String color3;
     private Double thickness1;
     private Double size1;
+    private List<CartesianSeriesBase> setRisingHatchFill = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
@@ -1244,15 +1592,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setRisingHatchFill" + variableIndex);
+        setRisingHatchFill.add(item);
+        return item;
+    }
+    private String generateJSsetRisingHatchFill() {
+        if (!setRisingHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setRisingHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setRisingHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
@@ -1295,15 +1657,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setRisingHatchFill1" + variableIndex);
+        setRisingHatchFill1.add(item);
+        return item;
+    }
+    private String generateJSsetRisingHatchFill1() {
+        if (!setRisingHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setRisingHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setRisingHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
@@ -1346,15 +1722,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setRisingHatchFill2" + variableIndex);
+        setRisingHatchFill2.add(item);
+        return item;
+    }
+    private String generateJSsetRisingHatchFill2() {
+        if (!setRisingHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setRisingHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setRisingHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
@@ -1397,15 +1787,29 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setRisingHatchFill3" + variableIndex);
+        setRisingHatchFill3.add(item);
+        return item;
+    }
+    private String generateJSsetRisingHatchFill3() {
+        if (!setRisingHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setRisingHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<CartesianSeriesBase> setRisingHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
@@ -1448,13 +1852,26 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState9, wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
-        return new CartesianSeriesBase(jsBase);
+        CartesianSeriesBase item = new CartesianSeriesBase("setRisingHatchFill4" + variableIndex);
+        setRisingHatchFill4.add(item);
+        return item;
+    }
+    private String generateJSsetRisingHatchFill4() {
+        if (!setRisingHatchFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesBase item : setRisingHatchFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetFallingHatchFill() {
@@ -1492,6 +1909,38 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFallingFill());
+        js.append(generateJSsetFallingFill1());
+        js.append(generateJSsetFallingFill2());
+        js.append(generateJSsetFallingFill3());
+        js.append(generateJSsetFallingFill4());
+        js.append(generateJSsetFallingFill5());
+        js.append(generateJSsetFallingFill6());
+        js.append(generateJSsetFallingFill7());
+        js.append(generateJSsetFallingFill8());
+        js.append(generateJSsetFallingFill9());
+        js.append(generateJSsetFallingHatchFill());
+        js.append(generateJSsetFallingHatchFill1());
+        js.append(generateJSsetFallingHatchFill2());
+        js.append(generateJSsetFallingHatchFill3());
+        js.append(generateJSsetFallingHatchFill4());
+        js.append(generateJSsetRisingFill());
+        js.append(generateJSsetRisingFill1());
+        js.append(generateJSsetRisingFill2());
+        js.append(generateJSsetRisingFill3());
+        js.append(generateJSsetRisingFill4());
+        js.append(generateJSsetRisingFill5());
+        js.append(generateJSsetRisingFill6());
+        js.append(generateJSsetRisingFill7());
+        js.append(generateJSsetRisingFill8());
+        js.append(generateJSsetRisingFill9());
+        js.append(generateJSsetRisingHatchFill());
+        js.append(generateJSsetRisingHatchFill1());
+        js.append(generateJSsetRisingHatchFill2());
+        js.append(generateJSsetRisingHatchFill3());
+        js.append(generateJSsetRisingHatchFill4());
+        
 
         String result = js.toString();
         js.setLength(0);

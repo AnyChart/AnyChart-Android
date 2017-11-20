@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -50,6 +47,7 @@ public class Aroon extends JsObject {
 
     private StockSeriesType type;
     private String type1;
+    private List<Aroon> setDownSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator Down Series.
@@ -75,7 +73,18 @@ public class Aroon extends JsObject {
         }
         return this;
     }
+    private String generateJSsetDownSeries() {
+        if (!setDownSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Aroon item : setDownSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Aroon> setDownSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator Down Series.
@@ -101,8 +110,19 @@ public class Aroon extends JsObject {
         }
         return this;
     }
+    private String generateJSsetDownSeries1() {
+        if (!setDownSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Aroon item : setDownSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double period;
+    private List<Aroon> setPeriod = new ArrayList<>();
 
     /**
      * Setter for the indicator period.
@@ -125,6 +145,16 @@ public class Aroon extends JsObject {
         }
         return this;
     }
+    private String generateJSsetPeriod() {
+        if (!setPeriod.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Aroon item : setPeriod) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private StockSeriesBase getUpSeries;
 
@@ -140,6 +170,7 @@ public class Aroon extends JsObject {
 
     private StockSeriesType type2;
     private String type3;
+    private List<Aroon> setUpSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator Up Series.
@@ -167,7 +198,18 @@ public class Aroon extends JsObject {
         }
         return this;
     }
+    private String generateJSsetUpSeries() {
+        if (!setUpSeries.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Aroon item : setUpSeries) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Aroon> setUpSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator Up Series.
@@ -194,6 +236,16 @@ public class Aroon extends JsObject {
             }
         }
         return this;
+    }
+    private String generateJSsetUpSeries1() {
+        if (!setUpSeries1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Aroon item : setUpSeries1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetDownSeries() {
@@ -231,6 +283,13 @@ public class Aroon extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetDownSeries());
+        js.append(generateJSsetDownSeries1());
+        js.append(generateJSsetPeriod());
+        js.append(generateJSsetUpSeries());
+        js.append(generateJSsetUpSeries1());
+        
 
         String result = js.toString();
         js.setLength(0);

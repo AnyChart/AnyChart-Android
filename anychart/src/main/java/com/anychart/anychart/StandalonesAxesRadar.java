@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -51,6 +48,7 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
     private Stage container1;
     private String container2;
     private Element container3;
+    private List<StandalonesAxesRadar> setContainer = new ArrayList<>();
 
     /**
      * Setter for the axis container.
@@ -76,7 +74,18 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
         }
         return this;
     }
+    private String generateJSsetContainer() {
+        if (!setContainer.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesRadar item : setContainer) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesAxesRadar> setContainer1 = new ArrayList<>();
 
     /**
      * Setter for the axis container.
@@ -102,7 +111,18 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
         }
         return this;
     }
+    private String generateJSsetContainer1() {
+        if (!setContainer1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesRadar item : setContainer1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesAxesRadar> setContainer2 = new ArrayList<>();
 
     /**
      * Setter for the axis container.
@@ -130,7 +150,18 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
         }
         return this;
     }
+    private String generateJSsetContainer2() {
+        if (!setContainer2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesRadar item : setContainer2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesAxesRadar> setContainer3 = new ArrayList<>();
 
     /**
      * Setter for the axis container.
@@ -156,6 +187,16 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
         }
         return this;
     }
+    private String generateJSsetContainer3() {
+        if (!setContainer3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesRadar item : setContainer3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private AnychartMathRect getParentBounds;
 
@@ -171,6 +212,7 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
 
     private AnychartMathRect parentBounds;
     private String parentBounds1;
+    private List<StandalonesAxesRadar> setParentBounds = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -194,7 +236,18 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
         }
         return this;
     }
+    private String generateJSsetParentBounds() {
+        if (!setParentBounds.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesRadar item : setParentBounds) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesAxesRadar> setParentBounds1 = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -220,11 +273,22 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
         }
         return this;
     }
+    private String generateJSsetParentBounds1() {
+        if (!setParentBounds1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesRadar item : setParentBounds1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double left;
     private Double top;
     private Double width;
     private Double height;
+    private List<StandalonesAxesRadar> setParentBounds2 = new ArrayList<>();
 
     /**
      * Setter for bounds using several values.
@@ -253,9 +317,20 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
         }
         return this;
     }
+    private String generateJSsetParentBounds2() {
+        if (!setParentBounds2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesRadar item : setParentBounds2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String startAngle;
     private Double startAngle1;
+    private List<StandalonesAxesRadar> setStartAngle = new ArrayList<>();
 
     /**
      * Setter for a start angle.
@@ -281,7 +356,18 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
         }
         return this;
     }
+    private String generateJSsetStartAngle() {
+        if (!setStartAngle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesRadar item : setStartAngle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesAxesRadar> setStartAngle1 = new ArrayList<>();
 
     /**
      * Setter for a start angle.
@@ -306,6 +392,16 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
             }
         }
         return this;
+    }
+    private String generateJSsetStartAngle1() {
+        if (!setStartAngle1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesAxesRadar item : setStartAngle1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetContainer() {
@@ -343,6 +439,17 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetContainer());
+        js.append(generateJSsetContainer1());
+        js.append(generateJSsetContainer2());
+        js.append(generateJSsetContainer3());
+        js.append(generateJSsetParentBounds());
+        js.append(generateJSsetParentBounds1());
+        js.append(generateJSsetParentBounds2());
+        js.append(generateJSsetStartAngle());
+        js.append(generateJSsetStartAngle1());
+        
 
         String result = js.toString();
         js.setLength(0);

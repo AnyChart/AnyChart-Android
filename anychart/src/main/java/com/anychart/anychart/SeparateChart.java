@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -50,6 +47,7 @@ public class SeparateChart extends ChartWithCredits {
     private String interactivity;
     private HoverMode interactivity1;
     private String interactivity2;
+    private List<SeparateChart> setInteractivity = new ArrayList<>();
 
     /**
      * Sets interactivity settings for chart.
@@ -76,7 +74,18 @@ public class SeparateChart extends ChartWithCredits {
         }
         return this;
     }
+    private String generateJSsetInteractivity() {
+        if (!setInteractivity.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeparateChart item : setInteractivity) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeparateChart> setInteractivity1 = new ArrayList<>();
 
     /**
      * Sets interactivity settings for chart.
@@ -103,6 +112,16 @@ public class SeparateChart extends ChartWithCredits {
         }
         return this;
     }
+    private String generateJSsetInteractivity1() {
+        if (!setInteractivity1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeparateChart item : setInteractivity1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiLegend getLegend;
 
@@ -118,6 +137,7 @@ public class SeparateChart extends ChartWithCredits {
 
     private String legend;
     private Boolean legend1;
+    private List<Chart> setLegend = new ArrayList<>();
 
     /**
      * Setter for chart legend setting.
@@ -134,15 +154,29 @@ public class SeparateChart extends ChartWithCredits {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".legend(%s)", wrapQuotes(legend)));
                 js.setLength(0);
             }
         }
-        return new Chart(jsBase);
+        Chart item = new Chart("setLegend" + variableIndex);
+        setLegend.add(item);
+        return item;
+    }
+    private String generateJSsetLegend() {
+        if (!setLegend.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setLegend) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Chart> setLegend1 = new ArrayList<>();
 
     /**
      * Setter for chart legend setting.
@@ -159,13 +193,26 @@ public class SeparateChart extends ChartWithCredits {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".legend(%b)", legend1));
                 js.setLength(0);
             }
         }
-        return new Chart(jsBase);
+        Chart item = new Chart("setLegend1" + variableIndex);
+        setLegend1.add(item);
+        return item;
+    }
+    private String generateJSsetLegend1() {
+        if (!setLegend1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setLegend1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetInteractivity() {
@@ -203,6 +250,12 @@ public class SeparateChart extends ChartWithCredits {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetInteractivity());
+        js.append(generateJSsetInteractivity1());
+        js.append(generateJSsetLegend());
+        js.append(generateJSsetLegend1());
+        
 
         String result = js.toString();
         js.setLength(0);

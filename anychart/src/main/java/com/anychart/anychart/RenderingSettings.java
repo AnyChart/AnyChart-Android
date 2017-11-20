@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class RenderingSettings extends CoreBase {
 
     
     private Boolean needsWidth;
+    private List<RenderingSettings> setNeedsWidth = new ArrayList<>();
 
     /**
      * Setter for points width.
@@ -58,8 +56,19 @@ public class RenderingSettings extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetNeedsWidth() {
+        if (!setNeedsWidth.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RenderingSettings item : setNeedsWidth) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean needsZero;
+    private List<RenderingSettings> setNeedsZero = new ArrayList<>();
 
     /**
      * Setter for zero value.
@@ -82,8 +91,19 @@ public class RenderingSettings extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetNeedsZero() {
+        if (!setNeedsZero.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RenderingSettings item : setNeedsZero) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private ShapeConfig[] shapes;
+    private List<RenderingSettings> setShapes = new ArrayList<>();
 
     /**
      * Setter for the shapes settings.
@@ -106,8 +126,19 @@ public class RenderingSettings extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetShapes() {
+        if (!setShapes.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RenderingSettings item : setShapes) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String[] yValues;
+    private List<RenderingSettings> setYValues = new ArrayList<>();
 
     /**
      * Setter for YScale values.
@@ -130,6 +161,16 @@ public class RenderingSettings extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetYValues() {
+        if (!setYValues.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RenderingSettings item : setYValues) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -150,6 +191,12 @@ public class RenderingSettings extends CoreBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetNeedsWidth());
+        js.append(generateJSsetNeedsZero());
+        js.append(generateJSsetShapes());
+        js.append(generateJSsetYValues());
+        
 
         String result = js.toString();
         js.setLength(0);

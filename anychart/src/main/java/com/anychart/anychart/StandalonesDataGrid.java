@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -49,6 +46,7 @@ public class StandalonesDataGrid extends UiDataGrid {
 
     private String container;
     private Element container1;
+    private List<StandalonesDataGrid> setContainer = new ArrayList<>();
 
     /**
      * Setter for the data grid container.
@@ -74,7 +72,18 @@ public class StandalonesDataGrid extends UiDataGrid {
         }
         return this;
     }
+    private String generateJSsetContainer() {
+        if (!setContainer.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesDataGrid item : setContainer) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesDataGrid> setContainer1 = new ArrayList<>();
 
     /**
      * Setter for the data grid container.
@@ -98,8 +107,19 @@ public class StandalonesDataGrid extends UiDataGrid {
         }
         return this;
     }
+    private String generateJSsetContainer1() {
+        if (!setContainer1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesDataGrid item : setContainer1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double defaultRowHeight;
+    private List<StandalonesDataGrid> setDefaultRowHeight = new ArrayList<>();
 
     /**
      * Setter for the default row height.
@@ -122,8 +142,19 @@ public class StandalonesDataGrid extends UiDataGrid {
         }
         return this;
     }
+    private String generateJSsetDefaultRowHeight() {
+        if (!setDefaultRowHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesDataGrid item : setDefaultRowHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double headerHeight;
+    private List<StandalonesDataGrid> setHeaderHeight = new ArrayList<>();
 
     /**
      * Setter for the header height.
@@ -146,6 +177,16 @@ public class StandalonesDataGrid extends UiDataGrid {
         }
         return this;
     }
+    private String generateJSsetHeaderHeight() {
+        if (!setHeaderHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesDataGrid item : setHeaderHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private AnychartMathRect getParentBounds;
 
@@ -161,6 +202,7 @@ public class StandalonesDataGrid extends UiDataGrid {
 
     private AnychartMathRect parentBounds;
     private String parentBounds1;
+    private List<StandalonesDataGrid> setParentBounds = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -184,7 +226,18 @@ public class StandalonesDataGrid extends UiDataGrid {
         }
         return this;
     }
+    private String generateJSsetParentBounds() {
+        if (!setParentBounds.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesDataGrid item : setParentBounds) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesDataGrid> setParentBounds1 = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -210,11 +263,22 @@ public class StandalonesDataGrid extends UiDataGrid {
         }
         return this;
     }
+    private String generateJSsetParentBounds1() {
+        if (!setParentBounds1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesDataGrid item : setParentBounds1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double left;
     private Double top;
     private Double width;
     private Double height;
+    private List<StandalonesDataGrid> setParentBounds2 = new ArrayList<>();
 
     /**
      * Setter for bounds using several value.
@@ -243,9 +307,20 @@ public class StandalonesDataGrid extends UiDataGrid {
         }
         return this;
     }
+    private String generateJSsetParentBounds2() {
+        if (!setParentBounds2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesDataGrid item : setParentBounds2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke rowStroke;
     private String rowStroke1;
+    private List<StandalonesDataGrid> setRowStroke = new ArrayList<>();
 
     /**
      * Setter for the row stroke.
@@ -271,7 +346,18 @@ public class StandalonesDataGrid extends UiDataGrid {
         }
         return this;
     }
+    private String generateJSsetRowStroke() {
+        if (!setRowStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesDataGrid item : setRowStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<StandalonesDataGrid> setRowStroke1 = new ArrayList<>();
 
     /**
      * Setter for the row stroke.
@@ -297,6 +383,16 @@ public class StandalonesDataGrid extends UiDataGrid {
         }
         return this;
     }
+    private String generateJSsetRowStroke1() {
+        if (!setRowStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesDataGrid item : setRowStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private ScrollBar getVerticalScrollBar;
 
@@ -311,6 +407,7 @@ public class StandalonesDataGrid extends UiDataGrid {
     }
 
     private String verticalScrollBar;
+    private List<StandalonesDataGrid> setVerticalScrollBar = new ArrayList<>();
 
     /**
      * Setter for the vertical scroll bar.
@@ -332,6 +429,16 @@ public class StandalonesDataGrid extends UiDataGrid {
             }
         }
         return this;
+    }
+    private String generateJSsetVerticalScrollBar() {
+        if (!setVerticalScrollBar.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (StandalonesDataGrid item : setVerticalScrollBar) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetContainer() {
@@ -377,6 +484,18 @@ public class StandalonesDataGrid extends UiDataGrid {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetContainer());
+        js.append(generateJSsetContainer1());
+        js.append(generateJSsetDefaultRowHeight());
+        js.append(generateJSsetHeaderHeight());
+        js.append(generateJSsetParentBounds());
+        js.append(generateJSsetParentBounds1());
+        js.append(generateJSsetParentBounds2());
+        js.append(generateJSsetRowStroke());
+        js.append(generateJSsetRowStroke1());
+        js.append(generateJSsetVerticalScrollBar());
+        
 
         String result = js.toString();
         js.setLength(0);

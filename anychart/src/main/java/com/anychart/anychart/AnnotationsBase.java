@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class AnnotationsBase extends VisualBaseWithBounds {
 
     
     private String color;
+    private List<AnnotationsBase> setColor = new ArrayList<>();
 
     /**
      * Setter for the annotation color.
@@ -58,6 +56,16 @@ public class AnnotationsBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetColor() {
+        if (!setColor.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setColor) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private StateSettings getHovered;
 
@@ -72,6 +80,7 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     }
 
     private String hovered;
+    private List<AnnotationsBase> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -94,6 +103,16 @@ public class AnnotationsBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetHovered() {
+        if (!setHovered.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setHovered) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiMarkersFactory getMarkers;
 
@@ -110,6 +129,7 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private String markers;
     private Boolean markers1;
     private String markers2;
+    private List<AnnotationsBase> setMarkers = new ArrayList<>();
 
     /**
      * Setter for data markers.
@@ -136,7 +156,18 @@ public class AnnotationsBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMarkers() {
+        if (!setMarkers.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setMarkers) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsBase> setMarkers1 = new ArrayList<>();
 
     /**
      * Setter for data markers.
@@ -163,6 +194,16 @@ public class AnnotationsBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMarkers1() {
+        if (!setMarkers1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setMarkers1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private StateSettings getNormal;
 
@@ -177,6 +218,7 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     }
 
     private String normal;
+    private List<AnnotationsBase> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -199,6 +241,16 @@ public class AnnotationsBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetNormal() {
+        if (!setNormal.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setNormal) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private StateSettings getSelected;
 
@@ -213,6 +265,7 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     }
 
     private String selected;
+    private List<AnnotationsBase> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -235,6 +288,16 @@ public class AnnotationsBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetSelected() {
+        if (!setSelected.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setSelected) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Ordinal getXScale;
 
@@ -253,6 +316,7 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private String xScale2;
     private ScaleTypes xScale3;
     private String xScale4;
+    private List<AnnotationsBase> setXScale = new ArrayList<>();
 
     /**
      * Setter for the X-scale.
@@ -279,7 +343,18 @@ public class AnnotationsBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetXScale() {
+        if (!setXScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setXScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsBase> setXScale1 = new ArrayList<>();
 
     /**
      * Setter for the X-scale.
@@ -306,7 +381,18 @@ public class AnnotationsBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetXScale1() {
+        if (!setXScale1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setXScale1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsBase> setXScale2 = new ArrayList<>();
 
     /**
      * Setter for the X-scale.
@@ -335,7 +421,18 @@ public class AnnotationsBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetXScale2() {
+        if (!setXScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setXScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsBase> setXScale3 = new ArrayList<>();
 
     /**
      * Setter for the X-scale.
@@ -364,6 +461,16 @@ public class AnnotationsBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetXScale3() {
+        if (!setXScale3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setXScale3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private ScalesBase getYScale;
 
@@ -381,6 +488,7 @@ public class AnnotationsBase extends VisualBaseWithBounds {
     private String yScale1;
     private ScaleTypes yScale2;
     private String yScale3;
+    private List<AnnotationsBase> setYScale = new ArrayList<>();
 
     /**
      * Setter for the Y-scale.
@@ -406,7 +514,18 @@ public class AnnotationsBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetYScale() {
+        if (!setYScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setYScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsBase> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the Y-scale.
@@ -434,7 +553,18 @@ public class AnnotationsBase extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetYScale1() {
+        if (!setYScale1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setYScale1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AnnotationsBase> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the Y-scale.
@@ -461,6 +591,16 @@ public class AnnotationsBase extends VisualBaseWithBounds {
             }
         }
         return this;
+    }
+    private String generateJSsetYScale2() {
+        if (!setYScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnnotationsBase item : setYScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetHovered() {
@@ -530,6 +670,21 @@ public class AnnotationsBase extends VisualBaseWithBounds {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetColor());
+        js.append(generateJSsetHovered());
+        js.append(generateJSsetMarkers());
+        js.append(generateJSsetMarkers1());
+        js.append(generateJSsetNormal());
+        js.append(generateJSsetSelected());
+        js.append(generateJSsetXScale());
+        js.append(generateJSsetXScale1());
+        js.append(generateJSsetXScale2());
+        js.append(generateJSsetXScale3());
+        js.append(generateJSsetYScale());
+        js.append(generateJSsetYScale1());
+        js.append(generateJSsetYScale2());
+        
 
         String result = js.toString();
         js.setLength(0);

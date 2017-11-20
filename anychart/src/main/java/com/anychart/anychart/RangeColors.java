@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class RangeColors extends CoreBase {
 
     
     private Double count;
+    private List<RangeColors> setCount = new ArrayList<>();
 
     /**
      * Setter for color palette's colors counts.<br/>
@@ -59,9 +57,20 @@ public class RangeColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetCount() {
+        if (!setCount.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeColors item : setCount) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double index;
     private SolidFill color;
+    private List<RangeColors> setItemAt = new ArrayList<>();
 
     /**
      * Setter for color palette colors from list by index.
@@ -86,6 +95,16 @@ public class RangeColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItemAt() {
+        if (!setItemAt.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeColors item : setItemAt) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private SolidFill[] items;
     private LinearGradientFill items1;
@@ -96,6 +115,7 @@ public class RangeColors extends CoreBase {
     private String items6;
     private SolidFill var_args;
     private String var_args1;
+    private List<RangeColors> setItems = new ArrayList<>();
 
     /**
      * Setter for color palette colors list.
@@ -131,7 +151,18 @@ public class RangeColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems() {
+        if (!setItems.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeColors item : setItems) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RangeColors> setItems1 = new ArrayList<>();
 
     /**
      * Setter for color palette colors list.
@@ -167,7 +198,18 @@ public class RangeColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems1() {
+        if (!setItems1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeColors item : setItems1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RangeColors> setItems2 = new ArrayList<>();
 
     /**
      * Setter for color palette colors list.
@@ -203,7 +245,18 @@ public class RangeColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems2() {
+        if (!setItems2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeColors item : setItems2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RangeColors> setItems3 = new ArrayList<>();
 
     /**
      * Setter for color palette colors list.
@@ -239,7 +292,18 @@ public class RangeColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems3() {
+        if (!setItems3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeColors item : setItems3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RangeColors> setItems4 = new ArrayList<>();
 
     /**
      * Setter for color palette colors list.
@@ -275,7 +339,18 @@ public class RangeColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems4() {
+        if (!setItems4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeColors item : setItems4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RangeColors> setItems5 = new ArrayList<>();
 
     /**
      * Setter for color palette colors list.
@@ -311,7 +386,18 @@ public class RangeColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems5() {
+        if (!setItems5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeColors item : setItems5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RangeColors> setItems6 = new ArrayList<>();
 
     /**
      * Setter for color palette colors list.
@@ -347,7 +433,18 @@ public class RangeColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems6() {
+        if (!setItems6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeColors item : setItems6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RangeColors> setItems7 = new ArrayList<>();
 
     /**
      * Setter for color palette colors list.
@@ -383,7 +480,18 @@ public class RangeColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems7() {
+        if (!setItems7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeColors item : setItems7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RangeColors> setItems8 = new ArrayList<>();
 
     /**
      * Setter for color palette colors list.
@@ -419,7 +527,18 @@ public class RangeColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems8() {
+        if (!setItems8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeColors item : setItems8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RangeColors> setItems9 = new ArrayList<>();
 
     /**
      * Setter for color palette colors list.
@@ -455,7 +574,18 @@ public class RangeColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems9() {
+        if (!setItems9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeColors item : setItems9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RangeColors> setItems10 = new ArrayList<>();
 
     /**
      * Setter for color palette colors list.
@@ -491,7 +621,18 @@ public class RangeColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems10() {
+        if (!setItems10.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeColors item : setItems10) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RangeColors> setItems11 = new ArrayList<>();
 
     /**
      * Setter for color palette colors list.
@@ -527,7 +668,18 @@ public class RangeColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems11() {
+        if (!setItems11.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeColors item : setItems11) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RangeColors> setItems12 = new ArrayList<>();
 
     /**
      * Setter for color palette colors list.
@@ -563,7 +715,18 @@ public class RangeColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems12() {
+        if (!setItems12.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeColors item : setItems12) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<RangeColors> setItems13 = new ArrayList<>();
 
     /**
      * Setter for color palette colors list.
@@ -599,6 +762,16 @@ public class RangeColors extends CoreBase {
         }
         return this;
     }
+    private String generateJSsetItems13() {
+        if (!setItems13.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeColors item : setItems13) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -619,6 +792,24 @@ public class RangeColors extends CoreBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetCount());
+        js.append(generateJSsetItemAt());
+        js.append(generateJSsetItems());
+        js.append(generateJSsetItems1());
+        js.append(generateJSsetItems2());
+        js.append(generateJSsetItems3());
+        js.append(generateJSsetItems4());
+        js.append(generateJSsetItems5());
+        js.append(generateJSsetItems6());
+        js.append(generateJSsetItems7());
+        js.append(generateJSsetItems8());
+        js.append(generateJSsetItems9());
+        js.append(generateJSsetItems10());
+        js.append(generateJSsetItems11());
+        js.append(generateJSsetItems12());
+        js.append(generateJSsetItems13());
+        
 
         String result = js.toString();
         js.setLength(0);

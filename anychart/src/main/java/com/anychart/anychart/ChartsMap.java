@@ -138,6 +138,20 @@ public class ChartsMap extends SeparateChart {
     }
 
 
+    /**
+     * 
+     */
+    public void addSeries(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+    }
+
+
     private AxesMapSettings getAxes;
 
     /**
@@ -239,6 +253,34 @@ public class ChartsMap extends SeparateChart {
         if (!setBubble.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (MapSeriesBubble item : setBubble) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<MapSeriesBubble> setBubble1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public MapSeriesBubble bubble(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setBubble1" + ++variableIndex + " = " + jsBase + ".bubble(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        MapSeriesBubble item = new MapSeriesBubble("setBubble1" + variableIndex);
+        setBubble1.add(item);
+        return item;
+    }
+    private String generateJSsetBubble1() {
+        if (!setBubble1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapSeriesBubble item : setBubble1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -427,6 +469,34 @@ public class ChartsMap extends SeparateChart {
         return "";
     }
 
+    private List<Choropleth> setChoropleth1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Choropleth choropleth(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setChoropleth1" + ++variableIndex + " = " + jsBase + ".choropleth(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        Choropleth item = new Choropleth("setChoropleth1" + variableIndex);
+        setChoropleth1.add(item);
+        return item;
+    }
+    private String generateJSsetChoropleth1() {
+        if (!setChoropleth1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Choropleth item : setChoropleth1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
 
     private UiColorRange getColorRange;
 
@@ -499,6 +569,34 @@ public class ChartsMap extends SeparateChart {
         if (!setConnector.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (Connector item : setConnector) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Connector> setConnector1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Connector connector(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setConnector1" + ++variableIndex + " = " + jsBase + ".connector(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        Connector item = new Connector("setConnector1" + variableIndex);
+        setConnector1.add(item);
+        return item;
+    }
+    private String generateJSsetConnector1() {
+        if (!setConnector1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Connector item : setConnector1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1325,6 +1423,34 @@ Set the transitions to drill down.
         if (!setMarker.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (MapSeriesMarker item : setMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<MapSeriesMarker> setMarker1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public MapSeriesMarker marker(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        MapSeriesMarker item = new MapSeriesMarker("setMarker1" + variableIndex);
+        setMarker1.add(item);
+        return item;
+    }
+    private String generateJSsetMarker1() {
+        if (!setMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapSeriesMarker item : setMarker1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -2539,13 +2665,16 @@ Set the transitions to drill down.
         js.append(generateJSsetAxes());
         js.append(generateJSsetAxes1());
         js.append(generateJSsetBubble());
+        js.append(generateJSsetBubble1());
         js.append(generateJSsetCallout());
         js.append(generateJSsetCallout1());
         js.append(generateJSsetCallout2());
         js.append(generateJSsetCallout3());
         js.append(generateJSsetChoropleth());
+        js.append(generateJSsetChoropleth1());
         js.append(generateJSsetColorRange());
         js.append(generateJSsetConnector());
+        js.append(generateJSsetConnector1());
         js.append(generateJSsetCrosshair());
         js.append(generateJSsetCrosshair1());
         js.append(generateJSsetCrsAnimation());
@@ -2566,6 +2695,7 @@ Set the transitions to drill down.
         js.append(generateJSsetLabels());
         js.append(generateJSsetLabels1());
         js.append(generateJSsetMarker());
+        js.append(generateJSsetMarker1());
         js.append(generateJSsetMarkerPalette());
         js.append(generateJSsetMarkerPalette1());
         js.append(generateJSsetMarkerPalette2());

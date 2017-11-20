@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -39,6 +36,7 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
     
     private StepDirection stepDirection;
     private String stepDirection1;
+    private List<CartesianSeriesStepLine> setStepDirection = new ArrayList<>();
 
     /**
      * Setter for the step direction.
@@ -64,7 +62,18 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetStepDirection() {
+        if (!setStepDirection.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepLine item : setStepDirection) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesStepLine> setStepDirection1 = new ArrayList<>();
 
     /**
      * Setter for the step direction.
@@ -90,6 +99,16 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetStepDirection1() {
+        if (!setStepDirection1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepLine item : setStepDirection1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke color;
     private ColoredFill color1;
@@ -98,6 +117,7 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<CartesianSeriesStepLine> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -133,7 +153,18 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepLine item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesStepLine> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -169,7 +200,18 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepLine item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CartesianSeriesStepLine> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -205,6 +247,16 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CartesianSeriesStepLine item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -225,6 +277,13 @@ public class CartesianSeriesStepLine extends CartesianSeriesContinuousBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetStepDirection());
+        js.append(generateJSsetStepDirection1());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -138,6 +138,20 @@ public class Pareto extends SeparateChart {
     }
 
 
+    /**
+     * 
+     */
+    public void addSeries(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+    }
+
+
     private PlotController getAnnotations;
 
     /**
@@ -353,6 +367,32 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         if (!setData.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (Pareto item : setData) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Pareto> setData1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Pareto data(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pareto item : setData1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -3445,6 +3485,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         js.append(generateJSsetCrosshair());
         js.append(generateJSsetCrosshair1());
         js.append(generateJSsetData());
+        js.append(generateJSsetData1());
         js.append(generateJSsetDefaultSeriesType());
         js.append(generateJSsetDefaultSeriesType1());
         js.append(generateJSsetHatchFillPalette());

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -38,6 +35,7 @@ public class AxesLinearGauge extends CoreAxesLinear {
 
     
     private String offset;
+    private List<AxesLinearGauge> setOffset = new ArrayList<>();
 
     /**
      * Setter for the axis offset.
@@ -60,6 +58,16 @@ public class AxesLinearGauge extends CoreAxesLinear {
         }
         return this;
     }
+    private String generateJSsetOffset() {
+        if (!setOffset.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesLinearGauge item : setOffset) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -80,6 +88,9 @@ public class AxesLinearGauge extends CoreAxesLinear {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetOffset());
+        
 
         String result = js.toString();
         js.setLength(0);

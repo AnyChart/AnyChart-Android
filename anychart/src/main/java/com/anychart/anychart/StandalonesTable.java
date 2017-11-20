@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -52,6 +47,7 @@ public class StandalonesTable extends UiTable {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s)", wrapQuotes(csvSettings), wrapQuotes(filename)));
@@ -77,6 +73,7 @@ public class StandalonesTable extends UiTable {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s)", wrapQuotes(filename1)));
@@ -102,6 +99,7 @@ public class StandalonesTable extends UiTable {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s)", wrapQuotes(csvSettings1)));
@@ -129,6 +127,8 @@ public class StandalonesTable extends UiTable {
         }
 
         js.append(generateJsGetters());
+
+        
 
         String result = js.toString();
         js.setLength(0);

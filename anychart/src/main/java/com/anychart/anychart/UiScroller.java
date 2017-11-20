@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class UiScroller extends VisualBase {
 
     
     private Boolean allowRangeChange;
+    private List<UiScroller> setAllowRangeChange = new ArrayList<>();
 
     /**
      * Setter for the mode of the range changing. If the range changing is allowed.
@@ -58,8 +56,19 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetAllowRangeChange() {
+        if (!setAllowRangeChange.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setAllowRangeChange) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean autoHide;
+    private List<UiScroller> setAutoHide = new ArrayList<>();
 
     /**
      * Setter for scroller auto hide mode.
@@ -82,8 +91,19 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetAutoHide() {
+        if (!setAutoHide.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setAutoHide) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill fill;
+    private List<UiScroller> setFill = new ArrayList<>();
 
     /**
      * Setter for scroller fill settings using an array or a string.
@@ -107,9 +127,20 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<UiScroller> setFill1 = new ArrayList<>();
 
     /**
      * Scroller fill color with opacity.
@@ -134,6 +165,16 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -142,6 +183,7 @@ public class UiScroller extends VisualBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<UiScroller> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -181,7 +223,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -221,7 +274,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -261,7 +325,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -301,7 +376,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -341,7 +427,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -381,6 +478,16 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -390,6 +497,7 @@ public class UiScroller extends VisualBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<UiScroller> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -439,7 +547,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -489,10 +608,21 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private Double height;
     private String height1;
+    private List<UiScroller> setHeight = new ArrayList<>();
 
     /**
      * Setter for the scroller height.
@@ -518,7 +648,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetHeight() {
+        if (!setHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setHeight1 = new ArrayList<>();
 
     /**
      * Setter for the scroller height.
@@ -544,9 +685,20 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetHeight1() {
+        if (!setHeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setHeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double maxHeight;
     private String maxHeight1;
+    private List<UiScroller> setMaxHeight = new ArrayList<>();
 
     /**
      * Setter for the scroller maximum height.
@@ -572,7 +724,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetMaxHeight() {
+        if (!setMaxHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setMaxHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setMaxHeight1 = new ArrayList<>();
 
     /**
      * Setter for the scroller maximum height.
@@ -598,9 +761,20 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetMaxHeight1() {
+        if (!setMaxHeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setMaxHeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double minHeight;
     private String minHeight1;
+    private List<UiScroller> setMinHeight = new ArrayList<>();
 
     /**
      * Setter for the scroller minimum height.
@@ -626,7 +800,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetMinHeight() {
+        if (!setMinHeight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setMinHeight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setMinHeight1 = new ArrayList<>();
 
     /**
      * Setter for the scroller minimum height.
@@ -652,9 +837,20 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetMinHeight1() {
+        if (!setMinHeight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setMinHeight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Orientation orientation;
     private String orientation1;
+    private List<UiScroller> setOrientation = new ArrayList<>();
 
     /**
      * Setter for the scroller orientation.
@@ -680,7 +876,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetOrientation() {
+        if (!setOrientation.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setOrientation) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setOrientation1 = new ArrayList<>();
 
     /**
      * Setter for the scroller orientation.
@@ -706,6 +913,16 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetOrientation1() {
+        if (!setOrientation1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setOrientation1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke outlineStroke;
     private ColoredFill outlineStroke1;
@@ -714,6 +931,7 @@ public class UiScroller extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<UiScroller> setOutlineStroke = new ArrayList<>();
 
     /**
      * Setter for outline stroke settings.
@@ -749,7 +967,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetOutlineStroke() {
+        if (!setOutlineStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setOutlineStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setOutlineStroke1 = new ArrayList<>();
 
     /**
      * Setter for outline stroke settings.
@@ -785,7 +1014,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetOutlineStroke1() {
+        if (!setOutlineStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setOutlineStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setOutlineStroke2 = new ArrayList<>();
 
     /**
      * Setter for outline stroke settings.
@@ -821,8 +1061,19 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetOutlineStroke2() {
+        if (!setOutlineStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setOutlineStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill selectedFill;
+    private List<UiScroller> setSelectedFill = new ArrayList<>();
 
     /**
      * Setter for scroller fill settings in selected mode using an array or a string.
@@ -846,9 +1097,20 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetSelectedFill() {
+        if (!setSelectedFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setSelectedFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color1;
     private Double opacity3;
+    private List<UiScroller> setSelectedFill1 = new ArrayList<>();
 
     /**
      * Scroller fill color in selected mode with opacity.
@@ -881,6 +1143,16 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetSelectedFill1() {
+        if (!setSelectedFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setSelectedFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys4;
     private String[] keys5;
@@ -889,6 +1161,7 @@ public class UiScroller extends VisualBase {
     private VectorRect mode5;
     private String mode6;
     private Double opacity4;
+    private List<UiScroller> setSelectedFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -942,7 +1215,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetSelectedFill2() {
+        if (!setSelectedFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setSelectedFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setSelectedFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -996,7 +1280,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetSelectedFill3() {
+        if (!setSelectedFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setSelectedFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setSelectedFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -1050,7 +1345,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetSelectedFill4() {
+        if (!setSelectedFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setSelectedFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setSelectedFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -1104,7 +1410,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetSelectedFill5() {
+        if (!setSelectedFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setSelectedFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setSelectedFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -1158,7 +1475,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetSelectedFill6() {
+        if (!setSelectedFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setSelectedFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setSelectedFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill in selected mode.
@@ -1212,6 +1540,16 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetSelectedFill7() {
+        if (!setSelectedFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setSelectedFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys6;
     private String[] keys7;
@@ -1221,6 +1559,7 @@ public class UiScroller extends VisualBase {
     private Double opacity5;
     private Double fx1;
     private Double fy1;
+    private List<UiScroller> setSelectedFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill in selected mode.
@@ -1293,7 +1632,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetSelectedFill8() {
+        if (!setSelectedFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setSelectedFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setSelectedFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill in selected mode.
@@ -1366,6 +1716,16 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetSelectedFill9() {
+        if (!setSelectedFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setSelectedFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings1;
     private Thumbs getThumbs;
@@ -1382,6 +1742,7 @@ public class UiScroller extends VisualBase {
 
     private Boolean thumbs;
     private String thumbs1;
+    private List<UiScroller> setThumbs = new ArrayList<>();
 
     /**
      * Setter for the thumbs settings.
@@ -1407,7 +1768,18 @@ public class UiScroller extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetThumbs() {
+        if (!setThumbs.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setThumbs) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<UiScroller> setThumbs1 = new ArrayList<>();
 
     /**
      * Setter for the thumbs settings.
@@ -1432,6 +1804,16 @@ public class UiScroller extends VisualBase {
             }
         }
         return this;
+    }
+    private String generateJSsetThumbs1() {
+        if (!setThumbs1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (UiScroller item : setThumbs1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetThumbs() {
@@ -1461,6 +1843,43 @@ public class UiScroller extends VisualBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAllowRangeChange());
+        js.append(generateJSsetAutoHide());
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetFill2());
+        js.append(generateJSsetFill3());
+        js.append(generateJSsetFill4());
+        js.append(generateJSsetFill5());
+        js.append(generateJSsetFill6());
+        js.append(generateJSsetFill7());
+        js.append(generateJSsetFill8());
+        js.append(generateJSsetFill9());
+        js.append(generateJSsetHeight());
+        js.append(generateJSsetHeight1());
+        js.append(generateJSsetMaxHeight());
+        js.append(generateJSsetMaxHeight1());
+        js.append(generateJSsetMinHeight());
+        js.append(generateJSsetMinHeight1());
+        js.append(generateJSsetOrientation());
+        js.append(generateJSsetOrientation1());
+        js.append(generateJSsetOutlineStroke());
+        js.append(generateJSsetOutlineStroke1());
+        js.append(generateJSsetOutlineStroke2());
+        js.append(generateJSsetSelectedFill());
+        js.append(generateJSsetSelectedFill1());
+        js.append(generateJSsetSelectedFill2());
+        js.append(generateJSsetSelectedFill3());
+        js.append(generateJSsetSelectedFill4());
+        js.append(generateJSsetSelectedFill5());
+        js.append(generateJSsetSelectedFill6());
+        js.append(generateJSsetSelectedFill7());
+        js.append(generateJSsetSelectedFill8());
+        js.append(generateJSsetSelectedFill9());
+        js.append(generateJSsetThumbs());
+        js.append(generateJSsetThumbs1());
+        
 
         String result = js.toString();
         js.setLength(0);

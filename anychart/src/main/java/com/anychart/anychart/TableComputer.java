@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -52,6 +47,7 @@ public class TableComputer extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addOutputField(%s, %s)", wrapQuotes(name), wrapQuotes(uid)));
@@ -77,6 +73,7 @@ public class TableComputer extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getFieldIndex(%s)", wrapQuotes(name1)));
@@ -99,6 +96,7 @@ public class TableComputer extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".setContext(%s)", wrapQuotes(setContext)));
@@ -126,6 +124,8 @@ public class TableComputer extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        
 
         String result = js.toString();
         js.setLength(0);

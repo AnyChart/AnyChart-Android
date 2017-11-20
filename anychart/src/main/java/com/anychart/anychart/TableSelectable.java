@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -38,6 +35,7 @@ public class TableSelectable extends JsObject {
     private Double key;
     private TableSearchMode mode;
     private String mode1;
+    private List<TableselectableRowProxy> setSearch = new ArrayList<>();
 
     /**
      * Searches asked key with asked mode and returns an object that allows values fetching.
@@ -56,15 +54,29 @@ public class TableSelectable extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %f)", ((mode != null) ? mode.generateJs() : "null"), key));
                 js.setLength(0);
             }
         }
-        return new TableselectableRowProxy(jsBase);
+        TableselectableRowProxy item = new TableselectableRowProxy("setSearch" + variableIndex);
+        setSearch.add(item);
+        return item;
+    }
+    private String generateJSsetSearch() {
+        if (!setSearch.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableselectableRowProxy item : setSearch) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<TableselectableRowProxy> setSearch1 = new ArrayList<>();
 
     /**
      * Searches asked key with asked mode and returns an object that allows values fetching.
@@ -83,13 +95,26 @@ public class TableSelectable extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %f)", wrapQuotes(mode1), key));
                 js.setLength(0);
             }
         }
-        return new TableselectableRowProxy(jsBase);
+        TableselectableRowProxy item = new TableselectableRowProxy("setSearch1" + variableIndex);
+        setSearch1.add(item);
+        return item;
+    }
+    private String generateJSsetSearch1() {
+        if (!setSearch1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableselectableRowProxy item : setSearch1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Double startDate;
@@ -99,6 +124,7 @@ public class TableSelectable extends JsObject {
     private Interval intervalUnit;
     private String intervalUnit1;
     private Double intervalCount;
+    private List<TableSelectable> setSelect = new ArrayList<>();
 
     /**
      * Selects asked range.
@@ -136,7 +162,18 @@ public class TableSelectable extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelect() {
+        if (!setSelect.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableSelectable item : setSelect) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TableSelectable> setSelect1 = new ArrayList<>();
 
     /**
      * Selects asked range.
@@ -174,7 +211,18 @@ public class TableSelectable extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelect1() {
+        if (!setSelect1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableSelectable item : setSelect1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TableSelectable> setSelect2 = new ArrayList<>();
 
     /**
      * Selects asked range.
@@ -212,7 +260,18 @@ public class TableSelectable extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelect2() {
+        if (!setSelect2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableSelectable item : setSelect2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TableSelectable> setSelect3 = new ArrayList<>();
 
     /**
      * Selects asked range.
@@ -250,7 +309,18 @@ public class TableSelectable extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelect3() {
+        if (!setSelect3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableSelectable item : setSelect3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TableSelectable> setSelect4 = new ArrayList<>();
 
     /**
      * Selects asked range.
@@ -288,7 +358,18 @@ public class TableSelectable extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelect4() {
+        if (!setSelect4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableSelectable item : setSelect4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TableSelectable> setSelect5 = new ArrayList<>();
 
     /**
      * Selects asked range.
@@ -326,7 +407,18 @@ public class TableSelectable extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelect5() {
+        if (!setSelect5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableSelectable item : setSelect5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TableSelectable> setSelect6 = new ArrayList<>();
 
     /**
      * Selects asked range.
@@ -364,7 +456,18 @@ public class TableSelectable extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelect6() {
+        if (!setSelect6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableSelectable item : setSelect6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TableSelectable> setSelect7 = new ArrayList<>();
 
     /**
      * Selects asked range.
@@ -402,10 +505,21 @@ public class TableSelectable extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelect7() {
+        if (!setSelect7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableSelectable item : setSelect7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Interval intervalUnit2;
     private String intervalUnit3;
     private Double intervalCount1;
+    private List<TableSelectable> setSelectAll = new ArrayList<>();
 
     /**
      * Selects the full range of the storage.
@@ -438,7 +552,18 @@ public class TableSelectable extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelectAll() {
+        if (!setSelectAll.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableSelectable item : setSelectAll) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<TableSelectable> setSelectAll1 = new ArrayList<>();
 
     /**
      * Selects the full range of the storage.
@@ -471,6 +596,16 @@ public class TableSelectable extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelectAll1() {
+        if (!setSelectAll1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (TableSelectable item : setSelectAll1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -491,6 +626,20 @@ public class TableSelectable extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetSearch());
+        js.append(generateJSsetSearch1());
+        js.append(generateJSsetSelect());
+        js.append(generateJSsetSelect1());
+        js.append(generateJSsetSelect2());
+        js.append(generateJSsetSelect3());
+        js.append(generateJSsetSelect4());
+        js.append(generateJSsetSelect5());
+        js.append(generateJSsetSelect6());
+        js.append(generateJSsetSelect7());
+        js.append(generateJSsetSelectAll());
+        js.append(generateJSsetSelectAll1());
+        
 
         String result = js.toString();
         js.setLength(0);

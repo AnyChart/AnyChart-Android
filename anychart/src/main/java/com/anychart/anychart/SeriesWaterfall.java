@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -36,6 +33,7 @@ public class SeriesWaterfall extends WidthBased {
 
     
     private Fill fallingFill;
+    private List<SeriesWaterfall> setFallingFill = new ArrayList<>();
 
     /**
      * Setter for falling fill settings using an array or a string.
@@ -59,9 +57,20 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFallingFill() {
+        if (!setFallingFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFallingFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<SeriesWaterfall> setFallingFill1 = new ArrayList<>();
 
     /**
      * Falling fill color with opacity.
@@ -86,6 +95,16 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFallingFill1() {
+        if (!setFallingFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFallingFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -94,6 +113,7 @@ public class SeriesWaterfall extends WidthBased {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<SeriesWaterfall> setFallingFill2 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -133,7 +153,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFallingFill2() {
+        if (!setFallingFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFallingFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setFallingFill3 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -173,7 +204,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFallingFill3() {
+        if (!setFallingFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFallingFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setFallingFill4 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -213,7 +255,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFallingFill4() {
+        if (!setFallingFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFallingFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setFallingFill5 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -253,7 +306,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFallingFill5() {
+        if (!setFallingFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFallingFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setFallingFill6 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -293,7 +357,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFallingFill6() {
+        if (!setFallingFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFallingFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setFallingFill7 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -333,6 +408,16 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFallingFill7() {
+        if (!setFallingFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFallingFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -342,6 +427,7 @@ public class SeriesWaterfall extends WidthBased {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<SeriesWaterfall> setFallingFill8 = new ArrayList<>();
 
     /**
      * Radial gradient falling fill.
@@ -391,7 +477,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFallingFill8() {
+        if (!setFallingFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFallingFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setFallingFill9 = new ArrayList<>();
 
     /**
      * Radial gradient falling fill.
@@ -441,9 +538,20 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFallingFill9() {
+        if (!setFallingFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFallingFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private Fill fill;
+    private List<SeriesWaterfall> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -467,9 +575,20 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color1;
     private Double opacity3;
+    private List<SeriesWaterfall> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -502,6 +621,16 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys4;
     private String[] keys5;
@@ -510,6 +639,7 @@ public class SeriesWaterfall extends WidthBased {
     private VectorRect mode5;
     private String mode6;
     private Double opacity4;
+    private List<SeriesWaterfall> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -563,7 +693,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -617,7 +758,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -671,7 +823,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -725,7 +888,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -779,7 +953,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -833,6 +1018,16 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys6;
     private String[] keys7;
@@ -842,6 +1037,7 @@ public class SeriesWaterfall extends WidthBased {
     private Double opacity5;
     private Double fx1;
     private Double fy1;
+    private List<SeriesWaterfall> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -914,7 +1110,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -987,9 +1194,20 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings1;
     private Fill risingFill;
+    private List<SeriesWaterfall> setRisingFill = new ArrayList<>();
 
     /**
      * Setter for rising fill settings using an array or a string.
@@ -1013,9 +1231,20 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetRisingFill() {
+        if (!setRisingFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setRisingFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color2;
     private Double opacity6;
+    private List<SeriesWaterfall> setRisingFill1 = new ArrayList<>();
 
     /**
      * Rising fill color with opacity.
@@ -1052,6 +1281,16 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetRisingFill1() {
+        if (!setRisingFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setRisingFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys8;
     private String[] keys9;
@@ -1060,6 +1299,7 @@ public class SeriesWaterfall extends WidthBased {
     private VectorRect mode9;
     private String mode10;
     private Double opacity7;
+    private List<SeriesWaterfall> setRisingFill2 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -1125,7 +1365,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetRisingFill2() {
+        if (!setRisingFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setRisingFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setRisingFill3 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -1191,7 +1442,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetRisingFill3() {
+        if (!setRisingFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setRisingFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setRisingFill4 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -1257,7 +1519,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetRisingFill4() {
+        if (!setRisingFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setRisingFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setRisingFill5 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -1323,7 +1596,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetRisingFill5() {
+        if (!setRisingFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setRisingFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setRisingFill6 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -1389,7 +1673,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetRisingFill6() {
+        if (!setRisingFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setRisingFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setRisingFill7 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
@@ -1455,6 +1750,16 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetRisingFill7() {
+        if (!setRisingFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setRisingFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys10;
     private String[] keys11;
@@ -1464,6 +1769,7 @@ public class SeriesWaterfall extends WidthBased {
     private Double opacity8;
     private Double fx2;
     private Double fy2;
+    private List<SeriesWaterfall> setRisingFill8 = new ArrayList<>();
 
     /**
      * Radial gradient rising fill.
@@ -1551,7 +1857,18 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetRisingFill8() {
+        if (!setRisingFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setRisingFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<SeriesWaterfall> setRisingFill9 = new ArrayList<>();
 
     /**
      * Radial gradient rising fill.
@@ -1639,6 +1956,16 @@ public class SeriesWaterfall extends WidthBased {
         }
         return this;
     }
+    private String generateJSsetRisingFill9() {
+        if (!setRisingFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setRisingFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings2;
 
@@ -1660,6 +1987,38 @@ public class SeriesWaterfall extends WidthBased {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetFallingFill());
+        js.append(generateJSsetFallingFill1());
+        js.append(generateJSsetFallingFill2());
+        js.append(generateJSsetFallingFill3());
+        js.append(generateJSsetFallingFill4());
+        js.append(generateJSsetFallingFill5());
+        js.append(generateJSsetFallingFill6());
+        js.append(generateJSsetFallingFill7());
+        js.append(generateJSsetFallingFill8());
+        js.append(generateJSsetFallingFill9());
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetFill2());
+        js.append(generateJSsetFill3());
+        js.append(generateJSsetFill4());
+        js.append(generateJSsetFill5());
+        js.append(generateJSsetFill6());
+        js.append(generateJSsetFill7());
+        js.append(generateJSsetFill8());
+        js.append(generateJSsetFill9());
+        js.append(generateJSsetRisingFill());
+        js.append(generateJSsetRisingFill1());
+        js.append(generateJSsetRisingFill2());
+        js.append(generateJSsetRisingFill3());
+        js.append(generateJSsetRisingFill4());
+        js.append(generateJSsetRisingFill5());
+        js.append(generateJSsetRisingFill6());
+        js.append(generateJSsetRisingFill7());
+        js.append(generateJSsetRisingFill8());
+        js.append(generateJSsetRisingFill9());
+        
 
         String result = js.toString();
         js.setLength(0);

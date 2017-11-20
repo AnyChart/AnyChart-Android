@@ -138,6 +138,20 @@ public class Scatter extends SeparateChart {
     }
 
 
+    /**
+     * 
+     */
+    public void addSeries(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+    }
+
+
     private PlotController getAnnotations;
 
     /**
@@ -209,6 +223,34 @@ public class Scatter extends SeparateChart {
         if (!setBubble.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (ScatterSeriesBubble item : setBubble) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ScatterSeriesBubble> setBubble1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public ScatterSeriesBubble bubble(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setBubble1" + ++variableIndex + " = " + jsBase + ".bubble(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble1" + variableIndex);
+        setBubble1.add(item);
+        return item;
+    }
+    private String generateJSsetBubble1() {
+        if (!setBubble1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBubble item : setBubble1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -657,6 +699,34 @@ public class Scatter extends SeparateChart {
         return "";
     }
 
+    private List<ScatterSeriesLine> setLine1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public ScatterSeriesLine line(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        ScatterSeriesLine item = new ScatterSeriesLine("setLine1" + variableIndex);
+        setLine1.add(item);
+        return item;
+    }
+    private String generateJSsetLine1() {
+        if (!setLine1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesLine item : setLine1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
 
     private CoreAxismarkersLine getLineMarker;
 
@@ -831,6 +901,34 @@ public class Scatter extends SeparateChart {
         if (!setMarker.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (ScatterSeriesMarker item : setMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<ScatterSeriesMarker> setMarker1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public ScatterSeriesMarker marker(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker1" + variableIndex);
+        setMarker1.add(item);
+        return item;
+    }
+    private String generateJSsetMarker1() {
+        if (!setMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesMarker item : setMarker1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -3139,6 +3237,7 @@ public class Scatter extends SeparateChart {
         js.append(generateJSgetYScale());
         js.append(generateJSsetAnnotations());
         js.append(generateJSsetBubble());
+        js.append(generateJSsetBubble1());
         js.append(generateJSsetCrosshair());
         js.append(generateJSsetCrosshair1());
         js.append(generateJSsetCrossing());
@@ -3150,11 +3249,13 @@ public class Scatter extends SeparateChart {
         js.append(generateJSsetLabels());
         js.append(generateJSsetLabels1());
         js.append(generateJSsetLine());
+        js.append(generateJSsetLine1());
         js.append(generateJSsetLineMarker());
         js.append(generateJSsetLineMarker1());
         js.append(generateJSsetLineMarker2());
         js.append(generateJSsetLineMarker3());
         js.append(generateJSsetMarker());
+        js.append(generateJSsetMarker1());
         js.append(generateJSsetMarkerPalette());
         js.append(generateJSsetMarkerPalette1());
         js.append(generateJSsetMarkerPalette2());

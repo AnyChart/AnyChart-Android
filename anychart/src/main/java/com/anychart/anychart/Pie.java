@@ -325,6 +325,32 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         return "";
     }
 
+    private List<Pie> setData1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Pie data(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        return this;
+    }
+    private String generateJSsetData1() {
+        if (!setData1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Pie item : setData1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private String explode;
     private Double explode1;
     private List<Pie> setExplode = new ArrayList<>();
@@ -2096,6 +2122,7 @@ Ascending, Descending and No sorting is supported.
         js.append(generateJSsetConnectorStroke1());
         js.append(generateJSsetConnectorStroke2());
         js.append(generateJSsetData());
+        js.append(generateJSsetData1());
         js.append(generateJSsetExplode());
         js.append(generateJSsetExplode1());
         js.append(generateJSsetExplodeSlice());

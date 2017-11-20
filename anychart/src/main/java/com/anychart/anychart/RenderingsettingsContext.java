@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -59,6 +54,7 @@ public class RenderingsettingsContext extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s)", ((state != null) ? state.generateJs() : "null"), baseZIndex, wrapQuotes(restrictShapes)));
@@ -87,6 +83,7 @@ public class RenderingsettingsContext extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s)", wrapQuotes(state1), baseZIndex, wrapQuotes(restrictShapes)));
@@ -109,6 +106,7 @@ public class RenderingsettingsContext extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s)", wrapQuotes(key)));
@@ -136,6 +134,8 @@ public class RenderingsettingsContext extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        
 
         String result = js.toString();
         js.setLength(0);

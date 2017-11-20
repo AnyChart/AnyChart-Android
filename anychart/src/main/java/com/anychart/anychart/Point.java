@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -49,6 +46,7 @@ public class Point extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", wrapQuotes(field)));
@@ -70,6 +68,7 @@ public class Point extends JsObject {
     }
 
     private Boolean hovered;
+    private List<Point> setHovered = new ArrayList<>();
 
     /**
      * Setter for hover point state.
@@ -92,8 +91,19 @@ public class Point extends JsObject {
         }
         return this;
     }
+    private String generateJSsetHovered() {
+        if (!setHovered.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Point item : setHovered) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean selected;
+    private List<Point> setSelected = new ArrayList<>();
 
     /**
      * Setter for select point state.
@@ -116,8 +126,19 @@ public class Point extends JsObject {
         }
         return this;
     }
+    private String generateJSsetSelected() {
+        if (!setSelected.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Point item : setSelected) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String field1;
+    private List<Point> setSet = new ArrayList<>();
 
     /**
      * Sets the field of the point data row to the specified value.
@@ -142,6 +163,16 @@ public class Point extends JsObject {
             }
         }
         return this;
+    }
+    private String generateJSsetSet() {
+        if (!setSet.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Point item : setSet) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetGetChart() {
@@ -171,6 +202,11 @@ public class Point extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetHovered());
+        js.append(generateJSsetSelected());
+        js.append(generateJSsetSet());
+        
 
         String result = js.toString();
         js.setLength(0);

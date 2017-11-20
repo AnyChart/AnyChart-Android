@@ -140,6 +140,20 @@ public class ChartsPolar extends SeparateChart {
         }
     }
 
+
+    /**
+     * 
+     */
+    public void addSeries(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+    }
+
     private List<PolarSeriesArea> setArea = new ArrayList<>();
 
     /**
@@ -170,6 +184,34 @@ public class ChartsPolar extends SeparateChart {
         if (!setArea.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (PolarSeriesArea item : setArea) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesArea> setArea1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public PolarSeriesArea area(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setArea1" + ++variableIndex + " = " + jsBase + ".area(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        PolarSeriesArea item = new PolarSeriesArea("setArea1" + variableIndex);
+        setArea1.add(item);
+        return item;
+    }
+    private String generateJSsetArea1() {
+        if (!setArea1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesArea item : setArea1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -267,6 +309,34 @@ public class ChartsPolar extends SeparateChart {
         if (!setColumn.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (PolarSeriesColumn item : setColumn) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesColumn> setColumn1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public PolarSeriesColumn column(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setColumn1" + ++variableIndex + " = " + jsBase + ".column(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        PolarSeriesColumn item = new PolarSeriesColumn("setColumn1" + variableIndex);
+        setColumn1.add(item);
+        return item;
+    }
+    private String generateJSsetColumn1() {
+        if (!setColumn1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesColumn item : setColumn1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -691,6 +761,34 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+    private List<PolarSeriesLine> setLine1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public PolarSeriesLine line(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        PolarSeriesLine item = new PolarSeriesLine("setLine1" + variableIndex);
+        setLine1.add(item);
+        return item;
+    }
+    private String generateJSsetLine1() {
+        if (!setLine1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesLine item : setLine1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<PolarSeriesMarker> setMarker = new ArrayList<>();
 
     /**
@@ -721,6 +819,34 @@ public class ChartsPolar extends SeparateChart {
         if (!setMarker.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (PolarSeriesMarker item : setMarker) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesMarker> setMarker1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public PolarSeriesMarker marker(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        PolarSeriesMarker item = new PolarSeriesMarker("setMarker1" + variableIndex);
+        setMarker1.add(item);
+        return item;
+    }
+    private String generateJSsetMarker1() {
+        if (!setMarker1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesMarker item : setMarker1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1189,6 +1315,34 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+    private List<Polygon> setPolygon1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Polygon polygon(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setPolygon1" + ++variableIndex + " = " + jsBase + ".polygon(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        Polygon item = new Polygon("setPolygon1" + variableIndex);
+        setPolygon1.add(item);
+        return item;
+    }
+    private String generateJSsetPolygon1() {
+        if (!setPolygon1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Polygon item : setPolygon1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<Polyline> setPolyline = new ArrayList<>();
 
     /**
@@ -1226,6 +1380,34 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
+    private List<Polyline> setPolyline1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Polyline polyline(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setPolyline1" + ++variableIndex + " = " + jsBase + ".polyline(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        Polyline item = new Polyline("setPolyline1" + variableIndex);
+        setPolyline1.add(item);
+        return item;
+    }
+    private String generateJSsetPolyline1() {
+        if (!setPolyline1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Polyline item : setPolyline1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private List<PolarSeriesRangeColumn> setRangeColumn = new ArrayList<>();
 
     /**
@@ -1256,6 +1438,34 @@ public class ChartsPolar extends SeparateChart {
         if (!setRangeColumn.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (PolarSeriesRangeColumn item : setRangeColumn) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<PolarSeriesRangeColumn> setRangeColumn1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public PolarSeriesRangeColumn rangeColumn(View mapping) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(mapping.generateJs());
+        js.append(String.format(Locale.US, "var setRangeColumn1" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        PolarSeriesRangeColumn item = new PolarSeriesRangeColumn("setRangeColumn1" + variableIndex);
+        setRangeColumn1.add(item);
+        return item;
+    }
+    private String generateJSsetRangeColumn1() {
+        if (!setRangeColumn1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (PolarSeriesRangeColumn item : setRangeColumn1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -2635,9 +2845,11 @@ If the points of series should be sorted by X before drawing.
         js.append(generateJSgetYMinorGrid1());
         js.append(generateJSgetYScale());
         js.append(generateJSsetArea());
+        js.append(generateJSsetArea1());
         js.append(generateJSsetBarGroupsPadding());
         js.append(generateJSsetBarsPadding());
         js.append(generateJSsetColumn());
+        js.append(generateJSsetColumn1());
         js.append(generateJSsetDefaultSeriesType());
         js.append(generateJSsetDefaultSeriesType1());
         js.append(generateJSsetHatchFillPalette());
@@ -2649,7 +2861,9 @@ If the points of series should be sorted by X before drawing.
         js.append(generateJSsetLabels());
         js.append(generateJSsetLabels1());
         js.append(generateJSsetLine());
+        js.append(generateJSsetLine1());
         js.append(generateJSsetMarker());
+        js.append(generateJSsetMarker1());
         js.append(generateJSsetMarkerPalette());
         js.append(generateJSsetMarkerPalette1());
         js.append(generateJSsetMarkerPalette2());
@@ -2664,8 +2878,11 @@ If the points of series should be sorted by X before drawing.
         js.append(generateJSsetPointWidth());
         js.append(generateJSsetPointWidth1());
         js.append(generateJSsetPolygon());
+        js.append(generateJSsetPolygon1());
         js.append(generateJSsetPolyline());
+        js.append(generateJSsetPolyline1());
         js.append(generateJSsetRangeColumn());
+        js.append(generateJSsetRangeColumn1());
         js.append(generateJSsetRemoveSeries());
         js.append(generateJSsetRemoveSeries1());
         js.append(generateJSsetRemoveSeriesAt());

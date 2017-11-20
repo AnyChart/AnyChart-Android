@@ -1,11 +1,9 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +35,7 @@ public class ImageSettings extends SettingsWithMargin {
     
     private String align;
     private ImageAlign align1;
+    private List<ImageSettings> setAlign = new ArrayList<>();
 
     /**
      * Setter for the image align.
@@ -62,7 +61,18 @@ public class ImageSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetAlign() {
+        if (!setAlign.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ImageSettings item : setAlign) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ImageSettings> setAlign1 = new ArrayList<>();
 
     /**
      * Setter for the image align.
@@ -88,9 +98,20 @@ public class ImageSettings extends SettingsWithMargin {
         }
         return this;
     }
+    private String generateJSsetAlign1() {
+        if (!setAlign1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ImageSettings item : setAlign1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double borderRadius;
     private Double[] borderRadius1;
+    private List<ImageSettings> setBorderRadius = new ArrayList<>();
 
     /**
      * Setter for the border radius of an image in item.
@@ -117,7 +138,18 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
         }
         return this;
     }
+    private String generateJSsetBorderRadius() {
+        if (!setBorderRadius.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ImageSettings item : setBorderRadius) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ImageSettings> setBorderRadius1 = new ArrayList<>();
 
     /**
      * Setter for the border radius of an image in item.
@@ -144,9 +176,20 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
         }
         return this;
     }
+    private String generateJSsetBorderRadius1() {
+        if (!setBorderRadius1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ImageSettings item : setBorderRadius1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String fittingMode;
     private Fitting fittingMode1;
+    private List<ImageSettings> setFittingMode = new ArrayList<>();
 
     /**
      * Setter for the fitting mode.
@@ -172,7 +215,18 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
         }
         return this;
     }
+    private String generateJSsetFittingMode() {
+        if (!setFittingMode.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ImageSettings item : setFittingMode) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ImageSettings> setFittingMode1 = new ArrayList<>();
 
     /**
      * Setter for the fitting mode.
@@ -198,8 +252,19 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
         }
         return this;
     }
+    private String generateJSsetFittingMode1() {
+        if (!setFittingMode1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ImageSettings item : setFittingMode1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double opacity;
+    private List<ImageSettings> setOpacity = new ArrayList<>();
 
     /**
      * Setter for the image opacity.
@@ -222,9 +287,20 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
         }
         return this;
     }
+    private String generateJSsetOpacity() {
+        if (!setOpacity.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ImageSettings item : setOpacity) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String size;
     private Double size1;
+    private List<ImageSettings> setSize = new ArrayList<>();
 
     /**
      * Setter for the image size in item.
@@ -250,7 +326,18 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
         }
         return this;
     }
+    private String generateJSsetSize() {
+        if (!setSize.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ImageSettings item : setSize) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ImageSettings> setSize1 = new ArrayList<>();
 
     /**
      * Setter for the image size in item.
@@ -276,6 +363,16 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
         }
         return this;
     }
+    private String generateJSsetSize1() {
+        if (!setSize1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ImageSettings item : setSize1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -296,6 +393,17 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAlign());
+        js.append(generateJSsetAlign1());
+        js.append(generateJSsetBorderRadius());
+        js.append(generateJSsetBorderRadius1());
+        js.append(generateJSsetFittingMode());
+        js.append(generateJSsetFittingMode1());
+        js.append(generateJSsetOpacity());
+        js.append(generateJSsetSize());
+        js.append(generateJSsetSize1());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -49,6 +46,7 @@ public class ScalesBase extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".finishAutoCalc(%b)", silently));
@@ -58,6 +56,7 @@ public class ScalesBase extends CoreBase {
     }
 
     private Boolean inverted;
+    private List<ScalesBase> setInverted = new ArrayList<>();
 
     /**
      * Setter for scale inversion. If the scale is <b>inverted</b>, axes and series go upside-down or right-to-left
@@ -81,6 +80,16 @@ instead of bottom-to-top and left-to-right.
         }
         return this;
     }
+    private String generateJSsetInverted() {
+        if (!setInverted.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScalesBase item : setInverted) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -101,6 +110,9 @@ instead of bottom-to-top and left-to-right.
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetInverted());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -49,6 +46,7 @@ public class AxesMapSettings extends VisualBase {
 
     private Boolean bottom;
     private String bottom1;
+    private List<AxesMapSettings> setBottom = new ArrayList<>();
 
     /**
      * Setter for the bottom axis.
@@ -74,7 +72,18 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetBottom() {
+        if (!setBottom.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setBottom) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AxesMapSettings> setBottom1 = new ArrayList<>();
 
     /**
      * Setter for the bottom axis.
@@ -100,8 +109,19 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetBottom1() {
+        if (!setBottom1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setBottom1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean drawFirstLabel;
+    private List<AxesMapSettings> setDrawFirstLabel = new ArrayList<>();
 
     /**
      * Setter for the first label drawing flag.
@@ -124,8 +144,19 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetDrawFirstLabel() {
+        if (!setDrawFirstLabel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setDrawFirstLabel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean drawLastLabel;
+    private List<AxesMapSettings> setDrawLastLabel = new ArrayList<>();
 
     /**
      * Setter for the last label drawing flag.
@@ -148,6 +179,16 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetDrawLastLabel() {
+        if (!setDrawLastLabel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setDrawLastLabel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiLabelsFactory getLabels;
 
@@ -163,6 +204,7 @@ public class AxesMapSettings extends VisualBase {
 
     private String labels;
     private Boolean labels1;
+    private List<AxesMapSettings> setLabels = new ArrayList<>();
 
     /**
      * Setter for axis labels.
@@ -188,7 +230,18 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLabels() {
+        if (!setLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AxesMapSettings> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for axis labels.
@@ -214,6 +267,16 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLabels1() {
+        if (!setLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private AxesMap getLeft;
 
@@ -229,6 +292,7 @@ public class AxesMapSettings extends VisualBase {
 
     private Boolean left;
     private String left1;
+    private List<AxesMapSettings> setLeft = new ArrayList<>();
 
     /**
      * Setter for the left axis.
@@ -254,7 +318,18 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLeft() {
+        if (!setLeft.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setLeft) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AxesMapSettings> setLeft1 = new ArrayList<>();
 
     /**
      * Setter for the left axis.
@@ -280,6 +355,16 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLeft1() {
+        if (!setLeft1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setLeft1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiLabelsFactory getMinorLabels;
 
@@ -295,6 +380,7 @@ public class AxesMapSettings extends VisualBase {
 
     private String minorLabels;
     private Boolean minorLabels1;
+    private List<AxesMapSettings> setMinorLabels = new ArrayList<>();
 
     /**
      * Setter for axis minor labels.
@@ -320,7 +406,18 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetMinorLabels() {
+        if (!setMinorLabels.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setMinorLabels) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AxesMapSettings> setMinorLabels1 = new ArrayList<>();
 
     /**
      * Setter for axis minor labels.
@@ -346,6 +443,16 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetMinorLabels1() {
+        if (!setMinorLabels1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setMinorLabels1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private MapTicks getMinorTicks;
 
@@ -361,6 +468,7 @@ public class AxesMapSettings extends VisualBase {
 
     private String minorTicks;
     private Boolean minorTicks1;
+    private List<AxesMapSettings> setMinorTicks = new ArrayList<>();
 
     /**
      * Setter for minor axis ticks.
@@ -386,7 +494,18 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetMinorTicks() {
+        if (!setMinorTicks.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setMinorTicks) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AxesMapSettings> setMinorTicks1 = new ArrayList<>();
 
     /**
      * Setter for minor axis ticks.
@@ -412,9 +531,20 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetMinorTicks1() {
+        if (!setMinorTicks1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setMinorTicks1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private LabelsOverlapMode overlapMode;
     private String overlapMode1;
+    private List<AxesMapSettings> setOverlapMode = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -440,7 +570,18 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetOverlapMode() {
+        if (!setOverlapMode.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setOverlapMode) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AxesMapSettings> setOverlapMode1 = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -466,6 +607,16 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetOverlapMode1() {
+        if (!setOverlapMode1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setOverlapMode1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private AxesMap getRight;
 
@@ -481,6 +632,7 @@ public class AxesMapSettings extends VisualBase {
 
     private Boolean right;
     private String right1;
+    private List<AxesMapSettings> setRight = new ArrayList<>();
 
     /**
      * Setter for the right axis.
@@ -506,7 +658,18 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetRight() {
+        if (!setRight.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setRight) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AxesMapSettings> setRight1 = new ArrayList<>();
 
     /**
      * Setter for the right axis.
@@ -532,6 +695,16 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetRight1() {
+        if (!setRight1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setRight1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Stroke stroke;
     private ColoredFill stroke1;
@@ -540,6 +713,7 @@ public class AxesMapSettings extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<AxesMapSettings> setStroke = new ArrayList<>();
 
     /**
      * Setter for axis stroke settings.
@@ -575,7 +749,18 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStroke() {
+        if (!setStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AxesMapSettings> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for axis stroke settings.
@@ -611,7 +796,18 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AxesMapSettings> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for axis stroke settings.
@@ -647,6 +843,16 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private MapTicks getTicks;
 
@@ -662,6 +868,7 @@ public class AxesMapSettings extends VisualBase {
 
     private String ticks;
     private Boolean ticks1;
+    private List<AxesMapSettings> setTicks = new ArrayList<>();
 
     /**
      * Setter for axis ticks.
@@ -687,7 +894,18 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTicks() {
+        if (!setTicks.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setTicks) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AxesMapSettings> setTicks1 = new ArrayList<>();
 
     /**
      * Setter for axis ticks.
@@ -713,6 +931,16 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTicks1() {
+        if (!setTicks1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setTicks1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiTitle getTitle;
 
@@ -729,6 +957,7 @@ public class AxesMapSettings extends VisualBase {
     private Boolean title;
     private String title1;
     private String title2;
+    private List<AxesMapSettings> setTitle = new ArrayList<>();
 
     /**
      * Setter for the axis title.
@@ -755,7 +984,18 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTitle() {
+        if (!setTitle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setTitle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AxesMapSettings> setTitle1 = new ArrayList<>();
 
     /**
      * Setter for the axis title.
@@ -782,6 +1022,16 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTitle1() {
+        if (!setTitle1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setTitle1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private AxesMap getTop;
 
@@ -797,6 +1047,7 @@ public class AxesMapSettings extends VisualBase {
 
     private Boolean top;
     private String top1;
+    private List<AxesMapSettings> setTop = new ArrayList<>();
 
     /**
      * Setter for the top axis.
@@ -822,7 +1073,18 @@ public class AxesMapSettings extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetTop() {
+        if (!setTop.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setTop) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<AxesMapSettings> setTop1 = new ArrayList<>();
 
     /**
      * Setter for the top axis.
@@ -847,6 +1109,16 @@ public class AxesMapSettings extends VisualBase {
             }
         }
         return this;
+    }
+    private String generateJSsetTop1() {
+        if (!setTop1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AxesMapSettings item : setTop1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetBottom() {
@@ -940,6 +1212,33 @@ public class AxesMapSettings extends VisualBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetBottom());
+        js.append(generateJSsetBottom1());
+        js.append(generateJSsetDrawFirstLabel());
+        js.append(generateJSsetDrawLastLabel());
+        js.append(generateJSsetLabels());
+        js.append(generateJSsetLabels1());
+        js.append(generateJSsetLeft());
+        js.append(generateJSsetLeft1());
+        js.append(generateJSsetMinorLabels());
+        js.append(generateJSsetMinorLabels1());
+        js.append(generateJSsetMinorTicks());
+        js.append(generateJSsetMinorTicks1());
+        js.append(generateJSsetOverlapMode());
+        js.append(generateJSsetOverlapMode1());
+        js.append(generateJSsetRight());
+        js.append(generateJSsetRight1());
+        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
+        js.append(generateJSsetTicks());
+        js.append(generateJSsetTicks1());
+        js.append(generateJSsetTitle());
+        js.append(generateJSsetTitle1());
+        js.append(generateJSsetTop());
+        js.append(generateJSsetTop1());
+        
 
         String result = js.toString();
         js.setLength(0);

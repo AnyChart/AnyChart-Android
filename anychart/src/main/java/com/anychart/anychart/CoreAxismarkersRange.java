@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -48,6 +45,7 @@ public class CoreAxismarkersRange extends VisualBase {
     }
 
     private CoreAxesLinear axis;
+    private List<CoreAxismarkersLine> setAxis = new ArrayList<>();
 
     /**
      * Setter for the range marker axis.
@@ -66,10 +64,23 @@ public class CoreAxismarkersRange extends VisualBase {
 
             js.append(String.format(Locale.US, ".axis(%s);",  ((axis != null) ? axis.getJsBase() : "null")));
         }
-        return new CoreAxismarkersLine(jsBase);
+        CoreAxismarkersLine item = new CoreAxismarkersLine("setAxis" + variableIndex);
+        setAxis.add(item);
+        return item;
+    }
+    private String generateJSsetAxis() {
+        if (!setAxis.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersLine item : setAxis) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Fill fill;
+    private List<CoreAxismarkersRange> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -93,9 +104,20 @@ public class CoreAxismarkersRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill() {
+        if (!setFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<CoreAxismarkersRange> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -120,6 +142,16 @@ public class CoreAxismarkersRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill1() {
+        if (!setFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -128,6 +160,7 @@ public class CoreAxismarkersRange extends VisualBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<CoreAxismarkersRange> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -167,7 +200,18 @@ public class CoreAxismarkersRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxismarkersRange> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -207,7 +251,18 @@ public class CoreAxismarkersRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxismarkersRange> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -247,7 +302,18 @@ public class CoreAxismarkersRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxismarkersRange> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -287,7 +353,18 @@ public class CoreAxismarkersRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxismarkersRange> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -327,7 +404,18 @@ public class CoreAxismarkersRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxismarkersRange> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -367,6 +455,16 @@ public class CoreAxismarkersRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -376,6 +474,7 @@ public class CoreAxismarkersRange extends VisualBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<CoreAxismarkersRange> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -425,7 +524,18 @@ public class CoreAxismarkersRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxismarkersRange> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -475,9 +585,20 @@ public class CoreAxismarkersRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private Double from;
+    private List<CoreAxismarkersRange> setFrom = new ArrayList<>();
 
     /**
      * Setter for the starting range marker value.
@@ -500,9 +621,20 @@ public class CoreAxismarkersRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetFrom() {
+        if (!setFrom.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setFrom) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Layout layout;
     private String layout1;
+    private List<CoreAxismarkersRange> setLayout = new ArrayList<>();
 
     /**
      * Setter for the range marker layout.
@@ -528,7 +660,18 @@ public class CoreAxismarkersRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLayout() {
+        if (!setLayout.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setLayout) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxismarkersRange> setLayout1 = new ArrayList<>();
 
     /**
      * Setter for the range marker layout.
@@ -554,6 +697,16 @@ public class CoreAxismarkersRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetLayout1() {
+        if (!setLayout1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setLayout1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private ScalesBase getScale;
 
@@ -571,6 +724,7 @@ public class CoreAxismarkersRange extends VisualBase {
     private String scale1;
     private ScaleTypes scale2;
     private String scale3;
+    private List<CoreAxismarkersRange> setScale = new ArrayList<>();
 
     /**
      * Setter for the range marker scale.
@@ -596,7 +750,18 @@ public class CoreAxismarkersRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetScale() {
+        if (!setScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxismarkersRange> setScale1 = new ArrayList<>();
 
     /**
      * Setter for the range marker scale.
@@ -624,7 +789,18 @@ public class CoreAxismarkersRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetScale1() {
+        if (!setScale1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setScale1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<CoreAxismarkersRange> setScale2 = new ArrayList<>();
 
     /**
      * Setter for the range marker scale.
@@ -652,8 +828,19 @@ public class CoreAxismarkersRange extends VisualBase {
         }
         return this;
     }
+    private String generateJSsetScale2() {
+        if (!setScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double to;
+    private List<CoreAxismarkersRange> setTo = new ArrayList<>();
 
     /**
      * Setter for the ending range marker value.
@@ -675,6 +862,16 @@ public class CoreAxismarkersRange extends VisualBase {
             }
         }
         return this;
+    }
+    private String generateJSsetTo() {
+        if (!setTo.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreAxismarkersRange item : setTo) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetAxis() {
@@ -712,6 +909,26 @@ public class CoreAxismarkersRange extends VisualBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetAxis());
+        js.append(generateJSsetFill());
+        js.append(generateJSsetFill1());
+        js.append(generateJSsetFill2());
+        js.append(generateJSsetFill3());
+        js.append(generateJSsetFill4());
+        js.append(generateJSsetFill5());
+        js.append(generateJSsetFill6());
+        js.append(generateJSsetFill7());
+        js.append(generateJSsetFill8());
+        js.append(generateJSsetFill9());
+        js.append(generateJSsetFrom());
+        js.append(generateJSsetLayout());
+        js.append(generateJSsetLayout1());
+        js.append(generateJSsetScale());
+        js.append(generateJSsetScale1());
+        js.append(generateJSsetScale2());
+        js.append(generateJSsetTo());
+        
 
         String result = js.toString();
         js.setLength(0);

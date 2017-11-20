@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -71,6 +66,7 @@ public class Exports extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".facebook(%s, %s, %s, %s, %s, %s, %s)", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description), wrapQuotes(width), wrapQuotes(height), wrapQuotes(appId)));
@@ -93,6 +89,7 @@ public class Exports extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".filename(%s)", wrapQuotes(filename)));
@@ -125,6 +122,7 @@ public class Exports extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".image(%s, %s)", wrapQuotes(widthOrOptions), wrapQuotes(height1)));
@@ -172,6 +170,7 @@ public class Exports extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".linkedin(%s, %s, %s, %s)", wrapQuotes(captionOrOptions2), wrapQuotes(description1), wrapQuotes(width1), wrapQuotes(height2)));
@@ -220,6 +219,7 @@ public class Exports extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".pinterest(%s, %s, %s, %s)", wrapQuotes(linkOrOptions), wrapQuotes(description2), wrapQuotes(width2), wrapQuotes(height3)));
@@ -263,6 +263,7 @@ public class Exports extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".twitter(%s, %s, %s)", wrapQuotes(urlOrOptions), wrapQuotes(width3), wrapQuotes(height4)));
@@ -290,6 +291,8 @@ public class Exports extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        
 
         String result = js.toString();
         js.setLength(0);

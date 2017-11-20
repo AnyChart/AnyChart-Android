@@ -1,11 +1,9 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 /**
@@ -49,6 +47,7 @@ public class Chart extends VisualBaseWithBounds {
 
     private Boolean ay;
     private String ay1;
+    private List<Chart> setA11y = new ArrayList<>();
 
     /**
      * Setter for the accessibility setting.
@@ -74,7 +73,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetA11y() {
+        if (!setA11y.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setA11y) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setA11y1 = new ArrayList<>();
 
     /**
      * Setter for the accessibility setting.
@@ -100,6 +110,16 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetA11y1() {
+        if (!setA11y1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setA11y1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Animation getAnimation;
 
@@ -115,6 +135,7 @@ public class Chart extends VisualBaseWithBounds {
 
     private Boolean animation;
     private String animation1;
+    private List<Chart> setAnimation = new ArrayList<>();
 
     /**
      * Setter for the animation setting by one value.
@@ -140,7 +161,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetAnimation() {
+        if (!setAnimation.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setAnimation) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setAnimation1 = new ArrayList<>();
 
     /**
      * Setter for the animation setting by one value.
@@ -166,9 +198,20 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetAnimation1() {
+        if (!setAnimation1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setAnimation1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean enabled;
     private Double duration;
+    private List<Chart> setAnimation2 = new ArrayList<>();
 
     /**
      * Setter for the animation settings using several parameters.
@@ -193,6 +236,16 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetAnimation2() {
+        if (!setAnimation2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setAnimation2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiBackground getBackground;
 
@@ -207,6 +260,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
     private String background;
+    private List<Chart> setBackground = new ArrayList<>();
 
     /**
      * Setter for the chart background.
@@ -229,6 +283,16 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetBackground() {
+        if (!setBackground.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setBackground) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Layer getContainer;
 
@@ -246,6 +310,7 @@ public class Chart extends VisualBaseWithBounds {
     private Stage container1;
     private String container2;
     private Element container3;
+    private List<Chart> setContainer = new ArrayList<>();
 
     /**
      * Setter for the element's container.
@@ -271,7 +336,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetContainer() {
+        if (!setContainer.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setContainer) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setContainer1 = new ArrayList<>();
 
     /**
      * Setter for the element's container.
@@ -297,7 +373,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetContainer1() {
+        if (!setContainer1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setContainer1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setContainer2 = new ArrayList<>();
 
     /**
      * Setter for the element's container.
@@ -325,7 +412,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetContainer2() {
+        if (!setContainer2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setContainer2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setContainer3 = new ArrayList<>();
 
     /**
      * Setter for the element's container.
@@ -351,6 +449,16 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetContainer3() {
+        if (!setContainer3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setContainer3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private ContextMenu getContextMenu;
 
@@ -366,6 +474,7 @@ public class Chart extends VisualBaseWithBounds {
 
     private String contextMenu;
     private Boolean contextMenu1;
+    private List<Chart> setContextMenu = new ArrayList<>();
 
     /**
      * Setter for the context menu.
@@ -391,7 +500,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetContextMenu() {
+        if (!setContextMenu.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setContextMenu) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setContextMenu1 = new ArrayList<>();
 
     /**
      * Setter for the context menu.
@@ -417,8 +537,19 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetContextMenu1() {
+        if (!setContextMenu1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setContextMenu1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Boolean async;
+    private List<Chart> setDraw = new ArrayList<>();
 
     /**
      * Starts the rendering of the chart into the container.
@@ -441,6 +572,16 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetDraw() {
+        if (!setDraw.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setDraw) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Exports getExports;
 
@@ -455,6 +596,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
     private String exports;
+    private List<Chart> setExports = new ArrayList<>();
 
     /**
      * Setter for the export charts.
@@ -476,6 +618,16 @@ public class Chart extends VisualBaseWithBounds {
             }
         }
         return this;
+    }
+    private String generateJSsetExports() {
+        if (!setExports.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setExports) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String onSuccessOrOptions;
@@ -504,6 +656,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %f, %f, %f, %b)", wrapQuotes(onSuccessOrOptions), width, height, quality, forceTransparentWhite));
@@ -549,6 +702,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %s, %f, %f)", paperSizeOrWidth, landscapeOrWidth, wrapQuotes(onSuccessOrOptions1), x, y));
@@ -587,6 +741,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %b, %s, %f, %f)", paperSizeOrWidth, landscapeOrWidth1, wrapQuotes(onSuccessOrOptions1), x, y));
@@ -625,6 +780,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %s, %f, %f)", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth, wrapQuotes(onSuccessOrOptions1), x, y));
@@ -663,6 +819,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %b, %s, %f, %f)", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth1, wrapQuotes(onSuccessOrOptions1), x, y));
@@ -707,6 +864,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %f, %f, %f)", wrapQuotes(onSuccessOrOptions2), width1, height1, quality1));
@@ -750,6 +908,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b, %s)", wrapQuotes(paperSizeOrWidth2), landscapeOrHeight, wrapQuotes(onSuccessOrOptions3)));
@@ -788,6 +947,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s)", wrapQuotes(paperSizeOrWidth2), wrapQuotes(landscapeOrHeight1), wrapQuotes(onSuccessOrOptions3)));
@@ -826,6 +986,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b, %s)", paperSizeOrWidth3, landscapeOrHeight, wrapQuotes(onSuccessOrOptions3)));
@@ -864,6 +1025,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s, %s)", paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1), wrapQuotes(onSuccessOrOptions3)));
@@ -890,6 +1052,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".globalToLocal(%f, %f)", xCoord, yCoord));
@@ -923,6 +1086,7 @@ public class Chart extends VisualBaseWithBounds {
     private Boolean label;
     private String label1;
     private String label2;
+    private List<Chart> setLabel = new ArrayList<>();
 
     /**
      * Setter for chart label.
@@ -949,7 +1113,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetLabel() {
+        if (!setLabel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setLabel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setLabel1 = new ArrayList<>();
 
     /**
      * Setter for chart label.
@@ -976,12 +1151,23 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetLabel1() {
+        if (!setLabel1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setLabel1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String index;
     private Double index1;
     private Boolean label3;
     private String label4;
     private String label5;
+    private List<Chart> setLabel2 = new ArrayList<>();
 
     /**
      * Setter for chart label.
@@ -1016,7 +1202,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetLabel2() {
+        if (!setLabel2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setLabel2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setLabel3 = new ArrayList<>();
 
     /**
      * Setter for chart label.
@@ -1051,7 +1248,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetLabel3() {
+        if (!setLabel3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setLabel3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setLabel4 = new ArrayList<>();
 
     /**
      * Setter for chart label.
@@ -1086,7 +1294,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetLabel4() {
+        if (!setLabel4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setLabel4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setLabel5 = new ArrayList<>();
 
     /**
      * Setter for chart label.
@@ -1121,6 +1340,16 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetLabel5() {
+        if (!setLabel5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setLabel5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double xCoord1;
     private Double yCoord1;
@@ -1146,6 +1375,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".localToGlobal(%f, %f)", xCoord1, yCoord1));
@@ -1170,6 +1400,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double[] margin;
     private String[] margin1;
     private String margin2;
+    private List<Chart> setMargin = new ArrayList<>();
 
     /**
      * Setter for the chart margin in pixels using a single complex object.
@@ -1196,7 +1427,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMargin() {
+        if (!setMargin.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setMargin) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setMargin1 = new ArrayList<>();
 
     /**
      * Setter for the chart margin in pixels using a single complex object.
@@ -1223,7 +1465,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMargin1() {
+        if (!setMargin1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setMargin1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setMargin2 = new ArrayList<>();
 
     /**
      * Setter for the chart margin in pixels using a single complex object.
@@ -1250,6 +1503,16 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMargin2() {
+        if (!setMargin2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setMargin2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String value;
     private Double value1;
@@ -1259,6 +1522,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double value5;
     private String value6;
     private Double value7;
+    private List<Chart> setMargin3 = new ArrayList<>();
 
     /**
      * Setter for the chart margin in pixels using several simple values.
@@ -1323,7 +1587,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMargin3() {
+        if (!setMargin3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setMargin3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setMargin4 = new ArrayList<>();
 
     /**
      * Setter for the chart margin in pixels using several simple values.
@@ -1388,6 +1663,16 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetMargin4() {
+        if (!setMargin4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setMargin4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private NoDataSettings getNoData;
 
@@ -1402,6 +1687,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
     private String noData;
+    private List<Chart> setNoData = new ArrayList<>();
 
     /**
      * Setter for noData settings.<br/>
@@ -1425,6 +1711,16 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetNoData() {
+        if (!setNoData.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setNoData) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UtilsPadding getPadding;
 
@@ -1442,6 +1738,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double[] padding;
     private String[] padding1;
     private String padding2;
+    private List<Chart> setPadding = new ArrayList<>();
 
     /**
      * Setter for the chart paddings in pixels using a single value.
@@ -1468,7 +1765,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetPadding() {
+        if (!setPadding.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setPadding) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setPadding1 = new ArrayList<>();
 
     /**
      * Setter for the chart paddings in pixels using a single value.
@@ -1495,7 +1803,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetPadding1() {
+        if (!setPadding1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setPadding1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setPadding2 = new ArrayList<>();
 
     /**
      * Setter for the chart paddings in pixels using a single value.
@@ -1522,6 +1841,16 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetPadding2() {
+        if (!setPadding2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setPadding2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String value8;
     private Double value9;
@@ -1531,6 +1860,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double value13;
     private String value14;
     private Double value15;
+    private List<Chart> setPadding3 = new ArrayList<>();
 
     /**
      * Setter for the chart paddings in pixels using several numbers.
@@ -1627,7 +1957,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetPadding3() {
+        if (!setPadding3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setPadding3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setPadding4 = new ArrayList<>();
 
     /**
      * Setter for the chart paddings in pixels using several numbers.
@@ -1724,6 +2065,16 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetPadding4() {
+        if (!setPadding4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setPadding4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private ChartDataExportMode chartDataExportMode;
     private String chartDataExportMode1;
@@ -1749,6 +2100,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s)", ((chartDataExportMode != null) ? chartDataExportMode.generateJs() : "null"), wrapQuotes(csvSettings), wrapQuotes(filename)));
@@ -1777,6 +2129,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s)", wrapQuotes(chartDataExportMode1), wrapQuotes(csvSettings), wrapQuotes(filename)));
@@ -1831,6 +2184,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b, %s)", width2, height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
@@ -1879,6 +2233,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%s, %f, %f, %b, %s)", wrapQuotes(width3), height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
@@ -1905,6 +2260,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJson(%s)", wrapQuotes(filename2)));
@@ -1956,6 +2312,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%f, %b, %f, %f, %s)", paperSizeOrWidthOrOptions, landscape, x1, y1, wrapQuotes(filename3)));
@@ -2000,6 +2357,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidthOrOptions1), landscape, x1, y1, wrapQuotes(filename3)));
@@ -2055,6 +2413,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f, %s)", width4, height3, quality3, wrapQuotes(filename4)));
@@ -2105,6 +2464,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%s, %f, %f, %s)", wrapQuotes(width5), height3, quality3, wrapQuotes(filename4)));
@@ -2147,6 +2507,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b, %s)", wrapQuotes(paperSize), landscape1, wrapQuotes(filename5)));
@@ -2186,6 +2547,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%f, %f)", width6, height4));
@@ -2225,6 +2587,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s)", ((chartDataExportMode2 != null) ? chartDataExportMode2.generateJs() : "null"), wrapQuotes(filename6)));
@@ -2261,6 +2624,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s)", wrapQuotes(chartDataExportMode3), wrapQuotes(filename6)));
@@ -2292,6 +2656,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXml(%s)", wrapQuotes(filename7)));
@@ -2301,6 +2666,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
     private Fill selectMarqueeFill;
+    private List<Chart> setSelectMarqueeFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -2324,9 +2690,20 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetSelectMarqueeFill() {
+        if (!setSelectMarqueeFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setSelectMarqueeFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<Chart> setSelectMarqueeFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -2351,6 +2728,16 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetSelectMarqueeFill1() {
+        if (!setSelectMarqueeFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setSelectMarqueeFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -2359,6 +2746,7 @@ public class Chart extends VisualBaseWithBounds {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
+    private List<Chart> setSelectMarqueeFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2398,7 +2786,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetSelectMarqueeFill2() {
+        if (!setSelectMarqueeFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setSelectMarqueeFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setSelectMarqueeFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2438,7 +2837,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetSelectMarqueeFill3() {
+        if (!setSelectMarqueeFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setSelectMarqueeFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setSelectMarqueeFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2478,7 +2888,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetSelectMarqueeFill4() {
+        if (!setSelectMarqueeFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setSelectMarqueeFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setSelectMarqueeFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2518,7 +2939,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetSelectMarqueeFill5() {
+        if (!setSelectMarqueeFill5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setSelectMarqueeFill5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setSelectMarqueeFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2558,7 +2990,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetSelectMarqueeFill6() {
+        if (!setSelectMarqueeFill6.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setSelectMarqueeFill6) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setSelectMarqueeFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2598,6 +3041,16 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetSelectMarqueeFill7() {
+        if (!setSelectMarqueeFill7.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setSelectMarqueeFill7) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -2607,6 +3060,7 @@ public class Chart extends VisualBaseWithBounds {
     private Double opacity2;
     private Double fx;
     private Double fy;
+    private List<Chart> setSelectMarqueeFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -2656,7 +3110,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetSelectMarqueeFill8() {
+        if (!setSelectMarqueeFill8.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setSelectMarqueeFill8) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setSelectMarqueeFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -2706,6 +3171,16 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetSelectMarqueeFill9() {
+        if (!setSelectMarqueeFill9.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setSelectMarqueeFill9) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Fill imageSettings;
     private Stroke color1;
@@ -2715,6 +3190,7 @@ public class Chart extends VisualBaseWithBounds {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
+    private List<Chart> setSelectMarqueeStroke = new ArrayList<>();
 
     /**
      * Setter for the select marquee stroke.
@@ -2751,7 +3227,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetSelectMarqueeStroke() {
+        if (!setSelectMarqueeStroke.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setSelectMarqueeStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setSelectMarqueeStroke1 = new ArrayList<>();
 
     /**
      * Setter for the select marquee stroke.
@@ -2788,7 +3275,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetSelectMarqueeStroke1() {
+        if (!setSelectMarqueeStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setSelectMarqueeStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setSelectMarqueeStroke2 = new ArrayList<>();
 
     /**
      * Setter for the select marquee stroke.
@@ -2824,6 +3322,16 @@ public class Chart extends VisualBaseWithBounds {
             }
         }
         return this;
+    }
+    private String generateJSsetSelectMarqueeStroke2() {
+        if (!setSelectMarqueeStroke2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setSelectMarqueeStroke2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String onSuccessOrOptions4;
@@ -2900,6 +3408,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %b, %f, %f, %f, %b, %s)", wrapQuotes(onSuccessOrOptions4), asBase, width7, height5, quality4, forceTransparentWhite2, wrapQuotes(filename8)));
@@ -2983,6 +3492,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %f, %s, %b, %f, %f, %s)", paperSizeOrWidth4, landscapeOrWidth2, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
@@ -3057,6 +3567,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %b, %s, %b, %f, %f, %s)", paperSizeOrWidth4, landscapeOrWidth3, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
@@ -3131,6 +3642,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %f, %s, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidth5), landscapeOrWidth2, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
@@ -3205,6 +3717,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %s, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidth5), landscapeOrWidth3, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
@@ -3291,6 +3804,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPng(%s, %b, %f, %f, %f, %s)", wrapQuotes(onSuccessOrOptions6), asBase2, width8, height6, quality5, wrapQuotes(filename10)));
@@ -3368,6 +3882,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %s, %b, %s)", wrapQuotes(paperSizeOrWidth6), landscapeOrHeight2, wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
@@ -3438,6 +3953,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %b, %s)", wrapQuotes(paperSizeOrWidth6), wrapQuotes(landscapeOrHeight3), wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
@@ -3508,6 +4024,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %b, %s, %b, %s)", paperSizeOrWidth7, landscapeOrHeight2, wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
@@ -3578,6 +4095,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %s, %s, %b, %s)", paperSizeOrWidth7, wrapQuotes(landscapeOrHeight3), wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
@@ -3613,6 +4131,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareWithFacebook(%s, %s, %s, %s)", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
@@ -3647,6 +4166,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s)", wrapQuotes(captionOrOptions2), wrapQuotes(description1)));
@@ -3680,6 +4200,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s)", wrapQuotes(linkOrOptions), wrapQuotes(description2)));
@@ -3689,6 +4210,7 @@ public class Chart extends VisualBaseWithBounds {
     }
 
     private Boolean repeat;
+    private List<Chart> setStartSelectMarquee = new ArrayList<>();
 
     /**
      * Starts select marquee drawing.
@@ -3712,6 +4234,16 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetStartSelectMarquee() {
+        if (!setStartSelectMarquee.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setStartSelectMarquee) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UiTitle getTitle;
 
@@ -3728,6 +4260,7 @@ public class Chart extends VisualBaseWithBounds {
     private Boolean title;
     private String title1;
     private String title2;
+    private List<Chart> setTitle = new ArrayList<>();
 
     /**
      * Setter for the chart title.
@@ -3754,7 +4287,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetTitle() {
+        if (!setTitle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setTitle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setTitle1 = new ArrayList<>();
 
     /**
      * Setter for the chart title.
@@ -3781,9 +4325,20 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetTitle1() {
+        if (!setTitle1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setTitle1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String title3;
     private Boolean asString;
+    private List<Element> setToA11yTable = new ArrayList<>();
 
     /**
      * Creates and returns the chart represented as an invisible HTML table.
@@ -3804,13 +4359,26 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toA11yTable(%s, %b)", wrapQuotes(title3), asString));
                 js.setLength(0);
             }
         }
-        return new Element(jsBase);
+        Element item = new Element("setToA11yTable" + variableIndex);
+        setToA11yTable.add(item);
+        return item;
+    }
+    private String generateJSsetToA11yTable() {
+        if (!setToA11yTable.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setToA11yTable) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private ChartDataExportMode chartDataExportMode4;
@@ -3841,6 +4409,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s, %s)", ((chartDataExportMode4 != null) ? chartDataExportMode4.generateJs() : "null"), wrapQuotes(csvSettings1)));
@@ -3874,6 +4443,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s, %s)", wrapQuotes(chartDataExportMode5), wrapQuotes(csvSettings1)));
@@ -3884,6 +4454,7 @@ public class Chart extends VisualBaseWithBounds {
 
     private String title4;
     private Boolean asString1;
+    private List<Element> setToHtmlTable = new ArrayList<>();
 
     /**
      * Creates and returns a chart as HTML table.
@@ -3908,13 +4479,26 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toHtmlTable(%s, %b)", wrapQuotes(title4), asString1));
                 js.setLength(0);
             }
         }
-        return new Element(jsBase);
+        Element item = new Element("setToHtmlTable" + variableIndex);
+        setToHtmlTable.add(item);
+        return item;
+    }
+    private String generateJSsetToHtmlTable() {
+        if (!setToHtmlTable.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Element item : setToHtmlTable) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Boolean stringify;
@@ -3931,6 +4515,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toJson(%b)", stringify));
@@ -3966,6 +4551,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%s, %b)", wrapQuotes(paperSize2), landscape2));
@@ -4011,6 +4597,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%f, %f)", width9, height7));
@@ -4033,6 +4620,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toXml(%b)", asXmlNode));
@@ -4055,6 +4643,7 @@ public class Chart extends VisualBaseWithBounds {
 
     private String tooltip;
     private Boolean tooltip1;
+    private List<Chart> setTooltip = new ArrayList<>();
 
     /**
      * Setter for chart tooltip.
@@ -4080,7 +4669,18 @@ public class Chart extends VisualBaseWithBounds {
         }
         return this;
     }
+    private String generateJSsetTooltip() {
+        if (!setTooltip.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setTooltip) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Chart> setTooltip1 = new ArrayList<>();
 
     /**
      * Setter for chart tooltip.
@@ -4105,6 +4705,16 @@ public class Chart extends VisualBaseWithBounds {
             }
         }
         return this;
+    }
+    private String generateJSsetTooltip1() {
+        if (!setTooltip1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setTooltip1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetA11y() {
@@ -4240,6 +4850,59 @@ public class Chart extends VisualBaseWithBounds {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetA11y());
+        js.append(generateJSsetA11y1());
+        js.append(generateJSsetAnimation());
+        js.append(generateJSsetAnimation1());
+        js.append(generateJSsetAnimation2());
+        js.append(generateJSsetBackground());
+        js.append(generateJSsetContainer());
+        js.append(generateJSsetContainer1());
+        js.append(generateJSsetContainer2());
+        js.append(generateJSsetContainer3());
+        js.append(generateJSsetContextMenu());
+        js.append(generateJSsetContextMenu1());
+        js.append(generateJSsetDraw());
+        js.append(generateJSsetExports());
+        js.append(generateJSsetLabel());
+        js.append(generateJSsetLabel1());
+        js.append(generateJSsetLabel2());
+        js.append(generateJSsetLabel3());
+        js.append(generateJSsetLabel4());
+        js.append(generateJSsetLabel5());
+        js.append(generateJSsetMargin());
+        js.append(generateJSsetMargin1());
+        js.append(generateJSsetMargin2());
+        js.append(generateJSsetMargin3());
+        js.append(generateJSsetMargin4());
+        js.append(generateJSsetNoData());
+        js.append(generateJSsetPadding());
+        js.append(generateJSsetPadding1());
+        js.append(generateJSsetPadding2());
+        js.append(generateJSsetPadding3());
+        js.append(generateJSsetPadding4());
+        js.append(generateJSsetSelectMarqueeFill());
+        js.append(generateJSsetSelectMarqueeFill1());
+        js.append(generateJSsetSelectMarqueeFill2());
+        js.append(generateJSsetSelectMarqueeFill3());
+        js.append(generateJSsetSelectMarqueeFill4());
+        js.append(generateJSsetSelectMarqueeFill5());
+        js.append(generateJSsetSelectMarqueeFill6());
+        js.append(generateJSsetSelectMarqueeFill7());
+        js.append(generateJSsetSelectMarqueeFill8());
+        js.append(generateJSsetSelectMarqueeFill9());
+        js.append(generateJSsetSelectMarqueeStroke());
+        js.append(generateJSsetSelectMarqueeStroke1());
+        js.append(generateJSsetSelectMarqueeStroke2());
+        js.append(generateJSsetStartSelectMarquee());
+        js.append(generateJSsetTitle());
+        js.append(generateJSsetTitle1());
+        js.append(generateJSsetToA11yTable());
+        js.append(generateJSsetToHtmlTable());
+        js.append(generateJSsetTooltip());
+        js.append(generateJSsetTooltip1());
+        
 
         String result = js.toString();
         js.setLength(0);

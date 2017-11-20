@@ -1,11 +1,9 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 /**
@@ -61,6 +59,7 @@ public class Quarter extends UiBackground {
     private Boolean label;
     private String label1;
     private String label2;
+    private List<Chart> setLabel = new ArrayList<>();
 
     /**
      * Setter for quarter label.
@@ -78,15 +77,29 @@ public class Quarter extends UiBackground {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%b)", label));
                 js.setLength(0);
             }
         }
-        return new Chart(jsBase);
+        Chart item = new Chart("setLabel" + variableIndex);
+        setLabel.add(item);
+        return item;
+    }
+    private String generateJSsetLabel() {
+        if (!setLabel.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setLabel) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Chart> setLabel1 = new ArrayList<>();
 
     /**
      * Setter for quarter label.
@@ -104,13 +117,26 @@ public class Quarter extends UiBackground {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s)", wrapQuotes(label1)));
                 js.setLength(0);
             }
         }
-        return new Chart(jsBase);
+        Chart item = new Chart("setLabel1" + variableIndex);
+        setLabel1.add(item);
+        return item;
+    }
+    private String generateJSsetLabel1() {
+        if (!setLabel1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setLabel1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String index;
@@ -118,6 +144,7 @@ public class Quarter extends UiBackground {
     private Boolean label3;
     private String label4;
     private String label5;
+    private List<Chart> setLabel2 = new ArrayList<>();
 
     /**
      * Setter for quarter label.
@@ -143,15 +170,29 @@ public class Quarter extends UiBackground {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %b)", wrapQuotes(index), label3));
                 js.setLength(0);
             }
         }
-        return new Chart(jsBase);
+        Chart item = new Chart("setLabel2" + variableIndex);
+        setLabel2.add(item);
+        return item;
+    }
+    private String generateJSsetLabel2() {
+        if (!setLabel2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setLabel2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Chart> setLabel3 = new ArrayList<>();
 
     /**
      * Setter for quarter label.
@@ -177,15 +218,29 @@ public class Quarter extends UiBackground {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %s)", wrapQuotes(index), wrapQuotes(label4)));
                 js.setLength(0);
             }
         }
-        return new Chart(jsBase);
+        Chart item = new Chart("setLabel3" + variableIndex);
+        setLabel3.add(item);
+        return item;
+    }
+    private String generateJSsetLabel3() {
+        if (!setLabel3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setLabel3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Chart> setLabel4 = new ArrayList<>();
 
     /**
      * Setter for quarter label.
@@ -211,15 +266,29 @@ public class Quarter extends UiBackground {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f, %b)", index1, label3));
                 js.setLength(0);
             }
         }
-        return new Chart(jsBase);
+        Chart item = new Chart("setLabel4" + variableIndex);
+        setLabel4.add(item);
+        return item;
+    }
+    private String generateJSsetLabel4() {
+        if (!setLabel4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setLabel4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Chart> setLabel5 = new ArrayList<>();
 
     /**
      * Setter for quarter label.
@@ -245,13 +314,26 @@ public class Quarter extends UiBackground {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f, %s)", index1, wrapQuotes(label4)));
                 js.setLength(0);
             }
         }
-        return new Chart(jsBase);
+        Chart item = new Chart("setLabel5" + variableIndex);
+        setLabel5.add(item);
+        return item;
+    }
+    private String generateJSsetLabel5() {
+        if (!setLabel5.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setLabel5) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private Margin getMargin;
@@ -270,6 +352,7 @@ public class Quarter extends UiBackground {
     private Double[] margin;
     private String[] margin1;
     private String margin2;
+    private List<Quarter> setMargin = new ArrayList<>();
 
     /**
      * Setter for the quarter margin in pixels using a single complex object.
@@ -296,7 +379,18 @@ public class Quarter extends UiBackground {
         }
         return this;
     }
+    private String generateJSsetMargin() {
+        if (!setMargin.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Quarter item : setMargin) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Quarter> setMargin1 = new ArrayList<>();
 
     /**
      * Setter for the quarter margin in pixels using a single complex object.
@@ -323,7 +417,18 @@ public class Quarter extends UiBackground {
         }
         return this;
     }
+    private String generateJSsetMargin1() {
+        if (!setMargin1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Quarter item : setMargin1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Quarter> setMargin2 = new ArrayList<>();
 
     /**
      * Setter for the quarter margin in pixels using a single complex object.
@@ -350,6 +455,16 @@ public class Quarter extends UiBackground {
         }
         return this;
     }
+    private String generateJSsetMargin2() {
+        if (!setMargin2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Quarter item : setMargin2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String value;
     private Double value1;
@@ -359,6 +474,7 @@ public class Quarter extends UiBackground {
     private Double value5;
     private String value6;
     private Double value7;
+    private List<Quarter> setMargin3 = new ArrayList<>();
 
     /**
      * Setter for the quarter margin in pixels using several simple values.
@@ -423,7 +539,18 @@ public class Quarter extends UiBackground {
         }
         return this;
     }
+    private String generateJSsetMargin3() {
+        if (!setMargin3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Quarter item : setMargin3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Quarter> setMargin4 = new ArrayList<>();
 
     /**
      * Setter for the quarter margin in pixels using several simple values.
@@ -488,6 +615,16 @@ public class Quarter extends UiBackground {
         }
         return this;
     }
+    private String generateJSsetMargin4() {
+        if (!setMargin4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Quarter item : setMargin4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private UtilsPadding getPadding;
 
@@ -505,6 +642,7 @@ public class Quarter extends UiBackground {
     private Double[] padding;
     private String[] padding1;
     private String padding2;
+    private List<Chart> setPadding = new ArrayList<>();
 
     /**
      * Setter for the quarter paddings in pixels using a single value.
@@ -522,15 +660,29 @@ public class Quarter extends UiBackground {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", Arrays.toString(padding)));
                 js.setLength(0);
             }
         }
-        return new Chart(jsBase);
+        Chart item = new Chart("setPadding" + variableIndex);
+        setPadding.add(item);
+        return item;
+    }
+    private String generateJSsetPadding() {
+        if (!setPadding.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setPadding) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Chart> setPadding1 = new ArrayList<>();
 
     /**
      * Setter for the quarter paddings in pixels using a single value.
@@ -548,15 +700,29 @@ public class Quarter extends UiBackground {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
             }
         }
-        return new Chart(jsBase);
+        Chart item = new Chart("setPadding1" + variableIndex);
+        setPadding1.add(item);
+        return item;
+    }
+    private String generateJSsetPadding1() {
+        if (!setPadding1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setPadding1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Chart> setPadding2 = new ArrayList<>();
 
     /**
      * Setter for the quarter paddings in pixels using a single value.
@@ -574,13 +740,26 @@ public class Quarter extends UiBackground {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", wrapQuotes(padding2)));
                 js.setLength(0);
             }
         }
-        return new Chart(jsBase);
+        Chart item = new Chart("setPadding2" + variableIndex);
+        setPadding2.add(item);
+        return item;
+    }
+    private String generateJSsetPadding2() {
+        if (!setPadding2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setPadding2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String value8;
@@ -591,6 +770,7 @@ public class Quarter extends UiBackground {
     private Double value13;
     private String value14;
     private Double value15;
+    private List<Chart> setPadding3 = new ArrayList<>();
 
     /**
      * Setter for the quarter paddings in pixels using several numbers.
@@ -678,15 +858,29 @@ public class Quarter extends UiBackground {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
                 js.setLength(0);
             }
         }
-        return new Chart(jsBase);
+        Chart item = new Chart("setPadding3" + variableIndex);
+        setPadding3.add(item);
+        return item;
+    }
+    private String generateJSsetPadding3() {
+        if (!setPadding3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setPadding3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Chart> setPadding4 = new ArrayList<>();
 
     /**
      * Setter for the quarter paddings in pixels using several numbers.
@@ -774,13 +968,26 @@ public class Quarter extends UiBackground {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
                 js.setLength(0);
             }
         }
-        return new Chart(jsBase);
+        Chart item = new Chart("setPadding4" + variableIndex);
+        setPadding4.add(item);
+        return item;
+    }
+    private String generateJSsetPadding4() {
+        if (!setPadding4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setPadding4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private UiTitle getTitle;
@@ -798,6 +1005,7 @@ public class Quarter extends UiBackground {
     private Boolean title;
     private String title1;
     private String title2;
+    private List<Quarter> setTitle = new ArrayList<>();
 
     /**
      * Setter for the title.
@@ -824,7 +1032,18 @@ public class Quarter extends UiBackground {
         }
         return this;
     }
+    private String generateJSsetTitle() {
+        if (!setTitle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Quarter item : setTitle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Quarter> setTitle1 = new ArrayList<>();
 
     /**
      * Setter for the title.
@@ -850,6 +1069,16 @@ public class Quarter extends UiBackground {
             }
         }
         return this;
+    }
+    private String generateJSsetTitle1() {
+        if (!setTitle1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Quarter item : setTitle1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetLabel() {
@@ -921,6 +1150,26 @@ public class Quarter extends UiBackground {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetLabel());
+        js.append(generateJSsetLabel1());
+        js.append(generateJSsetLabel2());
+        js.append(generateJSsetLabel3());
+        js.append(generateJSsetLabel4());
+        js.append(generateJSsetLabel5());
+        js.append(generateJSsetMargin());
+        js.append(generateJSsetMargin1());
+        js.append(generateJSsetMargin2());
+        js.append(generateJSsetMargin3());
+        js.append(generateJSsetMargin4());
+        js.append(generateJSsetPadding());
+        js.append(generateJSsetPadding1());
+        js.append(generateJSsetPadding2());
+        js.append(generateJSsetPadding3());
+        js.append(generateJSsetPadding4());
+        js.append(generateJSsetTitle());
+        js.append(generateJSsetTitle1());
+        
 
         String result = js.toString();
         js.setLength(0);

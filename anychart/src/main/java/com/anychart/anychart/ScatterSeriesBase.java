@@ -1,11 +1,9 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.Locale;
 
 // class
 /**
@@ -49,6 +47,7 @@ public class ScatterSeriesBase extends AnychartSeriesBase {
 
     private Boolean clip;
     private AnychartMathRect clip1;
+    private List<ScatterSeriesBase> setClip = new ArrayList<>();
 
     /**
      * Setter for series clip settings.
@@ -75,7 +74,18 @@ Clips visible part of a series by a rectangle (or chart).
         }
         return this;
     }
+    private String generateJSsetClip() {
+        if (!setClip.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBase item : setClip) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScatterSeriesBase> setClip1 = new ArrayList<>();
 
     /**
      * Setter for series clip settings.
@@ -100,6 +110,16 @@ Clips visible part of a series by a rectangle (or chart).
         }
         return this;
     }
+    private String generateJSsetClip1() {
+        if (!setClip1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBase item : setClip1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Error getError;
 
@@ -117,6 +137,7 @@ Clips visible part of a series by a rectangle (or chart).
     private Boolean error1;
     private String error2;
     private Double error3;
+    private List<ScatterSeriesBase> setError = new ArrayList<>();
 
     /**
      * Setter for series error.
@@ -144,7 +165,18 @@ Clips visible part of a series by a rectangle (or chart).
         }
         return this;
     }
+    private String generateJSsetError() {
+        if (!setError.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBase item : setError) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScatterSeriesBase> setError1 = new ArrayList<>();
 
     /**
      * Setter for series error.
@@ -172,7 +204,18 @@ Clips visible part of a series by a rectangle (or chart).
         }
         return this;
     }
+    private String generateJSsetError1() {
+        if (!setError1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBase item : setError1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScatterSeriesBase> setError2 = new ArrayList<>();
 
     /**
      * Setter for series error.
@@ -200,6 +243,16 @@ Clips visible part of a series by a rectangle (or chart).
         }
         return this;
     }
+    private String generateJSsetError2() {
+        if (!setError2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBase item : setError2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private Double indexes;
     private Double[] indexes1;
@@ -219,6 +272,7 @@ Clips visible part of a series by a rectangle (or chart).
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%f)", indexes));
@@ -243,6 +297,7 @@ Clips visible part of a series by a rectangle (or chart).
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%s)", Arrays.toString(indexes1)));
@@ -271,6 +326,7 @@ Clips visible part of a series by a rectangle (or chart).
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%f)", indexes2));
@@ -297,6 +353,7 @@ Clips visible part of a series by a rectangle (or chart).
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%s)", Arrays.toString(indexes3)));
@@ -327,6 +384,7 @@ Clips visible part of a series by a rectangle (or chart).
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f)", indexes4));
@@ -355,6 +413,7 @@ Clips visible part of a series by a rectangle (or chart).
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s)", Arrays.toString(indexes5)));
@@ -376,6 +435,7 @@ Clips visible part of a series by a rectangle (or chart).
     }
 
     private ScalesBase xScale;
+    private List<ScatterSeriesBase> setXScale = new ArrayList<>();
 
     /**
      * Setter for the series X-scale.
@@ -396,6 +456,16 @@ Clips visible part of a series by a rectangle (or chart).
         }
         return this;
     }
+    private String generateJSsetXScale() {
+        if (!setXScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBase item : setXScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private ScatterBase getYScale;
 
@@ -413,6 +483,7 @@ Clips visible part of a series by a rectangle (or chart).
     private String yScale1;
     private ScaleTypes yScale2;
     private String yScale3;
+    private List<ScatterSeriesBase> setYScale = new ArrayList<>();
 
     /**
      * Setter for the series Y-scale.
@@ -438,7 +509,18 @@ Clips visible part of a series by a rectangle (or chart).
         }
         return this;
     }
+    private String generateJSsetYScale() {
+        if (!setYScale.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBase item : setYScale) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScatterSeriesBase> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the series Y-scale.
@@ -466,7 +548,18 @@ Clips visible part of a series by a rectangle (or chart).
         }
         return this;
     }
+    private String generateJSsetYScale1() {
+        if (!setYScale1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBase item : setYScale1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<ScatterSeriesBase> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the series Y-scale.
@@ -493,6 +586,16 @@ Clips visible part of a series by a rectangle (or chart).
             }
         }
         return this;
+    }
+    private String generateJSsetYScale2() {
+        if (!setYScale2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (ScatterSeriesBase item : setYScale2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetClip() {
@@ -546,6 +649,17 @@ Clips visible part of a series by a rectangle (or chart).
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetClip());
+        js.append(generateJSsetClip1());
+        js.append(generateJSsetError());
+        js.append(generateJSsetError1());
+        js.append(generateJSsetError2());
+        js.append(generateJSsetXScale());
+        js.append(generateJSsetYScale());
+        js.append(generateJSsetYScale1());
+        js.append(generateJSsetYScale2());
+        
 
         String result = js.toString();
         js.setLength(0);

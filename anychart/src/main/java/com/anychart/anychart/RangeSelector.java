@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -70,6 +67,7 @@ public class RangeSelector extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ranges(%s)", arrayToString(ranges)));
@@ -148,6 +146,7 @@ public class RangeSelector extends JsObject {
     }
 
     private String zoomLabelText;
+    private List<RangeSelector> setZoomLabelText = new ArrayList<>();
 
     /**
      * Setter fot the label text.
@@ -170,6 +169,16 @@ public class RangeSelector extends JsObject {
         }
         return this;
     }
+    private String generateJSsetZoomLabelText() {
+        if (!setZoomLabelText.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (RangeSelector item : setZoomLabelText) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
 
     protected String generateJsGetters() {
@@ -190,6 +199,9 @@ public class RangeSelector extends JsObject {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetZoomLabelText());
+        
 
         String result = js.toString();
         js.setLength(0);

@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -37,6 +34,7 @@ public class Tank extends LineargaugePointersBase {
     
     private Fill emptyFill;
     private String emptyFill1;
+    private List<Tank> setEmptyFill = new ArrayList<>();
 
     /**
      * Setter for fill settings for the empty part of a tank using a string or an object.
@@ -63,7 +61,18 @@ public class Tank extends LineargaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetEmptyFill() {
+        if (!setEmptyFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Tank item : setEmptyFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Tank> setEmptyFill1 = new ArrayList<>();
 
     /**
      * Setter for fill settings for the empty part of a tank using a string or an object.
@@ -90,9 +99,20 @@ public class Tank extends LineargaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetEmptyFill1() {
+        if (!setEmptyFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Tank item : setEmptyFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String color;
     private Double opacity;
+    private List<Tank> setEmptyFill2 = new ArrayList<>();
 
     /**
      * Fill color with opacity for the empty part of a tank. Fill as a string or an object.
@@ -117,6 +137,16 @@ public class Tank extends LineargaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetEmptyFill2() {
+        if (!setEmptyFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Tank item : setEmptyFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private PatternFill getEmptyHatchFill;
 
@@ -138,6 +168,7 @@ public class Tank extends LineargaugePointersBase {
     private String color1;
     private Double thickness;
     private Double size;
+    private List<Tank> setEmptyHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -176,7 +207,18 @@ public class Tank extends LineargaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetEmptyHatchFill() {
+        if (!setEmptyHatchFill.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Tank item : setEmptyHatchFill) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Tank> setEmptyHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -215,7 +257,18 @@ public class Tank extends LineargaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetEmptyHatchFill1() {
+        if (!setEmptyHatchFill1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Tank item : setEmptyHatchFill1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Tank> setEmptyHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -254,7 +307,18 @@ public class Tank extends LineargaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetEmptyHatchFill2() {
+        if (!setEmptyHatchFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Tank item : setEmptyHatchFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Tank> setEmptyHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -293,7 +357,18 @@ public class Tank extends LineargaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetEmptyHatchFill3() {
+        if (!setEmptyHatchFill3.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Tank item : setEmptyHatchFill3) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
+    private List<Tank> setEmptyHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -332,6 +407,16 @@ public class Tank extends LineargaugePointersBase {
         }
         return this;
     }
+    private String generateJSsetEmptyHatchFill4() {
+        if (!setEmptyHatchFill4.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Tank item : setEmptyHatchFill4) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
 
     private String generateJSgetEmptyHatchFill() {
         if (getEmptyHatchFill != null) {
@@ -360,6 +445,16 @@ public class Tank extends LineargaugePointersBase {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetEmptyFill());
+        js.append(generateJSsetEmptyFill1());
+        js.append(generateJSsetEmptyFill2());
+        js.append(generateJSsetEmptyHatchFill());
+        js.append(generateJSsetEmptyHatchFill1());
+        js.append(generateJSsetEmptyHatchFill2());
+        js.append(generateJSsetEmptyHatchFill3());
+        js.append(generateJSsetEmptyHatchFill4());
+        
 
         String result = js.toString();
         js.setLength(0);

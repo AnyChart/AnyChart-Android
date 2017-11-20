@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -49,6 +46,7 @@ public class ChartWithCredits extends Chart {
 
     private String credits;
     private Boolean credits1;
+    private List<Chart> setCredits = new ArrayList<>();
 
     /**
      * Setter for the chart credits.
@@ -66,15 +64,29 @@ public class ChartWithCredits extends Chart {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%s)", wrapQuotes(credits)));
                 js.setLength(0);
             }
         }
-        return new Chart(jsBase);
+        Chart item = new Chart("setCredits" + variableIndex);
+        setCredits.add(item);
+        return item;
+    }
+    private String generateJSsetCredits() {
+        if (!setCredits.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setCredits) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
+    private List<Chart> setCredits1 = new ArrayList<>();
 
     /**
      * Setter for the chart credits.
@@ -92,13 +104,26 @@ public class ChartWithCredits extends Chart {
                 js.append(";");
                 isChain = false;
             }
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%b)", credits1));
                 js.setLength(0);
             }
         }
-        return new Chart(jsBase);
+        Chart item = new Chart("setCredits1" + variableIndex);
+        setCredits1.add(item);
+        return item;
+    }
+    private String generateJSsetCredits1() {
+        if (!setCredits1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Chart item : setCredits1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
     private String generateJSgetCredits() {
@@ -128,6 +153,10 @@ public class ChartWithCredits extends Chart {
         }
 
         js.append(generateJsGetters());
+
+        js.append(generateJSsetCredits());
+        js.append(generateJSsetCredits1());
+        
 
         String result = js.toString();
         js.setLength(0);
