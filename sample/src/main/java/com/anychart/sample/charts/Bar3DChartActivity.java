@@ -9,8 +9,10 @@ import com.anychart.anychart.Cartesian3d;
 import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.EnumsAnchor;
 import com.anychart.anychart.HoverMode;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.anychart.Mapping;
+import com.anychart.anychart.Set;
 import com.anychart.anychart.TooltipPositionMode;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -44,35 +46,26 @@ public class Bar3DChartActivity extends AppCompatActivity {
         bar3d.getYAxis().setTitle("Revenue in Dollars");
 
         List<DataEntry> data = new ArrayList<>();
-        data.add(new ValueDataEntry("Nail polish", 6229));
-        data.add(new ValueDataEntry("Eyebrow pencil", 9332));
-        data.add(new ValueDataEntry("Lipstick", 9256));
+        data.add(new CustomDataEntry("Nail polish", 6229, 4376, 4054, 2381));
+        data.add(new CustomDataEntry("Eyebrow pencil", 9332, 8987, 5067, 1401));
+        data.add(new CustomDataEntry("Lipstick", 9256, 7376, 5054, 981));
 
-        bar3d.bar(data)
+        Set set = new Set(data);
+        Mapping bar1Data = set.mapAs("{ x: 'x', value: 'value' }");
+        Mapping bar2Data = set.mapAs("{ x: 'x', value: 'value2' }");
+        Mapping bar3Data = set.mapAs("{ x: 'x', value: 'value3' }");
+        Mapping bar4Data = set.mapAs("{ x: 'x', value: 'value4' }");
+
+        bar3d.bar(bar1Data)
                 .setName("Florida");
 
-        data.clear();
-        data.add(new ValueDataEntry("Nail polish", 4376));
-        data.add(new ValueDataEntry("Eyebrow pencil", 8987));
-        data.add(new ValueDataEntry("Lipstick", 7376));
-
-        bar3d.bar(data)
+        bar3d.bar(bar2Data)
                 .setName("Texas");
 
-        data.clear();
-        data.add(new ValueDataEntry("Nail polish", 4054));
-        data.add(new ValueDataEntry("Eyebrow pencil", 5067));
-        data.add(new ValueDataEntry("Lipstick", 5054));
-
-        bar3d.bar(data)
+        bar3d.bar(bar3Data)
                 .setName("Arizona");
 
-        data.clear();
-        data.add(new ValueDataEntry("Nail polish", 2381));
-        data.add(new ValueDataEntry("Eyebrow pencil", 1401));
-        data.add(new ValueDataEntry("Lipstick", 981));
-
-        bar3d.bar(data)
+        bar3d.bar(bar4Data)
                 .setName("Nevada");
 
         bar3d.getLegend().setEnabled(true);
@@ -95,5 +88,14 @@ public class Bar3DChartActivity extends AppCompatActivity {
                 .setZDistribution(true);
 
         anyChartView.setChart(bar3d);
+    }
+
+    private class CustomDataEntry extends ValueDataEntry {
+        CustomDataEntry(String x, Number value, Number value2, Number value3, Number value4) {
+            super(x, value);
+            setValue("value2", value2);
+            setValue("value3", value3);
+            setValue("value4", value4);
+        }
     }
 }

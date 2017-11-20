@@ -9,10 +9,12 @@ import com.anychart.anychart.Cartesian;
 import com.anychart.anychart.CartesianSeriesJumpLine;
 import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.HoverMode;
+import com.anychart.anychart.Mapping;
 import com.anychart.anychart.SeriesBar;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.anychart.Set;
 import com.anychart.anychart.TooltipDisplayMode;
 import com.anychart.anychart.TooltipPositionMode;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -33,35 +35,25 @@ public class VerticalChartActivity extends AppCompatActivity {
                 .setTitle("Vertical Combination of Bar and Jump Line Chart");
 
         List<DataEntry> data = new ArrayList<>();
-        data.add(new ValueDataEntry("Jan", 11.5));
-        data.add(new ValueDataEntry("Feb", 12));
-        data.add(new ValueDataEntry("Mar", 11.7));
-        data.add(new ValueDataEntry("Apr", 12.4));
-        data.add(new ValueDataEntry("May", 13.5));
-        data.add(new ValueDataEntry("Jun", 11.9));
-        data.add(new ValueDataEntry("Jul", 14.6));
-        data.add(new ValueDataEntry("Aug", 17.2));
-        data.add(new ValueDataEntry("Sep", 16.9));
-        data.add(new ValueDataEntry("Oct", 15.4));
-        data.add(new ValueDataEntry("Nov", 16.9));
-        data.add(new ValueDataEntry("Dec", 17.2));
+        data.add(new CustomDataEntry("Jan", 11.5, 9.3));
+        data.add(new CustomDataEntry("Feb", 12, 10.5));
+        data.add(new CustomDataEntry("Mar", 11.7, 11.2));
+        data.add(new CustomDataEntry("Apr", 12.4, 11.2));
+        data.add(new CustomDataEntry("May", 13.5, 12.7));
+        data.add(new CustomDataEntry("Jun", 11.9, 13.1));
+        data.add(new CustomDataEntry("Jul", 14.6, 12.2));
+        data.add(new CustomDataEntry("Aug", 17.2, 12.2));
+        data.add(new CustomDataEntry("Sep", 16.9, 10.1));
+        data.add(new CustomDataEntry("Oct", 15.4, 14.5));
+        data.add(new CustomDataEntry("Nov", 16.9, 14.5));
+        data.add(new CustomDataEntry("Dec", 17.2, 15.5));
 
-        SeriesBar bar = vertical.bar(data);
+        Set set = new Set(data);
+        Mapping barData = set.mapAs("{ x: 'x', value: 'value' }");
+        Mapping jumpLineData = set.mapAs("{ x: 'x', value: 'jumpLine' }");
+
+        SeriesBar bar = vertical.bar(barData);
         bar.getLabels().setFormat("${%Value} mln");
-
-        List<DataEntry> jumpLineData = new ArrayList<>();
-        jumpLineData.add(new ValueDataEntry("Jan", 9.3));
-        jumpLineData.add(new ValueDataEntry("Feb", 10.5));
-        jumpLineData.add(new ValueDataEntry("Mar", 11.2));
-        jumpLineData.add(new ValueDataEntry("Apr", 11.2));
-        jumpLineData.add(new ValueDataEntry("May", 12.7));
-        jumpLineData.add(new ValueDataEntry("Jun", 13.1));
-        jumpLineData.add(new ValueDataEntry("Jul", 12.2));
-        jumpLineData.add(new ValueDataEntry("Aug", 12.2));
-        jumpLineData.add(new ValueDataEntry("Sep", 10.1));
-        jumpLineData.add(new ValueDataEntry("Oct", 14.5));
-        jumpLineData.add(new ValueDataEntry("Nov", 14.5));
-        jumpLineData.add(new ValueDataEntry("Dec", 15.5));
 
         CartesianSeriesJumpLine jumpLine = vertical.jumpLine(jumpLineData);
         jumpLine.setStroke("#60727B", 2d, null, null, null);
@@ -87,5 +79,12 @@ public class VerticalChartActivity extends AppCompatActivity {
         vertical.getYAxis().getLabels().setFormat("${%Value} mln");
 
         anyChartView.setChart(vertical);
+    }
+
+    private class CustomDataEntry extends ValueDataEntry {
+        public CustomDataEntry(String x, Number value, Number jumpLine) {
+            super(x, value);
+            setValue("jumpLine", jumpLine);
+        }
     }
 }

@@ -10,11 +10,13 @@ import com.anychart.anychart.CartesianSeriesArea;
 import com.anychart.anychart.Crosshair;
 import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.HoverMode;
+import com.anychart.anychart.Mapping;
 import com.anychart.anychart.MarkerType;
 import com.anychart.anychart.ScaleStackMode;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.anychart.Set;
 import com.anychart.anychart.Stroke;
 import com.anychart.anychart.TooltipDisplayMode;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -44,15 +46,22 @@ public class AreaChartActivity extends AppCompatActivity {
 
         areaChart.setTitle("Unaudited Apple Inc. Revenue by Operating Segments");
 
-        List<DataEntry> series1Data = new ArrayList<>();
-        series1Data.add(new ValueDataEntry("Q2 2014", 17.982));
-        series1Data.add(new ValueDataEntry("Q3 2014", 17.574));
-        series1Data.add(new ValueDataEntry("Q4 2014", 19.75));
-        series1Data.add(new ValueDataEntry("Q1 2015", 30.6));
-        series1Data.add(new ValueDataEntry("Q2 2015", 21.316));
-        series1Data.add(new ValueDataEntry("Q3 2015", 20.209));
-        series1Data.add(new ValueDataEntry("Q4 2015", 21.773));
-        series1Data.add(new ValueDataEntry("Q1 2016", 29.3));
+        List<DataEntry> seriesData = new ArrayList<>();
+        seriesData.add(new CustomDataEntry("Q2 2014", 17.982, 10.941, 9.835, 4.047, 2.841));
+        seriesData.add(new CustomDataEntry("Q3 2014", 17.574, 8.659, 6.230, 2.627, 2.242));
+        seriesData.add(new CustomDataEntry("Q4 2014", 19.75, 10.35, 6.292, 3.595, 2.136));
+        seriesData.add(new CustomDataEntry("Q1 2015", 30.6, 17.2, 16.1, 5.4, 5.2));
+        seriesData.add(new CustomDataEntry("Q2 2015", 21.316, 12.204, 16.823, 3.457, 4.210));
+        seriesData.add(new CustomDataEntry("Q3 2015", 20.209, 10.342, 13.23, 2.872, 2.959));
+        seriesData.add(new CustomDataEntry("Q4 2015", 21.773, 10.577, 12.518, 3.929, 2.704));
+        seriesData.add(new CustomDataEntry("Q1 2016", 29.3, 17.9, 18.4, 4.8, 5.4));
+
+        Set set = new Set(seriesData);
+        Mapping series1Data = set.mapAs("{ x: 'x', value: 'value' }");
+        Mapping series2Data = set.mapAs("{ x: 'x', value: 'value2' }");
+        Mapping series3Data = set.mapAs("{ x: 'x', value: 'value3' }");
+        Mapping series4Data = set.mapAs("{ x: 'x', value: 'value4' }");
+        Mapping series5Data = set.mapAs("{ x: 'x', value: 'value5' }");
 
         CartesianSeriesArea series1 = areaChart.area(series1Data);
         series1.setName("Americas");
@@ -65,16 +74,6 @@ public class AreaChartActivity extends AppCompatActivity {
                 .setStroke("#fff", 1.5d, null, null, null);
         series1.getMarkers().setZIndex(100d);
 
-        List<DataEntry> series2Data = new ArrayList<>();
-        series2Data.add(new ValueDataEntry("Q2 2014", 10.941));
-        series2Data.add(new ValueDataEntry("Q3 2014", 8.659));
-        series2Data.add(new ValueDataEntry("Q4 2014", 10.35));
-        series2Data.add(new ValueDataEntry("Q1 2015", 17.2));
-        series2Data.add(new ValueDataEntry("Q2 2015", 12.204));
-        series2Data.add(new ValueDataEntry("Q3 2015", 10.342));
-        series2Data.add(new ValueDataEntry("Q4 2015", 10.577));
-        series2Data.add(new ValueDataEntry("Q1 2016", 17.9));
-
         CartesianSeriesArea series2 = areaChart.area(series2Data);
         series2.setName("Europe");
         series2.setStroke("#fff", 3d, null, null, null);
@@ -85,16 +84,6 @@ public class AreaChartActivity extends AppCompatActivity {
                 .setSize(4d)
                 .setStroke("#fff", 1.5d, null, null, null);
         series2.getMarkers().setZIndex(100d);
-
-        List<DataEntry> series3Data = new ArrayList<>();
-        series3Data.add(new ValueDataEntry("Q2 2014", 9.835));
-        series3Data.add(new ValueDataEntry("Q3 2014", 6.230));
-        series3Data.add(new ValueDataEntry("Q4 2014", 6.292));
-        series3Data.add(new ValueDataEntry("Q1 2015", 16.1));
-        series3Data.add(new ValueDataEntry("Q2 2015", 16.823));
-        series3Data.add(new ValueDataEntry("Q3 2015", 13.23));
-        series3Data.add(new ValueDataEntry("Q4 2015", 12.518));
-        series3Data.add(new ValueDataEntry("Q1 2016", 18.4));
 
         CartesianSeriesArea series3 = areaChart.area(series3Data);
         series3.setName("Greater China");
@@ -107,16 +96,6 @@ public class AreaChartActivity extends AppCompatActivity {
                 .setStroke("#fff", 1.5d, null, null, null);
         series3.getMarkers().setZIndex(100d);
 
-        List<DataEntry> series4Data = new ArrayList<>();
-        series4Data.add(new ValueDataEntry("Q2 2014", 4.047));
-        series4Data.add(new ValueDataEntry("Q3 2014", 2.627));
-        series4Data.add(new ValueDataEntry("Q4 2014", 3.595));
-        series4Data.add(new ValueDataEntry("Q1 2015", 5.4));
-        series4Data.add(new ValueDataEntry("Q2 2015", 3.457));
-        series4Data.add(new ValueDataEntry("Q3 2015", 2.872));
-        series4Data.add(new ValueDataEntry("Q4 2015", 3.929));
-        series4Data.add(new ValueDataEntry("Q1 2016", 4.8));
-
         CartesianSeriesArea series4 = areaChart.area(series4Data);
         series4.setName("Japan");
         series4.setStroke("#fff", 3d, null, null, null);
@@ -127,16 +106,6 @@ public class AreaChartActivity extends AppCompatActivity {
                 .setSize(4d)
                 .setStroke("#fff", 1.5d, null, null, null);
         series4.getMarkers().setZIndex(100d);
-
-        List<DataEntry> series5Data = new ArrayList<>();
-        series5Data.add(new ValueDataEntry("Q2 2014", 2.841));
-        series5Data.add(new ValueDataEntry("Q3 2014", 2.242));
-        series5Data.add(new ValueDataEntry("Q4 2014", 2.136));
-        series5Data.add(new ValueDataEntry("Q1 2015", 5.2));
-        series5Data.add(new ValueDataEntry("Q2 2015", 4.210));
-        series5Data.add(new ValueDataEntry("Q3 2015", 2.959));
-        series5Data.add(new ValueDataEntry("Q4 2015", 2.704));
-        series5Data.add(new ValueDataEntry("Q1 2016", 5.4));
 
         CartesianSeriesArea series5 = areaChart.area(series5Data);
         series5.setName("Rest of Asia Pacific");
@@ -163,5 +132,15 @@ public class AreaChartActivity extends AppCompatActivity {
                 .setDisplayMode(TooltipDisplayMode.UNION);
 
         anyChartView.setChart(areaChart);
+    }
+
+    private class CustomDataEntry extends ValueDataEntry {
+        CustomDataEntry(String x, Number value, Number value2, Number value3, Number value4, Number value5) {
+            super(x, value);
+            setValue("value2", value2);
+            setValue("value3", value3);
+            setValue("value4", value4);
+            setValue("value5", value5);
+        }
     }
 }

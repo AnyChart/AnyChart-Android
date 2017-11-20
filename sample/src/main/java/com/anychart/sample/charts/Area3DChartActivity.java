@@ -11,9 +11,11 @@ import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.EnumsAnchor;
 import com.anychart.anychart.HatchFillType;
 import com.anychart.anychart.HoverMode;
+import com.anychart.anychart.Mapping;
 import com.anychart.anychart.Position;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.anychart.Set;
 import com.anychart.anychart.TooltipPositionMode;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -44,54 +46,36 @@ public class Area3DChartActivity extends AppCompatActivity {
         area3d.getTitle().setUseHtml(true);
         area3d.getTitle().setPadding(0d, 0d, 20d, 0d);
 
-        List<DataEntry> series1Data = new ArrayList<>();
-        series1Data.add(new ValueDataEntry("1986", 162));
-        series1Data.add(new ValueDataEntry("1987", 134));
-        series1Data.add(new ValueDataEntry("1988", 116));
-        series1Data.add(new ValueDataEntry("1989", 122));
-        series1Data.add(new ValueDataEntry("1990", 178));
-        series1Data.add(new ValueDataEntry("1991", 144));
-        series1Data.add(new ValueDataEntry("1992", 125));
-        series1Data.add(new ValueDataEntry("1993", 176));
-        series1Data.add(new ValueDataEntry("1994", 156));
-        series1Data.add(new ValueDataEntry("1995", 195));
-        series1Data.add(new ValueDataEntry("1996", 215));
-        series1Data.add(new ValueDataEntry("1997", 176));
-        series1Data.add(new ValueDataEntry("1998", 167));
-        series1Data.add(new ValueDataEntry("1999", 142));
-        series1Data.add(new ValueDataEntry("2000", 117));
-        series1Data.add(new ValueDataEntry("2001", 113));
-        series1Data.add(new ValueDataEntry("2002", 132));
-        series1Data.add(new ValueDataEntry("2003", 146));
-        series1Data.add(new ValueDataEntry("2004", 169));
-        series1Data.add(new ValueDataEntry("2005", 184));
+        List<DataEntry> seriesData = new ArrayList<>();
+        seriesData.add(new CustomDataEntry("1986", 162, 42));
+        seriesData.add(new CustomDataEntry("1987", 134, 54));
+        seriesData.add(new CustomDataEntry("1988", 116, 26));
+        seriesData.add(new CustomDataEntry("1989", 122, 32));
+        seriesData.add(new CustomDataEntry("1990", 178, 68));
+        seriesData.add(new CustomDataEntry("1991", 144, 54));
+        seriesData.add(new CustomDataEntry("1992", 125, 35));
+        seriesData.add(new CustomDataEntry("1993", 176, 66));
+        seriesData.add(new CustomDataEntry("1994", 156, 80));
+        seriesData.add(new CustomDataEntry("1995", 195, 120));
+        seriesData.add(new CustomDataEntry("1996", 215, 115));
+        seriesData.add(new CustomDataEntry("1997", 176, 36));
+        seriesData.add(new CustomDataEntry("1998", 167, 47));
+        seriesData.add(new CustomDataEntry("1999", 142, 72));
+        seriesData.add(new CustomDataEntry("2000", 117, 37));
+        seriesData.add(new CustomDataEntry("2001", 113, 23));
+        seriesData.add(new CustomDataEntry("2002", 132, 30));
+        seriesData.add(new CustomDataEntry("2003", 146, 46));
+        seriesData.add(new CustomDataEntry("2004", 169, 59));
+        seriesData.add(new CustomDataEntry("2005", 184, 44));
+
+        Set set = new Set(seriesData);
+        Mapping series1Data = set.mapAs("{ x: 'x', value: 'value' }");
+        Mapping series2Data = set.mapAs("{ x: 'x', value: 'value2' }");
 
         Area3d series1 = area3d.area(series1Data);
         series1.setName("ACME Share Price");
         series1.getHovered().setMarkers(false);
         series1.setHatchFill("diagonal", "#000", 0.6d, 10d);
-
-        List<DataEntry> series2Data = new ArrayList<>();
-        series2Data.add(new ValueDataEntry("1986", 42));
-        series2Data.add(new ValueDataEntry("1987", 54));
-        series2Data.add(new ValueDataEntry("1988", 26));
-        series2Data.add(new ValueDataEntry("1989", 32));
-        series2Data.add(new ValueDataEntry("1990", 68));
-        series2Data.add(new ValueDataEntry("1991", 54));
-        series2Data.add(new ValueDataEntry("1992", 35));
-        series2Data.add(new ValueDataEntry("1993", 66));
-        series2Data.add(new ValueDataEntry("1994", 80));
-        series2Data.add(new ValueDataEntry("1995", 120));
-        series2Data.add(new ValueDataEntry("1996", 115));
-        series2Data.add(new ValueDataEntry("1997", 36));
-        series2Data.add(new ValueDataEntry("1998", 47));
-        series2Data.add(new ValueDataEntry("1999", 72));
-        series2Data.add(new ValueDataEntry("2000", 37));
-        series2Data.add(new ValueDataEntry("2001", 23));
-        series2Data.add(new ValueDataEntry("2002", 30));
-        series2Data.add(new ValueDataEntry("2003", 46));
-        series2Data.add(new ValueDataEntry("2004", 59));
-        series2Data.add(new ValueDataEntry("2005", 44));
 
         Area3d series2 = area3d.area(series2Data);
         series2.setName("The Competitor\\'s Share Price");
@@ -109,6 +93,13 @@ public class Area3DChartActivity extends AppCompatActivity {
         area3d.setZAspect("100%");
 
         anyChartView.setChart(area3d);
+    }
+
+    private class CustomDataEntry extends ValueDataEntry {
+        CustomDataEntry(String x, Number value, Number value2) {
+            super(x, value);
+            setValue("value2", value2);
+        }
     }
 
 }

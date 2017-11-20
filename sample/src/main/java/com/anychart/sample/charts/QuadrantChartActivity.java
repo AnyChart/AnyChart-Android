@@ -110,50 +110,25 @@ public class QuadrantChartActivity extends AppCompatActivity {
     }
 
     private class QuadrantDataEntry extends DataEntry {
-        QuadrantDataEntry(Integer x, Integer y, String name) {
+        QuadrantDataEntry(Number x, Number y, String name) {
             setValue("x", x);
             setValue("y", y);
             setValue("name", name);
         }
 
-        QuadrantDataEntry(Integer x, Integer y, String name, Label[] labels) {
-            setValue("x", x);
-            setValue("y", y);
-            setValue("name", name);
-            setValue("label", labels);
-        }
-
-        QuadrantDataEntry(Double x, Integer y, String name) {
-            setValue("x", x);
-            setValue("y", y);
-            setValue("name", name);
-        }
-
-        QuadrantDataEntry(Integer x, Double y, String name, Label[] labels) {
+        QuadrantDataEntry(Number x, Number y, String name, Label[] labels) {
             setValue("x", x);
             setValue("y", y);
             setValue("name", name);
             setValue("label", labels);
         }
 
-        QuadrantDataEntry(Double x, Double y, String name, Label[] labels) {
-            setValue("x", x);
+        QuadrantDataEntry(Number y, String name, Label[] labels) {
             setValue("y", y);
             setValue("name", name);
             setValue("label", labels);
         }
 
-        QuadrantDataEntry(Integer y, String name,  Label[] labels) {
-            setValue("y", y);
-            setValue("name", name);
-            setValue("label", labels);
-        }
-
-        QuadrantDataEntry(Double y, String name,  Label[] labels) {
-            setValue("y", y);
-            setValue("name", name);
-            setValue("label", labels);
-        }
     }
 
     private class Label extends DataEntry {

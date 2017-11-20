@@ -11,9 +11,11 @@ import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.EnumsAnchor;
 import com.anychart.anychart.HoverMode;
 import com.anychart.anychart.LabelsOverlapMode;
+import com.anychart.anychart.Mapping;
 import com.anychart.anychart.Orientation;
 import com.anychart.anychart.ScaleStackMode;
 import com.anychart.anychart.SeriesBar;
+import com.anychart.anychart.Set;
 import com.anychart.anychart.TooltipDisplayMode;
 import com.anychart.anychart.TooltipPositionMode;
 import com.anychart.anychart.ValueDataEntry;
@@ -71,28 +73,32 @@ public class BarChartActivity extends AppCompatActivity {
                         "      return '<span style=\"color: #D9D9D9\">$</span>' + Math.abs(this.value).toLocaleString();\n" +
                         "    }");
 
-        List<DataEntry> series1Data = new ArrayList<>();
-        series1Data.add(new ValueDataEntry("Nail polish", 5376));
-        series1Data.add(new ValueDataEntry("Eyebrow pencil", 10987));
-        series1Data.add(new ValueDataEntry("Rouge", 7624));
-        series1Data.add(new ValueDataEntry("Lipstick", 8814));
-        series1Data.add(new ValueDataEntry("Eyeshadows", 8998));
-        series1Data.add(new ValueDataEntry("Eyeliner", 9321));
-        series1Data.add(new ValueDataEntry("Foundation", 8342));
-        series1Data.add(new ValueDataEntry("Lip gloss", 6998));
-        series1Data.add(new ValueDataEntry("Mascara", 9261));
-        series1Data.add(new ValueDataEntry("Shampoo", 5376));
-        series1Data.add(new ValueDataEntry("Hair conditioner", 10987));
-        series1Data.add(new ValueDataEntry("Body lotion", 7624));
-        series1Data.add(new ValueDataEntry("Shower gel", 8814));
-        series1Data.add(new ValueDataEntry("Soap", 8998));
-        series1Data.add(new ValueDataEntry("Eye fresher", 9321));
-        series1Data.add(new ValueDataEntry("Deodorant", 8342));
-        series1Data.add(new ValueDataEntry("Hand cream", 7598));
-        series1Data.add(new ValueDataEntry("Foot cream", 6098));
-        series1Data.add(new ValueDataEntry("Night cream", 6998));
-        series1Data.add(new ValueDataEntry("Day cream", 5304));
-        series1Data.add(new ValueDataEntry("Vanila cream", 9261));
+        List<DataEntry> seriesData = new ArrayList<>();
+        seriesData.add(new CustomDataEntry("Nail polish", 5376, -229));
+        seriesData.add(new CustomDataEntry("Eyebrow pencil", 10987, -932));
+        seriesData.add(new CustomDataEntry("Rouge", 7624, -5221));
+        seriesData.add(new CustomDataEntry("Lipstick", 8814, -256));
+        seriesData.add(new CustomDataEntry("Eyeshadows", 8998, -308));
+        seriesData.add(new CustomDataEntry("Eyeliner", 9321, -432));
+        seriesData.add(new CustomDataEntry("Foundation", 8342, -701));
+        seriesData.add(new CustomDataEntry("Lip gloss", 6998, -908));
+        seriesData.add(new CustomDataEntry("Mascara", 9261, -712));
+        seriesData.add(new CustomDataEntry("Shampoo", 5376, -9229));
+        seriesData.add(new CustomDataEntry("Hair conditioner", 10987, -13932));
+        seriesData.add(new CustomDataEntry("Body lotion", 7624, -10221));
+        seriesData.add(new CustomDataEntry("Shower gel", 8814, -12256));
+        seriesData.add(new CustomDataEntry("Soap", 8998, -5308));
+        seriesData.add(new CustomDataEntry("Eye fresher", 9321, -432));
+        seriesData.add(new CustomDataEntry("Deodorant", 8342, -11701));
+        seriesData.add(new CustomDataEntry("Hand cream", 7598, -5808));
+        seriesData.add(new CustomDataEntry("Foot cream", 6098, -3987));
+        seriesData.add(new CustomDataEntry("Night cream", 6998, -847));
+        seriesData.add(new CustomDataEntry("Day cream", 5304, -4008));
+        seriesData.add(new CustomDataEntry("Vanila cream", 9261, -712));
+
+        Set set = new Set(seriesData);
+        Mapping series1Data = set.mapAs("{ x: 'x', value: 'value' }");
+        Mapping series2Data = set.mapAs("{ x: 'x', value: 'value2' }");
 
         SeriesBar series1 = barChart.bar(series1Data);
         series1.setName("Females")
@@ -100,29 +106,6 @@ public class BarChartActivity extends AppCompatActivity {
         series1.getTooltip()
                 .setPosition("right")
                 .setAnchor(EnumsAnchor.LEFT_CENTER);
-
-        List<DataEntry> series2Data = new ArrayList<>();
-        series2Data.add(new ValueDataEntry("Nail polish", -229));
-        series2Data.add(new ValueDataEntry("Eyebrow pencil", -932));
-        series2Data.add(new ValueDataEntry("Rouge", -5221));
-        series2Data.add(new ValueDataEntry("Lipstick", -256));
-        series2Data.add(new ValueDataEntry("Eyeshadows", -308));
-        series2Data.add(new ValueDataEntry("Eyeliner", -432));
-        series2Data.add(new ValueDataEntry("Foundation", -701));
-        series2Data.add(new ValueDataEntry("Lip gloss", -908));
-        series2Data.add(new ValueDataEntry("Mascara", -712));
-        series2Data.add(new ValueDataEntry("Shampoo", -9229));
-        series2Data.add(new ValueDataEntry("Hair conditioner", -13932));
-        series2Data.add(new ValueDataEntry("Body lotion", -10221));
-        series2Data.add(new ValueDataEntry("Shower gel", -12256));
-        series2Data.add(new ValueDataEntry("Soap", -5308));
-        series2Data.add(new ValueDataEntry("Eye fresher", -432));
-        series2Data.add(new ValueDataEntry("Deodorant", -11701));
-        series2Data.add(new ValueDataEntry("Hand cream", -5808));
-        series2Data.add(new ValueDataEntry("Foot cream", -3987));
-        series2Data.add(new ValueDataEntry("Night cream", -847));
-        series2Data.add(new ValueDataEntry("Day cream", -4008));
-        series2Data.add(new ValueDataEntry("Vanila cream", -712));
 
         SeriesBar series2 = barChart.bar(series2Data);
         series2.setName("Males");
@@ -136,5 +119,12 @@ public class BarChartActivity extends AppCompatActivity {
         barChart.getLegend().setPadding(0d, 0d, 20d, 0d);
 
         anyChartView.setChart(barChart);
+    }
+
+    private class CustomDataEntry extends ValueDataEntry {
+        CustomDataEntry(String x, Number value, Number value2) {
+            super(x, value);
+            setValue("value2", value2);
+        }
     }
 }

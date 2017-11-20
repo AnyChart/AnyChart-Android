@@ -8,8 +8,10 @@ import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.ChartsRadar;
 import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.EnumsAlign;
+import com.anychart.anychart.Mapping;
 import com.anychart.anychart.MarkerType;
 import com.anychart.anychart.RadarSeriesLine;
+import com.anychart.anychart.Set;
 import com.anychart.anychart.ValueDataEntry;
 import com.anychart.sample.R;
 
@@ -39,12 +41,17 @@ public class RadarChartActivity extends AppCompatActivity {
                 .setAlign(EnumsAlign.CENTER)
                 .setEnabled(true);
 
-        List<DataEntry> shamanData = new ArrayList<>();
-        shamanData.add(new ValueDataEntry("Strength", 136));
-        shamanData.add(new ValueDataEntry("Agility", 79));
-        shamanData.add(new ValueDataEntry("Stamina", 149));
-        shamanData.add(new ValueDataEntry("Intellect", 135));
-        shamanData.add(new ValueDataEntry("Spirit", 158));
+        List<DataEntry> data = new ArrayList<>();
+        data.add(new CustomDataEntry("Strength", 136, 199, 43));
+        data.add(new CustomDataEntry("Agility", 79, 125, 56));
+        data.add(new CustomDataEntry("Stamina", 149, 173, 101));
+        data.add(new CustomDataEntry("Intellect", 135, 33, 202));
+        data.add(new CustomDataEntry("Spirit", 158, 64, 196));
+
+        Set set = new Set(data);
+        Mapping shamanData = set.mapAs("{ x: 'x', value: 'value' }");
+        Mapping warriorData = set.mapAs("{ x: 'x', value: 'value2' }");
+        Mapping priestData = set.mapAs("{ x: 'x', value: 'value3' }");
 
         RadarSeriesLine shamanLine = radar.line(shamanData);
         shamanLine.setName("Shaman");
@@ -53,26 +60,12 @@ public class RadarChartActivity extends AppCompatActivity {
                 .setType(MarkerType.CIRCLE)
                 .setSize(3d);
 
-        List<DataEntry> warriorData = new ArrayList<>();
-        warriorData.add(new ValueDataEntry("Strength", 199));
-        warriorData.add(new ValueDataEntry("Agility", 125));
-        warriorData.add(new ValueDataEntry("Stamina", 173));
-        warriorData.add(new ValueDataEntry("Intellect", 33));
-        warriorData.add(new ValueDataEntry("Spirit", 64));
-
         RadarSeriesLine warriorLine = radar.line(warriorData);
         warriorLine.setName("Warrior");
         warriorLine.getMarkers().setEnabled(true);
         warriorLine.getMarkers()
                 .setType(MarkerType.CIRCLE)
                 .setSize(3d);
-
-        List<DataEntry> priestData = new ArrayList<>();
-        priestData.add(new ValueDataEntry("Strength", 43));
-        priestData.add(new ValueDataEntry("Agility", 56));
-        priestData.add(new ValueDataEntry("Stamina", 101));
-        priestData.add(new ValueDataEntry("Intellect", 202));
-        priestData.add(new ValueDataEntry("Spirit", 196));
 
         RadarSeriesLine priestLine = radar.line(priestData);
         priestLine.setName("Priest");
@@ -84,5 +77,13 @@ public class RadarChartActivity extends AppCompatActivity {
         radar.getTooltip().setFormat("Value: {%Value}");
 
         anyChartView.setChart(radar);
+    }
+
+    private class CustomDataEntry extends ValueDataEntry {
+        public CustomDataEntry(String x, Number value, Number value2, Number value3) {
+            super(x, value);
+            setValue("value2", value2);
+            setValue("value3", value3);
+        }
     }
 }

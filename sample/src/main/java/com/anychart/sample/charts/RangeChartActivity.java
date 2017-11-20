@@ -8,7 +8,8 @@ import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.Cartesian;
 import com.anychart.anychart.CartesianSeriesRangeColumn;
 import com.anychart.anychart.DataEntry;
-import com.anychart.anychart.HighLowDataEntry;
+import com.anychart.anychart.Mapping;
+import com.anychart.anychart.Set;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -27,10 +28,28 @@ public class RangeChartActivity extends AppCompatActivity {
 
         cartesian.setTitle("Coastal Water Temperature \\nin London vs Edinburgh in 2015 (°C)");
 
-        CartesianSeriesRangeColumn columnLondon = cartesian.rangeColumn(getLondonData());
+        List<DataEntry> data = new ArrayList<>();
+        data.add(new CustomDataEntry("Jan", 5.8, 7.9, 6.1, 8.9));
+        data.add(new CustomDataEntry("Feb", 4.6, 6.1, 5.5, 8.2));
+        data.add(new CustomDataEntry("Mar", 5.9, 8.1, 5.9, 8.1));
+        data.add(new CustomDataEntry("Apr", 7.8, 10.7, 7.1, 9.8));
+        data.add(new CustomDataEntry("May", 10.5, 13.7, 8.3, 10.7));
+        data.add(new CustomDataEntry("June", 13.8, 17, 10.7, 14.5));
+        data.add(new CustomDataEntry("July", 16.5, 18.5, 12.3, 16.7));
+        data.add(new CustomDataEntry("Aug", 17.8, 19, 14, 16.3));
+        data.add(new CustomDataEntry("Sep", 15.4, 17.8, 13.7, 15.3));
+        data.add(new CustomDataEntry("Oct", 12.7, 15.3, 12.3, 14.4));
+        data.add(new CustomDataEntry("Nov", 9.8, 13, 12.9, 10.7));
+        data.add(new CustomDataEntry("Dec", 9, 10.1, 8.2, 11.1));
+
+        Set set = new Set(data);
+        Mapping londonData = set.mapAs("{ x: 'x', high: 'londonHigh', low: 'londonLow' }");
+        Mapping edinburgData = set.mapAs("{ x: 'x', high: 'edinburgHigh', low: 'edinburgLow' }");
+
+        CartesianSeriesRangeColumn columnLondon = cartesian.rangeColumn(londonData);
         columnLondon.setName("London");
 
-        CartesianSeriesRangeColumn columnEdinburg = cartesian.rangeColumn(getEdinburghData());
+        CartesianSeriesRangeColumn columnEdinburg = cartesian.rangeColumn(edinburgData);
         columnEdinburg.setName("Edinburgh");
 
         cartesian.setXAxis(true);
@@ -50,39 +69,14 @@ public class RangeChartActivity extends AppCompatActivity {
         anyChartView.setChart(cartesian);
     }
 
-    private List<DataEntry> getEdinburghData() {
-        List<DataEntry> edinburgData = new ArrayList<>();
-        edinburgData.add(new HighLowDataEntry("Jan", 5.8, 7.9));
-        edinburgData.add(new HighLowDataEntry("Feb", 4.6, 6.1));
-        edinburgData.add(new HighLowDataEntry("Mar", 5.9, 8.1));
-        edinburgData.add(new HighLowDataEntry("Apr", 7.8, 10.7));
-        edinburgData.add(new HighLowDataEntry("May", 10.5, 13.7));
-        edinburgData.add(new HighLowDataEntry("June", 13.8, 17));
-        edinburgData.add(new HighLowDataEntry("July", 16.5, 18.5));
-        edinburgData.add(new HighLowDataEntry("Aug", 17.8, 19));
-        edinburgData.add(new HighLowDataEntry("Sep", 15.4, 17.8));
-        edinburgData.add(new HighLowDataEntry("Oct", 12.7, 15.3));
-        edinburgData.add(new HighLowDataEntry("Nov", 9.8, 13));
-        edinburgData.add(new HighLowDataEntry("Dec", 9, 10.1));
-
-        return edinburgData;
+    private class CustomDataEntry extends DataEntry {
+        public CustomDataEntry(String x, Number edinburgHigh, Number edinburgLow, Number londonHigh, Number londonLow) {
+            setValue("x", x);
+            setValue("edinburgHigh", edinburgHigh);
+            setValue("edinburgLow", edinburgLow);
+            setValue("londonHigh", londonHigh);
+            setValue("londonLow", londonLow);
+        }
     }
 
-    private List<DataEntry> getLondonData() {
-        List<DataEntry> londonData = new ArrayList<>();
-        londonData.add(new HighLowDataEntry("Jan", 6.1, 8.9));
-        londonData.add(new HighLowDataEntry("Feb", 5.5, 8.2));
-        londonData.add(new HighLowDataEntry("Mar", 5.9, 8.1));
-        londonData.add(new HighLowDataEntry("Apr", 7.1, 9.8));
-        londonData.add(new HighLowDataEntry("May", 8.3, 10.7));
-        londonData.add(new HighLowDataEntry("June", 10.7, 14.5));
-        londonData.add(new HighLowDataEntry("July", 12.3, 16.7));
-        londonData.add(new HighLowDataEntry("Aug", 14, 16.3));
-        londonData.add(new HighLowDataEntry("Sep", 13.7, 15.3));
-        londonData.add(new HighLowDataEntry("Oct", 12.3, 14.4));
-        londonData.add(new HighLowDataEntry("Nov", 12.9, 10.7));
-        londonData.add(new HighLowDataEntry("Dec", 8.2, 11.1));
-
-        return londonData;
-    }
 }

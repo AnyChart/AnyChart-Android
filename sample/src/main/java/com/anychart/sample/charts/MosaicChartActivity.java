@@ -7,9 +7,11 @@ import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
 import com.anychart.anychart.ChartsMekko;
 import com.anychart.anychart.DataEntry;
+import com.anychart.anychart.Mapping;
 import com.anychart.anychart.Orientation;
-import com.anychart.anychart.ValueDataEntry;
+import com.anychart.anychart.Set;
 import com.anychart.anychart.TooltipDisplayMode;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -29,53 +31,46 @@ public class MosaicChartActivity extends AppCompatActivity {
         mosaic.setTitle("Skills and Self-ID Top Factors");
 
         List<DataEntry> data = new ArrayList<>();
-        data.add(new ValueDataEntry("Data Businessperson", 50));
-        data.add(new ValueDataEntry("Data Creative", 17));
-        data.add(new ValueDataEntry("Data Developer", 17));
-        data.add(new ValueDataEntry("Data Researcher", 12));
+        data.add(new CustomDataEntry("Data Businessperson", 50, 15, 10, 5, 25));
+        data.add(new CustomDataEntry("Data Creative", 17, 23, 10, 20, 30));
+        data.add(new CustomDataEntry("Data Developer", 17, 25, 16, 27, 15));
+        data.add(new CustomDataEntry("Data Researcher", 12, 12, 17, 5, 51));
 
-        mosaic.mekko(data)
+        Set set = new Set(data);
+        Mapping series1Data = set.mapAs("{ x: 'x', value: 'value' }");
+        Mapping series2Data = set.mapAs("{ x: 'x', value: 'value2' }");
+        Mapping series3Data = set.mapAs("{ x: 'x', value: 'value3' }");
+        Mapping series4Data = set.mapAs("{ x: 'x', value: 'value4' }");
+        Mapping series5Data = set.mapAs("{ x: 'x', value: 'value5' }");
+
+        mosaic.mekko(series1Data)
                 .setName("Business");
 
-        data.clear();
-        data.add(new ValueDataEntry("Data Businessperson", 15));
-        data.add(new ValueDataEntry("Data Creative", 23));
-        data.add(new ValueDataEntry("Data Developer", 25));
-        data.add(new ValueDataEntry("Data Researcher", 12));
-
-        mosaic.mekko(data)
+        mosaic.mekko(series2Data)
                 .setName("ML/Big Data");
 
-        data.clear();
-        data.add(new ValueDataEntry("Data Businessperson", 10));
-        data.add(new ValueDataEntry("Data Creative", 10));
-        data.add(new ValueDataEntry("Data Developer", 16));
-        data.add(new ValueDataEntry("Data Researcher", 17));
-
-        mosaic.mekko(data)
+        mosaic.mekko(series3Data)
                 .setName("Math/OR");
 
-        data.clear();
-        data.add(new ValueDataEntry("Data Businessperson", 5));
-        data.add(new ValueDataEntry("Data Creative", 20));
-        data.add(new ValueDataEntry("Data Developer", 27));
-        data.add(new ValueDataEntry("Data Researcher", 5));
-
-        mosaic.mekko(data)
+        mosaic.mekko(series4Data)
                 .setName("Programming");
 
-        data.clear();
-        data.add(new ValueDataEntry("Data Businessperson", 25));
-        data.add(new ValueDataEntry("Data Creative", 30));
-        data.add(new ValueDataEntry("Data Developer", 15));
-        data.add(new ValueDataEntry("Data Researcher", 51));
-
-        mosaic.mekko(data)
+        mosaic.mekko(series5Data)
                 .setName("Statistics");
 
         mosaic.getXAxis().setOrientation(Orientation.TOP);
         mosaic.getTooltip().setDisplayMode(TooltipDisplayMode.UNION);
 
         anyChartView.setChart(mosaic);
+    }
+
+    private class CustomDataEntry extends ValueDataEntry {
+        CustomDataEntry(String x, Number value, Number value2, Number value3, Number value4, Number value5) {
+            super(x, value);
+            setValue("value2", value2);
+            setValue("value3", value3);
+            setValue("value4", value4);
+            setValue("value5", value5);
+        }
     }
 }

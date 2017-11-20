@@ -9,9 +9,11 @@ import com.anychart.anychart.Cartesian;
 import com.anychart.anychart.CartesianSeriesLine;
 import com.anychart.anychart.CoreAxesLinear;
 import com.anychart.anychart.DataEntry;
+import com.anychart.anychart.Mapping;
 import com.anychart.anychart.Orientation;
 import com.anychart.anychart.ScaleStackMode;
 import com.anychart.anychart.ScalesLinear;
+import com.anychart.anychart.Set;
 import com.anychart.anychart.ValueDataEntry;
 import com.anychart.sample.R;
 
@@ -47,72 +49,45 @@ public class CombinedChartActivity extends AppCompatActivity {
                 .setPadding(0d, 0d, 0d, 5d)
                 .setFormat("{%Value}%");
 
-        List<DataEntry> column1Data = new ArrayList<>();
-        column1Data.add(new ValueDataEntry("P1", 2040));
-        column1Data.add(new ValueDataEntry("P2", 1794));
-        column1Data.add(new ValueDataEntry("P3", 2026));
-        column1Data.add(new ValueDataEntry("P4", 2341));
-        column1Data.add(new ValueDataEntry("P5", 1800));
-        column1Data.add(new ValueDataEntry("P6", 1507));
-        column1Data.add(new ValueDataEntry("P7", 2701));
-        column1Data.add(new ValueDataEntry("P8", 1671));
-        column1Data.add(new ValueDataEntry("P9", 1980));
-        column1Data.add(new ValueDataEntry("P10", 1041));
-        column1Data.add(new ValueDataEntry("P11", 813));
-        column1Data.add(new ValueDataEntry("P12", 691));
+        List<DataEntry> data = new ArrayList<>();
+        data.add(new CustomDataEntry("P1", 96.5, 2040, 1200, 1600));
+        data.add(new CustomDataEntry("P2", 77.1, 1794, 1124, 1724));
+        data.add(new CustomDataEntry("P3", 73.2, 2026, 1006, 1806));
+        data.add(new CustomDataEntry("P4", 61.1, 2341, 921, 1621));
+        data.add(new CustomDataEntry("P5", 70.0, 1800, 1500, 1700));
+        data.add(new CustomDataEntry("P6", 60.7, 1507, 1007, 1907));
+        data.add(new CustomDataEntry("P7", 62.1, 2701, 921, 1821));
+        data.add(new CustomDataEntry("P8", 75.1, 1671, 971, 1671));
+        data.add(new CustomDataEntry("P9", 80.0, 1980, 1080, 1880));
+        data.add(new CustomDataEntry("P10", 54.1, 1041, 1041, 1641));
+        data.add(new CustomDataEntry("P11", 51.3, 813, 1113, 1913));
+        data.add(new CustomDataEntry("P12", 59.1, 691, 1091, 1691));
+
+        Set set = new Set(data);
+        Mapping lineData = set.mapAs("{ x: 'x', value: 'value' }");
+        Mapping column1Data = set.mapAs("{ x: 'x', value: 'value2' }");
+        Mapping column2Data = set.mapAs("{ x: 'x', value: 'value3' }");
+        Mapping column3Data = set.mapAs("{ x: 'x', value: 'value4' }");
 
         cartesian.column(column1Data);
         cartesian.setCrosshair(true);
 
-        List<DataEntry> lineData = new ArrayList<>();
-        lineData.add(new ValueDataEntry("P1", 96.5));
-        lineData.add(new ValueDataEntry("P2", 77.1));
-        lineData.add(new ValueDataEntry("P3", 73.2));
-        lineData.add(new ValueDataEntry("P4", 61.1));
-        lineData.add(new ValueDataEntry("P5", 70.0));
-        lineData.add(new ValueDataEntry("P6", 60.7));
-        lineData.add(new ValueDataEntry("P7", 62.1));
-        lineData.add(new ValueDataEntry("P8", 75.1));
-        lineData.add(new ValueDataEntry("P9", 80.0));
-        lineData.add(new ValueDataEntry("P10", 54.1));
-        lineData.add(new ValueDataEntry("P11", 51.3));
-        lineData.add(new ValueDataEntry("P12", 59.1));
-
         CartesianSeriesLine line = cartesian.line(lineData);
         line.setYScale(scalesLinear);
 
-        List<DataEntry> column2Data = new ArrayList<>();
-        column2Data.add(new ValueDataEntry("P1", 1200));
-        column2Data.add(new ValueDataEntry("P2", 1124));
-        column2Data.add(new ValueDataEntry("P3", 1006));
-        column2Data.add(new ValueDataEntry("P4", 921));
-        column2Data.add(new ValueDataEntry("P5", 1500));
-        column2Data.add(new ValueDataEntry("P6", 1007));
-        column2Data.add(new ValueDataEntry("P7", 921));
-        column2Data.add(new ValueDataEntry("P8", 971));
-        column2Data.add(new ValueDataEntry("P9", 1080));
-        column2Data.add(new ValueDataEntry("P10", 1041));
-        column2Data.add(new ValueDataEntry("P11", 1113));
-        column2Data.add(new ValueDataEntry("P12", 1091));
-
         cartesian.column(column2Data);
-
-        List<DataEntry> column3Data = new ArrayList<>();
-        column3Data.add(new ValueDataEntry("P1", 1600));
-        column3Data.add(new ValueDataEntry("P2", 1724));
-        column3Data.add(new ValueDataEntry("P3", 1806));
-        column3Data.add(new ValueDataEntry("P4", 1621));
-        column3Data.add(new ValueDataEntry("P5", 1700));
-        column3Data.add(new ValueDataEntry("P6", 1907));
-        column3Data.add(new ValueDataEntry("P7", 1821));
-        column3Data.add(new ValueDataEntry("P8", 1671));
-        column3Data.add(new ValueDataEntry("P9", 1880));
-        column3Data.add(new ValueDataEntry("P10", 1641));
-        column3Data.add(new ValueDataEntry("P11", 1913));
-        column3Data.add(new ValueDataEntry("P12", 1691));
 
         cartesian.column(column3Data);
 
         anyChartView.setChart(cartesian);
+    }
+
+    private class CustomDataEntry extends ValueDataEntry {
+        CustomDataEntry(String x, Number value, Number value2, Number value3, Number value4) {
+            super(x, value);
+            setValue("value2", value2);
+            setValue("value3", value3);
+            setValue("value4", value4);
+        }
     }
 }
