@@ -59,6 +59,7 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", wrapQuotes(bothOrByWidth), byHeight));
 
             if (isRendered) {
@@ -100,6 +101,7 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(bothOrByWidth1), byHeight));
 
             if (isRendered) {
@@ -141,6 +143,7 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".adjustFontSize(%b, %b)", bothOrByWidth2, byHeight));
 
             if (isRendered) {
@@ -180,6 +183,7 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
 
             if (isRendered) {
@@ -217,6 +221,7 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
 
             if (isRendered) {
@@ -252,6 +257,7 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".axisIndex(%f)", axisIndex));
 
             if (isRendered) {
@@ -305,6 +311,7 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
 
             if (isRendered) {
@@ -343,6 +350,7 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".background(%b)", background2));
 
             if (isRendered) {
@@ -382,6 +390,7 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
@@ -419,6 +428,7 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
 
             if (isRendered) {
@@ -458,6 +468,7 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
 
             if (isRendered) {
@@ -495,6 +506,7 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maxFontSize(%s)", wrapQuotes(maxFontSize1)));
 
             if (isRendered) {
@@ -534,6 +546,7 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
 
             if (isRendered) {
@@ -571,6 +584,7 @@ public class CrosshairLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minFontSize(%s)", wrapQuotes(minFontSize1)));
 
             if (isRendered) {
@@ -612,6 +626,7 @@ Arrows show offsets layout.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".offsetX(%f)", offsetX));
 
             if (isRendered) {
@@ -651,6 +666,7 @@ Arrows show offsets layout.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".offsetX(%s)", wrapQuotes(offsetX1)));
 
             if (isRendered) {
@@ -691,6 +707,7 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".offsetY(%f)", offsetY));
 
             if (isRendered) {
@@ -729,6 +746,7 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".offsetY(%s)", wrapQuotes(offsetY1)));
 
             if (isRendered) {
@@ -782,6 +800,7 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
 
             if (isRendered) {
@@ -820,6 +839,7 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
 
             if (isRendered) {
@@ -858,6 +878,7 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
 
             if (isRendered) {
@@ -942,6 +963,7 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
             if (isRendered) {
@@ -1018,6 +1040,7 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
 
             if (isRendered) {
@@ -1057,6 +1080,7 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
@@ -1094,6 +1118,7 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {

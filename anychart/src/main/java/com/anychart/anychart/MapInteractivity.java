@@ -49,6 +49,7 @@ public class MapInteractivity extends Interactivity {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".drag(%b)", drag));
 
             if (isRendered) {
@@ -84,6 +85,8 @@ public class MapInteractivity extends Interactivity {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setKeyboardZoomAndMove" + ++variableIndex + " = " + jsBase + ".keyboardZoomAndMove(%b);", keyboardZoomAndMove));
             
 
             if (isRendered) {
@@ -122,6 +125,8 @@ public class MapInteractivity extends Interactivity {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setZoomOnDoubleClick" + ++variableIndex + " = " + jsBase + ".zoomOnDoubleClick(%b);", zoomOnDoubleClick));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomOnDoubleClick(%b)", zoomOnDoubleClick));
@@ -158,6 +163,8 @@ public class MapInteractivity extends Interactivity {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setZoomOnMouseWheel" + ++variableIndex + " = " + jsBase + ".zoomOnMouseWheel(%b);", zoomOnMouseWheel));
             
 
             if (isRendered) {

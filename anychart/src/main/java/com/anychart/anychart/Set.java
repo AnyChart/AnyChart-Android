@@ -76,6 +76,7 @@ public class Set extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), ((settings != null) ? settings.generateJs() : "null")));
 
             if (isRendered) {
@@ -119,6 +120,7 @@ public class Set extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), wrapQuotes(settings1)));
 
             if (isRendered) {
@@ -162,6 +164,7 @@ public class Set extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), ((settings2 != null) ? settings2.generateJs() : "null")));
 
             if (isRendered) {
@@ -205,6 +208,7 @@ public class Set extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), ((settings != null) ? settings.generateJs() : "null")));
 
             if (isRendered) {
@@ -248,6 +252,7 @@ public class Set extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), wrapQuotes(settings1)));
 
             if (isRendered) {
@@ -291,6 +296,7 @@ public class Set extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), ((settings2 != null) ? settings2.generateJs() : "null")));
 
             if (isRendered) {
@@ -326,6 +332,7 @@ public class Set extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".insert(%f)", index));
 
             if (isRendered) {
@@ -401,6 +408,7 @@ Default mapping is shown in {@link anychart.data.Set} constructor samples.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".remove(%f)", index1));
 
             if (isRendered) {
@@ -435,6 +443,8 @@ Default mapping is shown in {@link anychart.data.Set} constructor samples.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".row(%f);", rowIndex));
             
 
             if (isRendered) {

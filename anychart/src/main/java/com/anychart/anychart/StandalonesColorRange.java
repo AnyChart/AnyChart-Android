@@ -64,6 +64,7 @@ public class StandalonesColorRange extends UiColorRange {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container)));
 
             if (isRendered) {
@@ -152,6 +153,7 @@ public class StandalonesColorRange extends UiColorRange {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
 
             if (isRendered) {
@@ -190,6 +192,7 @@ public class StandalonesColorRange extends UiColorRange {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
 
             if (isRendered) {
@@ -228,6 +231,7 @@ public class StandalonesColorRange extends UiColorRange {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
 
             if (isRendered) {
@@ -312,6 +316,7 @@ public class StandalonesColorRange extends UiColorRange {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
             if (isRendered) {
@@ -388,6 +393,7 @@ public class StandalonesColorRange extends UiColorRange {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
 
             if (isRendered) {
@@ -475,6 +481,7 @@ As a getter falls back to stage bounds.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
 
             if (isRendered) {
@@ -519,6 +526,7 @@ As a getter falls back to stage bounds.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
 
             if (isRendered) {

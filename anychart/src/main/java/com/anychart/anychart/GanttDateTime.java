@@ -47,6 +47,7 @@ public class GanttDateTime extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maximum(%f)", maximum));
 
             if (isRendered) {
@@ -82,6 +83,7 @@ public class GanttDateTime extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
 
             if (isRendered) {
@@ -117,6 +119,7 @@ public class GanttDateTime extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minimum(%f)", minimum));
 
             if (isRendered) {
@@ -152,6 +155,7 @@ public class GanttDateTime extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
 
             if (isRendered) {
@@ -187,6 +191,7 @@ public class GanttDateTime extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
 
             if (isRendered) {
@@ -222,6 +227,7 @@ public class GanttDateTime extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
 
             if (isRendered) {

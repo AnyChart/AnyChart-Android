@@ -47,6 +47,7 @@ public class SeriesA11y extends A11y {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
@@ -83,6 +84,7 @@ public class SeriesA11y extends A11y {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
 
             if (isRendered) {

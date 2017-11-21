@@ -53,6 +53,7 @@ public class CartesianSeriesRangeStepArea extends ContinuousRangeBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stepDirection(%s)", ((stepDirection != null) ? stepDirection.generateJs() : "null")));
 
             if (isRendered) {
@@ -90,6 +91,7 @@ public class CartesianSeriesRangeStepArea extends ContinuousRangeBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stepDirection(%s)", wrapQuotes(stepDirection1)));
 
             if (isRendered) {

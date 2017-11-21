@@ -42,28 +42,29 @@ public class TableMapping extends CoreBase {
     /**
      * Adds a field to the mapping.
      */
-    public TableMapping addField(AggregationType type, String name, Double column, Double weightsColumn) {
+    public TableMapping addField(String name, Double column, AggregationType type, Double weightsColumn) {
         if (jsBase == null) {
+            this.name = name;
+            this.column = column;
             this.type = null;
             this.type1 = null;
             
             this.type = type;
-            this.name = name;
-            this.column = column;
             this.weightsColumn = weightsColumn;
         } else {
-            this.type = type;
             this.name = name;
             this.column = column;
+            this.type = type;
             this.weightsColumn = weightsColumn;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".addField(%s, %s, %f, %f)", ((type != null) ? type.generateJs() : "null"), wrapQuotes(name), column, weightsColumn));
+            
+            js.append(String.format(Locale.US, ".addField(%s, %f, %s, %f)", wrapQuotes(name), column, ((type != null) ? type.generateJs() : "null"), weightsColumn));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %s, %f, %f)", ((type != null) ? type.generateJs() : "null"), wrapQuotes(name), column, weightsColumn));
+                onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %f, %s, %f)", wrapQuotes(name), column, ((type != null) ? type.generateJs() : "null"), weightsColumn));
                 js.setLength(0);
             }
         }
@@ -85,28 +86,29 @@ public class TableMapping extends CoreBase {
     /**
      * Adds a field to the mapping.
      */
-    public TableMapping addField(String type1, String name, Double column, Double weightsColumn) {
+    public TableMapping addField(String name, Double column, String type1, Double weightsColumn) {
         if (jsBase == null) {
+            this.name = name;
+            this.column = column;
             this.type = null;
             this.type1 = null;
             
             this.type1 = type1;
-            this.name = name;
-            this.column = column;
             this.weightsColumn = weightsColumn;
         } else {
-            this.type1 = type1;
             this.name = name;
             this.column = column;
+            this.type1 = type1;
             this.weightsColumn = weightsColumn;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".addField(%s, %s, %f, %f)", wrapQuotes(type1), wrapQuotes(name), column, weightsColumn));
+            
+            js.append(String.format(Locale.US, ".addField(%s, %f, %s, %f)", wrapQuotes(name), column, wrapQuotes(type1), weightsColumn));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %s, %f, %f)", wrapQuotes(type1), wrapQuotes(name), column, weightsColumn));
+                onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %f, %s, %f)", wrapQuotes(name), column, wrapQuotes(type1), weightsColumn));
                 js.setLength(0);
             }
         }

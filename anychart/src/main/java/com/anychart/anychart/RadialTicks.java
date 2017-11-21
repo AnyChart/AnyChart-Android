@@ -49,6 +49,7 @@ public class RadialTicks extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".length(%f)", length));
 
             if (isRendered) {
@@ -85,6 +86,8 @@ public class RadialTicks extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setStroke" + ++variableIndex + " = " + jsBase + ".stroke(%s);", ((stroke != null) ? stroke.generateJs() : "null")));
             
 
             if (isRendered) {
@@ -149,6 +152,7 @@ The following options are acceptable:
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {

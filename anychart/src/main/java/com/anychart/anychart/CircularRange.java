@@ -47,6 +47,7 @@ public class CircularRange extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".axisIndex(%f)", index));
 
             if (isRendered) {
@@ -87,6 +88,7 @@ Round off the ends of circular ranges to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cornersRounding(%f)", cornersRounding));
 
             if (isRendered) {
@@ -125,6 +127,7 @@ Round off the ends of circular ranges to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cornersRounding(%s)", wrapQuotes(cornersRounding1)));
 
             if (isRendered) {
@@ -164,6 +167,7 @@ Round off the ends of circular ranges to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".endSize(%f)", endSize));
 
             if (isRendered) {
@@ -201,6 +205,7 @@ Round off the ends of circular ranges to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".endSize(%s)", wrapQuotes(endSize1)));
 
             if (isRendered) {
@@ -236,6 +241,7 @@ Round off the ends of circular ranges to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
             if (isRendered) {
@@ -271,6 +277,7 @@ Round off the ends of circular ranges to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".from(%f)", from));
 
             if (isRendered) {
@@ -310,6 +317,7 @@ Round off the ends of circular ranges to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
 
             if (isRendered) {
@@ -347,6 +355,7 @@ Round off the ends of circular ranges to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
 
             if (isRendered) {
@@ -386,6 +395,7 @@ Round off the ends of circular ranges to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".radius(%f)", radius));
 
             if (isRendered) {
@@ -423,6 +433,7 @@ Round off the ends of circular ranges to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
 
             if (isRendered) {
@@ -462,6 +473,7 @@ Round off the ends of circular ranges to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".startSize(%f)", startSize));
 
             if (isRendered) {
@@ -499,6 +511,7 @@ Round off the ends of circular ranges to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".startSize(%s)", wrapQuotes(startSize1)));
 
             if (isRendered) {
@@ -534,6 +547,7 @@ Round off the ends of circular ranges to the specified radius.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".to(%f)", to));
 
             if (isRendered) {

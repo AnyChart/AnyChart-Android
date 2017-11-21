@@ -73,10 +73,11 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
+            js.append(data.generateJs());
+            js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.getJsBase() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.getJsBase() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -116,10 +117,11 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
+            js.append(data1.generateJs());
+            js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.getJsBase() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.getJsBase() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -159,6 +161,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".data(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
 
             if (isRendered) {
@@ -198,6 +201,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
 
             if (isRendered) {
@@ -235,6 +239,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
 
             if (isRendered) {
@@ -274,6 +279,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
 
             if (isRendered) {
@@ -311,6 +317,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
 
             if (isRendered) {
@@ -358,6 +365,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
 
             if (isRendered) {
@@ -397,6 +405,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
 
             if (isRendered) {
@@ -434,6 +443,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
 
             if (isRendered) {
@@ -481,6 +491,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rendering(%s)", wrapQuotes(rendering)));
 
             if (isRendered) {
@@ -528,6 +539,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
 
             if (isRendered) {
@@ -563,6 +575,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".seriesType(%s)", wrapQuotes(seriesType)));
 
             if (isRendered) {
@@ -655,6 +668,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
 
             if (isRendered) {
@@ -694,6 +708,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
 
             if (isRendered) {

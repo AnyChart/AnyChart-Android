@@ -48,6 +48,7 @@ public class MACD extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fastPeriod(%f)", fastPeriod));
 
             if (isRendered) {
@@ -99,6 +100,7 @@ public class MACD extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".histogramSeries(%s)", ((type != null) ? type.generateJs() : "null")));
 
             if (isRendered) {
@@ -136,6 +138,7 @@ public class MACD extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".histogramSeries(%s)", wrapQuotes(type1)));
 
             if (isRendered) {
@@ -189,6 +192,7 @@ public class MACD extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".macdSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
 
             if (isRendered) {
@@ -228,6 +232,7 @@ public class MACD extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".macdSeries(%s)", wrapQuotes(type3)));
 
             if (isRendered) {
@@ -263,6 +268,7 @@ public class MACD extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".signalPeriod(%f)", signalPeriod));
 
             if (isRendered) {
@@ -318,6 +324,7 @@ public class MACD extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".signalSeries(%s)", ((type4 != null) ? type4.generateJs() : "null")));
 
             if (isRendered) {
@@ -359,6 +366,7 @@ public class MACD extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".signalSeries(%s)", wrapQuotes(type5)));
 
             if (isRendered) {

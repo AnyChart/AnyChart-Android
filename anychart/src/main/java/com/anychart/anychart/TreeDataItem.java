@@ -51,6 +51,7 @@ public class TreeDataItem extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".addChild(%s)", wrapQuotes(child)));
 
             if (isRendered) {
@@ -133,6 +134,7 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".addChildAt(%s, %f)", wrapQuotes(child2), index));
 
             if (isRendered) {
@@ -176,10 +178,11 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child3 != null) ? child3.generateJs() : "null"), index));
+            js.append(child3.generateJs());
+            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child3 != null) ? child3.getJsBase() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child3 != null) ? child3.generateJs() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child3 != null) ? child3.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -219,10 +222,11 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.generateJs() : "null"), index));
+            js.append(child4.generateJs());
+            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.getJsBase() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.generateJs() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -276,6 +280,8 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".meta(%s);", wrapQuotes(key)));
             
 
             if (isRendered) {
@@ -343,6 +349,7 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".removeChildAt(%f)", index1));
 
             if (isRendered) {

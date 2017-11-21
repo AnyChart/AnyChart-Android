@@ -48,6 +48,7 @@ public class ScatterTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".base(%f)", base));
 
             if (isRendered) {
@@ -84,6 +85,7 @@ public class ScatterTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".count(%f)", count));
 
             if (isRendered) {
@@ -123,6 +125,7 @@ public class ScatterTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".count(%f, %f)", minimumCount, maximumCount));
 
             if (isRendered) {
@@ -158,6 +161,7 @@ public class ScatterTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".interval(%f)", interval));
 
             if (isRendered) {
@@ -198,6 +202,7 @@ public class ScatterTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
 
             if (isRendered) {
@@ -236,6 +241,7 @@ public class ScatterTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
 
             if (isRendered) {
@@ -271,6 +277,7 @@ public class ScatterTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
 
             if (isRendered) {

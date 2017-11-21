@@ -68,6 +68,8 @@ public class RangePicker extends JsObject {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".format(%s);", wrapQuotes(format)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".format(%s)", wrapQuotes(format)));
@@ -91,6 +93,7 @@ public class RangePicker extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fromLabelText(%s)", wrapQuotes(fromLabelText)));
 
             if (isRendered) {
@@ -195,6 +198,7 @@ public class RangePicker extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".toLabelText(%s)", wrapQuotes(toLabelText)));
 
             if (isRendered) {

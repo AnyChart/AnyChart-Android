@@ -51,6 +51,7 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".buttonCursor(%s)", ((valueCursor != null) ? valueCursor.generateJs() : "null")));
 
             if (isRendered) {
@@ -88,6 +89,7 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".buttonCursor(%s)", wrapQuotes(valueCursor1)));
 
             if (isRendered) {
@@ -135,6 +137,7 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cellTextSettings(%s)", wrapQuotes(cellTextSettings)));
 
             if (isRendered) {
@@ -170,6 +173,7 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".collapseExpandButtons(%b)", collapseExpandButtons));
 
             if (isRendered) {
@@ -205,6 +209,7 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".defaultWidth(%f)", defaultWidth));
 
             if (isRendered) {
@@ -240,6 +245,7 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".depthPaddingMultiplier(%f)", depthPaddingMultiplier));
 
             if (isRendered) {
@@ -268,24 +274,25 @@ public class DatagridColumn extends VisualBase {
     /**
      * Sets column format using enum.
      */
-    public DatagridColumn setSetColumnFormat(ColumnFormats presetValue, String fieldName) {
+    public DatagridColumn setSetColumnFormat(String fieldName, ColumnFormats presetValue) {
         if (jsBase == null) {
+            this.fieldName = fieldName;
             this.presetValue = null;
             this.presetValue1 = null;
             
             this.presetValue = presetValue;
-            this.fieldName = fieldName;
         } else {
-            this.presetValue = presetValue;
             this.fieldName = fieldName;
+            this.presetValue = presetValue;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".setColumnFormat(%s, %s)", ((presetValue != null) ? presetValue.generateJs() : "null"), wrapQuotes(fieldName)));
+            
+            js.append(String.format(Locale.US, ".setColumnFormat(%s, %s)", wrapQuotes(fieldName), ((presetValue != null) ? presetValue.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setColumnFormat(%s, %s)", ((presetValue != null) ? presetValue.generateJs() : "null"), wrapQuotes(fieldName)));
+                onChangeListener.onChange(String.format(Locale.US, ".setColumnFormat(%s, %s)", wrapQuotes(fieldName), ((presetValue != null) ? presetValue.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -307,24 +314,25 @@ public class DatagridColumn extends VisualBase {
     /**
      * Sets column format using enum.
      */
-    public DatagridColumn setSetColumnFormat(String presetValue1, String fieldName) {
+    public DatagridColumn setSetColumnFormat(String fieldName, String presetValue1) {
         if (jsBase == null) {
+            this.fieldName = fieldName;
             this.presetValue = null;
             this.presetValue1 = null;
             
             this.presetValue1 = presetValue1;
-            this.fieldName = fieldName;
         } else {
-            this.presetValue1 = presetValue1;
             this.fieldName = fieldName;
+            this.presetValue1 = presetValue1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".setColumnFormat(%s, %s)", wrapQuotes(presetValue1), wrapQuotes(fieldName)));
+            
+            js.append(String.format(Locale.US, ".setColumnFormat(%s, %s)", wrapQuotes(fieldName), wrapQuotes(presetValue1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setColumnFormat(%s, %s)", wrapQuotes(presetValue1), wrapQuotes(fieldName)));
+                onChangeListener.onChange(String.format(Locale.US, ".setColumnFormat(%s, %s)", wrapQuotes(fieldName), wrapQuotes(presetValue1)));
                 js.setLength(0);
             }
         }
@@ -376,6 +384,7 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".title(%b)", title));
 
             if (isRendered) {
@@ -414,6 +423,7 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
 
             if (isRendered) {
@@ -453,6 +463,7 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
@@ -490,6 +501,7 @@ public class DatagridColumn extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {

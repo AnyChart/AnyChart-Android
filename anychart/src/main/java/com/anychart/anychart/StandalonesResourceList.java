@@ -141,6 +141,7 @@ public class StandalonesResourceList extends ResourceResourceList {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
 
             if (isRendered) {
@@ -264,6 +265,7 @@ public class StandalonesResourceList extends ResourceResourceList {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
 
             if (isRendered) {
@@ -308,6 +310,7 @@ public class StandalonesResourceList extends ResourceResourceList {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
 
             if (isRendered) {

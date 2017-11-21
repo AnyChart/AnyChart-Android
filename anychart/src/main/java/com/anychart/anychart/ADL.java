@@ -63,6 +63,7 @@ public class ADL extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".series(%s)", ((type != null) ? type.generateJs() : "null")));
 
             if (isRendered) {
@@ -100,6 +101,7 @@ public class ADL extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".series(%s)", wrapQuotes(type1)));
 
             if (isRendered) {

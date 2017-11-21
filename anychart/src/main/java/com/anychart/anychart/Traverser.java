@@ -59,6 +59,8 @@ public class Traverser extends JsObject {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".meta(%s);", wrapQuotes(key)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", wrapQuotes(key)));
@@ -85,6 +87,7 @@ public class Traverser extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".set(%s)", wrapQuotes(key1)));
 
             if (isRendered) {

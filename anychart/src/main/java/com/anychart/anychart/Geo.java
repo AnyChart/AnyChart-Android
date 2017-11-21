@@ -51,6 +51,7 @@ public class Geo extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".extendDataRange(%f, %f)", x, y));
 
             if (isRendered) {
@@ -86,6 +87,7 @@ public class Geo extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".gap(%f)", gap));
 
             if (isRendered) {
@@ -123,6 +125,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maxTicksCount(%f)", maxTicksCount));
 
             if (isRendered) {
@@ -158,6 +161,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maximumX(%f)", maximumX));
 
             if (isRendered) {
@@ -193,6 +197,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maximumY(%f)", maximumY));
 
             if (isRendered) {
@@ -228,6 +233,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minimumX(%f)", minimumX));
 
             if (isRendered) {
@@ -263,6 +269,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minimumY(%f)", minimumY));
 
             if (isRendered) {
@@ -298,6 +305,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".precision(%s)", Arrays.toString(precision)));
 
             if (isRendered) {
@@ -336,6 +344,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".precision(%f, %f)", xPrecision, yPrecision));
 
             if (isRendered) {
@@ -387,6 +396,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".xMinorTicks(%s)", wrapQuotes(xMinorTicks)));
 
             if (isRendered) {
@@ -424,6 +434,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".xMinorTicks(%s)", arrayToStringWrapQuotes(xMinorTicks1)));
 
             if (isRendered) {
@@ -475,6 +486,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".xTicks(%s)", wrapQuotes(xTicks)));
 
             if (isRendered) {
@@ -512,6 +524,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".xTicks(%s)", arrayToStringWrapQuotes(xTicks1)));
 
             if (isRendered) {
@@ -563,6 +576,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yMinorTicks(%s)", wrapQuotes(yMinorTicks)));
 
             if (isRendered) {
@@ -600,6 +614,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yMinorTicks(%s)", arrayToStringWrapQuotes(yMinorTicks1)));
 
             if (isRendered) {
@@ -651,6 +666,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yTicks(%s)", wrapQuotes(yTicks)));
 
             if (isRendered) {
@@ -688,6 +704,7 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yTicks(%s)", arrayToStringWrapQuotes(yTicks1)));
 
             if (isRendered) {

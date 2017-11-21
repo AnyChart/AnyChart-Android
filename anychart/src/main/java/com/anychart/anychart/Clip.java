@@ -69,6 +69,7 @@ public class Clip extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".shape(%s)", Arrays.toString(shape)));
 
             if (isRendered) {
@@ -182,6 +183,7 @@ public class Clip extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".shape(%s)", wrapQuotes(shape3)));
 
             if (isRendered) {
@@ -226,6 +228,7 @@ public class Clip extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".shape(%f, %f, %f, %f)", left, top, width, height));
 
             if (isRendered) {

@@ -54,6 +54,7 @@ public class Paginator extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
 
             if (isRendered) {
@@ -92,6 +93,7 @@ public class Paginator extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".background(%b)", background2));
 
             if (isRendered) {
@@ -131,6 +133,7 @@ public class Paginator extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".currentPage(%f)", currentPage));
 
             if (isRendered) {
@@ -168,6 +171,7 @@ public class Paginator extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".currentPage(%s)", wrapQuotes(currentPage1)));
 
             if (isRendered) {
@@ -207,6 +211,7 @@ public class Paginator extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
 
             if (isRendered) {
@@ -244,6 +249,7 @@ public class Paginator extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
 
             if (isRendered) {
@@ -307,6 +313,7 @@ public class Paginator extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(spaceOrTopOrTopAndBottom2)));
 
             if (isRendered) {
@@ -347,6 +354,7 @@ public class Paginator extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(spaceOrTopOrTopAndBottom3)));
 
             if (isRendered) {
@@ -402,6 +410,7 @@ public class Paginator extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left1));
 
             if (isRendered) {
@@ -441,6 +450,7 @@ public class Paginator extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
 
             if (isRendered) {
@@ -478,6 +488,7 @@ public class Paginator extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
 
             if (isRendered) {
@@ -546,6 +557,7 @@ public class Paginator extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(spaceOrTopOrTopAndBottom7)));
 
             if (isRendered) {
@@ -591,6 +603,7 @@ public class Paginator extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(spaceOrTopOrTopAndBottom8)));
 
             if (isRendered) {
@@ -657,6 +670,7 @@ public class Paginator extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", spaceOrTopOrTopAndBottom6, rightOrRightAndLeft3, bottom3, left3));
 
             if (isRendered) {

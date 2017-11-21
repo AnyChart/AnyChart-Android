@@ -47,6 +47,8 @@ public class ContextMenu extends JsObject {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addClassName(%s);", wrapQuotes(className)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addClassName(%s)", wrapQuotes(className)));
@@ -77,10 +79,11 @@ public class ContextMenu extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".attach(%s, %b)", ((target != null) ? target.generateJs() : "null"), capture));
+            js.append(target.generateJs());
+            js.append(String.format(Locale.US, ".attach(%s, %b)", ((target != null) ? target.getJsBase() : "null"), capture));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".attach(%s, %b)", ((target != null) ? target.generateJs() : "null"), capture));
+                onChangeListener.onChange(String.format(Locale.US, ".attach(%s, %b)", ((target != null) ? target.getJsBase() : "null"), capture));
                 js.setLength(0);
             }
         }
@@ -116,10 +119,11 @@ public class ContextMenu extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".attach(%s, %b)", ((target1 != null) ? target1.generateJs() : "null"), capture));
+            js.append(target1.generateJs());
+            js.append(String.format(Locale.US, ".attach(%s, %b)", ((target1 != null) ? target1.getJsBase() : "null"), capture));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".attach(%s, %b)", ((target1 != null) ? target1.generateJs() : "null"), capture));
+                onChangeListener.onChange(String.format(Locale.US, ".attach(%s, %b)", ((target1 != null) ? target1.getJsBase() : "null"), capture));
                 js.setLength(0);
             }
         }
@@ -161,10 +165,11 @@ public class ContextMenu extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".detach(%s, %b)", ((target2 != null) ? target2.generateJs() : "null"), capture1));
+            js.append(target2.generateJs());
+            js.append(String.format(Locale.US, ".detach(%s, %b)", ((target2 != null) ? target2.getJsBase() : "null"), capture1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".detach(%s, %b)", ((target2 != null) ? target2.generateJs() : "null"), capture1));
+                onChangeListener.onChange(String.format(Locale.US, ".detach(%s, %b)", ((target2 != null) ? target2.getJsBase() : "null"), capture1));
                 js.setLength(0);
             }
         }
@@ -196,6 +201,7 @@ public class ContextMenu extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
@@ -231,6 +237,7 @@ public class ContextMenu extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".items(%s)", arrayToString(items)));
 
             if (isRendered) {
@@ -272,6 +279,8 @@ public class ContextMenu extends JsObject {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".listen(%s, %b, %s);", wrapQuotes(type), useCapture, wrapQuotes(listenerScope)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s)", wrapQuotes(type), useCapture, wrapQuotes(listenerScope)));
@@ -297,6 +306,8 @@ public class ContextMenu extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".removeClassName(%s);", wrapQuotes(className1)));
             
 
             if (isRendered) {
@@ -331,6 +342,7 @@ public class ContextMenu extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".setup(%s)", wrapQuotes(var_args)));
 
             if (isRendered) {
@@ -371,6 +383,7 @@ public class ContextMenu extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".setup(%s)", arrayToStringWrapQuotes(var_args1)));
 
             if (isRendered) {
@@ -411,6 +424,7 @@ public class ContextMenu extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".setup(%f)", var_args2));
 
             if (isRendered) {
@@ -451,6 +465,7 @@ public class ContextMenu extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".setup(%b)", var_args4));
 
             if (isRendered) {
@@ -489,6 +504,8 @@ public class ContextMenu extends JsObject {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".show(%f, %f);", x, y));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".show(%f, %f)", x, y));
@@ -526,6 +543,8 @@ public class ContextMenu extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unlisten(%s, %b, %s);", wrapQuotes(type1), useCapture1, wrapQuotes(listenerScope1)));
             
 
             if (isRendered) {

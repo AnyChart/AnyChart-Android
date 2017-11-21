@@ -65,6 +65,8 @@ public class ChartWithCredits extends Chart {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setCredits" + ++variableIndex + " = " + jsBase + ".credits(%s);", wrapQuotes(credits)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%s)", wrapQuotes(credits)));
@@ -104,6 +106,8 @@ public class ChartWithCredits extends Chart {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setCredits1" + ++variableIndex + " = " + jsBase + ".credits(%b);", credits1));
             
 
             if (isRendered) {

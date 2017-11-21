@@ -87,6 +87,7 @@ public class View extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".concat(%s)", arrayToStringWrapQuotes(otherView1)));
 
             if (isRendered) {
@@ -122,6 +123,7 @@ public class View extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".filter(%s)", wrapQuotes(fieldName)));
 
             if (isRendered) {
@@ -160,6 +162,8 @@ public class View extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".find(%s);", wrapQuotes(fieldName1)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".find(%s)", wrapQuotes(fieldName1)));
@@ -186,6 +190,7 @@ public class View extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".meta(%f, %s)", index, wrapQuotes(name)));
 
             if (isRendered) {
@@ -221,6 +226,8 @@ public class View extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".row(%f);", rowIndex));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".row(%f)", rowIndex));
@@ -254,6 +261,7 @@ public class View extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".set(%f, %s)", rowIndex1, wrapQuotes(fieldName2)));
 
             if (isRendered) {
@@ -294,6 +302,7 @@ public class View extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".sort(%s)", wrapQuotes(fieldName3)));
 
             if (isRendered) {
@@ -322,12 +331,8 @@ public class View extends CoreBase {
     /**
      * Creates a derived view that ensures sorting by a passed field.
      */
-    public View sort(Sort order, String fieldName4) {
+    public View sort(String fieldName4, Sort order) {
         if (jsBase == null) {
-            this.order = null;
-            this.order1 = null;
-            
-            this.order = order;
             this.fieldName = null;
             this.fieldName1 = null;
             this.fieldName2 = null;
@@ -335,17 +340,22 @@ public class View extends CoreBase {
             this.fieldName4 = null;
             
             this.fieldName4 = fieldName4;
-        } else {
+            this.order = null;
+            this.order1 = null;
+            
             this.order = order;
+        } else {
             this.fieldName4 = fieldName4;
+            this.order = order;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".sort(%s, %s)", ((order != null) ? order.generateJs() : "null"), wrapQuotes(fieldName4)));
+            
+            js.append(String.format(Locale.US, ".sort(%s, %s)", wrapQuotes(fieldName4), ((order != null) ? order.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", ((order != null) ? order.generateJs() : "null"), wrapQuotes(fieldName4)));
+                onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", wrapQuotes(fieldName4), ((order != null) ? order.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -367,12 +377,8 @@ public class View extends CoreBase {
     /**
      * Creates a derived view that ensures sorting by a passed field.
      */
-    public View sort(String order1, String fieldName4) {
+    public View sort(String fieldName4, String order1) {
         if (jsBase == null) {
-            this.order = null;
-            this.order1 = null;
-            
-            this.order1 = order1;
             this.fieldName = null;
             this.fieldName1 = null;
             this.fieldName2 = null;
@@ -380,17 +386,22 @@ public class View extends CoreBase {
             this.fieldName4 = null;
             
             this.fieldName4 = fieldName4;
-        } else {
+            this.order = null;
+            this.order1 = null;
+            
             this.order1 = order1;
+        } else {
             this.fieldName4 = fieldName4;
+            this.order1 = order1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".sort(%s, %s)", wrapQuotes(order1), wrapQuotes(fieldName4)));
+            
+            js.append(String.format(Locale.US, ".sort(%s, %s)", wrapQuotes(fieldName4), wrapQuotes(order1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", wrapQuotes(order1), wrapQuotes(fieldName4)));
+                onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", wrapQuotes(fieldName4), wrapQuotes(order1)));
                 js.setLength(0);
             }
         }

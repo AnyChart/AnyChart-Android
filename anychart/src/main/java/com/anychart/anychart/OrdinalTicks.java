@@ -47,6 +47,7 @@ public class OrdinalTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".interval(%f)", interval));
 
             if (isRendered) {
@@ -82,6 +83,7 @@ public class OrdinalTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".names(%s)", arrayToStringWrapQuotes(values)));
 
             if (isRendered) {
@@ -117,6 +119,7 @@ public class OrdinalTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
 
             if (isRendered) {

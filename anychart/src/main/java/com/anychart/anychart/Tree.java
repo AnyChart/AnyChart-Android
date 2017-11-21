@@ -48,6 +48,8 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setAddChild" + ++variableIndex + " = " + jsBase + ".addChild(%s);", wrapQuotes(child)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s)", wrapQuotes(child)));
@@ -95,6 +97,8 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setAddChildAt" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %f);", wrapQuotes(child1), index));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", wrapQuotes(child1), index));
@@ -137,10 +141,12 @@ public class Tree extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(child2.generateJs());
+            js.append(String.format(Locale.US, "var setAddChildAt1" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %f);", ((child2 != null) ? child2.getJsBase() : "null"), index));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", ((child2 != null) ? child2.generateJs() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", ((child2 != null) ? child2.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -180,10 +186,12 @@ public class Tree extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(child3.generateJs());
+            js.append(String.format(Locale.US, "var setAddChildAt2" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %f);", ((child3 != null) ? child3.getJsBase() : "null"), index));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", ((child3 != null) ? child3.generateJs() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", ((child3 != null) ? child3.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -235,6 +243,7 @@ public class Tree extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), ((fillingMethod != null) ? fillingMethod.generateJs() : "null"), wrapQuotes(csvSettingsOrDeps)));
 
             if (isRendered) {
@@ -282,6 +291,7 @@ public class Tree extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), ((fillingMethod != null) ? fillingMethod.generateJs() : "null"), arrayToString(csvSettingsOrDeps1)));
 
             if (isRendered) {
@@ -329,6 +339,7 @@ public class Tree extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), wrapQuotes(fillingMethod1), wrapQuotes(csvSettingsOrDeps)));
 
             if (isRendered) {
@@ -376,6 +387,7 @@ public class Tree extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), wrapQuotes(fillingMethod1), arrayToString(csvSettingsOrDeps1)));
 
             if (isRendered) {
@@ -415,6 +427,7 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".createIndexOn(%s, %b)", wrapQuotes(field), asString));
 
             if (isRendered) {
@@ -450,6 +463,7 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".dispatchEvents(%b)", dispatchEvents));
 
             if (isRendered) {
@@ -496,6 +510,8 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setMapAs" + ++variableIndex + " = " + jsBase + ".mapAs(%s);", wrapQuotes(mapping)));
             
 
             if (isRendered) {
@@ -578,6 +594,8 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRemoveChildAt" + ++variableIndex + " = " + jsBase + ".removeChildAt(%f);", index1));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f)", index1));
@@ -617,6 +635,7 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".removeIndexOn(%s)", wrapQuotes(field1)));
 
             if (isRendered) {
@@ -646,25 +665,27 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
     /**
      * Performs a data search.
      */
-    public TreeDataItem search(String search, String soughtField) {
+    public TreeDataItem search(String soughtField, String search) {
         if (jsBase == null) {
+            this.soughtField = soughtField;
             this.search = null;
             this.search1 = null;
             this.search2 = null;
             
             this.search = search;
-            this.soughtField = soughtField;
         } else {
-            this.search = search;
             this.soughtField = soughtField;
+            this.search = search;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setSearch" + ++variableIndex + " = " + jsBase + ".search(%s, %s);", wrapQuotes(soughtField), wrapQuotes(search)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %s)", wrapQuotes(search), wrapQuotes(soughtField)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %s)", wrapQuotes(soughtField), wrapQuotes(search)));
                 js.setLength(0);
             }
         }
@@ -688,25 +709,27 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
     /**
      * Performs a data search.
      */
-    public TreeDataItem search(Double search1, String soughtField) {
+    public TreeDataItem search(String soughtField, Double search1) {
         if (jsBase == null) {
+            this.soughtField = soughtField;
             this.search = null;
             this.search1 = null;
             this.search2 = null;
             
             this.search1 = search1;
-            this.soughtField = soughtField;
         } else {
-            this.search1 = search1;
             this.soughtField = soughtField;
+            this.search1 = search1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setSearch1" + ++variableIndex + " = " + jsBase + ".search(%s, %f);", wrapQuotes(soughtField), search1));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%f, %s)", search1, wrapQuotes(soughtField)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %f)", wrapQuotes(soughtField), search1));
                 js.setLength(0);
             }
         }
@@ -730,25 +753,27 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
     /**
      * Performs a data search.
      */
-    public TreeDataItem search(Boolean search2, String soughtField) {
+    public TreeDataItem search(String soughtField, Boolean search2) {
         if (jsBase == null) {
+            this.soughtField = soughtField;
             this.search = null;
             this.search1 = null;
             this.search2 = null;
             
             this.search2 = search2;
-            this.soughtField = soughtField;
         } else {
-            this.search2 = search2;
             this.soughtField = soughtField;
+            this.search2 = search2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setSearch2" + ++variableIndex + " = " + jsBase + ".search(%s, %b);", wrapQuotes(soughtField), search2));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%b, %s)", search2, wrapQuotes(soughtField)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %b)", wrapQuotes(soughtField), search2));
                 js.setLength(0);
             }
         }
@@ -775,28 +800,30 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
     /**
      * Performs a data search. Actually does the same as ({@link anychart.data.Tree#search}) but result is always an array.
      */
-    public void searchItems(String searchItems, String soughtField1) {
+    public void searchItems(String soughtField1, String searchItems) {
         if (jsBase == null) {
+            this.soughtField = null;
+            this.soughtField1 = null;
+            
+            this.soughtField1 = soughtField1;
             this.searchItems = null;
             this.searchItems1 = null;
             this.searchItems2 = null;
             
             this.searchItems = searchItems;
-            this.soughtField = null;
-            this.soughtField1 = null;
-            
-            this.soughtField1 = soughtField1;
         } else {
-            this.searchItems = searchItems;
             this.soughtField1 = soughtField1;
+            this.searchItems = searchItems;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".searchItems(%s, %s);", wrapQuotes(soughtField1), wrapQuotes(searchItems)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %s)", wrapQuotes(searchItems), wrapQuotes(soughtField1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %s)", wrapQuotes(soughtField1), wrapQuotes(searchItems)));
                 js.setLength(0);
             }
         }
@@ -806,28 +833,30 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
     /**
      * Performs a data search. Actually does the same as ({@link anychart.data.Tree#search}) but result is always an array.
      */
-    public void searchItems(Double searchItems1, String soughtField1) {
+    public void searchItems(String soughtField1, Double searchItems1) {
         if (jsBase == null) {
+            this.soughtField = null;
+            this.soughtField1 = null;
+            
+            this.soughtField1 = soughtField1;
             this.searchItems = null;
             this.searchItems1 = null;
             this.searchItems2 = null;
             
             this.searchItems1 = searchItems1;
-            this.soughtField = null;
-            this.soughtField1 = null;
-            
-            this.soughtField1 = soughtField1;
         } else {
-            this.searchItems1 = searchItems1;
             this.soughtField1 = soughtField1;
+            this.searchItems1 = searchItems1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".searchItems(%s, %f);", wrapQuotes(soughtField1), searchItems1));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%f, %s)", searchItems1, wrapQuotes(soughtField1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %f)", wrapQuotes(soughtField1), searchItems1));
                 js.setLength(0);
             }
         }
@@ -837,28 +866,30 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
     /**
      * Performs a data search. Actually does the same as ({@link anychart.data.Tree#search}) but result is always an array.
      */
-    public void searchItems(Boolean searchItems2, String soughtField1) {
+    public void searchItems(String soughtField1, Boolean searchItems2) {
         if (jsBase == null) {
+            this.soughtField = null;
+            this.soughtField1 = null;
+            
+            this.soughtField1 = soughtField1;
             this.searchItems = null;
             this.searchItems1 = null;
             this.searchItems2 = null;
             
             this.searchItems2 = searchItems2;
-            this.soughtField = null;
-            this.soughtField1 = null;
-            
-            this.soughtField1 = soughtField1;
         } else {
-            this.searchItems2 = searchItems2;
             this.soughtField1 = soughtField1;
+            this.searchItems2 = searchItems2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".searchItems(%s, %b);", wrapQuotes(soughtField1), searchItems2));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%b, %s)", searchItems2, wrapQuotes(soughtField1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %b)", wrapQuotes(soughtField1), searchItems2));
                 js.setLength(0);
             }
         }

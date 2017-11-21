@@ -48,6 +48,7 @@ public class Cell extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colSpan(%f)", colSpan));
 
             if (isRendered) {
@@ -137,6 +138,7 @@ public class Cell extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".content(%s)", wrapQuotes(content1)));
 
             if (isRendered) {
@@ -175,6 +177,7 @@ public class Cell extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".content(%f)", content2));
 
             if (isRendered) {
@@ -211,6 +214,7 @@ public class Cell extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
             if (isRendered) {
@@ -249,6 +253,7 @@ public class Cell extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
@@ -282,35 +287,36 @@ public class Cell extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cell fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public Cell fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys = keys;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -333,35 +339,36 @@ public class Cell extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cell fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public Cell fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys = keys;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -384,35 +391,36 @@ public class Cell extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cell fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public Cell fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys = keys;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -435,35 +443,36 @@ public class Cell extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cell fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public Cell fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys1 = keys1;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -486,35 +495,36 @@ public class Cell extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cell fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public Cell fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys1 = keys1;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -537,35 +547,36 @@ public class Cell extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cell fill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public Cell fill(String[] keys1, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys1 = keys1;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -631,10 +642,11 @@ public class Cell extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -692,10 +704,11 @@ public class Cell extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -746,6 +759,7 @@ public class Cell extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
 
             if (isRendered) {
@@ -784,6 +798,7 @@ public class Cell extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
 
             if (isRendered) {
@@ -822,6 +837,7 @@ public class Cell extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
 
             if (isRendered) {
@@ -906,6 +922,7 @@ public class Cell extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
             if (isRendered) {
@@ -982,6 +999,7 @@ public class Cell extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
 
             if (isRendered) {
@@ -1017,6 +1035,7 @@ public class Cell extends TableBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowSpan(%f)", rowSpan));
 
             if (isRendered) {

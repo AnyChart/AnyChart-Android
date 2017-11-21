@@ -47,6 +47,7 @@ public class ChartScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".inverted(%b)", inverted));
 
             if (isRendered) {
@@ -86,6 +87,7 @@ public class ChartScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
 
             if (isRendered) {
@@ -123,6 +125,7 @@ public class ChartScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
 
             if (isRendered) {

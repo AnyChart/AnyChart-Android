@@ -64,6 +64,7 @@ public class GanttToolbar extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(element)));
 
             if (isRendered) {
@@ -134,6 +135,7 @@ public class GanttToolbar extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".printPaperSizes(%s)", arrayToString(printPaperSizes)));
 
             if (isRendered) {

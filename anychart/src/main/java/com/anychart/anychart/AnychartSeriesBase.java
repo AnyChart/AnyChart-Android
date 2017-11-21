@@ -70,6 +70,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".a11y(%b)", ay));
 
             if (isRendered) {
@@ -107,6 +108,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".a11y(%s)", wrapQuotes(ay1)));
 
             if (isRendered) {
@@ -142,6 +144,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
 
             if (isRendered) {
@@ -206,10 +209,11 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
+            js.append(data.generateJs());
+            js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.getJsBase() : "null"), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.getJsBase() : "null"), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -251,10 +255,11 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(csvSettings1)));
+            js.append(data.generateJs());
+            js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.getJsBase() : "null"), wrapQuotes(csvSettings1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(csvSettings1)));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.getJsBase() : "null"), wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
@@ -296,10 +301,11 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
+            js.append(data.generateJs());
+            js.append(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.getJsBase() : "null"), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.generateJs() : "null"), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data != null) ? data.getJsBase() : "null"), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -341,10 +347,11 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
+            js.append(data1.generateJs());
+            js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.getJsBase() : "null"), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.getJsBase() : "null"), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -386,10 +393,11 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(csvSettings1)));
+            js.append(data1.generateJs());
+            js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.getJsBase() : "null"), wrapQuotes(csvSettings1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(csvSettings1)));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.getJsBase() : "null"), wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
@@ -431,10 +439,11 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
+            js.append(data1.generateJs());
+            js.append(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.getJsBase() : "null"), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.generateJs() : "null"), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", ((data1 != null) ? data1.getJsBase() : "null"), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -476,6 +485,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data2), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
 
             if (isRendered) {
@@ -521,6 +531,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data2), wrapQuotes(csvSettings1)));
 
             if (isRendered) {
@@ -566,6 +577,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data2), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
 
             if (isRendered) {
@@ -611,6 +623,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data3), ((csvSettings != null) ? csvSettings.generateJs() : "null")));
 
             if (isRendered) {
@@ -656,6 +669,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data3), wrapQuotes(csvSettings1)));
 
             if (isRendered) {
@@ -701,6 +715,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data3), ((csvSettings2 != null) ? csvSettings2.generateJs() : "null")));
 
             if (isRendered) {
@@ -747,6 +762,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hover(%f)", index));
 
             if (isRendered) {
@@ -782,6 +798,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hover(%s)", Arrays.toString(indexes)));
 
             if (isRendered) {
@@ -829,6 +846,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
 
             if (isRendered) {
@@ -868,6 +886,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
 
             if (isRendered) {
@@ -905,6 +924,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".id(%f)", id1));
 
             if (isRendered) {
@@ -956,6 +976,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
             if (isRendered) {
@@ -993,6 +1014,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
             if (isRendered) {
@@ -1040,6 +1062,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".legendItem(%s)", wrapQuotes(legendItem)));
 
             if (isRendered) {
@@ -1093,6 +1116,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
 
             if (isRendered) {
@@ -1131,6 +1155,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".markers(%b)", markers1));
 
             if (isRendered) {
@@ -1166,6 +1191,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".name(%s)", wrapQuotes(name)));
 
             if (isRendered) {
@@ -1213,6 +1239,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
 
             if (isRendered) {
@@ -1251,6 +1278,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".select(%f)", index1));
 
             if (isRendered) {
@@ -1291,6 +1319,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".select(%s)", Arrays.toString(indexes2)));
 
             if (isRendered) {
@@ -1338,6 +1367,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
 
             if (isRendered) {
@@ -1378,6 +1408,7 @@ To select multiple points, press "ctrl" and click on them.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selectionMode(%s)", ((selectionMode != null) ? selectionMode.generateJs() : "null")));
 
             if (isRendered) {
@@ -1416,6 +1447,7 @@ To select multiple points, press "ctrl" and click on them.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selectionMode(%s)", wrapQuotes(selectionMode1)));
 
             if (isRendered) {
@@ -1467,6 +1499,7 @@ To select multiple points, press "ctrl" and click on them.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
 
             if (isRendered) {
@@ -1504,6 +1537,7 @@ To select multiple points, press "ctrl" and click on them.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".tooltip(%b)", tooltip1));
 
             if (isRendered) {
@@ -1543,6 +1577,7 @@ To select multiple points, press "ctrl" and click on them.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".unhover(%f)", indexOrIndexes));
 
             if (isRendered) {
@@ -1580,6 +1615,7 @@ To select multiple points, press "ctrl" and click on them.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".unhover(%s)", Arrays.toString(indexOrIndexes1)));
 
             if (isRendered) {
@@ -1619,6 +1655,7 @@ To select multiple points, press "ctrl" and click on them.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".unselect(%f)", index2));
 
             if (isRendered) {
@@ -1659,6 +1696,7 @@ To select multiple points, press "ctrl" and click on them.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".unselect(%s)", Arrays.toString(indexes3)));
 
             if (isRendered) {

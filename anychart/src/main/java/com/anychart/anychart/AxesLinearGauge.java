@@ -49,6 +49,7 @@ public class AxesLinearGauge extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".offset(%s)", wrapQuotes(offset)));
 
             if (isRendered) {

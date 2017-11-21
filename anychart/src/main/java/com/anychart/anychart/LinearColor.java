@@ -48,6 +48,8 @@ public class LinearColor extends ScatterBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".colorToValue(%s);", wrapQuotes(colorToValue)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorToValue(%s)", wrapQuotes(colorToValue)));
@@ -87,6 +89,7 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colors(%s)", wrapQuotes(var_args)));
 
             if (isRendered) {
@@ -130,6 +133,7 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colors(%s)", ((var_args1 != null) ? var_args1.generateJs() : "null")));
 
             if (isRendered) {
@@ -173,6 +177,7 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colors(%s)", ((var_args2 != null) ? var_args2.generateJs() : "null")));
 
             if (isRendered) {
@@ -216,6 +221,7 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colors(%s)", ((var_args3 != null) ? var_args3.generateJs() : "null")));
 
             if (isRendered) {
@@ -259,6 +265,7 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colors(%s)", arrayToStringWrapQuotes(var_args4)));
 
             if (isRendered) {
@@ -302,6 +309,7 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colors(%s)", arrayToString(var_args5)));
 
             if (isRendered) {
@@ -345,6 +353,7 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colors(%s)", arrayToString(var_args6)));
 
             if (isRendered) {
@@ -388,6 +397,7 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colors(%s)", arrayToString(var_args7)));
 
             if (isRendered) {
@@ -439,6 +449,7 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
@@ -476,6 +487,7 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
 
             if (isRendered) {
@@ -527,6 +539,7 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
@@ -564,6 +577,7 @@ public class LinearColor extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
 
             if (isRendered) {
@@ -598,6 +612,8 @@ public class LinearColor extends ScatterBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".valueToColor(%f);", valueToColor));
             
 
             if (isRendered) {

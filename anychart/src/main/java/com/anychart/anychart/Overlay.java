@@ -47,6 +47,7 @@ public class Overlay extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".className(%s)", wrapQuotes(className)));
 
             if (isRendered) {
@@ -82,6 +83,7 @@ public class Overlay extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
@@ -129,6 +131,7 @@ public class Overlay extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
 
             if (isRendered) {

@@ -54,6 +54,7 @@ public class VectorEllipse extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".center(%s)", ((center != null) ? center.generateJs() : "null")));
 
             if (isRendered) {
@@ -89,6 +90,7 @@ public class VectorEllipse extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".centerX(%f)", centerX));
 
             if (isRendered) {
@@ -124,6 +126,7 @@ public class VectorEllipse extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".centerY(%f)", centerY));
 
             if (isRendered) {
@@ -159,6 +162,7 @@ public class VectorEllipse extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".radiusX(%f)", radiusX));
 
             if (isRendered) {
@@ -194,6 +198,7 @@ public class VectorEllipse extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".radiusY(%f)", radiusY));
 
             if (isRendered) {
@@ -232,6 +237,7 @@ public class VectorEllipse extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".setRadius(%f, %f)", rx, ry));
 
             if (isRendered) {

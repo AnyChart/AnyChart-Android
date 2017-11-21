@@ -47,6 +47,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
 
             if (isRendered) {
@@ -83,6 +84,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
 
             if (isRendered) {
@@ -122,6 +124,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontDecoration(%s)", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
 
             if (isRendered) {
@@ -159,6 +162,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontDecoration(%s)", wrapQuotes(fontDecoration1)));
 
             if (isRendered) {
@@ -194,6 +198,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
 
             if (isRendered) {
@@ -229,6 +234,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
 
             if (isRendered) {
@@ -268,6 +274,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize)));
 
             if (isRendered) {
@@ -305,6 +312,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontSize(%f)", fontSize1));
 
             if (isRendered) {
@@ -344,6 +352,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
 
             if (isRendered) {
@@ -381,6 +390,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
 
             if (isRendered) {
@@ -420,6 +430,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
 
             if (isRendered) {
@@ -457,6 +468,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
 
             if (isRendered) {
@@ -497,6 +509,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
 
             if (isRendered) {
@@ -535,6 +548,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
 
             if (isRendered) {
@@ -574,6 +588,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hAlign(%s)", ((hAlign != null) ? hAlign.generateJs() : "null")));
 
             if (isRendered) {
@@ -611,6 +626,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign1)));
 
             if (isRendered) {
@@ -651,6 +667,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing)));
 
             if (isRendered) {
@@ -689,6 +706,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
 
             if (isRendered) {
@@ -729,6 +747,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight)));
 
             if (isRendered) {
@@ -767,6 +786,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
 
             if (isRendered) {
@@ -802,6 +822,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selectable(%b)", selectable));
 
             if (isRendered) {
@@ -841,6 +862,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textDirection(%s)", ((textDirection != null) ? textDirection.generateJs() : "null")));
 
             if (isRendered) {
@@ -878,6 +900,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection1)));
 
             if (isRendered) {
@@ -913,6 +936,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
 
             if (isRendered) {
@@ -952,6 +976,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
 
             if (isRendered) {
@@ -989,6 +1014,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
 
             if (isRendered) {
@@ -1024,6 +1050,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textSettings(%s)", wrapQuotes(objectWithSettings)));
 
             if (isRendered) {
@@ -1053,25 +1080,26 @@ public class CoreText extends VisualBase {
     /**
      * Setter for the text appearance settings.
      */
-    public CoreText setTextSettings(String textSettings, String name) {
+    public CoreText setTextSettings(String name, String textSettings) {
         if (jsBase == null) {
+            this.name = name;
             this.textSettings = null;
             this.textSettings1 = null;
             this.textSettings2 = null;
             
             this.textSettings = textSettings;
-            this.name = name;
         } else {
-            this.textSettings = textSettings;
             this.name = name;
+            this.textSettings = textSettings;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".textSettings(%s, %s)", wrapQuotes(textSettings), wrapQuotes(name)));
+            
+            js.append(String.format(Locale.US, ".textSettings(%s, %s)", wrapQuotes(name), wrapQuotes(textSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%s, %s)", wrapQuotes(textSettings), wrapQuotes(name)));
+                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%s, %s)", wrapQuotes(name), wrapQuotes(textSettings)));
                 js.setLength(0);
             }
         }
@@ -1093,25 +1121,26 @@ public class CoreText extends VisualBase {
     /**
      * Setter for the text appearance settings.
      */
-    public CoreText setTextSettings(Double textSettings1, String name) {
+    public CoreText setTextSettings(String name, Double textSettings1) {
         if (jsBase == null) {
+            this.name = name;
             this.textSettings = null;
             this.textSettings1 = null;
             this.textSettings2 = null;
             
             this.textSettings1 = textSettings1;
-            this.name = name;
         } else {
-            this.textSettings1 = textSettings1;
             this.name = name;
+            this.textSettings1 = textSettings1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".textSettings(%f, %s)", textSettings1, wrapQuotes(name)));
+            
+            js.append(String.format(Locale.US, ".textSettings(%s, %f)", wrapQuotes(name), textSettings1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%f, %s)", textSettings1, wrapQuotes(name)));
+                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%s, %f)", wrapQuotes(name), textSettings1));
                 js.setLength(0);
             }
         }
@@ -1133,25 +1162,26 @@ public class CoreText extends VisualBase {
     /**
      * Setter for the text appearance settings.
      */
-    public CoreText setTextSettings(Boolean textSettings2, String name) {
+    public CoreText setTextSettings(String name, Boolean textSettings2) {
         if (jsBase == null) {
+            this.name = name;
             this.textSettings = null;
             this.textSettings1 = null;
             this.textSettings2 = null;
             
             this.textSettings2 = textSettings2;
-            this.name = name;
         } else {
-            this.textSettings2 = textSettings2;
             this.name = name;
+            this.textSettings2 = textSettings2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".textSettings(%b, %s)", textSettings2, wrapQuotes(name)));
+            
+            js.append(String.format(Locale.US, ".textSettings(%s, %b)", wrapQuotes(name), textSettings2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%b, %s)", textSettings2, wrapQuotes(name)));
+                onChangeListener.onChange(String.format(Locale.US, ".textSettings(%s, %b)", wrapQuotes(name), textSettings2));
                 js.setLength(0);
             }
         }
@@ -1183,6 +1213,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".useHtml(%b)", useHtml));
 
             if (isRendered) {
@@ -1222,6 +1253,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".vAlign(%s)", ((vAlign != null) ? vAlign.generateJs() : "null")));
 
             if (isRendered) {
@@ -1259,6 +1291,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign1)));
 
             if (isRendered) {
@@ -1298,6 +1331,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak != null) ? wordBreak.generateJs() : "null")));
 
             if (isRendered) {
@@ -1335,6 +1369,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak1)));
 
             if (isRendered) {
@@ -1374,6 +1409,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap != null) ? wordWrap.generateJs() : "null")));
 
             if (isRendered) {
@@ -1411,6 +1447,7 @@ public class CoreText extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap1)));
 
             if (isRendered) {

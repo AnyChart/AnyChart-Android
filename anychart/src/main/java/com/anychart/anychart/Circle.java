@@ -54,6 +54,7 @@ public class Circle extends VectorEllipse {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".radius(%f)", radius));
 
             if (isRendered) {

@@ -48,6 +48,8 @@ public class CartesianSeriesContinuousBase extends CartesianSeriesBaseWithMarker
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setConnectMissingPoints" + ++variableIndex + " = " + jsBase + ".connectMissingPoints(%b);", connectMissingPoints));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectMissingPoints(%b)", connectMissingPoints));

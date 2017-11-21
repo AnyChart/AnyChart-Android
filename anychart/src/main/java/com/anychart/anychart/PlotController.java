@@ -54,6 +54,8 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setAdd" + ++variableIndex + " = " + jsBase + ".add(%s);", ((annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null")));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", ((annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null")));
@@ -93,6 +95,8 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setAdd1" + ++variableIndex + " = " + jsBase + ".add(%s);", wrapQuotes(annotationTypeOrConfig1)));
             
 
             if (isRendered) {
@@ -134,6 +138,8 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setAdd2" + ++variableIndex + " = " + jsBase + ".add(%s);", ((annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null")));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".add(%s)", ((annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null")));
@@ -170,6 +176,8 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setAndrewsPitchfork" + ++variableIndex + " = " + jsBase + ".andrewsPitchfork(%s);", wrapQuotes(config)));
             
 
             if (isRendered) {
@@ -210,6 +218,8 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setEllipse" + ++variableIndex + " = " + jsBase + ".ellipse(%s);", wrapQuotes(config1)));
             
 
             if (isRendered) {
@@ -252,6 +262,8 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFibonacciArc" + ++variableIndex + " = " + jsBase + ".fibonacciArc(%s);", wrapQuotes(config2)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciArc(%s)", wrapQuotes(config2)));
@@ -293,6 +305,8 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setFibonacciFan" + ++variableIndex + " = " + jsBase + ".fibonacciFan(%s);", wrapQuotes(config3)));
             
 
             if (isRendered) {
@@ -337,6 +351,8 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFibonacciRetracement" + ++variableIndex + " = " + jsBase + ".fibonacciRetracement(%s);", wrapQuotes(config4)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fibonacciRetracement(%s)", wrapQuotes(config4)));
@@ -380,6 +396,8 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setFibonacciTimezones" + ++variableIndex + " = " + jsBase + ".fibonacciTimezones(%s);", wrapQuotes(config5)));
             
 
             if (isRendered) {
@@ -427,6 +445,7 @@ public class PlotController extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fromJson(%s)", wrapQuotes(config6)));
 
             if (isRendered) {
@@ -472,6 +491,7 @@ public class PlotController extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fromXml(%s)", wrapQuotes(config8)));
 
             if (isRendered) {
@@ -507,6 +527,8 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setGetAnnotationAt" + ++variableIndex + " = " + jsBase + ".getAnnotationAt(%f);", index));
             
 
             if (isRendered) {
@@ -556,6 +578,8 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setHorizontalLine" + ++variableIndex + " = " + jsBase + ".horizontalLine(%s);", wrapQuotes(config9)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontalLine(%s)", wrapQuotes(config9)));
@@ -604,6 +628,8 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setInfiniteLine" + ++variableIndex + " = " + jsBase + ".infiniteLine(%s);", wrapQuotes(config10)));
             
 
             if (isRendered) {
@@ -655,6 +681,8 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s);", wrapQuotes(config11)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s)", wrapQuotes(config11)));
@@ -705,6 +733,8 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", wrapQuotes(config12)));
             
 
             if (isRendered) {
@@ -758,6 +788,8 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRay" + ++variableIndex + " = " + jsBase + ".ray(%s);", wrapQuotes(config13)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ray(%s)", wrapQuotes(config13)));
@@ -810,6 +842,8 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setRectangle" + ++variableIndex + " = " + jsBase + ".rectangle(%s);", wrapQuotes(config14)));
             
 
             if (isRendered) {
@@ -883,6 +917,7 @@ public class PlotController extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".removeAnnotationAt(%f)", index1));
 
             if (isRendered) {
@@ -965,6 +1000,8 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setStartDrawing" + ++variableIndex + " = " + jsBase + ".startDrawing(%s);", ((annotationTypeOrConfig3 != null) ? annotationTypeOrConfig3.generateJs() : "null")));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig3 != null) ? annotationTypeOrConfig3.generateJs() : "null")));
@@ -1008,6 +1045,8 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setStartDrawing1" + ++variableIndex + " = " + jsBase + ".startDrawing(%s);", wrapQuotes(annotationTypeOrConfig4)));
             
 
             if (isRendered) {
@@ -1053,6 +1092,8 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setStartDrawing2" + ++variableIndex + " = " + jsBase + ".startDrawing(%s);", ((annotationTypeOrConfig5 != null) ? annotationTypeOrConfig5.generateJs() : "null")));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig5 != null) ? annotationTypeOrConfig5.generateJs() : "null")));
@@ -1089,6 +1130,8 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".toJson(%b);", stringify));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toJson(%b)", stringify));
@@ -1111,6 +1154,8 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".toXml(%b);", asXmlNode));
             
 
             if (isRendered) {
@@ -1152,6 +1197,8 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setTrendChannel" + ++variableIndex + " = " + jsBase + ".trendChannel(%s);", wrapQuotes(config15)));
             
 
             if (isRendered) {
@@ -1208,6 +1255,8 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setTriangle" + ++variableIndex + " = " + jsBase + ".triangle(%s);", wrapQuotes(config16)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".triangle(%s)", wrapQuotes(config16)));
@@ -1263,6 +1312,8 @@ public class PlotController extends VisualBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setVerticalLine" + ++variableIndex + " = " + jsBase + ".verticalLine(%s);", wrapQuotes(config17)));
             
 
             if (isRendered) {

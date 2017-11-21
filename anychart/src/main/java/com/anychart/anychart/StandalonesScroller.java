@@ -63,6 +63,7 @@ public class StandalonesScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container)));
 
             if (isRendered) {
@@ -134,6 +135,7 @@ public class StandalonesScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".endRatio(%f)", endRatio));
 
             if (isRendered) {
@@ -220,6 +222,7 @@ public class StandalonesScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
 
             if (isRendered) {
@@ -264,6 +267,7 @@ public class StandalonesScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
 
             if (isRendered) {
@@ -305,6 +309,7 @@ public class StandalonesScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".setRange(%f, %f)", startRatio, endRatio1));
 
             if (isRendered) {
@@ -344,6 +349,7 @@ public class StandalonesScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".startRatio(%f)", startRatio1));
 
             if (isRendered) {

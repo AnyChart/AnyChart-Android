@@ -107,6 +107,7 @@ public class Element extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".appendTransformationMatrix(%f, %f, %f, %f, %f, %f)", m, m1, m2, m3, m4, m5));
 
             if (isRendered) {
@@ -142,6 +143,7 @@ public class Element extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".attr(%s)", wrapQuotes(key)));
 
             if (isRendered) {
@@ -228,6 +230,7 @@ public class Element extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".clip(%s)", wrapQuotes(clip1)));
 
             if (isRendered) {
@@ -263,6 +266,7 @@ public class Element extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cursor(%s)", ((cursor != null) ? cursor.generateJs() : "null")));
 
             if (isRendered) {
@@ -298,6 +302,7 @@ public class Element extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".desc(%s)", wrapQuotes(desc)));
 
             if (isRendered) {
@@ -333,6 +338,7 @@ public class Element extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
 
             if (isRendered) {
@@ -369,6 +375,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".disableStrokeScaling(%b)", disableStrokeScaling));
 
             if (isRendered) {
@@ -408,6 +415,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".drag(%b)", drag));
 
             if (isRendered) {
@@ -490,6 +498,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
 
             if (isRendered) {
@@ -531,6 +540,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".listen(%s, %b, %s);", wrapQuotes(type), useCapture, wrapQuotes(listenerScope)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s)", wrapQuotes(type), useCapture, wrapQuotes(listenerScope)));
@@ -568,6 +579,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".listenOnce(%s, %b, %s);", wrapQuotes(type1), useCapture1, wrapQuotes(listenerScope1)));
             
 
             if (isRendered) {
@@ -668,6 +681,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".removeAllListeners(%s);", wrapQuotes(type2)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s)", wrapQuotes(type2)));
@@ -697,6 +712,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rotate(%f, %f, %f)", degrees, cx, cy));
 
             if (isRendered) {
@@ -725,27 +741,28 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
     /**
      * Rotates a shape around the given anchor.
      */
-    public Element rotateByAnchor(VectorAnchor anchor, Double degrees1) {
+    public Element rotateByAnchor(Double degrees1, VectorAnchor anchor) {
         if (jsBase == null) {
-            this.anchor = null;
-            this.anchor1 = null;
-            
-            this.anchor = anchor;
             this.degrees = null;
             this.degrees1 = null;
             
             this.degrees1 = degrees1;
-        } else {
+            this.anchor = null;
+            this.anchor1 = null;
+            
             this.anchor = anchor;
+        } else {
             this.degrees1 = degrees1;
+            this.anchor = anchor;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rotateByAnchor(%s, %f)", ((anchor != null) ? anchor.generateJs() : "null"), degrees1));
+            
+            js.append(String.format(Locale.US, ".rotateByAnchor(%f, %s)", degrees1, ((anchor != null) ? anchor.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%s, %f)", ((anchor != null) ? anchor.generateJs() : "null"), degrees1));
+                onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%f, %s)", degrees1, ((anchor != null) ? anchor.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -767,27 +784,28 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
     /**
      * Rotates a shape around the given anchor.
      */
-    public Element rotateByAnchor(String anchor1, Double degrees1) {
+    public Element rotateByAnchor(Double degrees1, String anchor1) {
         if (jsBase == null) {
-            this.anchor = null;
-            this.anchor1 = null;
-            
-            this.anchor1 = anchor1;
             this.degrees = null;
             this.degrees1 = null;
             
             this.degrees1 = degrees1;
-        } else {
+            this.anchor = null;
+            this.anchor1 = null;
+            
             this.anchor1 = anchor1;
+        } else {
             this.degrees1 = degrees1;
+            this.anchor1 = anchor1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rotateByAnchor(%s, %f)", wrapQuotes(anchor1), degrees1));
+            
+            js.append(String.format(Locale.US, ".rotateByAnchor(%f, %s)", degrees1, wrapQuotes(anchor1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%s, %f)", wrapQuotes(anchor1), degrees1));
+                onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%f, %s)", degrees1, wrapQuotes(anchor1)));
                 js.setLength(0);
             }
         }
@@ -834,6 +852,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".scale(%f, %f, %f, %f)", sx, sy, cx1, cy1));
 
             if (isRendered) {
@@ -863,14 +882,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
     /**
      * Scales a shape by anchor. Scaling center is set as an anchor.
      */
-    public Element scaleByAnchor(VectorAnchor anchor2, Double sx1, Double sy1) {
+    public Element scaleByAnchor(Double sx1, Double sy1, VectorAnchor anchor2) {
         if (jsBase == null) {
-            this.anchor = null;
-            this.anchor1 = null;
-            this.anchor2 = null;
-            this.anchor3 = null;
-            
-            this.anchor2 = anchor2;
             this.sx = null;
             this.sx1 = null;
             
@@ -879,18 +892,25 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             this.sy1 = null;
             
             this.sy1 = sy1;
-        } else {
+            this.anchor = null;
+            this.anchor1 = null;
+            this.anchor2 = null;
+            this.anchor3 = null;
+            
             this.anchor2 = anchor2;
+        } else {
             this.sx1 = sx1;
             this.sy1 = sy1;
+            this.anchor2 = anchor2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", ((anchor2 != null) ? anchor2.generateJs() : "null"), sx1, sy1));
+            
+            js.append(String.format(Locale.US, ".scaleByAnchor(%f, %f, %s)", sx1, sy1, ((anchor2 != null) ? anchor2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", ((anchor2 != null) ? anchor2.generateJs() : "null"), sx1, sy1));
+                onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%f, %f, %s)", sx1, sy1, ((anchor2 != null) ? anchor2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -912,14 +932,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
     /**
      * Scales a shape by anchor. Scaling center is set as an anchor.
      */
-    public Element scaleByAnchor(String anchor3, Double sx1, Double sy1) {
+    public Element scaleByAnchor(Double sx1, Double sy1, String anchor3) {
         if (jsBase == null) {
-            this.anchor = null;
-            this.anchor1 = null;
-            this.anchor2 = null;
-            this.anchor3 = null;
-            
-            this.anchor3 = anchor3;
             this.sx = null;
             this.sx1 = null;
             
@@ -928,18 +942,25 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             this.sy1 = null;
             
             this.sy1 = sy1;
-        } else {
+            this.anchor = null;
+            this.anchor1 = null;
+            this.anchor2 = null;
+            this.anchor3 = null;
+            
             this.anchor3 = anchor3;
+        } else {
             this.sx1 = sx1;
             this.sy1 = sy1;
+            this.anchor3 = anchor3;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", wrapQuotes(anchor3), sx1, sy1));
+            
+            js.append(String.format(Locale.US, ".scaleByAnchor(%f, %f, %s)", sx1, sy1, wrapQuotes(anchor3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", wrapQuotes(anchor3), sx1, sy1));
+                onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%f, %f, %s)", sx1, sy1, wrapQuotes(anchor3)));
                 js.setLength(0);
             }
         }
@@ -974,6 +995,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".setPosition(%f, %f)", x, y));
 
             if (isRendered) {
@@ -1027,6 +1049,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".setRotation(%f, %f, %f)", degrees2, cx2, cy2));
 
             if (isRendered) {
@@ -1055,8 +1078,14 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
     /**
      * Rotates a shape around the given anchor.
      */
-    public Element setRotationByAnchor(VectorAnchor anchor4, Double degrees3) {
+    public Element setRotationByAnchor(Double degrees3, VectorAnchor anchor4) {
         if (jsBase == null) {
+            this.degrees = null;
+            this.degrees1 = null;
+            this.degrees2 = null;
+            this.degrees3 = null;
+            
+            this.degrees3 = degrees3;
             this.anchor = null;
             this.anchor1 = null;
             this.anchor2 = null;
@@ -1065,23 +1094,18 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             this.anchor5 = null;
             
             this.anchor4 = anchor4;
-            this.degrees = null;
-            this.degrees1 = null;
-            this.degrees2 = null;
-            this.degrees3 = null;
-            
-            this.degrees3 = degrees3;
         } else {
-            this.anchor4 = anchor4;
             this.degrees3 = degrees3;
+            this.anchor4 = anchor4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", ((anchor4 != null) ? anchor4.generateJs() : "null"), degrees3));
+            
+            js.append(String.format(Locale.US, ".setRotationByAnchor(%f, %s)", degrees3, ((anchor4 != null) ? anchor4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", ((anchor4 != null) ? anchor4.generateJs() : "null"), degrees3));
+                onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%f, %s)", degrees3, ((anchor4 != null) ? anchor4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1103,8 +1127,14 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
     /**
      * Rotates a shape around the given anchor.
      */
-    public Element setRotationByAnchor(String anchor5, Double degrees3) {
+    public Element setRotationByAnchor(Double degrees3, String anchor5) {
         if (jsBase == null) {
+            this.degrees = null;
+            this.degrees1 = null;
+            this.degrees2 = null;
+            this.degrees3 = null;
+            
+            this.degrees3 = degrees3;
             this.anchor = null;
             this.anchor1 = null;
             this.anchor2 = null;
@@ -1113,23 +1143,18 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             this.anchor5 = null;
             
             this.anchor5 = anchor5;
-            this.degrees = null;
-            this.degrees1 = null;
-            this.degrees2 = null;
-            this.degrees3 = null;
-            
-            this.degrees3 = degrees3;
         } else {
-            this.anchor5 = anchor5;
             this.degrees3 = degrees3;
+            this.anchor5 = anchor5;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", wrapQuotes(anchor5), degrees3));
+            
+            js.append(String.format(Locale.US, ".setRotationByAnchor(%f, %s)", degrees3, wrapQuotes(anchor5)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", wrapQuotes(anchor5), degrees3));
+                onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%f, %s)", degrees3, wrapQuotes(anchor5)));
                 js.setLength(0);
             }
         }
@@ -1254,6 +1279,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".setTransformationMatrix(%f, %f, %f, %f, %f, %f)", m6, m7, m8, m9, m10, m11));
 
             if (isRendered) {
@@ -1289,6 +1315,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title)));
 
             if (isRendered) {
@@ -1327,6 +1354,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".translate(%f, %f)", tx, ty));
 
             if (isRendered) {
@@ -1381,6 +1409,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unlisten(%s, %b, %s);", wrapQuotes(type3), useCapture2, wrapQuotes(listenerScope2)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s)", wrapQuotes(type3), useCapture2, wrapQuotes(listenerScope2)));
@@ -1407,6 +1437,8 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unlistenByKey(%s);", wrapQuotes(key1)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s)", wrapQuotes(key1)));
@@ -1430,6 +1462,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".visible(%b)", isVisible));
 
             if (isRendered) {
@@ -1465,6 +1498,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".zIndex(%f)", zIndex));
 
             if (isRendered) {

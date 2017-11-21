@@ -55,6 +55,8 @@ public class RenderingsettingsContext extends JsObject {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getShapesGroup(%s, %f, %s);", ((state != null) ? state.generateJs() : "null"), baseZIndex, wrapQuotes(restrictShapes)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s)", ((state != null) ? state.generateJs() : "null"), baseZIndex, wrapQuotes(restrictShapes)));
@@ -84,6 +86,8 @@ public class RenderingsettingsContext extends JsObject {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getShapesGroup(%s, %f, %s);", wrapQuotes(state1), baseZIndex, wrapQuotes(restrictShapes)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s)", wrapQuotes(state1), baseZIndex, wrapQuotes(restrictShapes)));
@@ -106,6 +110,8 @@ public class RenderingsettingsContext extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getStat(%s);", wrapQuotes(key)));
             
 
             if (isRendered) {

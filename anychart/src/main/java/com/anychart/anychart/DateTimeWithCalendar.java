@@ -59,6 +59,7 @@ public class DateTimeWithCalendar extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".count(%f)", count));
 
             if (isRendered) {
@@ -94,6 +95,8 @@ public class DateTimeWithCalendar extends ScatterBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".dateToPix(%f);", date));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".dateToPix(%f)", date));
@@ -112,31 +115,33 @@ public class DateTimeWithCalendar extends ScatterBase {
      * Returns ticks array (even indexes are left borders, odd indexes are right borders of the tick)
 with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel (if available).
      */
-    public void getTicks(Interval unit, Double fromPix, Double toPix, Double count1) {
+    public void getTicks(Double fromPix, Double toPix, Interval unit, Double count1) {
         if (jsBase == null) {
+            this.fromPix = fromPix;
+            this.toPix = toPix;
             this.unit = null;
             this.unit1 = null;
             
             this.unit = unit;
-            this.fromPix = fromPix;
-            this.toPix = toPix;
             this.count = null;
             this.count1 = null;
             
             this.count1 = count1;
         } else {
-            this.unit = unit;
             this.fromPix = fromPix;
             this.toPix = toPix;
+            this.unit = unit;
             this.count1 = count1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getTicks(%f, %f, %s, %f);", fromPix, toPix, ((unit != null) ? unit.generateJs() : "null"), count1));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f)", ((unit != null) ? unit.generateJs() : "null"), fromPix, toPix, count1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%f, %f, %s, %f)", fromPix, toPix, ((unit != null) ? unit.generateJs() : "null"), count1));
                 js.setLength(0);
             }
         }
@@ -147,31 +152,33 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
      * Returns ticks array (even indexes are left borders, odd indexes are right borders of the tick)
 with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel (if available).
      */
-    public void getTicks(String unit1, Double fromPix, Double toPix, Double count1) {
+    public void getTicks(Double fromPix, Double toPix, String unit1, Double count1) {
         if (jsBase == null) {
+            this.fromPix = fromPix;
+            this.toPix = toPix;
             this.unit = null;
             this.unit1 = null;
             
             this.unit1 = unit1;
-            this.fromPix = fromPix;
-            this.toPix = toPix;
             this.count = null;
             this.count1 = null;
             
             this.count1 = count1;
         } else {
-            this.unit1 = unit1;
             this.fromPix = fromPix;
             this.toPix = toPix;
+            this.unit1 = unit1;
             this.count1 = count1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getTicks(%f, %f, %s, %f);", fromPix, toPix, wrapQuotes(unit1), count1));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %f, %f, %f)", wrapQuotes(unit1), fromPix, toPix, count1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%f, %f, %s, %f)", fromPix, toPix, wrapQuotes(unit1), count1));
                 js.setLength(0);
             }
         }
@@ -192,6 +199,8 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setMaximumGap" + ++variableIndex + " = " + jsBase + ".maximumGap(%f);", maximumGap));
             
 
             if (isRendered) {
@@ -230,6 +239,8 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setMinimumGap" + ++variableIndex + " = " + jsBase + ".minimumGap(%f);", minimumGap));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumGap(%f)", minimumGap));
@@ -266,6 +277,8 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".pixToDate(%f);", pix));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".pixToDate(%f)", pix));
@@ -289,6 +302,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".skipHolidays(%b)", skipHolidays));
 
             if (isRendered) {
@@ -324,6 +338,8 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setSoftMaximum" + ++variableIndex + " = " + jsBase + ".softMaximum(%f);", softMaximum));
             
 
             if (isRendered) {
@@ -361,6 +377,8 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setSoftMinimum" + ++variableIndex + " = " + jsBase + ".softMinimum(%f);", softMinimum));
             
 
             if (isRendered) {
@@ -404,6 +422,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".unit(%s)", ((unit2 != null) ? unit2.generateJs() : "null")));
 
             if (isRendered) {
@@ -443,6 +462,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".unit(%s)", wrapQuotes(unit3)));
 
             if (isRendered) {
@@ -482,6 +502,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".unitPixSize(%f)", unitPixSize));
 
             if (isRendered) {
@@ -519,6 +540,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".unitPixSize(%s)", wrapQuotes(unitPixSize1)));
 
             if (isRendered) {

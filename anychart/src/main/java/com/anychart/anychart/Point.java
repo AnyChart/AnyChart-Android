@@ -47,6 +47,8 @@ public class Point extends JsObject {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".get(%s);", wrapQuotes(field)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s)", wrapQuotes(field)));
@@ -82,6 +84,7 @@ public class Point extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hovered(%b)", hovered));
 
             if (isRendered) {
@@ -117,6 +120,7 @@ public class Point extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selected(%b)", selected));
 
             if (isRendered) {
@@ -155,6 +159,7 @@ public class Point extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".set(%s)", wrapQuotes(field1)));
 
             if (isRendered) {

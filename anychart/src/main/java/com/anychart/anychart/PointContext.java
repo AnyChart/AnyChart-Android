@@ -45,6 +45,8 @@ public class PointContext extends RenderingsettingsContext {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getDataValue(%s);", wrapQuotes(name)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getDataValue(%s)", wrapQuotes(name)));

@@ -89,6 +89,7 @@ public class Preloader extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".visible(%b)", visible));
 
             if (isRendered) {

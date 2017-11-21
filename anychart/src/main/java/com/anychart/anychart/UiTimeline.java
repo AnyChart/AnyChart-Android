@@ -48,6 +48,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -86,6 +87,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
@@ -119,35 +121,36 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline backgroundFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public UiTimeline backgroundFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys = keys;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -170,35 +173,36 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline backgroundFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public UiTimeline backgroundFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys = keys;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -221,35 +225,36 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline backgroundFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public UiTimeline backgroundFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys = keys;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -272,35 +277,36 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline backgroundFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public UiTimeline backgroundFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys1 = keys1;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -323,35 +329,36 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline backgroundFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public UiTimeline backgroundFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys1 = keys1;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -374,35 +381,36 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline backgroundFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public UiTimeline backgroundFill(String[] keys1, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys1 = keys1;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -468,10 +476,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -529,10 +538,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -566,6 +576,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".baseFill(%s)", ((baseFill != null) ? baseFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -612,6 +623,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".baseFill(%s, %f)", wrapQuotes(color1), opacity3));
 
             if (isRendered) {
@@ -645,7 +657,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baseFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public UiTimeline baseFill(GradientKey[] keys4, Double angle1, Double opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -655,15 +667,6 @@ public class UiTimeline extends JsObject {
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
             this.angle = null;
             this.angle1 = null;
             
@@ -675,19 +678,29 @@ public class UiTimeline extends JsObject {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
         } else {
             this.keys4 = keys4;
-            this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode4 = mode4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".baseFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -710,7 +723,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baseFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public UiTimeline baseFill(GradientKey[] keys4, Double angle1, Double opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -720,15 +733,6 @@ public class UiTimeline extends JsObject {
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
             this.angle = null;
             this.angle1 = null;
             
@@ -740,19 +744,29 @@ public class UiTimeline extends JsObject {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
         } else {
             this.keys4 = keys4;
-            this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode5 = mode5;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+            js.append(mode5.generateJs());
+            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -775,7 +789,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baseFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public UiTimeline baseFill(GradientKey[] keys4, Double angle1, Double opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -785,15 +799,6 @@ public class UiTimeline extends JsObject {
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
             this.angle = null;
             this.angle1 = null;
             
@@ -805,19 +810,29 @@ public class UiTimeline extends JsObject {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
         } else {
             this.keys4 = keys4;
-            this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode6 = mode6;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -840,7 +855,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baseFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public UiTimeline baseFill(String[] keys5, Double angle1, Double opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -850,15 +865,6 @@ public class UiTimeline extends JsObject {
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
             this.angle = null;
             this.angle1 = null;
             
@@ -870,19 +876,29 @@ public class UiTimeline extends JsObject {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
         } else {
             this.keys5 = keys5;
-            this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode4 = mode4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".baseFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -905,7 +921,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baseFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public UiTimeline baseFill(String[] keys5, Double angle1, Double opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -915,15 +931,6 @@ public class UiTimeline extends JsObject {
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
             this.angle = null;
             this.angle1 = null;
             
@@ -935,19 +942,29 @@ public class UiTimeline extends JsObject {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
         } else {
             this.keys5 = keys5;
-            this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode5 = mode5;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+            js.append(mode5.generateJs());
+            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -970,7 +987,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baseFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public UiTimeline baseFill(String[] keys5, Double angle1, Double opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -980,15 +997,6 @@ public class UiTimeline extends JsObject {
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
             this.angle = null;
             this.angle1 = null;
             
@@ -1000,19 +1008,29 @@ public class UiTimeline extends JsObject {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
         } else {
             this.keys5 = keys5;
-            this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode6 = mode6;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1101,10 +1119,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+            js.append(mode7.generateJs());
+            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1185,10 +1204,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+            js.append(mode7.generateJs());
+            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1237,6 +1257,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".baseLabels(%s)", wrapQuotes(baseLabels)));
 
             if (isRendered) {
@@ -1274,6 +1295,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".baseLabels(%b)", baseLabels1));
 
             if (isRendered) {
@@ -1328,6 +1350,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", ((baseStroke != null) ? baseStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -1375,6 +1398,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", ((baseStroke1 != null) ? baseStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -1422,6 +1446,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", wrapQuotes(baseStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -1457,6 +1482,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".baselineAbove(%b)", baselineAbove));
 
             if (isRendered) {
@@ -1493,6 +1519,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".baselineFill(%s)", ((baselineFill != null) ? baselineFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -1543,6 +1570,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".baselineFill(%s, %f)", wrapQuotes(color2), opacity6));
 
             if (isRendered) {
@@ -1576,7 +1604,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baselineFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
+    public UiTimeline baselineFill(GradientKey[] keys8, Double angle2, Double opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1590,19 +1618,6 @@ public class UiTimeline extends JsObject {
             this.keys9 = null;
             
             this.keys8 = keys8;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode8 = mode8;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -1618,19 +1633,33 @@ public class UiTimeline extends JsObject {
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode8 = mode8;
         } else {
             this.keys8 = keys8;
-            this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode8 = mode8;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".baselineFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
+            
+            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %b)", arrayToString(keys8), angle2, opacity7, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %b)", arrayToString(keys8), angle2, opacity7, mode8));
                 js.setLength(0);
             }
         }
@@ -1653,7 +1682,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baselineFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
+    public UiTimeline baselineFill(GradientKey[] keys8, Double angle2, Double opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1667,19 +1696,6 @@ public class UiTimeline extends JsObject {
             this.keys9 = null;
             
             this.keys8 = keys8;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode9 = mode9;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -1695,19 +1711,33 @@ public class UiTimeline extends JsObject {
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode9 = mode9;
         } else {
             this.keys8 = keys8;
-            this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode9 = mode9;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+            js.append(mode9.generateJs());
+            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1730,7 +1760,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baselineFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
+    public UiTimeline baselineFill(GradientKey[] keys8, Double angle2, Double opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1744,19 +1774,6 @@ public class UiTimeline extends JsObject {
             this.keys9 = null;
             
             this.keys8 = keys8;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode10 = mode10;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -1772,19 +1789,33 @@ public class UiTimeline extends JsObject {
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode10 = mode10;
         } else {
             this.keys8 = keys8;
-            this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode10 = mode10;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
+            
+            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -1807,7 +1838,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baselineFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
+    public UiTimeline baselineFill(String[] keys9, Double angle2, Double opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1821,19 +1852,6 @@ public class UiTimeline extends JsObject {
             this.keys9 = null;
             
             this.keys9 = keys9;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode8 = mode8;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -1849,19 +1867,33 @@ public class UiTimeline extends JsObject {
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode8 = mode8;
         } else {
             this.keys9 = keys9;
-            this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode8 = mode8;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".baselineFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
+            
+            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
                 js.setLength(0);
             }
         }
@@ -1884,7 +1916,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baselineFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
+    public UiTimeline baselineFill(String[] keys9, Double angle2, Double opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1898,19 +1930,6 @@ public class UiTimeline extends JsObject {
             this.keys9 = null;
             
             this.keys9 = keys9;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode9 = mode9;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -1926,19 +1945,33 @@ public class UiTimeline extends JsObject {
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode9 = mode9;
         } else {
             this.keys9 = keys9;
-            this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode9 = mode9;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+            js.append(mode9.generateJs());
+            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1961,7 +1994,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baselineFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
+    public UiTimeline baselineFill(String[] keys9, Double angle2, Double opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1975,19 +2008,6 @@ public class UiTimeline extends JsObject {
             this.keys9 = null;
             
             this.keys9 = keys9;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode10 = mode10;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -2003,19 +2023,33 @@ public class UiTimeline extends JsObject {
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode10 = mode10;
         } else {
             this.keys9 = keys9;
-            this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode10 = mode10;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
+            
+            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -2119,10 +2153,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+            js.append(mode11.generateJs());
+            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -2218,10 +2253,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+            js.append(mode11.generateJs());
+            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -2270,6 +2306,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".baselineLabels(%s)", wrapQuotes(baselineLabels)));
 
             if (isRendered) {
@@ -2307,6 +2344,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".baselineLabels(%b)", baselineLabels1));
 
             if (isRendered) {
@@ -2373,6 +2411,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", ((baselineStroke != null) ? baselineStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
@@ -2432,6 +2471,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", ((baselineStroke1 != null) ? baselineStroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
@@ -2491,6 +2531,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", wrapQuotes(baselineStroke2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
@@ -2530,6 +2571,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".columnStroke(%s)", ((columnStroke != null) ? columnStroke.generateJs() : "null")));
 
             if (isRendered) {
@@ -2567,6 +2609,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".columnStroke(%s)", wrapQuotes(columnStroke1)));
 
             if (isRendered) {
@@ -2658,10 +2701,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", ((connectorFill != null) ? connectorFill.generateJs() : "null"), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
+            js.append(opacityOrMode.generateJs());
+            js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", ((connectorFill != null) ? connectorFill.generateJs() : "null"), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", ((connectorFill != null) ? connectorFill.generateJs() : "null"), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", ((connectorFill != null) ? connectorFill.generateJs() : "null"), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -2740,10 +2784,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(connectorFill1), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
+            js.append(opacityOrMode.generateJs());
+            js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(connectorFill1), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(connectorFill1), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(connectorFill1), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -2822,10 +2867,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(connectorFill2), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
+            js.append(opacityOrMode.generateJs());
+            js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(connectorFill2), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(connectorFill2), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.generateJs() : "null"), opacity9, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(connectorFill2), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -2892,6 +2938,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", ((connectorPreviewStroke != null) ? connectorPreviewStroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
@@ -2955,6 +3002,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", ((connectorPreviewStroke1 != null) ? connectorPreviewStroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
@@ -3018,6 +3066,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorPreviewStroke2), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
@@ -3092,6 +3141,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
@@ -3159,6 +3209,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
@@ -3226,6 +3277,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
@@ -3262,6 +3314,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s)", ((editConnectorThumbFill != null) ? editConnectorThumbFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -3317,6 +3370,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f)", wrapQuotes(color3), opacity10));
 
             if (isRendered) {
@@ -3350,7 +3404,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editConnectorThumbFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity11) {
+    public UiTimeline editConnectorThumbFill(GradientKey[] keys12, Double angle3, Double opacity11, Boolean mode12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3368,23 +3422,6 @@ public class UiTimeline extends JsObject {
             this.keys13 = null;
             
             this.keys12 = keys12;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode12 = mode12;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3405,19 +3442,37 @@ public class UiTimeline extends JsObject {
             this.opacity11 = null;
             
             this.opacity11 = opacity11;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode12 = mode12;
         } else {
             this.keys12 = keys12;
-            this.mode12 = mode12;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
+            this.mode12 = mode12;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity11));
+            
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %b)", arrayToString(keys12), angle3, opacity11, mode12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %b)", arrayToString(keys12), angle3, opacity11, mode12));
                 js.setLength(0);
             }
         }
@@ -3440,7 +3495,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editConnectorThumbFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity11) {
+    public UiTimeline editConnectorThumbFill(GradientKey[] keys12, Double angle3, Double opacity11, VectorRect mode13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3458,23 +3513,6 @@ public class UiTimeline extends JsObject {
             this.keys13 = null;
             
             this.keys12 = keys12;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode13 = mode13;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3495,19 +3533,37 @@ public class UiTimeline extends JsObject {
             this.opacity11 = null;
             
             this.opacity11 = opacity11;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode13 = mode13;
         } else {
             this.keys12 = keys12;
-            this.mode13 = mode13;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
+            this.mode13 = mode13;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
+            js.append(mode13.generateJs());
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity11, ((mode13 != null) ? mode13.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity11, ((mode13 != null) ? mode13.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3530,7 +3586,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editConnectorThumbFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity11) {
+    public UiTimeline editConnectorThumbFill(GradientKey[] keys12, Double angle3, Double opacity11, String mode14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3548,23 +3604,6 @@ public class UiTimeline extends JsObject {
             this.keys13 = null;
             
             this.keys12 = keys12;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode14 = mode14;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3585,19 +3624,37 @@ public class UiTimeline extends JsObject {
             this.opacity11 = null;
             
             this.opacity11 = opacity11;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode14 = mode14;
         } else {
             this.keys12 = keys12;
-            this.mode14 = mode14;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
+            this.mode14 = mode14;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity11));
+            
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity11, wrapQuotes(mode14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity11, wrapQuotes(mode14)));
                 js.setLength(0);
             }
         }
@@ -3620,7 +3677,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editConnectorThumbFill(String[] keys13, Boolean mode12, Double angle3, Double opacity11) {
+    public UiTimeline editConnectorThumbFill(String[] keys13, Double angle3, Double opacity11, Boolean mode12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3638,23 +3695,6 @@ public class UiTimeline extends JsObject {
             this.keys13 = null;
             
             this.keys13 = keys13;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode12 = mode12;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3675,19 +3715,37 @@ public class UiTimeline extends JsObject {
             this.opacity11 = null;
             
             this.opacity11 = opacity11;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode12 = mode12;
         } else {
             this.keys13 = keys13;
-            this.mode12 = mode12;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
+            this.mode12 = mode12;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity11));
+            
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys13), angle3, opacity11, mode12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys13), angle3, opacity11, mode12));
                 js.setLength(0);
             }
         }
@@ -3710,7 +3768,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editConnectorThumbFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity11) {
+    public UiTimeline editConnectorThumbFill(String[] keys13, Double angle3, Double opacity11, VectorRect mode13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3728,23 +3786,6 @@ public class UiTimeline extends JsObject {
             this.keys13 = null;
             
             this.keys13 = keys13;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode13 = mode13;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3765,19 +3806,37 @@ public class UiTimeline extends JsObject {
             this.opacity11 = null;
             
             this.opacity11 = opacity11;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode13 = mode13;
         } else {
             this.keys13 = keys13;
-            this.mode13 = mode13;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
+            this.mode13 = mode13;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
+            js.append(mode13.generateJs());
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity11, ((mode13 != null) ? mode13.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity11, ((mode13 != null) ? mode13.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3800,7 +3859,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editConnectorThumbFill(String[] keys13, String mode14, Double angle3, Double opacity11) {
+    public UiTimeline editConnectorThumbFill(String[] keys13, Double angle3, Double opacity11, String mode14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3818,23 +3877,6 @@ public class UiTimeline extends JsObject {
             this.keys13 = null;
             
             this.keys13 = keys13;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode14 = mode14;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3855,19 +3897,37 @@ public class UiTimeline extends JsObject {
             this.opacity11 = null;
             
             this.opacity11 = opacity11;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode14 = mode14;
         } else {
             this.keys13 = keys13;
-            this.mode14 = mode14;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
+            this.mode14 = mode14;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity11));
+            
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity11, wrapQuotes(mode14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity11, wrapQuotes(mode14)));
                 js.setLength(0);
             }
         }
@@ -3991,10 +4051,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx4, cy4, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx4, fy4));
+            js.append(mode15.generateJs());
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx4, cy4, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity12, fx4, fy4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx4, cy4, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx4, fy4));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx4, cy4, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity12, fx4, fy4));
                 js.setLength(0);
             }
         }
@@ -4110,10 +4171,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx4, cy4, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx4, fy4));
+            js.append(mode15.generateJs());
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx4, cy4, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity12, fx4, fy4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx4, cy4, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx4, fy4));
+                onChangeListener.onChange(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx4, cy4, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity12, fx4, fy4));
                 js.setLength(0);
             }
         }
@@ -4189,6 +4251,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", ((editConnectorThumbStroke != null) ? editConnectorThumbStroke.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
 
             if (isRendered) {
@@ -4260,6 +4323,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", ((editConnectorThumbStroke1 != null) ? editConnectorThumbStroke1.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
 
             if (isRendered) {
@@ -4331,6 +4395,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", wrapQuotes(editConnectorThumbStroke2), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
 
             if (isRendered) {
@@ -4366,6 +4431,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editFinishConnectorMarkerHorizontalOffset(%f)", editFinishConnectorMarkerHorizontalOffset));
 
             if (isRendered) {
@@ -4401,6 +4467,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editFinishConnectorMarkerSize(%f)", editFinishConnectorMarkerSize));
 
             if (isRendered) {
@@ -4440,6 +4507,8 @@ public class UiTimeline extends JsObject {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".editFinishConnectorMarkerType(%s);", ((editFinishConnectorMarkerType != null) ? editFinishConnectorMarkerType.generateJs() : "null")));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s)", ((editFinishConnectorMarkerType != null) ? editFinishConnectorMarkerType.generateJs() : "null")));
@@ -4465,6 +4534,8 @@ public class UiTimeline extends JsObject {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".editFinishConnectorMarkerType(%s);", wrapQuotes(editFinishConnectorMarkerType1)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerType(%s)", wrapQuotes(editFinishConnectorMarkerType1)));
@@ -4488,6 +4559,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editFinishConnectorMarkerVerticalOffset(%f)", editFinishConnectorMarkerVerticalOffset));
 
             if (isRendered) {
@@ -4524,6 +4596,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s)", ((editIntervalThumbFill != null) ? editIntervalThumbFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -4583,6 +4656,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f)", wrapQuotes(color4), opacity13));
 
             if (isRendered) {
@@ -4616,7 +4690,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editIntervalThumbFill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity14) {
+    public UiTimeline editIntervalThumbFill(GradientKey[] keys16, Double angle4, Double opacity14, Boolean mode16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4638,27 +4712,6 @@ public class UiTimeline extends JsObject {
             this.keys17 = null;
             
             this.keys16 = keys16;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode16 = mode16;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -4683,19 +4736,41 @@ public class UiTimeline extends JsObject {
             this.opacity14 = null;
             
             this.opacity14 = opacity14;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode16 = mode16;
         } else {
             this.keys16 = keys16;
-            this.mode16 = mode16;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
+            this.mode16 = mode16;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity14));
+            
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %b)", arrayToString(keys16), angle4, opacity14, mode16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %b)", arrayToString(keys16), angle4, opacity14, mode16));
                 js.setLength(0);
             }
         }
@@ -4718,7 +4793,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editIntervalThumbFill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity14) {
+    public UiTimeline editIntervalThumbFill(GradientKey[] keys16, Double angle4, Double opacity14, VectorRect mode17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4740,27 +4815,6 @@ public class UiTimeline extends JsObject {
             this.keys17 = null;
             
             this.keys16 = keys16;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode17 = mode17;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -4785,19 +4839,41 @@ public class UiTimeline extends JsObject {
             this.opacity14 = null;
             
             this.opacity14 = opacity14;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode17 = mode17;
         } else {
             this.keys16 = keys16;
-            this.mode17 = mode17;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
+            this.mode17 = mode17;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
+            js.append(mode17.generateJs());
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s)", arrayToString(keys16), angle4, opacity14, ((mode17 != null) ? mode17.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s)", arrayToString(keys16), angle4, opacity14, ((mode17 != null) ? mode17.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -4820,7 +4896,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editIntervalThumbFill(GradientKey[] keys16, String mode18, Double angle4, Double opacity14) {
+    public UiTimeline editIntervalThumbFill(GradientKey[] keys16, Double angle4, Double opacity14, String mode18) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4842,27 +4918,6 @@ public class UiTimeline extends JsObject {
             this.keys17 = null;
             
             this.keys16 = keys16;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode18 = mode18;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -4887,19 +4942,41 @@ public class UiTimeline extends JsObject {
             this.opacity14 = null;
             
             this.opacity14 = opacity14;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode18 = mode18;
         } else {
             this.keys16 = keys16;
-            this.mode18 = mode18;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
+            this.mode18 = mode18;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity14));
+            
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s)", arrayToString(keys16), angle4, opacity14, wrapQuotes(mode18)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s)", arrayToString(keys16), angle4, opacity14, wrapQuotes(mode18)));
                 js.setLength(0);
             }
         }
@@ -4922,7 +4999,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editIntervalThumbFill(String[] keys17, Boolean mode16, Double angle4, Double opacity14) {
+    public UiTimeline editIntervalThumbFill(String[] keys17, Double angle4, Double opacity14, Boolean mode16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4944,27 +5021,6 @@ public class UiTimeline extends JsObject {
             this.keys17 = null;
             
             this.keys17 = keys17;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode16 = mode16;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -4989,19 +5045,41 @@ public class UiTimeline extends JsObject {
             this.opacity14 = null;
             
             this.opacity14 = opacity14;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode16 = mode16;
         } else {
             this.keys17 = keys17;
-            this.mode16 = mode16;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
+            this.mode16 = mode16;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity14));
+            
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys17), angle4, opacity14, mode16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys17), angle4, opacity14, mode16));
                 js.setLength(0);
             }
         }
@@ -5024,7 +5102,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editIntervalThumbFill(String[] keys17, VectorRect mode17, Double angle4, Double opacity14) {
+    public UiTimeline editIntervalThumbFill(String[] keys17, Double angle4, Double opacity14, VectorRect mode17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5046,27 +5124,6 @@ public class UiTimeline extends JsObject {
             this.keys17 = null;
             
             this.keys17 = keys17;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode17 = mode17;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -5091,19 +5148,41 @@ public class UiTimeline extends JsObject {
             this.opacity14 = null;
             
             this.opacity14 = opacity14;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode17 = mode17;
         } else {
             this.keys17 = keys17;
-            this.mode17 = mode17;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
+            this.mode17 = mode17;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
+            js.append(mode17.generateJs());
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity14, ((mode17 != null) ? mode17.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity14, ((mode17 != null) ? mode17.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -5126,7 +5205,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editIntervalThumbFill(String[] keys17, String mode18, Double angle4, Double opacity14) {
+    public UiTimeline editIntervalThumbFill(String[] keys17, Double angle4, Double opacity14, String mode18) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5148,27 +5227,6 @@ public class UiTimeline extends JsObject {
             this.keys17 = null;
             
             this.keys17 = keys17;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode18 = mode18;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -5193,19 +5251,41 @@ public class UiTimeline extends JsObject {
             this.opacity14 = null;
             
             this.opacity14 = opacity14;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode18 = mode18;
         } else {
             this.keys17 = keys17;
-            this.mode18 = mode18;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
+            this.mode18 = mode18;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity14));
+            
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity14, wrapQuotes(mode18)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity14, wrapQuotes(mode18)));
                 js.setLength(0);
             }
         }
@@ -5344,10 +5424,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx5, cy5, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx5, fy5));
+            js.append(mode19.generateJs());
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx5, cy5, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity15, fx5, fy5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx5, cy5, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx5, fy5));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx5, cy5, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity15, fx5, fy5));
                 js.setLength(0);
             }
         }
@@ -5478,10 +5559,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx5, cy5, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx5, fy5));
+            js.append(mode19.generateJs());
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx5, cy5, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity15, fx5, fy5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx5, cy5, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx5, fy5));
+                onChangeListener.onChange(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx5, cy5, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity15, fx5, fy5));
                 js.setLength(0);
             }
         }
@@ -5561,6 +5643,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", ((editIntervalThumbStroke != null) ? editIntervalThumbStroke.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
 
             if (isRendered) {
@@ -5636,6 +5719,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", ((editIntervalThumbStroke1 != null) ? editIntervalThumbStroke1.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
 
             if (isRendered) {
@@ -5711,6 +5795,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", wrapQuotes(editIntervalThumbStroke2), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
 
             if (isRendered) {
@@ -5746,6 +5831,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editIntervalWidth(%f)", editIntervalWidth));
 
             if (isRendered) {
@@ -5782,6 +5868,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editPreviewFill(%s)", ((editPreviewFill != null) ? editPreviewFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -5845,6 +5932,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editPreviewFill(%s, %f)", wrapQuotes(color5), opacity16));
 
             if (isRendered) {
@@ -5878,7 +5966,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editPreviewFill(GradientKey[] keys20, Boolean mode20, Double angle5, Double opacity17) {
+    public UiTimeline editPreviewFill(GradientKey[] keys20, Double angle5, Double opacity17, Boolean mode20) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5904,31 +5992,6 @@ public class UiTimeline extends JsObject {
             this.keys21 = null;
             
             this.keys20 = keys20;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            
-            this.mode20 = mode20;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -5957,19 +6020,45 @@ public class UiTimeline extends JsObject {
             this.opacity17 = null;
             
             this.opacity17 = opacity17;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode20 = mode20;
         } else {
             this.keys20 = keys20;
-            this.mode20 = mode20;
             this.angle5 = angle5;
             this.opacity17 = opacity17;
+            this.mode20 = mode20;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity17));
+            
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %b)", arrayToString(keys20), angle5, opacity17, mode20));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity17));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %b)", arrayToString(keys20), angle5, opacity17, mode20));
                 js.setLength(0);
             }
         }
@@ -5992,7 +6081,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editPreviewFill(GradientKey[] keys20, VectorRect mode21, Double angle5, Double opacity17) {
+    public UiTimeline editPreviewFill(GradientKey[] keys20, Double angle5, Double opacity17, VectorRect mode21) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6018,31 +6107,6 @@ public class UiTimeline extends JsObject {
             this.keys21 = null;
             
             this.keys20 = keys20;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            
-            this.mode21 = mode21;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -6071,19 +6135,45 @@ public class UiTimeline extends JsObject {
             this.opacity17 = null;
             
             this.opacity17 = opacity17;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode21 = mode21;
         } else {
             this.keys20 = keys20;
-            this.mode21 = mode21;
             this.angle5 = angle5;
             this.opacity17 = opacity17;
+            this.mode21 = mode21;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity17));
+            js.append(mode21.generateJs());
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s)", arrayToString(keys20), angle5, opacity17, ((mode21 != null) ? mode21.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity17));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s)", arrayToString(keys20), angle5, opacity17, ((mode21 != null) ? mode21.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -6106,7 +6196,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editPreviewFill(GradientKey[] keys20, String mode22, Double angle5, Double opacity17) {
+    public UiTimeline editPreviewFill(GradientKey[] keys20, Double angle5, Double opacity17, String mode22) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6132,31 +6222,6 @@ public class UiTimeline extends JsObject {
             this.keys21 = null;
             
             this.keys20 = keys20;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            
-            this.mode22 = mode22;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -6185,19 +6250,45 @@ public class UiTimeline extends JsObject {
             this.opacity17 = null;
             
             this.opacity17 = opacity17;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode22 = mode22;
         } else {
             this.keys20 = keys20;
-            this.mode22 = mode22;
             this.angle5 = angle5;
             this.opacity17 = opacity17;
+            this.mode22 = mode22;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), wrapQuotes(mode22), angle5, opacity17));
+            
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s)", arrayToString(keys20), angle5, opacity17, wrapQuotes(mode22)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToString(keys20), wrapQuotes(mode22), angle5, opacity17));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s)", arrayToString(keys20), angle5, opacity17, wrapQuotes(mode22)));
                 js.setLength(0);
             }
         }
@@ -6220,7 +6311,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editPreviewFill(String[] keys21, Boolean mode20, Double angle5, Double opacity17) {
+    public UiTimeline editPreviewFill(String[] keys21, Double angle5, Double opacity17, Boolean mode20) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6246,31 +6337,6 @@ public class UiTimeline extends JsObject {
             this.keys21 = null;
             
             this.keys21 = keys21;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            
-            this.mode20 = mode20;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -6299,19 +6365,45 @@ public class UiTimeline extends JsObject {
             this.opacity17 = null;
             
             this.opacity17 = opacity17;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode20 = mode20;
         } else {
             this.keys21 = keys21;
-            this.mode20 = mode20;
             this.angle5 = angle5;
             this.opacity17 = opacity17;
+            this.mode20 = mode20;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys21), mode20, angle5, opacity17));
+            
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys21), angle5, opacity17, mode20));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys21), mode20, angle5, opacity17));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys21), angle5, opacity17, mode20));
                 js.setLength(0);
             }
         }
@@ -6334,7 +6426,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editPreviewFill(String[] keys21, VectorRect mode21, Double angle5, Double opacity17) {
+    public UiTimeline editPreviewFill(String[] keys21, Double angle5, Double opacity17, VectorRect mode21) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6360,31 +6452,6 @@ public class UiTimeline extends JsObject {
             this.keys21 = null;
             
             this.keys21 = keys21;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            
-            this.mode21 = mode21;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -6413,19 +6480,45 @@ public class UiTimeline extends JsObject {
             this.opacity17 = null;
             
             this.opacity17 = opacity17;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode21 = mode21;
         } else {
             this.keys21 = keys21;
-            this.mode21 = mode21;
             this.angle5 = angle5;
             this.opacity17 = opacity17;
+            this.mode21 = mode21;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity17));
+            js.append(mode21.generateJs());
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys21), angle5, opacity17, ((mode21 != null) ? mode21.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity17));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys21), angle5, opacity17, ((mode21 != null) ? mode21.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -6448,7 +6541,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editPreviewFill(String[] keys21, String mode22, Double angle5, Double opacity17) {
+    public UiTimeline editPreviewFill(String[] keys21, Double angle5, Double opacity17, String mode22) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6474,31 +6567,6 @@ public class UiTimeline extends JsObject {
             this.keys21 = null;
             
             this.keys21 = keys21;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            
-            this.mode22 = mode22;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -6527,19 +6595,45 @@ public class UiTimeline extends JsObject {
             this.opacity17 = null;
             
             this.opacity17 = opacity17;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode22 = mode22;
         } else {
             this.keys21 = keys21;
-            this.mode22 = mode22;
             this.angle5 = angle5;
             this.opacity17 = opacity17;
+            this.mode22 = mode22;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), wrapQuotes(mode22), angle5, opacity17));
+            
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys21), angle5, opacity17, wrapQuotes(mode22)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), wrapQuotes(mode22), angle5, opacity17));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys21), angle5, opacity17, wrapQuotes(mode22)));
                 js.setLength(0);
             }
         }
@@ -6693,10 +6787,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx6, cy6, ((mode23 != null) ? mode23.generateJs() : "null"), opacity18, fx6, fy6));
+            js.append(mode23.generateJs());
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx6, cy6, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity18, fx6, fy6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx6, cy6, ((mode23 != null) ? mode23.generateJs() : "null"), opacity18, fx6, fy6));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx6, cy6, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity18, fx6, fy6));
                 js.setLength(0);
             }
         }
@@ -6842,10 +6937,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx6, cy6, ((mode23 != null) ? mode23.generateJs() : "null"), opacity18, fx6, fy6));
+            js.append(mode23.generateJs());
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx6, cy6, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity18, fx6, fy6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx6, cy6, ((mode23 != null) ? mode23.generateJs() : "null"), opacity18, fx6, fy6));
+                onChangeListener.onChange(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx6, cy6, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity18, fx6, fy6));
                 js.setLength(0);
             }
         }
@@ -6929,6 +7025,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", ((editPreviewStroke != null) ? editPreviewStroke.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
 
             if (isRendered) {
@@ -7008,6 +7105,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", ((editPreviewStroke1 != null) ? editPreviewStroke1.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
 
             if (isRendered) {
@@ -7087,6 +7185,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(editPreviewStroke2), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
 
             if (isRendered) {
@@ -7123,6 +7222,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editProgressFill(%s)", ((editProgressFill != null) ? editProgressFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -7190,6 +7290,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editProgressFill(%s, %f)", wrapQuotes(color6), opacity19));
 
             if (isRendered) {
@@ -7223,7 +7324,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editProgressFill(GradientKey[] keys24, Boolean mode24, Double angle6, Double opacity20) {
+    public UiTimeline editProgressFill(GradientKey[] keys24, Double angle6, Double opacity20, Boolean mode24) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7253,35 +7354,6 @@ public class UiTimeline extends JsObject {
             this.keys25 = null;
             
             this.keys24 = keys24;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            
-            this.mode24 = mode24;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -7314,19 +7386,49 @@ public class UiTimeline extends JsObject {
             this.opacity20 = null;
             
             this.opacity20 = opacity20;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            
+            this.mode24 = mode24;
         } else {
             this.keys24 = keys24;
-            this.mode24 = mode24;
             this.angle6 = angle6;
             this.opacity20 = opacity20;
+            this.mode24 = mode24;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %b, %f, %f)", arrayToString(keys24), mode24, angle6, opacity20));
+            
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %b)", arrayToString(keys24), angle6, opacity20, mode24));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %b, %f, %f)", arrayToString(keys24), mode24, angle6, opacity20));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %b)", arrayToString(keys24), angle6, opacity20, mode24));
                 js.setLength(0);
             }
         }
@@ -7349,7 +7451,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editProgressFill(GradientKey[] keys24, VectorRect mode25, Double angle6, Double opacity20) {
+    public UiTimeline editProgressFill(GradientKey[] keys24, Double angle6, Double opacity20, VectorRect mode25) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7379,35 +7481,6 @@ public class UiTimeline extends JsObject {
             this.keys25 = null;
             
             this.keys24 = keys24;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            
-            this.mode25 = mode25;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -7440,19 +7513,49 @@ public class UiTimeline extends JsObject {
             this.opacity20 = null;
             
             this.opacity20 = opacity20;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            
+            this.mode25 = mode25;
         } else {
             this.keys24 = keys24;
-            this.mode25 = mode25;
             this.angle6 = angle6;
             this.opacity20 = opacity20;
+            this.mode25 = mode25;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), ((mode25 != null) ? mode25.generateJs() : "null"), angle6, opacity20));
+            js.append(mode25.generateJs());
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s)", arrayToString(keys24), angle6, opacity20, ((mode25 != null) ? mode25.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), ((mode25 != null) ? mode25.generateJs() : "null"), angle6, opacity20));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s)", arrayToString(keys24), angle6, opacity20, ((mode25 != null) ? mode25.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -7475,7 +7578,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editProgressFill(GradientKey[] keys24, String mode26, Double angle6, Double opacity20) {
+    public UiTimeline editProgressFill(GradientKey[] keys24, Double angle6, Double opacity20, String mode26) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7505,35 +7608,6 @@ public class UiTimeline extends JsObject {
             this.keys25 = null;
             
             this.keys24 = keys24;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            
-            this.mode26 = mode26;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -7566,19 +7640,49 @@ public class UiTimeline extends JsObject {
             this.opacity20 = null;
             
             this.opacity20 = opacity20;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            
+            this.mode26 = mode26;
         } else {
             this.keys24 = keys24;
-            this.mode26 = mode26;
             this.angle6 = angle6;
             this.opacity20 = opacity20;
+            this.mode26 = mode26;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), wrapQuotes(mode26), angle6, opacity20));
+            
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s)", arrayToString(keys24), angle6, opacity20, wrapQuotes(mode26)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToString(keys24), wrapQuotes(mode26), angle6, opacity20));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s)", arrayToString(keys24), angle6, opacity20, wrapQuotes(mode26)));
                 js.setLength(0);
             }
         }
@@ -7601,7 +7705,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editProgressFill(String[] keys25, Boolean mode24, Double angle6, Double opacity20) {
+    public UiTimeline editProgressFill(String[] keys25, Double angle6, Double opacity20, Boolean mode24) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7631,35 +7735,6 @@ public class UiTimeline extends JsObject {
             this.keys25 = null;
             
             this.keys25 = keys25;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            
-            this.mode24 = mode24;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -7692,19 +7767,49 @@ public class UiTimeline extends JsObject {
             this.opacity20 = null;
             
             this.opacity20 = opacity20;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            
+            this.mode24 = mode24;
         } else {
             this.keys25 = keys25;
-            this.mode24 = mode24;
             this.angle6 = angle6;
             this.opacity20 = opacity20;
+            this.mode24 = mode24;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys25), mode24, angle6, opacity20));
+            
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys25), angle6, opacity20, mode24));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys25), mode24, angle6, opacity20));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys25), angle6, opacity20, mode24));
                 js.setLength(0);
             }
         }
@@ -7727,7 +7832,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editProgressFill(String[] keys25, VectorRect mode25, Double angle6, Double opacity20) {
+    public UiTimeline editProgressFill(String[] keys25, Double angle6, Double opacity20, VectorRect mode25) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7757,35 +7862,6 @@ public class UiTimeline extends JsObject {
             this.keys25 = null;
             
             this.keys25 = keys25;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            
-            this.mode25 = mode25;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -7818,19 +7894,49 @@ public class UiTimeline extends JsObject {
             this.opacity20 = null;
             
             this.opacity20 = opacity20;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            
+            this.mode25 = mode25;
         } else {
             this.keys25 = keys25;
-            this.mode25 = mode25;
             this.angle6 = angle6;
             this.opacity20 = opacity20;
+            this.mode25 = mode25;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys25), ((mode25 != null) ? mode25.generateJs() : "null"), angle6, opacity20));
+            js.append(mode25.generateJs());
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys25), angle6, opacity20, ((mode25 != null) ? mode25.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys25), ((mode25 != null) ? mode25.generateJs() : "null"), angle6, opacity20));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys25), angle6, opacity20, ((mode25 != null) ? mode25.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -7853,7 +7959,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editProgressFill(String[] keys25, String mode26, Double angle6, Double opacity20) {
+    public UiTimeline editProgressFill(String[] keys25, Double angle6, Double opacity20, String mode26) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7883,35 +7989,6 @@ public class UiTimeline extends JsObject {
             this.keys25 = null;
             
             this.keys25 = keys25;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            
-            this.mode26 = mode26;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -7944,19 +8021,49 @@ public class UiTimeline extends JsObject {
             this.opacity20 = null;
             
             this.opacity20 = opacity20;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            
+            this.mode26 = mode26;
         } else {
             this.keys25 = keys25;
-            this.mode26 = mode26;
             this.angle6 = angle6;
             this.opacity20 = opacity20;
+            this.mode26 = mode26;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys25), wrapQuotes(mode26), angle6, opacity20));
+            
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys25), angle6, opacity20, wrapQuotes(mode26)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys25), wrapQuotes(mode26), angle6, opacity20));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys25), angle6, opacity20, wrapQuotes(mode26)));
                 js.setLength(0);
             }
         }
@@ -8125,10 +8232,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx7, cy7, ((mode27 != null) ? mode27.generateJs() : "null"), opacity21, fx7, fy7));
+            js.append(mode27.generateJs());
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx7, cy7, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity21, fx7, fy7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx7, cy7, ((mode27 != null) ? mode27.generateJs() : "null"), opacity21, fx7, fy7));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx7, cy7, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity21, fx7, fy7));
                 js.setLength(0);
             }
         }
@@ -8289,10 +8397,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx7, cy7, ((mode27 != null) ? mode27.generateJs() : "null"), opacity21, fx7, fy7));
+            js.append(mode27.generateJs());
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx7, cy7, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity21, fx7, fy7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx7, cy7, ((mode27 != null) ? mode27.generateJs() : "null"), opacity21, fx7, fy7));
+                onChangeListener.onChange(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx7, cy7, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity21, fx7, fy7));
                 js.setLength(0);
             }
         }
@@ -8380,6 +8489,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", ((editProgressStroke != null) ? editProgressStroke.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
 
             if (isRendered) {
@@ -8463,6 +8573,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", ((editProgressStroke1 != null) ? editProgressStroke1.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
 
             if (isRendered) {
@@ -8546,6 +8657,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", wrapQuotes(editProgressStroke2), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
 
             if (isRendered) {
@@ -8581,6 +8693,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStartConnectorMarkerHorizontalOffset(%f)", editStartConnectorMarkerHorizontalOffset));
 
             if (isRendered) {
@@ -8616,6 +8729,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStartConnectorMarkerSize(%f)", editStartConnectorMarkerSize));
 
             if (isRendered) {
@@ -8655,6 +8769,8 @@ public class UiTimeline extends JsObject {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".editStartConnectorMarkerType(%s);", ((editStartConnectorMarkerType != null) ? editStartConnectorMarkerType.generateJs() : "null")));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s)", ((editStartConnectorMarkerType != null) ? editStartConnectorMarkerType.generateJs() : "null")));
@@ -8680,6 +8796,8 @@ public class UiTimeline extends JsObject {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".editStartConnectorMarkerType(%s);", wrapQuotes(editStartConnectorMarkerType1)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerType(%s)", wrapQuotes(editStartConnectorMarkerType1)));
@@ -8703,6 +8821,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStartConnectorMarkerVerticalOffset(%f)", editStartConnectorMarkerVerticalOffset));
 
             if (isRendered) {
@@ -8797,6 +8916,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
 
             if (isRendered) {
@@ -8884,6 +9004,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewDashStroke1 != null) ? editStructurePreviewDashStroke1.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
 
             if (isRendered) {
@@ -8971,6 +9092,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", wrapQuotes(editStructurePreviewDashStroke2), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
 
             if (isRendered) {
@@ -9007,6 +9129,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s)", ((editStructurePreviewFill != null) ? editStructurePreviewFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -9078,6 +9201,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f)", wrapQuotes(color7), opacity22));
 
             if (isRendered) {
@@ -9111,7 +9235,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editStructurePreviewFill(GradientKey[] keys28, Boolean mode28, Double angle7, Double opacity23) {
+    public UiTimeline editStructurePreviewFill(GradientKey[] keys28, Double angle7, Double opacity23, Boolean mode28) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -9145,39 +9269,6 @@ public class UiTimeline extends JsObject {
             this.keys29 = null;
             
             this.keys28 = keys28;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            
-            this.mode28 = mode28;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -9214,19 +9305,53 @@ public class UiTimeline extends JsObject {
             this.opacity23 = null;
             
             this.opacity23 = opacity23;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            
+            this.mode28 = mode28;
         } else {
             this.keys28 = keys28;
-            this.mode28 = mode28;
             this.angle7 = angle7;
             this.opacity23 = opacity23;
+            this.mode28 = mode28;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToString(keys28), mode28, angle7, opacity23));
+            
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %b)", arrayToString(keys28), angle7, opacity23, mode28));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToString(keys28), mode28, angle7, opacity23));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %b)", arrayToString(keys28), angle7, opacity23, mode28));
                 js.setLength(0);
             }
         }
@@ -9249,7 +9374,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editStructurePreviewFill(GradientKey[] keys28, VectorRect mode29, Double angle7, Double opacity23) {
+    public UiTimeline editStructurePreviewFill(GradientKey[] keys28, Double angle7, Double opacity23, VectorRect mode29) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -9283,39 +9408,6 @@ public class UiTimeline extends JsObject {
             this.keys29 = null;
             
             this.keys28 = keys28;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            
-            this.mode29 = mode29;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -9352,19 +9444,53 @@ public class UiTimeline extends JsObject {
             this.opacity23 = null;
             
             this.opacity23 = opacity23;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            
+            this.mode29 = mode29;
         } else {
             this.keys28 = keys28;
-            this.mode29 = mode29;
             this.angle7 = angle7;
             this.opacity23 = opacity23;
+            this.mode29 = mode29;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), ((mode29 != null) ? mode29.generateJs() : "null"), angle7, opacity23));
+            js.append(mode29.generateJs());
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToString(keys28), angle7, opacity23, ((mode29 != null) ? mode29.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), ((mode29 != null) ? mode29.generateJs() : "null"), angle7, opacity23));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToString(keys28), angle7, opacity23, ((mode29 != null) ? mode29.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -9387,7 +9513,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editStructurePreviewFill(GradientKey[] keys28, String mode30, Double angle7, Double opacity23) {
+    public UiTimeline editStructurePreviewFill(GradientKey[] keys28, Double angle7, Double opacity23, String mode30) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -9421,39 +9547,6 @@ public class UiTimeline extends JsObject {
             this.keys29 = null;
             
             this.keys28 = keys28;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            
-            this.mode30 = mode30;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -9490,19 +9583,53 @@ public class UiTimeline extends JsObject {
             this.opacity23 = null;
             
             this.opacity23 = opacity23;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            
+            this.mode30 = mode30;
         } else {
             this.keys28 = keys28;
-            this.mode30 = mode30;
             this.angle7 = angle7;
             this.opacity23 = opacity23;
+            this.mode30 = mode30;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), wrapQuotes(mode30), angle7, opacity23));
+            
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToString(keys28), angle7, opacity23, wrapQuotes(mode30)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys28), wrapQuotes(mode30), angle7, opacity23));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToString(keys28), angle7, opacity23, wrapQuotes(mode30)));
                 js.setLength(0);
             }
         }
@@ -9525,7 +9652,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editStructurePreviewFill(String[] keys29, Boolean mode28, Double angle7, Double opacity23) {
+    public UiTimeline editStructurePreviewFill(String[] keys29, Double angle7, Double opacity23, Boolean mode28) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -9559,39 +9686,6 @@ public class UiTimeline extends JsObject {
             this.keys29 = null;
             
             this.keys29 = keys29;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            
-            this.mode28 = mode28;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -9628,19 +9722,53 @@ public class UiTimeline extends JsObject {
             this.opacity23 = null;
             
             this.opacity23 = opacity23;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            
+            this.mode28 = mode28;
         } else {
             this.keys29 = keys29;
-            this.mode28 = mode28;
             this.angle7 = angle7;
             this.opacity23 = opacity23;
+            this.mode28 = mode28;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys29), mode28, angle7, opacity23));
+            
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys29), angle7, opacity23, mode28));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys29), mode28, angle7, opacity23));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys29), angle7, opacity23, mode28));
                 js.setLength(0);
             }
         }
@@ -9663,7 +9791,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editStructurePreviewFill(String[] keys29, VectorRect mode29, Double angle7, Double opacity23) {
+    public UiTimeline editStructurePreviewFill(String[] keys29, Double angle7, Double opacity23, VectorRect mode29) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -9697,39 +9825,6 @@ public class UiTimeline extends JsObject {
             this.keys29 = null;
             
             this.keys29 = keys29;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            
-            this.mode29 = mode29;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -9766,19 +9861,53 @@ public class UiTimeline extends JsObject {
             this.opacity23 = null;
             
             this.opacity23 = opacity23;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            
+            this.mode29 = mode29;
         } else {
             this.keys29 = keys29;
-            this.mode29 = mode29;
             this.angle7 = angle7;
             this.opacity23 = opacity23;
+            this.mode29 = mode29;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys29), ((mode29 != null) ? mode29.generateJs() : "null"), angle7, opacity23));
+            js.append(mode29.generateJs());
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys29), angle7, opacity23, ((mode29 != null) ? mode29.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys29), ((mode29 != null) ? mode29.generateJs() : "null"), angle7, opacity23));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys29), angle7, opacity23, ((mode29 != null) ? mode29.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -9801,7 +9930,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editStructurePreviewFill(String[] keys29, String mode30, Double angle7, Double opacity23) {
+    public UiTimeline editStructurePreviewFill(String[] keys29, Double angle7, Double opacity23, String mode30) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -9835,39 +9964,6 @@ public class UiTimeline extends JsObject {
             this.keys29 = null;
             
             this.keys29 = keys29;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            
-            this.mode30 = mode30;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -9904,19 +10000,53 @@ public class UiTimeline extends JsObject {
             this.opacity23 = null;
             
             this.opacity23 = opacity23;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            
+            this.mode30 = mode30;
         } else {
             this.keys29 = keys29;
-            this.mode30 = mode30;
             this.angle7 = angle7;
             this.opacity23 = opacity23;
+            this.mode30 = mode30;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys29), wrapQuotes(mode30), angle7, opacity23));
+            
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys29), angle7, opacity23, wrapQuotes(mode30)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys29), wrapQuotes(mode30), angle7, opacity23));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys29), angle7, opacity23, wrapQuotes(mode30)));
                 js.setLength(0);
             }
         }
@@ -10100,10 +10230,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys30), cx8, cy8, ((mode31 != null) ? mode31.generateJs() : "null"), opacity24, fx8, fy8));
+            js.append(mode31.generateJs());
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys30), cx8, cy8, ((mode31 != null) ? mode31.getJsBase() : "null"), opacity24, fx8, fy8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys30), cx8, cy8, ((mode31 != null) ? mode31.generateJs() : "null"), opacity24, fx8, fy8));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys30), cx8, cy8, ((mode31 != null) ? mode31.getJsBase() : "null"), opacity24, fx8, fy8));
                 js.setLength(0);
             }
         }
@@ -10279,10 +10410,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys31), cx8, cy8, ((mode31 != null) ? mode31.generateJs() : "null"), opacity24, fx8, fy8));
+            js.append(mode31.generateJs());
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys31), cx8, cy8, ((mode31 != null) ? mode31.getJsBase() : "null"), opacity24, fx8, fy8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys31), cx8, cy8, ((mode31 != null) ? mode31.generateJs() : "null"), opacity24, fx8, fy8));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys31), cx8, cy8, ((mode31 != null) ? mode31.getJsBase() : "null"), opacity24, fx8, fy8));
                 js.setLength(0);
             }
         }
@@ -10378,6 +10510,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
 
             if (isRendered) {
@@ -10469,6 +10602,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewStroke1 != null) ? editStructurePreviewStroke1.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
 
             if (isRendered) {
@@ -10560,6 +10694,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(editStructurePreviewStroke2), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
 
             if (isRendered) {
@@ -10595,6 +10730,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editing(%b)", editing));
 
             if (isRendered) {
@@ -10642,6 +10778,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".header(%s)", wrapQuotes(header)));
 
             if (isRendered) {
@@ -10689,6 +10826,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".horizontalScrollBar(%s)", wrapQuotes(horizontalScrollBar)));
 
             if (isRendered) {
@@ -10736,6 +10874,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
             if (isRendered) {
@@ -10786,6 +10925,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lineMarker(%s)", wrapQuotes(lineMarker)));
 
             if (isRendered) {
@@ -10823,6 +10963,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lineMarker(%b)", lineMarker1));
 
             if (isRendered) {
@@ -10853,8 +10994,9 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for the line marker by index.
      */
-    public UiTimeline setLineMarker(String lineMarker2, Double index) {
+    public UiTimeline setLineMarker(Double index, String lineMarker2) {
         if (jsBase == null) {
+            this.index = index;
             this.lineMarker = null;
             this.lineMarker1 = null;
             this.lineMarker2 = null;
@@ -10863,18 +11005,18 @@ public class UiTimeline extends JsObject {
             this.lineMarker5 = null;
             
             this.lineMarker2 = lineMarker2;
-            this.index = index;
         } else {
-            this.lineMarker2 = lineMarker2;
             this.index = index;
+            this.lineMarker2 = lineMarker2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".lineMarker(%s, %f)", wrapQuotes(lineMarker2), index));
+            
+            js.append(String.format(Locale.US, ".lineMarker(%f, %s)", index, wrapQuotes(lineMarker2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", wrapQuotes(lineMarker2), index));
+                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%f, %s)", index, wrapQuotes(lineMarker2)));
                 js.setLength(0);
             }
         }
@@ -10896,8 +11038,9 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for the line marker by index.
      */
-    public UiTimeline setLineMarker(Boolean lineMarker3, Double index) {
+    public UiTimeline setLineMarker(Double index, Boolean lineMarker3) {
         if (jsBase == null) {
+            this.index = index;
             this.lineMarker = null;
             this.lineMarker1 = null;
             this.lineMarker2 = null;
@@ -10906,18 +11049,18 @@ public class UiTimeline extends JsObject {
             this.lineMarker5 = null;
             
             this.lineMarker3 = lineMarker3;
-            this.index = index;
         } else {
-            this.lineMarker3 = lineMarker3;
             this.index = index;
+            this.lineMarker3 = lineMarker3;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index));
+            
+            js.append(String.format(Locale.US, ".lineMarker(%f, %b)", index, lineMarker3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index));
+                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%f, %b)", index, lineMarker3));
                 js.setLength(0);
             }
         }
@@ -10939,8 +11082,9 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for the line marker by index.
      */
-    public UiTimeline setLineMarker(GanttDateTimeMarkers lineMarker4, Double index) {
+    public UiTimeline setLineMarker(Double index, GanttDateTimeMarkers lineMarker4) {
         if (jsBase == null) {
+            this.index = index;
             this.lineMarker = null;
             this.lineMarker1 = null;
             this.lineMarker2 = null;
@@ -10949,18 +11093,18 @@ public class UiTimeline extends JsObject {
             this.lineMarker5 = null;
             
             this.lineMarker4 = lineMarker4;
-            this.index = index;
         } else {
-            this.lineMarker4 = lineMarker4;
             this.index = index;
+            this.lineMarker4 = lineMarker4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".lineMarker(%s, %f)", ((lineMarker4 != null) ? lineMarker4.generateJs() : "null"), index));
+            
+            js.append(String.format(Locale.US, ".lineMarker(%f, %s)", index, ((lineMarker4 != null) ? lineMarker4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", ((lineMarker4 != null) ? lineMarker4.generateJs() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%f, %s)", index, ((lineMarker4 != null) ? lineMarker4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -11004,6 +11148,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
 
             if (isRendered) {
@@ -11040,6 +11185,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".milestoneFill(%s)", ((milestoneFill != null) ? milestoneFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -11115,6 +11261,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".milestoneFill(%s, %f)", wrapQuotes(color8), opacity25));
 
             if (isRendered) {
@@ -11148,7 +11295,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline milestoneFill(GradientKey[] keys32, Boolean mode32, Double angle8, Double opacity26) {
+    public UiTimeline milestoneFill(GradientKey[] keys32, Double angle8, Double opacity26, Boolean mode32) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -11186,43 +11333,6 @@ public class UiTimeline extends JsObject {
             this.keys33 = null;
             
             this.keys32 = keys32;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            
-            this.mode32 = mode32;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -11263,19 +11373,57 @@ public class UiTimeline extends JsObject {
             this.opacity26 = null;
             
             this.opacity26 = opacity26;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            
+            this.mode32 = mode32;
         } else {
             this.keys32 = keys32;
-            this.mode32 = mode32;
             this.angle8 = angle8;
             this.opacity26 = opacity26;
+            this.mode32 = mode32;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %b, %f, %f)", arrayToString(keys32), mode32, angle8, opacity26));
+            
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %b)", arrayToString(keys32), angle8, opacity26, mode32));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %b, %f, %f)", arrayToString(keys32), mode32, angle8, opacity26));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %b)", arrayToString(keys32), angle8, opacity26, mode32));
                 js.setLength(0);
             }
         }
@@ -11298,7 +11446,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline milestoneFill(GradientKey[] keys32, VectorRect mode33, Double angle8, Double opacity26) {
+    public UiTimeline milestoneFill(GradientKey[] keys32, Double angle8, Double opacity26, VectorRect mode33) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -11336,43 +11484,6 @@ public class UiTimeline extends JsObject {
             this.keys33 = null;
             
             this.keys32 = keys32;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            
-            this.mode33 = mode33;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -11413,19 +11524,57 @@ public class UiTimeline extends JsObject {
             this.opacity26 = null;
             
             this.opacity26 = opacity26;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            
+            this.mode33 = mode33;
         } else {
             this.keys32 = keys32;
-            this.mode33 = mode33;
             this.angle8 = angle8;
             this.opacity26 = opacity26;
+            this.mode33 = mode33;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), ((mode33 != null) ? mode33.generateJs() : "null"), angle8, opacity26));
+            js.append(mode33.generateJs());
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s)", arrayToString(keys32), angle8, opacity26, ((mode33 != null) ? mode33.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), ((mode33 != null) ? mode33.generateJs() : "null"), angle8, opacity26));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s)", arrayToString(keys32), angle8, opacity26, ((mode33 != null) ? mode33.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -11448,7 +11597,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline milestoneFill(GradientKey[] keys32, String mode34, Double angle8, Double opacity26) {
+    public UiTimeline milestoneFill(GradientKey[] keys32, Double angle8, Double opacity26, String mode34) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -11486,43 +11635,6 @@ public class UiTimeline extends JsObject {
             this.keys33 = null;
             
             this.keys32 = keys32;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            
-            this.mode34 = mode34;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -11563,19 +11675,57 @@ public class UiTimeline extends JsObject {
             this.opacity26 = null;
             
             this.opacity26 = opacity26;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            
+            this.mode34 = mode34;
         } else {
             this.keys32 = keys32;
-            this.mode34 = mode34;
             this.angle8 = angle8;
             this.opacity26 = opacity26;
+            this.mode34 = mode34;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), wrapQuotes(mode34), angle8, opacity26));
+            
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s)", arrayToString(keys32), angle8, opacity26, wrapQuotes(mode34)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToString(keys32), wrapQuotes(mode34), angle8, opacity26));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s)", arrayToString(keys32), angle8, opacity26, wrapQuotes(mode34)));
                 js.setLength(0);
             }
         }
@@ -11598,7 +11748,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline milestoneFill(String[] keys33, Boolean mode32, Double angle8, Double opacity26) {
+    public UiTimeline milestoneFill(String[] keys33, Double angle8, Double opacity26, Boolean mode32) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -11636,43 +11786,6 @@ public class UiTimeline extends JsObject {
             this.keys33 = null;
             
             this.keys33 = keys33;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            
-            this.mode32 = mode32;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -11713,19 +11826,57 @@ public class UiTimeline extends JsObject {
             this.opacity26 = null;
             
             this.opacity26 = opacity26;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            
+            this.mode32 = mode32;
         } else {
             this.keys33 = keys33;
-            this.mode32 = mode32;
             this.angle8 = angle8;
             this.opacity26 = opacity26;
+            this.mode32 = mode32;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys33), mode32, angle8, opacity26));
+            
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys33), angle8, opacity26, mode32));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys33), mode32, angle8, opacity26));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys33), angle8, opacity26, mode32));
                 js.setLength(0);
             }
         }
@@ -11748,7 +11899,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline milestoneFill(String[] keys33, VectorRect mode33, Double angle8, Double opacity26) {
+    public UiTimeline milestoneFill(String[] keys33, Double angle8, Double opacity26, VectorRect mode33) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -11786,43 +11937,6 @@ public class UiTimeline extends JsObject {
             this.keys33 = null;
             
             this.keys33 = keys33;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            
-            this.mode33 = mode33;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -11863,19 +11977,57 @@ public class UiTimeline extends JsObject {
             this.opacity26 = null;
             
             this.opacity26 = opacity26;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            
+            this.mode33 = mode33;
         } else {
             this.keys33 = keys33;
-            this.mode33 = mode33;
             this.angle8 = angle8;
             this.opacity26 = opacity26;
+            this.mode33 = mode33;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys33), ((mode33 != null) ? mode33.generateJs() : "null"), angle8, opacity26));
+            js.append(mode33.generateJs());
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys33), angle8, opacity26, ((mode33 != null) ? mode33.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys33), ((mode33 != null) ? mode33.generateJs() : "null"), angle8, opacity26));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys33), angle8, opacity26, ((mode33 != null) ? mode33.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -11898,7 +12050,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline milestoneFill(String[] keys33, String mode34, Double angle8, Double opacity26) {
+    public UiTimeline milestoneFill(String[] keys33, Double angle8, Double opacity26, String mode34) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -11936,43 +12088,6 @@ public class UiTimeline extends JsObject {
             this.keys33 = null;
             
             this.keys33 = keys33;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            
-            this.mode34 = mode34;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -12013,19 +12128,57 @@ public class UiTimeline extends JsObject {
             this.opacity26 = null;
             
             this.opacity26 = opacity26;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            
+            this.mode34 = mode34;
         } else {
             this.keys33 = keys33;
-            this.mode34 = mode34;
             this.angle8 = angle8;
             this.opacity26 = opacity26;
+            this.mode34 = mode34;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys33), wrapQuotes(mode34), angle8, opacity26));
+            
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys33), angle8, opacity26, wrapQuotes(mode34)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys33), wrapQuotes(mode34), angle8, opacity26));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys33), angle8, opacity26, wrapQuotes(mode34)));
                 js.setLength(0);
             }
         }
@@ -12224,10 +12377,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys34), cx9, cy9, ((mode35 != null) ? mode35.generateJs() : "null"), opacity27, fx9, fy9));
+            js.append(mode35.generateJs());
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys34), cx9, cy9, ((mode35 != null) ? mode35.getJsBase() : "null"), opacity27, fx9, fy9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys34), cx9, cy9, ((mode35 != null) ? mode35.generateJs() : "null"), opacity27, fx9, fy9));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys34), cx9, cy9, ((mode35 != null) ? mode35.getJsBase() : "null"), opacity27, fx9, fy9));
                 js.setLength(0);
             }
         }
@@ -12418,10 +12572,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys35), cx9, cy9, ((mode35 != null) ? mode35.generateJs() : "null"), opacity27, fx9, fy9));
+            js.append(mode35.generateJs());
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys35), cx9, cy9, ((mode35 != null) ? mode35.getJsBase() : "null"), opacity27, fx9, fy9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys35), cx9, cy9, ((mode35 != null) ? mode35.generateJs() : "null"), opacity27, fx9, fy9));
+                onChangeListener.onChange(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys35), cx9, cy9, ((mode35 != null) ? mode35.getJsBase() : "null"), opacity27, fx9, fy9));
                 js.setLength(0);
             }
         }
@@ -12470,6 +12625,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".milestoneLabels(%s)", wrapQuotes(milestoneLabels)));
 
             if (isRendered) {
@@ -12507,6 +12663,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".milestoneLabels(%b)", milestoneLabels1));
 
             if (isRendered) {
@@ -12608,6 +12765,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", ((milestoneStroke != null) ? milestoneStroke.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
 
             if (isRendered) {
@@ -12702,6 +12860,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", ((milestoneStroke1 != null) ? milestoneStroke1.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
 
             if (isRendered) {
@@ -12796,6 +12955,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", wrapQuotes(milestoneStroke2), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
 
             if (isRendered) {
@@ -12832,6 +12992,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentFill(%s)", ((parentFill != null) ? parentFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -12911,6 +13072,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentFill(%s, %f)", wrapQuotes(color9), opacity28));
 
             if (isRendered) {
@@ -12944,7 +13106,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline parentFill(GradientKey[] keys36, Boolean mode36, Double angle9, Double opacity29) {
+    public UiTimeline parentFill(GradientKey[] keys36, Double angle9, Double opacity29, Boolean mode36) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -12986,47 +13148,6 @@ public class UiTimeline extends JsObject {
             this.keys37 = null;
             
             this.keys36 = keys36;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            
-            this.mode36 = mode36;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -13071,19 +13192,61 @@ public class UiTimeline extends JsObject {
             this.opacity29 = null;
             
             this.opacity29 = opacity29;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            
+            this.mode36 = mode36;
         } else {
             this.keys36 = keys36;
-            this.mode36 = mode36;
             this.angle9 = angle9;
             this.opacity29 = opacity29;
+            this.mode36 = mode36;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".parentFill(%s, %b, %f, %f)", arrayToString(keys36), mode36, angle9, opacity29));
+            
+            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %b)", arrayToString(keys36), angle9, opacity29, mode36));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %b, %f, %f)", arrayToString(keys36), mode36, angle9, opacity29));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %b)", arrayToString(keys36), angle9, opacity29, mode36));
                 js.setLength(0);
             }
         }
@@ -13106,7 +13269,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline parentFill(GradientKey[] keys36, VectorRect mode37, Double angle9, Double opacity29) {
+    public UiTimeline parentFill(GradientKey[] keys36, Double angle9, Double opacity29, VectorRect mode37) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -13148,47 +13311,6 @@ public class UiTimeline extends JsObject {
             this.keys37 = null;
             
             this.keys36 = keys36;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            
-            this.mode37 = mode37;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -13233,19 +13355,61 @@ public class UiTimeline extends JsObject {
             this.opacity29 = null;
             
             this.opacity29 = opacity29;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            
+            this.mode37 = mode37;
         } else {
             this.keys36 = keys36;
-            this.mode37 = mode37;
             this.angle9 = angle9;
             this.opacity29 = opacity29;
+            this.mode37 = mode37;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), ((mode37 != null) ? mode37.generateJs() : "null"), angle9, opacity29));
+            js.append(mode37.generateJs());
+            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s)", arrayToString(keys36), angle9, opacity29, ((mode37 != null) ? mode37.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), ((mode37 != null) ? mode37.generateJs() : "null"), angle9, opacity29));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %s)", arrayToString(keys36), angle9, opacity29, ((mode37 != null) ? mode37.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -13268,7 +13432,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline parentFill(GradientKey[] keys36, String mode38, Double angle9, Double opacity29) {
+    public UiTimeline parentFill(GradientKey[] keys36, Double angle9, Double opacity29, String mode38) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -13310,47 +13474,6 @@ public class UiTimeline extends JsObject {
             this.keys37 = null;
             
             this.keys36 = keys36;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            
-            this.mode38 = mode38;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -13395,19 +13518,61 @@ public class UiTimeline extends JsObject {
             this.opacity29 = null;
             
             this.opacity29 = opacity29;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            
+            this.mode38 = mode38;
         } else {
             this.keys36 = keys36;
-            this.mode38 = mode38;
             this.angle9 = angle9;
             this.opacity29 = opacity29;
+            this.mode38 = mode38;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), wrapQuotes(mode38), angle9, opacity29));
+            
+            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s)", arrayToString(keys36), angle9, opacity29, wrapQuotes(mode38)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToString(keys36), wrapQuotes(mode38), angle9, opacity29));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %s)", arrayToString(keys36), angle9, opacity29, wrapQuotes(mode38)));
                 js.setLength(0);
             }
         }
@@ -13430,7 +13595,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline parentFill(String[] keys37, Boolean mode36, Double angle9, Double opacity29) {
+    public UiTimeline parentFill(String[] keys37, Double angle9, Double opacity29, Boolean mode36) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -13472,47 +13637,6 @@ public class UiTimeline extends JsObject {
             this.keys37 = null;
             
             this.keys37 = keys37;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            
-            this.mode36 = mode36;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -13557,19 +13681,61 @@ public class UiTimeline extends JsObject {
             this.opacity29 = null;
             
             this.opacity29 = opacity29;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            
+            this.mode36 = mode36;
         } else {
             this.keys37 = keys37;
-            this.mode36 = mode36;
             this.angle9 = angle9;
             this.opacity29 = opacity29;
+            this.mode36 = mode36;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".parentFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys37), mode36, angle9, opacity29));
+            
+            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys37), angle9, opacity29, mode36));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys37), mode36, angle9, opacity29));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys37), angle9, opacity29, mode36));
                 js.setLength(0);
             }
         }
@@ -13592,7 +13758,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline parentFill(String[] keys37, VectorRect mode37, Double angle9, Double opacity29) {
+    public UiTimeline parentFill(String[] keys37, Double angle9, Double opacity29, VectorRect mode37) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -13634,47 +13800,6 @@ public class UiTimeline extends JsObject {
             this.keys37 = null;
             
             this.keys37 = keys37;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            
-            this.mode37 = mode37;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -13719,19 +13844,61 @@ public class UiTimeline extends JsObject {
             this.opacity29 = null;
             
             this.opacity29 = opacity29;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            
+            this.mode37 = mode37;
         } else {
             this.keys37 = keys37;
-            this.mode37 = mode37;
             this.angle9 = angle9;
             this.opacity29 = opacity29;
+            this.mode37 = mode37;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys37), ((mode37 != null) ? mode37.generateJs() : "null"), angle9, opacity29));
+            js.append(mode37.generateJs());
+            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys37), angle9, opacity29, ((mode37 != null) ? mode37.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys37), ((mode37 != null) ? mode37.generateJs() : "null"), angle9, opacity29));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys37), angle9, opacity29, ((mode37 != null) ? mode37.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -13754,7 +13921,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline parentFill(String[] keys37, String mode38, Double angle9, Double opacity29) {
+    public UiTimeline parentFill(String[] keys37, Double angle9, Double opacity29, String mode38) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -13796,47 +13963,6 @@ public class UiTimeline extends JsObject {
             this.keys37 = null;
             
             this.keys37 = keys37;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            
-            this.mode38 = mode38;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -13881,19 +14007,61 @@ public class UiTimeline extends JsObject {
             this.opacity29 = null;
             
             this.opacity29 = opacity29;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            
+            this.mode38 = mode38;
         } else {
             this.keys37 = keys37;
-            this.mode38 = mode38;
             this.angle9 = angle9;
             this.opacity29 = opacity29;
+            this.mode38 = mode38;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys37), wrapQuotes(mode38), angle9, opacity29));
+            
+            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys37), angle9, opacity29, wrapQuotes(mode38)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys37), wrapQuotes(mode38), angle9, opacity29));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys37), angle9, opacity29, wrapQuotes(mode38)));
                 js.setLength(0);
             }
         }
@@ -14107,10 +14275,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys38), cx10, cy10, ((mode39 != null) ? mode39.generateJs() : "null"), opacity30, fx10, fy10));
+            js.append(mode39.generateJs());
+            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys38), cx10, cy10, ((mode39 != null) ? mode39.getJsBase() : "null"), opacity30, fx10, fy10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys38), cx10, cy10, ((mode39 != null) ? mode39.generateJs() : "null"), opacity30, fx10, fy10));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys38), cx10, cy10, ((mode39 != null) ? mode39.getJsBase() : "null"), opacity30, fx10, fy10));
                 js.setLength(0);
             }
         }
@@ -14316,10 +14485,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys39), cx10, cy10, ((mode39 != null) ? mode39.generateJs() : "null"), opacity30, fx10, fy10));
+            js.append(mode39.generateJs());
+            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys39), cx10, cy10, ((mode39 != null) ? mode39.getJsBase() : "null"), opacity30, fx10, fy10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys39), cx10, cy10, ((mode39 != null) ? mode39.generateJs() : "null"), opacity30, fx10, fy10));
+                onChangeListener.onChange(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys39), cx10, cy10, ((mode39 != null) ? mode39.getJsBase() : "null"), opacity30, fx10, fy10));
                 js.setLength(0);
             }
         }
@@ -14368,6 +14538,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentLabels(%s)", wrapQuotes(parentLabels)));
 
             if (isRendered) {
@@ -14405,6 +14576,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentLabels(%b)", parentLabels1));
 
             if (isRendered) {
@@ -14511,6 +14683,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", ((parentStroke != null) ? parentStroke.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
 
             if (isRendered) {
@@ -14610,6 +14783,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", ((parentStroke1 != null) ? parentStroke1.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
 
             if (isRendered) {
@@ -14709,6 +14883,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", wrapQuotes(parentStroke2), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
 
             if (isRendered) {
@@ -14745,6 +14920,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".progressFill(%s)", ((progressFill != null) ? progressFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -14828,6 +15004,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".progressFill(%s, %f)", wrapQuotes(color10), opacity31));
 
             if (isRendered) {
@@ -14861,7 +15038,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline progressFill(GradientKey[] keys40, Boolean mode40, Double angle10, Double opacity32) {
+    public UiTimeline progressFill(GradientKey[] keys40, Double angle10, Double opacity32, Boolean mode40) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -14907,51 +15084,6 @@ public class UiTimeline extends JsObject {
             this.keys41 = null;
             
             this.keys40 = keys40;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            
-            this.mode40 = mode40;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -15000,19 +15132,65 @@ public class UiTimeline extends JsObject {
             this.opacity32 = null;
             
             this.opacity32 = opacity32;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            
+            this.mode40 = mode40;
         } else {
             this.keys40 = keys40;
-            this.mode40 = mode40;
             this.angle10 = angle10;
             this.opacity32 = opacity32;
+            this.mode40 = mode40;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".progressFill(%s, %b, %f, %f)", arrayToString(keys40), mode40, angle10, opacity32));
+            
+            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %b)", arrayToString(keys40), angle10, opacity32, mode40));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %b, %f, %f)", arrayToString(keys40), mode40, angle10, opacity32));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %b)", arrayToString(keys40), angle10, opacity32, mode40));
                 js.setLength(0);
             }
         }
@@ -15035,7 +15213,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline progressFill(GradientKey[] keys40, VectorRect mode41, Double angle10, Double opacity32) {
+    public UiTimeline progressFill(GradientKey[] keys40, Double angle10, Double opacity32, VectorRect mode41) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -15081,51 +15259,6 @@ public class UiTimeline extends JsObject {
             this.keys41 = null;
             
             this.keys40 = keys40;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            
-            this.mode41 = mode41;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -15174,19 +15307,65 @@ public class UiTimeline extends JsObject {
             this.opacity32 = null;
             
             this.opacity32 = opacity32;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            
+            this.mode41 = mode41;
         } else {
             this.keys40 = keys40;
-            this.mode41 = mode41;
             this.angle10 = angle10;
             this.opacity32 = opacity32;
+            this.mode41 = mode41;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), ((mode41 != null) ? mode41.generateJs() : "null"), angle10, opacity32));
+            js.append(mode41.generateJs());
+            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s)", arrayToString(keys40), angle10, opacity32, ((mode41 != null) ? mode41.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), ((mode41 != null) ? mode41.generateJs() : "null"), angle10, opacity32));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %s)", arrayToString(keys40), angle10, opacity32, ((mode41 != null) ? mode41.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -15209,7 +15388,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline progressFill(GradientKey[] keys40, String mode42, Double angle10, Double opacity32) {
+    public UiTimeline progressFill(GradientKey[] keys40, Double angle10, Double opacity32, String mode42) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -15255,51 +15434,6 @@ public class UiTimeline extends JsObject {
             this.keys41 = null;
             
             this.keys40 = keys40;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            
-            this.mode42 = mode42;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -15348,19 +15482,65 @@ public class UiTimeline extends JsObject {
             this.opacity32 = null;
             
             this.opacity32 = opacity32;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            
+            this.mode42 = mode42;
         } else {
             this.keys40 = keys40;
-            this.mode42 = mode42;
             this.angle10 = angle10;
             this.opacity32 = opacity32;
+            this.mode42 = mode42;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), wrapQuotes(mode42), angle10, opacity32));
+            
+            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s)", arrayToString(keys40), angle10, opacity32, wrapQuotes(mode42)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToString(keys40), wrapQuotes(mode42), angle10, opacity32));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %s)", arrayToString(keys40), angle10, opacity32, wrapQuotes(mode42)));
                 js.setLength(0);
             }
         }
@@ -15383,7 +15563,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline progressFill(String[] keys41, Boolean mode40, Double angle10, Double opacity32) {
+    public UiTimeline progressFill(String[] keys41, Double angle10, Double opacity32, Boolean mode40) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -15429,51 +15609,6 @@ public class UiTimeline extends JsObject {
             this.keys41 = null;
             
             this.keys41 = keys41;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            
-            this.mode40 = mode40;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -15522,19 +15657,65 @@ public class UiTimeline extends JsObject {
             this.opacity32 = null;
             
             this.opacity32 = opacity32;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            
+            this.mode40 = mode40;
         } else {
             this.keys41 = keys41;
-            this.mode40 = mode40;
             this.angle10 = angle10;
             this.opacity32 = opacity32;
+            this.mode40 = mode40;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".progressFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys41), mode40, angle10, opacity32));
+            
+            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys41), angle10, opacity32, mode40));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys41), mode40, angle10, opacity32));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys41), angle10, opacity32, mode40));
                 js.setLength(0);
             }
         }
@@ -15557,7 +15738,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline progressFill(String[] keys41, VectorRect mode41, Double angle10, Double opacity32) {
+    public UiTimeline progressFill(String[] keys41, Double angle10, Double opacity32, VectorRect mode41) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -15603,51 +15784,6 @@ public class UiTimeline extends JsObject {
             this.keys41 = null;
             
             this.keys41 = keys41;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            
-            this.mode41 = mode41;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -15696,19 +15832,65 @@ public class UiTimeline extends JsObject {
             this.opacity32 = null;
             
             this.opacity32 = opacity32;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            
+            this.mode41 = mode41;
         } else {
             this.keys41 = keys41;
-            this.mode41 = mode41;
             this.angle10 = angle10;
             this.opacity32 = opacity32;
+            this.mode41 = mode41;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys41), ((mode41 != null) ? mode41.generateJs() : "null"), angle10, opacity32));
+            js.append(mode41.generateJs());
+            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys41), angle10, opacity32, ((mode41 != null) ? mode41.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys41), ((mode41 != null) ? mode41.generateJs() : "null"), angle10, opacity32));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys41), angle10, opacity32, ((mode41 != null) ? mode41.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -15731,7 +15913,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline progressFill(String[] keys41, String mode42, Double angle10, Double opacity32) {
+    public UiTimeline progressFill(String[] keys41, Double angle10, Double opacity32, String mode42) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -15777,51 +15959,6 @@ public class UiTimeline extends JsObject {
             this.keys41 = null;
             
             this.keys41 = keys41;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            
-            this.mode42 = mode42;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -15870,19 +16007,65 @@ public class UiTimeline extends JsObject {
             this.opacity32 = null;
             
             this.opacity32 = opacity32;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            
+            this.mode42 = mode42;
         } else {
             this.keys41 = keys41;
-            this.mode42 = mode42;
             this.angle10 = angle10;
             this.opacity32 = opacity32;
+            this.mode42 = mode42;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys41), wrapQuotes(mode42), angle10, opacity32));
+            
+            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys41), angle10, opacity32, wrapQuotes(mode42)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys41), wrapQuotes(mode42), angle10, opacity32));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys41), angle10, opacity32, wrapQuotes(mode42)));
                 js.setLength(0);
             }
         }
@@ -16111,10 +16294,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys42), cx11, cy11, ((mode43 != null) ? mode43.generateJs() : "null"), opacity33, fx11, fy11));
+            js.append(mode43.generateJs());
+            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys42), cx11, cy11, ((mode43 != null) ? mode43.getJsBase() : "null"), opacity33, fx11, fy11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys42), cx11, cy11, ((mode43 != null) ? mode43.generateJs() : "null"), opacity33, fx11, fy11));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys42), cx11, cy11, ((mode43 != null) ? mode43.getJsBase() : "null"), opacity33, fx11, fy11));
                 js.setLength(0);
             }
         }
@@ -16335,10 +16519,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys43), cx11, cy11, ((mode43 != null) ? mode43.generateJs() : "null"), opacity33, fx11, fy11));
+            js.append(mode43.generateJs());
+            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys43), cx11, cy11, ((mode43 != null) ? mode43.getJsBase() : "null"), opacity33, fx11, fy11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys43), cx11, cy11, ((mode43 != null) ? mode43.generateJs() : "null"), opacity33, fx11, fy11));
+                onChangeListener.onChange(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys43), cx11, cy11, ((mode43 != null) ? mode43.getJsBase() : "null"), opacity33, fx11, fy11));
                 js.setLength(0);
             }
         }
@@ -16387,6 +16572,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".progressLabels(%s)", wrapQuotes(progressLabels)));
 
             if (isRendered) {
@@ -16424,6 +16610,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".progressLabels(%b)", progressLabels1));
 
             if (isRendered) {
@@ -16534,6 +16721,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", ((progressStroke != null) ? progressStroke.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
 
             if (isRendered) {
@@ -16637,6 +16825,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", ((progressStroke1 != null) ? progressStroke1.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
 
             if (isRendered) {
@@ -16740,6 +16929,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", wrapQuotes(progressStroke2), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
 
             if (isRendered) {
@@ -16790,6 +16980,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rangeMarker(%s)", wrapQuotes(rangeMarker)));
 
             if (isRendered) {
@@ -16827,6 +17018,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rangeMarker(%b)", rangeMarker1));
 
             if (isRendered) {
@@ -16857,8 +17049,12 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for the range marker by index.
      */
-    public UiTimeline setRangeMarker(String rangeMarker2, Double index1) {
+    public UiTimeline setRangeMarker(Double index1, String rangeMarker2) {
         if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            
+            this.index1 = index1;
             this.rangeMarker = null;
             this.rangeMarker1 = null;
             this.rangeMarker2 = null;
@@ -16867,21 +17063,18 @@ public class UiTimeline extends JsObject {
             this.rangeMarker5 = null;
             
             this.rangeMarker2 = rangeMarker2;
-            this.index = null;
-            this.index1 = null;
-            
-            this.index1 = index1;
         } else {
-            this.rangeMarker2 = rangeMarker2;
             this.index1 = index1;
+            this.rangeMarker2 = rangeMarker2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", wrapQuotes(rangeMarker2), index1));
+            
+            js.append(String.format(Locale.US, ".rangeMarker(%f, %s)", index1, wrapQuotes(rangeMarker2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", wrapQuotes(rangeMarker2), index1));
+                onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%f, %s)", index1, wrapQuotes(rangeMarker2)));
                 js.setLength(0);
             }
         }
@@ -16903,8 +17096,12 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for the range marker by index.
      */
-    public UiTimeline setRangeMarker(Boolean rangeMarker3, Double index1) {
+    public UiTimeline setRangeMarker(Double index1, Boolean rangeMarker3) {
         if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            
+            this.index1 = index1;
             this.rangeMarker = null;
             this.rangeMarker1 = null;
             this.rangeMarker2 = null;
@@ -16913,21 +17110,18 @@ public class UiTimeline extends JsObject {
             this.rangeMarker5 = null;
             
             this.rangeMarker3 = rangeMarker3;
-            this.index = null;
-            this.index1 = null;
-            
-            this.index1 = index1;
         } else {
-            this.rangeMarker3 = rangeMarker3;
             this.index1 = index1;
+            this.rangeMarker3 = rangeMarker3;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index1));
+            
+            js.append(String.format(Locale.US, ".rangeMarker(%f, %b)", index1, rangeMarker3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index1));
+                onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%f, %b)", index1, rangeMarker3));
                 js.setLength(0);
             }
         }
@@ -16949,8 +17143,12 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for the range marker by index.
      */
-    public UiTimeline setRangeMarker(GanttDateTimeMarkers rangeMarker4, Double index1) {
+    public UiTimeline setRangeMarker(Double index1, GanttDateTimeMarkers rangeMarker4) {
         if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            
+            this.index1 = index1;
             this.rangeMarker = null;
             this.rangeMarker1 = null;
             this.rangeMarker2 = null;
@@ -16959,21 +17157,18 @@ public class UiTimeline extends JsObject {
             this.rangeMarker5 = null;
             
             this.rangeMarker4 = rangeMarker4;
-            this.index = null;
-            this.index1 = null;
-            
-            this.index1 = index1;
         } else {
-            this.rangeMarker4 = rangeMarker4;
             this.index1 = index1;
+            this.rangeMarker4 = rangeMarker4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", ((rangeMarker4 != null) ? rangeMarker4.generateJs() : "null"), index1));
+            
+            js.append(String.format(Locale.US, ".rangeMarker(%f, %s)", index1, ((rangeMarker4 != null) ? rangeMarker4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", ((rangeMarker4 != null) ? rangeMarker4.generateJs() : "null"), index1));
+                onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%f, %s)", index1, ((rangeMarker4 != null) ? rangeMarker4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -17006,6 +17201,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowEvenFill(%s)", ((rowEvenFill != null) ? rowEvenFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -17093,6 +17289,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f)", wrapQuotes(color11), opacity34));
 
             if (isRendered) {
@@ -17126,7 +17323,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowEvenFill(GradientKey[] keys44, Boolean mode44, Double angle11, Double opacity35) {
+    public UiTimeline rowEvenFill(GradientKey[] keys44, Double angle11, Double opacity35, Boolean mode44) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -17176,55 +17373,6 @@ public class UiTimeline extends JsObject {
             this.keys45 = null;
             
             this.keys44 = keys44;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            
-            this.mode44 = mode44;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -17277,19 +17425,69 @@ public class UiTimeline extends JsObject {
             this.opacity35 = null;
             
             this.opacity35 = opacity35;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            
+            this.mode44 = mode44;
         } else {
             this.keys44 = keys44;
-            this.mode44 = mode44;
             this.angle11 = angle11;
             this.opacity35 = opacity35;
+            this.mode44 = mode44;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToString(keys44), mode44, angle11, opacity35));
+            
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToString(keys44), angle11, opacity35, mode44));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToString(keys44), mode44, angle11, opacity35));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToString(keys44), angle11, opacity35, mode44));
                 js.setLength(0);
             }
         }
@@ -17312,7 +17510,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowEvenFill(GradientKey[] keys44, VectorRect mode45, Double angle11, Double opacity35) {
+    public UiTimeline rowEvenFill(GradientKey[] keys44, Double angle11, Double opacity35, VectorRect mode45) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -17362,55 +17560,6 @@ public class UiTimeline extends JsObject {
             this.keys45 = null;
             
             this.keys44 = keys44;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            
-            this.mode45 = mode45;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -17463,19 +17612,69 @@ public class UiTimeline extends JsObject {
             this.opacity35 = null;
             
             this.opacity35 = opacity35;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            
+            this.mode45 = mode45;
         } else {
             this.keys44 = keys44;
-            this.mode45 = mode45;
             this.angle11 = angle11;
             this.opacity35 = opacity35;
+            this.mode45 = mode45;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), ((mode45 != null) ? mode45.generateJs() : "null"), angle11, opacity35));
+            js.append(mode45.generateJs());
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys44), angle11, opacity35, ((mode45 != null) ? mode45.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), ((mode45 != null) ? mode45.generateJs() : "null"), angle11, opacity35));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys44), angle11, opacity35, ((mode45 != null) ? mode45.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -17498,7 +17697,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowEvenFill(GradientKey[] keys44, String mode46, Double angle11, Double opacity35) {
+    public UiTimeline rowEvenFill(GradientKey[] keys44, Double angle11, Double opacity35, String mode46) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -17548,55 +17747,6 @@ public class UiTimeline extends JsObject {
             this.keys45 = null;
             
             this.keys44 = keys44;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            
-            this.mode46 = mode46;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -17649,19 +17799,69 @@ public class UiTimeline extends JsObject {
             this.opacity35 = null;
             
             this.opacity35 = opacity35;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            
+            this.mode46 = mode46;
         } else {
             this.keys44 = keys44;
-            this.mode46 = mode46;
             this.angle11 = angle11;
             this.opacity35 = opacity35;
+            this.mode46 = mode46;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), wrapQuotes(mode46), angle11, opacity35));
+            
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys44), angle11, opacity35, wrapQuotes(mode46)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys44), wrapQuotes(mode46), angle11, opacity35));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys44), angle11, opacity35, wrapQuotes(mode46)));
                 js.setLength(0);
             }
         }
@@ -17684,7 +17884,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowEvenFill(String[] keys45, Boolean mode44, Double angle11, Double opacity35) {
+    public UiTimeline rowEvenFill(String[] keys45, Double angle11, Double opacity35, Boolean mode44) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -17734,55 +17934,6 @@ public class UiTimeline extends JsObject {
             this.keys45 = null;
             
             this.keys45 = keys45;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            
-            this.mode44 = mode44;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -17835,19 +17986,69 @@ public class UiTimeline extends JsObject {
             this.opacity35 = null;
             
             this.opacity35 = opacity35;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            
+            this.mode44 = mode44;
         } else {
             this.keys45 = keys45;
-            this.mode44 = mode44;
             this.angle11 = angle11;
             this.opacity35 = opacity35;
+            this.mode44 = mode44;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys45), mode44, angle11, opacity35));
+            
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys45), angle11, opacity35, mode44));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys45), mode44, angle11, opacity35));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys45), angle11, opacity35, mode44));
                 js.setLength(0);
             }
         }
@@ -17870,7 +18071,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowEvenFill(String[] keys45, VectorRect mode45, Double angle11, Double opacity35) {
+    public UiTimeline rowEvenFill(String[] keys45, Double angle11, Double opacity35, VectorRect mode45) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -17920,55 +18121,6 @@ public class UiTimeline extends JsObject {
             this.keys45 = null;
             
             this.keys45 = keys45;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            
-            this.mode45 = mode45;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -18021,19 +18173,69 @@ public class UiTimeline extends JsObject {
             this.opacity35 = null;
             
             this.opacity35 = opacity35;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            
+            this.mode45 = mode45;
         } else {
             this.keys45 = keys45;
-            this.mode45 = mode45;
             this.angle11 = angle11;
             this.opacity35 = opacity35;
+            this.mode45 = mode45;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys45), ((mode45 != null) ? mode45.generateJs() : "null"), angle11, opacity35));
+            js.append(mode45.generateJs());
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys45), angle11, opacity35, ((mode45 != null) ? mode45.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys45), ((mode45 != null) ? mode45.generateJs() : "null"), angle11, opacity35));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys45), angle11, opacity35, ((mode45 != null) ? mode45.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -18056,7 +18258,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowEvenFill(String[] keys45, String mode46, Double angle11, Double opacity35) {
+    public UiTimeline rowEvenFill(String[] keys45, Double angle11, Double opacity35, String mode46) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -18106,55 +18308,6 @@ public class UiTimeline extends JsObject {
             this.keys45 = null;
             
             this.keys45 = keys45;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            
-            this.mode46 = mode46;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -18207,19 +18360,69 @@ public class UiTimeline extends JsObject {
             this.opacity35 = null;
             
             this.opacity35 = opacity35;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            
+            this.mode46 = mode46;
         } else {
             this.keys45 = keys45;
-            this.mode46 = mode46;
             this.angle11 = angle11;
             this.opacity35 = opacity35;
+            this.mode46 = mode46;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys45), wrapQuotes(mode46), angle11, opacity35));
+            
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys45), angle11, opacity35, wrapQuotes(mode46)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys45), wrapQuotes(mode46), angle11, opacity35));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys45), angle11, opacity35, wrapQuotes(mode46)));
                 js.setLength(0);
             }
         }
@@ -18463,10 +18666,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys46), cx12, cy12, ((mode47 != null) ? mode47.generateJs() : "null"), opacity36, fx12, fy12));
+            js.append(mode47.generateJs());
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys46), cx12, cy12, ((mode47 != null) ? mode47.getJsBase() : "null"), opacity36, fx12, fy12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys46), cx12, cy12, ((mode47 != null) ? mode47.generateJs() : "null"), opacity36, fx12, fy12));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys46), cx12, cy12, ((mode47 != null) ? mode47.getJsBase() : "null"), opacity36, fx12, fy12));
                 js.setLength(0);
             }
         }
@@ -18702,10 +18906,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys47), cx12, cy12, ((mode47 != null) ? mode47.generateJs() : "null"), opacity36, fx12, fy12));
+            js.append(mode47.generateJs());
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys47), cx12, cy12, ((mode47 != null) ? mode47.getJsBase() : "null"), opacity36, fx12, fy12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys47), cx12, cy12, ((mode47 != null) ? mode47.generateJs() : "null"), opacity36, fx12, fy12));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys47), cx12, cy12, ((mode47 != null) ? mode47.getJsBase() : "null"), opacity36, fx12, fy12));
                 js.setLength(0);
             }
         }
@@ -18739,6 +18944,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowFill(%s)", ((rowFill != null) ? rowFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -18830,6 +19036,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowFill(%s, %f)", wrapQuotes(color12), opacity37));
 
             if (isRendered) {
@@ -18863,7 +19070,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowFill(GradientKey[] keys48, Boolean mode48, Double angle12, Double opacity38) {
+    public UiTimeline rowFill(GradientKey[] keys48, Double angle12, Double opacity38, Boolean mode48) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -18917,59 +19124,6 @@ public class UiTimeline extends JsObject {
             this.keys49 = null;
             
             this.keys48 = keys48;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            
-            this.mode48 = mode48;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -19026,19 +19180,73 @@ public class UiTimeline extends JsObject {
             this.opacity38 = null;
             
             this.opacity38 = opacity38;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            
+            this.mode48 = mode48;
         } else {
             this.keys48 = keys48;
-            this.mode48 = mode48;
             this.angle12 = angle12;
             this.opacity38 = opacity38;
+            this.mode48 = mode48;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToString(keys48), mode48, angle12, opacity38));
+            
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %b)", arrayToString(keys48), angle12, opacity38, mode48));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToString(keys48), mode48, angle12, opacity38));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %b)", arrayToString(keys48), angle12, opacity38, mode48));
                 js.setLength(0);
             }
         }
@@ -19061,7 +19269,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowFill(GradientKey[] keys48, VectorRect mode49, Double angle12, Double opacity38) {
+    public UiTimeline rowFill(GradientKey[] keys48, Double angle12, Double opacity38, VectorRect mode49) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -19115,59 +19323,6 @@ public class UiTimeline extends JsObject {
             this.keys49 = null;
             
             this.keys48 = keys48;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            
-            this.mode49 = mode49;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -19224,19 +19379,73 @@ public class UiTimeline extends JsObject {
             this.opacity38 = null;
             
             this.opacity38 = opacity38;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            
+            this.mode49 = mode49;
         } else {
             this.keys48 = keys48;
-            this.mode49 = mode49;
             this.angle12 = angle12;
             this.opacity38 = opacity38;
+            this.mode49 = mode49;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), ((mode49 != null) ? mode49.generateJs() : "null"), angle12, opacity38));
+            js.append(mode49.generateJs());
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToString(keys48), angle12, opacity38, ((mode49 != null) ? mode49.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), ((mode49 != null) ? mode49.generateJs() : "null"), angle12, opacity38));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToString(keys48), angle12, opacity38, ((mode49 != null) ? mode49.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -19259,7 +19468,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowFill(GradientKey[] keys48, String mode50, Double angle12, Double opacity38) {
+    public UiTimeline rowFill(GradientKey[] keys48, Double angle12, Double opacity38, String mode50) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -19313,59 +19522,6 @@ public class UiTimeline extends JsObject {
             this.keys49 = null;
             
             this.keys48 = keys48;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            
-            this.mode50 = mode50;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -19422,19 +19578,73 @@ public class UiTimeline extends JsObject {
             this.opacity38 = null;
             
             this.opacity38 = opacity38;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            
+            this.mode50 = mode50;
         } else {
             this.keys48 = keys48;
-            this.mode50 = mode50;
             this.angle12 = angle12;
             this.opacity38 = opacity38;
+            this.mode50 = mode50;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), wrapQuotes(mode50), angle12, opacity38));
+            
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToString(keys48), angle12, opacity38, wrapQuotes(mode50)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys48), wrapQuotes(mode50), angle12, opacity38));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToString(keys48), angle12, opacity38, wrapQuotes(mode50)));
                 js.setLength(0);
             }
         }
@@ -19457,7 +19667,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowFill(String[] keys49, Boolean mode48, Double angle12, Double opacity38) {
+    public UiTimeline rowFill(String[] keys49, Double angle12, Double opacity38, Boolean mode48) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -19511,59 +19721,6 @@ public class UiTimeline extends JsObject {
             this.keys49 = null;
             
             this.keys49 = keys49;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            
-            this.mode48 = mode48;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -19620,19 +19777,73 @@ public class UiTimeline extends JsObject {
             this.opacity38 = null;
             
             this.opacity38 = opacity38;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            
+            this.mode48 = mode48;
         } else {
             this.keys49 = keys49;
-            this.mode48 = mode48;
             this.angle12 = angle12;
             this.opacity38 = opacity38;
+            this.mode48 = mode48;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys49), mode48, angle12, opacity38));
+            
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys49), angle12, opacity38, mode48));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys49), mode48, angle12, opacity38));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys49), angle12, opacity38, mode48));
                 js.setLength(0);
             }
         }
@@ -19655,7 +19866,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowFill(String[] keys49, VectorRect mode49, Double angle12, Double opacity38) {
+    public UiTimeline rowFill(String[] keys49, Double angle12, Double opacity38, VectorRect mode49) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -19709,59 +19920,6 @@ public class UiTimeline extends JsObject {
             this.keys49 = null;
             
             this.keys49 = keys49;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            
-            this.mode49 = mode49;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -19818,19 +19976,73 @@ public class UiTimeline extends JsObject {
             this.opacity38 = null;
             
             this.opacity38 = opacity38;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            
+            this.mode49 = mode49;
         } else {
             this.keys49 = keys49;
-            this.mode49 = mode49;
             this.angle12 = angle12;
             this.opacity38 = opacity38;
+            this.mode49 = mode49;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys49), ((mode49 != null) ? mode49.generateJs() : "null"), angle12, opacity38));
+            js.append(mode49.generateJs());
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys49), angle12, opacity38, ((mode49 != null) ? mode49.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys49), ((mode49 != null) ? mode49.generateJs() : "null"), angle12, opacity38));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys49), angle12, opacity38, ((mode49 != null) ? mode49.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -19853,7 +20065,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowFill(String[] keys49, String mode50, Double angle12, Double opacity38) {
+    public UiTimeline rowFill(String[] keys49, Double angle12, Double opacity38, String mode50) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -19907,59 +20119,6 @@ public class UiTimeline extends JsObject {
             this.keys49 = null;
             
             this.keys49 = keys49;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            
-            this.mode50 = mode50;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -20016,19 +20175,73 @@ public class UiTimeline extends JsObject {
             this.opacity38 = null;
             
             this.opacity38 = opacity38;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            
+            this.mode50 = mode50;
         } else {
             this.keys49 = keys49;
-            this.mode50 = mode50;
             this.angle12 = angle12;
             this.opacity38 = opacity38;
+            this.mode50 = mode50;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys49), wrapQuotes(mode50), angle12, opacity38));
+            
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys49), angle12, opacity38, wrapQuotes(mode50)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys49), wrapQuotes(mode50), angle12, opacity38));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys49), angle12, opacity38, wrapQuotes(mode50)));
                 js.setLength(0);
             }
         }
@@ -20287,10 +20500,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys50), cx13, cy13, ((mode51 != null) ? mode51.generateJs() : "null"), opacity39, fx13, fy13));
+            js.append(mode51.generateJs());
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys50), cx13, cy13, ((mode51 != null) ? mode51.getJsBase() : "null"), opacity39, fx13, fy13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys50), cx13, cy13, ((mode51 != null) ? mode51.generateJs() : "null"), opacity39, fx13, fy13));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys50), cx13, cy13, ((mode51 != null) ? mode51.getJsBase() : "null"), opacity39, fx13, fy13));
                 js.setLength(0);
             }
         }
@@ -20541,10 +20755,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys51), cx13, cy13, ((mode51 != null) ? mode51.generateJs() : "null"), opacity39, fx13, fy13));
+            js.append(mode51.generateJs());
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys51), cx13, cy13, ((mode51 != null) ? mode51.getJsBase() : "null"), opacity39, fx13, fy13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys51), cx13, cy13, ((mode51 != null) ? mode51.generateJs() : "null"), opacity39, fx13, fy13));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys51), cx13, cy13, ((mode51 != null) ? mode51.getJsBase() : "null"), opacity39, fx13, fy13));
                 js.setLength(0);
             }
         }
@@ -20578,6 +20793,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowHoverFill(%s)", ((rowHoverFill != null) ? rowHoverFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -20673,6 +20889,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %f)", wrapQuotes(color13), opacity40));
 
             if (isRendered) {
@@ -20706,7 +20923,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowHoverFill(GradientKey[] keys52, Boolean mode52, Double angle13, Double opacity41) {
+    public UiTimeline rowHoverFill(GradientKey[] keys52, Double angle13, Double opacity41, Boolean mode52) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -20764,63 +20981,6 @@ public class UiTimeline extends JsObject {
             this.keys53 = null;
             
             this.keys52 = keys52;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            
-            this.mode52 = mode52;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -20881,19 +21041,77 @@ public class UiTimeline extends JsObject {
             this.opacity41 = null;
             
             this.opacity41 = opacity41;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            
+            this.mode52 = mode52;
         } else {
             this.keys52 = keys52;
-            this.mode52 = mode52;
             this.angle13 = angle13;
             this.opacity41 = opacity41;
+            this.mode52 = mode52;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToString(keys52), mode52, angle13, opacity41));
+            
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %b)", arrayToString(keys52), angle13, opacity41, mode52));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToString(keys52), mode52, angle13, opacity41));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %b)", arrayToString(keys52), angle13, opacity41, mode52));
                 js.setLength(0);
             }
         }
@@ -20916,7 +21134,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowHoverFill(GradientKey[] keys52, VectorRect mode53, Double angle13, Double opacity41) {
+    public UiTimeline rowHoverFill(GradientKey[] keys52, Double angle13, Double opacity41, VectorRect mode53) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -20974,63 +21192,6 @@ public class UiTimeline extends JsObject {
             this.keys53 = null;
             
             this.keys52 = keys52;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            
-            this.mode53 = mode53;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -21091,19 +21252,77 @@ public class UiTimeline extends JsObject {
             this.opacity41 = null;
             
             this.opacity41 = opacity41;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            
+            this.mode53 = mode53;
         } else {
             this.keys52 = keys52;
-            this.mode53 = mode53;
             this.angle13 = angle13;
             this.opacity41 = opacity41;
+            this.mode53 = mode53;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), ((mode53 != null) ? mode53.generateJs() : "null"), angle13, opacity41));
+            js.append(mode53.generateJs());
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToString(keys52), angle13, opacity41, ((mode53 != null) ? mode53.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), ((mode53 != null) ? mode53.generateJs() : "null"), angle13, opacity41));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToString(keys52), angle13, opacity41, ((mode53 != null) ? mode53.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -21126,7 +21345,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowHoverFill(GradientKey[] keys52, String mode54, Double angle13, Double opacity41) {
+    public UiTimeline rowHoverFill(GradientKey[] keys52, Double angle13, Double opacity41, String mode54) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -21184,63 +21403,6 @@ public class UiTimeline extends JsObject {
             this.keys53 = null;
             
             this.keys52 = keys52;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            
-            this.mode54 = mode54;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -21301,19 +21463,77 @@ public class UiTimeline extends JsObject {
             this.opacity41 = null;
             
             this.opacity41 = opacity41;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            
+            this.mode54 = mode54;
         } else {
             this.keys52 = keys52;
-            this.mode54 = mode54;
             this.angle13 = angle13;
             this.opacity41 = opacity41;
+            this.mode54 = mode54;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), wrapQuotes(mode54), angle13, opacity41));
+            
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToString(keys52), angle13, opacity41, wrapQuotes(mode54)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys52), wrapQuotes(mode54), angle13, opacity41));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToString(keys52), angle13, opacity41, wrapQuotes(mode54)));
                 js.setLength(0);
             }
         }
@@ -21336,7 +21556,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowHoverFill(String[] keys53, Boolean mode52, Double angle13, Double opacity41) {
+    public UiTimeline rowHoverFill(String[] keys53, Double angle13, Double opacity41, Boolean mode52) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -21394,63 +21614,6 @@ public class UiTimeline extends JsObject {
             this.keys53 = null;
             
             this.keys53 = keys53;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            
-            this.mode52 = mode52;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -21511,19 +21674,77 @@ public class UiTimeline extends JsObject {
             this.opacity41 = null;
             
             this.opacity41 = opacity41;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            
+            this.mode52 = mode52;
         } else {
             this.keys53 = keys53;
-            this.mode52 = mode52;
             this.angle13 = angle13;
             this.opacity41 = opacity41;
+            this.mode52 = mode52;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys53), mode52, angle13, opacity41));
+            
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys53), angle13, opacity41, mode52));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys53), mode52, angle13, opacity41));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys53), angle13, opacity41, mode52));
                 js.setLength(0);
             }
         }
@@ -21546,7 +21767,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowHoverFill(String[] keys53, VectorRect mode53, Double angle13, Double opacity41) {
+    public UiTimeline rowHoverFill(String[] keys53, Double angle13, Double opacity41, VectorRect mode53) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -21604,63 +21825,6 @@ public class UiTimeline extends JsObject {
             this.keys53 = null;
             
             this.keys53 = keys53;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            
-            this.mode53 = mode53;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -21721,19 +21885,77 @@ public class UiTimeline extends JsObject {
             this.opacity41 = null;
             
             this.opacity41 = opacity41;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            
+            this.mode53 = mode53;
         } else {
             this.keys53 = keys53;
-            this.mode53 = mode53;
             this.angle13 = angle13;
             this.opacity41 = opacity41;
+            this.mode53 = mode53;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys53), ((mode53 != null) ? mode53.generateJs() : "null"), angle13, opacity41));
+            js.append(mode53.generateJs());
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys53), angle13, opacity41, ((mode53 != null) ? mode53.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys53), ((mode53 != null) ? mode53.generateJs() : "null"), angle13, opacity41));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys53), angle13, opacity41, ((mode53 != null) ? mode53.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -21756,7 +21978,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowHoverFill(String[] keys53, String mode54, Double angle13, Double opacity41) {
+    public UiTimeline rowHoverFill(String[] keys53, Double angle13, Double opacity41, String mode54) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -21814,63 +22036,6 @@ public class UiTimeline extends JsObject {
             this.keys53 = null;
             
             this.keys53 = keys53;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            
-            this.mode54 = mode54;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -21931,19 +22096,77 @@ public class UiTimeline extends JsObject {
             this.opacity41 = null;
             
             this.opacity41 = opacity41;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            
+            this.mode54 = mode54;
         } else {
             this.keys53 = keys53;
-            this.mode54 = mode54;
             this.angle13 = angle13;
             this.opacity41 = opacity41;
+            this.mode54 = mode54;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys53), wrapQuotes(mode54), angle13, opacity41));
+            
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys53), angle13, opacity41, wrapQuotes(mode54)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys53), wrapQuotes(mode54), angle13, opacity41));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys53), angle13, opacity41, wrapQuotes(mode54)));
                 js.setLength(0);
             }
         }
@@ -22217,10 +22440,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys54), cx14, cy14, ((mode55 != null) ? mode55.generateJs() : "null"), opacity42, fx14, fy14));
+            js.append(mode55.generateJs());
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys54), cx14, cy14, ((mode55 != null) ? mode55.getJsBase() : "null"), opacity42, fx14, fy14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys54), cx14, cy14, ((mode55 != null) ? mode55.generateJs() : "null"), opacity42, fx14, fy14));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys54), cx14, cy14, ((mode55 != null) ? mode55.getJsBase() : "null"), opacity42, fx14, fy14));
                 js.setLength(0);
             }
         }
@@ -22486,10 +22710,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys55), cx14, cy14, ((mode55 != null) ? mode55.generateJs() : "null"), opacity42, fx14, fy14));
+            js.append(mode55.generateJs());
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys55), cx14, cy14, ((mode55 != null) ? mode55.getJsBase() : "null"), opacity42, fx14, fy14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys55), cx14, cy14, ((mode55 != null) ? mode55.generateJs() : "null"), opacity42, fx14, fy14));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys55), cx14, cy14, ((mode55 != null) ? mode55.getJsBase() : "null"), opacity42, fx14, fy14));
                 js.setLength(0);
             }
         }
@@ -22522,6 +22747,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowOddFill(%s)", ((rowOddFill != null) ? rowOddFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -22621,6 +22847,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f)", wrapQuotes(color14), opacity43));
 
             if (isRendered) {
@@ -22654,7 +22881,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowOddFill(GradientKey[] keys56, Boolean mode56, Double angle14, Double opacity44) {
+    public UiTimeline rowOddFill(GradientKey[] keys56, Double angle14, Double opacity44, Boolean mode56) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -22716,67 +22943,6 @@ public class UiTimeline extends JsObject {
             this.keys57 = null;
             
             this.keys56 = keys56;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            this.mode55 = null;
-            this.mode56 = null;
-            this.mode57 = null;
-            this.mode58 = null;
-            
-            this.mode56 = mode56;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -22841,19 +23007,81 @@ public class UiTimeline extends JsObject {
             this.opacity44 = null;
             
             this.opacity44 = opacity44;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            this.mode55 = null;
+            this.mode56 = null;
+            this.mode57 = null;
+            this.mode58 = null;
+            
+            this.mode56 = mode56;
         } else {
             this.keys56 = keys56;
-            this.mode56 = mode56;
             this.angle14 = angle14;
             this.opacity44 = opacity44;
+            this.mode56 = mode56;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToString(keys56), mode56, angle14, opacity44));
+            
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToString(keys56), angle14, opacity44, mode56));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToString(keys56), mode56, angle14, opacity44));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToString(keys56), angle14, opacity44, mode56));
                 js.setLength(0);
             }
         }
@@ -22876,7 +23104,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowOddFill(GradientKey[] keys56, VectorRect mode57, Double angle14, Double opacity44) {
+    public UiTimeline rowOddFill(GradientKey[] keys56, Double angle14, Double opacity44, VectorRect mode57) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -22938,67 +23166,6 @@ public class UiTimeline extends JsObject {
             this.keys57 = null;
             
             this.keys56 = keys56;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            this.mode55 = null;
-            this.mode56 = null;
-            this.mode57 = null;
-            this.mode58 = null;
-            
-            this.mode57 = mode57;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -23063,19 +23230,81 @@ public class UiTimeline extends JsObject {
             this.opacity44 = null;
             
             this.opacity44 = opacity44;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            this.mode55 = null;
+            this.mode56 = null;
+            this.mode57 = null;
+            this.mode58 = null;
+            
+            this.mode57 = mode57;
         } else {
             this.keys56 = keys56;
-            this.mode57 = mode57;
             this.angle14 = angle14;
             this.opacity44 = opacity44;
+            this.mode57 = mode57;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), ((mode57 != null) ? mode57.generateJs() : "null"), angle14, opacity44));
+            js.append(mode57.generateJs());
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys56), angle14, opacity44, ((mode57 != null) ? mode57.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), ((mode57 != null) ? mode57.generateJs() : "null"), angle14, opacity44));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys56), angle14, opacity44, ((mode57 != null) ? mode57.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -23098,7 +23327,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowOddFill(GradientKey[] keys56, String mode58, Double angle14, Double opacity44) {
+    public UiTimeline rowOddFill(GradientKey[] keys56, Double angle14, Double opacity44, String mode58) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -23160,67 +23389,6 @@ public class UiTimeline extends JsObject {
             this.keys57 = null;
             
             this.keys56 = keys56;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            this.mode55 = null;
-            this.mode56 = null;
-            this.mode57 = null;
-            this.mode58 = null;
-            
-            this.mode58 = mode58;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -23285,19 +23453,81 @@ public class UiTimeline extends JsObject {
             this.opacity44 = null;
             
             this.opacity44 = opacity44;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            this.mode55 = null;
+            this.mode56 = null;
+            this.mode57 = null;
+            this.mode58 = null;
+            
+            this.mode58 = mode58;
         } else {
             this.keys56 = keys56;
-            this.mode58 = mode58;
             this.angle14 = angle14;
             this.opacity44 = opacity44;
+            this.mode58 = mode58;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), wrapQuotes(mode58), angle14, opacity44));
+            
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys56), angle14, opacity44, wrapQuotes(mode58)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys56), wrapQuotes(mode58), angle14, opacity44));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys56), angle14, opacity44, wrapQuotes(mode58)));
                 js.setLength(0);
             }
         }
@@ -23320,7 +23550,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowOddFill(String[] keys57, Boolean mode56, Double angle14, Double opacity44) {
+    public UiTimeline rowOddFill(String[] keys57, Double angle14, Double opacity44, Boolean mode56) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -23382,67 +23612,6 @@ public class UiTimeline extends JsObject {
             this.keys57 = null;
             
             this.keys57 = keys57;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            this.mode55 = null;
-            this.mode56 = null;
-            this.mode57 = null;
-            this.mode58 = null;
-            
-            this.mode56 = mode56;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -23507,19 +23676,81 @@ public class UiTimeline extends JsObject {
             this.opacity44 = null;
             
             this.opacity44 = opacity44;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            this.mode55 = null;
+            this.mode56 = null;
+            this.mode57 = null;
+            this.mode58 = null;
+            
+            this.mode56 = mode56;
         } else {
             this.keys57 = keys57;
-            this.mode56 = mode56;
             this.angle14 = angle14;
             this.opacity44 = opacity44;
+            this.mode56 = mode56;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys57), mode56, angle14, opacity44));
+            
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys57), angle14, opacity44, mode56));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys57), mode56, angle14, opacity44));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys57), angle14, opacity44, mode56));
                 js.setLength(0);
             }
         }
@@ -23542,7 +23773,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowOddFill(String[] keys57, VectorRect mode57, Double angle14, Double opacity44) {
+    public UiTimeline rowOddFill(String[] keys57, Double angle14, Double opacity44, VectorRect mode57) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -23604,67 +23835,6 @@ public class UiTimeline extends JsObject {
             this.keys57 = null;
             
             this.keys57 = keys57;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            this.mode55 = null;
-            this.mode56 = null;
-            this.mode57 = null;
-            this.mode58 = null;
-            
-            this.mode57 = mode57;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -23729,19 +23899,81 @@ public class UiTimeline extends JsObject {
             this.opacity44 = null;
             
             this.opacity44 = opacity44;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            this.mode55 = null;
+            this.mode56 = null;
+            this.mode57 = null;
+            this.mode58 = null;
+            
+            this.mode57 = mode57;
         } else {
             this.keys57 = keys57;
-            this.mode57 = mode57;
             this.angle14 = angle14;
             this.opacity44 = opacity44;
+            this.mode57 = mode57;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys57), ((mode57 != null) ? mode57.generateJs() : "null"), angle14, opacity44));
+            js.append(mode57.generateJs());
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys57), angle14, opacity44, ((mode57 != null) ? mode57.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys57), ((mode57 != null) ? mode57.generateJs() : "null"), angle14, opacity44));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys57), angle14, opacity44, ((mode57 != null) ? mode57.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -23764,7 +23996,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowOddFill(String[] keys57, String mode58, Double angle14, Double opacity44) {
+    public UiTimeline rowOddFill(String[] keys57, Double angle14, Double opacity44, String mode58) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -23826,67 +24058,6 @@ public class UiTimeline extends JsObject {
             this.keys57 = null;
             
             this.keys57 = keys57;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            this.mode55 = null;
-            this.mode56 = null;
-            this.mode57 = null;
-            this.mode58 = null;
-            
-            this.mode58 = mode58;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -23951,19 +24122,81 @@ public class UiTimeline extends JsObject {
             this.opacity44 = null;
             
             this.opacity44 = opacity44;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            this.mode55 = null;
+            this.mode56 = null;
+            this.mode57 = null;
+            this.mode58 = null;
+            
+            this.mode58 = mode58;
         } else {
             this.keys57 = keys57;
-            this.mode58 = mode58;
             this.angle14 = angle14;
             this.opacity44 = opacity44;
+            this.mode58 = mode58;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys57), wrapQuotes(mode58), angle14, opacity44));
+            
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys57), angle14, opacity44, wrapQuotes(mode58)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys57), wrapQuotes(mode58), angle14, opacity44));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys57), angle14, opacity44, wrapQuotes(mode58)));
                 js.setLength(0);
             }
         }
@@ -24252,10 +24485,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys58), cx15, cy15, ((mode59 != null) ? mode59.generateJs() : "null"), opacity45, fx15, fy15));
+            js.append(mode59.generateJs());
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys58), cx15, cy15, ((mode59 != null) ? mode59.getJsBase() : "null"), opacity45, fx15, fy15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys58), cx15, cy15, ((mode59 != null) ? mode59.generateJs() : "null"), opacity45, fx15, fy15));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys58), cx15, cy15, ((mode59 != null) ? mode59.getJsBase() : "null"), opacity45, fx15, fy15));
                 js.setLength(0);
             }
         }
@@ -24536,10 +24770,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys59), cx15, cy15, ((mode59 != null) ? mode59.generateJs() : "null"), opacity45, fx15, fy15));
+            js.append(mode59.generateJs());
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys59), cx15, cy15, ((mode59 != null) ? mode59.getJsBase() : "null"), opacity45, fx15, fy15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys59), cx15, cy15, ((mode59 != null) ? mode59.generateJs() : "null"), opacity45, fx15, fy15));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys59), cx15, cy15, ((mode59 != null) ? mode59.getJsBase() : "null"), opacity45, fx15, fy15));
                 js.setLength(0);
             }
         }
@@ -24573,6 +24808,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowSelectedFill(%s)", ((rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -24676,6 +24912,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f)", wrapQuotes(color15), opacity46));
 
             if (isRendered) {
@@ -24708,7 +24945,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowSelectedFill(GradientKey[] keys60, Boolean mode60, Double angle15) {
+    public UiTimeline rowSelectedFill(GradientKey[] keys60, Double angle15, Boolean mode60) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -24774,6 +25011,24 @@ public class UiTimeline extends JsObject {
             this.keys61 = null;
             
             this.keys60 = keys60;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            this.angle7 = null;
+            this.angle8 = null;
+            this.angle9 = null;
+            this.angle10 = null;
+            this.angle11 = null;
+            this.angle12 = null;
+            this.angle13 = null;
+            this.angle14 = null;
+            this.angle15 = null;
+            
+            this.angle15 = angle15;
             this.mode = null;
             this.mode1 = null;
             this.mode2 = null;
@@ -24839,36 +25094,19 @@ public class UiTimeline extends JsObject {
             this.mode62 = null;
             
             this.mode60 = mode60;
-            this.angle = null;
-            this.angle1 = null;
-            this.angle2 = null;
-            this.angle3 = null;
-            this.angle4 = null;
-            this.angle5 = null;
-            this.angle6 = null;
-            this.angle7 = null;
-            this.angle8 = null;
-            this.angle9 = null;
-            this.angle10 = null;
-            this.angle11 = null;
-            this.angle12 = null;
-            this.angle13 = null;
-            this.angle14 = null;
-            this.angle15 = null;
-            
-            this.angle15 = angle15;
         } else {
             this.keys60 = keys60;
-            this.mode60 = mode60;
             this.angle15 = angle15;
+            this.mode60 = mode60;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToString(keys60), mode60, angle15));
+            
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %b)", arrayToString(keys60), angle15, mode60));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToString(keys60), mode60, angle15));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %b)", arrayToString(keys60), angle15, mode60));
                 js.setLength(0);
             }
         }
@@ -24891,7 +25129,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowSelectedFill(GradientKey[] keys60, VectorRect mode61, Double angle15) {
+    public UiTimeline rowSelectedFill(GradientKey[] keys60, Double angle15, VectorRect mode61) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -24957,6 +25195,24 @@ public class UiTimeline extends JsObject {
             this.keys61 = null;
             
             this.keys60 = keys60;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            this.angle7 = null;
+            this.angle8 = null;
+            this.angle9 = null;
+            this.angle10 = null;
+            this.angle11 = null;
+            this.angle12 = null;
+            this.angle13 = null;
+            this.angle14 = null;
+            this.angle15 = null;
+            
+            this.angle15 = angle15;
             this.mode = null;
             this.mode1 = null;
             this.mode2 = null;
@@ -25022,36 +25278,19 @@ public class UiTimeline extends JsObject {
             this.mode62 = null;
             
             this.mode61 = mode61;
-            this.angle = null;
-            this.angle1 = null;
-            this.angle2 = null;
-            this.angle3 = null;
-            this.angle4 = null;
-            this.angle5 = null;
-            this.angle6 = null;
-            this.angle7 = null;
-            this.angle8 = null;
-            this.angle9 = null;
-            this.angle10 = null;
-            this.angle11 = null;
-            this.angle12 = null;
-            this.angle13 = null;
-            this.angle14 = null;
-            this.angle15 = null;
-            
-            this.angle15 = angle15;
         } else {
             this.keys60 = keys60;
-            this.mode61 = mode61;
             this.angle15 = angle15;
+            this.mode61 = mode61;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), ((mode61 != null) ? mode61.generateJs() : "null"), angle15));
+            js.append(mode61.generateJs());
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToString(keys60), angle15, ((mode61 != null) ? mode61.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), ((mode61 != null) ? mode61.generateJs() : "null"), angle15));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToString(keys60), angle15, ((mode61 != null) ? mode61.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -25074,7 +25313,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowSelectedFill(GradientKey[] keys60, String mode62, Double angle15) {
+    public UiTimeline rowSelectedFill(GradientKey[] keys60, Double angle15, String mode62) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -25140,6 +25379,24 @@ public class UiTimeline extends JsObject {
             this.keys61 = null;
             
             this.keys60 = keys60;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            this.angle7 = null;
+            this.angle8 = null;
+            this.angle9 = null;
+            this.angle10 = null;
+            this.angle11 = null;
+            this.angle12 = null;
+            this.angle13 = null;
+            this.angle14 = null;
+            this.angle15 = null;
+            
+            this.angle15 = angle15;
             this.mode = null;
             this.mode1 = null;
             this.mode2 = null;
@@ -25205,36 +25462,19 @@ public class UiTimeline extends JsObject {
             this.mode62 = null;
             
             this.mode62 = mode62;
-            this.angle = null;
-            this.angle1 = null;
-            this.angle2 = null;
-            this.angle3 = null;
-            this.angle4 = null;
-            this.angle5 = null;
-            this.angle6 = null;
-            this.angle7 = null;
-            this.angle8 = null;
-            this.angle9 = null;
-            this.angle10 = null;
-            this.angle11 = null;
-            this.angle12 = null;
-            this.angle13 = null;
-            this.angle14 = null;
-            this.angle15 = null;
-            
-            this.angle15 = angle15;
         } else {
             this.keys60 = keys60;
-            this.mode62 = mode62;
             this.angle15 = angle15;
+            this.mode62 = mode62;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), wrapQuotes(mode62), angle15));
+            
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToString(keys60), angle15, wrapQuotes(mode62)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys60), wrapQuotes(mode62), angle15));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToString(keys60), angle15, wrapQuotes(mode62)));
                 js.setLength(0);
             }
         }
@@ -25257,7 +25497,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowSelectedFill(String[] keys61, Boolean mode60, Double angle15) {
+    public UiTimeline rowSelectedFill(String[] keys61, Double angle15, Boolean mode60) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -25323,6 +25563,24 @@ public class UiTimeline extends JsObject {
             this.keys61 = null;
             
             this.keys61 = keys61;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            this.angle7 = null;
+            this.angle8 = null;
+            this.angle9 = null;
+            this.angle10 = null;
+            this.angle11 = null;
+            this.angle12 = null;
+            this.angle13 = null;
+            this.angle14 = null;
+            this.angle15 = null;
+            
+            this.angle15 = angle15;
             this.mode = null;
             this.mode1 = null;
             this.mode2 = null;
@@ -25388,36 +25646,19 @@ public class UiTimeline extends JsObject {
             this.mode62 = null;
             
             this.mode60 = mode60;
-            this.angle = null;
-            this.angle1 = null;
-            this.angle2 = null;
-            this.angle3 = null;
-            this.angle4 = null;
-            this.angle5 = null;
-            this.angle6 = null;
-            this.angle7 = null;
-            this.angle8 = null;
-            this.angle9 = null;
-            this.angle10 = null;
-            this.angle11 = null;
-            this.angle12 = null;
-            this.angle13 = null;
-            this.angle14 = null;
-            this.angle15 = null;
-            
-            this.angle15 = angle15;
         } else {
             this.keys61 = keys61;
-            this.mode60 = mode60;
             this.angle15 = angle15;
+            this.mode60 = mode60;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToStringWrapQuotes(keys61), mode60, angle15));
+            
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %b)", arrayToStringWrapQuotes(keys61), angle15, mode60));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToStringWrapQuotes(keys61), mode60, angle15));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %b)", arrayToStringWrapQuotes(keys61), angle15, mode60));
                 js.setLength(0);
             }
         }
@@ -25440,7 +25681,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowSelectedFill(String[] keys61, VectorRect mode61, Double angle15) {
+    public UiTimeline rowSelectedFill(String[] keys61, Double angle15, VectorRect mode61) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -25506,6 +25747,24 @@ public class UiTimeline extends JsObject {
             this.keys61 = null;
             
             this.keys61 = keys61;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            this.angle7 = null;
+            this.angle8 = null;
+            this.angle9 = null;
+            this.angle10 = null;
+            this.angle11 = null;
+            this.angle12 = null;
+            this.angle13 = null;
+            this.angle14 = null;
+            this.angle15 = null;
+            
+            this.angle15 = angle15;
             this.mode = null;
             this.mode1 = null;
             this.mode2 = null;
@@ -25571,36 +25830,19 @@ public class UiTimeline extends JsObject {
             this.mode62 = null;
             
             this.mode61 = mode61;
-            this.angle = null;
-            this.angle1 = null;
-            this.angle2 = null;
-            this.angle3 = null;
-            this.angle4 = null;
-            this.angle5 = null;
-            this.angle6 = null;
-            this.angle7 = null;
-            this.angle8 = null;
-            this.angle9 = null;
-            this.angle10 = null;
-            this.angle11 = null;
-            this.angle12 = null;
-            this.angle13 = null;
-            this.angle14 = null;
-            this.angle15 = null;
-            
-            this.angle15 = angle15;
         } else {
             this.keys61 = keys61;
-            this.mode61 = mode61;
             this.angle15 = angle15;
+            this.mode61 = mode61;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys61), ((mode61 != null) ? mode61.generateJs() : "null"), angle15));
+            js.append(mode61.generateJs());
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToStringWrapQuotes(keys61), angle15, ((mode61 != null) ? mode61.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys61), ((mode61 != null) ? mode61.generateJs() : "null"), angle15));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToStringWrapQuotes(keys61), angle15, ((mode61 != null) ? mode61.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -25623,7 +25865,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowSelectedFill(String[] keys61, String mode62, Double angle15) {
+    public UiTimeline rowSelectedFill(String[] keys61, Double angle15, String mode62) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -25689,6 +25931,24 @@ public class UiTimeline extends JsObject {
             this.keys61 = null;
             
             this.keys61 = keys61;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            this.angle7 = null;
+            this.angle8 = null;
+            this.angle9 = null;
+            this.angle10 = null;
+            this.angle11 = null;
+            this.angle12 = null;
+            this.angle13 = null;
+            this.angle14 = null;
+            this.angle15 = null;
+            
+            this.angle15 = angle15;
             this.mode = null;
             this.mode1 = null;
             this.mode2 = null;
@@ -25754,36 +26014,19 @@ public class UiTimeline extends JsObject {
             this.mode62 = null;
             
             this.mode62 = mode62;
-            this.angle = null;
-            this.angle1 = null;
-            this.angle2 = null;
-            this.angle3 = null;
-            this.angle4 = null;
-            this.angle5 = null;
-            this.angle6 = null;
-            this.angle7 = null;
-            this.angle8 = null;
-            this.angle9 = null;
-            this.angle10 = null;
-            this.angle11 = null;
-            this.angle12 = null;
-            this.angle13 = null;
-            this.angle14 = null;
-            this.angle15 = null;
-            
-            this.angle15 = angle15;
         } else {
             this.keys61 = keys61;
-            this.mode62 = mode62;
             this.angle15 = angle15;
+            this.mode62 = mode62;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys61), wrapQuotes(mode62), angle15));
+            
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToStringWrapQuotes(keys61), angle15, wrapQuotes(mode62)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys61), wrapQuotes(mode62), angle15));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToStringWrapQuotes(keys61), angle15, wrapQuotes(mode62)));
                 js.setLength(0);
             }
         }
@@ -26086,10 +26329,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys62), cx16, cy16, ((mode63 != null) ? mode63.generateJs() : "null"), opacity47, fx16, fy16));
+            js.append(mode63.generateJs());
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys62), cx16, cy16, ((mode63 != null) ? mode63.getJsBase() : "null"), opacity47, fx16, fy16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys62), cx16, cy16, ((mode63 != null) ? mode63.generateJs() : "null"), opacity47, fx16, fy16));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys62), cx16, cy16, ((mode63 != null) ? mode63.getJsBase() : "null"), opacity47, fx16, fy16));
                 js.setLength(0);
             }
         }
@@ -26384,10 +26628,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys63), cx16, cy16, ((mode63 != null) ? mode63.generateJs() : "null"), opacity47, fx16, fy16));
+            js.append(mode63.generateJs());
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys63), cx16, cy16, ((mode63 != null) ? mode63.getJsBase() : "null"), opacity47, fx16, fy16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys63), cx16, cy16, ((mode63 != null) ? mode63.generateJs() : "null"), opacity47, fx16, fy16));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys63), cx16, cy16, ((mode63 != null) ? mode63.getJsBase() : "null"), opacity47, fx16, fy16));
                 js.setLength(0);
             }
         }
@@ -26432,6 +26677,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale)));
 
             if (isRendered) {
@@ -26468,6 +26714,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selectedElementFill(%s)", ((selectedElementFill != null) ? selectedElementFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -26574,6 +26821,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selectedElementFill(%s, %f)", wrapQuotes(color16), opacity48));
 
             if (isRendered) {
@@ -26607,7 +26855,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline selectedElementFill(GradientKey[] keys64, Boolean mode64, Double angle16, Double opacity49) {
+    public UiTimeline selectedElementFill(GradientKey[] keys64, Double angle16, Double opacity49, Boolean mode64) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -26677,75 +26925,6 @@ public class UiTimeline extends JsObject {
             this.keys65 = null;
             
             this.keys64 = keys64;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            this.mode55 = null;
-            this.mode56 = null;
-            this.mode57 = null;
-            this.mode58 = null;
-            this.mode59 = null;
-            this.mode60 = null;
-            this.mode61 = null;
-            this.mode62 = null;
-            this.mode63 = null;
-            this.mode64 = null;
-            this.mode65 = null;
-            this.mode66 = null;
-            
-            this.mode64 = mode64;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -26817,19 +26996,89 @@ public class UiTimeline extends JsObject {
             this.opacity49 = null;
             
             this.opacity49 = opacity49;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            this.mode55 = null;
+            this.mode56 = null;
+            this.mode57 = null;
+            this.mode58 = null;
+            this.mode59 = null;
+            this.mode60 = null;
+            this.mode61 = null;
+            this.mode62 = null;
+            this.mode63 = null;
+            this.mode64 = null;
+            this.mode65 = null;
+            this.mode66 = null;
+            
+            this.mode64 = mode64;
         } else {
             this.keys64 = keys64;
-            this.mode64 = mode64;
             this.angle16 = angle16;
             this.opacity49 = opacity49;
+            this.mode64 = mode64;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %b, %f, %f)", arrayToString(keys64), mode64, angle16, opacity49));
+            
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %b)", arrayToString(keys64), angle16, opacity49, mode64));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %b, %f, %f)", arrayToString(keys64), mode64, angle16, opacity49));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %b)", arrayToString(keys64), angle16, opacity49, mode64));
                 js.setLength(0);
             }
         }
@@ -26852,7 +27101,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline selectedElementFill(GradientKey[] keys64, VectorRect mode65, Double angle16, Double opacity49) {
+    public UiTimeline selectedElementFill(GradientKey[] keys64, Double angle16, Double opacity49, VectorRect mode65) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -26922,75 +27171,6 @@ public class UiTimeline extends JsObject {
             this.keys65 = null;
             
             this.keys64 = keys64;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            this.mode55 = null;
-            this.mode56 = null;
-            this.mode57 = null;
-            this.mode58 = null;
-            this.mode59 = null;
-            this.mode60 = null;
-            this.mode61 = null;
-            this.mode62 = null;
-            this.mode63 = null;
-            this.mode64 = null;
-            this.mode65 = null;
-            this.mode66 = null;
-            
-            this.mode65 = mode65;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -27062,19 +27242,89 @@ public class UiTimeline extends JsObject {
             this.opacity49 = null;
             
             this.opacity49 = opacity49;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            this.mode55 = null;
+            this.mode56 = null;
+            this.mode57 = null;
+            this.mode58 = null;
+            this.mode59 = null;
+            this.mode60 = null;
+            this.mode61 = null;
+            this.mode62 = null;
+            this.mode63 = null;
+            this.mode64 = null;
+            this.mode65 = null;
+            this.mode66 = null;
+            
+            this.mode65 = mode65;
         } else {
             this.keys64 = keys64;
-            this.mode65 = mode65;
             this.angle16 = angle16;
             this.opacity49 = opacity49;
+            this.mode65 = mode65;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), ((mode65 != null) ? mode65.generateJs() : "null"), angle16, opacity49));
+            js.append(mode65.generateJs());
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s)", arrayToString(keys64), angle16, opacity49, ((mode65 != null) ? mode65.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), ((mode65 != null) ? mode65.generateJs() : "null"), angle16, opacity49));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s)", arrayToString(keys64), angle16, opacity49, ((mode65 != null) ? mode65.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -27097,7 +27347,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline selectedElementFill(GradientKey[] keys64, String mode66, Double angle16, Double opacity49) {
+    public UiTimeline selectedElementFill(GradientKey[] keys64, Double angle16, Double opacity49, String mode66) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -27167,75 +27417,6 @@ public class UiTimeline extends JsObject {
             this.keys65 = null;
             
             this.keys64 = keys64;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            this.mode55 = null;
-            this.mode56 = null;
-            this.mode57 = null;
-            this.mode58 = null;
-            this.mode59 = null;
-            this.mode60 = null;
-            this.mode61 = null;
-            this.mode62 = null;
-            this.mode63 = null;
-            this.mode64 = null;
-            this.mode65 = null;
-            this.mode66 = null;
-            
-            this.mode66 = mode66;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -27307,19 +27488,89 @@ public class UiTimeline extends JsObject {
             this.opacity49 = null;
             
             this.opacity49 = opacity49;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            this.mode55 = null;
+            this.mode56 = null;
+            this.mode57 = null;
+            this.mode58 = null;
+            this.mode59 = null;
+            this.mode60 = null;
+            this.mode61 = null;
+            this.mode62 = null;
+            this.mode63 = null;
+            this.mode64 = null;
+            this.mode65 = null;
+            this.mode66 = null;
+            
+            this.mode66 = mode66;
         } else {
             this.keys64 = keys64;
-            this.mode66 = mode66;
             this.angle16 = angle16;
             this.opacity49 = opacity49;
+            this.mode66 = mode66;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), wrapQuotes(mode66), angle16, opacity49));
+            
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s)", arrayToString(keys64), angle16, opacity49, wrapQuotes(mode66)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToString(keys64), wrapQuotes(mode66), angle16, opacity49));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s)", arrayToString(keys64), angle16, opacity49, wrapQuotes(mode66)));
                 js.setLength(0);
             }
         }
@@ -27342,7 +27593,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline selectedElementFill(String[] keys65, Boolean mode64, Double angle16, Double opacity49) {
+    public UiTimeline selectedElementFill(String[] keys65, Double angle16, Double opacity49, Boolean mode64) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -27412,75 +27663,6 @@ public class UiTimeline extends JsObject {
             this.keys65 = null;
             
             this.keys65 = keys65;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            this.mode55 = null;
-            this.mode56 = null;
-            this.mode57 = null;
-            this.mode58 = null;
-            this.mode59 = null;
-            this.mode60 = null;
-            this.mode61 = null;
-            this.mode62 = null;
-            this.mode63 = null;
-            this.mode64 = null;
-            this.mode65 = null;
-            this.mode66 = null;
-            
-            this.mode64 = mode64;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -27552,19 +27734,89 @@ public class UiTimeline extends JsObject {
             this.opacity49 = null;
             
             this.opacity49 = opacity49;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            this.mode55 = null;
+            this.mode56 = null;
+            this.mode57 = null;
+            this.mode58 = null;
+            this.mode59 = null;
+            this.mode60 = null;
+            this.mode61 = null;
+            this.mode62 = null;
+            this.mode63 = null;
+            this.mode64 = null;
+            this.mode65 = null;
+            this.mode66 = null;
+            
+            this.mode64 = mode64;
         } else {
             this.keys65 = keys65;
-            this.mode64 = mode64;
             this.angle16 = angle16;
             this.opacity49 = opacity49;
+            this.mode64 = mode64;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys65), mode64, angle16, opacity49));
+            
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys65), angle16, opacity49, mode64));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys65), mode64, angle16, opacity49));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys65), angle16, opacity49, mode64));
                 js.setLength(0);
             }
         }
@@ -27587,7 +27839,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline selectedElementFill(String[] keys65, VectorRect mode65, Double angle16, Double opacity49) {
+    public UiTimeline selectedElementFill(String[] keys65, Double angle16, Double opacity49, VectorRect mode65) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -27657,75 +27909,6 @@ public class UiTimeline extends JsObject {
             this.keys65 = null;
             
             this.keys65 = keys65;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            this.mode55 = null;
-            this.mode56 = null;
-            this.mode57 = null;
-            this.mode58 = null;
-            this.mode59 = null;
-            this.mode60 = null;
-            this.mode61 = null;
-            this.mode62 = null;
-            this.mode63 = null;
-            this.mode64 = null;
-            this.mode65 = null;
-            this.mode66 = null;
-            
-            this.mode65 = mode65;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -27797,19 +27980,89 @@ public class UiTimeline extends JsObject {
             this.opacity49 = null;
             
             this.opacity49 = opacity49;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            this.mode55 = null;
+            this.mode56 = null;
+            this.mode57 = null;
+            this.mode58 = null;
+            this.mode59 = null;
+            this.mode60 = null;
+            this.mode61 = null;
+            this.mode62 = null;
+            this.mode63 = null;
+            this.mode64 = null;
+            this.mode65 = null;
+            this.mode66 = null;
+            
+            this.mode65 = mode65;
         } else {
             this.keys65 = keys65;
-            this.mode65 = mode65;
             this.angle16 = angle16;
             this.opacity49 = opacity49;
+            this.mode65 = mode65;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys65), ((mode65 != null) ? mode65.generateJs() : "null"), angle16, opacity49));
+            js.append(mode65.generateJs());
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys65), angle16, opacity49, ((mode65 != null) ? mode65.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys65), ((mode65 != null) ? mode65.generateJs() : "null"), angle16, opacity49));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys65), angle16, opacity49, ((mode65 != null) ? mode65.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -27832,7 +28085,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline selectedElementFill(String[] keys65, String mode66, Double angle16, Double opacity49) {
+    public UiTimeline selectedElementFill(String[] keys65, Double angle16, Double opacity49, String mode66) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -27902,75 +28155,6 @@ public class UiTimeline extends JsObject {
             this.keys65 = null;
             
             this.keys65 = keys65;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            this.mode23 = null;
-            this.mode24 = null;
-            this.mode25 = null;
-            this.mode26 = null;
-            this.mode27 = null;
-            this.mode28 = null;
-            this.mode29 = null;
-            this.mode30 = null;
-            this.mode31 = null;
-            this.mode32 = null;
-            this.mode33 = null;
-            this.mode34 = null;
-            this.mode35 = null;
-            this.mode36 = null;
-            this.mode37 = null;
-            this.mode38 = null;
-            this.mode39 = null;
-            this.mode40 = null;
-            this.mode41 = null;
-            this.mode42 = null;
-            this.mode43 = null;
-            this.mode44 = null;
-            this.mode45 = null;
-            this.mode46 = null;
-            this.mode47 = null;
-            this.mode48 = null;
-            this.mode49 = null;
-            this.mode50 = null;
-            this.mode51 = null;
-            this.mode52 = null;
-            this.mode53 = null;
-            this.mode54 = null;
-            this.mode55 = null;
-            this.mode56 = null;
-            this.mode57 = null;
-            this.mode58 = null;
-            this.mode59 = null;
-            this.mode60 = null;
-            this.mode61 = null;
-            this.mode62 = null;
-            this.mode63 = null;
-            this.mode64 = null;
-            this.mode65 = null;
-            this.mode66 = null;
-            
-            this.mode66 = mode66;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -28042,19 +28226,89 @@ public class UiTimeline extends JsObject {
             this.opacity49 = null;
             
             this.opacity49 = opacity49;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            this.mode23 = null;
+            this.mode24 = null;
+            this.mode25 = null;
+            this.mode26 = null;
+            this.mode27 = null;
+            this.mode28 = null;
+            this.mode29 = null;
+            this.mode30 = null;
+            this.mode31 = null;
+            this.mode32 = null;
+            this.mode33 = null;
+            this.mode34 = null;
+            this.mode35 = null;
+            this.mode36 = null;
+            this.mode37 = null;
+            this.mode38 = null;
+            this.mode39 = null;
+            this.mode40 = null;
+            this.mode41 = null;
+            this.mode42 = null;
+            this.mode43 = null;
+            this.mode44 = null;
+            this.mode45 = null;
+            this.mode46 = null;
+            this.mode47 = null;
+            this.mode48 = null;
+            this.mode49 = null;
+            this.mode50 = null;
+            this.mode51 = null;
+            this.mode52 = null;
+            this.mode53 = null;
+            this.mode54 = null;
+            this.mode55 = null;
+            this.mode56 = null;
+            this.mode57 = null;
+            this.mode58 = null;
+            this.mode59 = null;
+            this.mode60 = null;
+            this.mode61 = null;
+            this.mode62 = null;
+            this.mode63 = null;
+            this.mode64 = null;
+            this.mode65 = null;
+            this.mode66 = null;
+            
+            this.mode66 = mode66;
         } else {
             this.keys65 = keys65;
-            this.mode66 = mode66;
             this.angle16 = angle16;
             this.opacity49 = opacity49;
+            this.mode66 = mode66;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys65), wrapQuotes(mode66), angle16, opacity49));
+            
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys65), angle16, opacity49, wrapQuotes(mode66)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys65), wrapQuotes(mode66), angle16, opacity49));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys65), angle16, opacity49, wrapQuotes(mode66)));
                 js.setLength(0);
             }
         }
@@ -28372,10 +28626,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys66), cx17, cy17, ((mode67 != null) ? mode67.generateJs() : "null"), opacity50, fx17, fy17));
+            js.append(mode67.generateJs());
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys66), cx17, cy17, ((mode67 != null) ? mode67.getJsBase() : "null"), opacity50, fx17, fy17));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys66), cx17, cy17, ((mode67 != null) ? mode67.generateJs() : "null"), opacity50, fx17, fy17));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys66), cx17, cy17, ((mode67 != null) ? mode67.getJsBase() : "null"), opacity50, fx17, fy17));
                 js.setLength(0);
             }
         }
@@ -28685,10 +28940,11 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys67), cx17, cy17, ((mode67 != null) ? mode67.generateJs() : "null"), opacity50, fx17, fy17));
+            js.append(mode67.generateJs());
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys67), cx17, cy17, ((mode67 != null) ? mode67.getJsBase() : "null"), opacity50, fx17, fy17));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys67), cx17, cy17, ((mode67 != null) ? mode67.generateJs() : "null"), opacity50, fx17, fy17));
+                onChangeListener.onChange(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys67), cx17, cy17, ((mode67 != null) ? mode67.getJsBase() : "null"), opacity50, fx17, fy17));
                 js.setLength(0);
             }
         }
@@ -28800,6 +29056,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
 
             if (isRendered) {
@@ -28907,6 +29164,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
 
             if (isRendered) {
@@ -29014,6 +29272,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", wrapQuotes(selectedElementStroke2), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
 
             if (isRendered) {
@@ -29064,6 +29323,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textMarker(%s)", wrapQuotes(textMarker)));
 
             if (isRendered) {
@@ -29101,6 +29361,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textMarker(%b)", textMarker1));
 
             if (isRendered) {
@@ -29131,8 +29392,13 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for text marker by index.
      */
-    public UiTimeline setTextMarker(String textMarker2, Double index2) {
+    public UiTimeline setTextMarker(Double index2, String textMarker2) {
         if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            
+            this.index2 = index2;
             this.textMarker = null;
             this.textMarker1 = null;
             this.textMarker2 = null;
@@ -29141,22 +29407,18 @@ public class UiTimeline extends JsObject {
             this.textMarker5 = null;
             
             this.textMarker2 = textMarker2;
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            
-            this.index2 = index2;
         } else {
-            this.textMarker2 = textMarker2;
             this.index2 = index2;
+            this.textMarker2 = textMarker2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".textMarker(%s, %f)", wrapQuotes(textMarker2), index2));
+            
+            js.append(String.format(Locale.US, ".textMarker(%f, %s)", index2, wrapQuotes(textMarker2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", wrapQuotes(textMarker2), index2));
+                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%f, %s)", index2, wrapQuotes(textMarker2)));
                 js.setLength(0);
             }
         }
@@ -29178,8 +29440,13 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for text marker by index.
      */
-    public UiTimeline setTextMarker(Boolean textMarker3, Double index2) {
+    public UiTimeline setTextMarker(Double index2, Boolean textMarker3) {
         if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            
+            this.index2 = index2;
             this.textMarker = null;
             this.textMarker1 = null;
             this.textMarker2 = null;
@@ -29188,22 +29455,18 @@ public class UiTimeline extends JsObject {
             this.textMarker5 = null;
             
             this.textMarker3 = textMarker3;
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            
-            this.index2 = index2;
         } else {
-            this.textMarker3 = textMarker3;
             this.index2 = index2;
+            this.textMarker3 = textMarker3;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index2));
+            
+            js.append(String.format(Locale.US, ".textMarker(%f, %b)", index2, textMarker3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index2));
+                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%f, %b)", index2, textMarker3));
                 js.setLength(0);
             }
         }
@@ -29225,8 +29488,13 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for text marker by index.
      */
-    public UiTimeline setTextMarker(GanttDateTimeMarkers textMarker4, Double index2) {
+    public UiTimeline setTextMarker(Double index2, GanttDateTimeMarkers textMarker4) {
         if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            
+            this.index2 = index2;
             this.textMarker = null;
             this.textMarker1 = null;
             this.textMarker2 = null;
@@ -29235,22 +29503,18 @@ public class UiTimeline extends JsObject {
             this.textMarker5 = null;
             
             this.textMarker4 = textMarker4;
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            
-            this.index2 = index2;
         } else {
-            this.textMarker4 = textMarker4;
             this.index2 = index2;
+            this.textMarker4 = textMarker4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".textMarker(%s, %f)", ((textMarker4 != null) ? textMarker4.generateJs() : "null"), index2));
+            
+            js.append(String.format(Locale.US, ".textMarker(%f, %s)", index2, ((textMarker4 != null) ? textMarker4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", ((textMarker4 != null) ? textMarker4.generateJs() : "null"), index2));
+                onChangeListener.onChange(String.format(Locale.US, ".textMarker(%f, %s)", index2, ((textMarker4 != null) ? textMarker4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -29298,6 +29562,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
 
             if (isRendered) {
@@ -29335,6 +29600,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".tooltip(%b)", tooltip1));
 
             if (isRendered) {
@@ -29382,6 +29648,7 @@ public class UiTimeline extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".verticalScrollBar(%s)", wrapQuotes(verticalScrollBar)));
 
             if (isRendered) {

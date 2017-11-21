@@ -49,6 +49,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -87,6 +88,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
@@ -120,35 +122,36 @@ public class UiDataGrid extends VisualBaseWithBounds {
      * Linear gradient background fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid backgroundFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public UiDataGrid backgroundFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys = keys;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -171,35 +174,36 @@ public class UiDataGrid extends VisualBaseWithBounds {
      * Linear gradient background fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid backgroundFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public UiDataGrid backgroundFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys = keys;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -222,35 +226,36 @@ public class UiDataGrid extends VisualBaseWithBounds {
      * Linear gradient background fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid backgroundFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public UiDataGrid backgroundFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys = keys;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -273,35 +278,36 @@ public class UiDataGrid extends VisualBaseWithBounds {
      * Linear gradient background fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid backgroundFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public UiDataGrid backgroundFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys1 = keys1;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -324,35 +330,36 @@ public class UiDataGrid extends VisualBaseWithBounds {
      * Linear gradient background fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid backgroundFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public UiDataGrid backgroundFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys1 = keys1;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -375,35 +382,36 @@ public class UiDataGrid extends VisualBaseWithBounds {
      * Linear gradient background fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid backgroundFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public UiDataGrid backgroundFill(String[] keys1, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys1 = keys1;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -469,10 +477,11 @@ public class UiDataGrid extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -530,10 +539,11 @@ public class UiDataGrid extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -617,10 +627,11 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".column(%f, %s)", index, ((column1 != null) ? column1.generateJs() : "null")));
+            js.append(column1.generateJs());
+            js.append(String.format(Locale.US, ".column(%f, %s)", index, ((column1 != null) ? column1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".column(%f, %s)", index, ((column1 != null) ? column1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, ".column(%f, %s)", index, ((column1 != null) ? column1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -656,6 +667,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".columnStroke(%s)", ((columnStroke != null) ? columnStroke.generateJs() : "null")));
 
             if (isRendered) {
@@ -693,6 +705,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".columnStroke(%s)", wrapQuotes(columnStroke1)));
 
             if (isRendered) {
@@ -777,6 +790,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s)", ((editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null")));
 
             if (isRendered) {
@@ -814,6 +828,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s)", wrapQuotes(editStructurePreviewDashStroke1)));
 
             if (isRendered) {
@@ -850,6 +865,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s)", ((editStructurePreviewFill != null) ? editStructurePreviewFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -896,6 +912,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f)", wrapQuotes(color1), opacity3));
 
             if (isRendered) {
@@ -929,7 +946,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient structure preview fill in edit mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, Double angle1, Double opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -939,15 +956,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
             this.angle = null;
             this.angle1 = null;
             
@@ -959,19 +967,29 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
         } else {
             this.keys4 = keys4;
-            this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode4 = mode4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -994,7 +1012,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient structure preview fill in edit mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, Double angle1, Double opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1004,15 +1022,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
             this.angle = null;
             this.angle1 = null;
             
@@ -1024,19 +1033,29 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
         } else {
             this.keys4 = keys4;
-            this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode5 = mode5;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+            js.append(mode5.generateJs());
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1059,7 +1078,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient structure preview fill in edit mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, Double angle1, Double opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1069,15 +1088,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
             this.angle = null;
             this.angle1 = null;
             
@@ -1089,19 +1099,29 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
         } else {
             this.keys4 = keys4;
-            this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode6 = mode6;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1124,7 +1144,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient structure preview fill in edit mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid editStructurePreviewFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public UiDataGrid editStructurePreviewFill(String[] keys5, Double angle1, Double opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1134,15 +1154,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
             this.angle = null;
             this.angle1 = null;
             
@@ -1154,19 +1165,29 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
         } else {
             this.keys5 = keys5;
-            this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode4 = mode4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -1189,7 +1210,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient structure preview fill in edit mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid editStructurePreviewFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public UiDataGrid editStructurePreviewFill(String[] keys5, Double angle1, Double opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1199,15 +1220,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
             this.angle = null;
             this.angle1 = null;
             
@@ -1219,19 +1231,29 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
         } else {
             this.keys5 = keys5;
-            this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode5 = mode5;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+            js.append(mode5.generateJs());
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1254,7 +1276,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient structure preview fill in edit mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid editStructurePreviewFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public UiDataGrid editStructurePreviewFill(String[] keys5, Double angle1, Double opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1264,15 +1286,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
             this.angle = null;
             this.angle1 = null;
             
@@ -1284,19 +1297,29 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
         } else {
             this.keys5 = keys5;
-            this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode6 = mode6;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1385,10 +1408,11 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+            js.append(mode7.generateJs());
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1469,10 +1493,11 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+            js.append(mode7.generateJs());
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1509,6 +1534,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s)", ((editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null")));
 
             if (isRendered) {
@@ -1546,6 +1572,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s)", wrapQuotes(editStructurePreviewStroke1)));
 
             if (isRendered) {
@@ -1581,6 +1608,8 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setEditing" + ++variableIndex + " = " + jsBase + ".editing(%b);", editing));
             
 
             if (isRendered) {
@@ -1618,6 +1647,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".endIndex(%f)", endIndex));
 
             if (isRendered) {
@@ -1653,6 +1683,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".horizontalOffset(%f)", horizontalOffset));
 
             if (isRendered) {
@@ -1700,6 +1731,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".horizontalScrollBar(%s)", wrapQuotes(horizontalScrollBar)));
 
             if (isRendered) {
@@ -1736,6 +1768,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowEvenFill(%s)", ((rowEvenFill != null) ? rowEvenFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -1786,6 +1819,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f)", wrapQuotes(color2), opacity6));
 
             if (isRendered) {
@@ -1819,7 +1853,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowEvenFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
+    public UiDataGrid rowEvenFill(GradientKey[] keys8, Double angle2, Double opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1833,19 +1867,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys9 = null;
             
             this.keys8 = keys8;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode8 = mode8;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -1861,19 +1882,33 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode8 = mode8;
         } else {
             this.keys8 = keys8;
-            this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode8 = mode8;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
+            
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToString(keys8), angle2, opacity7, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToString(keys8), angle2, opacity7, mode8));
                 js.setLength(0);
             }
         }
@@ -1896,7 +1931,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowEvenFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
+    public UiDataGrid rowEvenFill(GradientKey[] keys8, Double angle2, Double opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1910,19 +1945,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys9 = null;
             
             this.keys8 = keys8;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode9 = mode9;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -1938,19 +1960,33 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode9 = mode9;
         } else {
             this.keys8 = keys8;
-            this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode9 = mode9;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+            js.append(mode9.generateJs());
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1973,7 +2009,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowEvenFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
+    public UiDataGrid rowEvenFill(GradientKey[] keys8, Double angle2, Double opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1987,19 +2023,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys9 = null;
             
             this.keys8 = keys8;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode10 = mode10;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -2015,19 +2038,33 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode10 = mode10;
         } else {
             this.keys8 = keys8;
-            this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode10 = mode10;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
+            
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -2050,7 +2087,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowEvenFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
+    public UiDataGrid rowEvenFill(String[] keys9, Double angle2, Double opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2064,19 +2101,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys9 = null;
             
             this.keys9 = keys9;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode8 = mode8;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -2092,19 +2116,33 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode8 = mode8;
         } else {
             this.keys9 = keys9;
-            this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode8 = mode8;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
+            
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
                 js.setLength(0);
             }
         }
@@ -2127,7 +2165,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowEvenFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
+    public UiDataGrid rowEvenFill(String[] keys9, Double angle2, Double opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2141,19 +2179,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys9 = null;
             
             this.keys9 = keys9;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode9 = mode9;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -2169,19 +2194,33 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode9 = mode9;
         } else {
             this.keys9 = keys9;
-            this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode9 = mode9;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+            js.append(mode9.generateJs());
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2204,7 +2243,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowEvenFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
+    public UiDataGrid rowEvenFill(String[] keys9, Double angle2, Double opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2218,19 +2257,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys9 = null;
             
             this.keys9 = keys9;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode10 = mode10;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -2246,19 +2272,33 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode10 = mode10;
         } else {
             this.keys9 = keys9;
-            this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode10 = mode10;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
+            
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -2362,10 +2402,11 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+            js.append(mode11.generateJs());
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -2461,10 +2502,11 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+            js.append(mode11.generateJs());
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -2498,6 +2540,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowFill(%s)", ((rowFill != null) ? rowFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -2552,6 +2595,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowFill(%s, %f)", wrapQuotes(color3), opacity9));
 
             if (isRendered) {
@@ -2585,7 +2629,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity10) {
+    public UiDataGrid rowFill(GradientKey[] keys12, Double angle3, Double opacity10, Boolean mode12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2603,23 +2647,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys13 = null;
             
             this.keys12 = keys12;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode12 = mode12;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -2639,19 +2666,37 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity10 = null;
             
             this.opacity10 = opacity10;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode12 = mode12;
         } else {
             this.keys12 = keys12;
-            this.mode12 = mode12;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
+            this.mode12 = mode12;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity10));
+            
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %b)", arrayToString(keys12), angle3, opacity10, mode12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity10));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %b)", arrayToString(keys12), angle3, opacity10, mode12));
                 js.setLength(0);
             }
         }
@@ -2674,7 +2719,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity10) {
+    public UiDataGrid rowFill(GradientKey[] keys12, Double angle3, Double opacity10, VectorRect mode13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2692,23 +2737,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys13 = null;
             
             this.keys12 = keys12;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode13 = mode13;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -2728,19 +2756,37 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity10 = null;
             
             this.opacity10 = opacity10;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode13 = mode13;
         } else {
             this.keys12 = keys12;
-            this.mode13 = mode13;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
+            this.mode13 = mode13;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
+            js.append(mode13.generateJs());
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2763,7 +2809,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity10) {
+    public UiDataGrid rowFill(GradientKey[] keys12, Double angle3, Double opacity10, String mode14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2781,23 +2827,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys13 = null;
             
             this.keys12 = keys12;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode14 = mode14;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -2817,19 +2846,37 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity10 = null;
             
             this.opacity10 = opacity10;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode14 = mode14;
         } else {
             this.keys12 = keys12;
-            this.mode14 = mode14;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
+            this.mode14 = mode14;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity10));
+            
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity10, wrapQuotes(mode14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity10));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity10, wrapQuotes(mode14)));
                 js.setLength(0);
             }
         }
@@ -2852,7 +2899,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowFill(String[] keys13, Boolean mode12, Double angle3, Double opacity10) {
+    public UiDataGrid rowFill(String[] keys13, Double angle3, Double opacity10, Boolean mode12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2870,23 +2917,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys13 = null;
             
             this.keys13 = keys13;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode12 = mode12;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -2906,19 +2936,37 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity10 = null;
             
             this.opacity10 = opacity10;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode12 = mode12;
         } else {
             this.keys13 = keys13;
-            this.mode12 = mode12;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
+            this.mode12 = mode12;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity10));
+            
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys13), angle3, opacity10, mode12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity10));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys13), angle3, opacity10, mode12));
                 js.setLength(0);
             }
         }
@@ -2941,7 +2989,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity10) {
+    public UiDataGrid rowFill(String[] keys13, Double angle3, Double opacity10, VectorRect mode13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2959,23 +3007,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys13 = null;
             
             this.keys13 = keys13;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode13 = mode13;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -2995,19 +3026,37 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity10 = null;
             
             this.opacity10 = opacity10;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode13 = mode13;
         } else {
             this.keys13 = keys13;
-            this.mode13 = mode13;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
+            this.mode13 = mode13;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
+            js.append(mode13.generateJs());
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3030,7 +3079,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowFill(String[] keys13, String mode14, Double angle3, Double opacity10) {
+    public UiDataGrid rowFill(String[] keys13, Double angle3, Double opacity10, String mode14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3048,23 +3097,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys13 = null;
             
             this.keys13 = keys13;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode14 = mode14;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3084,19 +3116,37 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity10 = null;
             
             this.opacity10 = opacity10;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode14 = mode14;
         } else {
             this.keys13 = keys13;
-            this.mode14 = mode14;
             this.angle3 = angle3;
             this.opacity10 = opacity10;
+            this.mode14 = mode14;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity10));
+            
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity10, wrapQuotes(mode14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity10));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity10, wrapQuotes(mode14)));
                 js.setLength(0);
             }
         }
@@ -3215,10 +3265,11 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
+            js.append(mode15.generateJs());
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -3329,10 +3380,11 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
+            js.append(mode15.generateJs());
+            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -3366,6 +3418,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowHoverFill(%s)", ((rowHoverFill != null) ? rowHoverFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -3424,6 +3477,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowHoverFill(%s, %f)", wrapQuotes(color4), opacity12));
 
             if (isRendered) {
@@ -3457,7 +3511,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowHoverFill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity13) {
+    public UiDataGrid rowHoverFill(GradientKey[] keys16, Double angle4, Double opacity13, Boolean mode16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3479,27 +3533,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys17 = null;
             
             this.keys16 = keys16;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode16 = mode16;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3523,19 +3556,41 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity13 = null;
             
             this.opacity13 = opacity13;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode16 = mode16;
         } else {
             this.keys16 = keys16;
-            this.mode16 = mode16;
             this.angle4 = angle4;
             this.opacity13 = opacity13;
+            this.mode16 = mode16;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity13));
+            
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %b)", arrayToString(keys16), angle4, opacity13, mode16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity13));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %b)", arrayToString(keys16), angle4, opacity13, mode16));
                 js.setLength(0);
             }
         }
@@ -3558,7 +3613,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowHoverFill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity13) {
+    public UiDataGrid rowHoverFill(GradientKey[] keys16, Double angle4, Double opacity13, VectorRect mode17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3580,27 +3635,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys17 = null;
             
             this.keys16 = keys16;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode17 = mode17;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3624,19 +3658,41 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity13 = null;
             
             this.opacity13 = opacity13;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode17 = mode17;
         } else {
             this.keys16 = keys16;
-            this.mode17 = mode17;
             this.angle4 = angle4;
             this.opacity13 = opacity13;
+            this.mode17 = mode17;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity13));
+            js.append(mode17.generateJs());
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToString(keys16), angle4, opacity13, ((mode17 != null) ? mode17.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity13));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToString(keys16), angle4, opacity13, ((mode17 != null) ? mode17.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3659,7 +3715,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowHoverFill(GradientKey[] keys16, String mode18, Double angle4, Double opacity13) {
+    public UiDataGrid rowHoverFill(GradientKey[] keys16, Double angle4, Double opacity13, String mode18) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3681,27 +3737,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys17 = null;
             
             this.keys16 = keys16;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode18 = mode18;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3725,19 +3760,41 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity13 = null;
             
             this.opacity13 = opacity13;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode18 = mode18;
         } else {
             this.keys16 = keys16;
-            this.mode18 = mode18;
             this.angle4 = angle4;
             this.opacity13 = opacity13;
+            this.mode18 = mode18;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity13));
+            
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToString(keys16), angle4, opacity13, wrapQuotes(mode18)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity13));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToString(keys16), angle4, opacity13, wrapQuotes(mode18)));
                 js.setLength(0);
             }
         }
@@ -3760,7 +3817,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowHoverFill(String[] keys17, Boolean mode16, Double angle4, Double opacity13) {
+    public UiDataGrid rowHoverFill(String[] keys17, Double angle4, Double opacity13, Boolean mode16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3782,27 +3839,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys17 = null;
             
             this.keys17 = keys17;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode16 = mode16;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3826,19 +3862,41 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity13 = null;
             
             this.opacity13 = opacity13;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode16 = mode16;
         } else {
             this.keys17 = keys17;
-            this.mode16 = mode16;
             this.angle4 = angle4;
             this.opacity13 = opacity13;
+            this.mode16 = mode16;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity13));
+            
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys17), angle4, opacity13, mode16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity13));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys17), angle4, opacity13, mode16));
                 js.setLength(0);
             }
         }
@@ -3861,7 +3919,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowHoverFill(String[] keys17, VectorRect mode17, Double angle4, Double opacity13) {
+    public UiDataGrid rowHoverFill(String[] keys17, Double angle4, Double opacity13, VectorRect mode17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3883,27 +3941,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys17 = null;
             
             this.keys17 = keys17;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode17 = mode17;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3927,19 +3964,41 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity13 = null;
             
             this.opacity13 = opacity13;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode17 = mode17;
         } else {
             this.keys17 = keys17;
-            this.mode17 = mode17;
             this.angle4 = angle4;
             this.opacity13 = opacity13;
+            this.mode17 = mode17;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity13));
+            js.append(mode17.generateJs());
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity13, ((mode17 != null) ? mode17.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity13));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity13, ((mode17 != null) ? mode17.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3962,7 +4021,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowHoverFill(String[] keys17, String mode18, Double angle4, Double opacity13) {
+    public UiDataGrid rowHoverFill(String[] keys17, Double angle4, Double opacity13, String mode18) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3984,27 +4043,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys17 = null;
             
             this.keys17 = keys17;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode18 = mode18;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -4028,19 +4066,41 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity13 = null;
             
             this.opacity13 = opacity13;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode18 = mode18;
         } else {
             this.keys17 = keys17;
-            this.mode18 = mode18;
             this.angle4 = angle4;
             this.opacity13 = opacity13;
+            this.mode18 = mode18;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity13));
+            
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity13, wrapQuotes(mode18)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity13));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity13, wrapQuotes(mode18)));
                 js.setLength(0);
             }
         }
@@ -4174,10 +4234,11 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity14, fx4, fy4));
+            js.append(mode19.generateJs());
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity14, fx4, fy4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity14, fx4, fy4));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity14, fx4, fy4));
                 js.setLength(0);
             }
         }
@@ -4303,10 +4364,11 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity14, fx4, fy4));
+            js.append(mode19.generateJs());
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity14, fx4, fy4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity14, fx4, fy4));
+                onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity14, fx4, fy4));
                 js.setLength(0);
             }
         }
@@ -4340,6 +4402,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowOddFill(%s)", ((rowOddFill != null) ? rowOddFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -4402,6 +4465,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f)", wrapQuotes(color5), opacity15));
 
             if (isRendered) {
@@ -4435,7 +4499,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowOddFill(GradientKey[] keys20, Boolean mode20, Double angle5, Double opacity16) {
+    public UiDataGrid rowOddFill(GradientKey[] keys20, Double angle5, Double opacity16, Boolean mode20) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4461,31 +4525,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys21 = null;
             
             this.keys20 = keys20;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            
-            this.mode20 = mode20;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -4513,19 +4552,45 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity16 = null;
             
             this.opacity16 = opacity16;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode20 = mode20;
         } else {
             this.keys20 = keys20;
-            this.mode20 = mode20;
             this.angle5 = angle5;
             this.opacity16 = opacity16;
+            this.mode20 = mode20;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity16));
+            
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToString(keys20), angle5, opacity16, mode20));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity16));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToString(keys20), angle5, opacity16, mode20));
                 js.setLength(0);
             }
         }
@@ -4548,7 +4613,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowOddFill(GradientKey[] keys20, VectorRect mode21, Double angle5, Double opacity16) {
+    public UiDataGrid rowOddFill(GradientKey[] keys20, Double angle5, Double opacity16, VectorRect mode21) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4574,31 +4639,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys21 = null;
             
             this.keys20 = keys20;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            
-            this.mode21 = mode21;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -4626,19 +4666,45 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity16 = null;
             
             this.opacity16 = opacity16;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode21 = mode21;
         } else {
             this.keys20 = keys20;
-            this.mode21 = mode21;
             this.angle5 = angle5;
             this.opacity16 = opacity16;
+            this.mode21 = mode21;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys20), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity16));
+            js.append(mode21.generateJs());
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys20), angle5, opacity16, ((mode21 != null) ? mode21.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys20), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity16));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys20), angle5, opacity16, ((mode21 != null) ? mode21.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -4661,7 +4727,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowOddFill(GradientKey[] keys20, String mode22, Double angle5, Double opacity16) {
+    public UiDataGrid rowOddFill(GradientKey[] keys20, Double angle5, Double opacity16, String mode22) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4687,31 +4753,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys21 = null;
             
             this.keys20 = keys20;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            
-            this.mode22 = mode22;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -4739,19 +4780,45 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity16 = null;
             
             this.opacity16 = opacity16;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode22 = mode22;
         } else {
             this.keys20 = keys20;
-            this.mode22 = mode22;
             this.angle5 = angle5;
             this.opacity16 = opacity16;
+            this.mode22 = mode22;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys20), wrapQuotes(mode22), angle5, opacity16));
+            
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys20), angle5, opacity16, wrapQuotes(mode22)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys20), wrapQuotes(mode22), angle5, opacity16));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys20), angle5, opacity16, wrapQuotes(mode22)));
                 js.setLength(0);
             }
         }
@@ -4774,7 +4841,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowOddFill(String[] keys21, Boolean mode20, Double angle5, Double opacity16) {
+    public UiDataGrid rowOddFill(String[] keys21, Double angle5, Double opacity16, Boolean mode20) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4800,31 +4867,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys21 = null;
             
             this.keys21 = keys21;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            
-            this.mode20 = mode20;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -4852,19 +4894,45 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity16 = null;
             
             this.opacity16 = opacity16;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode20 = mode20;
         } else {
             this.keys21 = keys21;
-            this.mode20 = mode20;
             this.angle5 = angle5;
             this.opacity16 = opacity16;
+            this.mode20 = mode20;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys21), mode20, angle5, opacity16));
+            
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys21), angle5, opacity16, mode20));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys21), mode20, angle5, opacity16));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys21), angle5, opacity16, mode20));
                 js.setLength(0);
             }
         }
@@ -4887,7 +4955,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowOddFill(String[] keys21, VectorRect mode21, Double angle5, Double opacity16) {
+    public UiDataGrid rowOddFill(String[] keys21, Double angle5, Double opacity16, VectorRect mode21) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4913,31 +4981,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys21 = null;
             
             this.keys21 = keys21;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            
-            this.mode21 = mode21;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -4965,19 +5008,45 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity16 = null;
             
             this.opacity16 = opacity16;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode21 = mode21;
         } else {
             this.keys21 = keys21;
-            this.mode21 = mode21;
             this.angle5 = angle5;
             this.opacity16 = opacity16;
+            this.mode21 = mode21;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity16));
+            js.append(mode21.generateJs());
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys21), angle5, opacity16, ((mode21 != null) ? mode21.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity16));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys21), angle5, opacity16, ((mode21 != null) ? mode21.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -5000,7 +5069,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowOddFill(String[] keys21, String mode22, Double angle5, Double opacity16) {
+    public UiDataGrid rowOddFill(String[] keys21, Double angle5, Double opacity16, String mode22) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5026,31 +5095,6 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys21 = null;
             
             this.keys21 = keys21;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            this.mode19 = null;
-            this.mode20 = null;
-            this.mode21 = null;
-            this.mode22 = null;
-            
-            this.mode22 = mode22;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -5078,19 +5122,45 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.opacity16 = null;
             
             this.opacity16 = opacity16;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            this.mode19 = null;
+            this.mode20 = null;
+            this.mode21 = null;
+            this.mode22 = null;
+            
+            this.mode22 = mode22;
         } else {
             this.keys21 = keys21;
-            this.mode22 = mode22;
             this.angle5 = angle5;
             this.opacity16 = opacity16;
+            this.mode22 = mode22;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), wrapQuotes(mode22), angle5, opacity16));
+            
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys21), angle5, opacity16, wrapQuotes(mode22)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), wrapQuotes(mode22), angle5, opacity16));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys21), angle5, opacity16, wrapQuotes(mode22)));
                 js.setLength(0);
             }
         }
@@ -5239,10 +5309,11 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx5, cy5, ((mode23 != null) ? mode23.generateJs() : "null"), opacity17, fx5, fy5));
+            js.append(mode23.generateJs());
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx5, cy5, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity17, fx5, fy5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx5, cy5, ((mode23 != null) ? mode23.generateJs() : "null"), opacity17, fx5, fy5));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx5, cy5, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity17, fx5, fy5));
                 js.setLength(0);
             }
         }
@@ -5383,10 +5454,11 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx5, cy5, ((mode23 != null) ? mode23.generateJs() : "null"), opacity17, fx5, fy5));
+            js.append(mode23.generateJs());
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx5, cy5, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity17, fx5, fy5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx5, cy5, ((mode23 != null) ? mode23.generateJs() : "null"), opacity17, fx5, fy5));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx5, cy5, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity17, fx5, fy5));
                 js.setLength(0);
             }
         }
@@ -5420,6 +5492,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowSelectedFill(%s)", ((rowSelectedFill != null) ? rowSelectedFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -5486,6 +5559,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f)", wrapQuotes(color6), opacity18));
 
             if (isRendered) {
@@ -5518,7 +5592,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowSelectedFill(GradientKey[] keys24, Boolean mode24, Double angle6) {
+    public UiDataGrid rowSelectedFill(GradientKey[] keys24, Double angle6, Boolean mode24) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5548,6 +5622,15 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys25 = null;
             
             this.keys24 = keys24;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            
+            this.angle6 = angle6;
             this.mode = null;
             this.mode1 = null;
             this.mode2 = null;
@@ -5577,27 +5660,19 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.mode26 = null;
             
             this.mode24 = mode24;
-            this.angle = null;
-            this.angle1 = null;
-            this.angle2 = null;
-            this.angle3 = null;
-            this.angle4 = null;
-            this.angle5 = null;
-            this.angle6 = null;
-            
-            this.angle6 = angle6;
         } else {
             this.keys24 = keys24;
-            this.mode24 = mode24;
             this.angle6 = angle6;
+            this.mode24 = mode24;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToString(keys24), mode24, angle6));
+            
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %b)", arrayToString(keys24), angle6, mode24));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToString(keys24), mode24, angle6));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %b)", arrayToString(keys24), angle6, mode24));
                 js.setLength(0);
             }
         }
@@ -5620,7 +5695,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowSelectedFill(GradientKey[] keys24, VectorRect mode25, Double angle6) {
+    public UiDataGrid rowSelectedFill(GradientKey[] keys24, Double angle6, VectorRect mode25) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5650,6 +5725,15 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys25 = null;
             
             this.keys24 = keys24;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            
+            this.angle6 = angle6;
             this.mode = null;
             this.mode1 = null;
             this.mode2 = null;
@@ -5679,27 +5763,19 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.mode26 = null;
             
             this.mode25 = mode25;
-            this.angle = null;
-            this.angle1 = null;
-            this.angle2 = null;
-            this.angle3 = null;
-            this.angle4 = null;
-            this.angle5 = null;
-            this.angle6 = null;
-            
-            this.angle6 = angle6;
         } else {
             this.keys24 = keys24;
-            this.mode25 = mode25;
             this.angle6 = angle6;
+            this.mode25 = mode25;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys24), ((mode25 != null) ? mode25.generateJs() : "null"), angle6));
+            js.append(mode25.generateJs());
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToString(keys24), angle6, ((mode25 != null) ? mode25.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys24), ((mode25 != null) ? mode25.generateJs() : "null"), angle6));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToString(keys24), angle6, ((mode25 != null) ? mode25.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -5722,7 +5798,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowSelectedFill(GradientKey[] keys24, String mode26, Double angle6) {
+    public UiDataGrid rowSelectedFill(GradientKey[] keys24, Double angle6, String mode26) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5752,6 +5828,15 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys25 = null;
             
             this.keys24 = keys24;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            
+            this.angle6 = angle6;
             this.mode = null;
             this.mode1 = null;
             this.mode2 = null;
@@ -5781,27 +5866,19 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.mode26 = null;
             
             this.mode26 = mode26;
-            this.angle = null;
-            this.angle1 = null;
-            this.angle2 = null;
-            this.angle3 = null;
-            this.angle4 = null;
-            this.angle5 = null;
-            this.angle6 = null;
-            
-            this.angle6 = angle6;
         } else {
             this.keys24 = keys24;
-            this.mode26 = mode26;
             this.angle6 = angle6;
+            this.mode26 = mode26;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys24), wrapQuotes(mode26), angle6));
+            
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToString(keys24), angle6, wrapQuotes(mode26)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToString(keys24), wrapQuotes(mode26), angle6));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToString(keys24), angle6, wrapQuotes(mode26)));
                 js.setLength(0);
             }
         }
@@ -5824,7 +5901,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowSelectedFill(String[] keys25, Boolean mode24, Double angle6) {
+    public UiDataGrid rowSelectedFill(String[] keys25, Double angle6, Boolean mode24) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5854,6 +5931,15 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys25 = null;
             
             this.keys25 = keys25;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            
+            this.angle6 = angle6;
             this.mode = null;
             this.mode1 = null;
             this.mode2 = null;
@@ -5883,27 +5969,19 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.mode26 = null;
             
             this.mode24 = mode24;
-            this.angle = null;
-            this.angle1 = null;
-            this.angle2 = null;
-            this.angle3 = null;
-            this.angle4 = null;
-            this.angle5 = null;
-            this.angle6 = null;
-            
-            this.angle6 = angle6;
         } else {
             this.keys25 = keys25;
-            this.mode24 = mode24;
             this.angle6 = angle6;
+            this.mode24 = mode24;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToStringWrapQuotes(keys25), mode24, angle6));
+            
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %b)", arrayToStringWrapQuotes(keys25), angle6, mode24));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f)", arrayToStringWrapQuotes(keys25), mode24, angle6));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %b)", arrayToStringWrapQuotes(keys25), angle6, mode24));
                 js.setLength(0);
             }
         }
@@ -5926,7 +6004,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowSelectedFill(String[] keys25, VectorRect mode25, Double angle6) {
+    public UiDataGrid rowSelectedFill(String[] keys25, Double angle6, VectorRect mode25) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5956,6 +6034,15 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys25 = null;
             
             this.keys25 = keys25;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            
+            this.angle6 = angle6;
             this.mode = null;
             this.mode1 = null;
             this.mode2 = null;
@@ -5985,27 +6072,19 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.mode26 = null;
             
             this.mode25 = mode25;
-            this.angle = null;
-            this.angle1 = null;
-            this.angle2 = null;
-            this.angle3 = null;
-            this.angle4 = null;
-            this.angle5 = null;
-            this.angle6 = null;
-            
-            this.angle6 = angle6;
         } else {
             this.keys25 = keys25;
-            this.mode25 = mode25;
             this.angle6 = angle6;
+            this.mode25 = mode25;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys25), ((mode25 != null) ? mode25.generateJs() : "null"), angle6));
+            js.append(mode25.generateJs());
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToStringWrapQuotes(keys25), angle6, ((mode25 != null) ? mode25.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys25), ((mode25 != null) ? mode25.generateJs() : "null"), angle6));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToStringWrapQuotes(keys25), angle6, ((mode25 != null) ? mode25.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -6028,7 +6107,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowSelectedFill(String[] keys25, String mode26, Double angle6) {
+    public UiDataGrid rowSelectedFill(String[] keys25, Double angle6, String mode26) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6058,6 +6137,15 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.keys25 = null;
             
             this.keys25 = keys25;
+            this.angle = null;
+            this.angle1 = null;
+            this.angle2 = null;
+            this.angle3 = null;
+            this.angle4 = null;
+            this.angle5 = null;
+            this.angle6 = null;
+            
+            this.angle6 = angle6;
             this.mode = null;
             this.mode1 = null;
             this.mode2 = null;
@@ -6087,27 +6175,19 @@ Gets column by index or creates a new one if column doesn't exist yet.
             this.mode26 = null;
             
             this.mode26 = mode26;
-            this.angle = null;
-            this.angle1 = null;
-            this.angle2 = null;
-            this.angle3 = null;
-            this.angle4 = null;
-            this.angle5 = null;
-            this.angle6 = null;
-            
-            this.angle6 = angle6;
         } else {
             this.keys25 = keys25;
-            this.mode26 = mode26;
             this.angle6 = angle6;
+            this.mode26 = mode26;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys25), wrapQuotes(mode26), angle6));
+            
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToStringWrapQuotes(keys25), angle6, wrapQuotes(mode26)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f)", arrayToStringWrapQuotes(keys25), wrapQuotes(mode26), angle6));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToStringWrapQuotes(keys25), angle6, wrapQuotes(mode26)));
                 js.setLength(0);
             }
         }
@@ -6270,10 +6350,11 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx6, cy6, ((mode27 != null) ? mode27.generateJs() : "null"), opacity19, fx6, fy6));
+            js.append(mode27.generateJs());
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx6, cy6, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity19, fx6, fy6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx6, cy6, ((mode27 != null) ? mode27.generateJs() : "null"), opacity19, fx6, fy6));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx6, cy6, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity19, fx6, fy6));
                 js.setLength(0);
             }
         }
@@ -6428,10 +6509,11 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx6, cy6, ((mode27 != null) ? mode27.generateJs() : "null"), opacity19, fx6, fy6));
+            js.append(mode27.generateJs());
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx6, cy6, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity19, fx6, fy6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx6, cy6, ((mode27 != null) ? mode27.generateJs() : "null"), opacity19, fx6, fy6));
+                onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx6, cy6, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity19, fx6, fy6));
                 js.setLength(0);
             }
         }
@@ -6464,6 +6546,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".startIndex(%f)", startIndex));
 
             if (isRendered) {
@@ -6533,6 +6616,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".verticalOffset(%f)", verticalOffset));
 
             if (isRendered) {

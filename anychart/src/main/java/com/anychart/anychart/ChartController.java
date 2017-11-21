@@ -124,6 +124,8 @@ public class ChartController extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setStartDrawing" + ++variableIndex + " = " + jsBase + ".startDrawing(%s);", ((annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null")));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", ((annotationTypeOrConfig != null) ? annotationTypeOrConfig.generateJs() : "null")));
@@ -165,6 +167,8 @@ public class ChartController extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setStartDrawing1" + ++variableIndex + " = " + jsBase + ".startDrawing(%s);", wrapQuotes(annotationTypeOrConfig1)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".startDrawing(%s)", wrapQuotes(annotationTypeOrConfig1)));
@@ -205,6 +209,8 @@ public class ChartController extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setStartDrawing2" + ++variableIndex + " = " + jsBase + ".startDrawing(%s);", ((annotationTypeOrConfig2 != null) ? annotationTypeOrConfig2.generateJs() : "null")));
             
 
             if (isRendered) {

@@ -50,6 +50,8 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingFill" + ++variableIndex + " = " + jsBase + ".fallingFill(%s);", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s)", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
@@ -118,10 +120,12 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            js.append(patternFillOrTypeOrState.generateJs());
+            js.append(String.format(Locale.US, "var setFallingHatchFill" + ++variableIndex + " = " + jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : "null"), wrapQuotes(color), thickness, size));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color), thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
@@ -167,10 +171,12 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            js.append(patternFillOrTypeOrState1.generateJs());
+            js.append(String.format(Locale.US, "var setFallingHatchFill1" + ++variableIndex + " = " + jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.getJsBase() : "null"), wrapQuotes(color), thickness, size));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color), thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.getJsBase() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
@@ -216,6 +222,8 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setFallingHatchFill2" + ++variableIndex + " = " + jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color), thickness, size));
             
 
             if (isRendered) {
@@ -266,6 +274,8 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingHatchFill3" + ++variableIndex + " = " + jsBase + ".fallingHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color), thickness, size));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color), thickness, size));
@@ -315,6 +325,8 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingHatchFill4" + ++variableIndex + " = " + jsBase + ".fallingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState4, wrapQuotes(color), thickness, size));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, wrapQuotes(color), thickness, size));
@@ -352,6 +364,8 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setRisingFill" + ++variableIndex + " = " + jsBase + ".risingFill(%s);", ((risingFill != null) ? risingFill.generateJs() : "null")));
             
 
             if (isRendered) {
@@ -435,10 +449,12 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            js.append(patternFillOrTypeOrState5.generateJs());
+            js.append(String.format(Locale.US, "var setRisingHatchFill" + ++variableIndex + " = " + jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.getJsBase() : "null"), wrapQuotes(color1), thickness1, size1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color1), thickness1, size1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.getJsBase() : "null"), wrapQuotes(color1), thickness1, size1));
                 js.setLength(0);
             }
         }
@@ -498,10 +514,12 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            js.append(patternFillOrTypeOrState6.generateJs());
+            js.append(String.format(Locale.US, "var setRisingHatchFill1" + ++variableIndex + " = " + jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.getJsBase() : "null"), wrapQuotes(color1), thickness1, size1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color1), thickness1, size1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.getJsBase() : "null"), wrapQuotes(color1), thickness1, size1));
                 js.setLength(0);
             }
         }
@@ -561,6 +579,8 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setRisingHatchFill2" + ++variableIndex + " = " + jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color1), thickness1, size1));
             
 
             if (isRendered) {
@@ -625,6 +645,8 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRisingHatchFill3" + ++variableIndex + " = " + jsBase + ".risingHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color1), thickness1, size1));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color1), thickness1, size1));
@@ -687,6 +709,8 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setRisingHatchFill4" + ++variableIndex + " = " + jsBase + ".risingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState9, wrapQuotes(color1), thickness1, size1));
             
 
             if (isRendered) {

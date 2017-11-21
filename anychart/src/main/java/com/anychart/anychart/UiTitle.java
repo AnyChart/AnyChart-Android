@@ -57,6 +57,7 @@ public class UiTitle extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
 
             if (isRendered) {
@@ -94,6 +95,7 @@ public class UiTitle extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
 
             if (isRendered) {
@@ -147,6 +149,7 @@ public class UiTitle extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
 
             if (isRendered) {
@@ -185,6 +188,7 @@ public class UiTitle extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".background(%b)", background2));
 
             if (isRendered) {
@@ -224,6 +228,7 @@ public class UiTitle extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
@@ -261,6 +266,7 @@ public class UiTitle extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
 
             if (isRendered) {
@@ -319,6 +325,7 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(allValues2)));
 
             if (isRendered) {
@@ -359,6 +366,7 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(allValues3)));
 
             if (isRendered) {
@@ -443,6 +451,7 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
             if (isRendered) {
@@ -519,6 +528,7 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
 
             if (isRendered) {
@@ -558,6 +568,7 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
 
             if (isRendered) {
@@ -595,6 +606,7 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
 
             if (isRendered) {
@@ -653,6 +665,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding2)));
 
             if (isRendered) {
@@ -693,6 +706,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding3)));
 
             if (isRendered) {
@@ -809,6 +823,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
 
             if (isRendered) {
@@ -917,6 +932,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
 
             if (isRendered) {
@@ -952,6 +968,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rotation(%f)", rotation));
 
             if (isRendered) {
@@ -987,6 +1004,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
 
             if (isRendered) {
@@ -1026,6 +1044,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
@@ -1063,6 +1082,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {

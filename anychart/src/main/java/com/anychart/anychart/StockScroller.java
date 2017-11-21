@@ -104,6 +104,8 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", arrayToStringWrapQuotes(var_args2)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s)", arrayToStringWrapQuotes(var_args2)));
@@ -120,24 +122,26 @@ public class StockScroller extends UiScroller {
     /**
      * Creates an Accumulation Distribution Line indicator on the scroller.
      */
-    public ADL adl(StockSeriesType seriesType, TableMapping mapping) {
+    public ADL adl(TableMapping mapping, StockSeriesType seriesType) {
         if (jsBase == null) {
+            this.mapping = mapping;
             this.seriesType = null;
             this.seriesType1 = null;
             
             this.seriesType = seriesType;
-            this.mapping = mapping;
         } else {
-            this.seriesType = seriesType;
             this.mapping = mapping;
+            this.seriesType = seriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setAdl" + ++variableIndex + " = " + jsBase + ".adl(%s, %s);", ((mapping != null) ? mapping.getJsBase() : "null"), ((seriesType != null) ? seriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", ((seriesType != null) ? seriesType.generateJs() : "null"), ((mapping != null) ? mapping.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", ((mapping != null) ? mapping.getJsBase() : "null"), ((seriesType != null) ? seriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -161,24 +165,26 @@ public class StockScroller extends UiScroller {
     /**
      * Creates an Accumulation Distribution Line indicator on the scroller.
      */
-    public ADL adl(String seriesType1, TableMapping mapping) {
+    public ADL adl(TableMapping mapping, String seriesType1) {
         if (jsBase == null) {
+            this.mapping = mapping;
             this.seriesType = null;
             this.seriesType1 = null;
             
             this.seriesType1 = seriesType1;
-            this.mapping = mapping;
         } else {
-            this.seriesType1 = seriesType1;
             this.mapping = mapping;
+            this.seriesType1 = seriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setAdl1" + ++variableIndex + " = " + jsBase + ".adl(%s, %s);", ((mapping != null) ? mapping.getJsBase() : "null"), wrapQuotes(seriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", wrapQuotes(seriesType1), ((mapping != null) ? mapping.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", ((mapping != null) ? mapping.getJsBase() : "null"), wrapQuotes(seriesType1)));
                 js.setLength(0);
             }
         }
@@ -208,14 +214,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates AMA (Adaptive Moving Average) indicator on the scroller.
      */
-    public AMA ama(StockSeriesType seriesType2, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
+    public AMA ama(TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod, StockSeriesType seriesType2) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            
-            this.seriesType2 = seriesType2;
             this.mapping = null;
             this.mapping1 = null;
             
@@ -223,20 +223,28 @@ public class StockScroller extends UiScroller {
             this.period = period;
             this.fastPeriod = fastPeriod;
             this.slowPeriod = slowPeriod;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            
             this.seriesType2 = seriesType2;
+        } else {
             this.mapping1 = mapping1;
             this.period = period;
             this.fastPeriod = fastPeriod;
             this.slowPeriod = slowPeriod;
+            this.seriesType2 = seriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping1.generateJs());
+            js.append(String.format(Locale.US, "var setAma" + ++variableIndex + " = " + jsBase + ".ama(%s, %f, %f, %f, %s);", ((mapping1 != null) ? mapping1.getJsBase() : "null"), period, fastPeriod, slowPeriod, ((seriesType2 != null) ? seriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", ((seriesType2 != null) ? seriesType2.generateJs() : "null"), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %f, %f, %f, %s)", ((mapping1 != null) ? mapping1.getJsBase() : "null"), period, fastPeriod, slowPeriod, ((seriesType2 != null) ? seriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -260,14 +268,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates AMA (Adaptive Moving Average) indicator on the scroller.
      */
-    public AMA ama(String seriesType3, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
+    public AMA ama(TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod, String seriesType3) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            
-            this.seriesType3 = seriesType3;
             this.mapping = null;
             this.mapping1 = null;
             
@@ -275,20 +277,28 @@ public class StockScroller extends UiScroller {
             this.period = period;
             this.fastPeriod = fastPeriod;
             this.slowPeriod = slowPeriod;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            
             this.seriesType3 = seriesType3;
+        } else {
             this.mapping1 = mapping1;
             this.period = period;
             this.fastPeriod = fastPeriod;
             this.slowPeriod = slowPeriod;
+            this.seriesType3 = seriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping1.generateJs());
+            js.append(String.format(Locale.US, "var setAma1" + ++variableIndex + " = " + jsBase + ".ama(%s, %f, %f, %f, %s);", ((mapping1 != null) ? mapping1.getJsBase() : "null"), period, fastPeriod, slowPeriod, wrapQuotes(seriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", wrapQuotes(seriesType3), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %f, %f, %f, %s)", ((mapping1 != null) ? mapping1.getJsBase() : "null"), period, fastPeriod, slowPeriod, wrapQuotes(seriesType3)));
                 js.setLength(0);
             }
         }
@@ -336,10 +346,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data.generateJs());
+            js.append(String.format(Locale.US, "var setArea" + ++variableIndex + " = " + jsBase + ".area(%s, %s, %s);", ((data != null) ? data.getJsBase() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", ((data != null) ? data.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", ((data != null) ? data.getJsBase() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -381,10 +393,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data1.generateJs());
+            js.append(String.format(Locale.US, "var setArea1" + ++variableIndex + " = " + jsBase + ".area(%s, %s, %s);", ((data1 != null) ? data1.getJsBase() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", ((data1 != null) ? data1.generateJs() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", ((data1 != null) ? data1.getJsBase() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -427,6 +441,8 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setArea2" + ++variableIndex + " = " + jsBase + ".area(%s, %s, %s);", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
@@ -459,16 +475,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Aroon indicator on the scroller.
      */
-    public Aroon aroon(StockSeriesType upSeriesType, StockSeriesType downSeriesType, TableMapping mapping2, Double period1) {
+    public Aroon aroon(TableMapping mapping2, Double period1, StockSeriesType upSeriesType, StockSeriesType downSeriesType) {
         if (jsBase == null) {
-            this.upSeriesType = null;
-            this.upSeriesType1 = null;
-            
-            this.upSeriesType = upSeriesType;
-            this.downSeriesType = null;
-            this.downSeriesType1 = null;
-            
-            this.downSeriesType = downSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -478,19 +486,29 @@ public class StockScroller extends UiScroller {
             this.period1 = null;
             
             this.period1 = period1;
-        } else {
+            this.upSeriesType = null;
+            this.upSeriesType1 = null;
+            
             this.upSeriesType = upSeriesType;
+            this.downSeriesType = null;
+            this.downSeriesType1 = null;
+            
             this.downSeriesType = downSeriesType;
+        } else {
             this.mapping2 = mapping2;
             this.period1 = period1;
+            this.upSeriesType = upSeriesType;
+            this.downSeriesType = downSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping2.generateJs());
+            js.append(String.format(Locale.US, "var setAroon" + ++variableIndex + " = " + jsBase + ".aroon(%s, %f, %s, %s);", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s)", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -514,16 +532,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Aroon indicator on the scroller.
      */
-    public Aroon aroon(StockSeriesType upSeriesType, String downSeriesType1, TableMapping mapping2, Double period1) {
+    public Aroon aroon(TableMapping mapping2, Double period1, StockSeriesType upSeriesType, String downSeriesType1) {
         if (jsBase == null) {
-            this.upSeriesType = null;
-            this.upSeriesType1 = null;
-            
-            this.upSeriesType = upSeriesType;
-            this.downSeriesType = null;
-            this.downSeriesType1 = null;
-            
-            this.downSeriesType1 = downSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -533,19 +543,29 @@ public class StockScroller extends UiScroller {
             this.period1 = null;
             
             this.period1 = period1;
-        } else {
+            this.upSeriesType = null;
+            this.upSeriesType1 = null;
+            
             this.upSeriesType = upSeriesType;
+            this.downSeriesType = null;
+            this.downSeriesType1 = null;
+            
             this.downSeriesType1 = downSeriesType1;
+        } else {
             this.mapping2 = mapping2;
             this.period1 = period1;
+            this.upSeriesType = upSeriesType;
+            this.downSeriesType1 = downSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping2.generateJs());
+            js.append(String.format(Locale.US, "var setAroon1" + ++variableIndex + " = " + jsBase + ".aroon(%s, %f, %s, %s);", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s)", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -569,16 +589,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Aroon indicator on the scroller.
      */
-    public Aroon aroon(String upSeriesType1, StockSeriesType downSeriesType, TableMapping mapping2, Double period1) {
+    public Aroon aroon(TableMapping mapping2, Double period1, String upSeriesType1, StockSeriesType downSeriesType) {
         if (jsBase == null) {
-            this.upSeriesType = null;
-            this.upSeriesType1 = null;
-            
-            this.upSeriesType1 = upSeriesType1;
-            this.downSeriesType = null;
-            this.downSeriesType1 = null;
-            
-            this.downSeriesType = downSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -588,19 +600,29 @@ public class StockScroller extends UiScroller {
             this.period1 = null;
             
             this.period1 = period1;
-        } else {
+            this.upSeriesType = null;
+            this.upSeriesType1 = null;
+            
             this.upSeriesType1 = upSeriesType1;
+            this.downSeriesType = null;
+            this.downSeriesType1 = null;
+            
             this.downSeriesType = downSeriesType;
+        } else {
             this.mapping2 = mapping2;
             this.period1 = period1;
+            this.upSeriesType1 = upSeriesType1;
+            this.downSeriesType = downSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping2.generateJs());
+            js.append(String.format(Locale.US, "var setAroon2" + ++variableIndex + " = " + jsBase + ".aroon(%s, %f, %s, %s);", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s)", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -624,16 +646,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Aroon indicator on the scroller.
      */
-    public Aroon aroon(String upSeriesType1, String downSeriesType1, TableMapping mapping2, Double period1) {
+    public Aroon aroon(TableMapping mapping2, Double period1, String upSeriesType1, String downSeriesType1) {
         if (jsBase == null) {
-            this.upSeriesType = null;
-            this.upSeriesType1 = null;
-            
-            this.upSeriesType1 = upSeriesType1;
-            this.downSeriesType = null;
-            this.downSeriesType1 = null;
-            
-            this.downSeriesType1 = downSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -643,19 +657,29 @@ public class StockScroller extends UiScroller {
             this.period1 = null;
             
             this.period1 = period1;
-        } else {
+            this.upSeriesType = null;
+            this.upSeriesType1 = null;
+            
             this.upSeriesType1 = upSeriesType1;
+            this.downSeriesType = null;
+            this.downSeriesType1 = null;
+            
             this.downSeriesType1 = downSeriesType1;
+        } else {
             this.mapping2 = mapping2;
             this.period1 = period1;
+            this.upSeriesType1 = upSeriesType1;
+            this.downSeriesType1 = downSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping2.generateJs());
+            js.append(String.format(Locale.US, "var setAroon3" + ++variableIndex + " = " + jsBase + ".aroon(%s, %f, %s, %s);", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s)", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -683,16 +707,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates an Average True Range indicator on the chart.
      */
-    public ATR atr(StockSeriesType seriesType4, TableMapping mapping3, Double period2) {
+    public ATR atr(TableMapping mapping3, Double period2, StockSeriesType seriesType4) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            
-            this.seriesType4 = seriesType4;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -704,18 +720,28 @@ public class StockScroller extends UiScroller {
             this.period2 = null;
             
             this.period2 = period2;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            
             this.seriesType4 = seriesType4;
+        } else {
             this.mapping3 = mapping3;
             this.period2 = period2;
+            this.seriesType4 = seriesType4;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping3.generateJs());
+            js.append(String.format(Locale.US, "var setAtr" + ++variableIndex + " = " + jsBase + ".atr(%s, %f, %s);", ((mapping3 != null) ? mapping3.getJsBase() : "null"), period2, ((seriesType4 != null) ? seriesType4.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", ((seriesType4 != null) ? seriesType4.generateJs() : "null"), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %f, %s)", ((mapping3 != null) ? mapping3.getJsBase() : "null"), period2, ((seriesType4 != null) ? seriesType4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -739,16 +765,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates an Average True Range indicator on the chart.
      */
-    public ATR atr(String seriesType5, TableMapping mapping3, Double period2) {
+    public ATR atr(TableMapping mapping3, Double period2, String seriesType5) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            
-            this.seriesType5 = seriesType5;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -760,18 +778,28 @@ public class StockScroller extends UiScroller {
             this.period2 = null;
             
             this.period2 = period2;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            
             this.seriesType5 = seriesType5;
+        } else {
             this.mapping3 = mapping3;
             this.period2 = period2;
+            this.seriesType5 = seriesType5;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping3.generateJs());
+            js.append(String.format(Locale.US, "var setAtr1" + ++variableIndex + " = " + jsBase + ".atr(%s, %f, %s);", ((mapping3 != null) ? mapping3.getJsBase() : "null"), period2, wrapQuotes(seriesType5)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", wrapQuotes(seriesType5), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %f, %s)", ((mapping3 != null) ? mapping3.getJsBase() : "null"), period2, wrapQuotes(seriesType5)));
                 js.setLength(0);
             }
         }
@@ -804,20 +832,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public BBands bbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType) {
         if (jsBase == null) {
-            this.upperSeriesType = null;
-            this.upperSeriesType1 = null;
-            
-            this.upperSeriesType = upperSeriesType;
-            this.lowerSeriesType = null;
-            this.lowerSeriesType1 = null;
-            
-            this.lowerSeriesType = lowerSeriesType;
-            this.middleSeriesType = null;
-            this.middleSeriesType1 = null;
-            
-            this.middleSeriesType = middleSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -832,21 +848,35 @@ public class StockScroller extends UiScroller {
             
             this.period3 = period3;
             this.deviation = deviation;
-        } else {
+            this.upperSeriesType = null;
+            this.upperSeriesType1 = null;
+            
             this.upperSeriesType = upperSeriesType;
+            this.lowerSeriesType = null;
+            this.lowerSeriesType1 = null;
+            
             this.lowerSeriesType = lowerSeriesType;
+            this.middleSeriesType = null;
+            this.middleSeriesType1 = null;
+            
             this.middleSeriesType = middleSeriesType;
+        } else {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+            this.upperSeriesType = upperSeriesType;
+            this.lowerSeriesType = lowerSeriesType;
+            this.middleSeriesType = middleSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping4.generateJs());
+            js.append(String.format(Locale.US, "var setBbands" + ++variableIndex + " = " + jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -870,20 +900,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public BBands bbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, String middleSeriesType1) {
         if (jsBase == null) {
-            this.upperSeriesType = null;
-            this.upperSeriesType1 = null;
-            
-            this.upperSeriesType = upperSeriesType;
-            this.lowerSeriesType = null;
-            this.lowerSeriesType1 = null;
-            
-            this.lowerSeriesType = lowerSeriesType;
-            this.middleSeriesType = null;
-            this.middleSeriesType1 = null;
-            
-            this.middleSeriesType1 = middleSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -898,21 +916,35 @@ public class StockScroller extends UiScroller {
             
             this.period3 = period3;
             this.deviation = deviation;
-        } else {
+            this.upperSeriesType = null;
+            this.upperSeriesType1 = null;
+            
             this.upperSeriesType = upperSeriesType;
+            this.lowerSeriesType = null;
+            this.lowerSeriesType1 = null;
+            
             this.lowerSeriesType = lowerSeriesType;
+            this.middleSeriesType = null;
+            this.middleSeriesType1 = null;
+            
             this.middleSeriesType1 = middleSeriesType1;
+        } else {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+            this.upperSeriesType = upperSeriesType;
+            this.lowerSeriesType = lowerSeriesType;
+            this.middleSeriesType1 = middleSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping4.generateJs());
+            js.append(String.format(Locale.US, "var setBbands1" + ++variableIndex + " = " + jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -936,20 +968,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public BBands bbands(StockSeriesType upperSeriesType, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, StockSeriesType upperSeriesType, String lowerSeriesType1, StockSeriesType middleSeriesType) {
         if (jsBase == null) {
-            this.upperSeriesType = null;
-            this.upperSeriesType1 = null;
-            
-            this.upperSeriesType = upperSeriesType;
-            this.lowerSeriesType = null;
-            this.lowerSeriesType1 = null;
-            
-            this.lowerSeriesType1 = lowerSeriesType1;
-            this.middleSeriesType = null;
-            this.middleSeriesType1 = null;
-            
-            this.middleSeriesType = middleSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -964,21 +984,35 @@ public class StockScroller extends UiScroller {
             
             this.period3 = period3;
             this.deviation = deviation;
-        } else {
+            this.upperSeriesType = null;
+            this.upperSeriesType1 = null;
+            
             this.upperSeriesType = upperSeriesType;
+            this.lowerSeriesType = null;
+            this.lowerSeriesType1 = null;
+            
             this.lowerSeriesType1 = lowerSeriesType1;
+            this.middleSeriesType = null;
+            this.middleSeriesType1 = null;
+            
             this.middleSeriesType = middleSeriesType;
+        } else {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+            this.upperSeriesType = upperSeriesType;
+            this.lowerSeriesType1 = lowerSeriesType1;
+            this.middleSeriesType = middleSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping4.generateJs());
+            js.append(String.format(Locale.US, "var setBbands2" + ++variableIndex + " = " + jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1002,20 +1036,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public BBands bbands(StockSeriesType upperSeriesType, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, StockSeriesType upperSeriesType, String lowerSeriesType1, String middleSeriesType1) {
         if (jsBase == null) {
-            this.upperSeriesType = null;
-            this.upperSeriesType1 = null;
-            
-            this.upperSeriesType = upperSeriesType;
-            this.lowerSeriesType = null;
-            this.lowerSeriesType1 = null;
-            
-            this.lowerSeriesType1 = lowerSeriesType1;
-            this.middleSeriesType = null;
-            this.middleSeriesType1 = null;
-            
-            this.middleSeriesType1 = middleSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1030,21 +1052,35 @@ public class StockScroller extends UiScroller {
             
             this.period3 = period3;
             this.deviation = deviation;
-        } else {
+            this.upperSeriesType = null;
+            this.upperSeriesType1 = null;
+            
             this.upperSeriesType = upperSeriesType;
+            this.lowerSeriesType = null;
+            this.lowerSeriesType1 = null;
+            
             this.lowerSeriesType1 = lowerSeriesType1;
+            this.middleSeriesType = null;
+            this.middleSeriesType1 = null;
+            
             this.middleSeriesType1 = middleSeriesType1;
+        } else {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+            this.upperSeriesType = upperSeriesType;
+            this.lowerSeriesType1 = lowerSeriesType1;
+            this.middleSeriesType1 = middleSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping4.generateJs());
+            js.append(String.format(Locale.US, "var setBbands3" + ++variableIndex + " = " + jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -1068,20 +1104,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public BBands bbands(String upperSeriesType1, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, String upperSeriesType1, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType) {
         if (jsBase == null) {
-            this.upperSeriesType = null;
-            this.upperSeriesType1 = null;
-            
-            this.upperSeriesType1 = upperSeriesType1;
-            this.lowerSeriesType = null;
-            this.lowerSeriesType1 = null;
-            
-            this.lowerSeriesType = lowerSeriesType;
-            this.middleSeriesType = null;
-            this.middleSeriesType1 = null;
-            
-            this.middleSeriesType = middleSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1096,21 +1120,35 @@ public class StockScroller extends UiScroller {
             
             this.period3 = period3;
             this.deviation = deviation;
-        } else {
+            this.upperSeriesType = null;
+            this.upperSeriesType1 = null;
+            
             this.upperSeriesType1 = upperSeriesType1;
+            this.lowerSeriesType = null;
+            this.lowerSeriesType1 = null;
+            
             this.lowerSeriesType = lowerSeriesType;
+            this.middleSeriesType = null;
+            this.middleSeriesType1 = null;
+            
             this.middleSeriesType = middleSeriesType;
+        } else {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+            this.upperSeriesType1 = upperSeriesType1;
+            this.lowerSeriesType = lowerSeriesType;
+            this.middleSeriesType = middleSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping4.generateJs());
+            js.append(String.format(Locale.US, "var setBbands4" + ++variableIndex + " = " + jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1134,20 +1172,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public BBands bbands(String upperSeriesType1, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, String upperSeriesType1, StockSeriesType lowerSeriesType, String middleSeriesType1) {
         if (jsBase == null) {
-            this.upperSeriesType = null;
-            this.upperSeriesType1 = null;
-            
-            this.upperSeriesType1 = upperSeriesType1;
-            this.lowerSeriesType = null;
-            this.lowerSeriesType1 = null;
-            
-            this.lowerSeriesType = lowerSeriesType;
-            this.middleSeriesType = null;
-            this.middleSeriesType1 = null;
-            
-            this.middleSeriesType1 = middleSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1162,21 +1188,35 @@ public class StockScroller extends UiScroller {
             
             this.period3 = period3;
             this.deviation = deviation;
-        } else {
+            this.upperSeriesType = null;
+            this.upperSeriesType1 = null;
+            
             this.upperSeriesType1 = upperSeriesType1;
+            this.lowerSeriesType = null;
+            this.lowerSeriesType1 = null;
+            
             this.lowerSeriesType = lowerSeriesType;
+            this.middleSeriesType = null;
+            this.middleSeriesType1 = null;
+            
             this.middleSeriesType1 = middleSeriesType1;
+        } else {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+            this.upperSeriesType1 = upperSeriesType1;
+            this.lowerSeriesType = lowerSeriesType;
+            this.middleSeriesType1 = middleSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping4.generateJs());
+            js.append(String.format(Locale.US, "var setBbands5" + ++variableIndex + " = " + jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -1200,20 +1240,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public BBands bbands(String upperSeriesType1, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, String upperSeriesType1, String lowerSeriesType1, StockSeriesType middleSeriesType) {
         if (jsBase == null) {
-            this.upperSeriesType = null;
-            this.upperSeriesType1 = null;
-            
-            this.upperSeriesType1 = upperSeriesType1;
-            this.lowerSeriesType = null;
-            this.lowerSeriesType1 = null;
-            
-            this.lowerSeriesType1 = lowerSeriesType1;
-            this.middleSeriesType = null;
-            this.middleSeriesType1 = null;
-            
-            this.middleSeriesType = middleSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1228,21 +1256,35 @@ public class StockScroller extends UiScroller {
             
             this.period3 = period3;
             this.deviation = deviation;
-        } else {
+            this.upperSeriesType = null;
+            this.upperSeriesType1 = null;
+            
             this.upperSeriesType1 = upperSeriesType1;
+            this.lowerSeriesType = null;
+            this.lowerSeriesType1 = null;
+            
             this.lowerSeriesType1 = lowerSeriesType1;
+            this.middleSeriesType = null;
+            this.middleSeriesType1 = null;
+            
             this.middleSeriesType = middleSeriesType;
+        } else {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+            this.upperSeriesType1 = upperSeriesType1;
+            this.lowerSeriesType1 = lowerSeriesType1;
+            this.middleSeriesType = middleSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping4.generateJs());
+            js.append(String.format(Locale.US, "var setBbands6" + ++variableIndex + " = " + jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1266,20 +1308,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public BBands bbands(String upperSeriesType1, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, String upperSeriesType1, String lowerSeriesType1, String middleSeriesType1) {
         if (jsBase == null) {
-            this.upperSeriesType = null;
-            this.upperSeriesType1 = null;
-            
-            this.upperSeriesType1 = upperSeriesType1;
-            this.lowerSeriesType = null;
-            this.lowerSeriesType1 = null;
-            
-            this.lowerSeriesType1 = lowerSeriesType1;
-            this.middleSeriesType = null;
-            this.middleSeriesType1 = null;
-            
-            this.middleSeriesType1 = middleSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1294,21 +1324,35 @@ public class StockScroller extends UiScroller {
             
             this.period3 = period3;
             this.deviation = deviation;
-        } else {
+            this.upperSeriesType = null;
+            this.upperSeriesType1 = null;
+            
             this.upperSeriesType1 = upperSeriesType1;
+            this.lowerSeriesType = null;
+            this.lowerSeriesType1 = null;
+            
             this.lowerSeriesType1 = lowerSeriesType1;
+            this.middleSeriesType = null;
+            this.middleSeriesType1 = null;
+            
             this.middleSeriesType1 = middleSeriesType1;
+        } else {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+            this.upperSeriesType1 = upperSeriesType1;
+            this.lowerSeriesType1 = lowerSeriesType1;
+            this.middleSeriesType1 = middleSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping4.generateJs());
+            js.append(String.format(Locale.US, "var setBbands7" + ++variableIndex + " = " + jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -1337,18 +1381,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates %B indicator on the scroller.
      */
-    public BBandsB bbandsB(StockSeriesType seriesType6, TableMapping mapping5, Double period4, Double deviation1) {
+    public BBandsB bbandsB(TableMapping mapping5, Double period4, Double deviation1, StockSeriesType seriesType6) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            
-            this.seriesType6 = seriesType6;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1368,19 +1402,31 @@ public class StockScroller extends UiScroller {
             this.deviation1 = null;
             
             this.deviation1 = deviation1;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            
             this.seriesType6 = seriesType6;
+        } else {
             this.mapping5 = mapping5;
             this.period4 = period4;
             this.deviation1 = deviation1;
+            this.seriesType6 = seriesType6;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping5.generateJs());
+            js.append(String.format(Locale.US, "var setBbandsB" + ++variableIndex + " = " + jsBase + ".bbandsB(%s, %f, %f, %s);", ((mapping5 != null) ? mapping5.getJsBase() : "null"), period4, deviation1, ((seriesType6 != null) ? seriesType6.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", ((seriesType6 != null) ? seriesType6.generateJs() : "null"), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %f, %f, %s)", ((mapping5 != null) ? mapping5.getJsBase() : "null"), period4, deviation1, ((seriesType6 != null) ? seriesType6.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1404,18 +1450,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates %B indicator on the scroller.
      */
-    public BBandsB bbandsB(String seriesType7, TableMapping mapping5, Double period4, Double deviation1) {
+    public BBandsB bbandsB(TableMapping mapping5, Double period4, Double deviation1, String seriesType7) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            
-            this.seriesType7 = seriesType7;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1435,19 +1471,31 @@ public class StockScroller extends UiScroller {
             this.deviation1 = null;
             
             this.deviation1 = deviation1;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            
             this.seriesType7 = seriesType7;
+        } else {
             this.mapping5 = mapping5;
             this.period4 = period4;
             this.deviation1 = deviation1;
+            this.seriesType7 = seriesType7;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping5.generateJs());
+            js.append(String.format(Locale.US, "var setBbandsB1" + ++variableIndex + " = " + jsBase + ".bbandsB(%s, %f, %f, %s);", ((mapping5 != null) ? mapping5.getJsBase() : "null"), period4, deviation1, wrapQuotes(seriesType7)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", wrapQuotes(seriesType7), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %f, %f, %s)", ((mapping5 != null) ? mapping5.getJsBase() : "null"), period4, deviation1, wrapQuotes(seriesType7)));
                 js.setLength(0);
             }
         }
@@ -1476,20 +1524,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands Width indicator on the scroller.
      */
-    public BBandsWidth bbandsWidth(StockSeriesType seriesType8, TableMapping mapping6, Double period5, Double deviation2) {
+    public BBandsWidth bbandsWidth(TableMapping mapping6, Double period5, Double deviation2, StockSeriesType seriesType8) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            
-            this.seriesType8 = seriesType8;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1512,19 +1548,33 @@ public class StockScroller extends UiScroller {
             this.deviation2 = null;
             
             this.deviation2 = deviation2;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            
             this.seriesType8 = seriesType8;
+        } else {
             this.mapping6 = mapping6;
             this.period5 = period5;
             this.deviation2 = deviation2;
+            this.seriesType8 = seriesType8;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping6.generateJs());
+            js.append(String.format(Locale.US, "var setBbandsWidth" + ++variableIndex + " = " + jsBase + ".bbandsWidth(%s, %f, %f, %s);", ((mapping6 != null) ? mapping6.getJsBase() : "null"), period5, deviation2, ((seriesType8 != null) ? seriesType8.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", ((seriesType8 != null) ? seriesType8.generateJs() : "null"), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %f, %f, %s)", ((mapping6 != null) ? mapping6.getJsBase() : "null"), period5, deviation2, ((seriesType8 != null) ? seriesType8.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1548,20 +1598,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands Width indicator on the scroller.
      */
-    public BBandsWidth bbandsWidth(String seriesType9, TableMapping mapping6, Double period5, Double deviation2) {
+    public BBandsWidth bbandsWidth(TableMapping mapping6, Double period5, Double deviation2, String seriesType9) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            
-            this.seriesType9 = seriesType9;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1584,19 +1622,33 @@ public class StockScroller extends UiScroller {
             this.deviation2 = null;
             
             this.deviation2 = deviation2;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            
             this.seriesType9 = seriesType9;
+        } else {
             this.mapping6 = mapping6;
             this.period5 = period5;
             this.deviation2 = deviation2;
+            this.seriesType9 = seriesType9;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping6.generateJs());
+            js.append(String.format(Locale.US, "var setBbandsWidth1" + ++variableIndex + " = " + jsBase + ".bbandsWidth(%s, %f, %f, %s);", ((mapping6 != null) ? mapping6.getJsBase() : "null"), period5, deviation2, wrapQuotes(seriesType9)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", wrapQuotes(seriesType9), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %f, %f, %s)", ((mapping6 != null) ? mapping6.getJsBase() : "null"), period5, deviation2, wrapQuotes(seriesType9)));
                 js.setLength(0);
             }
         }
@@ -1654,10 +1706,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data4.generateJs());
+            js.append(String.format(Locale.US, "var setCandlestick" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s, %s);", ((data4 != null) ? data4.getJsBase() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", ((data4 != null) ? data4.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", ((data4 != null) ? data4.getJsBase() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
@@ -1709,10 +1763,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data5.generateJs());
+            js.append(String.format(Locale.US, "var setCandlestick1" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s, %s);", ((data5 != null) ? data5.getJsBase() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", ((data5 != null) ? data5.generateJs() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", ((data5 != null) ? data5.getJsBase() : "null"), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
                 js.setLength(0);
             }
         }
@@ -1765,6 +1821,8 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setCandlestick2" + ++variableIndex + " = " + jsBase + ".candlestick(%s, %s, %s);", wrapQuotes(data6), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s, %s, %s)", wrapQuotes(data6), wrapQuotes(mappingSettings1), wrapQuotes(csvSettings1)));
@@ -1795,22 +1853,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Commodity Channel Index indicator on the scroller.
      */
-    public CCI cci(StockSeriesType seriesType10, TableMapping mapping7, Double period6) {
+    public CCI cci(TableMapping mapping7, Double period6, StockSeriesType seriesType10) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            
-            this.seriesType10 = seriesType10;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1830,18 +1874,34 @@ public class StockScroller extends UiScroller {
             this.period6 = null;
             
             this.period6 = period6;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            
             this.seriesType10 = seriesType10;
+        } else {
             this.mapping7 = mapping7;
             this.period6 = period6;
+            this.seriesType10 = seriesType10;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping7.generateJs());
+            js.append(String.format(Locale.US, "var setCci" + ++variableIndex + " = " + jsBase + ".cci(%s, %f, %s);", ((mapping7 != null) ? mapping7.getJsBase() : "null"), period6, ((seriesType10 != null) ? seriesType10.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", ((seriesType10 != null) ? seriesType10.generateJs() : "null"), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %f, %s)", ((mapping7 != null) ? mapping7.getJsBase() : "null"), period6, ((seriesType10 != null) ? seriesType10.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1865,22 +1925,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Commodity Channel Index indicator on the scroller.
      */
-    public CCI cci(String seriesType11, TableMapping mapping7, Double period6) {
+    public CCI cci(TableMapping mapping7, Double period6, String seriesType11) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            
-            this.seriesType11 = seriesType11;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1900,18 +1946,34 @@ public class StockScroller extends UiScroller {
             this.period6 = null;
             
             this.period6 = period6;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            
             this.seriesType11 = seriesType11;
+        } else {
             this.mapping7 = mapping7;
             this.period6 = period6;
+            this.seriesType11 = seriesType11;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping7.generateJs());
+            js.append(String.format(Locale.US, "var setCci1" + ++variableIndex + " = " + jsBase + ".cci(%s, %f, %s);", ((mapping7 != null) ? mapping7.getJsBase() : "null"), period6, wrapQuotes(seriesType11)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", wrapQuotes(seriesType11), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %f, %s)", ((mapping7 != null) ? mapping7.getJsBase() : "null"), period6, wrapQuotes(seriesType11)));
                 js.setLength(0);
             }
         }
@@ -1941,24 +2003,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Chaikin Oscillator indicator on the chart.
      */
-    public CHO cho(StockSeriesType seriesType12, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, String maType) {
+    public CHO cho(TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, String maType, StockSeriesType seriesType12) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            
-            this.seriesType12 = seriesType12;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1979,20 +2025,38 @@ public class StockScroller extends UiScroller {
             
             this.slowPeriod1 = slowPeriod1;
             this.maType = maType;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            
             this.seriesType12 = seriesType12;
+        } else {
             this.mapping8 = mapping8;
             this.fastPeriod1 = fastPeriod1;
             this.slowPeriod1 = slowPeriod1;
             this.maType = maType;
+            this.seriesType12 = seriesType12;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping8.generateJs());
+            js.append(String.format(Locale.US, "var setCho" + ++variableIndex + " = " + jsBase + ".cho(%s, %f, %f, %s, %s);", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType), ((seriesType12 != null) ? seriesType12.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s)", ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %f, %f, %s, %s)", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType), ((seriesType12 != null) ? seriesType12.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2016,24 +2080,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Chaikin Oscillator indicator on the chart.
      */
-    public CHO cho(String seriesType13, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, String maType) {
+    public CHO cho(TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, String maType, String seriesType13) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            
-            this.seriesType13 = seriesType13;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2054,20 +2102,38 @@ public class StockScroller extends UiScroller {
             
             this.slowPeriod1 = slowPeriod1;
             this.maType = maType;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            
             this.seriesType13 = seriesType13;
+        } else {
             this.mapping8 = mapping8;
             this.fastPeriod1 = fastPeriod1;
             this.slowPeriod1 = slowPeriod1;
             this.maType = maType;
+            this.seriesType13 = seriesType13;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping8.generateJs());
+            js.append(String.format(Locale.US, "var setCho1" + ++variableIndex + " = " + jsBase + ".cho(%s, %f, %f, %s, %s);", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType), wrapQuotes(seriesType13)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %f, %f, %s)", wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %f, %f, %s, %s)", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType), wrapQuotes(seriesType13)));
                 js.setLength(0);
             }
         }
@@ -2095,26 +2161,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Chaikin Money Flow indicator on the chart.
      */
-    public CMF cmf(StockSeriesType seriesType14, TableMapping mapping9, Double period7) {
+    public CMF cmf(TableMapping mapping9, Double period7, StockSeriesType seriesType14) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            
-            this.seriesType14 = seriesType14;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2137,18 +2185,38 @@ public class StockScroller extends UiScroller {
             this.period7 = null;
             
             this.period7 = period7;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            
             this.seriesType14 = seriesType14;
+        } else {
             this.mapping9 = mapping9;
             this.period7 = period7;
+            this.seriesType14 = seriesType14;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping9.generateJs());
+            js.append(String.format(Locale.US, "var setCmf" + ++variableIndex + " = " + jsBase + ".cmf(%s, %f, %s);", ((mapping9 != null) ? mapping9.getJsBase() : "null"), period7, ((seriesType14 != null) ? seriesType14.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", ((seriesType14 != null) ? seriesType14.generateJs() : "null"), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %f, %s)", ((mapping9 != null) ? mapping9.getJsBase() : "null"), period7, ((seriesType14 != null) ? seriesType14.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2172,26 +2240,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Chaikin Money Flow indicator on the chart.
      */
-    public CMF cmf(String seriesType15, TableMapping mapping9, Double period7) {
+    public CMF cmf(TableMapping mapping9, Double period7, String seriesType15) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            
-            this.seriesType15 = seriesType15;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2214,18 +2264,38 @@ public class StockScroller extends UiScroller {
             this.period7 = null;
             
             this.period7 = period7;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            
             this.seriesType15 = seriesType15;
+        } else {
             this.mapping9 = mapping9;
             this.period7 = period7;
+            this.seriesType15 = seriesType15;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping9.generateJs());
+            js.append(String.format(Locale.US, "var setCmf1" + ++variableIndex + " = " + jsBase + ".cmf(%s, %f, %s);", ((mapping9 != null) ? mapping9.getJsBase() : "null"), period7, wrapQuotes(seriesType15)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", wrapQuotes(seriesType15), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %f, %s)", ((mapping9 != null) ? mapping9.getJsBase() : "null"), period7, wrapQuotes(seriesType15)));
                 js.setLength(0);
             }
         }
@@ -2289,10 +2359,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data8.generateJs());
+            js.append(String.format(Locale.US, "var setColumn" + ++variableIndex + " = " + jsBase + ".column(%s, %s, %s);", ((data8 != null) ? data8.getJsBase() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", ((data8 != null) ? data8.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", ((data8 != null) ? data8.getJsBase() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
             }
         }
@@ -2350,10 +2422,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data9.generateJs());
+            js.append(String.format(Locale.US, "var setColumn1" + ++variableIndex + " = " + jsBase + ".column(%s, %s, %s);", ((data9 != null) ? data9.getJsBase() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", ((data9 != null) ? data9.generateJs() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", ((data9 != null) ? data9.getJsBase() : "null"), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
                 js.setLength(0);
             }
         }
@@ -2412,6 +2486,8 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setColumn2" + ++variableIndex + " = " + jsBase + ".column(%s, %s, %s);", wrapQuotes(data10), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s, %s)", wrapQuotes(data10), wrapQuotes(mappingSettings2), wrapQuotes(csvSettings2)));
@@ -2453,6 +2529,7 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".defaultSeriesType(%s)", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
 
             if (isRendered) {
@@ -2491,6 +2568,7 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType1)));
 
             if (isRendered) {
@@ -2526,20 +2604,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
-            this.pdiSeriesType = null;
-            this.pdiSeriesType1 = null;
-            
-            this.pdiSeriesType = pdiSeriesType;
-            this.ndiSeriesType = null;
-            this.ndiSeriesType1 = null;
-            
-            this.ndiSeriesType = ndiSeriesType;
-            this.adxSeriesType = null;
-            this.adxSeriesType1 = null;
-            
-            this.adxSeriesType = adxSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2566,22 +2632,36 @@ public class StockScroller extends UiScroller {
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-        } else {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
             this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
             this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
             this.adxSeriesType = adxSeriesType;
+        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+            this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = adxSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping10.generateJs());
+            js.append(String.format(Locale.US, "var setDmi" + ++variableIndex + " = " + jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2605,20 +2685,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, String adxSeriesType1) {
         if (jsBase == null) {
-            this.pdiSeriesType = null;
-            this.pdiSeriesType1 = null;
-            
-            this.pdiSeriesType = pdiSeriesType;
-            this.ndiSeriesType = null;
-            this.ndiSeriesType1 = null;
-            
-            this.ndiSeriesType = ndiSeriesType;
-            this.adxSeriesType = null;
-            this.adxSeriesType1 = null;
-            
-            this.adxSeriesType1 = adxSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2645,22 +2713,36 @@ public class StockScroller extends UiScroller {
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-        } else {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
             this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
             this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
             this.adxSeriesType1 = adxSeriesType1;
+        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+            this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType1 = adxSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping10.generateJs());
+            js.append(String.format(Locale.US, "var setDmi1" + ++variableIndex + " = " + jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -2684,20 +2766,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(StockSeriesType pdiSeriesType, String ndiSeriesType1, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, String ndiSeriesType1, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
-            this.pdiSeriesType = null;
-            this.pdiSeriesType1 = null;
-            
-            this.pdiSeriesType = pdiSeriesType;
-            this.ndiSeriesType = null;
-            this.ndiSeriesType1 = null;
-            
-            this.ndiSeriesType1 = ndiSeriesType1;
-            this.adxSeriesType = null;
-            this.adxSeriesType1 = null;
-            
-            this.adxSeriesType = adxSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2724,22 +2794,36 @@ public class StockScroller extends UiScroller {
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-        } else {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
             this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
             this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
             this.adxSeriesType = adxSeriesType;
+        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+            this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = adxSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping10.generateJs());
+            js.append(String.format(Locale.US, "var setDmi2" + ++variableIndex + " = " + jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2763,20 +2847,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(StockSeriesType pdiSeriesType, String ndiSeriesType1, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, String ndiSeriesType1, String adxSeriesType1) {
         if (jsBase == null) {
-            this.pdiSeriesType = null;
-            this.pdiSeriesType1 = null;
-            
-            this.pdiSeriesType = pdiSeriesType;
-            this.ndiSeriesType = null;
-            this.ndiSeriesType1 = null;
-            
-            this.ndiSeriesType1 = ndiSeriesType1;
-            this.adxSeriesType = null;
-            this.adxSeriesType1 = null;
-            
-            this.adxSeriesType1 = adxSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2803,22 +2875,36 @@ public class StockScroller extends UiScroller {
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-        } else {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
             this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
             this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
             this.adxSeriesType1 = adxSeriesType1;
+        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+            this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType1 = adxSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping10.generateJs());
+            js.append(String.format(Locale.US, "var setDmi3" + ++variableIndex + " = " + jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -2842,20 +2928,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(String pdiSeriesType1, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
-            this.pdiSeriesType = null;
-            this.pdiSeriesType1 = null;
-            
-            this.pdiSeriesType1 = pdiSeriesType1;
-            this.ndiSeriesType = null;
-            this.ndiSeriesType1 = null;
-            
-            this.ndiSeriesType = ndiSeriesType;
-            this.adxSeriesType = null;
-            this.adxSeriesType1 = null;
-            
-            this.adxSeriesType = adxSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2882,22 +2956,36 @@ public class StockScroller extends UiScroller {
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-        } else {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
             this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
             this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
             this.adxSeriesType = adxSeriesType;
+        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+            this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = adxSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping10.generateJs());
+            js.append(String.format(Locale.US, "var setDmi4" + ++variableIndex + " = " + jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2921,20 +3009,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(String pdiSeriesType1, StockSeriesType ndiSeriesType, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, StockSeriesType ndiSeriesType, String adxSeriesType1) {
         if (jsBase == null) {
-            this.pdiSeriesType = null;
-            this.pdiSeriesType1 = null;
-            
-            this.pdiSeriesType1 = pdiSeriesType1;
-            this.ndiSeriesType = null;
-            this.ndiSeriesType1 = null;
-            
-            this.ndiSeriesType = ndiSeriesType;
-            this.adxSeriesType = null;
-            this.adxSeriesType1 = null;
-            
-            this.adxSeriesType1 = adxSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2961,22 +3037,36 @@ public class StockScroller extends UiScroller {
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-        } else {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
             this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
             this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
             this.adxSeriesType1 = adxSeriesType1;
+        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+            this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType1 = adxSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping10.generateJs());
+            js.append(String.format(Locale.US, "var setDmi5" + ++variableIndex + " = " + jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -3000,20 +3090,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(String pdiSeriesType1, String ndiSeriesType1, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, String ndiSeriesType1, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
-            this.pdiSeriesType = null;
-            this.pdiSeriesType1 = null;
-            
-            this.pdiSeriesType1 = pdiSeriesType1;
-            this.ndiSeriesType = null;
-            this.ndiSeriesType1 = null;
-            
-            this.ndiSeriesType1 = ndiSeriesType1;
-            this.adxSeriesType = null;
-            this.adxSeriesType1 = null;
-            
-            this.adxSeriesType = adxSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -3040,22 +3118,36 @@ public class StockScroller extends UiScroller {
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-        } else {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
             this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
             this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
             this.adxSeriesType = adxSeriesType;
+        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+            this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = adxSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping10.generateJs());
+            js.append(String.format(Locale.US, "var setDmi6" + ++variableIndex + " = " + jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3079,20 +3171,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(String pdiSeriesType1, String ndiSeriesType1, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, String ndiSeriesType1, String adxSeriesType1) {
         if (jsBase == null) {
-            this.pdiSeriesType = null;
-            this.pdiSeriesType1 = null;
-            
-            this.pdiSeriesType1 = pdiSeriesType1;
-            this.ndiSeriesType = null;
-            this.ndiSeriesType1 = null;
-            
-            this.ndiSeriesType1 = ndiSeriesType1;
-            this.adxSeriesType = null;
-            this.adxSeriesType1 = null;
-            
-            this.adxSeriesType1 = adxSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -3119,22 +3199,36 @@ public class StockScroller extends UiScroller {
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-        } else {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
             this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
             this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
             this.adxSeriesType1 = adxSeriesType1;
+        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+            this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType1 = adxSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping10.generateJs());
+            js.append(String.format(Locale.US, "var setDmi7" + ++variableIndex + " = " + jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -3162,28 +3256,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates EMA (Exponential Moving Average) indicator on the scroller.
      */
-    public EMA ema(StockSeriesType seriesType16, TableMapping mapping11, Double period9) {
+    public EMA ema(TableMapping mapping11, Double period9, StockSeriesType seriesType16) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            
-            this.seriesType16 = seriesType16;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -3210,18 +3284,40 @@ public class StockScroller extends UiScroller {
             this.period9 = null;
             
             this.period9 = period9;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            
             this.seriesType16 = seriesType16;
+        } else {
             this.mapping11 = mapping11;
             this.period9 = period9;
+            this.seriesType16 = seriesType16;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping11.generateJs());
+            js.append(String.format(Locale.US, "var setEma" + ++variableIndex + " = " + jsBase + ".ema(%s, %f, %s);", ((mapping11 != null) ? mapping11.getJsBase() : "null"), period9, ((seriesType16 != null) ? seriesType16.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", ((seriesType16 != null) ? seriesType16.generateJs() : "null"), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %f, %s)", ((mapping11 != null) ? mapping11.getJsBase() : "null"), period9, ((seriesType16 != null) ? seriesType16.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3245,28 +3341,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates EMA (Exponential Moving Average) indicator on the scroller.
      */
-    public EMA ema(String seriesType17, TableMapping mapping11, Double period9) {
+    public EMA ema(TableMapping mapping11, Double period9, String seriesType17) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            
-            this.seriesType17 = seriesType17;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -3293,18 +3369,40 @@ public class StockScroller extends UiScroller {
             this.period9 = null;
             
             this.period9 = period9;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            
             this.seriesType17 = seriesType17;
+        } else {
             this.mapping11 = mapping11;
             this.period9 = period9;
+            this.seriesType17 = seriesType17;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping11.generateJs());
+            js.append(String.format(Locale.US, "var setEma1" + ++variableIndex + " = " + jsBase + ".ema(%s, %f, %s);", ((mapping11 != null) ? mapping11.getJsBase() : "null"), period9, wrapQuotes(seriesType17)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", wrapQuotes(seriesType17), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %f, %s)", ((mapping11 != null) ? mapping11.getJsBase() : "null"), period9, wrapQuotes(seriesType17)));
                 js.setLength(0);
             }
         }
@@ -3389,6 +3487,7 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
 
             if (isRendered) {
@@ -3427,6 +3526,7 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
 
             if (isRendered) {
@@ -3534,10 +3634,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data12.generateJs());
+            js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s, %s);", ((data12 != null) ? data12.getJsBase() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", ((data12 != null) ? data12.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", ((data12 != null) ? data12.getJsBase() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
             }
         }
@@ -3601,10 +3703,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data13.generateJs());
+            js.append(String.format(Locale.US, "var setHilo1" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s, %s);", ((data13 != null) ? data13.getJsBase() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", ((data13 != null) ? data13.generateJs() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s, %s, %s)", ((data13 != null) ? data13.getJsBase() : "null"), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
                 js.setLength(0);
             }
         }
@@ -3668,6 +3772,8 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setHilo2" + ++variableIndex + " = " + jsBase + ".hilo(%s, %s, %s);", wrapQuotes(data14), wrapQuotes(mappingSettings3), wrapQuotes(csvSettings3)));
             
 
             if (isRendered) {
@@ -3747,10 +3853,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data16.generateJs());
+            js.append(String.format(Locale.US, "var setJumpLine" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s, %s);", ((data16 != null) ? data16.getJsBase() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", ((data16 != null) ? data16.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", ((data16 != null) ? data16.getJsBase() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
             }
         }
@@ -3820,10 +3928,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data17.generateJs());
+            js.append(String.format(Locale.US, "var setJumpLine1" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s, %s);", ((data17 != null) ? data17.getJsBase() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", ((data17 != null) ? data17.generateJs() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", ((data17 != null) ? data17.getJsBase() : "null"), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
                 js.setLength(0);
             }
         }
@@ -3894,6 +4004,8 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setJumpLine2" + ++variableIndex + " = " + jsBase + ".jumpLine(%s, %s, %s);", wrapQuotes(data18), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s, %s, %s)", wrapQuotes(data18), wrapQuotes(mappingSettings4), wrapQuotes(csvSettings4)));
@@ -3936,28 +4048,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -3976,28 +4068,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4021,28 +4135,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4061,28 +4155,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj1" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4106,28 +4222,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4146,28 +4242,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj2" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4191,28 +4309,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4231,28 +4329,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj3" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4276,28 +4396,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4316,28 +4416,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj4" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4361,28 +4483,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4401,28 +4503,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj5" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4446,28 +4570,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4486,28 +4590,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj6" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4531,28 +4657,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4571,28 +4677,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj7" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4616,28 +4744,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4656,28 +4764,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj8" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4701,28 +4831,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4741,28 +4851,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj9" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4786,28 +4918,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4826,28 +4938,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj10" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4871,28 +5005,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4911,28 +5025,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj11" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4956,28 +5092,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4996,28 +5112,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj12" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5041,28 +5179,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5081,28 +5199,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj13" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5126,28 +5266,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5166,28 +5286,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj14" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5211,28 +5353,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5251,28 +5373,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj15" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5296,28 +5440,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5336,28 +5460,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj16" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5381,28 +5527,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5421,28 +5547,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj17" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5466,28 +5614,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5506,28 +5634,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj18" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5551,28 +5701,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5591,28 +5721,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj19" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5636,28 +5788,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5676,28 +5808,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj20" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5721,28 +5875,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5761,28 +5895,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj21" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5806,28 +5962,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5846,28 +5982,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj22" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5891,28 +6049,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5931,28 +6069,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj23" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5976,28 +6136,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6016,28 +6156,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj24" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6061,28 +6223,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6101,28 +6243,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj25" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -6146,28 +6310,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6186,28 +6330,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj26" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6231,28 +6397,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6271,28 +6417,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj27" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -6316,28 +6484,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6356,28 +6504,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj28" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6401,28 +6571,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6441,28 +6591,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj29" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -6486,28 +6658,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6526,28 +6678,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj30" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6571,28 +6745,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6611,28 +6765,50 @@ public class StockScroller extends UiScroller {
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj31" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -6714,10 +6890,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data20.generateJs());
+            js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s, %s, %s);", ((data20 != null) ? data20.getJsBase() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", ((data20 != null) ? data20.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", ((data20 != null) ? data20.getJsBase() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
             }
         }
@@ -6793,10 +6971,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data21.generateJs());
+            js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s, %s, %s);", ((data21 != null) ? data21.getJsBase() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", ((data21 != null) ? data21.generateJs() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", ((data21 != null) ? data21.getJsBase() : "null"), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
                 js.setLength(0);
             }
         }
@@ -6873,6 +7053,8 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setLine2" + ++variableIndex + " = " + jsBase + ".line(%s, %s, %s);", wrapQuotes(data22), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s, %s, %s)", wrapQuotes(data22), wrapQuotes(mappingSettings5), wrapQuotes(csvSettings5)));
@@ -6909,20 +7091,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
-    public MACD macd(StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType) {
         if (jsBase == null) {
-            this.macdSeriesType = null;
-            this.macdSeriesType1 = null;
-            
-            this.macdSeriesType = macdSeriesType;
-            this.signalSeriesType = null;
-            this.signalSeriesType1 = null;
-            
-            this.signalSeriesType = signalSeriesType;
-            this.histogramSeriesType = null;
-            this.histogramSeriesType1 = null;
-            
-            this.histogramSeriesType = histogramSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6950,22 +7120,36 @@ public class StockScroller extends UiScroller {
             
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-        } else {
+            this.macdSeriesType = null;
+            this.macdSeriesType1 = null;
+            
             this.macdSeriesType = macdSeriesType;
+            this.signalSeriesType = null;
+            this.signalSeriesType1 = null;
+            
             this.signalSeriesType = signalSeriesType;
+            this.histogramSeriesType = null;
+            this.histogramSeriesType1 = null;
+            
             this.histogramSeriesType = histogramSeriesType;
+        } else {
             this.mapping13 = mapping13;
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+            this.macdSeriesType = macdSeriesType;
+            this.signalSeriesType = signalSeriesType;
+            this.histogramSeriesType = histogramSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping13.generateJs());
+            js.append(String.format(Locale.US, "var setMacd" + ++variableIndex + " = " + jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6989,20 +7173,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
-    public MACD macd(StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, String histogramSeriesType1) {
         if (jsBase == null) {
-            this.macdSeriesType = null;
-            this.macdSeriesType1 = null;
-            
-            this.macdSeriesType = macdSeriesType;
-            this.signalSeriesType = null;
-            this.signalSeriesType1 = null;
-            
-            this.signalSeriesType = signalSeriesType;
-            this.histogramSeriesType = null;
-            this.histogramSeriesType1 = null;
-            
-            this.histogramSeriesType1 = histogramSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -7030,22 +7202,36 @@ public class StockScroller extends UiScroller {
             
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-        } else {
+            this.macdSeriesType = null;
+            this.macdSeriesType1 = null;
+            
             this.macdSeriesType = macdSeriesType;
+            this.signalSeriesType = null;
+            this.signalSeriesType1 = null;
+            
             this.signalSeriesType = signalSeriesType;
+            this.histogramSeriesType = null;
+            this.histogramSeriesType1 = null;
+            
             this.histogramSeriesType1 = histogramSeriesType1;
+        } else {
             this.mapping13 = mapping13;
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+            this.macdSeriesType = macdSeriesType;
+            this.signalSeriesType = signalSeriesType;
+            this.histogramSeriesType1 = histogramSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping13.generateJs());
+            js.append(String.format(Locale.US, "var setMacd1" + ++variableIndex + " = " + jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -7069,20 +7255,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
-    public MACD macd(StockSeriesType macdSeriesType, String signalSeriesType1, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, StockSeriesType macdSeriesType, String signalSeriesType1, StockSeriesType histogramSeriesType) {
         if (jsBase == null) {
-            this.macdSeriesType = null;
-            this.macdSeriesType1 = null;
-            
-            this.macdSeriesType = macdSeriesType;
-            this.signalSeriesType = null;
-            this.signalSeriesType1 = null;
-            
-            this.signalSeriesType1 = signalSeriesType1;
-            this.histogramSeriesType = null;
-            this.histogramSeriesType1 = null;
-            
-            this.histogramSeriesType = histogramSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -7110,22 +7284,36 @@ public class StockScroller extends UiScroller {
             
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-        } else {
+            this.macdSeriesType = null;
+            this.macdSeriesType1 = null;
+            
             this.macdSeriesType = macdSeriesType;
+            this.signalSeriesType = null;
+            this.signalSeriesType1 = null;
+            
             this.signalSeriesType1 = signalSeriesType1;
+            this.histogramSeriesType = null;
+            this.histogramSeriesType1 = null;
+            
             this.histogramSeriesType = histogramSeriesType;
+        } else {
             this.mapping13 = mapping13;
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+            this.macdSeriesType = macdSeriesType;
+            this.signalSeriesType1 = signalSeriesType1;
+            this.histogramSeriesType = histogramSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping13.generateJs());
+            js.append(String.format(Locale.US, "var setMacd2" + ++variableIndex + " = " + jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7149,20 +7337,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
-    public MACD macd(StockSeriesType macdSeriesType, String signalSeriesType1, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, StockSeriesType macdSeriesType, String signalSeriesType1, String histogramSeriesType1) {
         if (jsBase == null) {
-            this.macdSeriesType = null;
-            this.macdSeriesType1 = null;
-            
-            this.macdSeriesType = macdSeriesType;
-            this.signalSeriesType = null;
-            this.signalSeriesType1 = null;
-            
-            this.signalSeriesType1 = signalSeriesType1;
-            this.histogramSeriesType = null;
-            this.histogramSeriesType1 = null;
-            
-            this.histogramSeriesType1 = histogramSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -7190,22 +7366,36 @@ public class StockScroller extends UiScroller {
             
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-        } else {
+            this.macdSeriesType = null;
+            this.macdSeriesType1 = null;
+            
             this.macdSeriesType = macdSeriesType;
+            this.signalSeriesType = null;
+            this.signalSeriesType1 = null;
+            
             this.signalSeriesType1 = signalSeriesType1;
+            this.histogramSeriesType = null;
+            this.histogramSeriesType1 = null;
+            
             this.histogramSeriesType1 = histogramSeriesType1;
+        } else {
             this.mapping13 = mapping13;
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+            this.macdSeriesType = macdSeriesType;
+            this.signalSeriesType1 = signalSeriesType1;
+            this.histogramSeriesType1 = histogramSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping13.generateJs());
+            js.append(String.format(Locale.US, "var setMacd3" + ++variableIndex + " = " + jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -7229,20 +7419,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
-    public MACD macd(String macdSeriesType1, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, String macdSeriesType1, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType) {
         if (jsBase == null) {
-            this.macdSeriesType = null;
-            this.macdSeriesType1 = null;
-            
-            this.macdSeriesType1 = macdSeriesType1;
-            this.signalSeriesType = null;
-            this.signalSeriesType1 = null;
-            
-            this.signalSeriesType = signalSeriesType;
-            this.histogramSeriesType = null;
-            this.histogramSeriesType1 = null;
-            
-            this.histogramSeriesType = histogramSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -7270,22 +7448,36 @@ public class StockScroller extends UiScroller {
             
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-        } else {
+            this.macdSeriesType = null;
+            this.macdSeriesType1 = null;
+            
             this.macdSeriesType1 = macdSeriesType1;
+            this.signalSeriesType = null;
+            this.signalSeriesType1 = null;
+            
             this.signalSeriesType = signalSeriesType;
+            this.histogramSeriesType = null;
+            this.histogramSeriesType1 = null;
+            
             this.histogramSeriesType = histogramSeriesType;
+        } else {
             this.mapping13 = mapping13;
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+            this.macdSeriesType1 = macdSeriesType1;
+            this.signalSeriesType = signalSeriesType;
+            this.histogramSeriesType = histogramSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping13.generateJs());
+            js.append(String.format(Locale.US, "var setMacd4" + ++variableIndex + " = " + jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7309,20 +7501,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
-    public MACD macd(String macdSeriesType1, StockSeriesType signalSeriesType, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, String macdSeriesType1, StockSeriesType signalSeriesType, String histogramSeriesType1) {
         if (jsBase == null) {
-            this.macdSeriesType = null;
-            this.macdSeriesType1 = null;
-            
-            this.macdSeriesType1 = macdSeriesType1;
-            this.signalSeriesType = null;
-            this.signalSeriesType1 = null;
-            
-            this.signalSeriesType = signalSeriesType;
-            this.histogramSeriesType = null;
-            this.histogramSeriesType1 = null;
-            
-            this.histogramSeriesType1 = histogramSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -7350,22 +7530,36 @@ public class StockScroller extends UiScroller {
             
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-        } else {
+            this.macdSeriesType = null;
+            this.macdSeriesType1 = null;
+            
             this.macdSeriesType1 = macdSeriesType1;
+            this.signalSeriesType = null;
+            this.signalSeriesType1 = null;
+            
             this.signalSeriesType = signalSeriesType;
+            this.histogramSeriesType = null;
+            this.histogramSeriesType1 = null;
+            
             this.histogramSeriesType1 = histogramSeriesType1;
+        } else {
             this.mapping13 = mapping13;
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+            this.macdSeriesType1 = macdSeriesType1;
+            this.signalSeriesType = signalSeriesType;
+            this.histogramSeriesType1 = histogramSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping13.generateJs());
+            js.append(String.format(Locale.US, "var setMacd5" + ++variableIndex + " = " + jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -7389,20 +7583,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
-    public MACD macd(String macdSeriesType1, String signalSeriesType1, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, String macdSeriesType1, String signalSeriesType1, StockSeriesType histogramSeriesType) {
         if (jsBase == null) {
-            this.macdSeriesType = null;
-            this.macdSeriesType1 = null;
-            
-            this.macdSeriesType1 = macdSeriesType1;
-            this.signalSeriesType = null;
-            this.signalSeriesType1 = null;
-            
-            this.signalSeriesType1 = signalSeriesType1;
-            this.histogramSeriesType = null;
-            this.histogramSeriesType1 = null;
-            
-            this.histogramSeriesType = histogramSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -7430,22 +7612,36 @@ public class StockScroller extends UiScroller {
             
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-        } else {
+            this.macdSeriesType = null;
+            this.macdSeriesType1 = null;
+            
             this.macdSeriesType1 = macdSeriesType1;
+            this.signalSeriesType = null;
+            this.signalSeriesType1 = null;
+            
             this.signalSeriesType1 = signalSeriesType1;
+            this.histogramSeriesType = null;
+            this.histogramSeriesType1 = null;
+            
             this.histogramSeriesType = histogramSeriesType;
+        } else {
             this.mapping13 = mapping13;
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+            this.macdSeriesType1 = macdSeriesType1;
+            this.signalSeriesType1 = signalSeriesType1;
+            this.histogramSeriesType = histogramSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping13.generateJs());
+            js.append(String.format(Locale.US, "var setMacd6" + ++variableIndex + " = " + jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7469,20 +7665,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
-    public MACD macd(String macdSeriesType1, String signalSeriesType1, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, String macdSeriesType1, String signalSeriesType1, String histogramSeriesType1) {
         if (jsBase == null) {
-            this.macdSeriesType = null;
-            this.macdSeriesType1 = null;
-            
-            this.macdSeriesType1 = macdSeriesType1;
-            this.signalSeriesType = null;
-            this.signalSeriesType1 = null;
-            
-            this.signalSeriesType1 = signalSeriesType1;
-            this.histogramSeriesType = null;
-            this.histogramSeriesType1 = null;
-            
-            this.histogramSeriesType1 = histogramSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -7510,22 +7694,36 @@ public class StockScroller extends UiScroller {
             
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-        } else {
+            this.macdSeriesType = null;
+            this.macdSeriesType1 = null;
+            
             this.macdSeriesType1 = macdSeriesType1;
+            this.signalSeriesType = null;
+            this.signalSeriesType1 = null;
+            
             this.signalSeriesType1 = signalSeriesType1;
+            this.histogramSeriesType = null;
+            this.histogramSeriesType1 = null;
+            
             this.histogramSeriesType1 = histogramSeriesType1;
+        } else {
             this.mapping13 = mapping13;
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+            this.macdSeriesType1 = macdSeriesType1;
+            this.signalSeriesType1 = signalSeriesType1;
+            this.histogramSeriesType1 = histogramSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping13.generateJs());
+            js.append(String.format(Locale.US, "var setMacd7" + ++variableIndex + " = " + jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -7613,10 +7811,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data24.generateJs());
+            js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s, %s, %s);", ((data24 != null) ? data24.getJsBase() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", ((data24 != null) ? data24.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", ((data24 != null) ? data24.getJsBase() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
             }
         }
@@ -7698,10 +7898,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data25.generateJs());
+            js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s, %s, %s);", ((data25 != null) ? data25.getJsBase() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", ((data25 != null) ? data25.generateJs() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", ((data25 != null) ? data25.getJsBase() : "null"), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
                 js.setLength(0);
             }
         }
@@ -7784,6 +7986,8 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setMarker2" + ++variableIndex + " = " + jsBase + ".marker(%s, %s, %s);", wrapQuotes(data26), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s, %s, %s)", wrapQuotes(data26), wrapQuotes(mappingSettings6), wrapQuotes(csvSettings6)));
@@ -7814,30 +8018,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MMA (Modified Moving Average) indicator on the scroller.
      */
-    public MMA mma(StockSeriesType seriesType18, TableMapping mapping14, Double period10) {
+    public MMA mma(TableMapping mapping14, Double period10, StockSeriesType seriesType18) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            
-            this.seriesType18 = seriesType18;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -7868,18 +8050,42 @@ public class StockScroller extends UiScroller {
             this.period10 = null;
             
             this.period10 = period10;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            
             this.seriesType18 = seriesType18;
+        } else {
             this.mapping14 = mapping14;
             this.period10 = period10;
+            this.seriesType18 = seriesType18;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping14.generateJs());
+            js.append(String.format(Locale.US, "var setMma" + ++variableIndex + " = " + jsBase + ".mma(%s, %f, %s);", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, ((seriesType18 != null) ? seriesType18.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", ((seriesType18 != null) ? seriesType18.generateJs() : "null"), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %f, %s)", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, ((seriesType18 != null) ? seriesType18.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7903,30 +8109,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MMA (Modified Moving Average) indicator on the scroller.
      */
-    public MMA mma(String seriesType19, TableMapping mapping14, Double period10) {
+    public MMA mma(TableMapping mapping14, Double period10, String seriesType19) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            
-            this.seriesType19 = seriesType19;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -7957,18 +8141,42 @@ public class StockScroller extends UiScroller {
             this.period10 = null;
             
             this.period10 = period10;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            
             this.seriesType19 = seriesType19;
+        } else {
             this.mapping14 = mapping14;
             this.period10 = period10;
+            this.seriesType19 = seriesType19;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping14.generateJs());
+            js.append(String.format(Locale.US, "var setMma1" + ++variableIndex + " = " + jsBase + ".mma(%s, %f, %s);", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, wrapQuotes(seriesType19)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", wrapQuotes(seriesType19), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %f, %s)", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, wrapQuotes(seriesType19)));
                 js.setLength(0);
             }
         }
@@ -8062,10 +8270,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data28.generateJs());
+            js.append(String.format(Locale.US, "var setOhlc" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s, %s);", ((data28 != null) ? data28.getJsBase() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", ((data28 != null) ? data28.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", ((data28 != null) ? data28.getJsBase() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
             }
         }
@@ -8153,10 +8363,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data29.generateJs());
+            js.append(String.format(Locale.US, "var setOhlc1" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s, %s);", ((data29 != null) ? data29.getJsBase() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", ((data29 != null) ? data29.generateJs() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s, %s, %s)", ((data29 != null) ? data29.getJsBase() : "null"), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
                 js.setLength(0);
             }
         }
@@ -8244,6 +8456,8 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setOhlc2" + ++variableIndex + " = " + jsBase + ".ohlc(%s, %s, %s);", wrapQuotes(data30), wrapQuotes(mappingSettings7), wrapQuotes(csvSettings7)));
             
 
             if (isRendered) {
@@ -8375,6 +8589,7 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
 
             if (isRendered) {
@@ -8414,6 +8629,7 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
 
             if (isRendered) {
@@ -8515,10 +8731,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data32.generateJs());
+            js.append(String.format(Locale.US, "var setRangeArea" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s, %s);", ((data32 != null) ? data32.getJsBase() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", ((data32 != null) ? data32.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", ((data32 != null) ? data32.getJsBase() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
             }
         }
@@ -8612,10 +8830,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data33.generateJs());
+            js.append(String.format(Locale.US, "var setRangeArea1" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s, %s);", ((data33 != null) ? data33.getJsBase() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", ((data33 != null) ? data33.generateJs() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s, %s, %s)", ((data33 != null) ? data33.getJsBase() : "null"), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
                 js.setLength(0);
             }
         }
@@ -8709,6 +8929,8 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setRangeArea2" + ++variableIndex + " = " + jsBase + ".rangeArea(%s, %s, %s);", wrapQuotes(data34), wrapQuotes(mappingSettings8), wrapQuotes(csvSettings8)));
             
 
             if (isRendered) {
@@ -8818,10 +9040,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data36.generateJs());
+            js.append(String.format(Locale.US, "var setRangeColumn" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s, %s);", ((data36 != null) ? data36.getJsBase() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", ((data36 != null) ? data36.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", ((data36 != null) ? data36.getJsBase() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
             }
         }
@@ -8921,10 +9145,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data37.generateJs());
+            js.append(String.format(Locale.US, "var setRangeColumn1" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s, %s);", ((data37 != null) ? data37.getJsBase() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", ((data37 != null) ? data37.generateJs() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s, %s, %s)", ((data37 != null) ? data37.getJsBase() : "null"), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
                 js.setLength(0);
             }
         }
@@ -9024,6 +9250,8 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setRangeColumn2" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s, %s, %s);", wrapQuotes(data38), wrapQuotes(mappingSettings9), wrapQuotes(csvSettings9)));
             
 
             if (isRendered) {
@@ -9139,10 +9367,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data40.generateJs());
+            js.append(String.format(Locale.US, "var setRangeSplineArea" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s, %s);", ((data40 != null) ? data40.getJsBase() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", ((data40 != null) ? data40.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", ((data40 != null) ? data40.getJsBase() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
             }
         }
@@ -9248,10 +9478,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data41.generateJs());
+            js.append(String.format(Locale.US, "var setRangeSplineArea1" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s, %s);", ((data41 != null) ? data41.getJsBase() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", ((data41 != null) ? data41.generateJs() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s, %s, %s)", ((data41 != null) ? data41.getJsBase() : "null"), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
                 js.setLength(0);
             }
         }
@@ -9357,6 +9589,8 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setRangeSplineArea2" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s, %s, %s);", wrapQuotes(data42), wrapQuotes(mappingSettings10), wrapQuotes(csvSettings10)));
             
 
             if (isRendered) {
@@ -9478,10 +9712,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data44.generateJs());
+            js.append(String.format(Locale.US, "var setRangeStepArea" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s, %s);", ((data44 != null) ? data44.getJsBase() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", ((data44 != null) ? data44.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", ((data44 != null) ? data44.getJsBase() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
             }
         }
@@ -9593,10 +9829,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data45.generateJs());
+            js.append(String.format(Locale.US, "var setRangeStepArea1" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s, %s);", ((data45 != null) ? data45.getJsBase() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", ((data45 != null) ? data45.generateJs() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", ((data45 != null) ? data45.getJsBase() : "null"), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
                 js.setLength(0);
             }
         }
@@ -9709,6 +9947,8 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRangeStepArea2" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s, %s, %s);", wrapQuotes(data46), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s, %s, %s)", wrapQuotes(data46), wrapQuotes(mappingSettings11), wrapQuotes(csvSettings11)));
@@ -9749,6 +9989,7 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".removeSeries(%f)", id));
 
             if (isRendered) {
@@ -9786,6 +10027,7 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id1)));
 
             if (isRendered) {
@@ -9821,6 +10063,7 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index));
 
             if (isRendered) {
@@ -9850,32 +10093,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates RoC (Rate of Change) indicator on the scroller.
      */
-    public RoC roc(StockSeriesType seriesType20, TableMapping mapping15, Double period11) {
+    public RoC roc(TableMapping mapping15, Double period11, StockSeriesType seriesType20) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            this.seriesType20 = null;
-            this.seriesType21 = null;
-            
-            this.seriesType20 = seriesType20;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -9908,18 +10127,44 @@ public class StockScroller extends UiScroller {
             this.period11 = null;
             
             this.period11 = period11;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            
             this.seriesType20 = seriesType20;
+        } else {
             this.mapping15 = mapping15;
             this.period11 = period11;
+            this.seriesType20 = seriesType20;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping15.generateJs());
+            js.append(String.format(Locale.US, "var setRoc" + ++variableIndex + " = " + jsBase + ".roc(%s, %f, %s);", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, ((seriesType20 != null) ? seriesType20.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", ((seriesType20 != null) ? seriesType20.generateJs() : "null"), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %f, %s)", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, ((seriesType20 != null) ? seriesType20.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -9943,32 +10188,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates RoC (Rate of Change) indicator on the scroller.
      */
-    public RoC roc(String seriesType21, TableMapping mapping15, Double period11) {
+    public RoC roc(TableMapping mapping15, Double period11, String seriesType21) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            this.seriesType20 = null;
-            this.seriesType21 = null;
-            
-            this.seriesType21 = seriesType21;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -10001,18 +10222,44 @@ public class StockScroller extends UiScroller {
             this.period11 = null;
             
             this.period11 = period11;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            
             this.seriesType21 = seriesType21;
+        } else {
             this.mapping15 = mapping15;
             this.period11 = period11;
+            this.seriesType21 = seriesType21;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping15.generateJs());
+            js.append(String.format(Locale.US, "var setRoc1" + ++variableIndex + " = " + jsBase + ".roc(%s, %f, %s);", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, wrapQuotes(seriesType21)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", wrapQuotes(seriesType21), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %f, %s)", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, wrapQuotes(seriesType21)));
                 js.setLength(0);
             }
         }
@@ -10040,34 +10287,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates RSI (Relative Strength Index) indicator on the scroller.
      */
-    public RSI rsi(StockSeriesType seriesType22, TableMapping mapping16, Double period12) {
+    public RSI rsi(TableMapping mapping16, Double period12, StockSeriesType seriesType22) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            this.seriesType20 = null;
-            this.seriesType21 = null;
-            this.seriesType22 = null;
-            this.seriesType23 = null;
-            
-            this.seriesType22 = seriesType22;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -10102,18 +10323,46 @@ public class StockScroller extends UiScroller {
             this.period12 = null;
             
             this.period12 = period12;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            
             this.seriesType22 = seriesType22;
+        } else {
             this.mapping16 = mapping16;
             this.period12 = period12;
+            this.seriesType22 = seriesType22;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping16.generateJs());
+            js.append(String.format(Locale.US, "var setRsi" + ++variableIndex + " = " + jsBase + ".rsi(%s, %f, %s);", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, ((seriesType22 != null) ? seriesType22.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", ((seriesType22 != null) ? seriesType22.generateJs() : "null"), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %f, %s)", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, ((seriesType22 != null) ? seriesType22.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10137,34 +10386,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates RSI (Relative Strength Index) indicator on the scroller.
      */
-    public RSI rsi(String seriesType23, TableMapping mapping16, Double period12) {
+    public RSI rsi(TableMapping mapping16, Double period12, String seriesType23) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            this.seriesType20 = null;
-            this.seriesType21 = null;
-            this.seriesType22 = null;
-            this.seriesType23 = null;
-            
-            this.seriesType23 = seriesType23;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -10199,18 +10422,46 @@ public class StockScroller extends UiScroller {
             this.period12 = null;
             
             this.period12 = period12;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            
             this.seriesType23 = seriesType23;
+        } else {
             this.mapping16 = mapping16;
             this.period12 = period12;
+            this.seriesType23 = seriesType23;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping16.generateJs());
+            js.append(String.format(Locale.US, "var setRsi1" + ++variableIndex + " = " + jsBase + ".rsi(%s, %f, %s);", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, wrapQuotes(seriesType23)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", wrapQuotes(seriesType23), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %f, %s)", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, wrapQuotes(seriesType23)));
                 js.setLength(0);
             }
         }
@@ -10238,36 +10489,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates SMA (Simple Moving Average) indicator on the scroller.
      */
-    public SMA sma(StockSeriesType seriesType24, TableMapping mapping17, Double period13) {
+    public SMA sma(TableMapping mapping17, Double period13, StockSeriesType seriesType24) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            this.seriesType20 = null;
-            this.seriesType21 = null;
-            this.seriesType22 = null;
-            this.seriesType23 = null;
-            this.seriesType24 = null;
-            this.seriesType25 = null;
-            
-            this.seriesType24 = seriesType24;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -10304,18 +10527,48 @@ public class StockScroller extends UiScroller {
             this.period13 = null;
             
             this.period13 = period13;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            this.seriesType24 = null;
+            this.seriesType25 = null;
+            
             this.seriesType24 = seriesType24;
+        } else {
             this.mapping17 = mapping17;
             this.period13 = period13;
+            this.seriesType24 = seriesType24;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping17.generateJs());
+            js.append(String.format(Locale.US, "var setSma" + ++variableIndex + " = " + jsBase + ".sma(%s, %f, %s);", ((mapping17 != null) ? mapping17.getJsBase() : "null"), period13, ((seriesType24 != null) ? seriesType24.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", ((seriesType24 != null) ? seriesType24.generateJs() : "null"), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %f, %s)", ((mapping17 != null) ? mapping17.getJsBase() : "null"), period13, ((seriesType24 != null) ? seriesType24.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10339,36 +10592,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates SMA (Simple Moving Average) indicator on the scroller.
      */
-    public SMA sma(String seriesType25, TableMapping mapping17, Double period13) {
+    public SMA sma(TableMapping mapping17, Double period13, String seriesType25) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            this.seriesType20 = null;
-            this.seriesType21 = null;
-            this.seriesType22 = null;
-            this.seriesType23 = null;
-            this.seriesType24 = null;
-            this.seriesType25 = null;
-            
-            this.seriesType25 = seriesType25;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -10405,18 +10630,48 @@ public class StockScroller extends UiScroller {
             this.period13 = null;
             
             this.period13 = period13;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            this.seriesType24 = null;
+            this.seriesType25 = null;
+            
             this.seriesType25 = seriesType25;
+        } else {
             this.mapping17 = mapping17;
             this.period13 = period13;
+            this.seriesType25 = seriesType25;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping17.generateJs());
+            js.append(String.format(Locale.US, "var setSma1" + ++variableIndex + " = " + jsBase + ".sma(%s, %f, %s);", ((mapping17 != null) ? mapping17.getJsBase() : "null"), period13, wrapQuotes(seriesType25)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", wrapQuotes(seriesType25), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %f, %s)", ((mapping17 != null) ? mapping17.getJsBase() : "null"), period13, wrapQuotes(seriesType25)));
                 js.setLength(0);
             }
         }
@@ -10540,10 +10795,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data48.generateJs());
+            js.append(String.format(Locale.US, "var setSpline" + ++variableIndex + " = " + jsBase + ".spline(%s, %s, %s);", ((data48 != null) ? data48.getJsBase() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", ((data48 != null) ? data48.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", ((data48 != null) ? data48.getJsBase() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
             }
         }
@@ -10661,10 +10918,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data49.generateJs());
+            js.append(String.format(Locale.US, "var setSpline1" + ++variableIndex + " = " + jsBase + ".spline(%s, %s, %s);", ((data49 != null) ? data49.getJsBase() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", ((data49 != null) ? data49.generateJs() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s, %s, %s)", ((data49 != null) ? data49.getJsBase() : "null"), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
                 js.setLength(0);
             }
         }
@@ -10782,6 +11041,8 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setSpline2" + ++variableIndex + " = " + jsBase + ".spline(%s, %s, %s);", wrapQuotes(data50), wrapQuotes(mappingSettings12), wrapQuotes(csvSettings12)));
             
 
             if (isRendered) {
@@ -10915,10 +11176,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data52.generateJs());
+            js.append(String.format(Locale.US, "var setSplineArea" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s, %s);", ((data52 != null) ? data52.getJsBase() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", ((data52 != null) ? data52.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", ((data52 != null) ? data52.getJsBase() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
             }
         }
@@ -11042,10 +11305,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data53.generateJs());
+            js.append(String.format(Locale.US, "var setSplineArea1" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s, %s);", ((data53 != null) ? data53.getJsBase() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", ((data53 != null) ? data53.generateJs() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s, %s, %s)", ((data53 != null) ? data53.getJsBase() : "null"), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
                 js.setLength(0);
             }
         }
@@ -11169,6 +11434,8 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setSplineArea2" + ++variableIndex + " = " + jsBase + ".splineArea(%s, %s, %s);", wrapQuotes(data54), wrapQuotes(mappingSettings13), wrapQuotes(csvSettings13)));
             
 
             if (isRendered) {
@@ -11308,10 +11575,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data56.generateJs());
+            js.append(String.format(Locale.US, "var setStepArea" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s, %s);", ((data56 != null) ? data56.getJsBase() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", ((data56 != null) ? data56.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", ((data56 != null) ? data56.getJsBase() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
             }
         }
@@ -11441,10 +11710,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data57.generateJs());
+            js.append(String.format(Locale.US, "var setStepArea1" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s, %s);", ((data57 != null) ? data57.getJsBase() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", ((data57 != null) ? data57.generateJs() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s, %s, %s)", ((data57 != null) ? data57.getJsBase() : "null"), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
                 js.setLength(0);
             }
         }
@@ -11574,6 +11845,8 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setStepArea2" + ++variableIndex + " = " + jsBase + ".stepArea(%s, %s, %s);", wrapQuotes(data58), wrapQuotes(mappingSettings14), wrapQuotes(csvSettings14)));
             
 
             if (isRendered) {
@@ -11719,10 +11992,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data60.generateJs());
+            js.append(String.format(Locale.US, "var setStepLine" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s, %s);", ((data60 != null) ? data60.getJsBase() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", ((data60 != null) ? data60.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", ((data60 != null) ? data60.getJsBase() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
             }
         }
@@ -11858,10 +12133,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data61.generateJs());
+            js.append(String.format(Locale.US, "var setStepLine1" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s, %s);", ((data61 != null) ? data61.getJsBase() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", ((data61 != null) ? data61.generateJs() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s, %s, %s)", ((data61 != null) ? data61.getJsBase() : "null"), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
                 js.setLength(0);
             }
         }
@@ -11997,6 +12274,8 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setStepLine2" + ++variableIndex + " = " + jsBase + ".stepLine(%s, %s, %s);", wrapQuotes(data62), wrapQuotes(mappingSettings15), wrapQuotes(csvSettings15)));
             
 
             if (isRendered) {
@@ -12148,10 +12427,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data64.generateJs());
+            js.append(String.format(Locale.US, "var setStick" + ++variableIndex + " = " + jsBase + ".stick(%s, %s, %s);", ((data64 != null) ? data64.getJsBase() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", ((data64 != null) ? data64.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", ((data64 != null) ? data64.getJsBase() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
             }
         }
@@ -12293,10 +12574,12 @@ public class StockScroller extends UiScroller {
                 js.append(";");
                 isChain = false;
             }
+            js.append(data65.generateJs());
+            js.append(String.format(Locale.US, "var setStick1" + ++variableIndex + " = " + jsBase + ".stick(%s, %s, %s);", ((data65 != null) ? data65.getJsBase() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", ((data65 != null) ? data65.generateJs() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", ((data65 != null) ? data65.getJsBase() : "null"), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
                 js.setLength(0);
             }
         }
@@ -12439,6 +12722,8 @@ public class StockScroller extends UiScroller {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setStick2" + ++variableIndex + " = " + jsBase + ".stick(%s, %s, %s);", wrapQuotes(data66), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s, %s, %s)", wrapQuotes(data66), wrapQuotes(mappingSettings16), wrapQuotes(csvSettings16)));
@@ -12477,32 +12762,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType2 = kMAType2;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType2 = dMAType2;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType2 = kSeriesType2;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -12536,23 +12797,49 @@ public class StockScroller extends UiScroller {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType2 = dSeriesType2;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType2 = kMAType2;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType2 = dSeriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -12576,32 +12863,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType2 = kMAType2;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType2 = dMAType2;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType2 = kSeriesType2;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType3 = dSeriesType3;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -12635,23 +12898,49 @@ public class StockScroller extends UiScroller {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType3 = dSeriesType3;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType2 = kMAType2;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType3 = dSeriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic1" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -12675,32 +12964,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType2 = kMAType2;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType2 = dMAType2;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType3 = kSeriesType3;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -12734,23 +12999,49 @@ public class StockScroller extends UiScroller {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType2 = dSeriesType2;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType2 = kMAType2;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType2 = dSeriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic2" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -12774,32 +13065,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType2 = kMAType2;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType2 = dMAType2;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType3 = kSeriesType3;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType3 = dSeriesType3;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -12833,23 +13100,49 @@ public class StockScroller extends UiScroller {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType3 = dSeriesType3;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType2 = kMAType2;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType3 = dSeriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic3" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -12873,32 +13166,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType2 = kMAType2;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType3 = dMAType3;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType2 = kSeriesType2;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -12932,23 +13201,49 @@ public class StockScroller extends UiScroller {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType2 = dSeriesType2;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType2 = kMAType2;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType2 = dSeriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic4" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -12972,32 +13267,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType2 = kMAType2;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType3 = dMAType3;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType2 = kSeriesType2;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType3 = dSeriesType3;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -13031,23 +13302,49 @@ public class StockScroller extends UiScroller {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType3 = dSeriesType3;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType2 = kMAType2;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType3 = dSeriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic5" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -13071,32 +13368,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType2 = kMAType2;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType3 = dMAType3;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType3 = kSeriesType3;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -13130,23 +13403,49 @@ public class StockScroller extends UiScroller {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType2 = dSeriesType2;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType2 = kMAType2;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType2 = dSeriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic6" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -13170,32 +13469,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, String dMAType3, String kSeriesType3, String dSeriesType3) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType2 = kMAType2;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType3 = dMAType3;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType3 = kSeriesType3;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType3 = dSeriesType3;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -13229,23 +13504,49 @@ public class StockScroller extends UiScroller {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType3 = dSeriesType3;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType2 = kMAType2;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType3 = dSeriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic7" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -13269,32 +13570,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType3 = kMAType3;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType2 = dMAType2;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType2 = kSeriesType2;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -13328,23 +13605,49 @@ public class StockScroller extends UiScroller {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType2 = dSeriesType2;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType3 = kMAType3;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType2 = dSeriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic8" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -13368,32 +13671,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType3 = kMAType3;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType2 = dMAType2;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType2 = kSeriesType2;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType3 = dSeriesType3;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -13427,23 +13706,49 @@ public class StockScroller extends UiScroller {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType3 = dSeriesType3;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType3 = kMAType3;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType3 = dSeriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic9" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -13467,32 +13772,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType3 = kMAType3;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType2 = dMAType2;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType3 = kSeriesType3;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -13526,23 +13807,49 @@ public class StockScroller extends UiScroller {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType2 = dSeriesType2;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType3 = kMAType3;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType2 = dSeriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic10" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -13566,32 +13873,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType3 = kMAType3;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType2 = dMAType2;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType3 = kSeriesType3;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType3 = dSeriesType3;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -13625,23 +13908,49 @@ public class StockScroller extends UiScroller {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType3 = dSeriesType3;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType3 = kMAType3;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType3 = dSeriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic11" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -13665,32 +13974,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(String kMAType3, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType3 = kMAType3;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType3 = dMAType3;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType2 = kSeriesType2;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -13724,23 +14009,49 @@ public class StockScroller extends UiScroller {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType2 = dSeriesType2;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType3 = kMAType3;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType2 = dSeriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic12" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -13764,32 +14075,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(String kMAType3, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType3 = kMAType3;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType3 = dMAType3;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType2 = kSeriesType2;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType3 = dSeriesType3;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -13823,23 +14110,49 @@ public class StockScroller extends UiScroller {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType3 = dSeriesType3;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType3 = kMAType3;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType3 = dSeriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic13" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -13863,32 +14176,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(String kMAType3, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType3 = kMAType3;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType3 = dMAType3;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType3 = kSeriesType3;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -13922,23 +14211,49 @@ public class StockScroller extends UiScroller {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType2 = dSeriesType2;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType3 = kMAType3;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType2 = dSeriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic14" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -13962,32 +14277,8 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(String kMAType3, String dMAType3, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, String dMAType3, String kSeriesType3, String dSeriesType3) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType3 = kMAType3;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType3 = dMAType3;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType3 = kSeriesType3;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType3 = dSeriesType3;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -14021,23 +14312,49 @@ public class StockScroller extends UiScroller {
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType3 = dSeriesType3;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType3 = kMAType3;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType3 = dSeriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic15" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -14087,6 +14404,7 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
 
             if (isRendered) {
@@ -14124,6 +14442,7 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
 
             if (isRendered) {
@@ -14179,6 +14498,7 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
 
             if (isRendered) {
@@ -14218,6 +14538,7 @@ public class StockScroller extends UiScroller {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
 
             if (isRendered) {

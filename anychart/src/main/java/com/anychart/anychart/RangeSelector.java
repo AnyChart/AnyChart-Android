@@ -68,6 +68,8 @@ public class RangeSelector extends JsObject {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".ranges(%s);", arrayToString(ranges)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ranges(%s)", arrayToString(ranges)));
@@ -160,6 +162,7 @@ public class RangeSelector extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".zoomLabelText(%s)", wrapQuotes(zoomLabelText)));
 
             if (isRendered) {

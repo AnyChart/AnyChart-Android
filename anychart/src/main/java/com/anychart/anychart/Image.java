@@ -52,6 +52,7 @@ public class Image extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
 
             if (isRendered) {
@@ -91,6 +92,7 @@ public class Image extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fittingMode(%s)", ((fittingMode != null) ? fittingMode.generateJs() : "null")));
 
             if (isRendered) {
@@ -128,6 +130,7 @@ public class Image extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fittingMode(%s)", wrapQuotes(fittingMode1)));
 
             if (isRendered) {
@@ -163,6 +166,7 @@ public class Image extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
@@ -199,6 +203,7 @@ Set null value for non-display image.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".src(%s)", wrapQuotes(src)));
 
             if (isRendered) {
@@ -234,6 +239,7 @@ Set null value for non-display image.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
@@ -269,6 +275,7 @@ Set null value for non-display image.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".x(%f)", x));
 
             if (isRendered) {
@@ -304,6 +311,7 @@ Set null value for non-display image.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".y(%f)", y));
 
             if (isRendered) {

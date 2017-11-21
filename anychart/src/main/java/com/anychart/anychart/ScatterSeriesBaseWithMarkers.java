@@ -65,6 +65,7 @@ public class ScatterSeriesBaseWithMarkers extends ScatterSeriesBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
 
             if (isRendered) {
@@ -103,6 +104,7 @@ public class ScatterSeriesBaseWithMarkers extends ScatterSeriesBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".markers(%b)", markers1));
 
             if (isRendered) {

@@ -51,6 +51,7 @@ public class Knob extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".bottomRadius(%f)", bottomRadius));
 
             if (isRendered) {
@@ -88,6 +89,7 @@ public class Knob extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".bottomRadius(%s)", wrapQuotes(bottomRadius1)));
 
             if (isRendered) {
@@ -123,6 +125,7 @@ public class Knob extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".bottomRatio(%f)", bottomRatio));
 
             if (isRendered) {
@@ -162,6 +165,7 @@ public class Knob extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".topRadius(%f)", topRadius));
 
             if (isRendered) {
@@ -199,6 +203,7 @@ public class Knob extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".topRadius(%s)", wrapQuotes(topRadius1)));
 
             if (isRendered) {
@@ -234,6 +239,7 @@ public class Knob extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".topRatio(%f)", topRatio));
 
             if (isRendered) {
@@ -269,6 +275,7 @@ public class Knob extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".verticesCount(%f)", verticesCount));
 
             if (isRendered) {
@@ -304,6 +311,7 @@ public class Knob extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".verticesCurvature(%f)", verticesCurvature));
 
             if (isRendered) {

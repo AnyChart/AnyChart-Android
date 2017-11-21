@@ -70,6 +70,7 @@ of the Y-axis, that is clockwise.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".arcTo(%f, %f, %f, %f)", rx, ry, fromAngle, extent));
 
             if (isRendered) {
@@ -126,6 +127,7 @@ of the Y-axis, that is clockwise.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".arcToAsCurves(%f, %f, %f, %f)", rx1, ry1, fromAngle1, extent1));
 
             if (isRendered) {
@@ -187,6 +189,7 @@ Read more at {@link https://www.w3.org/TR/SVG/implnote.html#ArcImplementationNot
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".arcToByEndPoint(%f, %f, %f, %f, %b, %b)", x, y, rx2, ry2, largeArc, clockwiseArc));
 
             if (isRendered) {
@@ -256,6 +259,7 @@ with clockwise and counterclock drawing option.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".circularArc(%f, %f, %f, %f, %f, %f, %b)", cx, cy, rx3, ry3, fromAngle2, sweep, lineTo));
 
             if (isRendered) {
@@ -322,6 +326,7 @@ Each curve is defined by 3 points (6 coordinates) – two control points and an 
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".curveTo(%f, %f, %f, %f, %f, %f, %f)", controlX, controlY, controlX1, controlY1, endX, endY, var_args));
 
             if (isRendered) {
@@ -372,6 +377,7 @@ Each curve is defined by 3 points (6 coordinates) – two control points and an 
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lineTo(%f, %f, %f)", x1, y1, var_args1));
 
             if (isRendered) {
@@ -419,6 +425,7 @@ Remember that if you call the <b>moveTo</b> method a few times in a row, only th
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".moveTo(%f, %f)", x2, y2));
 
             if (isRendered) {
@@ -485,6 +492,7 @@ Each curve is defined by 2 points (4 coordinates) – a control point and an end
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".quadraticCurveTo(%f, %f, %f, %f, %f)", controlX2, controlY2, endX1, endY1, var_args2));
 
             if (isRendered) {

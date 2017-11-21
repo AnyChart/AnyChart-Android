@@ -50,6 +50,7 @@ public class Iterator extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".meta(%s)", wrapQuotes(name)));
 
             if (isRendered) {
@@ -84,6 +85,8 @@ public class Iterator extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".select(%f);", index));
             
 
             if (isRendered) {

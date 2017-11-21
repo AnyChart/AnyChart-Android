@@ -47,6 +47,7 @@ public class PolarSeriesContinuousBase extends PolarSeriesBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".closed(%b)", closed));
 
             if (isRendered) {
@@ -82,6 +83,7 @@ public class PolarSeriesContinuousBase extends PolarSeriesBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".connectMissingPoints(%b)", connectMissingPoints));
 
             if (isRendered) {
@@ -135,6 +137,7 @@ public class PolarSeriesContinuousBase extends PolarSeriesBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
 
             if (isRendered) {
@@ -173,6 +176,7 @@ public class PolarSeriesContinuousBase extends PolarSeriesBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".markers(%b)", markers1));
 
             if (isRendered) {

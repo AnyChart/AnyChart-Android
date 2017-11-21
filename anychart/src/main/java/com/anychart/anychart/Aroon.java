@@ -64,6 +64,7 @@ public class Aroon extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".downSeries(%s)", ((type != null) ? type.generateJs() : "null")));
 
             if (isRendered) {
@@ -101,6 +102,7 @@ public class Aroon extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".downSeries(%s)", wrapQuotes(type1)));
 
             if (isRendered) {
@@ -136,6 +138,7 @@ public class Aroon extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".period(%f)", period));
 
             if (isRendered) {
@@ -189,6 +192,7 @@ public class Aroon extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".upSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
 
             if (isRendered) {
@@ -228,6 +232,7 @@ public class Aroon extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".upSeries(%s)", wrapQuotes(type3)));
 
             if (isRendered) {

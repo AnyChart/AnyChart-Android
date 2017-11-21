@@ -48,6 +48,7 @@ public class ChoroplethPoint extends SeriesPoint {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".crs(%s)", wrapQuotes(crs)));
 
             if (isRendered) {
@@ -97,6 +98,7 @@ public class ChoroplethPoint extends SeriesPoint {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".middleX(%f)", middleX));
 
             if (isRendered) {
@@ -133,6 +135,7 @@ public class ChoroplethPoint extends SeriesPoint {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".middleY(%f)", middleY));
 
             if (isRendered) {
@@ -169,6 +172,7 @@ public class ChoroplethPoint extends SeriesPoint {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".scaleFactor(%f)", scale));
 
             if (isRendered) {
@@ -208,6 +212,7 @@ public class ChoroplethPoint extends SeriesPoint {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".translate(%f, %f)", dx, dy));
 
             if (isRendered) {
@@ -253,6 +258,7 @@ public class ChoroplethPoint extends SeriesPoint {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".translation(%f, %f)", dx1, dy1));
 
             if (isRendered) {

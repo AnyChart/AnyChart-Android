@@ -48,6 +48,7 @@ public class DateTime extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
 
             if (isRendered) {
@@ -83,6 +84,7 @@ public class DateTime extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
 
             if (isRendered) {
@@ -134,6 +136,7 @@ public class DateTime extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
@@ -171,6 +174,7 @@ public class DateTime extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
 
             if (isRendered) {
@@ -206,6 +210,7 @@ public class DateTime extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
 
             if (isRendered) {
@@ -241,6 +246,7 @@ public class DateTime extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
 
             if (isRendered) {
@@ -292,6 +298,7 @@ public class DateTime extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
@@ -329,6 +336,7 @@ public class DateTime extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
 
             if (isRendered) {

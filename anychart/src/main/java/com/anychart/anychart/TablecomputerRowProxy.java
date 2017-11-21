@@ -45,6 +45,8 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".set(%s);", wrapQuotes(name)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s)", wrapQuotes(name)));
@@ -67,6 +69,8 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".setColumn(%f);", index));
             
 
             if (isRendered) {

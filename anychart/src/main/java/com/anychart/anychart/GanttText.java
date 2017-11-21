@@ -51,6 +51,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
 
             if (isRendered) {
@@ -88,6 +89,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
 
             if (isRendered) {
@@ -127,6 +129,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
 
             if (isRendered) {
@@ -164,6 +167,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
 
             if (isRendered) {
@@ -203,6 +207,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
@@ -240,6 +245,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
 
             if (isRendered) {
@@ -280,6 +286,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
 
             if (isRendered) {
@@ -318,6 +325,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
 
             if (isRendered) {
@@ -357,6 +365,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".offsetX(%f)", offsetX));
 
             if (isRendered) {
@@ -394,6 +403,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".offsetX(%s)", wrapQuotes(offsetX1)));
 
             if (isRendered) {
@@ -433,6 +443,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".offsetY(%f)", offsetY));
 
             if (isRendered) {
@@ -470,6 +481,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".offsetY(%s)", wrapQuotes(offsetY1)));
 
             if (isRendered) {
@@ -505,6 +517,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rotation(%f)", rotation));
 
             if (isRendered) {
@@ -565,6 +578,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
 
             if (isRendered) {
@@ -606,6 +620,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".value(%f)", value));
 
             if (isRendered) {
@@ -644,6 +659,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".value(%s)", ((value1 != null) ? value1.generateJs() : "null")));
 
             if (isRendered) {
@@ -682,6 +698,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".value(%s)", wrapQuotes(value2)));
 
             if (isRendered) {
@@ -721,6 +738,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
@@ -758,6 +776,7 @@ public class GanttText extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {

@@ -53,6 +53,7 @@ public class TreeviewDataItem extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".addChild(%s)", wrapQuotes(child)));
 
             if (isRendered) {
@@ -172,6 +173,7 @@ public class TreeviewDataItem extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".addChildAt(%s, %f)", wrapQuotes(child3), index));
 
             if (isRendered) {
@@ -215,10 +217,11 @@ public class TreeviewDataItem extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.generateJs() : "null"), index));
+            js.append(child4.generateJs());
+            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.getJsBase() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.generateJs() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -258,10 +261,11 @@ public class TreeviewDataItem extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child5 != null) ? child5.generateJs() : "null"), index));
+            js.append(child5.generateJs());
+            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child5 != null) ? child5.getJsBase() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child5 != null) ? child5.generateJs() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child5 != null) ? child5.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -315,6 +319,8 @@ public class TreeviewDataItem extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".meta(%s);", wrapQuotes(key)));
             
 
             if (isRendered) {
@@ -426,6 +432,7 @@ public class TreeviewDataItem extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".removeChildAt(%f)", index1));
 
             if (isRendered) {

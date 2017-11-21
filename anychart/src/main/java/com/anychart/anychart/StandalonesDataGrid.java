@@ -63,6 +63,7 @@ public class StandalonesDataGrid extends UiDataGrid {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container)));
 
             if (isRendered) {
@@ -133,6 +134,7 @@ public class StandalonesDataGrid extends UiDataGrid {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".defaultRowHeight(%f)", defaultRowHeight));
 
             if (isRendered) {
@@ -168,6 +170,7 @@ public class StandalonesDataGrid extends UiDataGrid {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".headerHeight(%f)", headerHeight));
 
             if (isRendered) {
@@ -254,6 +257,7 @@ public class StandalonesDataGrid extends UiDataGrid {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
 
             if (isRendered) {
@@ -298,6 +302,7 @@ public class StandalonesDataGrid extends UiDataGrid {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
 
             if (isRendered) {
@@ -337,6 +342,7 @@ public class StandalonesDataGrid extends UiDataGrid {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowStroke(%s)", ((rowStroke != null) ? rowStroke.generateJs() : "null")));
 
             if (isRendered) {
@@ -374,6 +380,7 @@ public class StandalonesDataGrid extends UiDataGrid {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowStroke(%s)", wrapQuotes(rowStroke1)));
 
             if (isRendered) {
@@ -421,6 +428,7 @@ public class StandalonesDataGrid extends UiDataGrid {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".verticalScrollBar(%s)", wrapQuotes(verticalScrollBar)));
 
             if (isRendered) {

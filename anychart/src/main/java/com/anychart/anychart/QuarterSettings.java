@@ -59,6 +59,7 @@ public class QuarterSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".leftBottom(%s)", wrapQuotes(leftBottom)));
 
             if (isRendered) {
@@ -106,6 +107,7 @@ public class QuarterSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".leftTop(%s)", wrapQuotes(leftTop)));
 
             if (isRendered) {
@@ -153,6 +155,7 @@ public class QuarterSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rightBottom(%s)", wrapQuotes(rightBottom)));
 
             if (isRendered) {
@@ -200,6 +203,7 @@ public class QuarterSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rightTop(%s)", wrapQuotes(rightTop)));
 
             if (isRendered) {

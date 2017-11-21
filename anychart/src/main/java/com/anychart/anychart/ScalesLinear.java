@@ -55,6 +55,7 @@ public class ScalesLinear extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".compareWith(%s)", ((compareWith != null) ? compareWith.generateJs() : "null")));
 
             if (isRendered) {
@@ -93,6 +94,7 @@ public class ScalesLinear extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".compareWith(%s)", wrapQuotes(compareWith1)));
 
             if (isRendered) {
@@ -131,6 +133,7 @@ public class ScalesLinear extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".compareWith(%f)", compareWith2));
 
             if (isRendered) {
@@ -170,6 +173,7 @@ public class ScalesLinear extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".comparisonMode(%s)", ((comparisonMode != null) ? comparisonMode.generateJs() : "null")));
 
             if (isRendered) {
@@ -207,6 +211,7 @@ public class ScalesLinear extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".comparisonMode(%s)", wrapQuotes(comparisonMode1)));
 
             if (isRendered) {
@@ -242,6 +247,7 @@ public class ScalesLinear extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
 
             if (isRendered) {
@@ -277,6 +283,7 @@ public class ScalesLinear extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
 
             if (isRendered) {
@@ -328,6 +335,7 @@ public class ScalesLinear extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
@@ -365,6 +373,7 @@ public class ScalesLinear extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
 
             if (isRendered) {
@@ -400,6 +409,7 @@ public class ScalesLinear extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
 
             if (isRendered) {
@@ -435,6 +445,7 @@ public class ScalesLinear extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
 
             if (isRendered) {
@@ -474,6 +485,7 @@ public class ScalesLinear extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stackDirection(%s)", ((stackDirection != null) ? stackDirection.generateJs() : "null")));
 
             if (isRendered) {
@@ -511,6 +523,7 @@ public class ScalesLinear extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stackDirection(%s)", wrapQuotes(stackDirection1)));
 
             if (isRendered) {
@@ -550,6 +563,7 @@ public class ScalesLinear extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stackMode(%s)", ((stackMode != null) ? stackMode.generateJs() : "null")));
 
             if (isRendered) {
@@ -587,6 +601,7 @@ public class ScalesLinear extends ScatterBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stackMode(%s)", wrapQuotes(stackMode1)));
 
             if (isRendered) {
@@ -623,6 +638,7 @@ Flag to stick to zero value on auto calc if gaps lead to zero crossing.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stickToZero(%b)", stickToZero));
 
             if (isRendered) {
@@ -674,6 +690,7 @@ Flag to stick to zero value on auto calc if gaps lead to zero crossing.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
@@ -711,6 +728,7 @@ Flag to stick to zero value on auto calc if gaps lead to zero crossing.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
 
             if (isRendered) {

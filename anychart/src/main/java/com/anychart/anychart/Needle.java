@@ -51,6 +51,7 @@ public class Needle extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".endRadius(%f)", endRadius));
 
             if (isRendered) {
@@ -88,6 +89,7 @@ public class Needle extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".endRadius(%s)", wrapQuotes(endRadius1)));
 
             if (isRendered) {
@@ -127,6 +129,7 @@ public class Needle extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".endWidth(%f)", endWidth));
 
             if (isRendered) {
@@ -164,6 +167,7 @@ public class Needle extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".endWidth(%s)", wrapQuotes(endWidth1)));
 
             if (isRendered) {
@@ -203,6 +207,7 @@ public class Needle extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".middleRadius(%f)", middleRadius));
 
             if (isRendered) {
@@ -240,6 +245,7 @@ public class Needle extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".middleRadius(%s)", wrapQuotes(middleRadius1)));
 
             if (isRendered) {
@@ -279,6 +285,7 @@ public class Needle extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".middleWidth(%f)", middleWidth));
 
             if (isRendered) {
@@ -316,6 +323,7 @@ public class Needle extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".middleWidth(%s)", wrapQuotes(middleWidth1)));
 
             if (isRendered) {
@@ -355,6 +363,7 @@ public class Needle extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".startRadius(%f)", startRadius));
 
             if (isRendered) {
@@ -392,6 +401,7 @@ public class Needle extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".startRadius(%s)", wrapQuotes(startRadius1)));
 
             if (isRendered) {
@@ -431,6 +441,7 @@ public class Needle extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".startWidth(%f)", startWidth));
 
             if (isRendered) {
@@ -468,6 +479,7 @@ public class Needle extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".startWidth(%s)", wrapQuotes(startWidth1)));
 
             if (isRendered) {

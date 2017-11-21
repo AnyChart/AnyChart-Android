@@ -54,6 +54,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
 
             if (isRendered) {
@@ -93,6 +94,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".decoration(%s)", ((decoration != null) ? decoration.generateJs() : "null")));
 
             if (isRendered) {
@@ -130,6 +132,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".decoration(%s)", wrapQuotes(decoration1)));
 
             if (isRendered) {
@@ -169,6 +172,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".direction(%s)", ((direction != null) ? direction.generateJs() : "null")));
 
             if (isRendered) {
@@ -206,6 +210,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".direction(%s)", wrapQuotes(direction1)));
 
             if (isRendered) {
@@ -241,6 +246,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
 
             if (isRendered) {
@@ -280,6 +286,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize)));
 
             if (isRendered) {
@@ -317,6 +324,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontSize(%f)", fontSize1));
 
             if (isRendered) {
@@ -356,6 +364,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
 
             if (isRendered) {
@@ -393,6 +402,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
 
             if (isRendered) {
@@ -432,6 +442,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
 
             if (isRendered) {
@@ -469,6 +480,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
 
             if (isRendered) {
@@ -508,6 +520,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
 
             if (isRendered) {
@@ -545,6 +558,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
 
             if (isRendered) {
@@ -584,6 +598,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hAlign(%s)", ((hAlign != null) ? hAlign.generateJs() : "null")));
 
             if (isRendered) {
@@ -621,6 +636,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign1)));
 
             if (isRendered) {
@@ -660,6 +676,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
@@ -697,6 +714,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
 
             if (isRendered) {
@@ -732,6 +750,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".htmlText(%s)", wrapQuotes(htmlText)));
 
             if (isRendered) {
@@ -771,6 +790,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing)));
 
             if (isRendered) {
@@ -808,6 +828,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
 
             if (isRendered) {
@@ -847,6 +868,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight)));
 
             if (isRendered) {
@@ -884,6 +906,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
 
             if (isRendered) {
@@ -919,6 +942,7 @@ public class VectorText extends Element {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".opacity(%f)", opacity));
 
             if (isRendered) {
@@ -1000,6 +1024,7 @@ Defines whether text can be selected. If <b>false</b> - no selection.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selectable(%b)", selectable));
 
             if (isRendered) {
@@ -1035,6 +1060,7 @@ Defines whether text can be selected. If <b>false</b> - no selection.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
 
             if (isRendered) {
@@ -1071,6 +1097,7 @@ The text-indent property specifies the indentation of the first line in a text-b
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
 
             if (isRendered) {
@@ -1110,6 +1137,7 @@ The text-indent property specifies the indentation of the first line in a text-b
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
 
             if (isRendered) {
@@ -1147,6 +1175,7 @@ The text-indent property specifies the indentation of the first line in a text-b
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
 
             if (isRendered) {
@@ -1186,6 +1215,7 @@ The text-indent property specifies the indentation of the first line in a text-b
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".vAlign(%s)", ((vAlign != null) ? vAlign.generateJs() : "null")));
 
             if (isRendered) {
@@ -1223,6 +1253,7 @@ The text-indent property specifies the indentation of the first line in a text-b
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign1)));
 
             if (isRendered) {
@@ -1262,6 +1293,7 @@ The text-indent property specifies the indentation of the first line in a text-b
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
@@ -1299,6 +1331,7 @@ The text-indent property specifies the indentation of the first line in a text-b
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {
@@ -1338,6 +1371,7 @@ The text-indent property specifies the indentation of the first line in a text-b
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak)));
 
             if (isRendered) {
@@ -1375,6 +1409,7 @@ The text-indent property specifies the indentation of the first line in a text-b
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak1 != null) ? wordBreak1.generateJs() : "null")));
 
             if (isRendered) {
@@ -1415,6 +1450,7 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap)));
 
             if (isRendered) {
@@ -1453,6 +1489,7 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap1 != null) ? wordWrap1.generateJs() : "null")));
 
             if (isRendered) {
@@ -1488,6 +1525,7 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".x(%f)", x));
 
             if (isRendered) {
@@ -1523,6 +1561,7 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".y(%f)", y));
 
             if (isRendered) {

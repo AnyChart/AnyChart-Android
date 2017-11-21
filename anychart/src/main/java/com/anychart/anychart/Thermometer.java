@@ -51,6 +51,7 @@ public class Thermometer extends LineargaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".bulbPadding(%s)", wrapQuotes(bulbPadding)));
 
             if (isRendered) {
@@ -88,6 +89,7 @@ public class Thermometer extends LineargaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".bulbPadding(%f)", bulbPadding1));
 
             if (isRendered) {
@@ -123,6 +125,7 @@ public class Thermometer extends LineargaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".bulbRadius(%s)", wrapQuotes(bulbRadius)));
 
             if (isRendered) {

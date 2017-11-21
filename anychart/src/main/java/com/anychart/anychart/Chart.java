@@ -64,6 +64,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".a11y(%b)", ay));
 
             if (isRendered) {
@@ -101,6 +102,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".a11y(%s)", wrapQuotes(ay1)));
 
             if (isRendered) {
@@ -152,6 +154,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".animation(%b)", animation));
 
             if (isRendered) {
@@ -189,6 +192,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".animation(%s)", wrapQuotes(animation1)));
 
             if (isRendered) {
@@ -227,6 +231,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".animation(%b, %f)", enabled, duration));
 
             if (isRendered) {
@@ -274,6 +279,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
 
             if (isRendered) {
@@ -403,6 +409,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
 
             if (isRendered) {
@@ -491,6 +498,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".contextMenu(%s)", wrapQuotes(contextMenu)));
 
             if (isRendered) {
@@ -528,6 +536,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".contextMenu(%b)", contextMenu1));
 
             if (isRendered) {
@@ -563,6 +572,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".draw(%b)", async));
 
             if (isRendered) {
@@ -610,6 +620,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".exports(%s)", wrapQuotes(exports)));
 
             if (isRendered) {
@@ -657,6 +668,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getJpgBase64String(%s, %f, %f, %f, %b);", wrapQuotes(onSuccessOrOptions), width, height, quality, forceTransparentWhite));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %f, %f, %f, %b)", wrapQuotes(onSuccessOrOptions), width, height, quality, forceTransparentWhite));
@@ -676,36 +689,38 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(Double paperSizeOrWidth, Double landscapeOrWidth, String onSuccessOrOptions1, Double x, Double y) {
+    public void getPdfBase64String(String onSuccessOrOptions1, Double paperSizeOrWidth, Double x, Double landscapeOrWidth, Double y) {
         if (jsBase == null) {
-            this.paperSizeOrWidth = null;
-            this.paperSizeOrWidth1 = null;
-            
-            this.paperSizeOrWidth = paperSizeOrWidth;
-            this.landscapeOrWidth = null;
-            this.landscapeOrWidth1 = null;
-            
-            this.landscapeOrWidth = landscapeOrWidth;
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
             
             this.onSuccessOrOptions1 = onSuccessOrOptions1;
+            this.paperSizeOrWidth = null;
+            this.paperSizeOrWidth1 = null;
+            
+            this.paperSizeOrWidth = paperSizeOrWidth;
             this.x = x;
+            this.landscapeOrWidth = null;
+            this.landscapeOrWidth1 = null;
+            
+            this.landscapeOrWidth = landscapeOrWidth;
             this.y = y;
         } else {
-            this.paperSizeOrWidth = paperSizeOrWidth;
-            this.landscapeOrWidth = landscapeOrWidth;
             this.onSuccessOrOptions1 = onSuccessOrOptions1;
+            this.paperSizeOrWidth = paperSizeOrWidth;
             this.x = x;
+            this.landscapeOrWidth = landscapeOrWidth;
             this.y = y;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%s, %f, %f, %f, %f);", wrapQuotes(onSuccessOrOptions1), paperSizeOrWidth, x, landscapeOrWidth, y));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %s, %f, %f)", paperSizeOrWidth, landscapeOrWidth, wrapQuotes(onSuccessOrOptions1), x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %f, %f)", wrapQuotes(onSuccessOrOptions1), paperSizeOrWidth, x, landscapeOrWidth, y));
                 js.setLength(0);
             }
         }
@@ -715,36 +730,38 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(Double paperSizeOrWidth, Boolean landscapeOrWidth1, String onSuccessOrOptions1, Double x, Double y) {
+    public void getPdfBase64String(String onSuccessOrOptions1, Double paperSizeOrWidth, Double x, Boolean landscapeOrWidth1, Double y) {
         if (jsBase == null) {
-            this.paperSizeOrWidth = null;
-            this.paperSizeOrWidth1 = null;
-            
-            this.paperSizeOrWidth = paperSizeOrWidth;
-            this.landscapeOrWidth = null;
-            this.landscapeOrWidth1 = null;
-            
-            this.landscapeOrWidth1 = landscapeOrWidth1;
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
             
             this.onSuccessOrOptions1 = onSuccessOrOptions1;
+            this.paperSizeOrWidth = null;
+            this.paperSizeOrWidth1 = null;
+            
+            this.paperSizeOrWidth = paperSizeOrWidth;
             this.x = x;
+            this.landscapeOrWidth = null;
+            this.landscapeOrWidth1 = null;
+            
+            this.landscapeOrWidth1 = landscapeOrWidth1;
             this.y = y;
         } else {
-            this.paperSizeOrWidth = paperSizeOrWidth;
-            this.landscapeOrWidth1 = landscapeOrWidth1;
             this.onSuccessOrOptions1 = onSuccessOrOptions1;
+            this.paperSizeOrWidth = paperSizeOrWidth;
             this.x = x;
+            this.landscapeOrWidth1 = landscapeOrWidth1;
             this.y = y;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%s, %f, %f, %b, %f);", wrapQuotes(onSuccessOrOptions1), paperSizeOrWidth, x, landscapeOrWidth1, y));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %b, %s, %f, %f)", paperSizeOrWidth, landscapeOrWidth1, wrapQuotes(onSuccessOrOptions1), x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %b, %f)", wrapQuotes(onSuccessOrOptions1), paperSizeOrWidth, x, landscapeOrWidth1, y));
                 js.setLength(0);
             }
         }
@@ -754,36 +771,38 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(String paperSizeOrWidth1, Double landscapeOrWidth, String onSuccessOrOptions1, Double x, Double y) {
+    public void getPdfBase64String(String onSuccessOrOptions1, String paperSizeOrWidth1, Double x, Double landscapeOrWidth, Double y) {
         if (jsBase == null) {
-            this.paperSizeOrWidth = null;
-            this.paperSizeOrWidth1 = null;
-            
-            this.paperSizeOrWidth1 = paperSizeOrWidth1;
-            this.landscapeOrWidth = null;
-            this.landscapeOrWidth1 = null;
-            
-            this.landscapeOrWidth = landscapeOrWidth;
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
             
             this.onSuccessOrOptions1 = onSuccessOrOptions1;
+            this.paperSizeOrWidth = null;
+            this.paperSizeOrWidth1 = null;
+            
+            this.paperSizeOrWidth1 = paperSizeOrWidth1;
             this.x = x;
+            this.landscapeOrWidth = null;
+            this.landscapeOrWidth1 = null;
+            
+            this.landscapeOrWidth = landscapeOrWidth;
             this.y = y;
         } else {
-            this.paperSizeOrWidth1 = paperSizeOrWidth1;
-            this.landscapeOrWidth = landscapeOrWidth;
             this.onSuccessOrOptions1 = onSuccessOrOptions1;
+            this.paperSizeOrWidth1 = paperSizeOrWidth1;
             this.x = x;
+            this.landscapeOrWidth = landscapeOrWidth;
             this.y = y;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%s, %s, %f, %f, %f);", wrapQuotes(onSuccessOrOptions1), wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth, y));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %s, %f, %f)", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth, wrapQuotes(onSuccessOrOptions1), x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %f, %f, %f)", wrapQuotes(onSuccessOrOptions1), wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth, y));
                 js.setLength(0);
             }
         }
@@ -793,36 +812,38 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(String paperSizeOrWidth1, Boolean landscapeOrWidth1, String onSuccessOrOptions1, Double x, Double y) {
+    public void getPdfBase64String(String onSuccessOrOptions1, String paperSizeOrWidth1, Double x, Boolean landscapeOrWidth1, Double y) {
         if (jsBase == null) {
-            this.paperSizeOrWidth = null;
-            this.paperSizeOrWidth1 = null;
-            
-            this.paperSizeOrWidth1 = paperSizeOrWidth1;
-            this.landscapeOrWidth = null;
-            this.landscapeOrWidth1 = null;
-            
-            this.landscapeOrWidth1 = landscapeOrWidth1;
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
             
             this.onSuccessOrOptions1 = onSuccessOrOptions1;
+            this.paperSizeOrWidth = null;
+            this.paperSizeOrWidth1 = null;
+            
+            this.paperSizeOrWidth1 = paperSizeOrWidth1;
             this.x = x;
+            this.landscapeOrWidth = null;
+            this.landscapeOrWidth1 = null;
+            
+            this.landscapeOrWidth1 = landscapeOrWidth1;
             this.y = y;
         } else {
-            this.paperSizeOrWidth1 = paperSizeOrWidth1;
-            this.landscapeOrWidth1 = landscapeOrWidth1;
             this.onSuccessOrOptions1 = onSuccessOrOptions1;
+            this.paperSizeOrWidth1 = paperSizeOrWidth1;
             this.x = x;
+            this.landscapeOrWidth1 = landscapeOrWidth1;
             this.y = y;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%s, %s, %f, %b, %f);", wrapQuotes(onSuccessOrOptions1), wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth1, y));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %b, %s, %f, %f)", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth1, wrapQuotes(onSuccessOrOptions1), x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %f, %b, %f)", wrapQuotes(onSuccessOrOptions1), wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth1, y));
                 js.setLength(0);
             }
         }
@@ -865,6 +886,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPngBase64String(%s, %f, %f, %f);", wrapQuotes(onSuccessOrOptions2), width1, height1, quality1));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %f, %f, %f)", wrapQuotes(onSuccessOrOptions2), width1, height1, quality1));
@@ -882,8 +905,14 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Returns SVG as base64 string.
      */
-    public void getSvgBase64String(String paperSizeOrWidth2, Boolean landscapeOrHeight, String onSuccessOrOptions3) {
+    public void getSvgBase64String(String onSuccessOrOptions3, String paperSizeOrWidth2, Boolean landscapeOrHeight) {
         if (jsBase == null) {
+            this.onSuccessOrOptions = null;
+            this.onSuccessOrOptions1 = null;
+            this.onSuccessOrOptions2 = null;
+            this.onSuccessOrOptions3 = null;
+            
+            this.onSuccessOrOptions3 = onSuccessOrOptions3;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -894,24 +923,20 @@ public class Chart extends VisualBaseWithBounds {
             this.landscapeOrHeight1 = null;
             
             this.landscapeOrHeight = landscapeOrHeight;
-            this.onSuccessOrOptions = null;
-            this.onSuccessOrOptions1 = null;
-            this.onSuccessOrOptions2 = null;
-            this.onSuccessOrOptions3 = null;
-            
-            this.onSuccessOrOptions3 = onSuccessOrOptions3;
         } else {
+            this.onSuccessOrOptions3 = onSuccessOrOptions3;
             this.paperSizeOrWidth2 = paperSizeOrWidth2;
             this.landscapeOrHeight = landscapeOrHeight;
-            this.onSuccessOrOptions3 = onSuccessOrOptions3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getSvgBase64String(%s, %s, %b);", wrapQuotes(onSuccessOrOptions3), wrapQuotes(paperSizeOrWidth2), landscapeOrHeight));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b, %s)", wrapQuotes(paperSizeOrWidth2), landscapeOrHeight, wrapQuotes(onSuccessOrOptions3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %b)", wrapQuotes(onSuccessOrOptions3), wrapQuotes(paperSizeOrWidth2), landscapeOrHeight));
                 js.setLength(0);
             }
         }
@@ -921,8 +946,14 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Returns SVG as base64 string.
      */
-    public void getSvgBase64String(String paperSizeOrWidth2, String landscapeOrHeight1, String onSuccessOrOptions3) {
+    public void getSvgBase64String(String onSuccessOrOptions3, String paperSizeOrWidth2, String landscapeOrHeight1) {
         if (jsBase == null) {
+            this.onSuccessOrOptions = null;
+            this.onSuccessOrOptions1 = null;
+            this.onSuccessOrOptions2 = null;
+            this.onSuccessOrOptions3 = null;
+            
+            this.onSuccessOrOptions3 = onSuccessOrOptions3;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -933,24 +964,20 @@ public class Chart extends VisualBaseWithBounds {
             this.landscapeOrHeight1 = null;
             
             this.landscapeOrHeight1 = landscapeOrHeight1;
-            this.onSuccessOrOptions = null;
-            this.onSuccessOrOptions1 = null;
-            this.onSuccessOrOptions2 = null;
-            this.onSuccessOrOptions3 = null;
-            
-            this.onSuccessOrOptions3 = onSuccessOrOptions3;
         } else {
+            this.onSuccessOrOptions3 = onSuccessOrOptions3;
             this.paperSizeOrWidth2 = paperSizeOrWidth2;
             this.landscapeOrHeight1 = landscapeOrHeight1;
-            this.onSuccessOrOptions3 = onSuccessOrOptions3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getSvgBase64String(%s, %s, %s);", wrapQuotes(onSuccessOrOptions3), wrapQuotes(paperSizeOrWidth2), wrapQuotes(landscapeOrHeight1)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s)", wrapQuotes(paperSizeOrWidth2), wrapQuotes(landscapeOrHeight1), wrapQuotes(onSuccessOrOptions3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s)", wrapQuotes(onSuccessOrOptions3), wrapQuotes(paperSizeOrWidth2), wrapQuotes(landscapeOrHeight1)));
                 js.setLength(0);
             }
         }
@@ -960,8 +987,14 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Returns SVG as base64 string.
      */
-    public void getSvgBase64String(Double paperSizeOrWidth3, Boolean landscapeOrHeight, String onSuccessOrOptions3) {
+    public void getSvgBase64String(String onSuccessOrOptions3, Double paperSizeOrWidth3, Boolean landscapeOrHeight) {
         if (jsBase == null) {
+            this.onSuccessOrOptions = null;
+            this.onSuccessOrOptions1 = null;
+            this.onSuccessOrOptions2 = null;
+            this.onSuccessOrOptions3 = null;
+            
+            this.onSuccessOrOptions3 = onSuccessOrOptions3;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -972,24 +1005,20 @@ public class Chart extends VisualBaseWithBounds {
             this.landscapeOrHeight1 = null;
             
             this.landscapeOrHeight = landscapeOrHeight;
-            this.onSuccessOrOptions = null;
-            this.onSuccessOrOptions1 = null;
-            this.onSuccessOrOptions2 = null;
-            this.onSuccessOrOptions3 = null;
-            
-            this.onSuccessOrOptions3 = onSuccessOrOptions3;
         } else {
+            this.onSuccessOrOptions3 = onSuccessOrOptions3;
             this.paperSizeOrWidth3 = paperSizeOrWidth3;
             this.landscapeOrHeight = landscapeOrHeight;
-            this.onSuccessOrOptions3 = onSuccessOrOptions3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getSvgBase64String(%s, %f, %b);", wrapQuotes(onSuccessOrOptions3), paperSizeOrWidth3, landscapeOrHeight));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b, %s)", paperSizeOrWidth3, landscapeOrHeight, wrapQuotes(onSuccessOrOptions3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %f, %b)", wrapQuotes(onSuccessOrOptions3), paperSizeOrWidth3, landscapeOrHeight));
                 js.setLength(0);
             }
         }
@@ -999,8 +1028,14 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Returns SVG as base64 string.
      */
-    public void getSvgBase64String(Double paperSizeOrWidth3, String landscapeOrHeight1, String onSuccessOrOptions3) {
+    public void getSvgBase64String(String onSuccessOrOptions3, Double paperSizeOrWidth3, String landscapeOrHeight1) {
         if (jsBase == null) {
+            this.onSuccessOrOptions = null;
+            this.onSuccessOrOptions1 = null;
+            this.onSuccessOrOptions2 = null;
+            this.onSuccessOrOptions3 = null;
+            
+            this.onSuccessOrOptions3 = onSuccessOrOptions3;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -1011,24 +1046,20 @@ public class Chart extends VisualBaseWithBounds {
             this.landscapeOrHeight1 = null;
             
             this.landscapeOrHeight1 = landscapeOrHeight1;
-            this.onSuccessOrOptions = null;
-            this.onSuccessOrOptions1 = null;
-            this.onSuccessOrOptions2 = null;
-            this.onSuccessOrOptions3 = null;
-            
-            this.onSuccessOrOptions3 = onSuccessOrOptions3;
         } else {
+            this.onSuccessOrOptions3 = onSuccessOrOptions3;
             this.paperSizeOrWidth3 = paperSizeOrWidth3;
             this.landscapeOrHeight1 = landscapeOrHeight1;
-            this.onSuccessOrOptions3 = onSuccessOrOptions3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getSvgBase64String(%s, %f, %s);", wrapQuotes(onSuccessOrOptions3), paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s, %s)", paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1), wrapQuotes(onSuccessOrOptions3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %f, %s)", wrapQuotes(onSuccessOrOptions3), paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1)));
                 js.setLength(0);
             }
         }
@@ -1052,6 +1083,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".globalToLocal(%f, %f);", xCoord, yCoord));
             
 
             if (isRendered) {
@@ -1104,6 +1137,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".label(%b)", label));
 
             if (isRendered) {
@@ -1142,6 +1176,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".label(%s)", wrapQuotes(label1)));
 
             if (isRendered) {
@@ -1193,6 +1228,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".label(%s, %b)", wrapQuotes(index), label3));
 
             if (isRendered) {
@@ -1239,6 +1275,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".label(%s, %s)", wrapQuotes(index), wrapQuotes(label4)));
 
             if (isRendered) {
@@ -1285,6 +1322,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".label(%f, %b)", index1, label3));
 
             if (isRendered) {
@@ -1331,6 +1369,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".label(%f, %s)", index1, wrapQuotes(label4)));
 
             if (isRendered) {
@@ -1376,6 +1415,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".localToGlobal(%f, %f);", xCoord1, yCoord1));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".localToGlobal(%f, %f)", xCoord1, yCoord1));
@@ -1418,6 +1459,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
 
             if (isRendered) {
@@ -1456,6 +1498,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
 
             if (isRendered) {
@@ -1494,6 +1537,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
 
             if (isRendered) {
@@ -1578,6 +1622,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
             if (isRendered) {
@@ -1654,6 +1699,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
 
             if (isRendered) {
@@ -1702,6 +1748,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".noData(%s)", wrapQuotes(noData)));
 
             if (isRendered) {
@@ -1756,6 +1803,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
 
             if (isRendered) {
@@ -1794,6 +1842,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
 
             if (isRendered) {
@@ -1832,6 +1881,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
 
             if (isRendered) {
@@ -1948,6 +1998,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
 
             if (isRendered) {
@@ -2056,6 +2107,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
 
             if (isRendered) {
@@ -2101,6 +2153,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsCsv(%s, %s, %s);", ((chartDataExportMode != null) ? chartDataExportMode.generateJs() : "null"), wrapQuotes(csvSettings), wrapQuotes(filename)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s, %s)", ((chartDataExportMode != null) ? chartDataExportMode.generateJs() : "null"), wrapQuotes(csvSettings), wrapQuotes(filename)));
@@ -2129,6 +2183,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsCsv(%s, %s, %s);", wrapQuotes(chartDataExportMode1), wrapQuotes(csvSettings), wrapQuotes(filename)));
             
 
             if (isRendered) {
@@ -2185,6 +2241,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsJpg(%f, %f, %f, %b, %s);", width2, height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b, %s)", width2, height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
@@ -2234,6 +2292,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsJpg(%s, %f, %f, %b, %s);", wrapQuotes(width3), height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%s, %f, %f, %b, %s)", wrapQuotes(width3), height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
@@ -2260,6 +2320,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsJson(%s);", wrapQuotes(filename2)));
             
 
             if (isRendered) {
@@ -2313,6 +2375,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsPdf(%f, %b, %f, %f, %s);", paperSizeOrWidthOrOptions, landscape, x1, y1, wrapQuotes(filename3)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%f, %b, %f, %f, %s)", paperSizeOrWidthOrOptions, landscape, x1, y1, wrapQuotes(filename3)));
@@ -2357,6 +2421,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsPdf(%s, %b, %f, %f, %s);", wrapQuotes(paperSizeOrWidthOrOptions1), landscape, x1, y1, wrapQuotes(filename3)));
             
 
             if (isRendered) {
@@ -2414,6 +2480,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsPng(%f, %f, %f, %s);", width4, height3, quality3, wrapQuotes(filename4)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f, %s)", width4, height3, quality3, wrapQuotes(filename4)));
@@ -2465,6 +2533,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsPng(%s, %f, %f, %s);", wrapQuotes(width5), height3, quality3, wrapQuotes(filename4)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%s, %f, %f, %s)", wrapQuotes(width5), height3, quality3, wrapQuotes(filename4)));
@@ -2508,6 +2578,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsSvg(%s, %b, %s);", wrapQuotes(paperSize), landscape1, wrapQuotes(filename5)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b, %s)", wrapQuotes(paperSize), landscape1, wrapQuotes(filename5)));
@@ -2547,6 +2619,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsSvg(%f, %f);", width6, height4));
             
 
             if (isRendered) {
@@ -2588,6 +2662,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsXlsx(%s, %s);", ((chartDataExportMode2 != null) ? chartDataExportMode2.generateJs() : "null"), wrapQuotes(filename6)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s)", ((chartDataExportMode2 != null) ? chartDataExportMode2.generateJs() : "null"), wrapQuotes(filename6)));
@@ -2625,6 +2701,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsXlsx(%s, %s);", wrapQuotes(chartDataExportMode3), wrapQuotes(filename6)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s, %s)", wrapQuotes(chartDataExportMode3), wrapQuotes(filename6)));
@@ -2657,6 +2735,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsXml(%s);", wrapQuotes(filename7)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXml(%s)", wrapQuotes(filename7)));
@@ -2681,6 +2761,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selectMarqueeFill(%s)", ((selectMarqueeFill != null) ? selectMarqueeFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -2719,6 +2800,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
@@ -2752,35 +2834,36 @@ public class Chart extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Chart selectMarqueeFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public Chart selectMarqueeFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys = keys;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -2803,35 +2886,36 @@ public class Chart extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Chart selectMarqueeFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public Chart selectMarqueeFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys = keys;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2854,35 +2938,36 @@ public class Chart extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Chart selectMarqueeFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public Chart selectMarqueeFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys = keys;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -2905,35 +2990,36 @@ public class Chart extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Chart selectMarqueeFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public Chart selectMarqueeFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys1 = keys1;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -2956,35 +3042,36 @@ public class Chart extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Chart selectMarqueeFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public Chart selectMarqueeFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys1 = keys1;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3007,35 +3094,36 @@ public class Chart extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Chart selectMarqueeFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public Chart selectMarqueeFill(String[] keys1, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys1 = keys1;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -3101,10 +3189,11 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -3162,10 +3251,11 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -3218,6 +3308,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -3266,6 +3357,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -3314,6 +3406,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -3409,6 +3502,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsJpg(%s, %b, %f, %f, %f, %b, %s);", wrapQuotes(onSuccessOrOptions4), asBase, width7, height5, quality4, forceTransparentWhite2, wrapQuotes(filename8)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %b, %f, %f, %f, %b, %s)", wrapQuotes(onSuccessOrOptions4), asBase, width7, height5, quality4, forceTransparentWhite2, wrapQuotes(filename8)));
@@ -3430,22 +3525,8 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Shares a chart as a PDF file and returns a link to the shared image.
      */
-    public void shareAsPdf(Double paperSizeOrWidth4, Double landscapeOrWidth2, String onSuccessOrOptions5, Boolean asBase1, Double x2, Double y2, String filename9) {
+    public void shareAsPdf(String onSuccessOrOptions5, Boolean asBase1, Double paperSizeOrWidth4, Double x2, Double landscapeOrWidth2, Double y2, String filename9) {
         if (jsBase == null) {
-            this.paperSizeOrWidth = null;
-            this.paperSizeOrWidth1 = null;
-            this.paperSizeOrWidth2 = null;
-            this.paperSizeOrWidth3 = null;
-            this.paperSizeOrWidth4 = null;
-            this.paperSizeOrWidth5 = null;
-            
-            this.paperSizeOrWidth4 = paperSizeOrWidth4;
-            this.landscapeOrWidth = null;
-            this.landscapeOrWidth1 = null;
-            this.landscapeOrWidth2 = null;
-            this.landscapeOrWidth3 = null;
-            
-            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
             this.onSuccessOrOptions2 = null;
@@ -3458,11 +3539,25 @@ public class Chart extends VisualBaseWithBounds {
             this.asBase1 = null;
             
             this.asBase1 = asBase1;
+            this.paperSizeOrWidth = null;
+            this.paperSizeOrWidth1 = null;
+            this.paperSizeOrWidth2 = null;
+            this.paperSizeOrWidth3 = null;
+            this.paperSizeOrWidth4 = null;
+            this.paperSizeOrWidth5 = null;
+            
+            this.paperSizeOrWidth4 = paperSizeOrWidth4;
             this.x = null;
             this.x1 = null;
             this.x2 = null;
             
             this.x2 = x2;
+            this.landscapeOrWidth = null;
+            this.landscapeOrWidth1 = null;
+            this.landscapeOrWidth2 = null;
+            this.landscapeOrWidth3 = null;
+            
+            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.y = null;
             this.y1 = null;
             this.y2 = null;
@@ -3481,11 +3576,11 @@ public class Chart extends VisualBaseWithBounds {
             
             this.filename9 = filename9;
         } else {
-            this.paperSizeOrWidth4 = paperSizeOrWidth4;
-            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.onSuccessOrOptions5 = onSuccessOrOptions5;
             this.asBase1 = asBase1;
+            this.paperSizeOrWidth4 = paperSizeOrWidth4;
             this.x2 = x2;
+            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.y2 = y2;
             this.filename9 = filename9;
             if (isChain) {
@@ -3493,9 +3588,11 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%s, %b, %f, %f, %f, %f, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, paperSizeOrWidth4, x2, landscapeOrWidth2, y2, wrapQuotes(filename9)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %f, %s, %b, %f, %f, %s)", paperSizeOrWidth4, landscapeOrWidth2, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %f, %f, %f, %f, %s)", wrapQuotes(onSuccessOrOptions5), asBase1, paperSizeOrWidth4, x2, landscapeOrWidth2, y2, wrapQuotes(filename9)));
                 js.setLength(0);
             }
         }
@@ -3505,22 +3602,8 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Shares a chart as a PDF file and returns a link to the shared image.
      */
-    public void shareAsPdf(Double paperSizeOrWidth4, Boolean landscapeOrWidth3, String onSuccessOrOptions5, Boolean asBase1, Double x2, Double y2, String filename9) {
+    public void shareAsPdf(String onSuccessOrOptions5, Boolean asBase1, Double paperSizeOrWidth4, Double x2, Boolean landscapeOrWidth3, Double y2, String filename9) {
         if (jsBase == null) {
-            this.paperSizeOrWidth = null;
-            this.paperSizeOrWidth1 = null;
-            this.paperSizeOrWidth2 = null;
-            this.paperSizeOrWidth3 = null;
-            this.paperSizeOrWidth4 = null;
-            this.paperSizeOrWidth5 = null;
-            
-            this.paperSizeOrWidth4 = paperSizeOrWidth4;
-            this.landscapeOrWidth = null;
-            this.landscapeOrWidth1 = null;
-            this.landscapeOrWidth2 = null;
-            this.landscapeOrWidth3 = null;
-            
-            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
             this.onSuccessOrOptions2 = null;
@@ -3533,11 +3616,25 @@ public class Chart extends VisualBaseWithBounds {
             this.asBase1 = null;
             
             this.asBase1 = asBase1;
+            this.paperSizeOrWidth = null;
+            this.paperSizeOrWidth1 = null;
+            this.paperSizeOrWidth2 = null;
+            this.paperSizeOrWidth3 = null;
+            this.paperSizeOrWidth4 = null;
+            this.paperSizeOrWidth5 = null;
+            
+            this.paperSizeOrWidth4 = paperSizeOrWidth4;
             this.x = null;
             this.x1 = null;
             this.x2 = null;
             
             this.x2 = x2;
+            this.landscapeOrWidth = null;
+            this.landscapeOrWidth1 = null;
+            this.landscapeOrWidth2 = null;
+            this.landscapeOrWidth3 = null;
+            
+            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.y = null;
             this.y1 = null;
             this.y2 = null;
@@ -3556,11 +3653,11 @@ public class Chart extends VisualBaseWithBounds {
             
             this.filename9 = filename9;
         } else {
-            this.paperSizeOrWidth4 = paperSizeOrWidth4;
-            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.onSuccessOrOptions5 = onSuccessOrOptions5;
             this.asBase1 = asBase1;
+            this.paperSizeOrWidth4 = paperSizeOrWidth4;
             this.x2 = x2;
+            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.y2 = y2;
             this.filename9 = filename9;
             if (isChain) {
@@ -3568,9 +3665,11 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%s, %b, %f, %f, %b, %f, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, paperSizeOrWidth4, x2, landscapeOrWidth3, y2, wrapQuotes(filename9)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %b, %s, %b, %f, %f, %s)", paperSizeOrWidth4, landscapeOrWidth3, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %f, %f, %b, %f, %s)", wrapQuotes(onSuccessOrOptions5), asBase1, paperSizeOrWidth4, x2, landscapeOrWidth3, y2, wrapQuotes(filename9)));
                 js.setLength(0);
             }
         }
@@ -3580,22 +3679,8 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Shares a chart as a PDF file and returns a link to the shared image.
      */
-    public void shareAsPdf(String paperSizeOrWidth5, Double landscapeOrWidth2, String onSuccessOrOptions5, Boolean asBase1, Double x2, Double y2, String filename9) {
+    public void shareAsPdf(String onSuccessOrOptions5, Boolean asBase1, String paperSizeOrWidth5, Double x2, Double landscapeOrWidth2, Double y2, String filename9) {
         if (jsBase == null) {
-            this.paperSizeOrWidth = null;
-            this.paperSizeOrWidth1 = null;
-            this.paperSizeOrWidth2 = null;
-            this.paperSizeOrWidth3 = null;
-            this.paperSizeOrWidth4 = null;
-            this.paperSizeOrWidth5 = null;
-            
-            this.paperSizeOrWidth5 = paperSizeOrWidth5;
-            this.landscapeOrWidth = null;
-            this.landscapeOrWidth1 = null;
-            this.landscapeOrWidth2 = null;
-            this.landscapeOrWidth3 = null;
-            
-            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
             this.onSuccessOrOptions2 = null;
@@ -3608,11 +3693,25 @@ public class Chart extends VisualBaseWithBounds {
             this.asBase1 = null;
             
             this.asBase1 = asBase1;
+            this.paperSizeOrWidth = null;
+            this.paperSizeOrWidth1 = null;
+            this.paperSizeOrWidth2 = null;
+            this.paperSizeOrWidth3 = null;
+            this.paperSizeOrWidth4 = null;
+            this.paperSizeOrWidth5 = null;
+            
+            this.paperSizeOrWidth5 = paperSizeOrWidth5;
             this.x = null;
             this.x1 = null;
             this.x2 = null;
             
             this.x2 = x2;
+            this.landscapeOrWidth = null;
+            this.landscapeOrWidth1 = null;
+            this.landscapeOrWidth2 = null;
+            this.landscapeOrWidth3 = null;
+            
+            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.y = null;
             this.y1 = null;
             this.y2 = null;
@@ -3631,11 +3730,11 @@ public class Chart extends VisualBaseWithBounds {
             
             this.filename9 = filename9;
         } else {
-            this.paperSizeOrWidth5 = paperSizeOrWidth5;
-            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.onSuccessOrOptions5 = onSuccessOrOptions5;
             this.asBase1 = asBase1;
+            this.paperSizeOrWidth5 = paperSizeOrWidth5;
             this.x2 = x2;
+            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.y2 = y2;
             this.filename9 = filename9;
             if (isChain) {
@@ -3643,9 +3742,11 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%s, %b, %s, %f, %f, %f, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth2, y2, wrapQuotes(filename9)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %f, %s, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidth5), landscapeOrWidth2, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %s, %f, %f, %f, %s)", wrapQuotes(onSuccessOrOptions5), asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth2, y2, wrapQuotes(filename9)));
                 js.setLength(0);
             }
         }
@@ -3655,22 +3756,8 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Shares a chart as a PDF file and returns a link to the shared image.
      */
-    public void shareAsPdf(String paperSizeOrWidth5, Boolean landscapeOrWidth3, String onSuccessOrOptions5, Boolean asBase1, Double x2, Double y2, String filename9) {
+    public void shareAsPdf(String onSuccessOrOptions5, Boolean asBase1, String paperSizeOrWidth5, Double x2, Boolean landscapeOrWidth3, Double y2, String filename9) {
         if (jsBase == null) {
-            this.paperSizeOrWidth = null;
-            this.paperSizeOrWidth1 = null;
-            this.paperSizeOrWidth2 = null;
-            this.paperSizeOrWidth3 = null;
-            this.paperSizeOrWidth4 = null;
-            this.paperSizeOrWidth5 = null;
-            
-            this.paperSizeOrWidth5 = paperSizeOrWidth5;
-            this.landscapeOrWidth = null;
-            this.landscapeOrWidth1 = null;
-            this.landscapeOrWidth2 = null;
-            this.landscapeOrWidth3 = null;
-            
-            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
             this.onSuccessOrOptions2 = null;
@@ -3683,11 +3770,25 @@ public class Chart extends VisualBaseWithBounds {
             this.asBase1 = null;
             
             this.asBase1 = asBase1;
+            this.paperSizeOrWidth = null;
+            this.paperSizeOrWidth1 = null;
+            this.paperSizeOrWidth2 = null;
+            this.paperSizeOrWidth3 = null;
+            this.paperSizeOrWidth4 = null;
+            this.paperSizeOrWidth5 = null;
+            
+            this.paperSizeOrWidth5 = paperSizeOrWidth5;
             this.x = null;
             this.x1 = null;
             this.x2 = null;
             
             this.x2 = x2;
+            this.landscapeOrWidth = null;
+            this.landscapeOrWidth1 = null;
+            this.landscapeOrWidth2 = null;
+            this.landscapeOrWidth3 = null;
+            
+            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.y = null;
             this.y1 = null;
             this.y2 = null;
@@ -3706,11 +3807,11 @@ public class Chart extends VisualBaseWithBounds {
             
             this.filename9 = filename9;
         } else {
-            this.paperSizeOrWidth5 = paperSizeOrWidth5;
-            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.onSuccessOrOptions5 = onSuccessOrOptions5;
             this.asBase1 = asBase1;
+            this.paperSizeOrWidth5 = paperSizeOrWidth5;
             this.x2 = x2;
+            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.y2 = y2;
             this.filename9 = filename9;
             if (isChain) {
@@ -3718,9 +3819,11 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%s, %b, %s, %f, %b, %f, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth3, y2, wrapQuotes(filename9)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %s, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidth5), landscapeOrWidth3, wrapQuotes(onSuccessOrOptions5), asBase1, x2, y2, wrapQuotes(filename9)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %s, %f, %b, %f, %s)", wrapQuotes(onSuccessOrOptions5), asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth3, y2, wrapQuotes(filename9)));
                 js.setLength(0);
             }
         }
@@ -3805,6 +3908,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPng(%s, %b, %f, %f, %f, %s);", wrapQuotes(onSuccessOrOptions6), asBase2, width8, height6, quality5, wrapQuotes(filename10)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPng(%s, %b, %f, %f, %f, %s)", wrapQuotes(onSuccessOrOptions6), asBase2, width8, height6, quality5, wrapQuotes(filename10)));
@@ -3824,24 +3929,8 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Shares a chart as a SVG file and returns a link to the shared image.
      */
-    public void shareAsSvg(String paperSizeOrWidth6, Boolean landscapeOrHeight2, String onSuccessOrOptions7, Boolean asBase3, String filename11) {
+    public void shareAsSvg(String onSuccessOrOptions7, Boolean asBase3, String paperSizeOrWidth6, String filename11, Boolean landscapeOrHeight2) {
         if (jsBase == null) {
-            this.paperSizeOrWidth = null;
-            this.paperSizeOrWidth1 = null;
-            this.paperSizeOrWidth2 = null;
-            this.paperSizeOrWidth3 = null;
-            this.paperSizeOrWidth4 = null;
-            this.paperSizeOrWidth5 = null;
-            this.paperSizeOrWidth6 = null;
-            this.paperSizeOrWidth7 = null;
-            
-            this.paperSizeOrWidth6 = paperSizeOrWidth6;
-            this.landscapeOrHeight = null;
-            this.landscapeOrHeight1 = null;
-            this.landscapeOrHeight2 = null;
-            this.landscapeOrHeight3 = null;
-            
-            this.landscapeOrHeight2 = landscapeOrHeight2;
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
             this.onSuccessOrOptions2 = null;
@@ -3858,6 +3947,16 @@ public class Chart extends VisualBaseWithBounds {
             this.asBase3 = null;
             
             this.asBase3 = asBase3;
+            this.paperSizeOrWidth = null;
+            this.paperSizeOrWidth1 = null;
+            this.paperSizeOrWidth2 = null;
+            this.paperSizeOrWidth3 = null;
+            this.paperSizeOrWidth4 = null;
+            this.paperSizeOrWidth5 = null;
+            this.paperSizeOrWidth6 = null;
+            this.paperSizeOrWidth7 = null;
+            
+            this.paperSizeOrWidth6 = paperSizeOrWidth6;
             this.filename = null;
             this.filename1 = null;
             this.filename2 = null;
@@ -3872,20 +3971,28 @@ public class Chart extends VisualBaseWithBounds {
             this.filename11 = null;
             
             this.filename11 = filename11;
-        } else {
-            this.paperSizeOrWidth6 = paperSizeOrWidth6;
+            this.landscapeOrHeight = null;
+            this.landscapeOrHeight1 = null;
+            this.landscapeOrHeight2 = null;
+            this.landscapeOrHeight3 = null;
+            
             this.landscapeOrHeight2 = landscapeOrHeight2;
+        } else {
             this.onSuccessOrOptions7 = onSuccessOrOptions7;
             this.asBase3 = asBase3;
+            this.paperSizeOrWidth6 = paperSizeOrWidth6;
             this.filename11 = filename11;
+            this.landscapeOrHeight2 = landscapeOrHeight2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsSvg(%s, %b, %s, %s, %b);", wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(paperSizeOrWidth6), wrapQuotes(filename11), landscapeOrHeight2));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %s, %b, %s)", wrapQuotes(paperSizeOrWidth6), landscapeOrHeight2, wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %s, %s, %b)", wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(paperSizeOrWidth6), wrapQuotes(filename11), landscapeOrHeight2));
                 js.setLength(0);
             }
         }
@@ -3895,8 +4002,24 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Shares a chart as a SVG file and returns a link to the shared image.
      */
-    public void shareAsSvg(String paperSizeOrWidth6, String landscapeOrHeight3, String onSuccessOrOptions7, Boolean asBase3, String filename11) {
+    public void shareAsSvg(String onSuccessOrOptions7, Boolean asBase3, String paperSizeOrWidth6, String filename11, String landscapeOrHeight3) {
         if (jsBase == null) {
+            this.onSuccessOrOptions = null;
+            this.onSuccessOrOptions1 = null;
+            this.onSuccessOrOptions2 = null;
+            this.onSuccessOrOptions3 = null;
+            this.onSuccessOrOptions4 = null;
+            this.onSuccessOrOptions5 = null;
+            this.onSuccessOrOptions6 = null;
+            this.onSuccessOrOptions7 = null;
+            
+            this.onSuccessOrOptions7 = onSuccessOrOptions7;
+            this.asBase = null;
+            this.asBase1 = null;
+            this.asBase2 = null;
+            this.asBase3 = null;
+            
+            this.asBase3 = asBase3;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -3907,28 +4030,6 @@ public class Chart extends VisualBaseWithBounds {
             this.paperSizeOrWidth7 = null;
             
             this.paperSizeOrWidth6 = paperSizeOrWidth6;
-            this.landscapeOrHeight = null;
-            this.landscapeOrHeight1 = null;
-            this.landscapeOrHeight2 = null;
-            this.landscapeOrHeight3 = null;
-            
-            this.landscapeOrHeight3 = landscapeOrHeight3;
-            this.onSuccessOrOptions = null;
-            this.onSuccessOrOptions1 = null;
-            this.onSuccessOrOptions2 = null;
-            this.onSuccessOrOptions3 = null;
-            this.onSuccessOrOptions4 = null;
-            this.onSuccessOrOptions5 = null;
-            this.onSuccessOrOptions6 = null;
-            this.onSuccessOrOptions7 = null;
-            
-            this.onSuccessOrOptions7 = onSuccessOrOptions7;
-            this.asBase = null;
-            this.asBase1 = null;
-            this.asBase2 = null;
-            this.asBase3 = null;
-            
-            this.asBase3 = asBase3;
             this.filename = null;
             this.filename1 = null;
             this.filename2 = null;
@@ -3943,20 +4044,28 @@ public class Chart extends VisualBaseWithBounds {
             this.filename11 = null;
             
             this.filename11 = filename11;
+            this.landscapeOrHeight = null;
+            this.landscapeOrHeight1 = null;
+            this.landscapeOrHeight2 = null;
+            this.landscapeOrHeight3 = null;
+            
+            this.landscapeOrHeight3 = landscapeOrHeight3;
         } else {
+            this.onSuccessOrOptions7 = onSuccessOrOptions7;
+            this.asBase3 = asBase3;
             this.paperSizeOrWidth6 = paperSizeOrWidth6;
-            this.landscapeOrHeight3 = landscapeOrHeight3;
-            this.onSuccessOrOptions7 = onSuccessOrOptions7;
-            this.asBase3 = asBase3;
             this.filename11 = filename11;
+            this.landscapeOrHeight3 = landscapeOrHeight3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsSvg(%s, %b, %s, %s, %s);", wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(paperSizeOrWidth6), wrapQuotes(filename11), wrapQuotes(landscapeOrHeight3)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %s, %b, %s)", wrapQuotes(paperSizeOrWidth6), wrapQuotes(landscapeOrHeight3), wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %s, %s, %s)", wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(paperSizeOrWidth6), wrapQuotes(filename11), wrapQuotes(landscapeOrHeight3)));
                 js.setLength(0);
             }
         }
@@ -3966,24 +4075,8 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Shares a chart as a SVG file and returns a link to the shared image.
      */
-    public void shareAsSvg(Double paperSizeOrWidth7, Boolean landscapeOrHeight2, String onSuccessOrOptions7, Boolean asBase3, String filename11) {
+    public void shareAsSvg(String onSuccessOrOptions7, Boolean asBase3, Double paperSizeOrWidth7, String filename11, Boolean landscapeOrHeight2) {
         if (jsBase == null) {
-            this.paperSizeOrWidth = null;
-            this.paperSizeOrWidth1 = null;
-            this.paperSizeOrWidth2 = null;
-            this.paperSizeOrWidth3 = null;
-            this.paperSizeOrWidth4 = null;
-            this.paperSizeOrWidth5 = null;
-            this.paperSizeOrWidth6 = null;
-            this.paperSizeOrWidth7 = null;
-            
-            this.paperSizeOrWidth7 = paperSizeOrWidth7;
-            this.landscapeOrHeight = null;
-            this.landscapeOrHeight1 = null;
-            this.landscapeOrHeight2 = null;
-            this.landscapeOrHeight3 = null;
-            
-            this.landscapeOrHeight2 = landscapeOrHeight2;
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
             this.onSuccessOrOptions2 = null;
@@ -4000,6 +4093,16 @@ public class Chart extends VisualBaseWithBounds {
             this.asBase3 = null;
             
             this.asBase3 = asBase3;
+            this.paperSizeOrWidth = null;
+            this.paperSizeOrWidth1 = null;
+            this.paperSizeOrWidth2 = null;
+            this.paperSizeOrWidth3 = null;
+            this.paperSizeOrWidth4 = null;
+            this.paperSizeOrWidth5 = null;
+            this.paperSizeOrWidth6 = null;
+            this.paperSizeOrWidth7 = null;
+            
+            this.paperSizeOrWidth7 = paperSizeOrWidth7;
             this.filename = null;
             this.filename1 = null;
             this.filename2 = null;
@@ -4014,20 +4117,28 @@ public class Chart extends VisualBaseWithBounds {
             this.filename11 = null;
             
             this.filename11 = filename11;
-        } else {
-            this.paperSizeOrWidth7 = paperSizeOrWidth7;
+            this.landscapeOrHeight = null;
+            this.landscapeOrHeight1 = null;
+            this.landscapeOrHeight2 = null;
+            this.landscapeOrHeight3 = null;
+            
             this.landscapeOrHeight2 = landscapeOrHeight2;
+        } else {
             this.onSuccessOrOptions7 = onSuccessOrOptions7;
             this.asBase3 = asBase3;
+            this.paperSizeOrWidth7 = paperSizeOrWidth7;
             this.filename11 = filename11;
+            this.landscapeOrHeight2 = landscapeOrHeight2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsSvg(%s, %b, %f, %s, %b);", wrapQuotes(onSuccessOrOptions7), asBase3, paperSizeOrWidth7, wrapQuotes(filename11), landscapeOrHeight2));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %b, %s, %b, %s)", paperSizeOrWidth7, landscapeOrHeight2, wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %f, %s, %b)", wrapQuotes(onSuccessOrOptions7), asBase3, paperSizeOrWidth7, wrapQuotes(filename11), landscapeOrHeight2));
                 js.setLength(0);
             }
         }
@@ -4037,24 +4148,8 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Shares a chart as a SVG file and returns a link to the shared image.
      */
-    public void shareAsSvg(Double paperSizeOrWidth7, String landscapeOrHeight3, String onSuccessOrOptions7, Boolean asBase3, String filename11) {
+    public void shareAsSvg(String onSuccessOrOptions7, Boolean asBase3, Double paperSizeOrWidth7, String filename11, String landscapeOrHeight3) {
         if (jsBase == null) {
-            this.paperSizeOrWidth = null;
-            this.paperSizeOrWidth1 = null;
-            this.paperSizeOrWidth2 = null;
-            this.paperSizeOrWidth3 = null;
-            this.paperSizeOrWidth4 = null;
-            this.paperSizeOrWidth5 = null;
-            this.paperSizeOrWidth6 = null;
-            this.paperSizeOrWidth7 = null;
-            
-            this.paperSizeOrWidth7 = paperSizeOrWidth7;
-            this.landscapeOrHeight = null;
-            this.landscapeOrHeight1 = null;
-            this.landscapeOrHeight2 = null;
-            this.landscapeOrHeight3 = null;
-            
-            this.landscapeOrHeight3 = landscapeOrHeight3;
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
             this.onSuccessOrOptions2 = null;
@@ -4071,6 +4166,16 @@ public class Chart extends VisualBaseWithBounds {
             this.asBase3 = null;
             
             this.asBase3 = asBase3;
+            this.paperSizeOrWidth = null;
+            this.paperSizeOrWidth1 = null;
+            this.paperSizeOrWidth2 = null;
+            this.paperSizeOrWidth3 = null;
+            this.paperSizeOrWidth4 = null;
+            this.paperSizeOrWidth5 = null;
+            this.paperSizeOrWidth6 = null;
+            this.paperSizeOrWidth7 = null;
+            
+            this.paperSizeOrWidth7 = paperSizeOrWidth7;
             this.filename = null;
             this.filename1 = null;
             this.filename2 = null;
@@ -4085,20 +4190,28 @@ public class Chart extends VisualBaseWithBounds {
             this.filename11 = null;
             
             this.filename11 = filename11;
-        } else {
-            this.paperSizeOrWidth7 = paperSizeOrWidth7;
+            this.landscapeOrHeight = null;
+            this.landscapeOrHeight1 = null;
+            this.landscapeOrHeight2 = null;
+            this.landscapeOrHeight3 = null;
+            
             this.landscapeOrHeight3 = landscapeOrHeight3;
+        } else {
             this.onSuccessOrOptions7 = onSuccessOrOptions7;
             this.asBase3 = asBase3;
+            this.paperSizeOrWidth7 = paperSizeOrWidth7;
             this.filename11 = filename11;
+            this.landscapeOrHeight3 = landscapeOrHeight3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsSvg(%s, %b, %f, %s, %s);", wrapQuotes(onSuccessOrOptions7), asBase3, paperSizeOrWidth7, wrapQuotes(filename11), wrapQuotes(landscapeOrHeight3)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %s, %s, %b, %s)", paperSizeOrWidth7, wrapQuotes(landscapeOrHeight3), wrapQuotes(onSuccessOrOptions7), asBase3, wrapQuotes(filename11)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %f, %s, %s)", wrapQuotes(onSuccessOrOptions7), asBase3, paperSizeOrWidth7, wrapQuotes(filename11), wrapQuotes(landscapeOrHeight3)));
                 js.setLength(0);
             }
         }
@@ -4131,6 +4244,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareWithFacebook(%s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description)));
             
 
             if (isRendered) {
@@ -4167,6 +4282,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareWithLinkedIn(%s, %s);", wrapQuotes(captionOrOptions2), wrapQuotes(description1)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareWithLinkedIn(%s, %s)", wrapQuotes(captionOrOptions2), wrapQuotes(description1)));
@@ -4201,6 +4318,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareWithPinterest(%s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description2)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareWithPinterest(%s, %s)", wrapQuotes(linkOrOptions), wrapQuotes(description2)));
@@ -4225,6 +4344,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".startSelectMarquee(%b)", repeat));
 
             if (isRendered) {
@@ -4278,6 +4398,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".title(%b)", title));
 
             if (isRendered) {
@@ -4316,6 +4437,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
 
             if (isRendered) {
@@ -4359,6 +4481,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setToA11yTable" + ++variableIndex + " = " + jsBase + ".toA11yTable(%s, %b);", wrapQuotes(title3), asString));
             
 
             if (isRendered) {
@@ -4410,6 +4534,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".toCsv(%s, %s);", ((chartDataExportMode4 != null) ? chartDataExportMode4.generateJs() : "null"), wrapQuotes(csvSettings1)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toCsv(%s, %s)", ((chartDataExportMode4 != null) ? chartDataExportMode4.generateJs() : "null"), wrapQuotes(csvSettings1)));
@@ -4443,6 +4569,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".toCsv(%s, %s);", wrapQuotes(chartDataExportMode5), wrapQuotes(csvSettings1)));
             
 
             if (isRendered) {
@@ -4480,6 +4608,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setToHtmlTable" + ++variableIndex + " = " + jsBase + ".toHtmlTable(%s, %b);", wrapQuotes(title4), asString1));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toHtmlTable(%s, %b)", wrapQuotes(title4), asString1));
@@ -4516,6 +4646,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".toJson(%b);", stringify));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toJson(%b)", stringify));
@@ -4551,6 +4683,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".toSvg(%s, %b);", wrapQuotes(paperSize2), landscape2));
             
 
             if (isRendered) {
@@ -4598,6 +4732,8 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".toSvg(%f, %f);", width9, height7));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%f, %f)", width9, height7));
@@ -4620,6 +4756,8 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".toXml(%b);", asXmlNode));
             
 
             if (isRendered) {
@@ -4660,6 +4798,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
 
             if (isRendered) {
@@ -4697,6 +4836,7 @@ public class Chart extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".tooltip(%b)", tooltip1));
 
             if (isRendered) {

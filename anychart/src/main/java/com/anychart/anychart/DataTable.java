@@ -56,29 +56,30 @@ public class DataTable extends CoreBase {
     /**
      * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
      */
-    public DataTable addData(String[] rawData, Boolean removeFromStart, String csvSettings) {
+    public DataTable addData(String[] rawData, String csvSettings, Boolean removeFromStart) {
         if (jsBase == null) {
             this.rawData = null;
             this.rawData1 = null;
             
             this.rawData = rawData;
+            this.csvSettings = csvSettings;
             this.removeFromStart = null;
             this.removeFromStart1 = null;
             
             this.removeFromStart = removeFromStart;
-            this.csvSettings = csvSettings;
         } else {
             this.rawData = rawData;
-            this.removeFromStart = removeFromStart;
             this.csvSettings = csvSettings;
+            this.removeFromStart = removeFromStart;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".addData(%s, %b, %s)", arrayToStringWrapQuotes(rawData), removeFromStart, wrapQuotes(csvSettings)));
+            
+            js.append(String.format(Locale.US, ".addData(%s, %s, %b)", arrayToStringWrapQuotes(rawData), wrapQuotes(csvSettings), removeFromStart));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %b, %s)", arrayToStringWrapQuotes(rawData), removeFromStart, wrapQuotes(csvSettings)));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %b)", arrayToStringWrapQuotes(rawData), wrapQuotes(csvSettings), removeFromStart));
                 js.setLength(0);
             }
         }
@@ -100,29 +101,30 @@ public class DataTable extends CoreBase {
     /**
      * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
      */
-    public DataTable addData(String[] rawData, Double removeFromStart1, String csvSettings) {
+    public DataTable addData(String[] rawData, String csvSettings, Double removeFromStart1) {
         if (jsBase == null) {
             this.rawData = null;
             this.rawData1 = null;
             
             this.rawData = rawData;
+            this.csvSettings = csvSettings;
             this.removeFromStart = null;
             this.removeFromStart1 = null;
             
             this.removeFromStart1 = removeFromStart1;
-            this.csvSettings = csvSettings;
         } else {
             this.rawData = rawData;
-            this.removeFromStart1 = removeFromStart1;
             this.csvSettings = csvSettings;
+            this.removeFromStart1 = removeFromStart1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".addData(%s, %f, %s)", arrayToStringWrapQuotes(rawData), removeFromStart1, wrapQuotes(csvSettings)));
+            
+            js.append(String.format(Locale.US, ".addData(%s, %s, %f)", arrayToStringWrapQuotes(rawData), wrapQuotes(csvSettings), removeFromStart1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %f, %s)", arrayToStringWrapQuotes(rawData), removeFromStart1, wrapQuotes(csvSettings)));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %f)", arrayToStringWrapQuotes(rawData), wrapQuotes(csvSettings), removeFromStart1));
                 js.setLength(0);
             }
         }
@@ -144,29 +146,30 @@ public class DataTable extends CoreBase {
     /**
      * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
      */
-    public DataTable addData(String rawData1, Boolean removeFromStart, String csvSettings) {
+    public DataTable addData(String rawData1, String csvSettings, Boolean removeFromStart) {
         if (jsBase == null) {
             this.rawData = null;
             this.rawData1 = null;
             
             this.rawData1 = rawData1;
+            this.csvSettings = csvSettings;
             this.removeFromStart = null;
             this.removeFromStart1 = null;
             
             this.removeFromStart = removeFromStart;
-            this.csvSettings = csvSettings;
         } else {
             this.rawData1 = rawData1;
-            this.removeFromStart = removeFromStart;
             this.csvSettings = csvSettings;
+            this.removeFromStart = removeFromStart;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".addData(%s, %b, %s)", wrapQuotes(rawData1), removeFromStart, wrapQuotes(csvSettings)));
+            
+            js.append(String.format(Locale.US, ".addData(%s, %s, %b)", wrapQuotes(rawData1), wrapQuotes(csvSettings), removeFromStart));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %b, %s)", wrapQuotes(rawData1), removeFromStart, wrapQuotes(csvSettings)));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %b)", wrapQuotes(rawData1), wrapQuotes(csvSettings), removeFromStart));
                 js.setLength(0);
             }
         }
@@ -188,29 +191,30 @@ public class DataTable extends CoreBase {
     /**
      * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
      */
-    public DataTable addData(String rawData1, Double removeFromStart1, String csvSettings) {
+    public DataTable addData(String rawData1, String csvSettings, Double removeFromStart1) {
         if (jsBase == null) {
             this.rawData = null;
             this.rawData1 = null;
             
             this.rawData1 = rawData1;
+            this.csvSettings = csvSettings;
             this.removeFromStart = null;
             this.removeFromStart1 = null;
             
             this.removeFromStart1 = removeFromStart1;
-            this.csvSettings = csvSettings;
         } else {
             this.rawData1 = rawData1;
-            this.removeFromStart1 = removeFromStart1;
             this.csvSettings = csvSettings;
+            this.removeFromStart1 = removeFromStart1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".addData(%s, %f, %s)", wrapQuotes(rawData1), removeFromStart1, wrapQuotes(csvSettings)));
+            
+            js.append(String.format(Locale.US, ".addData(%s, %s, %f)", wrapQuotes(rawData1), wrapQuotes(csvSettings), removeFromStart1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %f, %s)", wrapQuotes(rawData1), removeFromStart1, wrapQuotes(csvSettings)));
+                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %f)", wrapQuotes(rawData1), wrapQuotes(csvSettings), removeFromStart1));
                 js.setLength(0);
             }
         }
@@ -283,6 +287,8 @@ public class DataTable extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setCreateComputer1" + ++variableIndex + " = " + jsBase + ".createComputer(%s);", wrapQuotes(mappingSettingsOrMapping1)));
             
 
             if (isRendered) {
@@ -367,6 +373,7 @@ You can add fields to table mappings after the mapping is created using it's add
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".remove(%f, %f)", startKey, endKey));
 
             if (isRendered) {
@@ -409,6 +416,7 @@ You can add fields to table mappings after the mapping is created using it's add
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".remove(%f, %s)", startKey, wrapQuotes(endKey1)));
 
             if (isRendered) {
@@ -451,6 +459,7 @@ You can add fields to table mappings after the mapping is created using it's add
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".remove(%s, %f)", wrapQuotes(startKey1), endKey));
 
             if (isRendered) {
@@ -493,6 +502,7 @@ You can add fields to table mappings after the mapping is created using it's add
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".remove(%s, %s)", wrapQuotes(startKey1), wrapQuotes(endKey1)));
 
             if (isRendered) {
@@ -528,6 +538,7 @@ You can add fields to table mappings after the mapping is created using it's add
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".removeFirst(%f)", count));
 
             if (isRendered) {

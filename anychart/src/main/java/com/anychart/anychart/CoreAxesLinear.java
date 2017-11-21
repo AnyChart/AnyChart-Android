@@ -49,6 +49,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
 
             if (isRendered) {
@@ -84,6 +85,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
 
             if (isRendered) {
@@ -135,6 +137,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
             if (isRendered) {
@@ -172,6 +175,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
             if (isRendered) {
@@ -223,6 +227,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
 
             if (isRendered) {
@@ -260,6 +265,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
 
             if (isRendered) {
@@ -311,6 +317,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
@@ -348,6 +355,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
 
             if (isRendered) {
@@ -387,6 +395,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
 
             if (isRendered) {
@@ -424,6 +433,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
 
             if (isRendered) {
@@ -463,6 +473,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
 
             if (isRendered) {
@@ -500,6 +511,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
 
             if (isRendered) {
@@ -592,6 +604,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
 
             if (isRendered) {
@@ -631,6 +644,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
 
             if (isRendered) {
@@ -667,6 +681,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".staggerLines(%f)", staggerLines));
 
             if (isRendered) {
@@ -702,6 +717,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".staggerMaxLines(%f)", staggerMaxLines));
 
             if (isRendered) {
@@ -737,6 +753,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".staggerMode(%b)", staggerMode));
 
             if (isRendered) {
@@ -791,6 +808,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -838,6 +856,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -885,6 +904,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -936,6 +956,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
@@ -973,6 +994,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".ticks(%b)", ticks1));
 
             if (isRendered) {
@@ -1026,6 +1048,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".title(%b)", title));
 
             if (isRendered) {
@@ -1064,6 +1087,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
 
             if (isRendered) {
@@ -1103,6 +1127,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
@@ -1140,6 +1165,7 @@ public class CoreAxesLinear extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {

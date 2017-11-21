@@ -48,6 +48,8 @@ public class StandalonesTable extends UiTable {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsCsv(%s, %s);", wrapQuotes(csvSettings), wrapQuotes(filename)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsCsv(%s, %s)", wrapQuotes(csvSettings), wrapQuotes(filename)));
@@ -74,6 +76,8 @@ public class StandalonesTable extends UiTable {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsXlsx(%s);", wrapQuotes(filename1)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsXlsx(%s)", wrapQuotes(filename1)));
@@ -99,6 +103,8 @@ public class StandalonesTable extends UiTable {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".toCsv(%s);", wrapQuotes(csvSettings1)));
             
 
             if (isRendered) {

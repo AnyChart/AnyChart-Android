@@ -50,6 +50,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".dummyFill(%s)", ((dummyFill != null) ? dummyFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -88,6 +89,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".dummyFill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
@@ -121,35 +123,36 @@ public class StateSettings extends CoreBase {
      * Linear gradient dummy fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings dummyFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public StateSettings dummyFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys = keys;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -172,35 +175,36 @@ public class StateSettings extends CoreBase {
      * Linear gradient dummy fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings dummyFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public StateSettings dummyFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys = keys;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -223,35 +227,36 @@ public class StateSettings extends CoreBase {
      * Linear gradient dummy fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings dummyFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public StateSettings dummyFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys = keys;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -274,35 +279,36 @@ public class StateSettings extends CoreBase {
      * Linear gradient dummy fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings dummyFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public StateSettings dummyFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys1 = keys1;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -325,35 +331,36 @@ public class StateSettings extends CoreBase {
      * Linear gradient dummy fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings dummyFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public StateSettings dummyFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys1 = keys1;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -376,35 +383,36 @@ public class StateSettings extends CoreBase {
      * Linear gradient dummy fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings dummyFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public StateSettings dummyFill(String[] keys1, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys1 = keys1;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -470,10 +478,11 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -531,10 +540,11 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".dummyFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -587,6 +597,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -635,6 +646,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -683,6 +695,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".dummyStroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -723,6 +736,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".emptyFill(%s)", ((emptyFill != null) ? emptyFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -761,6 +775,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".emptyFill(%s)", wrapQuotes(emptyFill1)));
 
             if (isRendered) {
@@ -810,6 +825,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".emptyFill(%s, %f)", wrapQuotes(color4), opacity3));
 
             if (isRendered) {
@@ -887,10 +903,11 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
+            js.append(patternFillOrType.generateJs());
+            js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.getJsBase() : "null"), wrapQuotes(color5), thickness1, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
+                onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.getJsBase() : "null"), wrapQuotes(color5), thickness1, size));
                 js.setLength(0);
             }
         }
@@ -944,10 +961,11 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
+            js.append(patternFillOrType1.generateJs());
+            js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.getJsBase() : "null"), wrapQuotes(color5), thickness1, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
+                onChangeListener.onChange(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.getJsBase() : "null"), wrapQuotes(color5), thickness1, size));
                 js.setLength(0);
             }
         }
@@ -1001,6 +1019,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color5), thickness1, size));
 
             if (isRendered) {
@@ -1058,6 +1077,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".emptyHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color5), thickness1, size));
 
             if (isRendered) {
@@ -1115,6 +1135,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".emptyHatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color5), thickness1, size));
 
             if (isRendered) {
@@ -1151,6 +1172,8 @@ public class StateSettings extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setFallingFill" + ++variableIndex + " = " + jsBase + ".fallingFill(%s);", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
             
 
             if (isRendered) {
@@ -1206,6 +1229,8 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingFill1" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f);", wrapQuotes(color6), opacity4));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f)", wrapQuotes(color6), opacity4));
@@ -1240,7 +1265,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity5) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys4, Double angle1, Double opacity5, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1250,15 +1275,6 @@ public class StateSettings extends CoreBase {
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
             this.angle = null;
             this.angle1 = null;
             
@@ -1271,19 +1287,30 @@ public class StateSettings extends CoreBase {
             this.opacity5 = null;
             
             this.opacity5 = opacity5;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
         } else {
             this.keys4 = keys4;
-            this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity5 = opacity5;
+            this.mode4 = mode4;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingFill2" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f, %f, %b);", arrayToString(keys4), angle1, opacity5, mode4));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity5, mode4));
                 js.setLength(0);
             }
         }
@@ -1308,7 +1335,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity5) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys4, Double angle1, Double opacity5, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1318,15 +1345,6 @@ public class StateSettings extends CoreBase {
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
             this.angle = null;
             this.angle1 = null;
             
@@ -1339,19 +1357,30 @@ public class StateSettings extends CoreBase {
             this.opacity5 = null;
             
             this.opacity5 = opacity5;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
         } else {
             this.keys4 = keys4;
-            this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity5 = opacity5;
+            this.mode5 = mode5;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mode5.generateJs());
+            js.append(String.format(Locale.US, "var setFallingFill3" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity5, ((mode5 != null) ? mode5.getJsBase() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity5, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1376,7 +1405,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity5) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys4, Double angle1, Double opacity5, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1386,15 +1415,6 @@ public class StateSettings extends CoreBase {
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
             this.angle = null;
             this.angle1 = null;
             
@@ -1407,19 +1427,30 @@ public class StateSettings extends CoreBase {
             this.opacity5 = null;
             
             this.opacity5 = opacity5;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
         } else {
             this.keys4 = keys4;
-            this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity5 = opacity5;
+            this.mode6 = mode6;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingFill4" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity5, wrapQuotes(mode6)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity5, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1444,7 +1475,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(String[] keys5, Boolean mode4, Double angle1, Double opacity5) {
+    public CartesianSeriesBase fallingFill(String[] keys5, Double angle1, Double opacity5, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1454,15 +1485,6 @@ public class StateSettings extends CoreBase {
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
             this.angle = null;
             this.angle1 = null;
             
@@ -1475,19 +1497,30 @@ public class StateSettings extends CoreBase {
             this.opacity5 = null;
             
             this.opacity5 = opacity5;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
         } else {
             this.keys5 = keys5;
-            this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity5 = opacity5;
+            this.mode4 = mode4;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingFill5" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys5), angle1, opacity5, mode4));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity5, mode4));
                 js.setLength(0);
             }
         }
@@ -1512,7 +1545,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity5) {
+    public CartesianSeriesBase fallingFill(String[] keys5, Double angle1, Double opacity5, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1522,15 +1555,6 @@ public class StateSettings extends CoreBase {
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
             this.angle = null;
             this.angle1 = null;
             
@@ -1543,19 +1567,30 @@ public class StateSettings extends CoreBase {
             this.opacity5 = null;
             
             this.opacity5 = opacity5;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
         } else {
             this.keys5 = keys5;
-            this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity5 = opacity5;
+            this.mode5 = mode5;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mode5.generateJs());
+            js.append(String.format(Locale.US, "var setFallingFill6" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity5, ((mode5 != null) ? mode5.getJsBase() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity5, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1580,7 +1615,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(String[] keys5, String mode6, Double angle1, Double opacity5) {
+    public CartesianSeriesBase fallingFill(String[] keys5, Double angle1, Double opacity5, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1590,15 +1625,6 @@ public class StateSettings extends CoreBase {
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
             this.angle = null;
             this.angle1 = null;
             
@@ -1611,19 +1637,30 @@ public class StateSettings extends CoreBase {
             this.opacity5 = null;
             
             this.opacity5 = opacity5;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
         } else {
             this.keys5 = keys5;
-            this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity5 = opacity5;
+            this.mode6 = mode6;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingFill7" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity5, wrapQuotes(mode6)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity5, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1715,10 +1752,12 @@ public class StateSettings extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mode7.generateJs());
+            js.append(String.format(Locale.US, "var setFallingFill8" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity6, fx1, fy1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity6, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity6, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1802,10 +1841,12 @@ public class StateSettings extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mode7.generateJs());
+            js.append(String.format(Locale.US, "var setFallingFill9" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity6, fx1, fy1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity6, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity6, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1888,10 +1929,12 @@ public class StateSettings extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(patternFillOrTypeOrState.generateJs());
+            js.append(String.format(Locale.US, "var setFallingHatchFill" + ++variableIndex + " = " + jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : "null"), wrapQuotes(color7), thickness2, size1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color7), thickness2, size1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : "null"), wrapQuotes(color7), thickness2, size1));
                 js.setLength(0);
             }
         }
@@ -1953,10 +1996,12 @@ public class StateSettings extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(patternFillOrTypeOrState1.generateJs());
+            js.append(String.format(Locale.US, "var setFallingHatchFill1" + ++variableIndex + " = " + jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.getJsBase() : "null"), wrapQuotes(color7), thickness2, size1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color7), thickness2, size1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.getJsBase() : "null"), wrapQuotes(color7), thickness2, size1));
                 js.setLength(0);
             }
         }
@@ -2018,6 +2063,8 @@ public class StateSettings extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setFallingHatchFill2" + ++variableIndex + " = " + jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color7), thickness2, size1));
             
 
             if (isRendered) {
@@ -2084,6 +2131,8 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingHatchFill3" + ++variableIndex + " = " + jsBase + ".fallingHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color7), thickness2, size1));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color7), thickness2, size1));
@@ -2148,6 +2197,8 @@ public class StateSettings extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setFallingHatchFill4" + ++variableIndex + " = " + jsBase + ".fallingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState4, wrapQuotes(color7), thickness2, size1));
             
 
             if (isRendered) {
@@ -2218,6 +2269,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness3, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
@@ -2279,6 +2331,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
@@ -2340,6 +2393,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fallingStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness3, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
@@ -2376,6 +2430,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
             if (isRendered) {
@@ -2433,6 +2488,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color8), opacity7));
 
             if (isRendered) {
@@ -2466,7 +2522,7 @@ public class StateSettings extends CoreBase {
      * Setter for the linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity8) {
+    public StateSettings setFill(GradientKey[] keys8, Double angle2, Double opacity8, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2480,19 +2536,6 @@ public class StateSettings extends CoreBase {
             this.keys9 = null;
             
             this.keys8 = keys8;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode8 = mode8;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -2509,19 +2552,33 @@ public class StateSettings extends CoreBase {
             this.opacity8 = null;
             
             this.opacity8 = opacity8;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode8 = mode8;
         } else {
             this.keys8 = keys8;
-            this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity8 = opacity8;
+            this.mode8 = mode8;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity8));
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys8), angle2, opacity8, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity8));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys8), angle2, opacity8, mode8));
                 js.setLength(0);
             }
         }
@@ -2544,7 +2601,7 @@ public class StateSettings extends CoreBase {
      * Setter for the linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity8) {
+    public StateSettings setFill(GradientKey[] keys8, Double angle2, Double opacity8, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2558,19 +2615,6 @@ public class StateSettings extends CoreBase {
             this.keys9 = null;
             
             this.keys8 = keys8;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode9 = mode9;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -2587,19 +2631,33 @@ public class StateSettings extends CoreBase {
             this.opacity8 = null;
             
             this.opacity8 = opacity8;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode9 = mode9;
         } else {
             this.keys8 = keys8;
-            this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity8 = opacity8;
+            this.mode9 = mode9;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity8));
+            js.append(mode9.generateJs());
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity8, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity8));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity8, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2622,7 +2680,7 @@ public class StateSettings extends CoreBase {
      * Setter for the linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity8) {
+    public StateSettings setFill(GradientKey[] keys8, Double angle2, Double opacity8, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2636,19 +2694,6 @@ public class StateSettings extends CoreBase {
             this.keys9 = null;
             
             this.keys8 = keys8;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode10 = mode10;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -2665,19 +2710,33 @@ public class StateSettings extends CoreBase {
             this.opacity8 = null;
             
             this.opacity8 = opacity8;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode10 = mode10;
         } else {
             this.keys8 = keys8;
-            this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity8 = opacity8;
+            this.mode10 = mode10;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity8));
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity8, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity8));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity8, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -2700,7 +2759,7 @@ public class StateSettings extends CoreBase {
      * Setter for the linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setFill(String[] keys9, Boolean mode8, Double angle2, Double opacity8) {
+    public StateSettings setFill(String[] keys9, Double angle2, Double opacity8, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2714,19 +2773,6 @@ public class StateSettings extends CoreBase {
             this.keys9 = null;
             
             this.keys9 = keys9;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode8 = mode8;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -2743,19 +2789,33 @@ public class StateSettings extends CoreBase {
             this.opacity8 = null;
             
             this.opacity8 = opacity8;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode8 = mode8;
         } else {
             this.keys9 = keys9;
-            this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity8 = opacity8;
+            this.mode8 = mode8;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity8));
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity8, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity8));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity8, mode8));
                 js.setLength(0);
             }
         }
@@ -2778,7 +2838,7 @@ public class StateSettings extends CoreBase {
      * Setter for the linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity8) {
+    public StateSettings setFill(String[] keys9, Double angle2, Double opacity8, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2792,19 +2852,6 @@ public class StateSettings extends CoreBase {
             this.keys9 = null;
             
             this.keys9 = keys9;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode9 = mode9;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -2821,19 +2868,33 @@ public class StateSettings extends CoreBase {
             this.opacity8 = null;
             
             this.opacity8 = opacity8;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode9 = mode9;
         } else {
             this.keys9 = keys9;
-            this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity8 = opacity8;
+            this.mode9 = mode9;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity8));
+            js.append(mode9.generateJs());
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity8, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity8));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity8, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2856,7 +2917,7 @@ public class StateSettings extends CoreBase {
      * Setter for the linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setFill(String[] keys9, String mode10, Double angle2, Double opacity8) {
+    public StateSettings setFill(String[] keys9, Double angle2, Double opacity8, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2870,19 +2931,6 @@ public class StateSettings extends CoreBase {
             this.keys9 = null;
             
             this.keys9 = keys9;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode10 = mode10;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -2899,19 +2947,33 @@ public class StateSettings extends CoreBase {
             this.opacity8 = null;
             
             this.opacity8 = opacity8;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode10 = mode10;
         } else {
             this.keys9 = keys9;
-            this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity8 = opacity8;
+            this.mode10 = mode10;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity8));
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity8, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity8));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity8, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -3016,10 +3078,11 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity9, fx2, fy2));
+            js.append(mode11.generateJs());
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity9, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity9, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity9, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -3116,10 +3179,11 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity9, fx2, fy2));
+            js.append(mode11.generateJs());
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity9, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity9, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity9, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -3152,6 +3216,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
 
             if (isRendered) {
@@ -3191,6 +3256,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontSize(%f)", fontSize));
 
             if (isRendered) {
@@ -3228,6 +3294,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize1)));
 
             if (isRendered) {
@@ -3267,6 +3334,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
 
             if (isRendered) {
@@ -3304,6 +3372,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
 
             if (isRendered) {
@@ -3343,6 +3412,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
 
             if (isRendered) {
@@ -3380,6 +3450,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
 
             if (isRendered) {
@@ -3419,6 +3490,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
 
             if (isRendered) {
@@ -3456,6 +3528,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
 
             if (isRendered) {
@@ -3528,6 +3601,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid != null) ? grid.generateJs() : "null"), thickness4, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
@@ -3593,6 +3667,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", ((grid1 != null) ? grid1.generateJs() : "null"), thickness4, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
@@ -3658,6 +3733,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".grid(%s, %f, %s, %s, %s)", wrapQuotes(grid2), thickness4, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
@@ -3750,10 +3826,11 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color9), thickness5, size2));
+            js.append(patternFillOrType5.generateJs());
+            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.getJsBase() : "null"), wrapQuotes(color9), thickness5, size2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color9), thickness5, size2));
+                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.getJsBase() : "null"), wrapQuotes(color9), thickness5, size2));
                 js.setLength(0);
             }
         }
@@ -3823,10 +3900,11 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color9), thickness5, size2));
+            js.append(patternFillOrType6.generateJs());
+            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.getJsBase() : "null"), wrapQuotes(color9), thickness5, size2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color9), thickness5, size2));
+                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.getJsBase() : "null"), wrapQuotes(color9), thickness5, size2));
                 js.setLength(0);
             }
         }
@@ -3896,6 +3974,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType7 != null) ? patternFillOrType7.generateJs() : "null"), wrapQuotes(color9), thickness5, size2));
 
             if (isRendered) {
@@ -3969,6 +4048,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType8), wrapQuotes(color9), thickness5, size2));
 
             if (isRendered) {
@@ -4020,6 +4100,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".headers(%s)", wrapQuotes(headers)));
 
             if (isRendered) {
@@ -4057,6 +4138,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".headers(%b)", headers1));
 
             if (isRendered) {
@@ -4144,6 +4226,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color10 != null) ? color10.generateJs() : "null"), thickness6, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
@@ -4224,6 +4307,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", ((color11 != null) ? color11.generateJs() : "null"), thickness6, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
@@ -4304,6 +4388,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".highStroke(%s, %f, %s, %s, %s)", wrapQuotes(color12), thickness6, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
@@ -4351,6 +4436,8 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".hovered(%s);", wrapQuotes(hovered)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hovered(%s)", wrapQuotes(hovered)));
@@ -4390,6 +4477,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
             if (isRendered) {
@@ -4427,6 +4515,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
             if (isRendered) {
@@ -4521,6 +4610,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color13 != null) ? color13.generateJs() : "null"), thickness7, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
 
             if (isRendered) {
@@ -4608,6 +4698,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", ((color14 != null) ? color14.generateJs() : "null"), thickness7, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
 
             if (isRendered) {
@@ -4695,6 +4786,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lowStroke(%s, %f, %s, %s, %s)", wrapQuotes(color15), thickness7, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
 
             if (isRendered) {
@@ -4746,6 +4838,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lowerLabels(%s)", wrapQuotes(lowerLabels)));
 
             if (isRendered) {
@@ -4783,6 +4876,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lowerLabels(%b)", lowerLabels1));
 
             if (isRendered) {
@@ -4836,6 +4930,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
 
             if (isRendered) {
@@ -4874,6 +4969,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".markers(%b)", markers1));
 
             if (isRendered) {
@@ -4975,6 +5071,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color16 != null) ? color16.generateJs() : "null"), thickness8, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
 
             if (isRendered) {
@@ -5069,6 +5166,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", ((color17 != null) ? color17.generateJs() : "null"), thickness8, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
 
             if (isRendered) {
@@ -5163,6 +5261,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".medianStroke(%s, %f, %s, %s, %s)", wrapQuotes(color18), thickness8, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
 
             if (isRendered) {
@@ -5199,6 +5298,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".negativeFill(%s)", ((negativeFill != null) ? negativeFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -5270,6 +5370,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".negativeFill(%s, %f)", wrapQuotes(color19), opacity10));
 
             if (isRendered) {
@@ -5303,7 +5404,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings negativeFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity11) {
+    public StateSettings negativeFill(GradientKey[] keys12, Double angle3, Double opacity11, Boolean mode12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5321,23 +5422,6 @@ public class StateSettings extends CoreBase {
             this.keys13 = null;
             
             this.keys12 = keys12;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode12 = mode12;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -5358,19 +5442,37 @@ public class StateSettings extends CoreBase {
             this.opacity11 = null;
             
             this.opacity11 = opacity11;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode12 = mode12;
         } else {
             this.keys12 = keys12;
-            this.mode12 = mode12;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
+            this.mode12 = mode12;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity11));
+            
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %b)", arrayToString(keys12), angle3, opacity11, mode12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %b)", arrayToString(keys12), angle3, opacity11, mode12));
                 js.setLength(0);
             }
         }
@@ -5393,7 +5495,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings negativeFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity11) {
+    public StateSettings negativeFill(GradientKey[] keys12, Double angle3, Double opacity11, VectorRect mode13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5411,23 +5513,6 @@ public class StateSettings extends CoreBase {
             this.keys13 = null;
             
             this.keys12 = keys12;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode13 = mode13;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -5448,19 +5533,37 @@ public class StateSettings extends CoreBase {
             this.opacity11 = null;
             
             this.opacity11 = opacity11;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode13 = mode13;
         } else {
             this.keys12 = keys12;
-            this.mode13 = mode13;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
+            this.mode13 = mode13;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
+            js.append(mode13.generateJs());
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity11, ((mode13 != null) ? mode13.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity11, ((mode13 != null) ? mode13.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -5483,7 +5586,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings negativeFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity11) {
+    public StateSettings negativeFill(GradientKey[] keys12, Double angle3, Double opacity11, String mode14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5501,23 +5604,6 @@ public class StateSettings extends CoreBase {
             this.keys13 = null;
             
             this.keys12 = keys12;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode14 = mode14;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -5538,19 +5624,37 @@ public class StateSettings extends CoreBase {
             this.opacity11 = null;
             
             this.opacity11 = opacity11;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode14 = mode14;
         } else {
             this.keys12 = keys12;
-            this.mode14 = mode14;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
+            this.mode14 = mode14;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity11));
+            
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity11, wrapQuotes(mode14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity11, wrapQuotes(mode14)));
                 js.setLength(0);
             }
         }
@@ -5573,7 +5677,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings negativeFill(String[] keys13, Boolean mode12, Double angle3, Double opacity11) {
+    public StateSettings negativeFill(String[] keys13, Double angle3, Double opacity11, Boolean mode12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5591,23 +5695,6 @@ public class StateSettings extends CoreBase {
             this.keys13 = null;
             
             this.keys13 = keys13;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode12 = mode12;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -5628,19 +5715,37 @@ public class StateSettings extends CoreBase {
             this.opacity11 = null;
             
             this.opacity11 = opacity11;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode12 = mode12;
         } else {
             this.keys13 = keys13;
-            this.mode12 = mode12;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
+            this.mode12 = mode12;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity11));
+            
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys13), angle3, opacity11, mode12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys13), angle3, opacity11, mode12));
                 js.setLength(0);
             }
         }
@@ -5663,7 +5768,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings negativeFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity11) {
+    public StateSettings negativeFill(String[] keys13, Double angle3, Double opacity11, VectorRect mode13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5681,23 +5786,6 @@ public class StateSettings extends CoreBase {
             this.keys13 = null;
             
             this.keys13 = keys13;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode13 = mode13;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -5718,19 +5806,37 @@ public class StateSettings extends CoreBase {
             this.opacity11 = null;
             
             this.opacity11 = opacity11;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode13 = mode13;
         } else {
             this.keys13 = keys13;
-            this.mode13 = mode13;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
+            this.mode13 = mode13;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
+            js.append(mode13.generateJs());
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity11, ((mode13 != null) ? mode13.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity11, ((mode13 != null) ? mode13.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -5753,7 +5859,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings negativeFill(String[] keys13, String mode14, Double angle3, Double opacity11) {
+    public StateSettings negativeFill(String[] keys13, Double angle3, Double opacity11, String mode14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5771,23 +5877,6 @@ public class StateSettings extends CoreBase {
             this.keys13 = null;
             
             this.keys13 = keys13;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            
-            this.mode14 = mode14;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -5808,19 +5897,37 @@ public class StateSettings extends CoreBase {
             this.opacity11 = null;
             
             this.opacity11 = opacity11;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            
+            this.mode14 = mode14;
         } else {
             this.keys13 = keys13;
-            this.mode14 = mode14;
             this.angle3 = angle3;
             this.opacity11 = opacity11;
+            this.mode14 = mode14;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity11));
+            
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity11, wrapQuotes(mode14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity11));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity11, wrapQuotes(mode14)));
                 js.setLength(0);
             }
         }
@@ -5940,10 +6047,11 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx3, fy3));
+            js.append(mode15.generateJs());
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity12, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity12, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -6055,10 +6163,11 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx3, fy3));
+            js.append(mode15.generateJs());
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity12, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity12, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity12, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -6168,10 +6277,11 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null"), wrapQuotes(color20), thickness9, size3));
+            js.append(patternFillOrType9.generateJs());
+            js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.getJsBase() : "null"), wrapQuotes(color20), thickness9, size3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null"), wrapQuotes(color20), thickness9, size3));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.getJsBase() : "null"), wrapQuotes(color20), thickness9, size3));
                 js.setLength(0);
             }
         }
@@ -6261,10 +6371,11 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color20), thickness9, size3));
+            js.append(patternFillOrType10.generateJs());
+            js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.getJsBase() : "null"), wrapQuotes(color20), thickness9, size3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color20), thickness9, size3));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.getJsBase() : "null"), wrapQuotes(color20), thickness9, size3));
                 js.setLength(0);
             }
         }
@@ -6354,6 +6465,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType11 != null) ? patternFillOrType11.generateJs() : "null"), wrapQuotes(color20), thickness9, size3));
 
             if (isRendered) {
@@ -6447,6 +6559,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType12), wrapQuotes(color20), thickness9, size3));
 
             if (isRendered) {
@@ -6558,6 +6671,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color21 != null) ? color21.generateJs() : "null"), thickness10, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
 
             if (isRendered) {
@@ -6662,6 +6776,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color22 != null) ? color22.generateJs() : "null"), thickness10, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
 
             if (isRendered) {
@@ -6766,6 +6881,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color23), thickness10, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
 
             if (isRendered) {
@@ -6813,6 +6929,8 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".normal(%s);", wrapQuotes(normal)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".normal(%s)", wrapQuotes(normal)));
@@ -6854,6 +6972,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".outlierMarkers(%s)", wrapQuotes(outlierMarkers)));
 
             if (isRendered) {
@@ -6892,6 +7011,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".outlierMarkers(%b)", outlierMarkers1));
 
             if (isRendered) {
@@ -6928,6 +7048,8 @@ public class StateSettings extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setRisingFill" + ++variableIndex + " = " + jsBase + ".risingFill(%s);", ((risingFill != null) ? risingFill.generateJs() : "null")));
             
 
             if (isRendered) {
@@ -7010,6 +7132,8 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRisingFill1" + ++variableIndex + " = " + jsBase + ".risingFill(%s, %f);", wrapQuotes(color24), opacity13));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f)", wrapQuotes(color24), opacity13));
@@ -7044,7 +7168,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScrollerseriesBase risingFill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity14) {
+    public ScrollerseriesBase risingFill(GradientKey[] keys16, Double angle4, Double opacity14, Boolean mode16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7066,27 +7190,6 @@ public class StateSettings extends CoreBase {
             this.keys17 = null;
             
             this.keys16 = keys16;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode16 = mode16;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -7111,19 +7214,42 @@ public class StateSettings extends CoreBase {
             this.opacity14 = null;
             
             this.opacity14 = opacity14;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode16 = mode16;
         } else {
             this.keys16 = keys16;
-            this.mode16 = mode16;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
+            this.mode16 = mode16;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRisingFill2" + ++variableIndex + " = " + jsBase + ".risingFill(%s, %f, %f, %b);", arrayToString(keys16), angle4, opacity14, mode16));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %b)", arrayToString(keys16), angle4, opacity14, mode16));
                 js.setLength(0);
             }
         }
@@ -7148,7 +7274,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScrollerseriesBase risingFill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity14) {
+    public ScrollerseriesBase risingFill(GradientKey[] keys16, Double angle4, Double opacity14, VectorRect mode17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7170,27 +7296,6 @@ public class StateSettings extends CoreBase {
             this.keys17 = null;
             
             this.keys16 = keys16;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode17 = mode17;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -7215,19 +7320,42 @@ public class StateSettings extends CoreBase {
             this.opacity14 = null;
             
             this.opacity14 = opacity14;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode17 = mode17;
         } else {
             this.keys16 = keys16;
-            this.mode17 = mode17;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
+            this.mode17 = mode17;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mode17.generateJs());
+            js.append(String.format(Locale.US, "var setRisingFill3" + ++variableIndex + " = " + jsBase + ".risingFill(%s, %f, %f, %s);", arrayToString(keys16), angle4, opacity14, ((mode17 != null) ? mode17.getJsBase() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %s)", arrayToString(keys16), angle4, opacity14, ((mode17 != null) ? mode17.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -7252,7 +7380,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScrollerseriesBase risingFill(GradientKey[] keys16, String mode18, Double angle4, Double opacity14) {
+    public ScrollerseriesBase risingFill(GradientKey[] keys16, Double angle4, Double opacity14, String mode18) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7274,27 +7402,6 @@ public class StateSettings extends CoreBase {
             this.keys17 = null;
             
             this.keys16 = keys16;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode18 = mode18;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -7319,19 +7426,42 @@ public class StateSettings extends CoreBase {
             this.opacity14 = null;
             
             this.opacity14 = opacity14;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode18 = mode18;
         } else {
             this.keys16 = keys16;
-            this.mode18 = mode18;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
+            this.mode18 = mode18;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRisingFill4" + ++variableIndex + " = " + jsBase + ".risingFill(%s, %f, %f, %s);", arrayToString(keys16), angle4, opacity14, wrapQuotes(mode18)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %s)", arrayToString(keys16), angle4, opacity14, wrapQuotes(mode18)));
                 js.setLength(0);
             }
         }
@@ -7356,7 +7486,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScrollerseriesBase risingFill(String[] keys17, Boolean mode16, Double angle4, Double opacity14) {
+    public ScrollerseriesBase risingFill(String[] keys17, Double angle4, Double opacity14, Boolean mode16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7378,27 +7508,6 @@ public class StateSettings extends CoreBase {
             this.keys17 = null;
             
             this.keys17 = keys17;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode16 = mode16;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -7423,19 +7532,42 @@ public class StateSettings extends CoreBase {
             this.opacity14 = null;
             
             this.opacity14 = opacity14;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode16 = mode16;
         } else {
             this.keys17 = keys17;
-            this.mode16 = mode16;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
+            this.mode16 = mode16;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRisingFill5" + ++variableIndex + " = " + jsBase + ".risingFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys17), angle4, opacity14, mode16));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys17), angle4, opacity14, mode16));
                 js.setLength(0);
             }
         }
@@ -7460,7 +7592,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScrollerseriesBase risingFill(String[] keys17, VectorRect mode17, Double angle4, Double opacity14) {
+    public ScrollerseriesBase risingFill(String[] keys17, Double angle4, Double opacity14, VectorRect mode17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7482,27 +7614,6 @@ public class StateSettings extends CoreBase {
             this.keys17 = null;
             
             this.keys17 = keys17;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode17 = mode17;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -7527,19 +7638,42 @@ public class StateSettings extends CoreBase {
             this.opacity14 = null;
             
             this.opacity14 = opacity14;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode17 = mode17;
         } else {
             this.keys17 = keys17;
-            this.mode17 = mode17;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
+            this.mode17 = mode17;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mode17.generateJs());
+            js.append(String.format(Locale.US, "var setRisingFill6" + ++variableIndex + " = " + jsBase + ".risingFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys17), angle4, opacity14, ((mode17 != null) ? mode17.getJsBase() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity14, ((mode17 != null) ? mode17.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -7564,7 +7698,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScrollerseriesBase risingFill(String[] keys17, String mode18, Double angle4, Double opacity14) {
+    public ScrollerseriesBase risingFill(String[] keys17, Double angle4, Double opacity14, String mode18) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7586,27 +7720,6 @@ public class StateSettings extends CoreBase {
             this.keys17 = null;
             
             this.keys17 = keys17;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            this.mode11 = null;
-            this.mode12 = null;
-            this.mode13 = null;
-            this.mode14 = null;
-            this.mode15 = null;
-            this.mode16 = null;
-            this.mode17 = null;
-            this.mode18 = null;
-            
-            this.mode18 = mode18;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -7631,19 +7744,42 @@ public class StateSettings extends CoreBase {
             this.opacity14 = null;
             
             this.opacity14 = opacity14;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            this.mode11 = null;
+            this.mode12 = null;
+            this.mode13 = null;
+            this.mode14 = null;
+            this.mode15 = null;
+            this.mode16 = null;
+            this.mode17 = null;
+            this.mode18 = null;
+            
+            this.mode18 = mode18;
         } else {
             this.keys17 = keys17;
-            this.mode18 = mode18;
             this.angle4 = angle4;
             this.opacity14 = opacity14;
+            this.mode18 = mode18;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRisingFill7" + ++variableIndex + " = " + jsBase + ".risingFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys17), angle4, opacity14, wrapQuotes(mode18)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity14, wrapQuotes(mode18)));
                 js.setLength(0);
             }
         }
@@ -7780,10 +7916,11 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx4, fy4));
+            js.append(mode19.generateJs());
+            js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity15, fx4, fy4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx4, fy4));
+                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity15, fx4, fy4));
                 js.setLength(0);
             }
         }
@@ -7910,10 +8047,11 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx4, fy4));
+            js.append(mode19.generateJs());
+            js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity15, fx4, fy4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity15, fx4, fy4));
+                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity15, fx4, fy4));
                 js.setLength(0);
             }
         }
@@ -8029,10 +8167,12 @@ public class StateSettings extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(patternFillOrTypeOrState5.generateJs());
+            js.append(String.format(Locale.US, "var setRisingHatchFill" + ++variableIndex + " = " + jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.getJsBase() : "null"), wrapQuotes(color25), thickness11, size4));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color25), thickness11, size4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.getJsBase() : "null"), wrapQuotes(color25), thickness11, size4));
                 js.setLength(0);
             }
         }
@@ -8129,10 +8269,12 @@ public class StateSettings extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(patternFillOrTypeOrState6.generateJs());
+            js.append(String.format(Locale.US, "var setRisingHatchFill1" + ++variableIndex + " = " + jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.getJsBase() : "null"), wrapQuotes(color25), thickness11, size4));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color25), thickness11, size4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.getJsBase() : "null"), wrapQuotes(color25), thickness11, size4));
                 js.setLength(0);
             }
         }
@@ -8229,6 +8371,8 @@ public class StateSettings extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setRisingHatchFill2" + ++variableIndex + " = " + jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color25), thickness11, size4));
             
 
             if (isRendered) {
@@ -8330,6 +8474,8 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRisingHatchFill3" + ++variableIndex + " = " + jsBase + ".risingHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color25), thickness11, size4));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color25), thickness11, size4));
@@ -8429,6 +8575,8 @@ public class StateSettings extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setRisingHatchFill4" + ++variableIndex + " = " + jsBase + ".risingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState9, wrapQuotes(color25), thickness11, size4));
             
 
             if (isRendered) {
@@ -8552,6 +8700,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color26 != null) ? color26.generateJs() : "null"), thickness12, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
 
             if (isRendered) {
@@ -8666,6 +8815,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", ((color27 != null) ? color27.generateJs() : "null"), thickness12, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
 
             if (isRendered) {
@@ -8780,6 +8930,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".risingStroke(%s, %f, %s, %s, %s)", wrapQuotes(color28), thickness12, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
 
             if (isRendered) {
@@ -8827,6 +8978,8 @@ public class StateSettings extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".selected(%s);", wrapQuotes(selected)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".selected(%s)", wrapQuotes(selected)));
@@ -8857,6 +9010,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".size(%f)", size5));
 
             if (isRendered) {
@@ -8985,6 +9139,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stemStroke(%s, %f, %s, %s, %s)", ((color29 != null) ? color29.generateJs() : "null"), thickness13, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
 
             if (isRendered) {
@@ -9106,6 +9261,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stemStroke(%s, %f, %s, %s, %s)", ((color30 != null) ? color30.generateJs() : "null"), thickness13, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
 
             if (isRendered) {
@@ -9227,6 +9383,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stemStroke(%s, %f, %s, %s, %s)", wrapQuotes(color31), thickness13, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
 
             if (isRendered) {
@@ -9362,6 +9519,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color32 != null) ? color32.generateJs() : "null"), thickness14, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
 
             if (isRendered) {
@@ -9490,6 +9648,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color33 != null) ? color33.generateJs() : "null"), thickness14, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
 
             if (isRendered) {
@@ -9618,6 +9777,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color34), thickness14, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
 
             if (isRendered) {
@@ -9725,6 +9885,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", ((trend != null) ? trend.generateJs() : "null"), thickness15, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
 
             if (isRendered) {
@@ -9825,6 +9986,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", ((trend1 != null) ? trend1.generateJs() : "null"), thickness15, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
 
             if (isRendered) {
@@ -9925,6 +10087,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".trend(%s, %f, %s, %s, %s)", wrapQuotes(trend2), thickness15, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
 
             if (isRendered) {
@@ -9964,6 +10127,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
 
             if (isRendered) {
@@ -10001,6 +10165,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
 
             if (isRendered) {
@@ -10052,6 +10217,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".upperLabels(%s)", wrapQuotes(upperLabels)));
 
             if (isRendered) {
@@ -10089,6 +10255,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".upperLabels(%b)", upperLabels1));
 
             if (isRendered) {
@@ -10235,6 +10402,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".whiskerStroke(%s, %f, %s, %s, %s)", ((color35 != null) ? color35.generateJs() : "null"), thickness16, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
 
             if (isRendered) {
@@ -10374,6 +10542,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".whiskerStroke(%s, %f, %s, %s, %s)", ((color36 != null) ? color36.generateJs() : "null"), thickness16, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
 
             if (isRendered) {
@@ -10513,6 +10682,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".whiskerStroke(%s, %f, %s, %s, %s)", wrapQuotes(color37), thickness16, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
 
             if (isRendered) {
@@ -10552,6 +10722,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".whiskerWidth(%f)", whiskerWidth));
 
             if (isRendered) {
@@ -10589,6 +10760,7 @@ public class StateSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".whiskerWidth(%s)", wrapQuotes(whiskerWidth1)));
 
             if (isRendered) {

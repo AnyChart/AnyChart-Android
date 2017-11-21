@@ -101,10 +101,11 @@ Similar to {@link anychart.graphics.vector.Layer#addChildAt}
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((element1 != null) ? element1.generateJs() : "null"), index));
+            js.append(element1.generateJs());
+            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((element1 != null) ? element1.getJsBase() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((element1 != null) ? element1.generateJs() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((element1 != null) ? element1.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -195,6 +196,7 @@ Read more at: {@link anychart.graphics.vector.Element#appendTransformationMatrix
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".appendTransformationMatrix(%f, %f, %f, %f, %f, %f)", m, m1, m2, m3, m4, m5));
 
             if (isRendered) {
@@ -230,6 +232,7 @@ Read more at: {@link anychart.graphics.vector.Element#appendTransformationMatrix
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".asyncMode(%b)", asyncMode));
 
             if (isRendered) {
@@ -274,6 +277,8 @@ Read more at: {@link anychart.graphics.vector.Circle}
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setCircle" + ++variableIndex + " = " + jsBase + ".circle(%f, %f, %f);", cx, cy, radius));
             
 
             if (isRendered) {
@@ -400,6 +405,8 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setCreateClip" + ++variableIndex + " = " + jsBase + ".createClip(%s);", Arrays.toString(rect)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".createClip(%s)", Arrays.toString(rect)));
@@ -478,6 +485,8 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setCreateClip2" + ++variableIndex + " = " + jsBase + ".createClip(%s);", wrapQuotes(rect2)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".createClip(%s)", wrapQuotes(rect2)));
@@ -523,6 +532,8 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setCreateClip3" + ++variableIndex + " = " + jsBase + ".createClip(%f, %f, %f, %f);", left, top, width, height));
             
 
             if (isRendered) {
@@ -577,6 +588,7 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".credits(%s)", wrapQuotes(credits)));
 
             if (isRendered) {
@@ -615,6 +627,7 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".credits(%b)", credits1));
 
             if (isRendered) {
@@ -655,6 +668,7 @@ when we deserialize - JSON schema does this. JSON schema is created in
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".data(%s)", wrapQuotes(data)));
 
             if (isRendered) {
@@ -690,6 +704,7 @@ when we deserialize - JSON schema does this. JSON schema is created in
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".desc(%s)", wrapQuotes(desc)));
 
             if (isRendered) {
@@ -744,6 +759,8 @@ Read more at: {@link anychart.graphics.vector.Ellipse}
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setEllipse" + ++variableIndex + " = " + jsBase + ".ellipse(%f, %f, %f, %f);", cx1, cy1, rx, ry));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ellipse(%f, %f, %f, %f)", cx1, cy1, rx, ry));
@@ -784,6 +801,8 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setGetChildAt" + ++variableIndex + " = " + jsBase + ".getChildAt(%f);", index1));
             
 
             if (isRendered) {
@@ -836,6 +855,8 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getJpgBase64String(%f, %f, %f, %b);", width1, height1, quality, forceTransparentWhite));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getJpgBase64String(%f, %f, %f, %b)", width1, height1, quality, forceTransparentWhite));
@@ -854,31 +875,33 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(Double paperSizeOrWidth, Double landscapeOrWidth, Double x, Double y) {
+    public void getPdfBase64String(Double paperSizeOrWidth, Double x, Double landscapeOrWidth, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             
             this.paperSizeOrWidth = paperSizeOrWidth;
+            this.x = x;
             this.landscapeOrWidth = null;
             this.landscapeOrWidth1 = null;
             
             this.landscapeOrWidth = landscapeOrWidth;
-            this.x = x;
             this.y = y;
         } else {
             this.paperSizeOrWidth = paperSizeOrWidth;
-            this.landscapeOrWidth = landscapeOrWidth;
             this.x = x;
+            this.landscapeOrWidth = landscapeOrWidth;
             this.y = y;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%f, %f, %f, %f);", paperSizeOrWidth, x, landscapeOrWidth, y));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %f, %f)", paperSizeOrWidth, landscapeOrWidth, x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %f, %f)", paperSizeOrWidth, x, landscapeOrWidth, y));
                 js.setLength(0);
             }
         }
@@ -888,31 +911,33 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(Double paperSizeOrWidth, Boolean landscapeOrWidth1, Double x, Double y) {
+    public void getPdfBase64String(Double paperSizeOrWidth, Double x, Boolean landscapeOrWidth1, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             
             this.paperSizeOrWidth = paperSizeOrWidth;
+            this.x = x;
             this.landscapeOrWidth = null;
             this.landscapeOrWidth1 = null;
             
             this.landscapeOrWidth1 = landscapeOrWidth1;
-            this.x = x;
             this.y = y;
         } else {
             this.paperSizeOrWidth = paperSizeOrWidth;
-            this.landscapeOrWidth1 = landscapeOrWidth1;
             this.x = x;
+            this.landscapeOrWidth1 = landscapeOrWidth1;
             this.y = y;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%f, %f, %b, %f);", paperSizeOrWidth, x, landscapeOrWidth1, y));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %b, %f, %f)", paperSizeOrWidth, landscapeOrWidth1, x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %b, %f)", paperSizeOrWidth, x, landscapeOrWidth1, y));
                 js.setLength(0);
             }
         }
@@ -922,31 +947,33 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(String paperSizeOrWidth1, Double landscapeOrWidth, Double x, Double y) {
+    public void getPdfBase64String(String paperSizeOrWidth1, Double x, Double landscapeOrWidth, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             
             this.paperSizeOrWidth1 = paperSizeOrWidth1;
+            this.x = x;
             this.landscapeOrWidth = null;
             this.landscapeOrWidth1 = null;
             
             this.landscapeOrWidth = landscapeOrWidth;
-            this.x = x;
             this.y = y;
         } else {
             this.paperSizeOrWidth1 = paperSizeOrWidth1;
-            this.landscapeOrWidth = landscapeOrWidth;
             this.x = x;
+            this.landscapeOrWidth = landscapeOrWidth;
             this.y = y;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%s, %f, %f, %f);", wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth, y));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %f)", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth, x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %f)", wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth, y));
                 js.setLength(0);
             }
         }
@@ -956,31 +983,33 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(String paperSizeOrWidth1, Boolean landscapeOrWidth1, Double x, Double y) {
+    public void getPdfBase64String(String paperSizeOrWidth1, Double x, Boolean landscapeOrWidth1, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             
             this.paperSizeOrWidth1 = paperSizeOrWidth1;
+            this.x = x;
             this.landscapeOrWidth = null;
             this.landscapeOrWidth1 = null;
             
             this.landscapeOrWidth1 = landscapeOrWidth1;
-            this.x = x;
             this.y = y;
         } else {
             this.paperSizeOrWidth1 = paperSizeOrWidth1;
-            this.landscapeOrWidth1 = landscapeOrWidth1;
             this.x = x;
+            this.landscapeOrWidth1 = landscapeOrWidth1;
             this.y = y;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%s, %f, %b, %f);", wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth1, y));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %b, %f, %f)", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth1, x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %b, %f)", wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth1, y));
                 js.setLength(0);
             }
         }
@@ -1018,6 +1047,8 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPngBase64String(%f, %f, %f);", width2, height2, quality1));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPngBase64String(%f, %f, %f)", width2, height2, quality1));
@@ -1054,6 +1085,8 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getSvgBase64String(%s, %b);", wrapQuotes(paperSizeOrWidth2), landscapeOrHeight));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b)", wrapQuotes(paperSizeOrWidth2), landscapeOrHeight));
@@ -1085,6 +1118,8 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getSvgBase64String(%s, %s);", wrapQuotes(paperSizeOrWidth2), wrapQuotes(landscapeOrHeight1)));
             
 
             if (isRendered) {
@@ -1118,6 +1153,8 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getSvgBase64String(%f, %b);", paperSizeOrWidth3, landscapeOrHeight));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b)", paperSizeOrWidth3, landscapeOrHeight));
@@ -1149,6 +1186,8 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getSvgBase64String(%f, %s);", paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1)));
             
 
             if (isRendered) {
@@ -1212,6 +1251,8 @@ Read more at: {@link anychart.graphics.vector.HatchFill}
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setHatchFill" + ++variableIndex + " = " + jsBase + ".hatchFill(%s, %s, %f, %f);", ((type != null) ? type.generateJs() : "null"), wrapQuotes(color), thickness, size));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %f, %f)", ((type != null) ? type.generateJs() : "null"), wrapQuotes(color), thickness, size));
@@ -1255,6 +1296,7 @@ Read more at: {@link anychart.graphics.vector.HatchFill}
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height3)));
 
             if (isRendered) {
@@ -1295,6 +1337,7 @@ Read more at: {@link anychart.graphics.vector.HatchFill}
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".height(%f)", height4));
 
             if (isRendered) {
@@ -1346,6 +1389,8 @@ You must delete them yourself after you finish using them.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setHtml" + ++variableIndex + " = " + jsBase + ".html(%f, %f, %s);", x1, y1, wrapQuotes(text)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".html(%f, %f, %s)", x1, y1, wrapQuotes(text)));
@@ -1382,6 +1427,7 @@ You must delete them yourself after you finish using them.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
 
             if (isRendered) {
@@ -1451,6 +1497,8 @@ You must delete them yourself after you finish using them.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setImage" + ++variableIndex + " = " + jsBase + ".image(%s, %f, %f, %f, %f);", wrapQuotes(src), x2, y2, width3, height5));
             
 
             if (isRendered) {
@@ -1526,6 +1574,8 @@ Similar to {@link anychart.graphics.vector.Layer#indexOfChild}
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".listen(%s, %b, %s);", wrapQuotes(type1), useCapture, wrapQuotes(listenerScope)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s)", wrapQuotes(type1), useCapture, wrapQuotes(listenerScope)));
@@ -1555,6 +1605,8 @@ Similar to {@link anychart.graphics.vector.Layer#indexOfChild}
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".listen(%s, %b, %s);", ((type2 != null) ? type2.generateJs() : "null"), useCapture, wrapQuotes(listenerScope)));
             
 
             if (isRendered) {
@@ -1598,6 +1650,8 @@ Similar to {@link anychart.graphics.vector.Layer#indexOfChild}
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".listenOnce(%s, %b, %s);", wrapQuotes(type3), useCapture1, wrapQuotes(listenerScope1)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s)", wrapQuotes(type3), useCapture1, wrapQuotes(listenerScope1)));
@@ -1636,6 +1690,8 @@ Similar to {@link anychart.graphics.vector.Layer#indexOfChild}
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".listenOnce(%s, %b, %s);", ((type4 != null) ? type4.generateJs() : "null"), useCapture1, wrapQuotes(listenerScope1)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s)", ((type4 != null) ? type4.generateJs() : "null"), useCapture1, wrapQuotes(listenerScope1)));
@@ -1659,6 +1715,7 @@ Similar to {@link anychart.graphics.vector.Layer#indexOfChild}
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maxResizeDelay(%f)", maxResizeDelay));
 
             if (isRendered) {
@@ -1749,6 +1806,8 @@ Read more at: {@link anychart.graphics.vector.PatternFill}
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".print(%s, %b);", wrapQuotes(paperSizeOrWidth4), landscapeOrHeight2));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b)", wrapQuotes(paperSizeOrWidth4), landscapeOrHeight2));
@@ -1784,6 +1843,8 @@ Read more at: {@link anychart.graphics.vector.PatternFill}
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".print(%s, %s);", wrapQuotes(paperSizeOrWidth4), wrapQuotes(landscapeOrHeight3)));
             
 
             if (isRendered) {
@@ -1821,6 +1882,8 @@ Read more at: {@link anychart.graphics.vector.PatternFill}
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".print(%f, %b);", paperSizeOrWidth5, landscapeOrHeight2));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%f, %b)", paperSizeOrWidth5, landscapeOrHeight2));
@@ -1856,6 +1919,8 @@ Read more at: {@link anychart.graphics.vector.PatternFill}
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".print(%f, %s);", paperSizeOrWidth5, wrapQuotes(landscapeOrHeight3)));
             
 
             if (isRendered) {
@@ -1916,6 +1981,8 @@ You must delete them yourself after you finish using them.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRect" + ++variableIndex + " = " + jsBase + ".rect(%f, %f, %f, %f);", x3, y3, width4, height6));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rect(%f, %f, %f, %f)", x3, y3, width4, height6));
@@ -1958,6 +2025,8 @@ You must delete them yourself after you finish using them.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".removeAllListeners(%s);", wrapQuotes(type5)));
             
 
             if (isRendered) {
@@ -2030,6 +2099,8 @@ Similar to {@link anychart.graphics.vector.Layer#removeChildAt}
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRemoveChildAt" + ++variableIndex + " = " + jsBase + ".removeChildAt(%f);", index2));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f)", index2));
@@ -2090,6 +2161,8 @@ So any part that doesn't fit will be clipped.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".resize(%f, %f);", width5, height7));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".resize(%f, %f)", width5, height7));
@@ -2132,6 +2205,8 @@ So any part that doesn't fit will be clipped.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".resize(%f, %s);", width5, wrapQuotes(height8)));
             
 
             if (isRendered) {
@@ -2176,6 +2251,8 @@ So any part that doesn't fit will be clipped.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".resize(%s, %f);", wrapQuotes(width6), height7));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".resize(%s, %f)", wrapQuotes(width6), height7));
@@ -2219,6 +2296,8 @@ So any part that doesn't fit will be clipped.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".resize(%s, %s);", wrapQuotes(width6), wrapQuotes(height8)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".resize(%s, %s)", wrapQuotes(width6), wrapQuotes(height8)));
@@ -2243,6 +2322,7 @@ Read more at {@link anychart.graphics.vector.Stage#suspend}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".resume(%b)", force));
 
             if (isRendered) {
@@ -2293,6 +2373,7 @@ Read more at: {@link anychart.graphics.vector.Element#rotate}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rotate(%f, %f, %f)", degrees, cx2, cy2));
 
             if (isRendered) {
@@ -2322,27 +2403,28 @@ Read more at: {@link anychart.graphics.vector.Element#rotate}.
      * Rotates root layer around an anchor.<br/>
 Read more at: {@link anychart.graphics.vector.Element#rotateByAnchor}.
      */
-    public Stage rotateByAnchor(VectorAnchor anchor, Double degrees1) {
+    public Stage rotateByAnchor(Double degrees1, VectorAnchor anchor) {
         if (jsBase == null) {
-            this.anchor = null;
-            this.anchor1 = null;
-            
-            this.anchor = anchor;
             this.degrees = null;
             this.degrees1 = null;
             
             this.degrees1 = degrees1;
-        } else {
+            this.anchor = null;
+            this.anchor1 = null;
+            
             this.anchor = anchor;
+        } else {
             this.degrees1 = degrees1;
+            this.anchor = anchor;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rotateByAnchor(%s, %f)", ((anchor != null) ? anchor.generateJs() : "null"), degrees1));
+            
+            js.append(String.format(Locale.US, ".rotateByAnchor(%f, %s)", degrees1, ((anchor != null) ? anchor.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%s, %f)", ((anchor != null) ? anchor.generateJs() : "null"), degrees1));
+                onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%f, %s)", degrees1, ((anchor != null) ? anchor.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2365,27 +2447,28 @@ Read more at: {@link anychart.graphics.vector.Element#rotateByAnchor}.
      * Rotates root layer around an anchor.<br/>
 Read more at: {@link anychart.graphics.vector.Element#rotateByAnchor}.
      */
-    public Stage rotateByAnchor(String anchor1, Double degrees1) {
+    public Stage rotateByAnchor(Double degrees1, String anchor1) {
         if (jsBase == null) {
-            this.anchor = null;
-            this.anchor1 = null;
-            
-            this.anchor1 = anchor1;
             this.degrees = null;
             this.degrees1 = null;
             
             this.degrees1 = degrees1;
-        } else {
+            this.anchor = null;
+            this.anchor1 = null;
+            
             this.anchor1 = anchor1;
+        } else {
             this.degrees1 = degrees1;
+            this.anchor1 = anchor1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rotateByAnchor(%s, %f)", wrapQuotes(anchor1), degrees1));
+            
+            js.append(String.format(Locale.US, ".rotateByAnchor(%f, %s)", degrees1, wrapQuotes(anchor1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%s, %f)", wrapQuotes(anchor1), degrees1));
+                onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%f, %s)", degrees1, wrapQuotes(anchor1)));
                 js.setLength(0);
             }
         }
@@ -2457,6 +2540,8 @@ For export to image JPG use {@link anychart#server}.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsJpg(%f, %f, %f, %b, %s);", width7, height9, quality2, forceTransparentWhite1, wrapQuotes(filename)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b, %s)", width7, height9, quality2, forceTransparentWhite1, wrapQuotes(filename)));
@@ -2507,6 +2592,8 @@ For export to PDF file use {@link anychart#server}.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsPdf(%s, %b, %f, %f, %s);", wrapQuotes(paperSize), landscape, x4, y4, wrapQuotes(filename1)));
             
 
             if (isRendered) {
@@ -2572,6 +2659,8 @@ For export to image PNG use {@link anychart#server}.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsPng(%f, %f, %f, %s);", width8, height10, quality3, wrapQuotes(filename2)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f, %s)", width8, height10, quality3, wrapQuotes(filename2)));
@@ -2612,6 +2701,8 @@ For export to SVG use {@link anychart#server}.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsSvg(%s, %b, %s);", wrapQuotes(paperSize1), landscape1, wrapQuotes(filename3)));
             
 
             if (isRendered) {
@@ -2664,6 +2755,8 @@ For export to SVG use {@link anychart#server}.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsSvg(%f, %f);", width9, height11));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%f, %f)", width9, height11));
@@ -2707,6 +2800,7 @@ Read more at: {@link anychart.graphics.vector.Element#scale}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".scale(%f, %f, %f, %f)", sx, sy, cx3, cy3));
 
             if (isRendered) {
@@ -2737,14 +2831,8 @@ Read more at: {@link anychart.graphics.vector.Element#scale}.
      * Scales root layer in parent coordinates system. Scaling center is set by root layer anchor.<br/>
 Read more at: {@link anychart.graphics.vector.Element#scaleByAnchor}.
      */
-    public Stage scaleByAnchor(VectorAnchor anchor2, Double sx1, Double sy1) {
+    public Stage scaleByAnchor(Double sx1, Double sy1, VectorAnchor anchor2) {
         if (jsBase == null) {
-            this.anchor = null;
-            this.anchor1 = null;
-            this.anchor2 = null;
-            this.anchor3 = null;
-            
-            this.anchor2 = anchor2;
             this.sx = null;
             this.sx1 = null;
             
@@ -2753,18 +2841,25 @@ Read more at: {@link anychart.graphics.vector.Element#scaleByAnchor}.
             this.sy1 = null;
             
             this.sy1 = sy1;
-        } else {
+            this.anchor = null;
+            this.anchor1 = null;
+            this.anchor2 = null;
+            this.anchor3 = null;
+            
             this.anchor2 = anchor2;
+        } else {
             this.sx1 = sx1;
             this.sy1 = sy1;
+            this.anchor2 = anchor2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", ((anchor2 != null) ? anchor2.generateJs() : "null"), sx1, sy1));
+            
+            js.append(String.format(Locale.US, ".scaleByAnchor(%f, %f, %s)", sx1, sy1, ((anchor2 != null) ? anchor2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", ((anchor2 != null) ? anchor2.generateJs() : "null"), sx1, sy1));
+                onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%f, %f, %s)", sx1, sy1, ((anchor2 != null) ? anchor2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2787,14 +2882,8 @@ Read more at: {@link anychart.graphics.vector.Element#scaleByAnchor}.
      * Scales root layer in parent coordinates system. Scaling center is set by root layer anchor.<br/>
 Read more at: {@link anychart.graphics.vector.Element#scaleByAnchor}.
      */
-    public Stage scaleByAnchor(String anchor3, Double sx1, Double sy1) {
+    public Stage scaleByAnchor(Double sx1, Double sy1, String anchor3) {
         if (jsBase == null) {
-            this.anchor = null;
-            this.anchor1 = null;
-            this.anchor2 = null;
-            this.anchor3 = null;
-            
-            this.anchor3 = anchor3;
             this.sx = null;
             this.sx1 = null;
             
@@ -2803,18 +2892,25 @@ Read more at: {@link anychart.graphics.vector.Element#scaleByAnchor}.
             this.sy1 = null;
             
             this.sy1 = sy1;
-        } else {
+            this.anchor = null;
+            this.anchor1 = null;
+            this.anchor2 = null;
+            this.anchor3 = null;
+            
             this.anchor3 = anchor3;
+        } else {
             this.sx1 = sx1;
             this.sy1 = sy1;
+            this.anchor3 = anchor3;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", wrapQuotes(anchor3), sx1, sy1));
+            
+            js.append(String.format(Locale.US, ".scaleByAnchor(%f, %f, %s)", sx1, sy1, wrapQuotes(anchor3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%s, %f, %f)", wrapQuotes(anchor3), sx1, sy1));
+                onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%f, %f, %s)", sx1, sy1, wrapQuotes(anchor3)));
                 js.setLength(0);
             }
         }
@@ -2864,6 +2960,7 @@ Read more at: {@link anychart.graphics.vector.Element#setPosition}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".setPosition(%f, %f)", x5, y5));
 
             if (isRendered) {
@@ -2922,6 +3019,7 @@ Read more at: {@link anychart.graphics.vector.Element#setRotation}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".setRotation(%f, %f, %f)", degrees2, cx4, cy4));
 
             if (isRendered) {
@@ -2951,8 +3049,14 @@ Read more at: {@link anychart.graphics.vector.Element#setRotation}.
      * Rotates root layer around an anchor.<br/>
 Read more at: {@link anychart.graphics.vector.Element#setRotationByAnchor}.
      */
-    public Stage setRotationByAnchor(VectorAnchor anchor4, Double degrees3) {
+    public Stage setRotationByAnchor(Double degrees3, VectorAnchor anchor4) {
         if (jsBase == null) {
+            this.degrees = null;
+            this.degrees1 = null;
+            this.degrees2 = null;
+            this.degrees3 = null;
+            
+            this.degrees3 = degrees3;
             this.anchor = null;
             this.anchor1 = null;
             this.anchor2 = null;
@@ -2961,23 +3065,18 @@ Read more at: {@link anychart.graphics.vector.Element#setRotationByAnchor}.
             this.anchor5 = null;
             
             this.anchor4 = anchor4;
-            this.degrees = null;
-            this.degrees1 = null;
-            this.degrees2 = null;
-            this.degrees3 = null;
-            
-            this.degrees3 = degrees3;
         } else {
-            this.anchor4 = anchor4;
             this.degrees3 = degrees3;
+            this.anchor4 = anchor4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", ((anchor4 != null) ? anchor4.generateJs() : "null"), degrees3));
+            
+            js.append(String.format(Locale.US, ".setRotationByAnchor(%f, %s)", degrees3, ((anchor4 != null) ? anchor4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", ((anchor4 != null) ? anchor4.generateJs() : "null"), degrees3));
+                onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%f, %s)", degrees3, ((anchor4 != null) ? anchor4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3000,8 +3099,14 @@ Read more at: {@link anychart.graphics.vector.Element#setRotationByAnchor}.
      * Rotates root layer around an anchor.<br/>
 Read more at: {@link anychart.graphics.vector.Element#setRotationByAnchor}.
      */
-    public Stage setRotationByAnchor(String anchor5, Double degrees3) {
+    public Stage setRotationByAnchor(Double degrees3, String anchor5) {
         if (jsBase == null) {
+            this.degrees = null;
+            this.degrees1 = null;
+            this.degrees2 = null;
+            this.degrees3 = null;
+            
+            this.degrees3 = degrees3;
             this.anchor = null;
             this.anchor1 = null;
             this.anchor2 = null;
@@ -3010,23 +3115,18 @@ Read more at: {@link anychart.graphics.vector.Element#setRotationByAnchor}.
             this.anchor5 = null;
             
             this.anchor5 = anchor5;
-            this.degrees = null;
-            this.degrees1 = null;
-            this.degrees2 = null;
-            this.degrees3 = null;
-            
-            this.degrees3 = degrees3;
         } else {
-            this.anchor5 = anchor5;
             this.degrees3 = degrees3;
+            this.anchor5 = anchor5;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", wrapQuotes(anchor5), degrees3));
+            
+            js.append(String.format(Locale.US, ".setRotationByAnchor(%f, %s)", degrees3, wrapQuotes(anchor5)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%s, %f)", wrapQuotes(anchor5), degrees3));
+                onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%f, %s)", degrees3, wrapQuotes(anchor5)));
                 js.setLength(0);
             }
         }
@@ -3152,6 +3252,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".setTransformationMatrix(%f, %f, %f, %f, %f, %f)", m6, m7, m8, m9, m10, m11));
 
             if (isRendered) {
@@ -3244,6 +3345,8 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsJpg(%b, %f, %f, %f, %b, %s);", asBase, width10, height12, quality4, forceTransparentWhite2, wrapQuotes(filename4)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsJpg(%b, %f, %f, %f, %b, %s)", asBase, width10, height12, quality4, forceTransparentWhite2, wrapQuotes(filename4)));
@@ -3264,8 +3367,12 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
     /**
      * Share a stage as a PDF and return link to shared image.
      */
-    public void shareAsPdf(Double paperSizeOrWidth6, Double landscapeOrWidth2, Boolean asBase1, Double x6, Double y6, String filename5) {
+    public void shareAsPdf(Boolean asBase1, Double paperSizeOrWidth6, Double x6, Double landscapeOrWidth2, Double y6, String filename5) {
         if (jsBase == null) {
+            this.asBase = null;
+            this.asBase1 = null;
+            
+            this.asBase1 = asBase1;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -3276,16 +3383,6 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             this.paperSizeOrWidth7 = null;
             
             this.paperSizeOrWidth6 = paperSizeOrWidth6;
-            this.landscapeOrWidth = null;
-            this.landscapeOrWidth1 = null;
-            this.landscapeOrWidth2 = null;
-            this.landscapeOrWidth3 = null;
-            
-            this.landscapeOrWidth2 = landscapeOrWidth2;
-            this.asBase = null;
-            this.asBase1 = null;
-            
-            this.asBase1 = asBase1;
             this.x = null;
             this.x1 = null;
             this.x2 = null;
@@ -3295,6 +3392,12 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             this.x6 = null;
             
             this.x6 = x6;
+            this.landscapeOrWidth = null;
+            this.landscapeOrWidth1 = null;
+            this.landscapeOrWidth2 = null;
+            this.landscapeOrWidth3 = null;
+            
+            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.y = null;
             this.y1 = null;
             this.y2 = null;
@@ -3313,10 +3416,10 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             
             this.filename5 = filename5;
         } else {
-            this.paperSizeOrWidth6 = paperSizeOrWidth6;
-            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.asBase1 = asBase1;
+            this.paperSizeOrWidth6 = paperSizeOrWidth6;
             this.x6 = x6;
+            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.y6 = y6;
             this.filename5 = filename5;
             if (isChain) {
@@ -3324,9 +3427,11 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%b, %f, %f, %f, %f, %s);", asBase1, paperSizeOrWidth6, x6, landscapeOrWidth2, y6, wrapQuotes(filename5)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %f, %b, %f, %f, %s)", paperSizeOrWidth6, landscapeOrWidth2, asBase1, x6, y6, wrapQuotes(filename5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %f, %f, %f, %f, %s)", asBase1, paperSizeOrWidth6, x6, landscapeOrWidth2, y6, wrapQuotes(filename5)));
                 js.setLength(0);
             }
         }
@@ -3336,8 +3441,12 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
     /**
      * Share a stage as a PDF and return link to shared image.
      */
-    public void shareAsPdf(Double paperSizeOrWidth6, Boolean landscapeOrWidth3, Boolean asBase1, Double x6, Double y6, String filename5) {
+    public void shareAsPdf(Boolean asBase1, Double paperSizeOrWidth6, Double x6, Boolean landscapeOrWidth3, Double y6, String filename5) {
         if (jsBase == null) {
+            this.asBase = null;
+            this.asBase1 = null;
+            
+            this.asBase1 = asBase1;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -3348,16 +3457,6 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             this.paperSizeOrWidth7 = null;
             
             this.paperSizeOrWidth6 = paperSizeOrWidth6;
-            this.landscapeOrWidth = null;
-            this.landscapeOrWidth1 = null;
-            this.landscapeOrWidth2 = null;
-            this.landscapeOrWidth3 = null;
-            
-            this.landscapeOrWidth3 = landscapeOrWidth3;
-            this.asBase = null;
-            this.asBase1 = null;
-            
-            this.asBase1 = asBase1;
             this.x = null;
             this.x1 = null;
             this.x2 = null;
@@ -3367,6 +3466,12 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             this.x6 = null;
             
             this.x6 = x6;
+            this.landscapeOrWidth = null;
+            this.landscapeOrWidth1 = null;
+            this.landscapeOrWidth2 = null;
+            this.landscapeOrWidth3 = null;
+            
+            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.y = null;
             this.y1 = null;
             this.y2 = null;
@@ -3385,10 +3490,10 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             
             this.filename5 = filename5;
         } else {
+            this.asBase1 = asBase1;
             this.paperSizeOrWidth6 = paperSizeOrWidth6;
-            this.landscapeOrWidth3 = landscapeOrWidth3;
-            this.asBase1 = asBase1;
             this.x6 = x6;
+            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.y6 = y6;
             this.filename5 = filename5;
             if (isChain) {
@@ -3396,9 +3501,11 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%b, %f, %f, %b, %f, %s);", asBase1, paperSizeOrWidth6, x6, landscapeOrWidth3, y6, wrapQuotes(filename5)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %b, %b, %f, %f, %s)", paperSizeOrWidth6, landscapeOrWidth3, asBase1, x6, y6, wrapQuotes(filename5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %f, %f, %b, %f, %s)", asBase1, paperSizeOrWidth6, x6, landscapeOrWidth3, y6, wrapQuotes(filename5)));
                 js.setLength(0);
             }
         }
@@ -3408,8 +3515,12 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
     /**
      * Share a stage as a PDF and return link to shared image.
      */
-    public void shareAsPdf(String paperSizeOrWidth7, Double landscapeOrWidth2, Boolean asBase1, Double x6, Double y6, String filename5) {
+    public void shareAsPdf(Boolean asBase1, String paperSizeOrWidth7, Double x6, Double landscapeOrWidth2, Double y6, String filename5) {
         if (jsBase == null) {
+            this.asBase = null;
+            this.asBase1 = null;
+            
+            this.asBase1 = asBase1;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -3420,16 +3531,6 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             this.paperSizeOrWidth7 = null;
             
             this.paperSizeOrWidth7 = paperSizeOrWidth7;
-            this.landscapeOrWidth = null;
-            this.landscapeOrWidth1 = null;
-            this.landscapeOrWidth2 = null;
-            this.landscapeOrWidth3 = null;
-            
-            this.landscapeOrWidth2 = landscapeOrWidth2;
-            this.asBase = null;
-            this.asBase1 = null;
-            
-            this.asBase1 = asBase1;
             this.x = null;
             this.x1 = null;
             this.x2 = null;
@@ -3439,6 +3540,12 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             this.x6 = null;
             
             this.x6 = x6;
+            this.landscapeOrWidth = null;
+            this.landscapeOrWidth1 = null;
+            this.landscapeOrWidth2 = null;
+            this.landscapeOrWidth3 = null;
+            
+            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.y = null;
             this.y1 = null;
             this.y2 = null;
@@ -3457,10 +3564,10 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             
             this.filename5 = filename5;
         } else {
-            this.paperSizeOrWidth7 = paperSizeOrWidth7;
-            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.asBase1 = asBase1;
+            this.paperSizeOrWidth7 = paperSizeOrWidth7;
             this.x6 = x6;
+            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.y6 = y6;
             this.filename5 = filename5;
             if (isChain) {
@@ -3468,9 +3575,11 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%b, %s, %f, %f, %f, %s);", asBase1, wrapQuotes(paperSizeOrWidth7), x6, landscapeOrWidth2, y6, wrapQuotes(filename5)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %f, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidth7), landscapeOrWidth2, asBase1, x6, y6, wrapQuotes(filename5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %s, %f, %f, %f, %s)", asBase1, wrapQuotes(paperSizeOrWidth7), x6, landscapeOrWidth2, y6, wrapQuotes(filename5)));
                 js.setLength(0);
             }
         }
@@ -3480,8 +3589,12 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
     /**
      * Share a stage as a PDF and return link to shared image.
      */
-    public void shareAsPdf(String paperSizeOrWidth7, Boolean landscapeOrWidth3, Boolean asBase1, Double x6, Double y6, String filename5) {
+    public void shareAsPdf(Boolean asBase1, String paperSizeOrWidth7, Double x6, Boolean landscapeOrWidth3, Double y6, String filename5) {
         if (jsBase == null) {
+            this.asBase = null;
+            this.asBase1 = null;
+            
+            this.asBase1 = asBase1;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -3492,16 +3605,6 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             this.paperSizeOrWidth7 = null;
             
             this.paperSizeOrWidth7 = paperSizeOrWidth7;
-            this.landscapeOrWidth = null;
-            this.landscapeOrWidth1 = null;
-            this.landscapeOrWidth2 = null;
-            this.landscapeOrWidth3 = null;
-            
-            this.landscapeOrWidth3 = landscapeOrWidth3;
-            this.asBase = null;
-            this.asBase1 = null;
-            
-            this.asBase1 = asBase1;
             this.x = null;
             this.x1 = null;
             this.x2 = null;
@@ -3511,6 +3614,12 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             this.x6 = null;
             
             this.x6 = x6;
+            this.landscapeOrWidth = null;
+            this.landscapeOrWidth1 = null;
+            this.landscapeOrWidth2 = null;
+            this.landscapeOrWidth3 = null;
+            
+            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.y = null;
             this.y1 = null;
             this.y2 = null;
@@ -3529,10 +3638,10 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             
             this.filename5 = filename5;
         } else {
-            this.paperSizeOrWidth7 = paperSizeOrWidth7;
-            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.asBase1 = asBase1;
+            this.paperSizeOrWidth7 = paperSizeOrWidth7;
             this.x6 = x6;
+            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.y6 = y6;
             this.filename5 = filename5;
             if (isChain) {
@@ -3540,9 +3649,11 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%b, %s, %f, %b, %f, %s);", asBase1, wrapQuotes(paperSizeOrWidth7), x6, landscapeOrWidth3, y6, wrapQuotes(filename5)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidth7), landscapeOrWidth3, asBase1, x6, y6, wrapQuotes(filename5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %s, %f, %b, %f, %s)", asBase1, wrapQuotes(paperSizeOrWidth7), x6, landscapeOrWidth3, y6, wrapQuotes(filename5)));
                 js.setLength(0);
             }
         }
@@ -3622,6 +3733,8 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPng(%b, %f, %f, %f, %s);", asBase2, width11, height13, quality5, wrapQuotes(filename6)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPng(%b, %f, %f, %f, %s)", asBase2, width11, height13, quality5, wrapQuotes(filename6)));
@@ -3640,8 +3753,14 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
     /**
      * Share a stage as a SVG and return link to shared image.
      */
-    public void shareAsSvg(String paperSizeOrWidth8, Boolean landscapeOrHeight4, Boolean asBase3, String filename7) {
+    public void shareAsSvg(Boolean asBase3, String paperSizeOrWidth8, String filename7, Boolean landscapeOrHeight4) {
         if (jsBase == null) {
+            this.asBase = null;
+            this.asBase1 = null;
+            this.asBase2 = null;
+            this.asBase3 = null;
+            
+            this.asBase3 = asBase3;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -3654,20 +3773,6 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             this.paperSizeOrWidth9 = null;
             
             this.paperSizeOrWidth8 = paperSizeOrWidth8;
-            this.landscapeOrHeight = null;
-            this.landscapeOrHeight1 = null;
-            this.landscapeOrHeight2 = null;
-            this.landscapeOrHeight3 = null;
-            this.landscapeOrHeight4 = null;
-            this.landscapeOrHeight5 = null;
-            
-            this.landscapeOrHeight4 = landscapeOrHeight4;
-            this.asBase = null;
-            this.asBase1 = null;
-            this.asBase2 = null;
-            this.asBase3 = null;
-            
-            this.asBase3 = asBase3;
             this.filename = null;
             this.filename1 = null;
             this.filename2 = null;
@@ -3678,19 +3783,29 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             this.filename7 = null;
             
             this.filename7 = filename7;
-        } else {
-            this.paperSizeOrWidth8 = paperSizeOrWidth8;
+            this.landscapeOrHeight = null;
+            this.landscapeOrHeight1 = null;
+            this.landscapeOrHeight2 = null;
+            this.landscapeOrHeight3 = null;
+            this.landscapeOrHeight4 = null;
+            this.landscapeOrHeight5 = null;
+            
             this.landscapeOrHeight4 = landscapeOrHeight4;
+        } else {
             this.asBase3 = asBase3;
+            this.paperSizeOrWidth8 = paperSizeOrWidth8;
             this.filename7 = filename7;
+            this.landscapeOrHeight4 = landscapeOrHeight4;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsSvg(%b, %s, %s, %b);", asBase3, wrapQuotes(paperSizeOrWidth8), wrapQuotes(filename7), landscapeOrHeight4));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %b, %s)", wrapQuotes(paperSizeOrWidth8), landscapeOrHeight4, asBase3, wrapQuotes(filename7)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %s, %s, %b)", asBase3, wrapQuotes(paperSizeOrWidth8), wrapQuotes(filename7), landscapeOrHeight4));
                 js.setLength(0);
             }
         }
@@ -3700,8 +3815,14 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
     /**
      * Share a stage as a SVG and return link to shared image.
      */
-    public void shareAsSvg(String paperSizeOrWidth8, String landscapeOrHeight5, Boolean asBase3, String filename7) {
+    public void shareAsSvg(Boolean asBase3, String paperSizeOrWidth8, String filename7, String landscapeOrHeight5) {
         if (jsBase == null) {
+            this.asBase = null;
+            this.asBase1 = null;
+            this.asBase2 = null;
+            this.asBase3 = null;
+            
+            this.asBase3 = asBase3;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -3714,20 +3835,6 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             this.paperSizeOrWidth9 = null;
             
             this.paperSizeOrWidth8 = paperSizeOrWidth8;
-            this.landscapeOrHeight = null;
-            this.landscapeOrHeight1 = null;
-            this.landscapeOrHeight2 = null;
-            this.landscapeOrHeight3 = null;
-            this.landscapeOrHeight4 = null;
-            this.landscapeOrHeight5 = null;
-            
-            this.landscapeOrHeight5 = landscapeOrHeight5;
-            this.asBase = null;
-            this.asBase1 = null;
-            this.asBase2 = null;
-            this.asBase3 = null;
-            
-            this.asBase3 = asBase3;
             this.filename = null;
             this.filename1 = null;
             this.filename2 = null;
@@ -3738,19 +3845,29 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             this.filename7 = null;
             
             this.filename7 = filename7;
+            this.landscapeOrHeight = null;
+            this.landscapeOrHeight1 = null;
+            this.landscapeOrHeight2 = null;
+            this.landscapeOrHeight3 = null;
+            this.landscapeOrHeight4 = null;
+            this.landscapeOrHeight5 = null;
+            
+            this.landscapeOrHeight5 = landscapeOrHeight5;
         } else {
+            this.asBase3 = asBase3;
             this.paperSizeOrWidth8 = paperSizeOrWidth8;
-            this.landscapeOrHeight5 = landscapeOrHeight5;
-            this.asBase3 = asBase3;
             this.filename7 = filename7;
+            this.landscapeOrHeight5 = landscapeOrHeight5;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsSvg(%b, %s, %s, %s);", asBase3, wrapQuotes(paperSizeOrWidth8), wrapQuotes(filename7), wrapQuotes(landscapeOrHeight5)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %b, %s)", wrapQuotes(paperSizeOrWidth8), wrapQuotes(landscapeOrHeight5), asBase3, wrapQuotes(filename7)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %s, %s, %s)", asBase3, wrapQuotes(paperSizeOrWidth8), wrapQuotes(filename7), wrapQuotes(landscapeOrHeight5)));
                 js.setLength(0);
             }
         }
@@ -3760,8 +3877,14 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
     /**
      * Share a stage as a SVG and return link to shared image.
      */
-    public void shareAsSvg(Double paperSizeOrWidth9, Boolean landscapeOrHeight4, Boolean asBase3, String filename7) {
+    public void shareAsSvg(Boolean asBase3, Double paperSizeOrWidth9, String filename7, Boolean landscapeOrHeight4) {
         if (jsBase == null) {
+            this.asBase = null;
+            this.asBase1 = null;
+            this.asBase2 = null;
+            this.asBase3 = null;
+            
+            this.asBase3 = asBase3;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -3774,20 +3897,6 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             this.paperSizeOrWidth9 = null;
             
             this.paperSizeOrWidth9 = paperSizeOrWidth9;
-            this.landscapeOrHeight = null;
-            this.landscapeOrHeight1 = null;
-            this.landscapeOrHeight2 = null;
-            this.landscapeOrHeight3 = null;
-            this.landscapeOrHeight4 = null;
-            this.landscapeOrHeight5 = null;
-            
-            this.landscapeOrHeight4 = landscapeOrHeight4;
-            this.asBase = null;
-            this.asBase1 = null;
-            this.asBase2 = null;
-            this.asBase3 = null;
-            
-            this.asBase3 = asBase3;
             this.filename = null;
             this.filename1 = null;
             this.filename2 = null;
@@ -3798,19 +3907,29 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             this.filename7 = null;
             
             this.filename7 = filename7;
-        } else {
-            this.paperSizeOrWidth9 = paperSizeOrWidth9;
+            this.landscapeOrHeight = null;
+            this.landscapeOrHeight1 = null;
+            this.landscapeOrHeight2 = null;
+            this.landscapeOrHeight3 = null;
+            this.landscapeOrHeight4 = null;
+            this.landscapeOrHeight5 = null;
+            
             this.landscapeOrHeight4 = landscapeOrHeight4;
+        } else {
             this.asBase3 = asBase3;
+            this.paperSizeOrWidth9 = paperSizeOrWidth9;
             this.filename7 = filename7;
+            this.landscapeOrHeight4 = landscapeOrHeight4;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsSvg(%b, %f, %s, %b);", asBase3, paperSizeOrWidth9, wrapQuotes(filename7), landscapeOrHeight4));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %b, %b, %s)", paperSizeOrWidth9, landscapeOrHeight4, asBase3, wrapQuotes(filename7)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %f, %s, %b)", asBase3, paperSizeOrWidth9, wrapQuotes(filename7), landscapeOrHeight4));
                 js.setLength(0);
             }
         }
@@ -3820,8 +3939,14 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
     /**
      * Share a stage as a SVG and return link to shared image.
      */
-    public void shareAsSvg(Double paperSizeOrWidth9, String landscapeOrHeight5, Boolean asBase3, String filename7) {
+    public void shareAsSvg(Boolean asBase3, Double paperSizeOrWidth9, String filename7, String landscapeOrHeight5) {
         if (jsBase == null) {
+            this.asBase = null;
+            this.asBase1 = null;
+            this.asBase2 = null;
+            this.asBase3 = null;
+            
+            this.asBase3 = asBase3;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -3834,20 +3959,6 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             this.paperSizeOrWidth9 = null;
             
             this.paperSizeOrWidth9 = paperSizeOrWidth9;
-            this.landscapeOrHeight = null;
-            this.landscapeOrHeight1 = null;
-            this.landscapeOrHeight2 = null;
-            this.landscapeOrHeight3 = null;
-            this.landscapeOrHeight4 = null;
-            this.landscapeOrHeight5 = null;
-            
-            this.landscapeOrHeight5 = landscapeOrHeight5;
-            this.asBase = null;
-            this.asBase1 = null;
-            this.asBase2 = null;
-            this.asBase3 = null;
-            
-            this.asBase3 = asBase3;
             this.filename = null;
             this.filename1 = null;
             this.filename2 = null;
@@ -3858,19 +3969,29 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             this.filename7 = null;
             
             this.filename7 = filename7;
-        } else {
-            this.paperSizeOrWidth9 = paperSizeOrWidth9;
+            this.landscapeOrHeight = null;
+            this.landscapeOrHeight1 = null;
+            this.landscapeOrHeight2 = null;
+            this.landscapeOrHeight3 = null;
+            this.landscapeOrHeight4 = null;
+            this.landscapeOrHeight5 = null;
+            
             this.landscapeOrHeight5 = landscapeOrHeight5;
+        } else {
             this.asBase3 = asBase3;
+            this.paperSizeOrWidth9 = paperSizeOrWidth9;
             this.filename7 = filename7;
+            this.landscapeOrHeight5 = landscapeOrHeight5;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsSvg(%b, %f, %s, %s);", asBase3, paperSizeOrWidth9, wrapQuotes(filename7), wrapQuotes(landscapeOrHeight5)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %s, %b, %s)", paperSizeOrWidth9, wrapQuotes(landscapeOrHeight5), asBase3, wrapQuotes(filename7)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %f, %s, %s)", asBase3, paperSizeOrWidth9, wrapQuotes(filename7), wrapQuotes(landscapeOrHeight5)));
                 js.setLength(0);
             }
         }
@@ -3960,6 +4081,7 @@ Similar to {@link anychart.graphics.vector.Layer#swapChildrenAt}
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".swapChildrenAt(%f, %f)", index3, index4));
 
             if (isRendered) {
@@ -4025,6 +4147,8 @@ You must delete them yourself after you finish using them.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setText" + ++variableIndex + " = " + jsBase + ".text(%f, %f, %s);", x7, y7, wrapQuotes(text1)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".text(%f, %f, %s)", x7, y7, wrapQuotes(text1)));
@@ -4061,6 +4185,7 @@ You must delete them yourself after you finish using them.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title)));
 
             if (isRendered) {
@@ -4106,6 +4231,8 @@ You must delete them yourself after you finish using them.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".toSvg(%s, %b);", wrapQuotes(paperSize2), landscape2));
             
 
             if (isRendered) {
@@ -4163,6 +4290,8 @@ You must delete them yourself after you finish using them.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".toSvg(%f, %f);", width12, height14));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%f, %f)", width12, height14));
@@ -4191,6 +4320,7 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".translate(%f, %f)", tx, ty));
 
             if (isRendered) {
@@ -4250,6 +4380,8 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unlisten(%s, %b, %s);", wrapQuotes(type6), useCapture2, wrapQuotes(listenerScope2)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s)", wrapQuotes(type6), useCapture2, wrapQuotes(listenerScope2)));
@@ -4293,6 +4425,8 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unlisten(%s, %b, %s);", ((type7 != null) ? type7.generateJs() : "null"), useCapture2, wrapQuotes(listenerScope2)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s)", ((type7 != null) ? type7.generateJs() : "null"), useCapture2, wrapQuotes(listenerScope2)));
@@ -4315,6 +4449,8 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
             
 
             if (isRendered) {
@@ -4339,6 +4475,7 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".visible(%b)", isVisible));
 
             if (isRendered) {
@@ -4391,6 +4528,7 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width13)));
 
             if (isRendered) {
@@ -4441,6 +4579,7 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%f)", width14));
 
             if (isRendered) {

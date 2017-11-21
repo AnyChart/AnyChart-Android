@@ -63,6 +63,7 @@ public class Logo extends UiBackground {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".overlay(%s)", wrapQuotes(overlay)));
 
             if (isRendered) {
@@ -100,6 +101,7 @@ public class Logo extends UiBackground {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".overlay(%b)", overlay1));
 
             if (isRendered) {

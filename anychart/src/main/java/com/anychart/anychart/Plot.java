@@ -61,24 +61,26 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates an Accumulation Distribution Line indicator on the plot.
      */
-    public ADL adl(StockSeriesType seriesType, TableMapping mapping) {
+    public ADL adl(TableMapping mapping, StockSeriesType seriesType) {
         if (jsBase == null) {
+            this.mapping = mapping;
             this.seriesType = null;
             this.seriesType1 = null;
             
             this.seriesType = seriesType;
-            this.mapping = mapping;
         } else {
-            this.seriesType = seriesType;
             this.mapping = mapping;
+            this.seriesType = seriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setAdl" + ++variableIndex + " = " + jsBase + ".adl(%s, %s);", ((mapping != null) ? mapping.getJsBase() : "null"), ((seriesType != null) ? seriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", ((seriesType != null) ? seriesType.generateJs() : "null"), ((mapping != null) ? mapping.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", ((mapping != null) ? mapping.getJsBase() : "null"), ((seriesType != null) ? seriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -102,24 +104,26 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates an Accumulation Distribution Line indicator on the plot.
      */
-    public ADL adl(String seriesType1, TableMapping mapping) {
+    public ADL adl(TableMapping mapping, String seriesType1) {
         if (jsBase == null) {
+            this.mapping = mapping;
             this.seriesType = null;
             this.seriesType1 = null;
             
             this.seriesType1 = seriesType1;
-            this.mapping = mapping;
         } else {
-            this.seriesType1 = seriesType1;
             this.mapping = mapping;
+            this.seriesType1 = seriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping.generateJs());
+            js.append(String.format(Locale.US, "var setAdl1" + ++variableIndex + " = " + jsBase + ".adl(%s, %s);", ((mapping != null) ? mapping.getJsBase() : "null"), wrapQuotes(seriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", wrapQuotes(seriesType1), ((mapping != null) ? mapping.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", ((mapping != null) ? mapping.getJsBase() : "null"), wrapQuotes(seriesType1)));
                 js.setLength(0);
             }
         }
@@ -149,14 +153,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates AMA (Adaptive Moving Average) indicator on the plot.
      */
-    public AMA ama(StockSeriesType seriesType2, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
+    public AMA ama(TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod, StockSeriesType seriesType2) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            
-            this.seriesType2 = seriesType2;
             this.mapping = null;
             this.mapping1 = null;
             
@@ -164,20 +162,28 @@ public class Plot extends VisualBaseWithBounds {
             this.period = period;
             this.fastPeriod = fastPeriod;
             this.slowPeriod = slowPeriod;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            
             this.seriesType2 = seriesType2;
+        } else {
             this.mapping1 = mapping1;
             this.period = period;
             this.fastPeriod = fastPeriod;
             this.slowPeriod = slowPeriod;
+            this.seriesType2 = seriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping1.generateJs());
+            js.append(String.format(Locale.US, "var setAma" + ++variableIndex + " = " + jsBase + ".ama(%s, %f, %f, %f, %s);", ((mapping1 != null) ? mapping1.getJsBase() : "null"), period, fastPeriod, slowPeriod, ((seriesType2 != null) ? seriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", ((seriesType2 != null) ? seriesType2.generateJs() : "null"), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %f, %f, %f, %s)", ((mapping1 != null) ? mapping1.getJsBase() : "null"), period, fastPeriod, slowPeriod, ((seriesType2 != null) ? seriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -201,14 +207,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates AMA (Adaptive Moving Average) indicator on the plot.
      */
-    public AMA ama(String seriesType3, TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod) {
+    public AMA ama(TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod, String seriesType3) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            
-            this.seriesType3 = seriesType3;
             this.mapping = null;
             this.mapping1 = null;
             
@@ -216,20 +216,28 @@ public class Plot extends VisualBaseWithBounds {
             this.period = period;
             this.fastPeriod = fastPeriod;
             this.slowPeriod = slowPeriod;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            
             this.seriesType3 = seriesType3;
+        } else {
             this.mapping1 = mapping1;
             this.period = period;
             this.fastPeriod = fastPeriod;
             this.slowPeriod = slowPeriod;
+            this.seriesType3 = seriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping1.generateJs());
+            js.append(String.format(Locale.US, "var setAma1" + ++variableIndex + " = " + jsBase + ".ama(%s, %f, %f, %f, %s);", ((mapping1 != null) ? mapping1.getJsBase() : "null"), period, fastPeriod, slowPeriod, wrapQuotes(seriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %s, %f, %f, %f)", wrapQuotes(seriesType3), ((mapping1 != null) ? mapping1.generateJs() : "null"), period, fastPeriod, slowPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %f, %f, %f, %s)", ((mapping1 != null) ? mapping1.getJsBase() : "null"), period, fastPeriod, slowPeriod, wrapQuotes(seriesType3)));
                 js.setLength(0);
             }
         }
@@ -275,6 +283,7 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".annotations(%s)", arrayToStringWrapQuotes(annotationsList)));
 
             if (isRendered) {
@@ -337,16 +346,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates Aroon indicator on the plot.
      */
-    public Aroon aroon(StockSeriesType upSeriesType, StockSeriesType downSeriesType, TableMapping mapping2, Double period1) {
+    public Aroon aroon(TableMapping mapping2, Double period1, StockSeriesType upSeriesType, StockSeriesType downSeriesType) {
         if (jsBase == null) {
-            this.upSeriesType = null;
-            this.upSeriesType1 = null;
-            
-            this.upSeriesType = upSeriesType;
-            this.downSeriesType = null;
-            this.downSeriesType1 = null;
-            
-            this.downSeriesType = downSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -356,19 +357,29 @@ public class Plot extends VisualBaseWithBounds {
             this.period1 = null;
             
             this.period1 = period1;
-        } else {
+            this.upSeriesType = null;
+            this.upSeriesType1 = null;
+            
             this.upSeriesType = upSeriesType;
+            this.downSeriesType = null;
+            this.downSeriesType1 = null;
+            
             this.downSeriesType = downSeriesType;
+        } else {
             this.mapping2 = mapping2;
             this.period1 = period1;
+            this.upSeriesType = upSeriesType;
+            this.downSeriesType = downSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping2.generateJs());
+            js.append(String.format(Locale.US, "var setAroon" + ++variableIndex + " = " + jsBase + ".aroon(%s, %f, %s, %s);", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s)", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -392,16 +403,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates Aroon indicator on the plot.
      */
-    public Aroon aroon(StockSeriesType upSeriesType, String downSeriesType1, TableMapping mapping2, Double period1) {
+    public Aroon aroon(TableMapping mapping2, Double period1, StockSeriesType upSeriesType, String downSeriesType1) {
         if (jsBase == null) {
-            this.upSeriesType = null;
-            this.upSeriesType1 = null;
-            
-            this.upSeriesType = upSeriesType;
-            this.downSeriesType = null;
-            this.downSeriesType1 = null;
-            
-            this.downSeriesType1 = downSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -411,19 +414,29 @@ public class Plot extends VisualBaseWithBounds {
             this.period1 = null;
             
             this.period1 = period1;
-        } else {
+            this.upSeriesType = null;
+            this.upSeriesType1 = null;
+            
             this.upSeriesType = upSeriesType;
+            this.downSeriesType = null;
+            this.downSeriesType1 = null;
+            
             this.downSeriesType1 = downSeriesType1;
+        } else {
             this.mapping2 = mapping2;
             this.period1 = period1;
+            this.upSeriesType = upSeriesType;
+            this.downSeriesType1 = downSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping2.generateJs());
+            js.append(String.format(Locale.US, "var setAroon1" + ++variableIndex + " = " + jsBase + ".aroon(%s, %f, %s, %s);", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s)", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -447,16 +460,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates Aroon indicator on the plot.
      */
-    public Aroon aroon(String upSeriesType1, StockSeriesType downSeriesType, TableMapping mapping2, Double period1) {
+    public Aroon aroon(TableMapping mapping2, Double period1, String upSeriesType1, StockSeriesType downSeriesType) {
         if (jsBase == null) {
-            this.upSeriesType = null;
-            this.upSeriesType1 = null;
-            
-            this.upSeriesType1 = upSeriesType1;
-            this.downSeriesType = null;
-            this.downSeriesType1 = null;
-            
-            this.downSeriesType = downSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -466,19 +471,29 @@ public class Plot extends VisualBaseWithBounds {
             this.period1 = null;
             
             this.period1 = period1;
-        } else {
+            this.upSeriesType = null;
+            this.upSeriesType1 = null;
+            
             this.upSeriesType1 = upSeriesType1;
+            this.downSeriesType = null;
+            this.downSeriesType1 = null;
+            
             this.downSeriesType = downSeriesType;
+        } else {
             this.mapping2 = mapping2;
             this.period1 = period1;
+            this.upSeriesType1 = upSeriesType1;
+            this.downSeriesType = downSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping2.generateJs());
+            js.append(String.format(Locale.US, "var setAroon2" + ++variableIndex + " = " + jsBase + ".aroon(%s, %f, %s, %s);", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null"), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s)", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -502,16 +517,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates Aroon indicator on the plot.
      */
-    public Aroon aroon(String upSeriesType1, String downSeriesType1, TableMapping mapping2, Double period1) {
+    public Aroon aroon(TableMapping mapping2, Double period1, String upSeriesType1, String downSeriesType1) {
         if (jsBase == null) {
-            this.upSeriesType = null;
-            this.upSeriesType1 = null;
-            
-            this.upSeriesType1 = upSeriesType1;
-            this.downSeriesType = null;
-            this.downSeriesType1 = null;
-            
-            this.downSeriesType1 = downSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -521,19 +528,29 @@ public class Plot extends VisualBaseWithBounds {
             this.period1 = null;
             
             this.period1 = period1;
-        } else {
+            this.upSeriesType = null;
+            this.upSeriesType1 = null;
+            
             this.upSeriesType1 = upSeriesType1;
+            this.downSeriesType = null;
+            this.downSeriesType1 = null;
+            
             this.downSeriesType1 = downSeriesType1;
+        } else {
             this.mapping2 = mapping2;
             this.period1 = period1;
+            this.upSeriesType1 = upSeriesType1;
+            this.downSeriesType1 = downSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping2.generateJs());
+            js.append(String.format(Locale.US, "var setAroon3" + ++variableIndex + " = " + jsBase + ".aroon(%s, %f, %s, %s);", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %s, %s, %f)", wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1), ((mapping2 != null) ? mapping2.generateJs() : "null"), period1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s)", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -561,16 +578,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates an Average True Range indicator on the plot.
      */
-    public ATR atr(StockSeriesType seriesType4, TableMapping mapping3, Double period2) {
+    public ATR atr(TableMapping mapping3, Double period2, StockSeriesType seriesType4) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            
-            this.seriesType4 = seriesType4;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -582,18 +591,28 @@ public class Plot extends VisualBaseWithBounds {
             this.period2 = null;
             
             this.period2 = period2;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            
             this.seriesType4 = seriesType4;
+        } else {
             this.mapping3 = mapping3;
             this.period2 = period2;
+            this.seriesType4 = seriesType4;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping3.generateJs());
+            js.append(String.format(Locale.US, "var setAtr" + ++variableIndex + " = " + jsBase + ".atr(%s, %f, %s);", ((mapping3 != null) ? mapping3.getJsBase() : "null"), period2, ((seriesType4 != null) ? seriesType4.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", ((seriesType4 != null) ? seriesType4.generateJs() : "null"), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %f, %s)", ((mapping3 != null) ? mapping3.getJsBase() : "null"), period2, ((seriesType4 != null) ? seriesType4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -617,16 +636,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates an Average True Range indicator on the plot.
      */
-    public ATR atr(String seriesType5, TableMapping mapping3, Double period2) {
+    public ATR atr(TableMapping mapping3, Double period2, String seriesType5) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            
-            this.seriesType5 = seriesType5;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -638,18 +649,28 @@ public class Plot extends VisualBaseWithBounds {
             this.period2 = null;
             
             this.period2 = period2;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            
             this.seriesType5 = seriesType5;
+        } else {
             this.mapping3 = mapping3;
             this.period2 = period2;
+            this.seriesType5 = seriesType5;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping3.generateJs());
+            js.append(String.format(Locale.US, "var setAtr1" + ++variableIndex + " = " + jsBase + ".atr(%s, %f, %s);", ((mapping3 != null) ? mapping3.getJsBase() : "null"), period2, wrapQuotes(seriesType5)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %s, %f)", wrapQuotes(seriesType5), ((mapping3 != null) ? mapping3.generateJs() : "null"), period2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %f, %s)", ((mapping3 != null) ? mapping3.getJsBase() : "null"), period2, wrapQuotes(seriesType5)));
                 js.setLength(0);
             }
         }
@@ -701,6 +722,7 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
 
             if (isRendered) {
@@ -739,6 +761,7 @@ public class Plot extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".background(%b)", background2));
 
             if (isRendered) {
@@ -773,20 +796,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates Bollinger Bands indicator on the plot.
      */
-    public BBands bbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType) {
         if (jsBase == null) {
-            this.upperSeriesType = null;
-            this.upperSeriesType1 = null;
-            
-            this.upperSeriesType = upperSeriesType;
-            this.lowerSeriesType = null;
-            this.lowerSeriesType1 = null;
-            
-            this.lowerSeriesType = lowerSeriesType;
-            this.middleSeriesType = null;
-            this.middleSeriesType1 = null;
-            
-            this.middleSeriesType = middleSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -801,21 +812,35 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period3 = period3;
             this.deviation = deviation;
-        } else {
+            this.upperSeriesType = null;
+            this.upperSeriesType1 = null;
+            
             this.upperSeriesType = upperSeriesType;
+            this.lowerSeriesType = null;
+            this.lowerSeriesType1 = null;
+            
             this.lowerSeriesType = lowerSeriesType;
+            this.middleSeriesType = null;
+            this.middleSeriesType1 = null;
+            
             this.middleSeriesType = middleSeriesType;
+        } else {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+            this.upperSeriesType = upperSeriesType;
+            this.lowerSeriesType = lowerSeriesType;
+            this.middleSeriesType = middleSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping4.generateJs());
+            js.append(String.format(Locale.US, "var setBbands" + ++variableIndex + " = " + jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -839,20 +864,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates Bollinger Bands indicator on the plot.
      */
-    public BBands bbands(StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, String middleSeriesType1) {
         if (jsBase == null) {
-            this.upperSeriesType = null;
-            this.upperSeriesType1 = null;
-            
-            this.upperSeriesType = upperSeriesType;
-            this.lowerSeriesType = null;
-            this.lowerSeriesType1 = null;
-            
-            this.lowerSeriesType = lowerSeriesType;
-            this.middleSeriesType = null;
-            this.middleSeriesType1 = null;
-            
-            this.middleSeriesType1 = middleSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -867,21 +880,35 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period3 = period3;
             this.deviation = deviation;
-        } else {
+            this.upperSeriesType = null;
+            this.upperSeriesType1 = null;
+            
             this.upperSeriesType = upperSeriesType;
+            this.lowerSeriesType = null;
+            this.lowerSeriesType1 = null;
+            
             this.lowerSeriesType = lowerSeriesType;
+            this.middleSeriesType = null;
+            this.middleSeriesType1 = null;
+            
             this.middleSeriesType1 = middleSeriesType1;
+        } else {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+            this.upperSeriesType = upperSeriesType;
+            this.lowerSeriesType = lowerSeriesType;
+            this.middleSeriesType1 = middleSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping4.generateJs());
+            js.append(String.format(Locale.US, "var setBbands1" + ++variableIndex + " = " + jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -905,20 +932,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates Bollinger Bands indicator on the plot.
      */
-    public BBands bbands(StockSeriesType upperSeriesType, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, StockSeriesType upperSeriesType, String lowerSeriesType1, StockSeriesType middleSeriesType) {
         if (jsBase == null) {
-            this.upperSeriesType = null;
-            this.upperSeriesType1 = null;
-            
-            this.upperSeriesType = upperSeriesType;
-            this.lowerSeriesType = null;
-            this.lowerSeriesType1 = null;
-            
-            this.lowerSeriesType1 = lowerSeriesType1;
-            this.middleSeriesType = null;
-            this.middleSeriesType1 = null;
-            
-            this.middleSeriesType = middleSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -933,21 +948,35 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period3 = period3;
             this.deviation = deviation;
-        } else {
+            this.upperSeriesType = null;
+            this.upperSeriesType1 = null;
+            
             this.upperSeriesType = upperSeriesType;
+            this.lowerSeriesType = null;
+            this.lowerSeriesType1 = null;
+            
             this.lowerSeriesType1 = lowerSeriesType1;
+            this.middleSeriesType = null;
+            this.middleSeriesType1 = null;
+            
             this.middleSeriesType = middleSeriesType;
+        } else {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+            this.upperSeriesType = upperSeriesType;
+            this.lowerSeriesType1 = lowerSeriesType1;
+            this.middleSeriesType = middleSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping4.generateJs());
+            js.append(String.format(Locale.US, "var setBbands2" + ++variableIndex + " = " + jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -971,20 +1000,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates Bollinger Bands indicator on the plot.
      */
-    public BBands bbands(StockSeriesType upperSeriesType, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, StockSeriesType upperSeriesType, String lowerSeriesType1, String middleSeriesType1) {
         if (jsBase == null) {
-            this.upperSeriesType = null;
-            this.upperSeriesType1 = null;
-            
-            this.upperSeriesType = upperSeriesType;
-            this.lowerSeriesType = null;
-            this.lowerSeriesType1 = null;
-            
-            this.lowerSeriesType1 = lowerSeriesType1;
-            this.middleSeriesType = null;
-            this.middleSeriesType1 = null;
-            
-            this.middleSeriesType1 = middleSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -999,21 +1016,35 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period3 = period3;
             this.deviation = deviation;
-        } else {
+            this.upperSeriesType = null;
+            this.upperSeriesType1 = null;
+            
             this.upperSeriesType = upperSeriesType;
+            this.lowerSeriesType = null;
+            this.lowerSeriesType1 = null;
+            
             this.lowerSeriesType1 = lowerSeriesType1;
+            this.middleSeriesType = null;
+            this.middleSeriesType1 = null;
+            
             this.middleSeriesType1 = middleSeriesType1;
+        } else {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+            this.upperSeriesType = upperSeriesType;
+            this.lowerSeriesType1 = lowerSeriesType1;
+            this.middleSeriesType1 = middleSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping4.generateJs());
+            js.append(String.format(Locale.US, "var setBbands3" + ++variableIndex + " = " + jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -1037,20 +1068,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates Bollinger Bands indicator on the plot.
      */
-    public BBands bbands(String upperSeriesType1, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, String upperSeriesType1, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType) {
         if (jsBase == null) {
-            this.upperSeriesType = null;
-            this.upperSeriesType1 = null;
-            
-            this.upperSeriesType1 = upperSeriesType1;
-            this.lowerSeriesType = null;
-            this.lowerSeriesType1 = null;
-            
-            this.lowerSeriesType = lowerSeriesType;
-            this.middleSeriesType = null;
-            this.middleSeriesType1 = null;
-            
-            this.middleSeriesType = middleSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1065,21 +1084,35 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period3 = period3;
             this.deviation = deviation;
-        } else {
+            this.upperSeriesType = null;
+            this.upperSeriesType1 = null;
+            
             this.upperSeriesType1 = upperSeriesType1;
+            this.lowerSeriesType = null;
+            this.lowerSeriesType1 = null;
+            
             this.lowerSeriesType = lowerSeriesType;
+            this.middleSeriesType = null;
+            this.middleSeriesType1 = null;
+            
             this.middleSeriesType = middleSeriesType;
+        } else {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+            this.upperSeriesType1 = upperSeriesType1;
+            this.lowerSeriesType = lowerSeriesType;
+            this.middleSeriesType = middleSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping4.generateJs());
+            js.append(String.format(Locale.US, "var setBbands4" + ++variableIndex + " = " + jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1103,20 +1136,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates Bollinger Bands indicator on the plot.
      */
-    public BBands bbands(String upperSeriesType1, StockSeriesType lowerSeriesType, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, String upperSeriesType1, StockSeriesType lowerSeriesType, String middleSeriesType1) {
         if (jsBase == null) {
-            this.upperSeriesType = null;
-            this.upperSeriesType1 = null;
-            
-            this.upperSeriesType1 = upperSeriesType1;
-            this.lowerSeriesType = null;
-            this.lowerSeriesType1 = null;
-            
-            this.lowerSeriesType = lowerSeriesType;
-            this.middleSeriesType = null;
-            this.middleSeriesType1 = null;
-            
-            this.middleSeriesType1 = middleSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1131,21 +1152,35 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period3 = period3;
             this.deviation = deviation;
-        } else {
+            this.upperSeriesType = null;
+            this.upperSeriesType1 = null;
+            
             this.upperSeriesType1 = upperSeriesType1;
+            this.lowerSeriesType = null;
+            this.lowerSeriesType1 = null;
+            
             this.lowerSeriesType = lowerSeriesType;
+            this.middleSeriesType = null;
+            this.middleSeriesType1 = null;
+            
             this.middleSeriesType1 = middleSeriesType1;
+        } else {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+            this.upperSeriesType1 = upperSeriesType1;
+            this.lowerSeriesType = lowerSeriesType;
+            this.middleSeriesType1 = middleSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping4.generateJs());
+            js.append(String.format(Locale.US, "var setBbands5" + ++variableIndex + " = " + jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -1169,20 +1204,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates Bollinger Bands indicator on the plot.
      */
-    public BBands bbands(String upperSeriesType1, String lowerSeriesType1, StockSeriesType middleSeriesType, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, String upperSeriesType1, String lowerSeriesType1, StockSeriesType middleSeriesType) {
         if (jsBase == null) {
-            this.upperSeriesType = null;
-            this.upperSeriesType1 = null;
-            
-            this.upperSeriesType1 = upperSeriesType1;
-            this.lowerSeriesType = null;
-            this.lowerSeriesType1 = null;
-            
-            this.lowerSeriesType1 = lowerSeriesType1;
-            this.middleSeriesType = null;
-            this.middleSeriesType1 = null;
-            
-            this.middleSeriesType = middleSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1197,21 +1220,35 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period3 = period3;
             this.deviation = deviation;
-        } else {
+            this.upperSeriesType = null;
+            this.upperSeriesType1 = null;
+            
             this.upperSeriesType1 = upperSeriesType1;
+            this.lowerSeriesType = null;
+            this.lowerSeriesType1 = null;
+            
             this.lowerSeriesType1 = lowerSeriesType1;
+            this.middleSeriesType = null;
+            this.middleSeriesType1 = null;
+            
             this.middleSeriesType = middleSeriesType;
+        } else {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+            this.upperSeriesType1 = upperSeriesType1;
+            this.lowerSeriesType1 = lowerSeriesType1;
+            this.middleSeriesType = middleSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping4.generateJs());
+            js.append(String.format(Locale.US, "var setBbands6" + ++variableIndex + " = " + jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null"), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1235,20 +1272,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates Bollinger Bands indicator on the plot.
      */
-    public BBands bbands(String upperSeriesType1, String lowerSeriesType1, String middleSeriesType1, TableMapping mapping4, Double period3, Double deviation) {
+    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, String upperSeriesType1, String lowerSeriesType1, String middleSeriesType1) {
         if (jsBase == null) {
-            this.upperSeriesType = null;
-            this.upperSeriesType1 = null;
-            
-            this.upperSeriesType1 = upperSeriesType1;
-            this.lowerSeriesType = null;
-            this.lowerSeriesType1 = null;
-            
-            this.lowerSeriesType1 = lowerSeriesType1;
-            this.middleSeriesType = null;
-            this.middleSeriesType1 = null;
-            
-            this.middleSeriesType1 = middleSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1263,21 +1288,35 @@ public class Plot extends VisualBaseWithBounds {
             
             this.period3 = period3;
             this.deviation = deviation;
-        } else {
+            this.upperSeriesType = null;
+            this.upperSeriesType1 = null;
+            
             this.upperSeriesType1 = upperSeriesType1;
+            this.lowerSeriesType = null;
+            this.lowerSeriesType1 = null;
+            
             this.lowerSeriesType1 = lowerSeriesType1;
+            this.middleSeriesType = null;
+            this.middleSeriesType1 = null;
+            
             this.middleSeriesType1 = middleSeriesType1;
+        } else {
             this.mapping4 = mapping4;
             this.period3 = period3;
             this.deviation = deviation;
+            this.upperSeriesType1 = upperSeriesType1;
+            this.lowerSeriesType1 = lowerSeriesType1;
+            this.middleSeriesType1 = middleSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping4.generateJs());
+            js.append(String.format(Locale.US, "var setBbands7" + ++variableIndex + " = " + jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %s, %s, %s, %f, %f)", wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1), ((mapping4 != null) ? mapping4.generateJs() : "null"), period3, deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -1306,18 +1345,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates %B indicator on the plot.
      */
-    public BBandsB bbandsB(StockSeriesType seriesType6, TableMapping mapping5, Double period4, Double deviation1) {
+    public BBandsB bbandsB(TableMapping mapping5, Double period4, Double deviation1, StockSeriesType seriesType6) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            
-            this.seriesType6 = seriesType6;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1337,19 +1366,31 @@ public class Plot extends VisualBaseWithBounds {
             this.deviation1 = null;
             
             this.deviation1 = deviation1;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            
             this.seriesType6 = seriesType6;
+        } else {
             this.mapping5 = mapping5;
             this.period4 = period4;
             this.deviation1 = deviation1;
+            this.seriesType6 = seriesType6;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping5.generateJs());
+            js.append(String.format(Locale.US, "var setBbandsB" + ++variableIndex + " = " + jsBase + ".bbandsB(%s, %f, %f, %s);", ((mapping5 != null) ? mapping5.getJsBase() : "null"), period4, deviation1, ((seriesType6 != null) ? seriesType6.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", ((seriesType6 != null) ? seriesType6.generateJs() : "null"), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %f, %f, %s)", ((mapping5 != null) ? mapping5.getJsBase() : "null"), period4, deviation1, ((seriesType6 != null) ? seriesType6.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1373,18 +1414,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates %B indicator on the plot.
      */
-    public BBandsB bbandsB(String seriesType7, TableMapping mapping5, Double period4, Double deviation1) {
+    public BBandsB bbandsB(TableMapping mapping5, Double period4, Double deviation1, String seriesType7) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            
-            this.seriesType7 = seriesType7;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1404,19 +1435,31 @@ public class Plot extends VisualBaseWithBounds {
             this.deviation1 = null;
             
             this.deviation1 = deviation1;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            
             this.seriesType7 = seriesType7;
+        } else {
             this.mapping5 = mapping5;
             this.period4 = period4;
             this.deviation1 = deviation1;
+            this.seriesType7 = seriesType7;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping5.generateJs());
+            js.append(String.format(Locale.US, "var setBbandsB1" + ++variableIndex + " = " + jsBase + ".bbandsB(%s, %f, %f, %s);", ((mapping5 != null) ? mapping5.getJsBase() : "null"), period4, deviation1, wrapQuotes(seriesType7)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %s, %f, %f)", wrapQuotes(seriesType7), ((mapping5 != null) ? mapping5.generateJs() : "null"), period4, deviation1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %f, %f, %s)", ((mapping5 != null) ? mapping5.getJsBase() : "null"), period4, deviation1, wrapQuotes(seriesType7)));
                 js.setLength(0);
             }
         }
@@ -1445,20 +1488,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates Bollinger Bands Width indicator on the plot.
      */
-    public BBandsWidth bbandsWidth(StockSeriesType seriesType8, TableMapping mapping6, Double period5, Double deviation2) {
+    public BBandsWidth bbandsWidth(TableMapping mapping6, Double period5, Double deviation2, StockSeriesType seriesType8) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            
-            this.seriesType8 = seriesType8;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1481,19 +1512,33 @@ public class Plot extends VisualBaseWithBounds {
             this.deviation2 = null;
             
             this.deviation2 = deviation2;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            
             this.seriesType8 = seriesType8;
+        } else {
             this.mapping6 = mapping6;
             this.period5 = period5;
             this.deviation2 = deviation2;
+            this.seriesType8 = seriesType8;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping6.generateJs());
+            js.append(String.format(Locale.US, "var setBbandsWidth" + ++variableIndex + " = " + jsBase + ".bbandsWidth(%s, %f, %f, %s);", ((mapping6 != null) ? mapping6.getJsBase() : "null"), period5, deviation2, ((seriesType8 != null) ? seriesType8.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", ((seriesType8 != null) ? seriesType8.generateJs() : "null"), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %f, %f, %s)", ((mapping6 != null) ? mapping6.getJsBase() : "null"), period5, deviation2, ((seriesType8 != null) ? seriesType8.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1517,20 +1562,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates Bollinger Bands Width indicator on the plot.
      */
-    public BBandsWidth bbandsWidth(String seriesType9, TableMapping mapping6, Double period5, Double deviation2) {
+    public BBandsWidth bbandsWidth(TableMapping mapping6, Double period5, Double deviation2, String seriesType9) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            
-            this.seriesType9 = seriesType9;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1553,19 +1586,33 @@ public class Plot extends VisualBaseWithBounds {
             this.deviation2 = null;
             
             this.deviation2 = deviation2;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            
             this.seriesType9 = seriesType9;
+        } else {
             this.mapping6 = mapping6;
             this.period5 = period5;
             this.deviation2 = deviation2;
+            this.seriesType9 = seriesType9;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping6.generateJs());
+            js.append(String.format(Locale.US, "var setBbandsWidth1" + ++variableIndex + " = " + jsBase + ".bbandsWidth(%s, %f, %f, %s);", ((mapping6 != null) ? mapping6.getJsBase() : "null"), period5, deviation2, wrapQuotes(seriesType9)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %s, %f, %f)", wrapQuotes(seriesType9), ((mapping6 != null) ? mapping6.generateJs() : "null"), period5, deviation2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %f, %f, %s)", ((mapping6 != null) ? mapping6.getJsBase() : "null"), period5, deviation2, wrapQuotes(seriesType9)));
                 js.setLength(0);
             }
         }
@@ -1624,22 +1671,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates a Commodity Channel Index indicator on the chart.
      */
-    public CCI cci(StockSeriesType seriesType10, TableMapping mapping7, Double period6) {
+    public CCI cci(TableMapping mapping7, Double period6, StockSeriesType seriesType10) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            
-            this.seriesType10 = seriesType10;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1659,18 +1692,34 @@ public class Plot extends VisualBaseWithBounds {
             this.period6 = null;
             
             this.period6 = period6;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            
             this.seriesType10 = seriesType10;
+        } else {
             this.mapping7 = mapping7;
             this.period6 = period6;
+            this.seriesType10 = seriesType10;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping7.generateJs());
+            js.append(String.format(Locale.US, "var setCci" + ++variableIndex + " = " + jsBase + ".cci(%s, %f, %s);", ((mapping7 != null) ? mapping7.getJsBase() : "null"), period6, ((seriesType10 != null) ? seriesType10.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", ((seriesType10 != null) ? seriesType10.generateJs() : "null"), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %f, %s)", ((mapping7 != null) ? mapping7.getJsBase() : "null"), period6, ((seriesType10 != null) ? seriesType10.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1694,22 +1743,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates a Commodity Channel Index indicator on the chart.
      */
-    public CCI cci(String seriesType11, TableMapping mapping7, Double period6) {
+    public CCI cci(TableMapping mapping7, Double period6, String seriesType11) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            
-            this.seriesType11 = seriesType11;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -1729,18 +1764,34 @@ public class Plot extends VisualBaseWithBounds {
             this.period6 = null;
             
             this.period6 = period6;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            
             this.seriesType11 = seriesType11;
+        } else {
             this.mapping7 = mapping7;
             this.period6 = period6;
+            this.seriesType11 = seriesType11;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping7.generateJs());
+            js.append(String.format(Locale.US, "var setCci1" + ++variableIndex + " = " + jsBase + ".cci(%s, %f, %s);", ((mapping7 != null) ? mapping7.getJsBase() : "null"), period6, wrapQuotes(seriesType11)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %s, %f)", wrapQuotes(seriesType11), ((mapping7 != null) ? mapping7.generateJs() : "null"), period6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %f, %s)", ((mapping7 != null) ? mapping7.getJsBase() : "null"), period6, wrapQuotes(seriesType11)));
                 js.setLength(0);
             }
         }
@@ -1771,8 +1822,27 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates a Chaikin Oscillator indicator on the chart.
      */
-    public CHO cho(MovingAverageType maType, StockSeriesType seriesType12, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1) {
+    public CHO cho(TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, MovingAverageType maType, StockSeriesType seriesType12) {
         if (jsBase == null) {
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            
+            this.mapping8 = mapping8;
+            this.fastPeriod = null;
+            this.fastPeriod1 = null;
+            
+            this.fastPeriod1 = fastPeriod1;
+            this.slowPeriod = null;
+            this.slowPeriod1 = null;
+            
+            this.slowPeriod1 = slowPeriod1;
             this.maType = null;
             this.maType1 = null;
             
@@ -1793,39 +1863,22 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType13 = null;
             
             this.seriesType12 = seriesType12;
-            this.mapping = null;
-            this.mapping1 = null;
-            this.mapping2 = null;
-            this.mapping3 = null;
-            this.mapping4 = null;
-            this.mapping5 = null;
-            this.mapping6 = null;
-            this.mapping7 = null;
-            this.mapping8 = null;
-            
-            this.mapping8 = mapping8;
-            this.fastPeriod = null;
-            this.fastPeriod1 = null;
-            
-            this.fastPeriod1 = fastPeriod1;
-            this.slowPeriod = null;
-            this.slowPeriod1 = null;
-            
-            this.slowPeriod1 = slowPeriod1;
         } else {
+            this.mapping8 = mapping8;
+            this.fastPeriod1 = fastPeriod1;
+            this.slowPeriod1 = slowPeriod1;
             this.maType = maType;
             this.seriesType12 = seriesType12;
-            this.mapping8 = mapping8;
-            this.fastPeriod1 = fastPeriod1;
-            this.slowPeriod1 = slowPeriod1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping8.generateJs());
+            js.append(String.format(Locale.US, "var setCho" + ++variableIndex + " = " + jsBase + ".cho(%s, %f, %f, %s, %s);", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, ((maType != null) ? maType.generateJs() : "null"), ((seriesType12 != null) ? seriesType12.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", ((maType != null) ? maType.generateJs() : "null"), ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %f, %f, %s, %s)", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, ((maType != null) ? maType.generateJs() : "null"), ((seriesType12 != null) ? seriesType12.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1849,8 +1902,27 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates a Chaikin Oscillator indicator on the chart.
      */
-    public CHO cho(MovingAverageType maType, String seriesType13, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1) {
+    public CHO cho(TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, MovingAverageType maType, String seriesType13) {
         if (jsBase == null) {
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            
+            this.mapping8 = mapping8;
+            this.fastPeriod = null;
+            this.fastPeriod1 = null;
+            
+            this.fastPeriod1 = fastPeriod1;
+            this.slowPeriod = null;
+            this.slowPeriod1 = null;
+            
+            this.slowPeriod1 = slowPeriod1;
             this.maType = null;
             this.maType1 = null;
             
@@ -1871,39 +1943,22 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType13 = null;
             
             this.seriesType13 = seriesType13;
-            this.mapping = null;
-            this.mapping1 = null;
-            this.mapping2 = null;
-            this.mapping3 = null;
-            this.mapping4 = null;
-            this.mapping5 = null;
-            this.mapping6 = null;
-            this.mapping7 = null;
-            this.mapping8 = null;
-            
-            this.mapping8 = mapping8;
-            this.fastPeriod = null;
-            this.fastPeriod1 = null;
-            
-            this.fastPeriod1 = fastPeriod1;
-            this.slowPeriod = null;
-            this.slowPeriod1 = null;
-            
-            this.slowPeriod1 = slowPeriod1;
         } else {
+            this.mapping8 = mapping8;
+            this.fastPeriod1 = fastPeriod1;
+            this.slowPeriod1 = slowPeriod1;
             this.maType = maType;
             this.seriesType13 = seriesType13;
-            this.mapping8 = mapping8;
-            this.fastPeriod1 = fastPeriod1;
-            this.slowPeriod1 = slowPeriod1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping8.generateJs());
+            js.append(String.format(Locale.US, "var setCho1" + ++variableIndex + " = " + jsBase + ".cho(%s, %f, %f, %s, %s);", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, ((maType != null) ? maType.generateJs() : "null"), wrapQuotes(seriesType13)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", ((maType != null) ? maType.generateJs() : "null"), wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %f, %f, %s, %s)", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, ((maType != null) ? maType.generateJs() : "null"), wrapQuotes(seriesType13)));
                 js.setLength(0);
             }
         }
@@ -1927,8 +1982,27 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates a Chaikin Oscillator indicator on the chart.
      */
-    public CHO cho(String maType1, StockSeriesType seriesType12, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1) {
+    public CHO cho(TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, String maType1, StockSeriesType seriesType12) {
         if (jsBase == null) {
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            
+            this.mapping8 = mapping8;
+            this.fastPeriod = null;
+            this.fastPeriod1 = null;
+            
+            this.fastPeriod1 = fastPeriod1;
+            this.slowPeriod = null;
+            this.slowPeriod1 = null;
+            
+            this.slowPeriod1 = slowPeriod1;
             this.maType = null;
             this.maType1 = null;
             
@@ -1949,39 +2023,22 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType13 = null;
             
             this.seriesType12 = seriesType12;
-            this.mapping = null;
-            this.mapping1 = null;
-            this.mapping2 = null;
-            this.mapping3 = null;
-            this.mapping4 = null;
-            this.mapping5 = null;
-            this.mapping6 = null;
-            this.mapping7 = null;
-            this.mapping8 = null;
-            
-            this.mapping8 = mapping8;
-            this.fastPeriod = null;
-            this.fastPeriod1 = null;
-            
-            this.fastPeriod1 = fastPeriod1;
-            this.slowPeriod = null;
-            this.slowPeriod1 = null;
-            
-            this.slowPeriod1 = slowPeriod1;
         } else {
+            this.mapping8 = mapping8;
+            this.fastPeriod1 = fastPeriod1;
+            this.slowPeriod1 = slowPeriod1;
             this.maType1 = maType1;
             this.seriesType12 = seriesType12;
-            this.mapping8 = mapping8;
-            this.fastPeriod1 = fastPeriod1;
-            this.slowPeriod1 = slowPeriod1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping8.generateJs());
+            js.append(String.format(Locale.US, "var setCho2" + ++variableIndex + " = " + jsBase + ".cho(%s, %f, %f, %s, %s);", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType1), ((seriesType12 != null) ? seriesType12.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", wrapQuotes(maType1), ((seriesType12 != null) ? seriesType12.generateJs() : "null"), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %f, %f, %s, %s)", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType1), ((seriesType12 != null) ? seriesType12.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2005,8 +2062,27 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates a Chaikin Oscillator indicator on the chart.
      */
-    public CHO cho(String maType1, String seriesType13, TableMapping mapping8, Double fastPeriod1, Double slowPeriod1) {
+    public CHO cho(TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, String maType1, String seriesType13) {
         if (jsBase == null) {
+            this.mapping = null;
+            this.mapping1 = null;
+            this.mapping2 = null;
+            this.mapping3 = null;
+            this.mapping4 = null;
+            this.mapping5 = null;
+            this.mapping6 = null;
+            this.mapping7 = null;
+            this.mapping8 = null;
+            
+            this.mapping8 = mapping8;
+            this.fastPeriod = null;
+            this.fastPeriod1 = null;
+            
+            this.fastPeriod1 = fastPeriod1;
+            this.slowPeriod = null;
+            this.slowPeriod1 = null;
+            
+            this.slowPeriod1 = slowPeriod1;
             this.maType = null;
             this.maType1 = null;
             
@@ -2027,39 +2103,22 @@ public class Plot extends VisualBaseWithBounds {
             this.seriesType13 = null;
             
             this.seriesType13 = seriesType13;
-            this.mapping = null;
-            this.mapping1 = null;
-            this.mapping2 = null;
-            this.mapping3 = null;
-            this.mapping4 = null;
-            this.mapping5 = null;
-            this.mapping6 = null;
-            this.mapping7 = null;
-            this.mapping8 = null;
-            
-            this.mapping8 = mapping8;
-            this.fastPeriod = null;
-            this.fastPeriod1 = null;
-            
-            this.fastPeriod1 = fastPeriod1;
-            this.slowPeriod = null;
-            this.slowPeriod1 = null;
-            
-            this.slowPeriod1 = slowPeriod1;
         } else {
+            this.mapping8 = mapping8;
+            this.fastPeriod1 = fastPeriod1;
+            this.slowPeriod1 = slowPeriod1;
             this.maType1 = maType1;
             this.seriesType13 = seriesType13;
-            this.mapping8 = mapping8;
-            this.fastPeriod1 = fastPeriod1;
-            this.slowPeriod1 = slowPeriod1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping8.generateJs());
+            js.append(String.format(Locale.US, "var setCho3" + ++variableIndex + " = " + jsBase + ".cho(%s, %f, %f, %s, %s);", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType1), wrapQuotes(seriesType13)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %s, %s, %f, %f)", wrapQuotes(maType1), wrapQuotes(seriesType13), ((mapping8 != null) ? mapping8.generateJs() : "null"), fastPeriod1, slowPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %f, %f, %s, %s)", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType1), wrapQuotes(seriesType13)));
                 js.setLength(0);
             }
         }
@@ -2087,26 +2146,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates a Chaikin Money Flow indicator on the chart.
      */
-    public CMF cmf(StockSeriesType seriesType14, TableMapping mapping9, Double period7) {
+    public CMF cmf(TableMapping mapping9, Double period7, StockSeriesType seriesType14) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            
-            this.seriesType14 = seriesType14;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2129,18 +2170,38 @@ public class Plot extends VisualBaseWithBounds {
             this.period7 = null;
             
             this.period7 = period7;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            
             this.seriesType14 = seriesType14;
+        } else {
             this.mapping9 = mapping9;
             this.period7 = period7;
+            this.seriesType14 = seriesType14;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping9.generateJs());
+            js.append(String.format(Locale.US, "var setCmf" + ++variableIndex + " = " + jsBase + ".cmf(%s, %f, %s);", ((mapping9 != null) ? mapping9.getJsBase() : "null"), period7, ((seriesType14 != null) ? seriesType14.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", ((seriesType14 != null) ? seriesType14.generateJs() : "null"), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %f, %s)", ((mapping9 != null) ? mapping9.getJsBase() : "null"), period7, ((seriesType14 != null) ? seriesType14.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2164,26 +2225,8 @@ public class Plot extends VisualBaseWithBounds {
     /**
      * Creates a Chaikin Money Flow indicator on the chart.
      */
-    public CMF cmf(String seriesType15, TableMapping mapping9, Double period7) {
+    public CMF cmf(TableMapping mapping9, Double period7, String seriesType15) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            
-            this.seriesType15 = seriesType15;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2206,18 +2249,38 @@ public class Plot extends VisualBaseWithBounds {
             this.period7 = null;
             
             this.period7 = period7;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            
             this.seriesType15 = seriesType15;
+        } else {
             this.mapping9 = mapping9;
             this.period7 = period7;
+            this.seriesType15 = seriesType15;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping9.generateJs());
+            js.append(String.format(Locale.US, "var setCmf1" + ++variableIndex + " = " + jsBase + ".cmf(%s, %f, %s);", ((mapping9 != null) ? mapping9.getJsBase() : "null"), period7, wrapQuotes(seriesType15)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %s, %f)", wrapQuotes(seriesType15), ((mapping9 != null) ? mapping9.generateJs() : "null"), period7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %f, %s)", ((mapping9 != null) ? mapping9.getJsBase() : "null"), period7, wrapQuotes(seriesType15)));
                 js.setLength(0);
             }
         }
@@ -2299,6 +2362,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".crosshair(%s)", wrapQuotes(crosshair)));
 
             if (isRendered) {
@@ -2337,6 +2401,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
 
             if (isRendered) {
@@ -2376,6 +2441,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".defaultSeriesType(%s)", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
 
             if (isRendered) {
@@ -2413,6 +2479,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType1)));
 
             if (isRendered) {
@@ -2448,20 +2515,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
-            this.pdiSeriesType = null;
-            this.pdiSeriesType1 = null;
-            
-            this.pdiSeriesType = pdiSeriesType;
-            this.ndiSeriesType = null;
-            this.ndiSeriesType1 = null;
-            
-            this.ndiSeriesType = ndiSeriesType;
-            this.adxSeriesType = null;
-            this.adxSeriesType1 = null;
-            
-            this.adxSeriesType = adxSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2488,22 +2543,36 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-        } else {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
             this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
             this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
             this.adxSeriesType = adxSeriesType;
+        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+            this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = adxSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping10.generateJs());
+            js.append(String.format(Locale.US, "var setDmi" + ++variableIndex + " = " + jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2527,20 +2596,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, String adxSeriesType1) {
         if (jsBase == null) {
-            this.pdiSeriesType = null;
-            this.pdiSeriesType1 = null;
-            
-            this.pdiSeriesType = pdiSeriesType;
-            this.ndiSeriesType = null;
-            this.ndiSeriesType1 = null;
-            
-            this.ndiSeriesType = ndiSeriesType;
-            this.adxSeriesType = null;
-            this.adxSeriesType1 = null;
-            
-            this.adxSeriesType1 = adxSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2567,22 +2624,36 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-        } else {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
             this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
             this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
             this.adxSeriesType1 = adxSeriesType1;
+        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+            this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType1 = adxSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping10.generateJs());
+            js.append(String.format(Locale.US, "var setDmi1" + ++variableIndex + " = " + jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -2606,20 +2677,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(StockSeriesType pdiSeriesType, String ndiSeriesType1, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, String ndiSeriesType1, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
-            this.pdiSeriesType = null;
-            this.pdiSeriesType1 = null;
-            
-            this.pdiSeriesType = pdiSeriesType;
-            this.ndiSeriesType = null;
-            this.ndiSeriesType1 = null;
-            
-            this.ndiSeriesType1 = ndiSeriesType1;
-            this.adxSeriesType = null;
-            this.adxSeriesType1 = null;
-            
-            this.adxSeriesType = adxSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2646,22 +2705,36 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-        } else {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
             this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
             this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
             this.adxSeriesType = adxSeriesType;
+        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+            this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = adxSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping10.generateJs());
+            js.append(String.format(Locale.US, "var setDmi2" + ++variableIndex + " = " + jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2685,20 +2758,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(StockSeriesType pdiSeriesType, String ndiSeriesType1, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, String ndiSeriesType1, String adxSeriesType1) {
         if (jsBase == null) {
-            this.pdiSeriesType = null;
-            this.pdiSeriesType1 = null;
-            
-            this.pdiSeriesType = pdiSeriesType;
-            this.ndiSeriesType = null;
-            this.ndiSeriesType1 = null;
-            
-            this.ndiSeriesType1 = ndiSeriesType1;
-            this.adxSeriesType = null;
-            this.adxSeriesType1 = null;
-            
-            this.adxSeriesType1 = adxSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2725,22 +2786,36 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-        } else {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
             this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
             this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
             this.adxSeriesType1 = adxSeriesType1;
+        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+            this.pdiSeriesType = pdiSeriesType;
+            this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType1 = adxSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping10.generateJs());
+            js.append(String.format(Locale.US, "var setDmi3" + ++variableIndex + " = " + jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -2764,20 +2839,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(String pdiSeriesType1, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
-            this.pdiSeriesType = null;
-            this.pdiSeriesType1 = null;
-            
-            this.pdiSeriesType1 = pdiSeriesType1;
-            this.ndiSeriesType = null;
-            this.ndiSeriesType1 = null;
-            
-            this.ndiSeriesType = ndiSeriesType;
-            this.adxSeriesType = null;
-            this.adxSeriesType1 = null;
-            
-            this.adxSeriesType = adxSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2804,22 +2867,36 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-        } else {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
             this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
             this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
             this.adxSeriesType = adxSeriesType;
+        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+            this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = adxSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping10.generateJs());
+            js.append(String.format(Locale.US, "var setDmi4" + ++variableIndex + " = " + jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2843,20 +2920,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(String pdiSeriesType1, StockSeriesType ndiSeriesType, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, StockSeriesType ndiSeriesType, String adxSeriesType1) {
         if (jsBase == null) {
-            this.pdiSeriesType = null;
-            this.pdiSeriesType1 = null;
-            
-            this.pdiSeriesType1 = pdiSeriesType1;
-            this.ndiSeriesType = null;
-            this.ndiSeriesType1 = null;
-            
-            this.ndiSeriesType = ndiSeriesType;
-            this.adxSeriesType = null;
-            this.adxSeriesType1 = null;
-            
-            this.adxSeriesType1 = adxSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2883,22 +2948,36 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-        } else {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
             this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
             this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
             this.adxSeriesType1 = adxSeriesType1;
+        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+            this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = ndiSeriesType;
+            this.adxSeriesType1 = adxSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping10.generateJs());
+            js.append(String.format(Locale.US, "var setDmi5" + ++variableIndex + " = " + jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -2922,20 +3001,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(String pdiSeriesType1, String ndiSeriesType1, StockSeriesType adxSeriesType, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, String ndiSeriesType1, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
-            this.pdiSeriesType = null;
-            this.pdiSeriesType1 = null;
-            
-            this.pdiSeriesType1 = pdiSeriesType1;
-            this.ndiSeriesType = null;
-            this.ndiSeriesType1 = null;
-            
-            this.ndiSeriesType1 = ndiSeriesType1;
-            this.adxSeriesType = null;
-            this.adxSeriesType1 = null;
-            
-            this.adxSeriesType = adxSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -2962,22 +3029,36 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-        } else {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
             this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
             this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
             this.adxSeriesType = adxSeriesType;
+        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+            this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = adxSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping10.generateJs());
+            js.append(String.format(Locale.US, "var setDmi6" + ++variableIndex + " = " + jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null"), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3001,20 +3082,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(String pdiSeriesType1, String ndiSeriesType1, String adxSeriesType1, TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing) {
+    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, String ndiSeriesType1, String adxSeriesType1) {
         if (jsBase == null) {
-            this.pdiSeriesType = null;
-            this.pdiSeriesType1 = null;
-            
-            this.pdiSeriesType1 = pdiSeriesType1;
-            this.ndiSeriesType = null;
-            this.ndiSeriesType1 = null;
-            
-            this.ndiSeriesType1 = ndiSeriesType1;
-            this.adxSeriesType = null;
-            this.adxSeriesType1 = null;
-            
-            this.adxSeriesType1 = adxSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -3041,22 +3110,36 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
-        } else {
+            this.pdiSeriesType = null;
+            this.pdiSeriesType1 = null;
+            
             this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType = null;
+            this.ndiSeriesType1 = null;
+            
             this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType = null;
+            this.adxSeriesType1 = null;
+            
             this.adxSeriesType1 = adxSeriesType1;
+        } else {
             this.mapping10 = mapping10;
             this.period8 = period8;
             this.adxPeriod = adxPeriod;
             this.useWildersSmoothing = useWildersSmoothing;
+            this.pdiSeriesType1 = pdiSeriesType1;
+            this.ndiSeriesType1 = ndiSeriesType1;
+            this.adxSeriesType1 = adxSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping10.generateJs());
+            js.append(String.format(Locale.US, "var setDmi7" + ++variableIndex + " = " + jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %s, %s, %s, %f, %f, %b)", wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1), ((mapping10 != null) ? mapping10.generateJs() : "null"), period8, adxPeriod, useWildersSmoothing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -3084,28 +3167,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates EMA (Exponential Moving Average) indicator on the plot.
      */
-    public EMA ema(StockSeriesType seriesType16, TableMapping mapping11, Double period9) {
+    public EMA ema(TableMapping mapping11, Double period9, StockSeriesType seriesType16) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            
-            this.seriesType16 = seriesType16;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -3132,18 +3195,40 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period9 = null;
             
             this.period9 = period9;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            
             this.seriesType16 = seriesType16;
+        } else {
             this.mapping11 = mapping11;
             this.period9 = period9;
+            this.seriesType16 = seriesType16;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping11.generateJs());
+            js.append(String.format(Locale.US, "var setEma" + ++variableIndex + " = " + jsBase + ".ema(%s, %f, %s);", ((mapping11 != null) ? mapping11.getJsBase() : "null"), period9, ((seriesType16 != null) ? seriesType16.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", ((seriesType16 != null) ? seriesType16.generateJs() : "null"), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %f, %s)", ((mapping11 != null) ? mapping11.getJsBase() : "null"), period9, ((seriesType16 != null) ? seriesType16.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3167,28 +3252,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates EMA (Exponential Moving Average) indicator on the plot.
      */
-    public EMA ema(String seriesType17, TableMapping mapping11, Double period9) {
+    public EMA ema(TableMapping mapping11, Double period9, String seriesType17) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            
-            this.seriesType17 = seriesType17;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -3215,18 +3280,40 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period9 = null;
             
             this.period9 = period9;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            
             this.seriesType17 = seriesType17;
+        } else {
             this.mapping11 = mapping11;
             this.period9 = period9;
+            this.seriesType17 = seriesType17;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping11.generateJs());
+            js.append(String.format(Locale.US, "var setEma1" + ++variableIndex + " = " + jsBase + ".ema(%s, %f, %s);", ((mapping11 != null) ? mapping11.getJsBase() : "null"), period9, wrapQuotes(seriesType17)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %s, %f)", wrapQuotes(seriesType17), ((mapping11 != null) ? mapping11.generateJs() : "null"), period9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %f, %s)", ((mapping11 != null) ? mapping11.getJsBase() : "null"), period9, wrapQuotes(seriesType17)));
                 js.setLength(0);
             }
         }
@@ -3312,6 +3399,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setHatchFillPalette" + ++variableIndex + " = " + jsBase + ".hatchFillPalette(%s);", arrayToString(hatchFillPalette)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
@@ -3351,6 +3440,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setHatchFillPalette1" + ++variableIndex + " = " + jsBase + ".hatchFillPalette(%s);", wrapQuotes(hatchFillPalette1)));
             
 
             if (isRendered) {
@@ -3494,28 +3585,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -3534,28 +3605,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3579,28 +3672,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -3619,28 +3692,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj1" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -3664,28 +3759,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -3704,28 +3779,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj2" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3749,28 +3846,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -3789,28 +3866,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj3" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -3834,28 +3933,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -3874,28 +3953,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj4" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3919,28 +4020,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -3959,28 +4040,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj5" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4004,28 +4107,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4044,28 +4127,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj6" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4089,28 +4194,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(MovingAverageType kMAType, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4129,28 +4214,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj7" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4174,28 +4281,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4214,28 +4301,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj8" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4259,28 +4368,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4299,28 +4388,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj9" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4344,28 +4455,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4384,28 +4475,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj10" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4429,28 +4542,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(MovingAverageType kMAType, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4469,28 +4562,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj11" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4514,28 +4629,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4554,28 +4649,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj12" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4599,28 +4716,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4639,28 +4736,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj13" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4684,28 +4803,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4724,28 +4823,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj14" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4769,28 +4890,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(MovingAverageType kMAType, String dMAType1, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType = kMAType;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4809,28 +4910,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType = kMAType;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType = kMAType;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj15" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", ((kMAType != null) ? kMAType.generateJs() : "null"), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4854,28 +4977,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4894,28 +4997,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj16" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4939,28 +5064,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -4979,28 +5084,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj17" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5024,28 +5151,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5064,28 +5171,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj18" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5109,28 +5238,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(String kMAType1, MovingAverageType dMAType, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5149,28 +5258,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj19" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5194,28 +5325,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5234,28 +5345,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj20" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5279,28 +5412,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5319,28 +5432,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj21" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5364,28 +5499,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5404,28 +5519,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj22" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5449,28 +5586,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(String kMAType1, MovingAverageType dMAType, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType = dMAType;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5489,28 +5606,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType = dMAType;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType = dMAType;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj23" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), ((dMAType != null) ? dMAType.generateJs() : "null"), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5534,28 +5673,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5574,28 +5693,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj24" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5619,28 +5760,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5659,28 +5780,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj25" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5704,28 +5847,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5744,28 +5867,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj26" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5789,28 +5934,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(String kMAType1, String dMAType1, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType = kSeriesType;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5829,28 +5954,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType = kSeriesType;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType = kSeriesType;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj27" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5874,28 +6021,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5914,28 +6041,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj28" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5959,28 +6108,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType = dSeriesType;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -5999,28 +6128,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType = dSeriesType;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = dSeriesType;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj29" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -6044,28 +6195,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType = jSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6084,28 +6215,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType = jSeriesType;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = jSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj30" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null"), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6129,28 +6282,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a KDJ indicator on the plot.
      */
-    public KDJ kdj(String kMAType1, String dMAType1, String kSeriesType1, String dSeriesType1, String jSeriesType1, TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, Double kMultiplier, Double dMultiplier) {
+    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            
-            this.kMAType1 = kMAType1;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            
-            this.dMAType1 = dMAType1;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            
-            this.kSeriesType1 = kSeriesType1;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            
-            this.dSeriesType1 = dSeriesType1;
-            this.jSeriesType = null;
-            this.jSeriesType1 = null;
-            
-            this.jSeriesType1 = jSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6169,28 +6302,50 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
-            this.kMultiplier = kMultiplier;
-            this.dMultiplier = dMultiplier;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            
             this.kMAType1 = kMAType1;
+            this.kMultiplier = kMultiplier;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            
             this.dMAType1 = dMAType1;
+            this.dMultiplier = dMultiplier;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            
             this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            
             this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType = null;
+            this.jSeriesType1 = null;
+            
             this.jSeriesType1 = jSeriesType1;
+        } else {
             this.mapping12 = mapping12;
             this.kPeriod = kPeriod;
             this.kMAPeriod = kMAPeriod;
             this.dPeriod = dPeriod;
+            this.kMAType1 = kMAType1;
             this.kMultiplier = kMultiplier;
+            this.dMAType1 = dMAType1;
             this.dMultiplier = dMultiplier;
+            this.kSeriesType1 = kSeriesType1;
+            this.dSeriesType1 = dSeriesType1;
+            this.jSeriesType1 = jSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping12.generateJs());
+            js.append(String.format(Locale.US, "var setKdj31" + ++variableIndex + " = " + jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %s, %s, %s, %s, %s, %f, %f, %f, %f, %f)", wrapQuotes(kMAType1), wrapQuotes(dMAType1), wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1), ((mapping12 != null) ? mapping12.generateJs() : "null"), kPeriod, kMAPeriod, dPeriod, kMultiplier, dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -6240,6 +6395,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".legend(%s)", wrapQuotes(legend)));
 
             if (isRendered) {
@@ -6277,6 +6433,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".legend(%b)", legend1));
 
             if (isRendered) {
@@ -6343,20 +6500,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
      */
-    public MACD macd(StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType) {
         if (jsBase == null) {
-            this.macdSeriesType = null;
-            this.macdSeriesType1 = null;
-            
-            this.macdSeriesType = macdSeriesType;
-            this.signalSeriesType = null;
-            this.signalSeriesType1 = null;
-            
-            this.signalSeriesType = signalSeriesType;
-            this.histogramSeriesType = null;
-            this.histogramSeriesType1 = null;
-            
-            this.histogramSeriesType = histogramSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6384,22 +6529,36 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-        } else {
+            this.macdSeriesType = null;
+            this.macdSeriesType1 = null;
+            
             this.macdSeriesType = macdSeriesType;
+            this.signalSeriesType = null;
+            this.signalSeriesType1 = null;
+            
             this.signalSeriesType = signalSeriesType;
+            this.histogramSeriesType = null;
+            this.histogramSeriesType1 = null;
+            
             this.histogramSeriesType = histogramSeriesType;
+        } else {
             this.mapping13 = mapping13;
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+            this.macdSeriesType = macdSeriesType;
+            this.signalSeriesType = signalSeriesType;
+            this.histogramSeriesType = histogramSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping13.generateJs());
+            js.append(String.format(Locale.US, "var setMacd" + ++variableIndex + " = " + jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6423,20 +6582,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
      */
-    public MACD macd(StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, String histogramSeriesType1) {
         if (jsBase == null) {
-            this.macdSeriesType = null;
-            this.macdSeriesType1 = null;
-            
-            this.macdSeriesType = macdSeriesType;
-            this.signalSeriesType = null;
-            this.signalSeriesType1 = null;
-            
-            this.signalSeriesType = signalSeriesType;
-            this.histogramSeriesType = null;
-            this.histogramSeriesType1 = null;
-            
-            this.histogramSeriesType1 = histogramSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6464,22 +6611,36 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-        } else {
+            this.macdSeriesType = null;
+            this.macdSeriesType1 = null;
+            
             this.macdSeriesType = macdSeriesType;
+            this.signalSeriesType = null;
+            this.signalSeriesType1 = null;
+            
             this.signalSeriesType = signalSeriesType;
+            this.histogramSeriesType = null;
+            this.histogramSeriesType1 = null;
+            
             this.histogramSeriesType1 = histogramSeriesType1;
+        } else {
             this.mapping13 = mapping13;
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+            this.macdSeriesType = macdSeriesType;
+            this.signalSeriesType = signalSeriesType;
+            this.histogramSeriesType1 = histogramSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping13.generateJs());
+            js.append(String.format(Locale.US, "var setMacd1" + ++variableIndex + " = " + jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -6503,20 +6664,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
      */
-    public MACD macd(StockSeriesType macdSeriesType, String signalSeriesType1, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, StockSeriesType macdSeriesType, String signalSeriesType1, StockSeriesType histogramSeriesType) {
         if (jsBase == null) {
-            this.macdSeriesType = null;
-            this.macdSeriesType1 = null;
-            
-            this.macdSeriesType = macdSeriesType;
-            this.signalSeriesType = null;
-            this.signalSeriesType1 = null;
-            
-            this.signalSeriesType1 = signalSeriesType1;
-            this.histogramSeriesType = null;
-            this.histogramSeriesType1 = null;
-            
-            this.histogramSeriesType = histogramSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6544,22 +6693,36 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-        } else {
+            this.macdSeriesType = null;
+            this.macdSeriesType1 = null;
+            
             this.macdSeriesType = macdSeriesType;
+            this.signalSeriesType = null;
+            this.signalSeriesType1 = null;
+            
             this.signalSeriesType1 = signalSeriesType1;
+            this.histogramSeriesType = null;
+            this.histogramSeriesType1 = null;
+            
             this.histogramSeriesType = histogramSeriesType;
+        } else {
             this.mapping13 = mapping13;
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+            this.macdSeriesType = macdSeriesType;
+            this.signalSeriesType1 = signalSeriesType1;
+            this.histogramSeriesType = histogramSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping13.generateJs());
+            js.append(String.format(Locale.US, "var setMacd2" + ++variableIndex + " = " + jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6583,20 +6746,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
      */
-    public MACD macd(StockSeriesType macdSeriesType, String signalSeriesType1, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, StockSeriesType macdSeriesType, String signalSeriesType1, String histogramSeriesType1) {
         if (jsBase == null) {
-            this.macdSeriesType = null;
-            this.macdSeriesType1 = null;
-            
-            this.macdSeriesType = macdSeriesType;
-            this.signalSeriesType = null;
-            this.signalSeriesType1 = null;
-            
-            this.signalSeriesType1 = signalSeriesType1;
-            this.histogramSeriesType = null;
-            this.histogramSeriesType1 = null;
-            
-            this.histogramSeriesType1 = histogramSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6624,22 +6775,36 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-        } else {
+            this.macdSeriesType = null;
+            this.macdSeriesType1 = null;
+            
             this.macdSeriesType = macdSeriesType;
+            this.signalSeriesType = null;
+            this.signalSeriesType1 = null;
+            
             this.signalSeriesType1 = signalSeriesType1;
+            this.histogramSeriesType = null;
+            this.histogramSeriesType1 = null;
+            
             this.histogramSeriesType1 = histogramSeriesType1;
+        } else {
             this.mapping13 = mapping13;
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+            this.macdSeriesType = macdSeriesType;
+            this.signalSeriesType1 = signalSeriesType1;
+            this.histogramSeriesType1 = histogramSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping13.generateJs());
+            js.append(String.format(Locale.US, "var setMacd3" + ++variableIndex + " = " + jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -6663,20 +6828,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
      */
-    public MACD macd(String macdSeriesType1, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, String macdSeriesType1, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType) {
         if (jsBase == null) {
-            this.macdSeriesType = null;
-            this.macdSeriesType1 = null;
-            
-            this.macdSeriesType1 = macdSeriesType1;
-            this.signalSeriesType = null;
-            this.signalSeriesType1 = null;
-            
-            this.signalSeriesType = signalSeriesType;
-            this.histogramSeriesType = null;
-            this.histogramSeriesType1 = null;
-            
-            this.histogramSeriesType = histogramSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6704,22 +6857,36 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-        } else {
+            this.macdSeriesType = null;
+            this.macdSeriesType1 = null;
+            
             this.macdSeriesType1 = macdSeriesType1;
+            this.signalSeriesType = null;
+            this.signalSeriesType1 = null;
+            
             this.signalSeriesType = signalSeriesType;
+            this.histogramSeriesType = null;
+            this.histogramSeriesType1 = null;
+            
             this.histogramSeriesType = histogramSeriesType;
+        } else {
             this.mapping13 = mapping13;
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+            this.macdSeriesType1 = macdSeriesType1;
+            this.signalSeriesType = signalSeriesType;
+            this.histogramSeriesType = histogramSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping13.generateJs());
+            js.append(String.format(Locale.US, "var setMacd4" + ++variableIndex + " = " + jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6743,20 +6910,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
      */
-    public MACD macd(String macdSeriesType1, StockSeriesType signalSeriesType, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, String macdSeriesType1, StockSeriesType signalSeriesType, String histogramSeriesType1) {
         if (jsBase == null) {
-            this.macdSeriesType = null;
-            this.macdSeriesType1 = null;
-            
-            this.macdSeriesType1 = macdSeriesType1;
-            this.signalSeriesType = null;
-            this.signalSeriesType1 = null;
-            
-            this.signalSeriesType = signalSeriesType;
-            this.histogramSeriesType = null;
-            this.histogramSeriesType1 = null;
-            
-            this.histogramSeriesType1 = histogramSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6784,22 +6939,36 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-        } else {
+            this.macdSeriesType = null;
+            this.macdSeriesType1 = null;
+            
             this.macdSeriesType1 = macdSeriesType1;
+            this.signalSeriesType = null;
+            this.signalSeriesType1 = null;
+            
             this.signalSeriesType = signalSeriesType;
+            this.histogramSeriesType = null;
+            this.histogramSeriesType1 = null;
+            
             this.histogramSeriesType1 = histogramSeriesType1;
+        } else {
             this.mapping13 = mapping13;
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+            this.macdSeriesType1 = macdSeriesType1;
+            this.signalSeriesType = signalSeriesType;
+            this.histogramSeriesType1 = histogramSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping13.generateJs());
+            js.append(String.format(Locale.US, "var setMacd5" + ++variableIndex + " = " + jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -6823,20 +6992,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
      */
-    public MACD macd(String macdSeriesType1, String signalSeriesType1, StockSeriesType histogramSeriesType, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, String macdSeriesType1, String signalSeriesType1, StockSeriesType histogramSeriesType) {
         if (jsBase == null) {
-            this.macdSeriesType = null;
-            this.macdSeriesType1 = null;
-            
-            this.macdSeriesType1 = macdSeriesType1;
-            this.signalSeriesType = null;
-            this.signalSeriesType1 = null;
-            
-            this.signalSeriesType1 = signalSeriesType1;
-            this.histogramSeriesType = null;
-            this.histogramSeriesType1 = null;
-            
-            this.histogramSeriesType = histogramSeriesType;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6864,22 +7021,36 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-        } else {
+            this.macdSeriesType = null;
+            this.macdSeriesType1 = null;
+            
             this.macdSeriesType1 = macdSeriesType1;
+            this.signalSeriesType = null;
+            this.signalSeriesType1 = null;
+            
             this.signalSeriesType1 = signalSeriesType1;
+            this.histogramSeriesType = null;
+            this.histogramSeriesType1 = null;
+            
             this.histogramSeriesType = histogramSeriesType;
+        } else {
             this.mapping13 = mapping13;
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+            this.macdSeriesType1 = macdSeriesType1;
+            this.signalSeriesType1 = signalSeriesType1;
+            this.histogramSeriesType = histogramSeriesType;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping13.generateJs());
+            js.append(String.format(Locale.US, "var setMacd6" + ++variableIndex + " = " + jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null"), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6903,20 +7074,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the plot.
      */
-    public MACD macd(String macdSeriesType1, String signalSeriesType1, String histogramSeriesType1, TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod) {
+    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, String macdSeriesType1, String signalSeriesType1, String histogramSeriesType1) {
         if (jsBase == null) {
-            this.macdSeriesType = null;
-            this.macdSeriesType1 = null;
-            
-            this.macdSeriesType1 = macdSeriesType1;
-            this.signalSeriesType = null;
-            this.signalSeriesType1 = null;
-            
-            this.signalSeriesType1 = signalSeriesType1;
-            this.histogramSeriesType = null;
-            this.histogramSeriesType1 = null;
-            
-            this.histogramSeriesType1 = histogramSeriesType1;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -6944,22 +7103,36 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
-        } else {
+            this.macdSeriesType = null;
+            this.macdSeriesType1 = null;
+            
             this.macdSeriesType1 = macdSeriesType1;
+            this.signalSeriesType = null;
+            this.signalSeriesType1 = null;
+            
             this.signalSeriesType1 = signalSeriesType1;
+            this.histogramSeriesType = null;
+            this.histogramSeriesType1 = null;
+            
             this.histogramSeriesType1 = histogramSeriesType1;
+        } else {
             this.mapping13 = mapping13;
             this.fastPeriod2 = fastPeriod2;
             this.slowPeriod2 = slowPeriod2;
             this.signalPeriod = signalPeriod;
+            this.macdSeriesType1 = macdSeriesType1;
+            this.signalSeriesType1 = signalSeriesType1;
+            this.histogramSeriesType1 = histogramSeriesType1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping13.generateJs());
+            js.append(String.format(Locale.US, "var setMacd7" + ++variableIndex + " = " + jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %s, %s, %s, %f, %f, %f)", wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1), ((mapping13 != null) ? mapping13.generateJs() : "null"), fastPeriod2, slowPeriod2, signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -7081,6 +7254,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
 
             if (isRendered) {
@@ -7120,6 +7294,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
 
             if (isRendered) {
@@ -7159,6 +7334,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
 
             if (isRendered) {
@@ -7198,6 +7374,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
 
             if (isRendered) {
@@ -7235,6 +7412,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
 
             if (isRendered) {
@@ -7274,6 +7452,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
 
             if (isRendered) {
@@ -7311,6 +7490,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
 
             if (isRendered) {
@@ -7340,30 +7520,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates MMA (Modified Moving Average) indicator on the plot.
      */
-    public MMA mma(StockSeriesType seriesType18, TableMapping mapping14, Double period10) {
+    public MMA mma(TableMapping mapping14, Double period10, StockSeriesType seriesType18) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            
-            this.seriesType18 = seriesType18;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -7394,18 +7552,42 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period10 = null;
             
             this.period10 = period10;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            
             this.seriesType18 = seriesType18;
+        } else {
             this.mapping14 = mapping14;
             this.period10 = period10;
+            this.seriesType18 = seriesType18;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping14.generateJs());
+            js.append(String.format(Locale.US, "var setMma" + ++variableIndex + " = " + jsBase + ".mma(%s, %f, %s);", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, ((seriesType18 != null) ? seriesType18.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", ((seriesType18 != null) ? seriesType18.generateJs() : "null"), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %f, %s)", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, ((seriesType18 != null) ? seriesType18.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7429,30 +7611,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates MMA (Modified Moving Average) indicator on the plot.
      */
-    public MMA mma(String seriesType19, TableMapping mapping14, Double period10) {
+    public MMA mma(TableMapping mapping14, Double period10, String seriesType19) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            
-            this.seriesType19 = seriesType19;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -7483,18 +7643,42 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period10 = null;
             
             this.period10 = period10;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            
             this.seriesType19 = seriesType19;
+        } else {
             this.mapping14 = mapping14;
             this.period10 = period10;
+            this.seriesType19 = seriesType19;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping14.generateJs());
+            js.append(String.format(Locale.US, "var setMma1" + ++variableIndex + " = " + jsBase + ".mma(%s, %f, %s);", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, wrapQuotes(seriesType19)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %s, %f)", wrapQuotes(seriesType19), ((mapping14 != null) ? mapping14.generateJs() : "null"), period10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %f, %s)", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, wrapQuotes(seriesType19)));
                 js.setLength(0);
             }
         }
@@ -7541,6 +7725,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".noData(%s)", wrapQuotes(noData)));
 
             if (isRendered) {
@@ -7701,6 +7886,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
 
             if (isRendered) {
@@ -7740,6 +7926,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
 
             if (isRendered) {
@@ -7779,6 +7966,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
 
             if (isRendered) {
@@ -7816,6 +8004,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
 
             if (isRendered) {
@@ -7866,6 +8055,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".priceIndicator(%s)", wrapQuotes(priceIndicator)));
 
             if (isRendered) {
@@ -7903,6 +8093,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".priceIndicator(%b)", priceIndicator1));
 
             if (isRendered) {
@@ -7931,26 +8122,27 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the stock price indicator settings by index.
      */
-    public Plot setPriceIndicator(String priceIndicator2, Double index) {
+    public Plot setPriceIndicator(Double index, String priceIndicator2) {
         if (jsBase == null) {
+            this.index = index;
             this.priceIndicator = null;
             this.priceIndicator1 = null;
             this.priceIndicator2 = null;
             this.priceIndicator3 = null;
             
             this.priceIndicator2 = priceIndicator2;
-            this.index = index;
         } else {
-            this.priceIndicator2 = priceIndicator2;
             this.index = index;
+            this.priceIndicator2 = priceIndicator2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".priceIndicator(%s, %f)", wrapQuotes(priceIndicator2), index));
+            
+            js.append(String.format(Locale.US, ".priceIndicator(%f, %s)", index, wrapQuotes(priceIndicator2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%s, %f)", wrapQuotes(priceIndicator2), index));
+                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%f, %s)", index, wrapQuotes(priceIndicator2)));
                 js.setLength(0);
             }
         }
@@ -7972,26 +8164,27 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the stock price indicator settings by index.
      */
-    public Plot setPriceIndicator(Boolean priceIndicator3, Double index) {
+    public Plot setPriceIndicator(Double index, Boolean priceIndicator3) {
         if (jsBase == null) {
+            this.index = index;
             this.priceIndicator = null;
             this.priceIndicator1 = null;
             this.priceIndicator2 = null;
             this.priceIndicator3 = null;
             
             this.priceIndicator3 = priceIndicator3;
-            this.index = index;
         } else {
-            this.priceIndicator3 = priceIndicator3;
             this.index = index;
+            this.priceIndicator3 = priceIndicator3;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".priceIndicator(%b, %f)", priceIndicator3, index));
+            
+            js.append(String.format(Locale.US, ".priceIndicator(%f, %b)", index, priceIndicator3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%b, %f)", priceIndicator3, index));
+                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%f, %b)", index, priceIndicator3));
                 js.setLength(0);
             }
         }
@@ -8151,6 +8344,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".removeSeries(%f)", id));
 
             if (isRendered) {
@@ -8188,6 +8382,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id1)));
 
             if (isRendered) {
@@ -8226,6 +8421,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
 
             if (isRendered) {
@@ -8255,32 +8451,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates RoC (Rate of Change) indicator on the plot.
      */
-    public RoC roc(StockSeriesType seriesType20, TableMapping mapping15, Double period11) {
+    public RoC roc(TableMapping mapping15, Double period11, StockSeriesType seriesType20) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            this.seriesType20 = null;
-            this.seriesType21 = null;
-            
-            this.seriesType20 = seriesType20;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -8313,18 +8485,44 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period11 = null;
             
             this.period11 = period11;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            
             this.seriesType20 = seriesType20;
+        } else {
             this.mapping15 = mapping15;
             this.period11 = period11;
+            this.seriesType20 = seriesType20;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping15.generateJs());
+            js.append(String.format(Locale.US, "var setRoc" + ++variableIndex + " = " + jsBase + ".roc(%s, %f, %s);", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, ((seriesType20 != null) ? seriesType20.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", ((seriesType20 != null) ? seriesType20.generateJs() : "null"), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %f, %s)", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, ((seriesType20 != null) ? seriesType20.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -8348,32 +8546,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates RoC (Rate of Change) indicator on the plot.
      */
-    public RoC roc(String seriesType21, TableMapping mapping15, Double period11) {
+    public RoC roc(TableMapping mapping15, Double period11, String seriesType21) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            this.seriesType20 = null;
-            this.seriesType21 = null;
-            
-            this.seriesType21 = seriesType21;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -8406,18 +8580,44 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period11 = null;
             
             this.period11 = period11;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            
             this.seriesType21 = seriesType21;
+        } else {
             this.mapping15 = mapping15;
             this.period11 = period11;
+            this.seriesType21 = seriesType21;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping15.generateJs());
+            js.append(String.format(Locale.US, "var setRoc1" + ++variableIndex + " = " + jsBase + ".roc(%s, %f, %s);", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, wrapQuotes(seriesType21)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %s, %f)", wrapQuotes(seriesType21), ((mapping15 != null) ? mapping15.generateJs() : "null"), period11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %f, %s)", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, wrapQuotes(seriesType21)));
                 js.setLength(0);
             }
         }
@@ -8445,34 +8645,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates RSI (Relative Strength Index) indicator on the plot.
      */
-    public RSI rsi(StockSeriesType seriesType22, TableMapping mapping16, Double period12) {
+    public RSI rsi(TableMapping mapping16, Double period12, StockSeriesType seriesType22) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            this.seriesType20 = null;
-            this.seriesType21 = null;
-            this.seriesType22 = null;
-            this.seriesType23 = null;
-            
-            this.seriesType22 = seriesType22;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -8507,18 +8681,46 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period12 = null;
             
             this.period12 = period12;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            
             this.seriesType22 = seriesType22;
+        } else {
             this.mapping16 = mapping16;
             this.period12 = period12;
+            this.seriesType22 = seriesType22;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping16.generateJs());
+            js.append(String.format(Locale.US, "var setRsi" + ++variableIndex + " = " + jsBase + ".rsi(%s, %f, %s);", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, ((seriesType22 != null) ? seriesType22.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", ((seriesType22 != null) ? seriesType22.generateJs() : "null"), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %f, %s)", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, ((seriesType22 != null) ? seriesType22.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -8542,34 +8744,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates RSI (Relative Strength Index) indicator on the plot.
      */
-    public RSI rsi(String seriesType23, TableMapping mapping16, Double period12) {
+    public RSI rsi(TableMapping mapping16, Double period12, String seriesType23) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            this.seriesType20 = null;
-            this.seriesType21 = null;
-            this.seriesType22 = null;
-            this.seriesType23 = null;
-            
-            this.seriesType23 = seriesType23;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -8604,18 +8780,46 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period12 = null;
             
             this.period12 = period12;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            
             this.seriesType23 = seriesType23;
+        } else {
             this.mapping16 = mapping16;
             this.period12 = period12;
+            this.seriesType23 = seriesType23;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping16.generateJs());
+            js.append(String.format(Locale.US, "var setRsi1" + ++variableIndex + " = " + jsBase + ".rsi(%s, %f, %s);", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, wrapQuotes(seriesType23)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %s, %f)", wrapQuotes(seriesType23), ((mapping16 != null) ? mapping16.generateJs() : "null"), period12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %f, %s)", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, wrapQuotes(seriesType23)));
                 js.setLength(0);
             }
         }
@@ -8643,36 +8847,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates SMA (Simple Moving Average) indicator on the plot.
      */
-    public SMA sma(StockSeriesType seriesType24, TableMapping mapping17, Double period13) {
+    public SMA sma(TableMapping mapping17, Double period13, StockSeriesType seriesType24) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            this.seriesType20 = null;
-            this.seriesType21 = null;
-            this.seriesType22 = null;
-            this.seriesType23 = null;
-            this.seriesType24 = null;
-            this.seriesType25 = null;
-            
-            this.seriesType24 = seriesType24;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -8709,18 +8885,48 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period13 = null;
             
             this.period13 = period13;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            this.seriesType24 = null;
+            this.seriesType25 = null;
+            
             this.seriesType24 = seriesType24;
+        } else {
             this.mapping17 = mapping17;
             this.period13 = period13;
+            this.seriesType24 = seriesType24;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping17.generateJs());
+            js.append(String.format(Locale.US, "var setSma" + ++variableIndex + " = " + jsBase + ".sma(%s, %f, %s);", ((mapping17 != null) ? mapping17.getJsBase() : "null"), period13, ((seriesType24 != null) ? seriesType24.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", ((seriesType24 != null) ? seriesType24.generateJs() : "null"), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %f, %s)", ((mapping17 != null) ? mapping17.getJsBase() : "null"), period13, ((seriesType24 != null) ? seriesType24.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -8744,36 +8950,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates SMA (Simple Moving Average) indicator on the plot.
      */
-    public SMA sma(String seriesType25, TableMapping mapping17, Double period13) {
+    public SMA sma(TableMapping mapping17, Double period13, String seriesType25) {
         if (jsBase == null) {
-            this.seriesType = null;
-            this.seriesType1 = null;
-            this.seriesType2 = null;
-            this.seriesType3 = null;
-            this.seriesType4 = null;
-            this.seriesType5 = null;
-            this.seriesType6 = null;
-            this.seriesType7 = null;
-            this.seriesType8 = null;
-            this.seriesType9 = null;
-            this.seriesType10 = null;
-            this.seriesType11 = null;
-            this.seriesType12 = null;
-            this.seriesType13 = null;
-            this.seriesType14 = null;
-            this.seriesType15 = null;
-            this.seriesType16 = null;
-            this.seriesType17 = null;
-            this.seriesType18 = null;
-            this.seriesType19 = null;
-            this.seriesType20 = null;
-            this.seriesType21 = null;
-            this.seriesType22 = null;
-            this.seriesType23 = null;
-            this.seriesType24 = null;
-            this.seriesType25 = null;
-            
-            this.seriesType25 = seriesType25;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -8810,18 +8988,48 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.period13 = null;
             
             this.period13 = period13;
-        } else {
+            this.seriesType = null;
+            this.seriesType1 = null;
+            this.seriesType2 = null;
+            this.seriesType3 = null;
+            this.seriesType4 = null;
+            this.seriesType5 = null;
+            this.seriesType6 = null;
+            this.seriesType7 = null;
+            this.seriesType8 = null;
+            this.seriesType9 = null;
+            this.seriesType10 = null;
+            this.seriesType11 = null;
+            this.seriesType12 = null;
+            this.seriesType13 = null;
+            this.seriesType14 = null;
+            this.seriesType15 = null;
+            this.seriesType16 = null;
+            this.seriesType17 = null;
+            this.seriesType18 = null;
+            this.seriesType19 = null;
+            this.seriesType20 = null;
+            this.seriesType21 = null;
+            this.seriesType22 = null;
+            this.seriesType23 = null;
+            this.seriesType24 = null;
+            this.seriesType25 = null;
+            
             this.seriesType25 = seriesType25;
+        } else {
             this.mapping17 = mapping17;
             this.period13 = period13;
+            this.seriesType25 = seriesType25;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping17.generateJs());
+            js.append(String.format(Locale.US, "var setSma1" + ++variableIndex + " = " + jsBase + ".sma(%s, %f, %s);", ((mapping17 != null) ? mapping17.getJsBase() : "null"), period13, wrapQuotes(seriesType25)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %s, %f)", wrapQuotes(seriesType25), ((mapping17 != null) ? mapping17.generateJs() : "null"), period13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %f, %s)", ((mapping17 != null) ? mapping17.getJsBase() : "null"), period13, wrapQuotes(seriesType25)));
                 js.setLength(0);
             }
         }
@@ -9012,32 +9220,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Stochastic indicator on the plot.
      */
-    public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType2 = kMAType2;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType2 = dMAType2;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType2 = kSeriesType2;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -9071,23 +9255,49 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType2 = dSeriesType2;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType2 = kMAType2;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType2 = dSeriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -9111,32 +9321,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Stochastic indicator on the plot.
      */
-    public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType2 = kMAType2;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType2 = dMAType2;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType2 = kSeriesType2;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType3 = dSeriesType3;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -9170,23 +9356,49 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType3 = dSeriesType3;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType2 = kMAType2;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType3 = dSeriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic1" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -9210,32 +9422,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Stochastic indicator on the plot.
      */
-    public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType2 = kMAType2;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType2 = dMAType2;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType3 = kSeriesType3;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -9269,23 +9457,49 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType2 = dSeriesType2;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType2 = kMAType2;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType2 = dSeriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic2" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -9309,32 +9523,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Stochastic indicator on the plot.
      */
-    public Stochastic stochastic(MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType2 = kMAType2;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType2 = dMAType2;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType3 = kSeriesType3;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType3 = dSeriesType3;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -9368,23 +9558,49 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType3 = dSeriesType3;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType2 = kMAType2;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType3 = dSeriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic3" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -9408,32 +9624,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Stochastic indicator on the plot.
      */
-    public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType2 = kMAType2;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType3 = dMAType3;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType2 = kSeriesType2;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -9467,23 +9659,49 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType2 = dSeriesType2;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType2 = kMAType2;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType2 = dSeriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic4" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -9507,32 +9725,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Stochastic indicator on the plot.
      */
-    public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType2 = kMAType2;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType3 = dMAType3;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType2 = kSeriesType2;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType3 = dSeriesType3;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -9566,23 +9760,49 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType3 = dSeriesType3;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType2 = kMAType2;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType3 = dSeriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic5" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -9606,32 +9826,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Stochastic indicator on the plot.
      */
-    public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType2 = kMAType2;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType3 = dMAType3;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType3 = kSeriesType3;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -9665,23 +9861,49 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType2 = dSeriesType2;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType2 = kMAType2;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType2 = dSeriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic6" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -9705,32 +9927,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Stochastic indicator on the plot.
      */
-    public Stochastic stochastic(MovingAverageType kMAType2, String dMAType3, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, String dMAType3, String kSeriesType3, String dSeriesType3) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType2 = kMAType2;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType3 = dMAType3;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType3 = kSeriesType3;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType3 = dSeriesType3;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -9764,23 +9962,49 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType2 = kMAType2;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType3 = dSeriesType3;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType2 = kMAType2;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType3 = dSeriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic7" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -9804,32 +10028,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Stochastic indicator on the plot.
      */
-    public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType3 = kMAType3;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType2 = dMAType2;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType2 = kSeriesType2;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -9863,23 +10063,49 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType2 = dSeriesType2;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType3 = kMAType3;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType2 = dSeriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic8" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -9903,32 +10129,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Stochastic indicator on the plot.
      */
-    public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType3 = kMAType3;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType2 = dMAType2;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType2 = kSeriesType2;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType3 = dSeriesType3;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -9962,23 +10164,49 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType3 = dSeriesType3;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType3 = kMAType3;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType3 = dSeriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic9" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -10002,32 +10230,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Stochastic indicator on the plot.
      */
-    public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType3 = kMAType3;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType2 = dMAType2;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType3 = kSeriesType3;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -10061,23 +10265,49 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType2 = dSeriesType2;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType3 = kMAType3;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType2 = dSeriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic10" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10101,32 +10331,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Stochastic indicator on the plot.
      */
-    public Stochastic stochastic(String kMAType3, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType3 = kMAType3;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType2 = dMAType2;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType3 = kSeriesType3;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType3 = dSeriesType3;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -10160,23 +10366,49 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType2 = dMAType2;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType3 = dSeriesType3;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType3 = kMAType3;
+            this.dMAType2 = dMAType2;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType3 = dSeriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic11" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -10200,32 +10432,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Stochastic indicator on the plot.
      */
-    public Stochastic stochastic(String kMAType3, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType3 = kMAType3;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType3 = dMAType3;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType2 = kSeriesType2;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -10259,23 +10467,49 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType2 = dSeriesType2;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType3 = kMAType3;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType2 = dSeriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic12" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10299,32 +10533,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Stochastic indicator on the plot.
      */
-    public Stochastic stochastic(String kMAType3, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType3 = kMAType3;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType3 = dMAType3;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType2 = kSeriesType2;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType3 = dSeriesType3;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -10358,23 +10568,49 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType3 = dSeriesType3;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType3 = kMAType3;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType2 = kSeriesType2;
+            this.dSeriesType3 = dSeriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic13" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -10398,32 +10634,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Stochastic indicator on the plot.
      */
-    public Stochastic stochastic(String kMAType3, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType3 = kMAType3;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType3 = dMAType3;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType3 = kSeriesType3;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType2 = dSeriesType2;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -10457,23 +10669,49 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType2 = dSeriesType2;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType3 = kMAType3;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType2 = dSeriesType2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic14" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null"), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10497,32 +10735,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Creates a Stochastic indicator on the plot.
      */
-    public Stochastic stochastic(String kMAType3, String dMAType3, String kSeriesType3, String dSeriesType3, TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1) {
+    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, String dMAType3, String kSeriesType3, String dSeriesType3) {
         if (jsBase == null) {
-            this.kMAType = null;
-            this.kMAType1 = null;
-            this.kMAType2 = null;
-            this.kMAType3 = null;
-            
-            this.kMAType3 = kMAType3;
-            this.dMAType = null;
-            this.dMAType1 = null;
-            this.dMAType2 = null;
-            this.dMAType3 = null;
-            
-            this.dMAType3 = dMAType3;
-            this.kSeriesType = null;
-            this.kSeriesType1 = null;
-            this.kSeriesType2 = null;
-            this.kSeriesType3 = null;
-            
-            this.kSeriesType3 = kSeriesType3;
-            this.dSeriesType = null;
-            this.dSeriesType1 = null;
-            this.dSeriesType2 = null;
-            this.dSeriesType3 = null;
-            
-            this.dSeriesType3 = dSeriesType3;
             this.mapping = null;
             this.mapping1 = null;
             this.mapping2 = null;
@@ -10556,23 +10770,49 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.dPeriod1 = null;
             
             this.dPeriod1 = dPeriod1;
-        } else {
+            this.kMAType = null;
+            this.kMAType1 = null;
+            this.kMAType2 = null;
+            this.kMAType3 = null;
+            
             this.kMAType3 = kMAType3;
+            this.dMAType = null;
+            this.dMAType1 = null;
+            this.dMAType2 = null;
+            this.dMAType3 = null;
+            
             this.dMAType3 = dMAType3;
+            this.kSeriesType = null;
+            this.kSeriesType1 = null;
+            this.kSeriesType2 = null;
+            this.kSeriesType3 = null;
+            
             this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType = null;
+            this.dSeriesType1 = null;
+            this.dSeriesType2 = null;
+            this.dSeriesType3 = null;
+            
             this.dSeriesType3 = dSeriesType3;
+        } else {
             this.mapping18 = mapping18;
             this.kPeriod1 = kPeriod1;
             this.kMAPeriod1 = kMAPeriod1;
             this.dPeriod1 = dPeriod1;
+            this.kMAType3 = kMAType3;
+            this.dMAType3 = dMAType3;
+            this.kSeriesType3 = kSeriesType3;
+            this.dSeriesType3 = dSeriesType3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mapping18.generateJs());
+            js.append(String.format(Locale.US, "var setStochastic15" + ++variableIndex + " = " + jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %s, %s, %s, %s, %f, %f, %f)", wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3), ((mapping18 != null) ? mapping18.generateJs() : "null"), kPeriod1, kMAPeriod1, dPeriod1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -10622,6 +10862,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
 
             if (isRendered) {
@@ -10659,6 +10900,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
 
             if (isRendered) {
@@ -10709,6 +10951,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".xGrid(%s)", wrapQuotes(xGrid)));
 
             if (isRendered) {
@@ -10746,6 +10989,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".xGrid(%b)", xGrid1));
 
             if (isRendered) {
@@ -10774,30 +11018,31 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the plot grid by index.
      */
-    public Plot setXGrid(String xGrid2, Double index2) {
+    public Plot setXGrid(Double index2, String xGrid2) {
         if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            
+            this.index2 = index2;
             this.xGrid = null;
             this.xGrid1 = null;
             this.xGrid2 = null;
             this.xGrid3 = null;
             
             this.xGrid2 = xGrid2;
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            
-            this.index2 = index2;
         } else {
-            this.xGrid2 = xGrid2;
             this.index2 = index2;
+            this.xGrid2 = xGrid2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index2));
+            
+            js.append(String.format(Locale.US, ".xGrid(%f, %s)", index2, wrapQuotes(xGrid2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index2));
+                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%f, %s)", index2, wrapQuotes(xGrid2)));
                 js.setLength(0);
             }
         }
@@ -10819,30 +11064,31 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the plot grid by index.
      */
-    public Plot setXGrid(Boolean xGrid3, Double index2) {
+    public Plot setXGrid(Double index2, Boolean xGrid3) {
         if (jsBase == null) {
+            this.index = null;
+            this.index1 = null;
+            this.index2 = null;
+            
+            this.index2 = index2;
             this.xGrid = null;
             this.xGrid1 = null;
             this.xGrid2 = null;
             this.xGrid3 = null;
             
             this.xGrid3 = xGrid3;
-            this.index = null;
-            this.index1 = null;
-            this.index2 = null;
-            
-            this.index2 = index2;
         } else {
-            this.xGrid3 = xGrid3;
             this.index2 = index2;
+            this.xGrid3 = xGrid3;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index2));
+            
+            js.append(String.format(Locale.US, ".xGrid(%f, %b)", index2, xGrid3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index2));
+                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%f, %b)", index2, xGrid3));
                 js.setLength(0);
             }
         }
@@ -10889,6 +11135,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".xMinorGrid(%s)", wrapQuotes(xMinorGrid)));
 
             if (isRendered) {
@@ -10926,6 +11173,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
 
             if (isRendered) {
@@ -10954,26 +11202,27 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the plot grid by index.
      */
-    public Plot setXMinorGrid(String xMinorGrid2, Double indexOrValue) {
+    public Plot setXMinorGrid(Double indexOrValue, String xMinorGrid2) {
         if (jsBase == null) {
+            this.indexOrValue = indexOrValue;
             this.xMinorGrid = null;
             this.xMinorGrid1 = null;
             this.xMinorGrid2 = null;
             this.xMinorGrid3 = null;
             
             this.xMinorGrid2 = xMinorGrid2;
-            this.indexOrValue = indexOrValue;
         } else {
-            this.xMinorGrid2 = xMinorGrid2;
             this.indexOrValue = indexOrValue;
+            this.xMinorGrid2 = xMinorGrid2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), indexOrValue));
+            
+            js.append(String.format(Locale.US, ".xMinorGrid(%f, %s)", indexOrValue, wrapQuotes(xMinorGrid2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), indexOrValue));
+                onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%f, %s)", indexOrValue, wrapQuotes(xMinorGrid2)));
                 js.setLength(0);
             }
         }
@@ -10995,26 +11244,27 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the plot grid by index.
      */
-    public Plot setXMinorGrid(Boolean xMinorGrid3, Double indexOrValue) {
+    public Plot setXMinorGrid(Double indexOrValue, Boolean xMinorGrid3) {
         if (jsBase == null) {
+            this.indexOrValue = indexOrValue;
             this.xMinorGrid = null;
             this.xMinorGrid1 = null;
             this.xMinorGrid2 = null;
             this.xMinorGrid3 = null;
             
             this.xMinorGrid3 = xMinorGrid3;
-            this.indexOrValue = indexOrValue;
         } else {
-            this.xMinorGrid3 = xMinorGrid3;
             this.indexOrValue = indexOrValue;
+            this.xMinorGrid3 = xMinorGrid3;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, indexOrValue));
+            
+            js.append(String.format(Locale.US, ".xMinorGrid(%f, %b)", indexOrValue, xMinorGrid3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, indexOrValue));
+                onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%f, %b)", indexOrValue, xMinorGrid3));
                 js.setLength(0);
             }
         }
@@ -11061,6 +11311,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yAxis(%s)", wrapQuotes(yAxis)));
 
             if (isRendered) {
@@ -11098,6 +11349,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yAxis(%b)", yAxis1));
 
             if (isRendered) {
@@ -11126,31 +11378,32 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the Y-axis by index.
      */
-    public Plot setYAxis(String yAxis2, Double index3) {
+    public Plot setYAxis(Double index3, String yAxis2) {
         if (jsBase == null) {
-            this.yAxis = null;
-            this.yAxis1 = null;
-            this.yAxis2 = null;
-            this.yAxis3 = null;
-            
-            this.yAxis2 = yAxis2;
             this.index = null;
             this.index1 = null;
             this.index2 = null;
             this.index3 = null;
             
             this.index3 = index3;
-        } else {
+            this.yAxis = null;
+            this.yAxis1 = null;
+            this.yAxis2 = null;
+            this.yAxis3 = null;
+            
             this.yAxis2 = yAxis2;
+        } else {
             this.index3 = index3;
+            this.yAxis2 = yAxis2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index3));
+            
+            js.append(String.format(Locale.US, ".yAxis(%f, %s)", index3, wrapQuotes(yAxis2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index3));
+                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%f, %s)", index3, wrapQuotes(yAxis2)));
                 js.setLength(0);
             }
         }
@@ -11172,31 +11425,32 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the Y-axis by index.
      */
-    public Plot setYAxis(Boolean yAxis3, Double index3) {
+    public Plot setYAxis(Double index3, Boolean yAxis3) {
         if (jsBase == null) {
-            this.yAxis = null;
-            this.yAxis1 = null;
-            this.yAxis2 = null;
-            this.yAxis3 = null;
-            
-            this.yAxis3 = yAxis3;
             this.index = null;
             this.index1 = null;
             this.index2 = null;
             this.index3 = null;
             
             this.index3 = index3;
-        } else {
+            this.yAxis = null;
+            this.yAxis1 = null;
+            this.yAxis2 = null;
+            this.yAxis3 = null;
+            
             this.yAxis3 = yAxis3;
+        } else {
             this.index3 = index3;
+            this.yAxis3 = yAxis3;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index3));
+            
+            js.append(String.format(Locale.US, ".yAxis(%f, %b)", index3, yAxis3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index3));
+                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%f, %b)", index3, yAxis3));
                 js.setLength(0);
             }
         }
@@ -11243,6 +11497,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yGrid(%s)", wrapQuotes(yGrid)));
 
             if (isRendered) {
@@ -11280,6 +11535,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yGrid(%b)", yGrid1));
 
             if (isRendered) {
@@ -11308,14 +11564,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the plot grid by index.
      */
-    public Plot setYGrid(String yGrid2, Double index4) {
+    public Plot setYGrid(Double index4, String yGrid2) {
         if (jsBase == null) {
-            this.yGrid = null;
-            this.yGrid1 = null;
-            this.yGrid2 = null;
-            this.yGrid3 = null;
-            
-            this.yGrid2 = yGrid2;
             this.index = null;
             this.index1 = null;
             this.index2 = null;
@@ -11323,17 +11573,24 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.index4 = null;
             
             this.index4 = index4;
-        } else {
+            this.yGrid = null;
+            this.yGrid1 = null;
+            this.yGrid2 = null;
+            this.yGrid3 = null;
+            
             this.yGrid2 = yGrid2;
+        } else {
             this.index4 = index4;
+            this.yGrid2 = yGrid2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index4));
+            
+            js.append(String.format(Locale.US, ".yGrid(%f, %s)", index4, wrapQuotes(yGrid2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index4));
+                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%f, %s)", index4, wrapQuotes(yGrid2)));
                 js.setLength(0);
             }
         }
@@ -11355,14 +11612,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the plot grid by index.
      */
-    public Plot setYGrid(Boolean yGrid3, Double index4) {
+    public Plot setYGrid(Double index4, Boolean yGrid3) {
         if (jsBase == null) {
-            this.yGrid = null;
-            this.yGrid1 = null;
-            this.yGrid2 = null;
-            this.yGrid3 = null;
-            
-            this.yGrid3 = yGrid3;
             this.index = null;
             this.index1 = null;
             this.index2 = null;
@@ -11370,17 +11621,24 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             this.index4 = null;
             
             this.index4 = index4;
-        } else {
+            this.yGrid = null;
+            this.yGrid1 = null;
+            this.yGrid2 = null;
+            this.yGrid3 = null;
+            
             this.yGrid3 = yGrid3;
+        } else {
             this.index4 = index4;
+            this.yGrid3 = yGrid3;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index4));
+            
+            js.append(String.format(Locale.US, ".yGrid(%f, %b)", index4, yGrid3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index4));
+                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%f, %b)", index4, yGrid3));
                 js.setLength(0);
             }
         }
@@ -11427,6 +11685,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yMinorGrid(%s)", wrapQuotes(yMinorGrid)));
 
             if (isRendered) {
@@ -11464,6 +11723,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
 
             if (isRendered) {
@@ -11492,29 +11752,30 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the plot grid by index.
      */
-    public Plot setYMinorGrid(String yMinorGrid2, Double indexOrValue1) {
+    public Plot setYMinorGrid(Double indexOrValue1, String yMinorGrid2) {
         if (jsBase == null) {
+            this.indexOrValue = null;
+            this.indexOrValue1 = null;
+            
+            this.indexOrValue1 = indexOrValue1;
             this.yMinorGrid = null;
             this.yMinorGrid1 = null;
             this.yMinorGrid2 = null;
             this.yMinorGrid3 = null;
             
             this.yMinorGrid2 = yMinorGrid2;
-            this.indexOrValue = null;
-            this.indexOrValue1 = null;
-            
-            this.indexOrValue1 = indexOrValue1;
         } else {
-            this.yMinorGrid2 = yMinorGrid2;
             this.indexOrValue1 = indexOrValue1;
+            this.yMinorGrid2 = yMinorGrid2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), indexOrValue1));
+            
+            js.append(String.format(Locale.US, ".yMinorGrid(%f, %s)", indexOrValue1, wrapQuotes(yMinorGrid2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), indexOrValue1));
+                onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%f, %s)", indexOrValue1, wrapQuotes(yMinorGrid2)));
                 js.setLength(0);
             }
         }
@@ -11536,29 +11797,30 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the plot grid by index.
      */
-    public Plot setYMinorGrid(Boolean yMinorGrid3, Double indexOrValue1) {
+    public Plot setYMinorGrid(Double indexOrValue1, Boolean yMinorGrid3) {
         if (jsBase == null) {
+            this.indexOrValue = null;
+            this.indexOrValue1 = null;
+            
+            this.indexOrValue1 = indexOrValue1;
             this.yMinorGrid = null;
             this.yMinorGrid1 = null;
             this.yMinorGrid2 = null;
             this.yMinorGrid3 = null;
             
             this.yMinorGrid3 = yMinorGrid3;
-            this.indexOrValue = null;
-            this.indexOrValue1 = null;
-            
-            this.indexOrValue1 = indexOrValue1;
         } else {
-            this.yMinorGrid3 = yMinorGrid3;
             this.indexOrValue1 = indexOrValue1;
+            this.yMinorGrid3 = yMinorGrid3;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, indexOrValue1));
+            
+            js.append(String.format(Locale.US, ".yMinorGrid(%f, %b)", indexOrValue1, yMinorGrid3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, indexOrValue1));
+                onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%f, %b)", indexOrValue1, yMinorGrid3));
                 js.setLength(0);
             }
         }
@@ -11610,6 +11872,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
 
             if (isRendered) {
@@ -11649,6 +11912,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
 
             if (isRendered) {

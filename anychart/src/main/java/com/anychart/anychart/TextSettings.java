@@ -47,6 +47,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
 
             if (isRendered) {
@@ -86,6 +87,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontDecoration(%s)", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
 
             if (isRendered) {
@@ -123,6 +125,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontDecoration(%s)", wrapQuotes(fontDecoration1)));
 
             if (isRendered) {
@@ -158,6 +161,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
 
             if (isRendered) {
@@ -193,6 +197,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
 
             if (isRendered) {
@@ -232,6 +237,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize)));
 
             if (isRendered) {
@@ -269,6 +275,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontSize(%f)", fontSize1));
 
             if (isRendered) {
@@ -308,6 +315,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
 
             if (isRendered) {
@@ -345,6 +353,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
 
             if (isRendered) {
@@ -384,6 +393,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
 
             if (isRendered) {
@@ -421,6 +431,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
 
             if (isRendered) {
@@ -460,6 +471,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
 
             if (isRendered) {
@@ -497,6 +509,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
 
             if (isRendered) {
@@ -536,6 +549,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hAlign(%s)", ((hAlign != null) ? hAlign.generateJs() : "null")));
 
             if (isRendered) {
@@ -573,6 +587,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign1)));
 
             if (isRendered) {
@@ -612,6 +627,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing)));
 
             if (isRendered) {
@@ -649,6 +665,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
 
             if (isRendered) {
@@ -688,6 +705,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight)));
 
             if (isRendered) {
@@ -725,6 +743,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
 
             if (isRendered) {
@@ -760,6 +779,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selectable(%b)", selectable));
 
             if (isRendered) {
@@ -799,6 +819,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textDirection(%s)", ((textDirection != null) ? textDirection.generateJs() : "null")));
 
             if (isRendered) {
@@ -836,6 +857,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection1)));
 
             if (isRendered) {
@@ -871,6 +893,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
 
             if (isRendered) {
@@ -910,6 +933,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
 
             if (isRendered) {
@@ -947,6 +971,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
 
             if (isRendered) {
@@ -982,6 +1007,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".useHtml(%b)", useHtml));
 
             if (isRendered) {
@@ -1021,6 +1047,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".vAlign(%s)", ((vAlign != null) ? vAlign.generateJs() : "null")));
 
             if (isRendered) {
@@ -1058,6 +1085,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign1)));
 
             if (isRendered) {
@@ -1097,6 +1125,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak != null) ? wordBreak.generateJs() : "null")));
 
             if (isRendered) {
@@ -1134,6 +1163,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak1)));
 
             if (isRendered) {
@@ -1173,6 +1203,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap != null) ? wordWrap.generateJs() : "null")));
 
             if (isRendered) {
@@ -1210,6 +1241,7 @@ public class TextSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap1)));
 
             if (isRendered) {

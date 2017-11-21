@@ -65,6 +65,7 @@ public class SeparateChart extends ChartWithCredits {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".interactivity(%s)", wrapQuotes(interactivity)));
 
             if (isRendered) {
@@ -103,6 +104,7 @@ public class SeparateChart extends ChartWithCredits {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".interactivity(%s)", ((interactivity1 != null) ? interactivity1.generateJs() : "null")));
 
             if (isRendered) {
@@ -155,6 +157,8 @@ public class SeparateChart extends ChartWithCredits {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setLegend" + ++variableIndex + " = " + jsBase + ".legend(%s);", wrapQuotes(legend)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".legend(%s)", wrapQuotes(legend)));
@@ -193,6 +197,8 @@ public class SeparateChart extends ChartWithCredits {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setLegend1" + ++variableIndex + " = " + jsBase + ".legend(%b);", legend1));
             
 
             if (isRendered) {

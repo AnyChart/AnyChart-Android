@@ -141,6 +141,7 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
 
             if (isRendered) {
@@ -264,6 +265,7 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
 
             if (isRendered) {
@@ -308,6 +310,7 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
 
             if (isRendered) {
@@ -347,6 +350,7 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".startAngle(%s)", wrapQuotes(startAngle)));
 
             if (isRendered) {
@@ -384,6 +388,7 @@ public class StandalonesAxesRadar extends CoreAxesRadar {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".startAngle(%f)", startAngle1));
 
             if (isRendered) {

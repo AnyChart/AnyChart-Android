@@ -49,6 +49,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".displayNegative(%b)", displayNegative));
 
             if (isRendered) {
@@ -85,6 +86,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
             if (isRendered) {
@@ -123,6 +125,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
@@ -156,35 +159,36 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public CartesianSeriesBubble fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys = keys;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -207,35 +211,36 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public CartesianSeriesBubble fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys = keys;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -258,35 +263,36 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public CartesianSeriesBubble fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys = keys;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -309,35 +315,36 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public CartesianSeriesBubble fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys1 = keys1;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -360,35 +367,36 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public CartesianSeriesBubble fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys1 = keys1;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -411,35 +419,36 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble fill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public CartesianSeriesBubble fill(String[] keys1, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys1 = keys1;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -505,10 +514,11 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -566,10 +576,11 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -635,10 +646,11 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness, size));
+            js.append(patternFillOrType.generateJs());
+            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.getJsBase() : "null"), wrapQuotes(color1), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.getJsBase() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
@@ -684,10 +696,11 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
+            js.append(patternFillOrType1.generateJs());
+            js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.getJsBase() : "null"), wrapQuotes(color1), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.getJsBase() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
@@ -733,6 +746,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
 
             if (isRendered) {
@@ -782,6 +796,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
 
             if (isRendered) {
@@ -818,6 +833,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".negativeFill(%s)", ((negativeFill != null) ? negativeFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -865,6 +881,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".negativeFill(%s, %f)", wrapQuotes(color2), opacity3));
 
             if (isRendered) {
@@ -898,7 +915,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble negativeFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public CartesianSeriesBubble negativeFill(GradientKey[] keys4, Double angle1, Double opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -908,15 +925,6 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
             this.angle = null;
             this.angle1 = null;
             
@@ -928,19 +936,29 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
         } else {
             this.keys4 = keys4;
-            this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode4 = mode4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -963,7 +981,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble negativeFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public CartesianSeriesBubble negativeFill(GradientKey[] keys4, Double angle1, Double opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -973,15 +991,6 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
             this.angle = null;
             this.angle1 = null;
             
@@ -993,19 +1002,29 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
         } else {
             this.keys4 = keys4;
-            this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode5 = mode5;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+            js.append(mode5.generateJs());
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1028,7 +1047,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble negativeFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public CartesianSeriesBubble negativeFill(GradientKey[] keys4, Double angle1, Double opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1038,15 +1057,6 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
             this.angle = null;
             this.angle1 = null;
             
@@ -1058,19 +1068,29 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
         } else {
             this.keys4 = keys4;
-            this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode6 = mode6;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1093,7 +1113,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble negativeFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public CartesianSeriesBubble negativeFill(String[] keys5, Double angle1, Double opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1103,15 +1123,6 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
             this.angle = null;
             this.angle1 = null;
             
@@ -1123,19 +1134,29 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
         } else {
             this.keys5 = keys5;
-            this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode4 = mode4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -1158,7 +1179,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble negativeFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public CartesianSeriesBubble negativeFill(String[] keys5, Double angle1, Double opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1168,15 +1189,6 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
             this.angle = null;
             this.angle1 = null;
             
@@ -1188,19 +1200,29 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
         } else {
             this.keys5 = keys5;
-            this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode5 = mode5;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+            js.append(mode5.generateJs());
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1223,7 +1245,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble negativeFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public CartesianSeriesBubble negativeFill(String[] keys5, Double angle1, Double opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1233,15 +1255,6 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
             this.angle = null;
             this.angle1 = null;
             
@@ -1253,19 +1266,29 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
         } else {
             this.keys5 = keys5;
-            this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode6 = mode6;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1354,10 +1377,11 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+            js.append(mode7.generateJs());
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1438,10 +1462,11 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+            js.append(mode7.generateJs());
+            js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1519,10 +1544,11 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
+            js.append(patternFillOrType4.generateJs());
+            js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType4 != null) ? patternFillOrType4.getJsBase() : "null"), wrapQuotes(color3), thickness1, size1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType4 != null) ? patternFillOrType4.getJsBase() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
@@ -1580,10 +1606,11 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
+            js.append(patternFillOrType5.generateJs());
+            js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.getJsBase() : "null"), wrapQuotes(color3), thickness1, size1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
+                onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.getJsBase() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
@@ -1641,6 +1668,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
 
             if (isRendered) {
@@ -1702,6 +1730,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType7), wrapQuotes(color3), thickness1, size1));
 
             if (isRendered) {
@@ -1764,6 +1793,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -1819,6 +1849,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", ((color5 != null) ? color5.generateJs() : "null"), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -1874,6 +1905,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".negativeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color6), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -1949,6 +1981,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color7 != null) ? color7.generateJs() : "null"), thickness3, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
@@ -2017,6 +2050,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color8 != null) ? color8.generateJs() : "null"), thickness3, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
@@ -2085,6 +2119,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color9), thickness3, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {

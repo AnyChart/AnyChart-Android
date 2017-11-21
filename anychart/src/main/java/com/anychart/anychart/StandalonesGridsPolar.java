@@ -52,6 +52,8 @@ public class StandalonesGridsPolar extends CoreGridsPolar {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setInnerRadius" + ++variableIndex + " = " + jsBase + ".innerRadius(%s);", wrapQuotes(innerRadius)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".innerRadius(%s)", wrapQuotes(innerRadius)));
@@ -90,6 +92,8 @@ public class StandalonesGridsPolar extends CoreGridsPolar {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setInnerRadius1" + ++variableIndex + " = " + jsBase + ".innerRadius(%f);", innerRadius1));
             
 
             if (isRendered) {
@@ -131,6 +135,7 @@ public class StandalonesGridsPolar extends CoreGridsPolar {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
 
             if (isRendered) {
@@ -168,6 +173,7 @@ public class StandalonesGridsPolar extends CoreGridsPolar {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
 
             if (isRendered) {

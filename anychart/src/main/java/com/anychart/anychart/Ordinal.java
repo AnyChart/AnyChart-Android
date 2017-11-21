@@ -50,6 +50,8 @@ public class Ordinal extends ScalesBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".inverseTransform(%f);", ratio));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f)", ratio));
@@ -73,6 +75,7 @@ public class Ordinal extends ScalesBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".names(%s)", wrapQuotes(names)));
 
             if (isRendered) {
@@ -124,6 +127,7 @@ public class Ordinal extends ScalesBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
@@ -161,6 +165,7 @@ public class Ordinal extends ScalesBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
 
             if (isRendered) {
@@ -197,6 +202,8 @@ public class Ordinal extends ScalesBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".transform(%f);", subRangeRatio));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%f)", subRangeRatio));
@@ -220,6 +227,7 @@ public class Ordinal extends ScalesBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".weights(%s)", Arrays.toString(weights)));
 
             if (isRendered) {

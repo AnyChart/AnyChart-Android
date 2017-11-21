@@ -48,6 +48,7 @@ public class GeoTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".count(%f)", count));
 
             if (isRendered) {
@@ -87,6 +88,7 @@ public class GeoTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".count(%f, %f)", minimumCount, maximumCount));
 
             if (isRendered) {
@@ -122,6 +124,7 @@ public class GeoTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".interval(%f)", interval));
 
             if (isRendered) {
@@ -157,6 +160,7 @@ public class GeoTicks extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
 
             if (isRendered) {

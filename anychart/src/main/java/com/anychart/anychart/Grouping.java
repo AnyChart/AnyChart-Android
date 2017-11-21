@@ -47,6 +47,7 @@ public class Grouping extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
@@ -82,6 +83,7 @@ public class Grouping extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".forced(%b)", forced));
 
             if (isRendered) {
@@ -117,6 +119,7 @@ public class Grouping extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".levels(%s)", arrayToStringWrapQuotes(levels)));
 
             if (isRendered) {
@@ -152,6 +155,7 @@ public class Grouping extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maxVisiblePoints(%f)", maxVisiblePoints));
 
             if (isRendered) {
@@ -187,6 +191,7 @@ public class Grouping extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minPixPerPoint(%f)", minPixPerPoint));
 
             if (isRendered) {

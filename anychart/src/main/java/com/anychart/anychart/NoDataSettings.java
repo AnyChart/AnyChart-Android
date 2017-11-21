@@ -66,6 +66,7 @@ public class NoDataSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".label(%s)", wrapQuotes(label)));
 
             if (isRendered) {
@@ -104,6 +105,7 @@ public class NoDataSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".label(%b)", label2));
 
             if (isRendered) {

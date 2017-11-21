@@ -47,6 +47,7 @@ public class BBands extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".deviation(%f)", deviation));
 
             if (isRendered) {
@@ -98,6 +99,7 @@ public class BBands extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lowerSeries(%s)", ((type != null) ? type.generateJs() : "null")));
 
             if (isRendered) {
@@ -135,6 +137,7 @@ public class BBands extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lowerSeries(%s)", wrapQuotes(type1)));
 
             if (isRendered) {
@@ -188,6 +191,7 @@ public class BBands extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".middleSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
 
             if (isRendered) {
@@ -227,6 +231,7 @@ public class BBands extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".middleSeries(%s)", wrapQuotes(type3)));
 
             if (isRendered) {
@@ -262,6 +267,7 @@ public class BBands extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".period(%f)", period));
 
             if (isRendered) {
@@ -317,6 +323,7 @@ public class BBands extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".upperSeries(%s)", ((type4 != null) ? type4.generateJs() : "null")));
 
             if (isRendered) {
@@ -358,6 +365,7 @@ public class BBands extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".upperSeries(%s)", wrapQuotes(type5)));
 
             if (isRendered) {

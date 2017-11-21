@@ -51,6 +51,7 @@ public class GaugePointersBar extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
 
             if (isRendered) {
@@ -88,6 +89,7 @@ public class GaugePointersBar extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
 
             if (isRendered) {
@@ -127,6 +129,7 @@ public class GaugePointersBar extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".radius(%f)", radius));
 
             if (isRendered) {
@@ -164,6 +167,7 @@ public class GaugePointersBar extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
 
             if (isRendered) {
@@ -203,6 +207,7 @@ public class GaugePointersBar extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
@@ -240,6 +245,7 @@ public class GaugePointersBar extends GaugePointersBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {

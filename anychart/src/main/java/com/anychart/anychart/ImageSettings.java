@@ -52,6 +52,7 @@ public class ImageSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".align(%s)", wrapQuotes(align)));
 
             if (isRendered) {
@@ -89,6 +90,7 @@ public class ImageSettings extends SettingsWithMargin {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".align(%s)", ((align1 != null) ? align1.generateJs() : "null")));
 
             if (isRendered) {
@@ -129,6 +131,7 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".borderRadius(%f)", borderRadius));
 
             if (isRendered) {
@@ -167,6 +170,7 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".borderRadius(%s)", Arrays.toString(borderRadius1)));
 
             if (isRendered) {
@@ -206,6 +210,7 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fittingMode(%s)", wrapQuotes(fittingMode)));
 
             if (isRendered) {
@@ -243,6 +248,7 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fittingMode(%s)", ((fittingMode1 != null) ? fittingMode1.generateJs() : "null")));
 
             if (isRendered) {
@@ -278,6 +284,7 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".opacity(%f)", opacity));
 
             if (isRendered) {
@@ -317,6 +324,7 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".size(%s)", wrapQuotes(size)));
 
             if (isRendered) {
@@ -354,6 +362,7 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".size(%f)", size1));
 
             if (isRendered) {

@@ -64,6 +64,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
             if (isRendered) {
@@ -102,6 +103,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
             if (isRendered) {
@@ -153,6 +155,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
 
             if (isRendered) {
@@ -190,6 +193,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
 
             if (isRendered) {
@@ -241,6 +245,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
@@ -278,6 +283,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
 
             if (isRendered) {
@@ -317,6 +323,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
 
             if (isRendered) {
@@ -354,6 +361,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
 
             if (isRendered) {
@@ -446,6 +454,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".scale(%s)", ((scale1 != null) ? scale1.generateJs() : "null")));
 
             if (isRendered) {
@@ -485,6 +494,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale2)));
 
             if (isRendered) {
@@ -539,6 +549,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -586,6 +597,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -633,6 +645,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -684,6 +697,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
@@ -721,6 +735,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".ticks(%b)", ticks1));
 
             if (isRendered) {

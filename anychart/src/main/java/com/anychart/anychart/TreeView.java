@@ -54,6 +54,8 @@ public class TreeView extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setAddChild" + ++variableIndex + " = " + jsBase + ".addChild(%s);", wrapQuotes(child)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s)", wrapQuotes(child)));
@@ -179,6 +181,8 @@ public class TreeView extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setAddChildAt" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %f);", wrapQuotes(child3), index));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", wrapQuotes(child3), index));
@@ -223,10 +227,12 @@ public class TreeView extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(child4.generateJs());
+            js.append(String.format(Locale.US, "var setAddChildAt1" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %f);", ((child4 != null) ? child4.getJsBase() : "null"), index));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", ((child4 != null) ? child4.generateJs() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", ((child4 != null) ? child4.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -268,10 +274,12 @@ public class TreeView extends CoreBase {
                 js.append(";");
                 isChain = false;
             }
+            js.append(child5.generateJs());
+            js.append(String.format(Locale.US, "var setAddChildAt2" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %f);", ((child5 != null) ? child5.getJsBase() : "null"), index));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", ((child5 != null) ? child5.generateJs() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f)", ((child5 != null) ? child5.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -325,6 +333,7 @@ public class TreeView extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), ((fillMethodOrCsvMapping != null) ? fillMethodOrCsvMapping.generateJs() : "null"), wrapQuotes(csvSettingsOrDeps)));
 
             if (isRendered) {
@@ -373,6 +382,7 @@ public class TreeView extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), ((fillMethodOrCsvMapping != null) ? fillMethodOrCsvMapping.generateJs() : "null"), arrayToString(csvSettingsOrDeps1)));
 
             if (isRendered) {
@@ -421,6 +431,7 @@ public class TreeView extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), wrapQuotes(fillMethodOrCsvMapping1), wrapQuotes(csvSettingsOrDeps)));
 
             if (isRendered) {
@@ -469,6 +480,7 @@ public class TreeView extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(data), wrapQuotes(fillMethodOrCsvMapping1), arrayToString(csvSettingsOrDeps1)));
 
             if (isRendered) {
@@ -607,6 +619,8 @@ public class TreeView extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRemoveChildAt" + ++variableIndex + " = " + jsBase + ".removeChildAt(%f);", index1));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f)", index1));
@@ -638,27 +652,29 @@ public class TreeView extends CoreBase {
     /**
      * Performs a data search.
      */
-    public TreeviewDataItem search(String search, String soughtField, String comparisonFn) {
+    public TreeviewDataItem search(String soughtField, String search, String comparisonFn) {
         if (jsBase == null) {
+            this.soughtField = soughtField;
             this.search = null;
             this.search1 = null;
             this.search2 = null;
             
             this.search = search;
-            this.soughtField = soughtField;
             this.comparisonFn = comparisonFn;
         } else {
-            this.search = search;
             this.soughtField = soughtField;
+            this.search = search;
             this.comparisonFn = comparisonFn;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setSearch" + ++variableIndex + " = " + jsBase + ".search(%s, %s, %s);", wrapQuotes(soughtField), wrapQuotes(search), wrapQuotes(comparisonFn)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %s, %s)", wrapQuotes(search), wrapQuotes(soughtField), wrapQuotes(comparisonFn)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %s, %s)", wrapQuotes(soughtField), wrapQuotes(search), wrapQuotes(comparisonFn)));
                 js.setLength(0);
             }
         }
@@ -682,27 +698,29 @@ public class TreeView extends CoreBase {
     /**
      * Performs a data search.
      */
-    public TreeviewDataItem search(Double search1, String soughtField, String comparisonFn) {
+    public TreeviewDataItem search(String soughtField, Double search1, String comparisonFn) {
         if (jsBase == null) {
+            this.soughtField = soughtField;
             this.search = null;
             this.search1 = null;
             this.search2 = null;
             
             this.search1 = search1;
-            this.soughtField = soughtField;
             this.comparisonFn = comparisonFn;
         } else {
-            this.search1 = search1;
             this.soughtField = soughtField;
+            this.search1 = search1;
             this.comparisonFn = comparisonFn;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setSearch1" + ++variableIndex + " = " + jsBase + ".search(%s, %f, %s);", wrapQuotes(soughtField), search1, wrapQuotes(comparisonFn)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%f, %s, %s)", search1, wrapQuotes(soughtField), wrapQuotes(comparisonFn)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %f, %s)", wrapQuotes(soughtField), search1, wrapQuotes(comparisonFn)));
                 js.setLength(0);
             }
         }
@@ -726,27 +744,29 @@ public class TreeView extends CoreBase {
     /**
      * Performs a data search.
      */
-    public TreeviewDataItem search(Boolean search2, String soughtField, String comparisonFn) {
+    public TreeviewDataItem search(String soughtField, Boolean search2, String comparisonFn) {
         if (jsBase == null) {
+            this.soughtField = soughtField;
             this.search = null;
             this.search1 = null;
             this.search2 = null;
             
             this.search2 = search2;
-            this.soughtField = soughtField;
             this.comparisonFn = comparisonFn;
         } else {
-            this.search2 = search2;
             this.soughtField = soughtField;
+            this.search2 = search2;
             this.comparisonFn = comparisonFn;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setSearch2" + ++variableIndex + " = " + jsBase + ".search(%s, %b, %s);", wrapQuotes(soughtField), search2, wrapQuotes(comparisonFn)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%b, %s, %s)", search2, wrapQuotes(soughtField), wrapQuotes(comparisonFn)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %b, %s)", wrapQuotes(soughtField), search2, wrapQuotes(comparisonFn)));
                 js.setLength(0);
             }
         }
@@ -774,33 +794,35 @@ public class TreeView extends CoreBase {
     /**
      * Performs a data item search.
      */
-    public void searchItems(String searchItems, String soughtField1, String comparisonFn1) {
+    public void searchItems(String soughtField1, String searchItems, String comparisonFn1) {
         if (jsBase == null) {
+            this.soughtField = null;
+            this.soughtField1 = null;
+            
+            this.soughtField1 = soughtField1;
             this.searchItems = null;
             this.searchItems1 = null;
             this.searchItems2 = null;
             
             this.searchItems = searchItems;
-            this.soughtField = null;
-            this.soughtField1 = null;
-            
-            this.soughtField1 = soughtField1;
             this.comparisonFn = null;
             this.comparisonFn1 = null;
             
             this.comparisonFn1 = comparisonFn1;
         } else {
-            this.searchItems = searchItems;
             this.soughtField1 = soughtField1;
+            this.searchItems = searchItems;
             this.comparisonFn1 = comparisonFn1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".searchItems(%s, %s, %s);", wrapQuotes(soughtField1), wrapQuotes(searchItems), wrapQuotes(comparisonFn1)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %s, %s)", wrapQuotes(searchItems), wrapQuotes(soughtField1), wrapQuotes(comparisonFn1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %s, %s)", wrapQuotes(soughtField1), wrapQuotes(searchItems), wrapQuotes(comparisonFn1)));
                 js.setLength(0);
             }
         }
@@ -810,33 +832,35 @@ public class TreeView extends CoreBase {
     /**
      * Performs a data item search.
      */
-    public void searchItems(Double searchItems1, String soughtField1, String comparisonFn1) {
+    public void searchItems(String soughtField1, Double searchItems1, String comparisonFn1) {
         if (jsBase == null) {
+            this.soughtField = null;
+            this.soughtField1 = null;
+            
+            this.soughtField1 = soughtField1;
             this.searchItems = null;
             this.searchItems1 = null;
             this.searchItems2 = null;
             
             this.searchItems1 = searchItems1;
-            this.soughtField = null;
-            this.soughtField1 = null;
-            
-            this.soughtField1 = soughtField1;
             this.comparisonFn = null;
             this.comparisonFn1 = null;
             
             this.comparisonFn1 = comparisonFn1;
         } else {
-            this.searchItems1 = searchItems1;
             this.soughtField1 = soughtField1;
+            this.searchItems1 = searchItems1;
             this.comparisonFn1 = comparisonFn1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".searchItems(%s, %f, %s);", wrapQuotes(soughtField1), searchItems1, wrapQuotes(comparisonFn1)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%f, %s, %s)", searchItems1, wrapQuotes(soughtField1), wrapQuotes(comparisonFn1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %f, %s)", wrapQuotes(soughtField1), searchItems1, wrapQuotes(comparisonFn1)));
                 js.setLength(0);
             }
         }
@@ -846,33 +870,35 @@ public class TreeView extends CoreBase {
     /**
      * Performs a data item search.
      */
-    public void searchItems(Boolean searchItems2, String soughtField1, String comparisonFn1) {
+    public void searchItems(String soughtField1, Boolean searchItems2, String comparisonFn1) {
         if (jsBase == null) {
+            this.soughtField = null;
+            this.soughtField1 = null;
+            
+            this.soughtField1 = soughtField1;
             this.searchItems = null;
             this.searchItems1 = null;
             this.searchItems2 = null;
             
             this.searchItems2 = searchItems2;
-            this.soughtField = null;
-            this.soughtField1 = null;
-            
-            this.soughtField1 = soughtField1;
             this.comparisonFn = null;
             this.comparisonFn1 = null;
             
             this.comparisonFn1 = comparisonFn1;
         } else {
-            this.searchItems2 = searchItems2;
             this.soughtField1 = soughtField1;
+            this.searchItems2 = searchItems2;
             this.comparisonFn1 = comparisonFn1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".searchItems(%s, %b, %s);", wrapQuotes(soughtField1), searchItems2, wrapQuotes(comparisonFn1)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%b, %s, %s)", searchItems2, wrapQuotes(soughtField1), wrapQuotes(comparisonFn1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %b, %s)", wrapQuotes(soughtField1), searchItems2, wrapQuotes(comparisonFn1)));
                 js.setLength(0);
             }
         }

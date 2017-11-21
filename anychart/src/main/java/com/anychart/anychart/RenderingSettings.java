@@ -47,6 +47,7 @@ public class RenderingSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".needsWidth(%b)", needsWidth));
 
             if (isRendered) {
@@ -82,6 +83,7 @@ public class RenderingSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".needsZero(%b)", needsZero));
 
             if (isRendered) {
@@ -117,6 +119,7 @@ public class RenderingSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".shapes(%s)", arrayToString(shapes)));
 
             if (isRendered) {
@@ -152,6 +155,7 @@ public class RenderingSettings extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".yValues(%s)", arrayToStringWrapQuotes(yValues)));
 
             if (isRendered) {

@@ -47,6 +47,7 @@ public class VisualBase extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
@@ -89,6 +90,8 @@ public class VisualBase extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".print(%s, %b);", ((paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null"), landscape));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b)", ((paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null"), landscape));
@@ -116,6 +119,8 @@ public class VisualBase extends CoreBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".print(%s, %b);", wrapQuotes(paperSizeOrOptions1), landscape));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b)", wrapQuotes(paperSizeOrOptions1), landscape));
@@ -139,6 +144,7 @@ public class VisualBase extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".zIndex(%f)", zIndex));
 
             if (isRendered) {

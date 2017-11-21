@@ -79,6 +79,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -125,6 +126,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -171,6 +173,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -237,6 +240,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cellBorder(%s, %f, %s, %s, %s)", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
@@ -296,6 +300,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cellBorder(%s, %f, %s, %s, %s)", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
@@ -355,6 +360,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cellBorder(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
@@ -391,6 +397,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cellFill(%s)", ((cellFill != null) ? cellFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -434,6 +441,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cellFill(%s, %f)", wrapQuotes(color3), opacity));
 
             if (isRendered) {
@@ -467,35 +475,36 @@ public class UiTable extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable cellFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public UiTable cellFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys = keys;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".cellFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -518,35 +527,36 @@ public class UiTable extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable cellFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public UiTable cellFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys = keys;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".cellFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -569,35 +579,36 @@ public class UiTable extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable cellFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public UiTable cellFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys = keys;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".cellFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -620,35 +631,36 @@ public class UiTable extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable cellFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public UiTable cellFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys1 = keys1;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".cellFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -671,35 +683,36 @@ public class UiTable extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable cellFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public UiTable cellFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys1 = keys1;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".cellFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -722,35 +735,36 @@ public class UiTable extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable cellFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public UiTable cellFill(String[] keys1, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys1 = keys1;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".cellFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -816,10 +830,11 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -877,10 +892,11 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -931,6 +947,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cellPadding(%s)", Arrays.toString(cellPadding)));
 
             if (isRendered) {
@@ -969,6 +986,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cellPadding(%s)", arrayToStringWrapQuotes(cellPadding1)));
 
             if (isRendered) {
@@ -1007,6 +1025,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cellPadding(%s)", wrapQuotes(cellPadding2)));
 
             if (isRendered) {
@@ -1091,6 +1110,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cellPadding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
             if (isRendered) {
@@ -1167,6 +1187,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cellPadding(%f, %f, %f, %f)", value1, value3, value5, value7));
 
             if (isRendered) {
@@ -1202,6 +1223,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colsCount(%f)", colsCount));
 
             if (isRendered) {
@@ -1241,6 +1263,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colsMaxWidth(%s)", wrapQuotes(colsMaxWidth)));
 
             if (isRendered) {
@@ -1278,6 +1301,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colsMaxWidth(%f)", colsMaxWidth1));
 
             if (isRendered) {
@@ -1317,6 +1341,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colsMinWidth(%s)", wrapQuotes(colsMinWidth)));
 
             if (isRendered) {
@@ -1354,6 +1379,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colsMinWidth(%f)", colsMinWidth1));
 
             if (isRendered) {
@@ -1393,6 +1419,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colsWidth(%s)", wrapQuotes(colsWidth)));
 
             if (isRendered) {
@@ -1430,6 +1457,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colsWidth(%f)", colsWidth1));
 
             if (isRendered) {
@@ -1468,6 +1496,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".contents(%s, %b)", wrapQuotes(tableValues), demergeCells));
 
             if (isRendered) {
@@ -1503,6 +1532,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
 
             if (isRendered) {
@@ -1539,6 +1569,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
 
             if (isRendered) {
@@ -1578,6 +1609,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontDecoration(%s)", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
 
             if (isRendered) {
@@ -1615,6 +1647,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontDecoration(%s)", wrapQuotes(fontDecoration1)));
 
             if (isRendered) {
@@ -1650,6 +1683,7 @@ public class UiTable extends VisualBaseWithBounds {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
 
             if (isRendered) {
@@ -1686,6 +1720,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
 
             if (isRendered) {
@@ -1725,6 +1760,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize)));
 
             if (isRendered) {
@@ -1762,6 +1798,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontSize(%f)", fontSize1));
 
             if (isRendered) {
@@ -1801,6 +1838,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
 
             if (isRendered) {
@@ -1838,6 +1876,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
 
             if (isRendered) {
@@ -1877,6 +1916,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
 
             if (isRendered) {
@@ -1914,6 +1954,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
 
             if (isRendered) {
@@ -1954,6 +1995,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
 
             if (isRendered) {
@@ -1992,6 +2034,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
 
             if (isRendered) {
@@ -2030,6 +2073,8 @@ Double value from 0 to 1.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setGetCell" + ++variableIndex + " = " + jsBase + ".getCell(%f, %f);", row, col));
             
 
             if (isRendered) {
@@ -2070,6 +2115,8 @@ Double value from 0 to 1.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setGetCol" + ++variableIndex + " = " + jsBase + ".getCol(%f);", col1));
             
 
             if (isRendered) {
@@ -2116,6 +2163,8 @@ Double value from 0 to 1.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getJpgBase64String(%f, %f, %f, %b);", width, height, quality, forceTransparentWhite));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getJpgBase64String(%f, %f, %f, %b)", width, height, quality, forceTransparentWhite));
@@ -2134,31 +2183,33 @@ Double value from 0 to 1.
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(Double paperSizeOrWidth, Double landscapeOrWidth, Double x, Double y) {
+    public void getPdfBase64String(Double paperSizeOrWidth, Double x, Double landscapeOrWidth, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             
             this.paperSizeOrWidth = paperSizeOrWidth;
+            this.x = x;
             this.landscapeOrWidth = null;
             this.landscapeOrWidth1 = null;
             
             this.landscapeOrWidth = landscapeOrWidth;
-            this.x = x;
             this.y = y;
         } else {
             this.paperSizeOrWidth = paperSizeOrWidth;
-            this.landscapeOrWidth = landscapeOrWidth;
             this.x = x;
+            this.landscapeOrWidth = landscapeOrWidth;
             this.y = y;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%f, %f, %f, %f);", paperSizeOrWidth, x, landscapeOrWidth, y));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %f, %f)", paperSizeOrWidth, landscapeOrWidth, x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %f, %f)", paperSizeOrWidth, x, landscapeOrWidth, y));
                 js.setLength(0);
             }
         }
@@ -2168,31 +2219,33 @@ Double value from 0 to 1.
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(Double paperSizeOrWidth, Boolean landscapeOrWidth1, Double x, Double y) {
+    public void getPdfBase64String(Double paperSizeOrWidth, Double x, Boolean landscapeOrWidth1, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             
             this.paperSizeOrWidth = paperSizeOrWidth;
+            this.x = x;
             this.landscapeOrWidth = null;
             this.landscapeOrWidth1 = null;
             
             this.landscapeOrWidth1 = landscapeOrWidth1;
-            this.x = x;
             this.y = y;
         } else {
             this.paperSizeOrWidth = paperSizeOrWidth;
-            this.landscapeOrWidth1 = landscapeOrWidth1;
             this.x = x;
+            this.landscapeOrWidth1 = landscapeOrWidth1;
             this.y = y;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%f, %f, %b, %f);", paperSizeOrWidth, x, landscapeOrWidth1, y));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %b, %f, %f)", paperSizeOrWidth, landscapeOrWidth1, x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %b, %f)", paperSizeOrWidth, x, landscapeOrWidth1, y));
                 js.setLength(0);
             }
         }
@@ -2202,31 +2255,33 @@ Double value from 0 to 1.
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(String paperSizeOrWidth1, Double landscapeOrWidth, Double x, Double y) {
+    public void getPdfBase64String(String paperSizeOrWidth1, Double x, Double landscapeOrWidth, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             
             this.paperSizeOrWidth1 = paperSizeOrWidth1;
+            this.x = x;
             this.landscapeOrWidth = null;
             this.landscapeOrWidth1 = null;
             
             this.landscapeOrWidth = landscapeOrWidth;
-            this.x = x;
             this.y = y;
         } else {
             this.paperSizeOrWidth1 = paperSizeOrWidth1;
-            this.landscapeOrWidth = landscapeOrWidth;
             this.x = x;
+            this.landscapeOrWidth = landscapeOrWidth;
             this.y = y;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%s, %f, %f, %f);", wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth, y));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %f)", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth, x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %f)", wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth, y));
                 js.setLength(0);
             }
         }
@@ -2236,31 +2291,33 @@ Double value from 0 to 1.
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(String paperSizeOrWidth1, Boolean landscapeOrWidth1, Double x, Double y) {
+    public void getPdfBase64String(String paperSizeOrWidth1, Double x, Boolean landscapeOrWidth1, Double y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             
             this.paperSizeOrWidth1 = paperSizeOrWidth1;
+            this.x = x;
             this.landscapeOrWidth = null;
             this.landscapeOrWidth1 = null;
             
             this.landscapeOrWidth1 = landscapeOrWidth1;
-            this.x = x;
             this.y = y;
         } else {
             this.paperSizeOrWidth1 = paperSizeOrWidth1;
-            this.landscapeOrWidth1 = landscapeOrWidth1;
             this.x = x;
+            this.landscapeOrWidth1 = landscapeOrWidth1;
             this.y = y;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%s, %f, %b, %f);", wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth1, y));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %b, %f, %f)", wrapQuotes(paperSizeOrWidth1), landscapeOrWidth1, x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %b, %f)", wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth1, y));
                 js.setLength(0);
             }
         }
@@ -2296,6 +2353,8 @@ Double value from 0 to 1.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPngBase64String(%f, %f, %f);", width1, height1, quality1));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPngBase64String(%f, %f, %f)", width1, height1, quality1));
@@ -2322,6 +2381,8 @@ Double value from 0 to 1.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setGetRow" + ++variableIndex + " = " + jsBase + ".getRow(%f);", row1));
             
 
             if (isRendered) {
@@ -2372,6 +2433,8 @@ Double value from 0 to 1.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getSvgBase64String(%s, %b);", wrapQuotes(paperSizeOrWidth2), landscapeOrHeight));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b)", wrapQuotes(paperSizeOrWidth2), landscapeOrHeight));
@@ -2403,6 +2466,8 @@ Double value from 0 to 1.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getSvgBase64String(%s, %s);", wrapQuotes(paperSizeOrWidth2), wrapQuotes(landscapeOrHeight1)));
             
 
             if (isRendered) {
@@ -2436,6 +2501,8 @@ Double value from 0 to 1.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getSvgBase64String(%f, %b);", paperSizeOrWidth3, landscapeOrHeight));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b)", paperSizeOrWidth3, landscapeOrHeight));
@@ -2468,6 +2535,8 @@ Double value from 0 to 1.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getSvgBase64String(%f, %s);", paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s)", paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1)));
@@ -2495,6 +2564,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hAlign(%s)", ((hAlign != null) ? hAlign.generateJs() : "null")));
 
             if (isRendered) {
@@ -2532,6 +2602,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign1)));
 
             if (isRendered) {
@@ -2572,6 +2643,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing)));
 
             if (isRendered) {
@@ -2610,6 +2682,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
 
             if (isRendered) {
@@ -2649,6 +2722,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight)));
 
             if (isRendered) {
@@ -2686,6 +2760,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
 
             if (isRendered) {
@@ -2722,6 +2797,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowEvenFill(%s)", ((rowEvenFill != null) ? rowEvenFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -2771,6 +2847,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f)", wrapQuotes(color4), opacity3));
 
             if (isRendered) {
@@ -2804,7 +2881,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowEvenFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public UiTable rowEvenFill(GradientKey[] keys4, Double angle1, Double opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2814,15 +2891,6 @@ Double value from 0 to 1.
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
             this.angle = null;
             this.angle1 = null;
             
@@ -2834,19 +2902,29 @@ Double value from 0 to 1.
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
         } else {
             this.keys4 = keys4;
-            this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode4 = mode4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -2869,7 +2947,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowEvenFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public UiTable rowEvenFill(GradientKey[] keys4, Double angle1, Double opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2879,15 +2957,6 @@ Double value from 0 to 1.
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
             this.angle = null;
             this.angle1 = null;
             
@@ -2899,19 +2968,29 @@ Double value from 0 to 1.
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
         } else {
             this.keys4 = keys4;
-            this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode5 = mode5;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+            js.append(mode5.generateJs());
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2934,7 +3013,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowEvenFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public UiTable rowEvenFill(GradientKey[] keys4, Double angle1, Double opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2944,15 +3023,6 @@ Double value from 0 to 1.
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
             this.angle = null;
             this.angle1 = null;
             
@@ -2964,19 +3034,29 @@ Double value from 0 to 1.
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
         } else {
             this.keys4 = keys4;
-            this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode6 = mode6;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -2999,7 +3079,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowEvenFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public UiTable rowEvenFill(String[] keys5, Double angle1, Double opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3009,15 +3089,6 @@ Double value from 0 to 1.
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
             this.angle = null;
             this.angle1 = null;
             
@@ -3029,19 +3100,29 @@ Double value from 0 to 1.
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
         } else {
             this.keys5 = keys5;
-            this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode4 = mode4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -3064,7 +3145,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowEvenFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public UiTable rowEvenFill(String[] keys5, Double angle1, Double opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3074,15 +3155,6 @@ Double value from 0 to 1.
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
             this.angle = null;
             this.angle1 = null;
             
@@ -3094,19 +3166,29 @@ Double value from 0 to 1.
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
         } else {
             this.keys5 = keys5;
-            this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode5 = mode5;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+            js.append(mode5.generateJs());
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3129,7 +3211,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowEvenFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public UiTable rowEvenFill(String[] keys5, Double angle1, Double opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3139,15 +3221,6 @@ Double value from 0 to 1.
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
             this.angle = null;
             this.angle1 = null;
             
@@ -3159,19 +3232,29 @@ Double value from 0 to 1.
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
         } else {
             this.keys5 = keys5;
-            this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode6 = mode6;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -3260,10 +3343,11 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+            js.append(mode7.generateJs());
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -3344,10 +3428,11 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+            js.append(mode7.generateJs());
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -3381,6 +3466,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowOddFill(%s)", ((rowOddFill != null) ? rowOddFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -3434,6 +3520,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f)", wrapQuotes(color5), opacity6));
 
             if (isRendered) {
@@ -3467,7 +3554,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowOddFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
+    public UiTable rowOddFill(GradientKey[] keys8, Double angle2, Double opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3481,19 +3568,6 @@ Double value from 0 to 1.
             this.keys9 = null;
             
             this.keys8 = keys8;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode8 = mode8;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3509,19 +3583,33 @@ Double value from 0 to 1.
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode8 = mode8;
         } else {
             this.keys8 = keys8;
-            this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode8 = mode8;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
+            
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToString(keys8), angle2, opacity7, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToString(keys8), angle2, opacity7, mode8));
                 js.setLength(0);
             }
         }
@@ -3544,7 +3632,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowOddFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
+    public UiTable rowOddFill(GradientKey[] keys8, Double angle2, Double opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3558,19 +3646,6 @@ Double value from 0 to 1.
             this.keys9 = null;
             
             this.keys8 = keys8;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode9 = mode9;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3586,19 +3661,33 @@ Double value from 0 to 1.
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode9 = mode9;
         } else {
             this.keys8 = keys8;
-            this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode9 = mode9;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+            js.append(mode9.generateJs());
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3621,7 +3710,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowOddFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
+    public UiTable rowOddFill(GradientKey[] keys8, Double angle2, Double opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3635,19 +3724,6 @@ Double value from 0 to 1.
             this.keys9 = null;
             
             this.keys8 = keys8;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode10 = mode10;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3663,19 +3739,33 @@ Double value from 0 to 1.
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode10 = mode10;
         } else {
             this.keys8 = keys8;
-            this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode10 = mode10;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
+            
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -3698,7 +3788,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowOddFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
+    public UiTable rowOddFill(String[] keys9, Double angle2, Double opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3712,19 +3802,6 @@ Double value from 0 to 1.
             this.keys9 = null;
             
             this.keys9 = keys9;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode8 = mode8;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3740,19 +3817,33 @@ Double value from 0 to 1.
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode8 = mode8;
         } else {
             this.keys9 = keys9;
-            this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode8 = mode8;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
+            
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
                 js.setLength(0);
             }
         }
@@ -3775,7 +3866,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowOddFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
+    public UiTable rowOddFill(String[] keys9, Double angle2, Double opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3789,19 +3880,6 @@ Double value from 0 to 1.
             this.keys9 = null;
             
             this.keys9 = keys9;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode9 = mode9;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3817,19 +3895,33 @@ Double value from 0 to 1.
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode9 = mode9;
         } else {
             this.keys9 = keys9;
-            this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode9 = mode9;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+            js.append(mode9.generateJs());
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3852,7 +3944,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowOddFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
+    public UiTable rowOddFill(String[] keys9, Double angle2, Double opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3866,19 +3958,6 @@ Double value from 0 to 1.
             this.keys9 = null;
             
             this.keys9 = keys9;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode10 = mode10;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -3894,19 +3973,33 @@ Double value from 0 to 1.
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode10 = mode10;
         } else {
             this.keys9 = keys9;
-            this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode10 = mode10;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
+            
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -4010,10 +4103,11 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+            js.append(mode11.generateJs());
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -4109,10 +4203,11 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+            js.append(mode11.generateJs());
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -4145,6 +4240,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowsCount(%f)", rowsCount));
 
             if (isRendered) {
@@ -4184,6 +4280,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowsHeight(%s)", wrapQuotes(rowsHeight)));
 
             if (isRendered) {
@@ -4221,6 +4318,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowsHeight(%f)", rowsHeight1));
 
             if (isRendered) {
@@ -4260,6 +4358,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowsMaxHeight(%s)", wrapQuotes(rowsMaxHeight)));
 
             if (isRendered) {
@@ -4297,6 +4396,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowsMaxHeight(%f)", rowsMaxHeight1));
 
             if (isRendered) {
@@ -4336,6 +4436,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowsMinHeight(%s)", wrapQuotes(rowsMinHeight)));
 
             if (isRendered) {
@@ -4373,6 +4474,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rowsMinHeight(%f)", rowsMinHeight1));
 
             if (isRendered) {
@@ -4432,6 +4534,8 @@ Double value from 0 to 1.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsJpg(%f, %f, %f, %b);", width2, height2, quality2, forceTransparentWhite1));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b)", width2, height2, quality2, forceTransparentWhite1));
@@ -4469,6 +4573,8 @@ Double value from 0 to 1.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsPdf(%s, %b, %f, %f);", wrapQuotes(paperSize), landscape, x1, y1));
             
 
             if (isRendered) {
@@ -4514,6 +4620,8 @@ Double value from 0 to 1.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsPng(%f, %f, %f);", width3, height3, quality3));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f)", width3, height3, quality3));
@@ -4545,6 +4653,8 @@ Double value from 0 to 1.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsSvg(%s, %b);", wrapQuotes(paperSize1), landscape1));
             
 
             if (isRendered) {
@@ -4584,6 +4694,8 @@ Double value from 0 to 1.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsSvg(%f, %f);", width4, height4));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%f, %f)", width4, height4));
@@ -4607,6 +4719,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".selectable(%b)", selectable));
 
             if (isRendered) {
@@ -4681,6 +4794,8 @@ Double value from 0 to 1.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsJpg(%b, %f, %f, %f, %b, %s);", asBase, width5, height5, quality4, forceTransparentWhite2, wrapQuotes(filename)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsJpg(%b, %f, %f, %f, %b, %s)", asBase, width5, height5, quality4, forceTransparentWhite2, wrapQuotes(filename)));
@@ -4701,8 +4816,12 @@ Double value from 0 to 1.
     /**
      * Shares a table as a PDF file and returns a link to the shared image.
      */
-    public void shareAsPdf(Double paperSizeOrWidth4, Double landscapeOrWidth2, Boolean asBase1, Double x2, Double y2, String filename1) {
+    public void shareAsPdf(Boolean asBase1, Double paperSizeOrWidth4, Double x2, Double landscapeOrWidth2, Double y2, String filename1) {
         if (jsBase == null) {
+            this.asBase = null;
+            this.asBase1 = null;
+            
+            this.asBase1 = asBase1;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -4711,21 +4830,17 @@ Double value from 0 to 1.
             this.paperSizeOrWidth5 = null;
             
             this.paperSizeOrWidth4 = paperSizeOrWidth4;
+            this.x = null;
+            this.x1 = null;
+            this.x2 = null;
+            
+            this.x2 = x2;
             this.landscapeOrWidth = null;
             this.landscapeOrWidth1 = null;
             this.landscapeOrWidth2 = null;
             this.landscapeOrWidth3 = null;
             
             this.landscapeOrWidth2 = landscapeOrWidth2;
-            this.asBase = null;
-            this.asBase1 = null;
-            
-            this.asBase1 = asBase1;
-            this.x = null;
-            this.x1 = null;
-            this.x2 = null;
-            
-            this.x2 = x2;
             this.y = null;
             this.y1 = null;
             this.y2 = null;
@@ -4736,10 +4851,10 @@ Double value from 0 to 1.
             
             this.filename1 = filename1;
         } else {
-            this.paperSizeOrWidth4 = paperSizeOrWidth4;
-            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.asBase1 = asBase1;
+            this.paperSizeOrWidth4 = paperSizeOrWidth4;
             this.x2 = x2;
+            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.y2 = y2;
             this.filename1 = filename1;
             if (isChain) {
@@ -4747,9 +4862,11 @@ Double value from 0 to 1.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%b, %f, %f, %f, %f, %s);", asBase1, paperSizeOrWidth4, x2, landscapeOrWidth2, y2, wrapQuotes(filename1)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %f, %b, %f, %f, %s)", paperSizeOrWidth4, landscapeOrWidth2, asBase1, x2, y2, wrapQuotes(filename1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %f, %f, %f, %f, %s)", asBase1, paperSizeOrWidth4, x2, landscapeOrWidth2, y2, wrapQuotes(filename1)));
                 js.setLength(0);
             }
         }
@@ -4759,8 +4876,12 @@ Double value from 0 to 1.
     /**
      * Shares a table as a PDF file and returns a link to the shared image.
      */
-    public void shareAsPdf(Double paperSizeOrWidth4, Boolean landscapeOrWidth3, Boolean asBase1, Double x2, Double y2, String filename1) {
+    public void shareAsPdf(Boolean asBase1, Double paperSizeOrWidth4, Double x2, Boolean landscapeOrWidth3, Double y2, String filename1) {
         if (jsBase == null) {
+            this.asBase = null;
+            this.asBase1 = null;
+            
+            this.asBase1 = asBase1;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -4769,21 +4890,17 @@ Double value from 0 to 1.
             this.paperSizeOrWidth5 = null;
             
             this.paperSizeOrWidth4 = paperSizeOrWidth4;
+            this.x = null;
+            this.x1 = null;
+            this.x2 = null;
+            
+            this.x2 = x2;
             this.landscapeOrWidth = null;
             this.landscapeOrWidth1 = null;
             this.landscapeOrWidth2 = null;
             this.landscapeOrWidth3 = null;
             
             this.landscapeOrWidth3 = landscapeOrWidth3;
-            this.asBase = null;
-            this.asBase1 = null;
-            
-            this.asBase1 = asBase1;
-            this.x = null;
-            this.x1 = null;
-            this.x2 = null;
-            
-            this.x2 = x2;
             this.y = null;
             this.y1 = null;
             this.y2 = null;
@@ -4794,10 +4911,10 @@ Double value from 0 to 1.
             
             this.filename1 = filename1;
         } else {
-            this.paperSizeOrWidth4 = paperSizeOrWidth4;
-            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.asBase1 = asBase1;
+            this.paperSizeOrWidth4 = paperSizeOrWidth4;
             this.x2 = x2;
+            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.y2 = y2;
             this.filename1 = filename1;
             if (isChain) {
@@ -4805,9 +4922,11 @@ Double value from 0 to 1.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%b, %f, %f, %b, %f, %s);", asBase1, paperSizeOrWidth4, x2, landscapeOrWidth3, y2, wrapQuotes(filename1)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%f, %b, %b, %f, %f, %s)", paperSizeOrWidth4, landscapeOrWidth3, asBase1, x2, y2, wrapQuotes(filename1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %f, %f, %b, %f, %s)", asBase1, paperSizeOrWidth4, x2, landscapeOrWidth3, y2, wrapQuotes(filename1)));
                 js.setLength(0);
             }
         }
@@ -4817,8 +4936,12 @@ Double value from 0 to 1.
     /**
      * Shares a table as a PDF file and returns a link to the shared image.
      */
-    public void shareAsPdf(String paperSizeOrWidth5, Double landscapeOrWidth2, Boolean asBase1, Double x2, Double y2, String filename1) {
+    public void shareAsPdf(Boolean asBase1, String paperSizeOrWidth5, Double x2, Double landscapeOrWidth2, Double y2, String filename1) {
         if (jsBase == null) {
+            this.asBase = null;
+            this.asBase1 = null;
+            
+            this.asBase1 = asBase1;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -4827,21 +4950,17 @@ Double value from 0 to 1.
             this.paperSizeOrWidth5 = null;
             
             this.paperSizeOrWidth5 = paperSizeOrWidth5;
+            this.x = null;
+            this.x1 = null;
+            this.x2 = null;
+            
+            this.x2 = x2;
             this.landscapeOrWidth = null;
             this.landscapeOrWidth1 = null;
             this.landscapeOrWidth2 = null;
             this.landscapeOrWidth3 = null;
             
             this.landscapeOrWidth2 = landscapeOrWidth2;
-            this.asBase = null;
-            this.asBase1 = null;
-            
-            this.asBase1 = asBase1;
-            this.x = null;
-            this.x1 = null;
-            this.x2 = null;
-            
-            this.x2 = x2;
             this.y = null;
             this.y1 = null;
             this.y2 = null;
@@ -4852,10 +4971,10 @@ Double value from 0 to 1.
             
             this.filename1 = filename1;
         } else {
-            this.paperSizeOrWidth5 = paperSizeOrWidth5;
-            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.asBase1 = asBase1;
+            this.paperSizeOrWidth5 = paperSizeOrWidth5;
             this.x2 = x2;
+            this.landscapeOrWidth2 = landscapeOrWidth2;
             this.y2 = y2;
             this.filename1 = filename1;
             if (isChain) {
@@ -4863,9 +4982,11 @@ Double value from 0 to 1.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%b, %s, %f, %f, %f, %s);", asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth2, y2, wrapQuotes(filename1)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %f, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidth5), landscapeOrWidth2, asBase1, x2, y2, wrapQuotes(filename1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %s, %f, %f, %f, %s)", asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth2, y2, wrapQuotes(filename1)));
                 js.setLength(0);
             }
         }
@@ -4875,8 +4996,12 @@ Double value from 0 to 1.
     /**
      * Shares a table as a PDF file and returns a link to the shared image.
      */
-    public void shareAsPdf(String paperSizeOrWidth5, Boolean landscapeOrWidth3, Boolean asBase1, Double x2, Double y2, String filename1) {
+    public void shareAsPdf(Boolean asBase1, String paperSizeOrWidth5, Double x2, Boolean landscapeOrWidth3, Double y2, String filename1) {
         if (jsBase == null) {
+            this.asBase = null;
+            this.asBase1 = null;
+            
+            this.asBase1 = asBase1;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -4885,21 +5010,17 @@ Double value from 0 to 1.
             this.paperSizeOrWidth5 = null;
             
             this.paperSizeOrWidth5 = paperSizeOrWidth5;
+            this.x = null;
+            this.x1 = null;
+            this.x2 = null;
+            
+            this.x2 = x2;
             this.landscapeOrWidth = null;
             this.landscapeOrWidth1 = null;
             this.landscapeOrWidth2 = null;
             this.landscapeOrWidth3 = null;
             
             this.landscapeOrWidth3 = landscapeOrWidth3;
-            this.asBase = null;
-            this.asBase1 = null;
-            
-            this.asBase1 = asBase1;
-            this.x = null;
-            this.x1 = null;
-            this.x2 = null;
-            
-            this.x2 = x2;
             this.y = null;
             this.y1 = null;
             this.y2 = null;
@@ -4910,10 +5031,10 @@ Double value from 0 to 1.
             
             this.filename1 = filename1;
         } else {
-            this.paperSizeOrWidth5 = paperSizeOrWidth5;
-            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.asBase1 = asBase1;
+            this.paperSizeOrWidth5 = paperSizeOrWidth5;
             this.x2 = x2;
+            this.landscapeOrWidth3 = landscapeOrWidth3;
             this.y2 = y2;
             this.filename1 = filename1;
             if (isChain) {
@@ -4921,9 +5042,11 @@ Double value from 0 to 1.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%b, %s, %f, %b, %f, %s);", asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth3, y2, wrapQuotes(filename1)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %b, %f, %f, %s)", wrapQuotes(paperSizeOrWidth5), landscapeOrWidth3, asBase1, x2, y2, wrapQuotes(filename1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %s, %f, %b, %f, %s)", asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth3, y2, wrapQuotes(filename1)));
                 js.setLength(0);
             }
         }
@@ -4987,6 +5110,8 @@ Double value from 0 to 1.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPng(%b, %f, %f, %f, %s);", asBase2, width6, height6, quality5, wrapQuotes(filename2)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPng(%b, %f, %f, %f, %s)", asBase2, width6, height6, quality5, wrapQuotes(filename2)));
@@ -5005,8 +5130,14 @@ Double value from 0 to 1.
     /**
      * Shares a table as a SVG file and returns a link to the shared image.
      */
-    public void shareAsSvg(String paperSizeOrWidth6, Boolean landscapeOrHeight2, Boolean asBase3, String filename3) {
+    public void shareAsSvg(Boolean asBase3, String paperSizeOrWidth6, String filename3, Boolean landscapeOrHeight2) {
         if (jsBase == null) {
+            this.asBase = null;
+            this.asBase1 = null;
+            this.asBase2 = null;
+            this.asBase3 = null;
+            
+            this.asBase3 = asBase3;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -5017,37 +5148,33 @@ Double value from 0 to 1.
             this.paperSizeOrWidth7 = null;
             
             this.paperSizeOrWidth6 = paperSizeOrWidth6;
-            this.landscapeOrHeight = null;
-            this.landscapeOrHeight1 = null;
-            this.landscapeOrHeight2 = null;
-            this.landscapeOrHeight3 = null;
-            
-            this.landscapeOrHeight2 = landscapeOrHeight2;
-            this.asBase = null;
-            this.asBase1 = null;
-            this.asBase2 = null;
-            this.asBase3 = null;
-            
-            this.asBase3 = asBase3;
             this.filename = null;
             this.filename1 = null;
             this.filename2 = null;
             this.filename3 = null;
             
             this.filename3 = filename3;
-        } else {
-            this.paperSizeOrWidth6 = paperSizeOrWidth6;
+            this.landscapeOrHeight = null;
+            this.landscapeOrHeight1 = null;
+            this.landscapeOrHeight2 = null;
+            this.landscapeOrHeight3 = null;
+            
             this.landscapeOrHeight2 = landscapeOrHeight2;
+        } else {
             this.asBase3 = asBase3;
+            this.paperSizeOrWidth6 = paperSizeOrWidth6;
             this.filename3 = filename3;
+            this.landscapeOrHeight2 = landscapeOrHeight2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsSvg(%b, %s, %s, %b);", asBase3, wrapQuotes(paperSizeOrWidth6), wrapQuotes(filename3), landscapeOrHeight2));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %b, %s)", wrapQuotes(paperSizeOrWidth6), landscapeOrHeight2, asBase3, wrapQuotes(filename3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %s, %s, %b)", asBase3, wrapQuotes(paperSizeOrWidth6), wrapQuotes(filename3), landscapeOrHeight2));
                 js.setLength(0);
             }
         }
@@ -5057,8 +5184,14 @@ Double value from 0 to 1.
     /**
      * Shares a table as a SVG file and returns a link to the shared image.
      */
-    public void shareAsSvg(String paperSizeOrWidth6, String landscapeOrHeight3, Boolean asBase3, String filename3) {
+    public void shareAsSvg(Boolean asBase3, String paperSizeOrWidth6, String filename3, String landscapeOrHeight3) {
         if (jsBase == null) {
+            this.asBase = null;
+            this.asBase1 = null;
+            this.asBase2 = null;
+            this.asBase3 = null;
+            
+            this.asBase3 = asBase3;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -5069,37 +5202,33 @@ Double value from 0 to 1.
             this.paperSizeOrWidth7 = null;
             
             this.paperSizeOrWidth6 = paperSizeOrWidth6;
-            this.landscapeOrHeight = null;
-            this.landscapeOrHeight1 = null;
-            this.landscapeOrHeight2 = null;
-            this.landscapeOrHeight3 = null;
-            
-            this.landscapeOrHeight3 = landscapeOrHeight3;
-            this.asBase = null;
-            this.asBase1 = null;
-            this.asBase2 = null;
-            this.asBase3 = null;
-            
-            this.asBase3 = asBase3;
             this.filename = null;
             this.filename1 = null;
             this.filename2 = null;
             this.filename3 = null;
             
             this.filename3 = filename3;
+            this.landscapeOrHeight = null;
+            this.landscapeOrHeight1 = null;
+            this.landscapeOrHeight2 = null;
+            this.landscapeOrHeight3 = null;
+            
+            this.landscapeOrHeight3 = landscapeOrHeight3;
         } else {
+            this.asBase3 = asBase3;
             this.paperSizeOrWidth6 = paperSizeOrWidth6;
-            this.landscapeOrHeight3 = landscapeOrHeight3;
-            this.asBase3 = asBase3;
             this.filename3 = filename3;
+            this.landscapeOrHeight3 = landscapeOrHeight3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsSvg(%b, %s, %s, %s);", asBase3, wrapQuotes(paperSizeOrWidth6), wrapQuotes(filename3), wrapQuotes(landscapeOrHeight3)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %s, %b, %s)", wrapQuotes(paperSizeOrWidth6), wrapQuotes(landscapeOrHeight3), asBase3, wrapQuotes(filename3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %s, %s, %s)", asBase3, wrapQuotes(paperSizeOrWidth6), wrapQuotes(filename3), wrapQuotes(landscapeOrHeight3)));
                 js.setLength(0);
             }
         }
@@ -5109,8 +5238,14 @@ Double value from 0 to 1.
     /**
      * Shares a table as a SVG file and returns a link to the shared image.
      */
-    public void shareAsSvg(Double paperSizeOrWidth7, Boolean landscapeOrHeight2, Boolean asBase3, String filename3) {
+    public void shareAsSvg(Boolean asBase3, Double paperSizeOrWidth7, String filename3, Boolean landscapeOrHeight2) {
         if (jsBase == null) {
+            this.asBase = null;
+            this.asBase1 = null;
+            this.asBase2 = null;
+            this.asBase3 = null;
+            
+            this.asBase3 = asBase3;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -5121,37 +5256,33 @@ Double value from 0 to 1.
             this.paperSizeOrWidth7 = null;
             
             this.paperSizeOrWidth7 = paperSizeOrWidth7;
-            this.landscapeOrHeight = null;
-            this.landscapeOrHeight1 = null;
-            this.landscapeOrHeight2 = null;
-            this.landscapeOrHeight3 = null;
-            
-            this.landscapeOrHeight2 = landscapeOrHeight2;
-            this.asBase = null;
-            this.asBase1 = null;
-            this.asBase2 = null;
-            this.asBase3 = null;
-            
-            this.asBase3 = asBase3;
             this.filename = null;
             this.filename1 = null;
             this.filename2 = null;
             this.filename3 = null;
             
             this.filename3 = filename3;
-        } else {
-            this.paperSizeOrWidth7 = paperSizeOrWidth7;
+            this.landscapeOrHeight = null;
+            this.landscapeOrHeight1 = null;
+            this.landscapeOrHeight2 = null;
+            this.landscapeOrHeight3 = null;
+            
             this.landscapeOrHeight2 = landscapeOrHeight2;
+        } else {
             this.asBase3 = asBase3;
+            this.paperSizeOrWidth7 = paperSizeOrWidth7;
             this.filename3 = filename3;
+            this.landscapeOrHeight2 = landscapeOrHeight2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsSvg(%b, %f, %s, %b);", asBase3, paperSizeOrWidth7, wrapQuotes(filename3), landscapeOrHeight2));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %b, %b, %s)", paperSizeOrWidth7, landscapeOrHeight2, asBase3, wrapQuotes(filename3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %f, %s, %b)", asBase3, paperSizeOrWidth7, wrapQuotes(filename3), landscapeOrHeight2));
                 js.setLength(0);
             }
         }
@@ -5161,8 +5292,14 @@ Double value from 0 to 1.
     /**
      * Shares a table as a SVG file and returns a link to the shared image.
      */
-    public void shareAsSvg(Double paperSizeOrWidth7, String landscapeOrHeight3, Boolean asBase3, String filename3) {
+    public void shareAsSvg(Boolean asBase3, Double paperSizeOrWidth7, String filename3, String landscapeOrHeight3) {
         if (jsBase == null) {
+            this.asBase = null;
+            this.asBase1 = null;
+            this.asBase2 = null;
+            this.asBase3 = null;
+            
+            this.asBase3 = asBase3;
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
             this.paperSizeOrWidth2 = null;
@@ -5173,37 +5310,33 @@ Double value from 0 to 1.
             this.paperSizeOrWidth7 = null;
             
             this.paperSizeOrWidth7 = paperSizeOrWidth7;
-            this.landscapeOrHeight = null;
-            this.landscapeOrHeight1 = null;
-            this.landscapeOrHeight2 = null;
-            this.landscapeOrHeight3 = null;
-            
-            this.landscapeOrHeight3 = landscapeOrHeight3;
-            this.asBase = null;
-            this.asBase1 = null;
-            this.asBase2 = null;
-            this.asBase3 = null;
-            
-            this.asBase3 = asBase3;
             this.filename = null;
             this.filename1 = null;
             this.filename2 = null;
             this.filename3 = null;
             
             this.filename3 = filename3;
-        } else {
-            this.paperSizeOrWidth7 = paperSizeOrWidth7;
+            this.landscapeOrHeight = null;
+            this.landscapeOrHeight1 = null;
+            this.landscapeOrHeight2 = null;
+            this.landscapeOrHeight3 = null;
+            
             this.landscapeOrHeight3 = landscapeOrHeight3;
+        } else {
             this.asBase3 = asBase3;
+            this.paperSizeOrWidth7 = paperSizeOrWidth7;
             this.filename3 = filename3;
+            this.landscapeOrHeight3 = landscapeOrHeight3;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsSvg(%b, %f, %s, %s);", asBase3, paperSizeOrWidth7, wrapQuotes(filename3), wrapQuotes(landscapeOrHeight3)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%f, %s, %b, %s)", paperSizeOrWidth7, wrapQuotes(landscapeOrHeight3), asBase3, wrapQuotes(filename3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %f, %s, %s)", asBase3, paperSizeOrWidth7, wrapQuotes(filename3), wrapQuotes(landscapeOrHeight3)));
                 js.setLength(0);
             }
         }
@@ -5228,6 +5361,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textDirection(%s)", ((textDirection != null) ? textDirection.generateJs() : "null")));
 
             if (isRendered) {
@@ -5265,6 +5399,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection1)));
 
             if (isRendered) {
@@ -5300,6 +5435,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
 
             if (isRendered) {
@@ -5339,6 +5475,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
 
             if (isRendered) {
@@ -5376,6 +5513,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
 
             if (isRendered) {
@@ -5422,6 +5560,8 @@ Double value from 0 to 1.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".toSvg(%s, %b);", wrapQuotes(paperSize2), landscape2));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%s, %b)", wrapQuotes(paperSize2), landscape2));
@@ -5466,6 +5606,8 @@ Double value from 0 to 1.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".toSvg(%f, %f);", width7, height7));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%f, %f)", width7, height7));
@@ -5489,6 +5631,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".useHtml(%b)", useHtml));
 
             if (isRendered) {
@@ -5528,6 +5671,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".vAlign(%s)", ((vAlign != null) ? vAlign.generateJs() : "null")));
 
             if (isRendered) {
@@ -5565,6 +5709,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign1)));
 
             if (isRendered) {
@@ -5604,6 +5749,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak != null) ? wordBreak.generateJs() : "null")));
 
             if (isRendered) {
@@ -5641,6 +5787,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak1)));
 
             if (isRendered) {
@@ -5680,6 +5827,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap != null) ? wordWrap.generateJs() : "null")));
 
             if (isRendered) {
@@ -5717,6 +5865,7 @@ Double value from 0 to 1.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap1)));
 
             if (isRendered) {

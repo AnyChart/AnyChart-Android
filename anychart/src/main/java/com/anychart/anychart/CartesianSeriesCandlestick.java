@@ -51,6 +51,8 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingFill" + ++variableIndex + " = " + jsBase + ".fallingFill(%s);", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s)", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
@@ -91,6 +93,8 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingFill1" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f);", wrapQuotes(color), opacity));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f)", wrapQuotes(color), opacity));
@@ -125,35 +129,37 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys = keys;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingFill2" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -178,35 +184,37 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys = keys;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, "var setFallingFill3" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -231,35 +239,37 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys = keys;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingFill4" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -284,35 +294,37 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public CartesianSeriesBase fallingFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys1 = keys1;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingFill5" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -337,35 +349,37 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public CartesianSeriesBase fallingFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys1 = keys1;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, "var setFallingFill6" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -390,35 +404,37 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public CartesianSeriesBase fallingFill(String[] keys1, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys1 = keys1;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingFill7" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -486,10 +502,12 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, "var setFallingFill8" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -549,10 +567,12 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, "var setFallingFill9" + ++variableIndex + " = " + jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -622,10 +642,12 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            js.append(patternFillOrTypeOrState.generateJs());
+            js.append(String.format(Locale.US, "var setFallingHatchFill" + ++variableIndex + " = " + jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : "null"), wrapQuotes(color1), thickness, size));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.generateJs() : "null"), wrapQuotes(color1), thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState != null) ? patternFillOrTypeOrState.getJsBase() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
@@ -674,10 +696,12 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            js.append(patternFillOrTypeOrState1.generateJs());
+            js.append(String.format(Locale.US, "var setFallingHatchFill1" + ++variableIndex + " = " + jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.getJsBase() : "null"), wrapQuotes(color1), thickness, size));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.generateJs() : "null"), wrapQuotes(color1), thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState1 != null) ? patternFillOrTypeOrState1.getJsBase() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
@@ -726,6 +750,8 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setFallingHatchFill2" + ++variableIndex + " = " + jsBase + ".fallingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState2 != null) ? patternFillOrTypeOrState2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
             
 
             if (isRendered) {
@@ -779,6 +805,8 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingHatchFill3" + ++variableIndex + " = " + jsBase + ".fallingHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color1), thickness, size));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState3), wrapQuotes(color1), thickness, size));
@@ -831,6 +859,8 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setFallingHatchFill4" + ++variableIndex + " = " + jsBase + ".fallingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState4, wrapQuotes(color1), thickness, size));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".fallingHatchFill(%b, %s, %f, %f)", patternFillOrTypeOrState4, wrapQuotes(color1), thickness, size));
@@ -868,6 +898,8 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setRisingFill" + ++variableIndex + " = " + jsBase + ".risingFill(%s);", ((risingFill != null) ? risingFill.generateJs() : "null")));
             
 
             if (isRendered) {
@@ -918,6 +950,8 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRisingFill1" + ++variableIndex + " = " + jsBase + ".risingFill(%s, %f);", wrapQuotes(color2), opacity3));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f)", wrapQuotes(color2), opacity3));
@@ -952,7 +986,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase risingFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public CartesianSeriesBase risingFill(GradientKey[] keys4, Double angle1, Double opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -962,15 +996,6 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
             this.angle = null;
             this.angle1 = null;
             
@@ -982,19 +1007,30 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
         } else {
             this.keys4 = keys4;
-            this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode4 = mode4;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRisingFill2" + ++variableIndex + " = " + jsBase + ".risingFill(%s, %f, %f, %b);", arrayToString(keys4), angle1, opacity4, mode4));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -1019,7 +1055,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase risingFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public CartesianSeriesBase risingFill(GradientKey[] keys4, Double angle1, Double opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1029,15 +1065,6 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
             this.angle = null;
             this.angle1 = null;
             
@@ -1049,19 +1076,30 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
         } else {
             this.keys4 = keys4;
-            this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode5 = mode5;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mode5.generateJs());
+            js.append(String.format(Locale.US, "var setRisingFill3" + ++variableIndex + " = " + jsBase + ".risingFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1086,7 +1124,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase risingFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public CartesianSeriesBase risingFill(GradientKey[] keys4, Double angle1, Double opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1096,15 +1134,6 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
             this.angle = null;
             this.angle1 = null;
             
@@ -1116,19 +1145,30 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
         } else {
             this.keys4 = keys4;
-            this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode6 = mode6;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRisingFill4" + ++variableIndex + " = " + jsBase + ".risingFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1153,7 +1193,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase risingFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public CartesianSeriesBase risingFill(String[] keys5, Double angle1, Double opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1163,15 +1203,6 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
             this.angle = null;
             this.angle1 = null;
             
@@ -1183,19 +1214,30 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
         } else {
             this.keys5 = keys5;
-            this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode4 = mode4;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRisingFill5" + ++variableIndex + " = " + jsBase + ".risingFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -1220,7 +1262,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase risingFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public CartesianSeriesBase risingFill(String[] keys5, Double angle1, Double opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1230,15 +1272,6 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
             this.angle = null;
             this.angle1 = null;
             
@@ -1250,19 +1283,30 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
         } else {
             this.keys5 = keys5;
-            this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode5 = mode5;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mode5.generateJs());
+            js.append(String.format(Locale.US, "var setRisingFill6" + ++variableIndex + " = " + jsBase + ".risingFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1287,7 +1331,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase risingFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public CartesianSeriesBase risingFill(String[] keys5, Double angle1, Double opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1297,15 +1341,6 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
             this.angle = null;
             this.angle1 = null;
             
@@ -1317,19 +1352,30 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
         } else {
             this.keys5 = keys5;
-            this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode6 = mode6;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRisingFill7" + ++variableIndex + " = " + jsBase + ".risingFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
+            
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1420,10 +1466,12 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mode7.generateJs());
+            js.append(String.format(Locale.US, "var setRisingFill8" + ++variableIndex + " = " + jsBase + ".risingFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1506,10 +1554,12 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            js.append(mode7.generateJs());
+            js.append(String.format(Locale.US, "var setRisingFill9" + ++variableIndex + " = " + jsBase + ".risingFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1592,10 +1642,12 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            js.append(patternFillOrTypeOrState5.generateJs());
+            js.append(String.format(Locale.US, "var setRisingHatchFill" + ++variableIndex + " = " + jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.getJsBase() : "null"), wrapQuotes(color3), thickness1, size1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState5 != null) ? patternFillOrTypeOrState5.getJsBase() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
@@ -1657,10 +1709,12 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            js.append(patternFillOrTypeOrState6.generateJs());
+            js.append(String.format(Locale.US, "var setRisingHatchFill1" + ++variableIndex + " = " + jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.getJsBase() : "null"), wrapQuotes(color3), thickness1, size1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", ((patternFillOrTypeOrState6 != null) ? patternFillOrTypeOrState6.getJsBase() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
@@ -1722,6 +1776,8 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setRisingHatchFill2" + ++variableIndex + " = " + jsBase + ".risingHatchFill(%s, %s, %f, %f);", ((patternFillOrTypeOrState7 != null) ? patternFillOrTypeOrState7.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
             
 
             if (isRendered) {
@@ -1788,6 +1844,8 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRisingHatchFill3" + ++variableIndex + " = " + jsBase + ".risingHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color3), thickness1, size1));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".risingHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrTypeOrState8), wrapQuotes(color3), thickness1, size1));
@@ -1852,6 +1910,8 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setRisingHatchFill4" + ++variableIndex + " = " + jsBase + ".risingHatchFill(%b, %s, %f, %f);", patternFillOrTypeOrState9, wrapQuotes(color3), thickness1, size1));
             
 
             if (isRendered) {

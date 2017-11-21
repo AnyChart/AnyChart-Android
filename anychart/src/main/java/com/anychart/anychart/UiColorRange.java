@@ -51,6 +51,7 @@ public class UiColorRange extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
 
             if (isRendered) {
@@ -88,6 +89,7 @@ public class UiColorRange extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
 
             if (isRendered) {
@@ -123,6 +125,7 @@ public class UiColorRange extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".colorLineSize(%f)", colorLineSize));
 
             if (isRendered) {
@@ -162,6 +165,7 @@ public class UiColorRange extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".length(%s)", wrapQuotes(length)));
 
             if (isRendered) {
@@ -199,6 +203,7 @@ public class UiColorRange extends CoreAxesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".length(%f)", length1));
 
             if (isRendered) {

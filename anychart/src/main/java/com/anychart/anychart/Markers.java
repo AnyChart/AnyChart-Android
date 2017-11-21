@@ -50,6 +50,7 @@ public class Markers extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".itemAt(%f, %s)", index, wrapQuotes(type)));
 
             if (isRendered) {
@@ -92,6 +93,7 @@ public class Markers extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".items(%s, %s)", arrayToStringWrapQuotes(items), wrapQuotes(var_args)));
 
             if (isRendered) {
@@ -131,6 +133,7 @@ public class Markers extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".items(%s, %s)", wrapQuotes(items1), wrapQuotes(var_args)));
 
             if (isRendered) {

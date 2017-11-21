@@ -49,6 +49,7 @@ Auto rotates a label around an anchor.
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".autoRotate(%b)", autoRotate));
 
             if (isRendered) {

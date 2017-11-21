@@ -58,6 +58,7 @@ public class VectorRect extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cut(%s)", wrapQuotes(radiusAll)));
 
             if (isRendered) {
@@ -95,6 +96,7 @@ public class VectorRect extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cut(%f)", radiusAll1));
 
             if (isRendered) {
@@ -139,6 +141,7 @@ public class VectorRect extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".cut(%f, %f, %f, %f)", radiusLeftTop, radiusRightTop, radiusRightBottom, radiusLeftBottom));
 
             if (isRendered) {
@@ -180,6 +183,7 @@ public class VectorRect extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".round(%s)", wrapQuotes(radiusAll2)));
 
             if (isRendered) {
@@ -219,6 +223,7 @@ public class VectorRect extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".round(%f)", radiusAll3));
 
             if (isRendered) {
@@ -275,6 +280,7 @@ public class VectorRect extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".round(%f, %f, %f, %f)", radiusLeftTop1, radiusRightTop1, radiusRightBottom1, radiusLeftBottom1));
 
             if (isRendered) {
@@ -318,6 +324,7 @@ public class VectorRect extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".roundInner(%s)", wrapQuotes(radiusAll4)));
 
             if (isRendered) {
@@ -359,6 +366,7 @@ public class VectorRect extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".roundInner(%f)", radiusAll5));
 
             if (isRendered) {
@@ -419,6 +427,7 @@ public class VectorRect extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".roundInner(%f, %f, %f, %f)", radiusLeftTop2, radiusRightTop2, radiusRightBottom2, radiusLeftBottom2));
 
             if (isRendered) {
@@ -487,6 +496,7 @@ public class VectorRect extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".setHeight(%f)", setHeight));
 
             if (isRendered) {
@@ -522,6 +532,7 @@ public class VectorRect extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".setWidth(%f)", setWidth));
 
             if (isRendered) {
@@ -557,6 +568,7 @@ public class VectorRect extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".setX(%f)", setX));
 
             if (isRendered) {
@@ -592,6 +604,7 @@ public class VectorRect extends Shape {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".setY(%f)", setY));
 
             if (isRendered) {

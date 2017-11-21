@@ -47,6 +47,7 @@ public class CMF extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".period(%f)", period));
 
             if (isRendered) {
@@ -98,6 +99,7 @@ public class CMF extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".series(%s)", ((type != null) ? type.generateJs() : "null")));
 
             if (isRendered) {
@@ -135,6 +137,7 @@ public class CMF extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".series(%s)", wrapQuotes(type1)));
 
             if (isRendered) {

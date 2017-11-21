@@ -52,6 +52,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".adjustFontSize(%b, %b)", adjustByWidth, adjustByHeight));
 
             if (isRendered) {
@@ -93,6 +94,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".adjustFontSize(%s)", wrapQuotes(adjustFontSize)));
 
             if (isRendered) {
@@ -131,6 +133,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".adjustFontSize(%s)", Arrays.toString(adjustFontSize1)));
 
             if (isRendered) {
@@ -169,6 +172,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".adjustFontSize(%b)", adjustFontSize2));
 
             if (isRendered) {
@@ -208,6 +212,8 @@ public class LabelsfactoryLabel extends CoreText {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".anchor(%s);", ((anchor != null) ? anchor.generateJs() : "null")));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
@@ -232,6 +238,8 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".anchor(%s);", wrapQuotes(anchor1)));
             
 
             if (isRendered) {
@@ -274,6 +282,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
 
             if (isRendered) {
@@ -312,6 +321,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".background(%b)", background2));
 
             if (isRendered) {
@@ -351,6 +361,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
@@ -388,6 +399,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
 
             if (isRendered) {
@@ -427,6 +439,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
 
             if (isRendered) {
@@ -464,6 +477,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maxFontSize(%s)", wrapQuotes(maxFontSize1)));
 
             if (isRendered) {
@@ -503,6 +517,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
 
             if (isRendered) {
@@ -540,6 +555,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minFontSize(%s)", wrapQuotes(minFontSize1)));
 
             if (isRendered) {
@@ -579,6 +595,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".offsetX(%f)", offsetX));
 
             if (isRendered) {
@@ -616,6 +633,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".offsetX(%s)", wrapQuotes(offsetX1)));
 
             if (isRendered) {
@@ -655,6 +673,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".offsetY(%f)", offsetY));
 
             if (isRendered) {
@@ -692,6 +711,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".offsetY(%s)", wrapQuotes(offsetY1)));
 
             if (isRendered) {
@@ -749,6 +769,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
 
             if (isRendered) {
@@ -789,6 +810,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
 
             if (isRendered) {
@@ -873,6 +895,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
             if (isRendered) {
@@ -949,6 +972,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
 
             if (isRendered) {
@@ -984,6 +1008,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position)));
 
             if (isRendered) {
@@ -1019,6 +1044,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".rotation(%f)", rotation));
 
             if (isRendered) {
@@ -1058,6 +1084,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
@@ -1095,6 +1122,7 @@ public class LabelsfactoryLabel extends CoreText {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {

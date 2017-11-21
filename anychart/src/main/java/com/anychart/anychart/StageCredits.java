@@ -49,6 +49,7 @@ public class StageCredits extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".alt(%s)", wrapQuotes(alt)));
 
             if (isRendered) {
@@ -84,6 +85,7 @@ public class StageCredits extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
@@ -119,6 +121,7 @@ public class StageCredits extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".imgAlt(%s)", wrapQuotes(imgAlt)));
 
             if (isRendered) {
@@ -155,6 +158,7 @@ public class StageCredits extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".logoSrc(%s)", wrapQuotes(logoSrc)));
 
             if (isRendered) {
@@ -190,6 +194,7 @@ public class StageCredits extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
 
             if (isRendered) {
@@ -225,6 +230,7 @@ public class StageCredits extends JsObject {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".url(%s)", wrapQuotes(url)));
 
             if (isRendered) {

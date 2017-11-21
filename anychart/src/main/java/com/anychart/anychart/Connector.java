@@ -51,6 +51,7 @@ public class Connector extends MapSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".curvature(%f)", curvature));
 
             if (isRendered) {
@@ -88,6 +89,7 @@ public class Connector extends MapSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".curvature(%s)", wrapQuotes(curvature1)));
 
             if (isRendered) {
@@ -149,6 +151,7 @@ public class Connector extends MapSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".startSize(%f)", startSize));
 
             if (isRendered) {
@@ -186,6 +189,7 @@ public class Connector extends MapSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".startSize(%s)", wrapQuotes(startSize1)));
 
             if (isRendered) {

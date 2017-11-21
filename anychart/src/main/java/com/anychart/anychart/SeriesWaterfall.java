@@ -48,6 +48,7 @@ public class SeriesWaterfall extends WidthBased {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fallingFill(%s)", ((fallingFill != null) ? fallingFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -86,6 +87,7 @@ public class SeriesWaterfall extends WidthBased {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fallingFill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
@@ -119,35 +121,36 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fallingFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public SeriesWaterfall fallingFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys = keys;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fallingFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".fallingFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -170,35 +173,36 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fallingFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public SeriesWaterfall fallingFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys = keys;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -221,35 +225,36 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fallingFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public SeriesWaterfall fallingFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys = keys;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys = keys;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -272,35 +277,36 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fallingFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public SeriesWaterfall fallingFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode = mode;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode = mode;
         } else {
             this.keys1 = keys1;
-            this.mode = mode;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode = mode;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fallingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".fallingFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -323,35 +329,36 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fallingFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public SeriesWaterfall fallingFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode1 = mode1;
         } else {
             this.keys1 = keys1;
-            this.mode1 = mode1;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode1 = mode1;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            js.append(mode1.generateJs());
+            js.append(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -374,35 +381,36 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fallingFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public SeriesWaterfall fallingFill(String[] keys1, Double angle, Double opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
             
             this.keys1 = keys1;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity = null;
             this.opacity1 = null;
             
             this.opacity1 = opacity1;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            
+            this.mode2 = mode2;
         } else {
             this.keys1 = keys1;
-            this.mode2 = mode2;
             this.angle = angle;
             this.opacity1 = opacity1;
+            this.mode2 = mode2;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+            
+            js.append(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -468,10 +476,11 @@ public class SeriesWaterfall extends WidthBased {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -529,10 +538,11 @@ public class SeriesWaterfall extends WidthBased {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            js.append(mode3.generateJs());
+            js.append(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, ".fallingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -566,6 +576,7 @@ public class SeriesWaterfall extends WidthBased {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
             if (isRendered) {
@@ -612,6 +623,7 @@ public class SeriesWaterfall extends WidthBased {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color1), opacity3));
 
             if (isRendered) {
@@ -645,7 +657,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public SeriesWaterfall fill(GradientKey[] keys4, Double angle1, Double opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -655,15 +667,6 @@ public class SeriesWaterfall extends WidthBased {
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
             this.angle = null;
             this.angle1 = null;
             
@@ -675,19 +678,29 @@ public class SeriesWaterfall extends WidthBased {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
         } else {
             this.keys4 = keys4;
-            this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode4 = mode4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -710,7 +723,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public SeriesWaterfall fill(GradientKey[] keys4, Double angle1, Double opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -720,15 +733,6 @@ public class SeriesWaterfall extends WidthBased {
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
             this.angle = null;
             this.angle1 = null;
             
@@ -740,19 +744,29 @@ public class SeriesWaterfall extends WidthBased {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
         } else {
             this.keys4 = keys4;
-            this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode5 = mode5;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+            js.append(mode5.generateJs());
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -775,7 +789,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public SeriesWaterfall fill(GradientKey[] keys4, Double angle1, Double opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -785,15 +799,6 @@ public class SeriesWaterfall extends WidthBased {
             this.keys5 = null;
             
             this.keys4 = keys4;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
             this.angle = null;
             this.angle1 = null;
             
@@ -805,19 +810,29 @@ public class SeriesWaterfall extends WidthBased {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
         } else {
             this.keys4 = keys4;
-            this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode6 = mode6;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -840,7 +855,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public SeriesWaterfall fill(String[] keys5, Double angle1, Double opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -850,15 +865,6 @@ public class SeriesWaterfall extends WidthBased {
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode4 = mode4;
             this.angle = null;
             this.angle1 = null;
             
@@ -870,19 +876,29 @@ public class SeriesWaterfall extends WidthBased {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode4 = mode4;
         } else {
             this.keys5 = keys5;
-            this.mode4 = mode4;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode4 = mode4;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -905,7 +921,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public SeriesWaterfall fill(String[] keys5, Double angle1, Double opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -915,15 +931,6 @@ public class SeriesWaterfall extends WidthBased {
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode5 = mode5;
             this.angle = null;
             this.angle1 = null;
             
@@ -935,19 +942,29 @@ public class SeriesWaterfall extends WidthBased {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode5 = mode5;
         } else {
             this.keys5 = keys5;
-            this.mode5 = mode5;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode5 = mode5;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+            js.append(mode5.generateJs());
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -970,7 +987,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public SeriesWaterfall fill(String[] keys5, Double angle1, Double opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -980,15 +997,6 @@ public class SeriesWaterfall extends WidthBased {
             this.keys5 = null;
             
             this.keys5 = keys5;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            
-            this.mode6 = mode6;
             this.angle = null;
             this.angle1 = null;
             
@@ -1000,19 +1008,29 @@ public class SeriesWaterfall extends WidthBased {
             this.opacity4 = null;
             
             this.opacity4 = opacity4;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            
+            this.mode6 = mode6;
         } else {
             this.keys5 = keys5;
-            this.mode6 = mode6;
             this.angle1 = angle1;
             this.opacity4 = opacity4;
+            this.mode6 = mode6;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1101,10 +1119,11 @@ public class SeriesWaterfall extends WidthBased {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+            js.append(mode7.generateJs());
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1185,10 +1204,11 @@ public class SeriesWaterfall extends WidthBased {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+            js.append(mode7.generateJs());
+            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1222,6 +1242,7 @@ public class SeriesWaterfall extends WidthBased {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".risingFill(%s)", ((risingFill != null) ? risingFill.generateJs() : "null")));
 
             if (isRendered) {
@@ -1272,6 +1293,7 @@ public class SeriesWaterfall extends WidthBased {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".risingFill(%s, %f)", wrapQuotes(color2), opacity6));
 
             if (isRendered) {
@@ -1305,7 +1327,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall risingFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
+    public SeriesWaterfall risingFill(GradientKey[] keys8, Double angle2, Double opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1319,19 +1341,6 @@ public class SeriesWaterfall extends WidthBased {
             this.keys9 = null;
             
             this.keys8 = keys8;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode8 = mode8;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -1347,19 +1356,33 @@ public class SeriesWaterfall extends WidthBased {
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode8 = mode8;
         } else {
             this.keys8 = keys8;
-            this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode8 = mode8;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".risingFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
+            
+            js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %b)", arrayToString(keys8), angle2, opacity7, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %b)", arrayToString(keys8), angle2, opacity7, mode8));
                 js.setLength(0);
             }
         }
@@ -1382,7 +1405,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall risingFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
+    public SeriesWaterfall risingFill(GradientKey[] keys8, Double angle2, Double opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1396,19 +1419,6 @@ public class SeriesWaterfall extends WidthBased {
             this.keys9 = null;
             
             this.keys8 = keys8;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode9 = mode9;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -1424,19 +1434,33 @@ public class SeriesWaterfall extends WidthBased {
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode9 = mode9;
         } else {
             this.keys8 = keys8;
-            this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode9 = mode9;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".risingFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+            js.append(mode9.generateJs());
+            js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1459,7 +1483,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall risingFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
+    public SeriesWaterfall risingFill(GradientKey[] keys8, Double angle2, Double opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1473,19 +1497,6 @@ public class SeriesWaterfall extends WidthBased {
             this.keys9 = null;
             
             this.keys8 = keys8;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode10 = mode10;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -1501,19 +1512,33 @@ public class SeriesWaterfall extends WidthBased {
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode10 = mode10;
         } else {
             this.keys8 = keys8;
-            this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode10 = mode10;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".risingFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
+            
+            js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -1536,7 +1561,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall risingFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
+    public SeriesWaterfall risingFill(String[] keys9, Double angle2, Double opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1550,19 +1575,6 @@ public class SeriesWaterfall extends WidthBased {
             this.keys9 = null;
             
             this.keys9 = keys9;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode8 = mode8;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -1578,19 +1590,33 @@ public class SeriesWaterfall extends WidthBased {
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode8 = mode8;
         } else {
             this.keys9 = keys9;
-            this.mode8 = mode8;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode8 = mode8;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".risingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
+            
+            js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
                 js.setLength(0);
             }
         }
@@ -1613,7 +1639,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall risingFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
+    public SeriesWaterfall risingFill(String[] keys9, Double angle2, Double opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1627,19 +1653,6 @@ public class SeriesWaterfall extends WidthBased {
             this.keys9 = null;
             
             this.keys9 = keys9;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode9 = mode9;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -1655,19 +1668,33 @@ public class SeriesWaterfall extends WidthBased {
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode9 = mode9;
         } else {
             this.keys9 = keys9;
-            this.mode9 = mode9;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode9 = mode9;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+            js.append(mode9.generateJs());
+            js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1690,7 +1717,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall risingFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
+    public SeriesWaterfall risingFill(String[] keys9, Double angle2, Double opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1704,19 +1731,6 @@ public class SeriesWaterfall extends WidthBased {
             this.keys9 = null;
             
             this.keys9 = keys9;
-            this.mode = null;
-            this.mode1 = null;
-            this.mode2 = null;
-            this.mode3 = null;
-            this.mode4 = null;
-            this.mode5 = null;
-            this.mode6 = null;
-            this.mode7 = null;
-            this.mode8 = null;
-            this.mode9 = null;
-            this.mode10 = null;
-            
-            this.mode10 = mode10;
             this.angle = null;
             this.angle1 = null;
             this.angle2 = null;
@@ -1732,19 +1746,33 @@ public class SeriesWaterfall extends WidthBased {
             this.opacity7 = null;
             
             this.opacity7 = opacity7;
+            this.mode = null;
+            this.mode1 = null;
+            this.mode2 = null;
+            this.mode3 = null;
+            this.mode4 = null;
+            this.mode5 = null;
+            this.mode6 = null;
+            this.mode7 = null;
+            this.mode8 = null;
+            this.mode9 = null;
+            this.mode10 = null;
+            
+            this.mode10 = mode10;
         } else {
             this.keys9 = keys9;
-            this.mode10 = mode10;
             this.angle2 = angle2;
             this.opacity7 = opacity7;
+            this.mode10 = mode10;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
+            
+            js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
+                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -1848,10 +1876,11 @@ public class SeriesWaterfall extends WidthBased {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+            js.append(mode11.generateJs());
+            js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -1947,10 +1976,11 @@ public class SeriesWaterfall extends WidthBased {
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+            js.append(mode11.generateJs());
+            js.append(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, ".risingFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }

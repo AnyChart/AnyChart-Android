@@ -63,6 +63,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".bottom(%b)", bottom));
 
             if (isRendered) {
@@ -100,6 +101,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
 
             if (isRendered) {
@@ -135,6 +137,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
 
             if (isRendered) {
@@ -170,6 +173,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
 
             if (isRendered) {
@@ -221,6 +225,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
             if (isRendered) {
@@ -258,6 +263,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
             if (isRendered) {
@@ -309,6 +315,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".left(%b)", left));
 
             if (isRendered) {
@@ -346,6 +353,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
 
             if (isRendered) {
@@ -397,6 +405,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
 
             if (isRendered) {
@@ -434,6 +443,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
 
             if (isRendered) {
@@ -485,6 +495,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
@@ -522,6 +533,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
 
             if (isRendered) {
@@ -561,6 +573,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
 
             if (isRendered) {
@@ -598,6 +611,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
 
             if (isRendered) {
@@ -649,6 +663,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".right(%b)", right));
 
             if (isRendered) {
@@ -686,6 +701,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
 
             if (isRendered) {
@@ -740,6 +756,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -787,6 +804,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -834,6 +852,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
@@ -885,6 +904,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
@@ -922,6 +942,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".ticks(%b)", ticks1));
 
             if (isRendered) {
@@ -975,6 +996,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".title(%b)", title));
 
             if (isRendered) {
@@ -1013,6 +1035,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
 
             if (isRendered) {
@@ -1064,6 +1087,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".top(%b)", top));
 
             if (isRendered) {
@@ -1101,6 +1125,7 @@ public class AxesMapSettings extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
 
             if (isRendered) {

@@ -47,6 +47,7 @@ public class ChartA11y extends A11y {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
@@ -86,6 +87,7 @@ public class ChartA11y extends A11y {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
 
             if (isRendered) {
@@ -123,6 +125,7 @@ public class ChartA11y extends A11y {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
 
             if (isRendered) {
@@ -159,6 +162,7 @@ public class ChartA11y extends A11y {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
 
             if (isRendered) {

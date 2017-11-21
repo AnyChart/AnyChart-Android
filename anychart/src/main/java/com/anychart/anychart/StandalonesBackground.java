@@ -63,6 +63,7 @@ public class StandalonesBackground extends UiBackground {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container)));
 
             if (isRendered) {
@@ -184,6 +185,7 @@ public class StandalonesBackground extends UiBackground {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
 
             if (isRendered) {
@@ -228,6 +230,7 @@ public class StandalonesBackground extends UiBackground {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
 
             if (isRendered) {

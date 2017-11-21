@@ -49,6 +49,7 @@ public class Logarithmic extends ScalesLinear {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".logBase(%f)", logBase));
 
             if (isRendered) {

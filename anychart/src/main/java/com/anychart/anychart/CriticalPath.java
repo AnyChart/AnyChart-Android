@@ -59,6 +59,7 @@ public class CriticalPath extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".milestones(%s)", wrapQuotes(milestones)));
 
             if (isRendered) {
@@ -106,6 +107,7 @@ public class CriticalPath extends CoreBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".tasks(%s)", wrapQuotes(tasks)));
 
             if (isRendered) {

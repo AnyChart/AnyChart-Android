@@ -49,6 +49,7 @@ public class Ticks extends VisualBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".length(%f)", length));
 
             if (isRendered) {
@@ -90,6 +91,7 @@ You can set ticks inside of a chart area or outside its position.<br/>
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
 
             if (isRendered) {
@@ -129,6 +131,7 @@ You can set ticks inside of a chart area or outside its position.<br/>
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
 
             if (isRendered) {
@@ -165,6 +168,7 @@ You can set ticks inside of a chart area or outside its position.<br/>
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s)", ((stroke != null) ? stroke.generateJs() : "null")));
 
             if (isRendered) {
@@ -227,6 +231,7 @@ The following options are acceptable:
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {

@@ -67,6 +67,8 @@ public class Exports extends JsObject {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".facebook(%s, %s, %s, %s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description), wrapQuotes(width), wrapQuotes(height), wrapQuotes(appId)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".facebook(%s, %s, %s, %s, %s, %s, %s)", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description), wrapQuotes(width), wrapQuotes(height), wrapQuotes(appId)));
@@ -89,6 +91,8 @@ public class Exports extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".filename(%s);", wrapQuotes(filename)));
             
 
             if (isRendered) {
@@ -122,6 +126,8 @@ public class Exports extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".image(%s, %s);", wrapQuotes(widthOrOptions), wrapQuotes(height1)));
             
 
             if (isRendered) {
@@ -170,6 +176,8 @@ public class Exports extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".linkedin(%s, %s, %s, %s);", wrapQuotes(captionOrOptions2), wrapQuotes(description1), wrapQuotes(width1), wrapQuotes(height2)));
             
 
             if (isRendered) {
@@ -220,6 +228,8 @@ public class Exports extends JsObject {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".pinterest(%s, %s, %s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description2), wrapQuotes(width2), wrapQuotes(height3)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".pinterest(%s, %s, %s, %s)", wrapQuotes(linkOrOptions), wrapQuotes(description2), wrapQuotes(width2), wrapQuotes(height3)));
@@ -263,6 +273,8 @@ public class Exports extends JsObject {
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".twitter(%s, %s, %s);", wrapQuotes(urlOrOptions), wrapQuotes(width3), wrapQuotes(height4)));
             
 
             if (isRendered) {

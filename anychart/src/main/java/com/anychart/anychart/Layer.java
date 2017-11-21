@@ -105,10 +105,11 @@ Right image does the same, but star is added to 0 index.<br/>
                 js.append(jsBase);
                 isChain = true;
             }
-            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((element1 != null) ? element1.generateJs() : "null"), index));
+            js.append(element1.generateJs());
+            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((element1 != null) ? element1.getJsBase() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((element1 != null) ? element1.generateJs() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((element1 != null) ? element1.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -149,6 +150,8 @@ Read more at {@link anychart.graphics.vector.Circle}
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setCircle" + ++variableIndex + " = " + jsBase + ".circle(%f, %f, %f);", cx, cy, radius));
             
 
             if (isRendered) {
@@ -205,6 +208,8 @@ Read more at {@link anychart.graphics.vector.Ellipse}
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setEllipse" + ++variableIndex + " = " + jsBase + ".ellipse(%f, %f, %f, %f);", cx1, cy1, rx, ry));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".ellipse(%f, %f, %f, %f)", cx1, cy1, rx, ry));
@@ -244,6 +249,8 @@ Read more at {@link anychart.graphics.vector.Ellipse}
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setGetChildAt" + ++variableIndex + " = " + jsBase + ".getChildAt(%f);", index1));
             
 
             if (isRendered) {
@@ -316,6 +323,8 @@ You have to take care of used objects yourself.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setHtml" + ++variableIndex + " = " + jsBase + ".html(%f, %f, %s);", x, y, wrapQuotes(text)));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".html(%f, %f, %s)", x, y, wrapQuotes(text)));
@@ -372,6 +381,8 @@ You need to take care of used objects yourself.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setImage" + ++variableIndex + " = " + jsBase + ".image(%s, %f, %f, %f, %f);", wrapQuotes(src), x1, y1, width, height));
             
 
             if (isRendered) {
@@ -461,6 +472,8 @@ You have to take care of used objects yourself.
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var setRect" + ++variableIndex + " = " + jsBase + ".rect(%f, %f, %f, %f);", x2, y2, width1, height1));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".rect(%f, %f, %f, %f)", x2, y2, width1, height1));
@@ -547,6 +560,8 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setRemoveChildAt" + ++variableIndex + " = " + jsBase + ".removeChildAt(%f);", index2));
             
 
             if (isRendered) {
@@ -651,6 +666,7 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".swapChildrenAt(%f, %f)", index3, index4));
 
             if (isRendered) {
@@ -707,6 +723,8 @@ You have to take care of used objects yourself.
                 js.append(";");
                 isChain = false;
             }
+            
+            js.append(String.format(Locale.US, "var setText" + ++variableIndex + " = " + jsBase + ".text(%f, %f, %s);", x3, y3, wrapQuotes(text1)));
             
 
             if (isRendered) {

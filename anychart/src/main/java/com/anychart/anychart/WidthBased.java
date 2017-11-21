@@ -51,6 +51,7 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
 
             if (isRendered) {
@@ -88,6 +89,7 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
 
             if (isRendered) {
@@ -127,6 +129,7 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
 
             if (isRendered) {
@@ -164,6 +167,7 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
 
             if (isRendered) {
@@ -203,6 +207,7 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
 
             if (isRendered) {
@@ -240,6 +245,7 @@ public class WidthBased extends CartesianSeriesBaseWithMarkers {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
 
             if (isRendered) {

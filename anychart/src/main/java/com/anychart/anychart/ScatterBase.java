@@ -49,6 +49,8 @@ public class ScatterBase extends ScalesBase {
                 isChain = false;
             }
             
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".inverseTransform(%f);", ratio));
+            
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f)", ratio));
@@ -72,6 +74,7 @@ public class ScatterBase extends ScalesBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maxTicksCount(%f)", maxTicksCount));
 
             if (isRendered) {
@@ -107,6 +110,7 @@ public class ScatterBase extends ScalesBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".maximum(%f)", maximum));
 
             if (isRendered) {
@@ -142,6 +146,7 @@ public class ScatterBase extends ScalesBase {
                 js.append(jsBase);
                 isChain = true;
             }
+            
             js.append(String.format(Locale.US, ".minimum(%f)", minimum));
 
             if (isRendered) {
