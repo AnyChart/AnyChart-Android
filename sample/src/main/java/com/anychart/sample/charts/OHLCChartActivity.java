@@ -1,0 +1,126 @@
+package com.anychart.sample.charts;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import com.anychart.anychart.AnyChart;
+import com.anychart.anychart.AnyChartView;
+import com.anychart.anychart.ChartsStock;
+import com.anychart.anychart.DataEntry;
+import com.anychart.anychart.DataTable;
+import com.anychart.anychart.HighLowDataEntry;
+import com.anychart.anychart.Plot;
+import com.anychart.anychart.StockSeriesType;
+import com.anychart.anychart.TableMapping;
+import com.anychart.sample.R;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class OHLCChartActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_chart_common);
+
+        AnyChartView anyChartView = findViewById(R.id.any_chart_view);
+
+        DataTable table = new DataTable("x");
+        table.addData(getData());
+
+        TableMapping mapping = table.mapAs("{open: 'open', high: 'high', low: 'low', close: 'close'}");
+
+        ChartsStock stock = AnyChart.stock();
+
+        Plot plot = stock.getPlot();
+        plot.setYGrid(true)
+                .setXGrid(true)
+                .setYMinorGrid(true)
+                .setXMinorGrid(true);
+
+        plot.ema(table.mapAs("{value: 'close'}"), 20d, StockSeriesType.LINE);
+        
+        plot.ohlc(mapping)
+                .setName("CSCO")
+                .setLegendItem("{\n" +
+                        "        iconType: 'rising-falling'\n" +
+                        "      }");
+
+        stock.getScroller().ohlc(mapping, null, null);
+
+        anyChartView.setChart(stock);
+    }
+
+    private List<DataEntry> getData() {
+        List<DataEntry> data = new ArrayList<>();
+        data.add(new OHCLDataEntry(638380800000L,0.0825,0.0842,0.0816,0.0842));
+        data.add(new OHCLDataEntry(638467200000L,0.0833,0.0859,0.0825,0.0859));
+        data.add(new OHCLDataEntry(638553600000L,0.0859,0.0859,0.0851,0.0851));
+        data.add(new OHCLDataEntry(638640000000L,0.0851,0.0851,0.0833,0.0851));
+        data.add(new OHCLDataEntry(638726400000L,0.0833,0.0833,0.0799,0.0816));
+        data.add(new OHCLDataEntry(638985600000L,0.079,0.0807,0.0773,0.0799));
+        data.add(new OHCLDataEntry(639072000000L,0.079,0.0816,0.079,0.0807));
+        data.add(new OHCLDataEntry(639158400000L,0.0807,0.0816,0.0807,0.0807));
+        data.add(new OHCLDataEntry(639244800000L,0.0816,0.0816,0.0799,0.0803));
+        data.add(new OHCLDataEntry(639331200000L,0.0799,0.0807,0.079,0.079));
+        data.add(new OHCLDataEntry(639590400000L,0.0799,0.0799,0.0781,0.0781));
+        data.add(new OHCLDataEntry(639676800000L,0.0781,0.0799,0.0746,0.0764));
+        data.add(new OHCLDataEntry(639763200000L,0.0764,0.0773,0.0755,0.0764));
+        data.add(new OHCLDataEntry(639849600000L,0.0773,0.0773,0.0755,0.0773));
+        data.add(new OHCLDataEntry(640195200000L,0.0773,0.0781,0.0764,0.0773));
+        data.add(new OHCLDataEntry(640281600000L,0.0764,0.0781,0.0755,0.0781));
+        data.add(new OHCLDataEntry(640368000000L,0.0781,0.0799,0.0773,0.079));
+        data.add(new OHCLDataEntry(640454400000L,0.0781,0.0799,0.0781,0.0799));
+        data.add(new OHCLDataEntry(640540800000L,0.0799,0.0799,0.0773,0.0773));
+        data.add(new OHCLDataEntry(640800000000L,0.0773,0.079,0.0764,0.0781));
+        data.add(new OHCLDataEntry(640886400000L,0.0799,0.0799,0.079,0.0794));
+        data.add(new OHCLDataEntry(640972800000L,0.0799,0.0807,0.0799,0.0799));
+        data.add(new OHCLDataEntry(641059200000L,0.0799,0.0816,0.0799,0.0799));
+        data.add(new OHCLDataEntry(641145600000L,0.0799,0.0807,0.079,0.079));
+        data.add(new OHCLDataEntry(641404800000L,0.0807,0.0842,0.0799,0.0825));
+        data.add(new OHCLDataEntry(641491200000L,0.0842,0.0842,0.0825,0.0838));
+        data.add(new OHCLDataEntry(641577600000L,0.0833,0.0842,0.0825,0.0825));
+        data.add(new OHCLDataEntry(641664000000L,0.0842,0.0851,0.0833,0.0851));
+        data.add(new OHCLDataEntry(641750400000L,0.0842,0.0859,0.0842,0.0859));
+        data.add(new OHCLDataEntry(642009600000L,0.0859,0.0885,0.0859,0.0868));
+        data.add(new OHCLDataEntry(642096000000L,0.0885,0.0885,0.0859,0.0877));
+        data.add(new OHCLDataEntry(642182400000L,0.0877,0.0877,0.0851,0.0859));
+        data.add(new OHCLDataEntry(642268800000L,0.0868,0.0868,0.0851,0.0851));
+        data.add(new OHCLDataEntry(642355200000L,0.0885,0.0894,0.0851,0.0859));
+        data.add(new OHCLDataEntry(642614400000L,0.0877,0.0877,0.0859,0.0859));
+        data.add(new OHCLDataEntry(642700800000L,0.0877,0.0877,0.0859,0.0864));
+        data.add(new OHCLDataEntry(642787200000L,0.0877,0.0877,0.0851,0.0859));
+        data.add(new OHCLDataEntry(642873600000L,0.0868,0.0868,0.0859,0.0868));
+        data.add(new OHCLDataEntry(642960000000L,0.0859,0.0868,0.0842,0.0851));
+        data.add(new OHCLDataEntry(643219200000L,0.0842,0.0868,0.0842,0.0851));
+        data.add(new OHCLDataEntry(643305600000L,0.0851,0.0859,0.0851,0.0851));
+        data.add(new OHCLDataEntry(643392000000L,0.0851,0.0859,0.0842,0.0842));
+        data.add(new OHCLDataEntry(643478400000L,0.0859,0.0859,0.0842,0.0859));
+        data.add(new OHCLDataEntry(643564800000L,0.0833,0.0851,0.0825,0.0833));
+        data.add(new OHCLDataEntry(643910400000L,0.0833,0.0851,0.0816,0.0825));
+        data.add(new OHCLDataEntry(643996800000L,0.0833,0.0833,0.0807,0.0816));
+        data.add(new OHCLDataEntry(644083200000L,0.0807,0.0868,0.0807,0.0859));
+        data.add(new OHCLDataEntry(644169600000L,0.0859,0.0885,0.0851,0.0868));
+        data.add(new OHCLDataEntry(644428800000L,0.0877,0.0894,0.0859,0.0894));
+        data.add(new OHCLDataEntry(644515200000L,0.0885,0.0938,0.0885,0.0929));
+        data.add(new OHCLDataEntry(644601600000L,0.0929,0.0929,0.0903,0.092));
+        data.add(new OHCLDataEntry(644688000000L,0.0929,0.0929,0.0885,0.0894));
+        data.add(new OHCLDataEntry(644774400000L,0.0903,0.0903,0.0868,0.0877));
+        data.add(new OHCLDataEntry(645033600000L,0.0851,0.0877,0.0851,0.0872));
+        data.add(new OHCLDataEntry(645120000000L,0.0877,0.0972,0.0868,0.0955));
+        data.add(new OHCLDataEntry(645206400000L,0.0972,0.0972,0.0963,0.0963));
+        data.add(new OHCLDataEntry(645292800000L,0.0972,0.0981,0.0955,0.0972));
+        data.add(new OHCLDataEntry(645379200000L,0.0955,0.0972,0.0955,0.0955));
+
+        return data;
+    }
+
+    private class OHCLDataEntry extends HighLowDataEntry {
+        OHCLDataEntry(Long x, Double open, Double high, Double low, Double close) {
+            super(x, high, low);
+            setValue("open", open);
+            setValue("close", close);
+        }
+    }
+}

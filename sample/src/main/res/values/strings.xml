@@ -31,5 +31,6 @@
     <string name="column3d_chart">3D Column Chart</string>
     <string name="area3d_chart">3D Area Chart</string>
     <string name="hilo_chart">Hilo Chart</string>
+    <string name="ohlc_chart">OHLC Chart</string>
     <string name="quadrant_chart">Quadrant Chart</string>
 </resources>
