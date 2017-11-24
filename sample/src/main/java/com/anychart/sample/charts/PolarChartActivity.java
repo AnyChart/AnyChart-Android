@@ -9,7 +9,9 @@ import com.anychart.anychart.ChartsPolar;
 import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.Mapping;
 import com.anychart.anychart.PolarSeriesType;
+import com.anychart.anychart.ScaleStackMode;
 import com.anychart.anychart.ScaleTypes;
+import com.anychart.anychart.ScalesLinear;
 import com.anychart.anychart.Set;
 import com.anychart.anychart.TooltipDisplayMode;
 import com.anychart.anychart.ValueDataEntry;
@@ -60,6 +62,8 @@ public class PolarChartActivity extends AppCompatActivity {
                 .setXScale(ScaleTypes.ORDINAL);
 
         polar.getTitle().getMargin().setBottom(20d);
+
+        ((ScalesLinear) polar.getYScale()).setStackMode(ScaleStackMode.VALUE);
 
         polar.getTooltip()
                 .setValuePrefix("$")
