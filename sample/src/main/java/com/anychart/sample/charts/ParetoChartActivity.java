@@ -9,9 +9,9 @@ import com.anychart.anychart.CartesianSeriesBase;
 import com.anychart.anychart.DataEntry;
 import com.anychart.anychart.EnumsAnchor;
 import com.anychart.anychart.Pareto;
-import com.anychart.anychart.ValueDataEntry;
 import com.anychart.anychart.StrokeLineCap;
 import com.anychart.anychart.StrokeLineJoin;
+import com.anychart.anychart.ValueDataEntry;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -53,7 +53,7 @@ public class ParetoChartActivity extends AppCompatActivity {
 
         pareto.getLineMarker()
                 .setValue(80d)
-                .setAxis(pareto.getXAxis(1d))
+                .setAxis(pareto.getYAxis(1d))
                 .setStroke("#A5B3B3", 1d, "5 2", StrokeLineJoin.ROUND, StrokeLineCap.ROUND);
 
         pareto.getGetSeries(0d).getTooltip().setFormat("Value: {%Value}");
