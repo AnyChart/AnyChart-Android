@@ -1,8 +1,6 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -90,7 +88,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
     private Fill fill;
-    private List<MapSeriesBase> setFill = new ArrayList<>();
 
     /**
      * Setter for series fill settings using an array or a string.
@@ -115,20 +112,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<MapSeriesBase> setFill1 = new ArrayList<>();
 
     /**
      * Series fill color with opacity. Fill as a string or an object.
@@ -154,16 +140,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -172,7 +148,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<MapSeriesBase> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient series fill.
@@ -213,18 +188,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBase> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient series fill.
@@ -265,18 +229,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBase> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient series fill.
@@ -317,18 +270,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBase> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient series fill.
@@ -369,18 +311,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBase> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient series fill.
@@ -421,18 +352,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBase> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient series fill.
@@ -473,16 +393,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -492,7 +402,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<MapSeriesBase> setFill8 = new ArrayList<>();
 
     /**
      * Radial series fill.
@@ -543,18 +452,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBase> setFill9 = new ArrayList<>();
 
     /**
      * Radial series fill.
@@ -605,20 +503,9 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private String geoIdField;
-    private List<MapSeriesBase> setGeoIdField = new ArrayList<>();
 
     /**
      * Setter for the geo id field.
@@ -642,16 +529,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetGeoIdField() {
-        if (!setGeoIdField.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setGeoIdField) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private PatternFill getHatchFill;
 
@@ -673,7 +550,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private String color1;
     private Double thickness;
     private Double size;
-    private List<MapSeriesBase> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for the hatch fill.
@@ -712,18 +588,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill() {
-        if (!setHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBase> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill.
@@ -762,18 +627,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill1() {
-        if (!setHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBase> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill.
@@ -812,18 +666,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill2() {
-        if (!setHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBase> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill.
@@ -862,18 +705,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill3() {
-        if (!setHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBase> setHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill.
@@ -911,16 +743,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
         }
         return this;
-    }
-    private String generateJSsetHatchFill4() {
-        if (!setHatchFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setHatchFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double indexes2;
@@ -1050,7 +872,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private LabelsOverlapMode overlapMode;
     private String overlapMode1;
     private Boolean overlapMode2;
-    private List<MapSeriesBase> setOverlapMode = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -1078,18 +899,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetOverlapMode() {
-        if (!setOverlapMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setOverlapMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBase> setOverlapMode1 = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -1117,18 +927,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetOverlapMode1() {
-        if (!setOverlapMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setOverlapMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBase> setOverlapMode2 = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -1156,16 +955,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetOverlapMode2() {
-        if (!setOverlapMode2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setOverlapMode2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke stroke;
     private ColoredFill stroke1;
@@ -1174,7 +963,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<MapSeriesBase> setStroke = new ArrayList<>();
 
     /**
      * Setter for series stroke settings.
@@ -1214,18 +1002,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBase> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for series stroke settings.
@@ -1265,18 +1042,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBase> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for series stroke settings.
@@ -1315,16 +1081,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
             }
         }
         return this;
-    }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double xCoord;
@@ -1384,28 +1140,6 @@ public class MapSeriesBase extends AnychartSeriesBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetGeoIdField());
-        js.append(generateJSsetHatchFill());
-        js.append(generateJSsetHatchFill1());
-        js.append(generateJSsetHatchFill2());
-        js.append(generateJSsetHatchFill3());
-        js.append(generateJSsetHatchFill4());
-        js.append(generateJSsetOverlapMode());
-        js.append(generateJSsetOverlapMode1());
-        js.append(generateJSsetOverlapMode2());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
         
 
         String result = js.toString();

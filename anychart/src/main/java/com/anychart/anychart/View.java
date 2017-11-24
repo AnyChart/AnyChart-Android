@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -35,7 +33,6 @@ public class View extends CoreBase {
     
     private View otherView;
     private String[] otherView1;
-    private List<View> setConcat = new ArrayList<>();
 
     /**
      * Concatenates two views to make a derived view that contains rows from both views.
@@ -59,18 +56,7 @@ public class View extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetConcat() {
-        if (!setConcat.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (View item : setConcat) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<View> setConcat1 = new ArrayList<>();
 
     /**
      * Concatenates two views to make a derived view that contains rows from both views.
@@ -97,19 +83,8 @@ public class View extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetConcat1() {
-        if (!setConcat1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (View item : setConcat1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fieldName;
-    private List<View> setFilter = new ArrayList<>();
 
     /**
      * Creates a derived view, containing only the rows that pass the filter.
@@ -132,16 +107,6 @@ public class View extends CoreBase {
             }
         }
         return this;
-    }
-    private String generateJSsetFilter() {
-        if (!setFilter.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (View item : setFilter) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String fieldName1;
@@ -174,7 +139,6 @@ public class View extends CoreBase {
 
     private Double index;
     private String name;
-    private List<View> setMeta = new ArrayList<>();
 
     /**
      * Setter for a metadata value. Learn how it works at {@link anychart.data.Iterator#meta}.
@@ -199,16 +163,6 @@ public class View extends CoreBase {
             }
         }
         return this;
-    }
-    private String generateJSsetMeta() {
-        if (!setMeta.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (View item : setMeta) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double rowIndex;
@@ -238,7 +192,6 @@ public class View extends CoreBase {
 
     private Double rowIndex1;
     private String fieldName2;
-    private List<View> setSet = new ArrayList<>();
 
     /**
      * Sets the value to the row field by row index and field name.
@@ -271,19 +224,8 @@ public class View extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetSet() {
-        if (!setSet.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (View item : setSet) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fieldName3;
-    private List<View> setSort = new ArrayList<>();
 
     /**
      * Creates a derived view that ensures sorting by a passed field.
@@ -312,21 +254,10 @@ public class View extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetSort() {
-        if (!setSort.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (View item : setSort) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fieldName4;
     private Sort order;
     private String order1;
-    private List<View> setSort1 = new ArrayList<>();
 
     /**
      * Creates a derived view that ensures sorting by a passed field.
@@ -361,18 +292,7 @@ public class View extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetSort1() {
-        if (!setSort1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (View item : setSort1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<View> setSort2 = new ArrayList<>();
 
     /**
      * Creates a derived view that ensures sorting by a passed field.
@@ -407,16 +327,6 @@ public class View extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetSort2() {
-        if (!setSort2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (View item : setSort2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -438,14 +348,6 @@ public class View extends CoreBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetConcat());
-        js.append(generateJSsetConcat1());
-        js.append(generateJSsetFilter());
-        js.append(generateJSsetMeta());
-        js.append(generateJSsetSet());
-        js.append(generateJSsetSort());
-        js.append(generateJSsetSort1());
-        js.append(generateJSsetSort2());
         
 
         String result = js.toString();

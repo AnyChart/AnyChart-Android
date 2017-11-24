@@ -175,7 +175,6 @@ public class Cartesian extends SeparateChart {
         return getAnnotations;
     }
     private String[] annotationsList;
-    private List<Cartesian> setAnnotations = new ArrayList<>();
 
     /**
      * Setter for the annotations.
@@ -192,16 +191,6 @@ public class Cartesian extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetAnnotations() {
-        if (!setAnnotations.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setAnnotations) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<CartesianSeriesArea> setArea = new ArrayList<>();
@@ -335,7 +324,6 @@ public class Cartesian extends SeparateChart {
     }
 
     private Double barGroupsPadding;
-    private List<Cartesian> setBarGroupsPadding = new ArrayList<>();
 
     /**
      * Setter for the space between bar groups on the ordinal scale by ratio of bars width.<br/>
@@ -354,19 +342,8 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetBarGroupsPadding() {
-        if (!setBarGroupsPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setBarGroupsPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double barsPadding;
-    private List<Cartesian> setBarsPadding = new ArrayList<>();
 
     /**
      * Setter for the space between bars on the ordinal scale by ratio of bars width.</br>
@@ -384,16 +361,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetBarsPadding() {
-        if (!setBarsPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setBarsPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<Box> setBox = new ArrayList<>();
@@ -670,7 +637,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     }
     private String crosshair;
     private Boolean crosshair1;
-    private List<Cartesian> setCrosshair = new ArrayList<>();
 
     /**
      * Setter for the crosshair settings.
@@ -688,18 +654,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetCrosshair() {
-        if (!setCrosshair.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setCrosshair) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setCrosshair1 = new ArrayList<>();
 
     /**
      * Setter for the crosshair settings.
@@ -717,16 +672,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetCrosshair1() {
-        if (!setCrosshair1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setCrosshair1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private View getData;
@@ -740,7 +685,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
 
         return getData;
     }
-    private List<Cartesian> setData = new ArrayList<>();
 
     /**
      * Setter for the data.
@@ -764,18 +708,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setData1 = new ArrayList<>();
 
     /**
      * 
@@ -790,20 +723,9 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private CartesianSeriesType defaultSeriesType;
     private String defaultSeriesType1;
-    private List<Cartesian> setDefaultSeriesType = new ArrayList<>();
 
     /**
      * Setter for the default series type.
@@ -821,18 +743,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetDefaultSeriesType() {
-        if (!setDefaultSeriesType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setDefaultSeriesType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setDefaultSeriesType1 = new ArrayList<>();
 
     /**
      * Setter for the default series type.
@@ -849,16 +760,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetDefaultSeriesType1() {
-        if (!setDefaultSeriesType1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setDefaultSeriesType1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -922,7 +823,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
-    private List<Cartesian> setHatchFillPalette = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -940,18 +840,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette() {
-        if (!setHatchFillPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setHatchFillPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setHatchFillPalette1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -969,18 +858,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette1() {
-        if (!setHatchFillPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setHatchFillPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setHatchFillPalette2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -995,16 +873,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
 
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetHatchFillPalette2() {
-        if (!setHatchFillPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setHatchFillPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<CartesianSeriesHilo> setHilo = new ArrayList<>();
@@ -1085,7 +953,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return getHovered;
     }
     private String hovered;
-    private List<Cartesian> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -1103,19 +970,8 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean isVertical;
-    private List<Cartesian> setIsVertical = new ArrayList<>();
 
     /**
      * Setter for the layout direction.
@@ -1132,16 +988,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetIsVertical() {
-        if (!setIsVertical.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setIsVertical) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<CartesianSeriesJumpLine> setJumpLine = new ArrayList<>();
@@ -1223,7 +1069,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     }
     private String labels;
     private Boolean labels1;
-    private List<Cartesian> setLabels = new ArrayList<>();
 
     /**
      * Setter for series data labels.
@@ -1241,18 +1086,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for series data labels.
@@ -1269,16 +1103,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<CartesianSeriesLine> setLine = new ArrayList<>();
@@ -1371,7 +1195,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     }
     private String lineMarker;
     private Boolean lineMarker1;
-    private List<Cartesian> setLineMarker = new ArrayList<>();
 
     /**
      * Setter for the line marker settings.
@@ -1389,18 +1212,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetLineMarker() {
-        if (!setLineMarker.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setLineMarker) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setLineMarker1 = new ArrayList<>();
 
     /**
      * Setter for the line marker settings.
@@ -1418,21 +1230,10 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetLineMarker1() {
-        if (!setLineMarker1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setLineMarker1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index2;
     private String lineMarker2;
     private Boolean lineMarker3;
-    private List<Cartesian> setLineMarker2 = new ArrayList<>();
 
     /**
      * Setter for the line marker settings by index.
@@ -1450,18 +1251,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetLineMarker2() {
-        if (!setLineMarker2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setLineMarker2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setLineMarker3 = new ArrayList<>();
 
     /**
      * Setter for the line marker settings by index.
@@ -1478,16 +1268,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetLineMarker3() {
-        if (!setLineMarker3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setLineMarker3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<CartesianSeriesMarker> setMarker = new ArrayList<>();
@@ -1571,7 +1351,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     private String markerPalette1;
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
-    private List<Cartesian> setMarkerPalette = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -1587,18 +1366,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetMarkerPalette() {
-        if (!setMarkerPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setMarkerPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setMarkerPalette1 = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -1616,18 +1384,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMarkerPalette1() {
-        if (!setMarkerPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setMarkerPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setMarkerPalette2 = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -1645,18 +1402,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMarkerPalette2() {
-        if (!setMarkerPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setMarkerPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setMarkerPalette3 = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -1674,20 +1420,9 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMarkerPalette3() {
-        if (!setMarkerPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setMarkerPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxBubbleSize;
     private String maxBubbleSize1;
-    private List<Cartesian> setMaxBubbleSize = new ArrayList<>();
 
     /**
      * Setter for the maximum size for all bubbles on the charts.<br/>
@@ -1705,18 +1440,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMaxBubbleSize() {
-        if (!setMaxBubbleSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setMaxBubbleSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setMaxBubbleSize1 = new ArrayList<>();
 
     /**
      * Setter for the maximum size for all bubbles on the charts.<br/>
@@ -1734,20 +1458,9 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMaxBubbleSize1() {
-        if (!setMaxBubbleSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setMaxBubbleSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxPointWidth;
     private String maxPointWidth1;
-    private List<Cartesian> setMaxPointWidth = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -1765,18 +1478,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMaxPointWidth() {
-        if (!setMaxPointWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setMaxPointWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setMaxPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -1794,20 +1496,9 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMaxPointWidth1() {
-        if (!setMaxPointWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setMaxPointWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double minBubbleSize;
     private String minBubbleSize1;
-    private List<Cartesian> setMinBubbleSize = new ArrayList<>();
 
     /**
      * Setter for the minimum size for all bubbles on the charts.
@@ -1825,18 +1516,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMinBubbleSize() {
-        if (!setMinBubbleSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setMinBubbleSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setMinBubbleSize1 = new ArrayList<>();
 
     /**
      * Setter for the minimum size for all bubbles on the charts.
@@ -1854,20 +1534,9 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMinBubbleSize1() {
-        if (!setMinBubbleSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setMinBubbleSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double minPointLength;
     private String minPointLength1;
-    private List<Cartesian> setMinPointLength = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -1885,18 +1554,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMinPointLength() {
-        if (!setMinPointLength.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setMinPointLength) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setMinPointLength1 = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -1914,16 +1572,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMinPointLength1() {
-        if (!setMinPointLength1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setMinPointLength1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getNormal;
@@ -1938,7 +1586,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return getNormal;
     }
     private String normal;
-    private List<Cartesian> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -1955,16 +1602,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<CartesianSeriesOHLC> setOhlc = new ArrayList<>();
@@ -2048,7 +1685,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
-    private List<Cartesian> setPalette = new ArrayList<>();
 
     /**
      * Setter for the current series colors palette.
@@ -2064,18 +1700,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette() {
-        if (!setPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for the current series colors palette.
@@ -2091,18 +1716,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette1() {
-        if (!setPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for the current series colors palette.
@@ -2120,18 +1734,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetPalette2() {
-        if (!setPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for the current series colors palette.
@@ -2149,20 +1752,9 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetPalette3() {
-        if (!setPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double pointWidth;
     private String pointWidth1;
-    private List<Cartesian> setPointWidth = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -2180,18 +1772,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetPointWidth() {
-        if (!setPointWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setPointWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -2208,16 +1789,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetPointWidth1() {
-        if (!setPointWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setPointWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<CartesianSeriesRangeArea> setRangeArea = new ArrayList<>();
@@ -2440,7 +2011,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     }
     private String rangeMarker;
     private Boolean rangeMarker1;
-    private List<Cartesian> setRangeMarker = new ArrayList<>();
 
     /**
      * Setter for the range marker.
@@ -2458,18 +2028,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetRangeMarker() {
-        if (!setRangeMarker.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setRangeMarker) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setRangeMarker1 = new ArrayList<>();
 
     /**
      * Setter for the range marker.
@@ -2487,21 +2046,10 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetRangeMarker1() {
-        if (!setRangeMarker1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setRangeMarker1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index4;
     private String rangeMarker2;
     private Boolean rangeMarker3;
-    private List<Cartesian> setRangeMarker2 = new ArrayList<>();
 
     /**
      * Setter for the range marker by index.
@@ -2519,18 +2067,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetRangeMarker2() {
-        if (!setRangeMarker2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setRangeMarker2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setRangeMarker3 = new ArrayList<>();
 
     /**
      * Setter for the range marker by index.
@@ -2547,16 +2084,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetRangeMarker3() {
-        if (!setRangeMarker3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setRangeMarker3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<CartesianSeriesRangeSplineArea> setRangeSplineArea = new ArrayList<>();
@@ -2691,7 +2218,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
 
     private Double id2;
     private String id3;
-    private List<Cartesian> setRemoveSeries = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -2709,18 +2235,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetRemoveSeries() {
-        if (!setRemoveSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setRemoveSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setRemoveSeries1 = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -2738,19 +2253,8 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetRemoveSeries1() {
-        if (!setRemoveSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setRemoveSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index5;
-    private List<Cartesian> setRemoveSeriesAt = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its index.
@@ -2768,16 +2272,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetRemoveSeriesAt() {
-        if (!setRemoveSeriesAt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setRemoveSeriesAt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getSelected;
@@ -2792,7 +2286,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         return getSelected;
     }
     private String selected;
-    private List<Cartesian> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -2809,16 +2302,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<CartesianSeriesSpline> setSpline = new ArrayList<>();
@@ -3171,7 +2654,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     }
     private String textMarker;
     private Boolean textMarker1;
-    private List<Cartesian> setTextMarker = new ArrayList<>();
 
     /**
      * Setter for the text marker.
@@ -3189,18 +2671,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetTextMarker() {
-        if (!setTextMarker.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setTextMarker) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setTextMarker1 = new ArrayList<>();
 
     /**
      * Setter for the text marker.
@@ -3218,21 +2689,10 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetTextMarker1() {
-        if (!setTextMarker1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setTextMarker1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index7;
     private String textMarker2;
     private Boolean textMarker3;
-    private List<Cartesian> setTextMarker2 = new ArrayList<>();
 
     /**
      * Setter for the text marker by index.
@@ -3250,18 +2710,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetTextMarker2() {
-        if (!setTextMarker2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setTextMarker2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setTextMarker3 = new ArrayList<>();
 
     /**
      * Setter for the text marker by index.
@@ -3278,16 +2727,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetTextMarker3() {
-        if (!setTextMarker3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setTextMarker3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -3315,7 +2754,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     }
     private String xAxis;
     private Boolean xAxis1;
-    private List<Cartesian> setXAxis = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis.
@@ -3333,18 +2771,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXAxis() {
-        if (!setXAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setXAxis1 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis.
@@ -3362,21 +2789,10 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXAxis1() {
-        if (!setXAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index9;
     private String xAxis2;
     private Boolean xAxis3;
-    private List<Cartesian> setXAxis2 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis by index.
@@ -3394,18 +2810,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXAxis2() {
-        if (!setXAxis2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXAxis2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setXAxis3 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis by index.
@@ -3422,16 +2827,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXAxis3() {
-        if (!setXAxis3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXAxis3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -3459,7 +2854,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     }
     private String xGrid;
     private Boolean xGrid1;
-    private List<Cartesian> setXGrid = new ArrayList<>();
 
     /**
      * Setter for the chart grid by X-scale.
@@ -3477,18 +2871,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXGrid() {
-        if (!setXGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setXGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by X-scale.
@@ -3506,21 +2889,10 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXGrid1() {
-        if (!setXGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index11;
     private String xGrid2;
     private Boolean xGrid3;
-    private List<Cartesian> setXGrid2 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -3538,18 +2910,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXGrid2() {
-        if (!setXGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setXGrid3 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -3566,16 +2927,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXGrid3() {
-        if (!setXGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -3603,7 +2954,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     }
     private String xMinorGrid;
     private Boolean xMinorGrid1;
-    private List<Cartesian> setXMinorGrid = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by X-scale.
@@ -3621,18 +2971,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXMinorGrid() {
-        if (!setXMinorGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXMinorGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setXMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by X-scale.
@@ -3650,21 +2989,10 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXMinorGrid1() {
-        if (!setXMinorGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXMinorGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index13;
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
-    private List<Cartesian> setXMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -3682,18 +3010,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXMinorGrid2() {
-        if (!setXMinorGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXMinorGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setXMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -3710,16 +3027,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXMinorGrid3() {
-        if (!setXMinorGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXMinorGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -3738,7 +3045,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     private ScaleTypes xScale1;
     private String xScale2;
     private ScalesBase xScale3;
-    private List<Cartesian> setXScale = new ArrayList<>();
 
     /**
      * Setter for the chart X-scale.
@@ -3756,18 +3062,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXScale() {
-        if (!setXScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setXScale1 = new ArrayList<>();
 
     /**
      * Setter for the chart X-scale.
@@ -3785,18 +3080,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXScale1() {
-        if (!setXScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setXScale2 = new ArrayList<>();
 
     /**
      * Setter for the chart X-scale.
@@ -3811,16 +3095,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
 
         js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale3 != null) ? xScale3.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetXScale2() {
-        if (!setXScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -3837,7 +3111,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     }
     private String xScroller;
     private Boolean xScroller1;
-    private List<Cartesian> setXScroller = new ArrayList<>();
 
     /**
      * Setter for the scroller.
@@ -3855,18 +3128,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXScroller() {
-        if (!setXScroller.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXScroller) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setXScroller1 = new ArrayList<>();
 
     /**
      * Setter for the scroller.
@@ -3884,16 +3146,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXScroller1() {
-        if (!setXScroller1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXScroller1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private OrdinalZoom getXZoom;
@@ -3910,7 +3162,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     private Double xZoom;
     private Boolean xZoom1;
     private String xZoom2;
-    private List<Cartesian> setXZoom = new ArrayList<>();
 
     /**
      * Setter for the zoom settings.
@@ -3928,18 +3179,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXZoom() {
-        if (!setXZoom.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXZoom) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setXZoom1 = new ArrayList<>();
 
     /**
      * Setter for the zoom settings.
@@ -3957,18 +3197,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXZoom1() {
-        if (!setXZoom1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXZoom1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setXZoom2 = new ArrayList<>();
 
     /**
      * Setter for the zoom settings.
@@ -3985,16 +3214,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXZoom2() {
-        if (!setXZoom2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setXZoom2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -4022,7 +3241,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     }
     private String yAxis;
     private Boolean yAxis1;
-    private List<Cartesian> setYAxis = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis.
@@ -4040,18 +3258,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYAxis() {
-        if (!setYAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setYAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setYAxis1 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis.
@@ -4069,21 +3276,10 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYAxis1() {
-        if (!setYAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setYAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index15;
     private String yAxis2;
     private Boolean yAxis3;
-    private List<Cartesian> setYAxis2 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis by index.
@@ -4101,18 +3297,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYAxis2() {
-        if (!setYAxis2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setYAxis2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setYAxis3 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis by index.
@@ -4129,16 +3314,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYAxis3() {
-        if (!setYAxis3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setYAxis3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -4166,7 +3341,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     }
     private String yGrid;
     private Boolean yGrid1;
-    private List<Cartesian> setYGrid = new ArrayList<>();
 
     /**
      * Setter for the chart grid by Y-scale.
@@ -4184,18 +3358,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYGrid() {
-        if (!setYGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setYGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setYGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by Y-scale.
@@ -4213,21 +3376,10 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYGrid1() {
-        if (!setYGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setYGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index17;
     private String yGrid2;
     private Boolean yGrid3;
-    private List<Cartesian> setYGrid2 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -4245,18 +3397,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYGrid2() {
-        if (!setYGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setYGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setYGrid3 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -4273,16 +3414,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYGrid3() {
-        if (!setYGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setYGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -4310,7 +3441,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     }
     private String yMinorGrid;
     private Boolean yMinorGrid1;
-    private List<Cartesian> setYMinorGrid = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by Y-scale.
@@ -4328,18 +3458,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYMinorGrid() {
-        if (!setYMinorGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setYMinorGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setYMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by Y-scale.
@@ -4357,21 +3476,10 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYMinorGrid1() {
-        if (!setYMinorGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setYMinorGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index19;
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
-    private List<Cartesian> setYMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -4389,18 +3497,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYMinorGrid2() {
-        if (!setYMinorGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setYMinorGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setYMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -4417,16 +3514,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYMinorGrid3() {
-        if (!setYMinorGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setYMinorGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -4445,7 +3532,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
     private ScaleTypes yScale1;
     private String yScale2;
     private ScalesBase yScale3;
-    private List<Cartesian> setYScale = new ArrayList<>();
 
     /**
      * Setter for the chart Y-scale.
@@ -4463,18 +3549,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYScale() {
-        if (!setYScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setYScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-scale.
@@ -4492,18 +3567,7 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYScale1() {
-        if (!setYScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setYScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-scale.
@@ -4518,16 +3582,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
 
         js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale3 != null) ? yScale3.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetYScale2() {
-        if (!setYScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian item : setYScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetAnnotations() {
@@ -4885,13 +3939,10 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         js.append(generateJSgetYMinorGrid());
         js.append(generateJSgetYMinorGrid1());
         js.append(generateJSgetYScale());
-        js.append(generateJSsetAnnotations());
         js.append(generateJSsetArea());
         js.append(generateJSsetArea1());
         js.append(generateJSsetBar());
         js.append(generateJSsetBar1());
-        js.append(generateJSsetBarGroupsPadding());
-        js.append(generateJSsetBarsPadding());
         js.append(generateJSsetBox());
         js.append(generateJSsetBox1());
         js.append(generateJSsetBubble());
@@ -4900,70 +3951,26 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         js.append(generateJSsetCandlestick1());
         js.append(generateJSsetColumn());
         js.append(generateJSsetColumn1());
-        js.append(generateJSsetCrosshair());
-        js.append(generateJSsetCrosshair1());
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetDefaultSeriesType());
-        js.append(generateJSsetDefaultSeriesType1());
-        js.append(generateJSsetHatchFillPalette());
-        js.append(generateJSsetHatchFillPalette1());
-        js.append(generateJSsetHatchFillPalette2());
         js.append(generateJSsetHilo());
         js.append(generateJSsetHilo1());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetIsVertical());
         js.append(generateJSsetJumpLine());
         js.append(generateJSsetJumpLine1());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
         js.append(generateJSsetLine());
         js.append(generateJSsetLine1());
-        js.append(generateJSsetLineMarker());
-        js.append(generateJSsetLineMarker1());
-        js.append(generateJSsetLineMarker2());
-        js.append(generateJSsetLineMarker3());
         js.append(generateJSsetMarker());
         js.append(generateJSsetMarker1());
-        js.append(generateJSsetMarkerPalette());
-        js.append(generateJSsetMarkerPalette1());
-        js.append(generateJSsetMarkerPalette2());
-        js.append(generateJSsetMarkerPalette3());
-        js.append(generateJSsetMaxBubbleSize());
-        js.append(generateJSsetMaxBubbleSize1());
-        js.append(generateJSsetMaxPointWidth());
-        js.append(generateJSsetMaxPointWidth1());
-        js.append(generateJSsetMinBubbleSize());
-        js.append(generateJSsetMinBubbleSize1());
-        js.append(generateJSsetMinPointLength());
-        js.append(generateJSsetMinPointLength1());
-        js.append(generateJSsetNormal());
         js.append(generateJSsetOhlc());
         js.append(generateJSsetOhlc1());
-        js.append(generateJSsetPalette());
-        js.append(generateJSsetPalette1());
-        js.append(generateJSsetPalette2());
-        js.append(generateJSsetPalette3());
-        js.append(generateJSsetPointWidth());
-        js.append(generateJSsetPointWidth1());
         js.append(generateJSsetRangeArea());
         js.append(generateJSsetRangeArea1());
         js.append(generateJSsetRangeBar());
         js.append(generateJSsetRangeBar1());
         js.append(generateJSsetRangeColumn());
         js.append(generateJSsetRangeColumn1());
-        js.append(generateJSsetRangeMarker());
-        js.append(generateJSsetRangeMarker1());
-        js.append(generateJSsetRangeMarker2());
-        js.append(generateJSsetRangeMarker3());
         js.append(generateJSsetRangeSplineArea());
         js.append(generateJSsetRangeSplineArea1());
         js.append(generateJSsetRangeStepArea());
         js.append(generateJSsetRangeStepArea1());
-        js.append(generateJSsetRemoveSeries());
-        js.append(generateJSsetRemoveSeries1());
-        js.append(generateJSsetRemoveSeriesAt());
-        js.append(generateJSsetSelected());
         js.append(generateJSsetSpline());
         js.append(generateJSsetSpline1());
         js.append(generateJSsetSplineArea());
@@ -4974,45 +3981,6 @@ See illustration at {@link anychart.charts.Cartesian#barsPadding}.
         js.append(generateJSsetStepLine1());
         js.append(generateJSsetStick());
         js.append(generateJSsetStick1());
-        js.append(generateJSsetTextMarker());
-        js.append(generateJSsetTextMarker1());
-        js.append(generateJSsetTextMarker2());
-        js.append(generateJSsetTextMarker3());
-        js.append(generateJSsetXAxis());
-        js.append(generateJSsetXAxis1());
-        js.append(generateJSsetXAxis2());
-        js.append(generateJSsetXAxis3());
-        js.append(generateJSsetXGrid());
-        js.append(generateJSsetXGrid1());
-        js.append(generateJSsetXGrid2());
-        js.append(generateJSsetXGrid3());
-        js.append(generateJSsetXMinorGrid());
-        js.append(generateJSsetXMinorGrid1());
-        js.append(generateJSsetXMinorGrid2());
-        js.append(generateJSsetXMinorGrid3());
-        js.append(generateJSsetXScale());
-        js.append(generateJSsetXScale1());
-        js.append(generateJSsetXScale2());
-        js.append(generateJSsetXScroller());
-        js.append(generateJSsetXScroller1());
-        js.append(generateJSsetXZoom());
-        js.append(generateJSsetXZoom1());
-        js.append(generateJSsetXZoom2());
-        js.append(generateJSsetYAxis());
-        js.append(generateJSsetYAxis1());
-        js.append(generateJSsetYAxis2());
-        js.append(generateJSsetYAxis3());
-        js.append(generateJSsetYGrid());
-        js.append(generateJSsetYGrid1());
-        js.append(generateJSsetYGrid2());
-        js.append(generateJSsetYGrid3());
-        js.append(generateJSsetYMinorGrid());
-        js.append(generateJSsetYMinorGrid1());
-        js.append(generateJSsetYMinorGrid2());
-        js.append(generateJSsetYMinorGrid3());
-        js.append(generateJSsetYScale());
-        js.append(generateJSsetYScale1());
-        js.append(generateJSsetYScale2());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

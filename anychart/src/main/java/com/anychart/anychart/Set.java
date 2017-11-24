@@ -53,7 +53,6 @@ public class Set extends CoreBase {
     private TextParsingMode settings;
     private String settings1;
     private TextParsingSettings settings2;
-    private List<Set> setData = new ArrayList<>();
 
     /**
      * Setter for Set data.
@@ -86,18 +85,7 @@ public class Set extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Set item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Set> setData1 = new ArrayList<>();
 
     /**
      * Setter for Set data.
@@ -130,18 +118,7 @@ public class Set extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Set item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Set> setData2 = new ArrayList<>();
 
     /**
      * Setter for Set data.
@@ -174,18 +151,7 @@ public class Set extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Set item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Set> setData3 = new ArrayList<>();
 
     /**
      * Setter for Set data.
@@ -218,18 +184,7 @@ public class Set extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetData3() {
-        if (!setData3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Set item : setData3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Set> setData4 = new ArrayList<>();
 
     /**
      * Setter for Set data.
@@ -262,18 +217,7 @@ public class Set extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Set item : setData4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Set> setData5 = new ArrayList<>();
 
     /**
      * Setter for Set data.
@@ -306,19 +250,8 @@ public class Set extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Set item : setData5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index;
-    private List<Set> setInsert = new ArrayList<>();
 
     /**
      * Inserts the row to the set at the specified position.
@@ -341,16 +274,6 @@ public class Set extends CoreBase {
             }
         }
         return this;
-    }
-    private String generateJSsetInsert() {
-        if (!setInsert.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Set item : setInsert) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String mapping;
@@ -391,7 +314,6 @@ Default mapping is shown in {@link anychart.data.Set} constructor samples.
     }
 
     private Double index1;
-    private List<Set> setRemove = new ArrayList<>();
 
     /**
      * Removes the row by index.
@@ -417,16 +339,6 @@ Default mapping is shown in {@link anychart.data.Set} constructor samples.
             }
         }
         return this;
-    }
-    private String generateJSsetRemove() {
-        if (!setRemove.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Set item : setRemove) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double rowIndex;
@@ -474,15 +386,7 @@ Default mapping is shown in {@link anychart.data.Set} constructor samples.
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetData2());
-        js.append(generateJSsetData3());
-        js.append(generateJSsetData4());
-        js.append(generateJSsetData5());
-        js.append(generateJSsetInsert());
         js.append(generateJSsetMapAs());
-        js.append(generateJSsetRemove());
         
 
         String result = js.toString();

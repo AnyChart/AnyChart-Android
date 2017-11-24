@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -47,7 +45,6 @@ public class Grid extends VisualBaseWithBounds {
     private String background;
     private String background1;
     private Boolean background2;
-    private List<Grid> setBackground = new ArrayList<>();
 
     /**
      * Setter for the background.
@@ -75,18 +72,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackground() {
-        if (!setBackground.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setBackground) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setBackground1 = new ArrayList<>();
 
     /**
      * Setter for the background.
@@ -114,19 +100,8 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackground1() {
-        if (!setBackground1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setBackground1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean drawBottomLine;
-    private List<Grid> setDrawBottomLine = new ArrayList<>();
 
     /**
      * Setter for the bottom line drawing flag.
@@ -150,19 +125,8 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetDrawBottomLine() {
-        if (!setDrawBottomLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setDrawBottomLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean drawLeftLine;
-    private List<Grid> setDrawLeftLine = new ArrayList<>();
 
     /**
      * Setter for the left line drawing flag.
@@ -186,19 +150,8 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetDrawLeftLine() {
-        if (!setDrawLeftLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setDrawLeftLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean drawRightLine;
-    private List<Grid> setDrawRightLine = new ArrayList<>();
 
     /**
      * Setter for the right line drawing flag.
@@ -222,19 +175,8 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetDrawRightLine() {
-        if (!setDrawRightLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setDrawRightLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean drawTopLine;
-    private List<Grid> setDrawTopLine = new ArrayList<>();
 
     /**
      * Setter for the top line drawing flag.
@@ -258,19 +200,8 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetDrawTopLine() {
-        if (!setDrawTopLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setDrawTopLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill evenFill;
-    private List<Grid> setEvenFill = new ArrayList<>();
 
     /**
      * Setter for even fill settings using an array or a string.
@@ -295,20 +226,9 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill() {
-        if (!setEvenFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<Grid> setEvenFill1 = new ArrayList<>();
 
     /**
      * Even fill color with opacity.
@@ -334,16 +254,6 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill1() {
-        if (!setEvenFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -352,7 +262,6 @@ public class Grid extends VisualBaseWithBounds {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<Grid> setEvenFill2 = new ArrayList<>();
 
     /**
      * Linear gradient even fill.
@@ -393,18 +302,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill2() {
-        if (!setEvenFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenFill3 = new ArrayList<>();
 
     /**
      * Linear gradient even fill.
@@ -445,18 +343,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill3() {
-        if (!setEvenFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenFill4 = new ArrayList<>();
 
     /**
      * Linear gradient even fill.
@@ -497,18 +384,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill4() {
-        if (!setEvenFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenFill5 = new ArrayList<>();
 
     /**
      * Linear gradient even fill.
@@ -549,18 +425,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill5() {
-        if (!setEvenFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenFill6 = new ArrayList<>();
 
     /**
      * Linear gradient even fill.
@@ -601,18 +466,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill6() {
-        if (!setEvenFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenFill7 = new ArrayList<>();
 
     /**
      * Linear gradient even fill.
@@ -653,16 +507,6 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill7() {
-        if (!setEvenFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -672,7 +516,6 @@ public class Grid extends VisualBaseWithBounds {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<Grid> setEvenFill8 = new ArrayList<>();
 
     /**
      * Radial gradient even fill.
@@ -723,18 +566,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill8() {
-        if (!setEvenFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenFill9 = new ArrayList<>();
 
     /**
      * Radial gradient even fill.
@@ -785,16 +617,6 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill9() {
-        if (!setEvenFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private PatternFill getEvenHatchFill;
@@ -816,7 +638,6 @@ public class Grid extends VisualBaseWithBounds {
     private String color1;
     private Double thickness;
     private Double size;
-    private List<Grid> setEvenHatchFill = new ArrayList<>();
 
     /**
      * Setter for even hatch fill settings.
@@ -855,18 +676,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHatchFill() {
-        if (!setEvenHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for even hatch fill settings.
@@ -905,18 +715,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHatchFill1() {
-        if (!setEvenHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for even hatch fill settings.
@@ -955,18 +754,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHatchFill2() {
-        if (!setEvenHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for even hatch fill settings.
@@ -1005,19 +793,8 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHatchFill3() {
-        if (!setEvenHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill evenHolidayFill;
-    private List<Grid> setEvenHolidayFill = new ArrayList<>();
 
     /**
      * Setter for even holiday fill settings using an array or a string.
@@ -1042,20 +819,9 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHolidayFill() {
-        if (!setEvenHolidayFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHolidayFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color2;
     private Double opacity3;
-    private List<Grid> setEvenHolidayFill1 = new ArrayList<>();
 
     /**
      * Odd holiday fill color with opacity.
@@ -1090,16 +856,6 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHolidayFill1() {
-        if (!setEvenHolidayFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHolidayFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys4;
     private String[] keys5;
@@ -1108,7 +864,6 @@ public class Grid extends VisualBaseWithBounds {
     private VectorRect mode5;
     private String mode6;
     private Double opacity4;
-    private List<Grid> setEvenHolidayFill2 = new ArrayList<>();
 
     /**
      * Linear gradient even holiday fill.
@@ -1163,18 +918,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHolidayFill2() {
-        if (!setEvenHolidayFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHolidayFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenHolidayFill3 = new ArrayList<>();
 
     /**
      * Linear gradient even holiday fill.
@@ -1229,18 +973,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHolidayFill3() {
-        if (!setEvenHolidayFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHolidayFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenHolidayFill4 = new ArrayList<>();
 
     /**
      * Linear gradient even holiday fill.
@@ -1295,18 +1028,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHolidayFill4() {
-        if (!setEvenHolidayFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHolidayFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenHolidayFill5 = new ArrayList<>();
 
     /**
      * Linear gradient even holiday fill.
@@ -1361,18 +1083,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHolidayFill5() {
-        if (!setEvenHolidayFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHolidayFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenHolidayFill6 = new ArrayList<>();
 
     /**
      * Linear gradient even holiday fill.
@@ -1427,18 +1138,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHolidayFill6() {
-        if (!setEvenHolidayFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHolidayFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenHolidayFill7 = new ArrayList<>();
 
     /**
      * Linear gradient even holiday fill.
@@ -1493,16 +1193,6 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHolidayFill7() {
-        if (!setEvenHolidayFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHolidayFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys6;
     private String[] keys7;
@@ -1512,7 +1202,6 @@ public class Grid extends VisualBaseWithBounds {
     private Double opacity5;
     private Double fx1;
     private Double fy1;
-    private List<Grid> setEvenHolidayFill8 = new ArrayList<>();
 
     /**
      * Radial gradient even holiday fill.
@@ -1586,18 +1275,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHolidayFill8() {
-        if (!setEvenHolidayFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHolidayFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenHolidayFill9 = new ArrayList<>();
 
     /**
      * Radial gradient even holiday fill.
@@ -1671,16 +1349,6 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHolidayFill9() {
-        if (!setEvenHolidayFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHolidayFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings1;
     private PatternFill getEvenHolidayHatchFill;
@@ -1702,7 +1370,6 @@ public class Grid extends VisualBaseWithBounds {
     private String color3;
     private Double thickness1;
     private Double size1;
-    private List<Grid> setEvenHolidayHatchFill = new ArrayList<>();
 
     /**
      * Setter for even holiday hatch fill settings.
@@ -1753,18 +1420,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHolidayHatchFill() {
-        if (!setEvenHolidayHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHolidayHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenHolidayHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for even holiday hatch fill settings.
@@ -1815,18 +1471,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHolidayHatchFill1() {
-        if (!setEvenHolidayHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHolidayHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenHolidayHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for even holiday hatch fill settings.
@@ -1877,18 +1522,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHolidayHatchFill2() {
-        if (!setEvenHolidayHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHolidayHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setEvenHolidayHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for even holiday hatch fill settings.
@@ -1939,16 +1573,6 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenHolidayHatchFill3() {
-        if (!setEvenHolidayHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setEvenHolidayHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color4;
     private ColoredFill color5;
@@ -1957,7 +1581,6 @@ public class Grid extends VisualBaseWithBounds {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<Grid> setHorizontalStroke = new ArrayList<>();
 
     /**
      * Setter for the horizontal stroke.
@@ -2002,18 +1625,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetHorizontalStroke() {
-        if (!setHorizontalStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setHorizontalStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setHorizontalStroke1 = new ArrayList<>();
 
     /**
      * Setter for the horizontal stroke.
@@ -2058,18 +1670,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetHorizontalStroke1() {
-        if (!setHorizontalStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setHorizontalStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setHorizontalStroke2 = new ArrayList<>();
 
     /**
      * Setter for the horizontal stroke.
@@ -2114,19 +1715,8 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetHorizontalStroke2() {
-        if (!setHorizontalStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setHorizontalStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill oddFill;
-    private List<Grid> setOddFill = new ArrayList<>();
 
     /**
      * Setter for odd fill settings using an array or a string.
@@ -2151,20 +1741,9 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill() {
-        if (!setOddFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color7;
     private Double opacity6;
-    private List<Grid> setOddFill1 = new ArrayList<>();
 
     /**
      * Odd fill color with opacity.
@@ -2207,16 +1786,6 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill1() {
-        if (!setOddFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys8;
     private String[] keys9;
@@ -2225,7 +1794,6 @@ public class Grid extends VisualBaseWithBounds {
     private VectorRect mode9;
     private String mode10;
     private Double opacity7;
-    private List<Grid> setOddFill2 = new ArrayList<>();
 
     /**
      * Linear gradient odd fill.
@@ -2292,18 +1860,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill2() {
-        if (!setOddFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddFill3 = new ArrayList<>();
 
     /**
      * Linear gradient odd fill.
@@ -2370,18 +1927,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill3() {
-        if (!setOddFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddFill4 = new ArrayList<>();
 
     /**
      * Linear gradient odd fill.
@@ -2448,18 +1994,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill4() {
-        if (!setOddFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddFill5 = new ArrayList<>();
 
     /**
      * Linear gradient odd fill.
@@ -2526,18 +2061,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill5() {
-        if (!setOddFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddFill6 = new ArrayList<>();
 
     /**
      * Linear gradient odd fill.
@@ -2604,18 +2128,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill6() {
-        if (!setOddFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddFill7 = new ArrayList<>();
 
     /**
      * Linear gradient odd fill.
@@ -2682,16 +2195,6 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill7() {
-        if (!setOddFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys10;
     private String[] keys11;
@@ -2701,7 +2204,6 @@ public class Grid extends VisualBaseWithBounds {
     private Double opacity8;
     private Double fx2;
     private Double fy2;
-    private List<Grid> setOddFill8 = new ArrayList<>();
 
     /**
      * Radial gradient odd fill.
@@ -2790,18 +2292,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill8() {
-        if (!setOddFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddFill9 = new ArrayList<>();
 
     /**
      * Radial gradient odd fill.
@@ -2890,16 +2381,6 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill9() {
-        if (!setOddFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings2;
     private PatternFill getOddHatchFill;
@@ -2921,7 +2402,6 @@ public class Grid extends VisualBaseWithBounds {
     private String color8;
     private Double thickness3;
     private Double size2;
-    private List<Grid> setOddHatchFill = new ArrayList<>();
 
     /**
      * Setter for odd hatch fill settings.
@@ -2984,18 +2464,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHatchFill() {
-        if (!setOddHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for odd hatch fill settings.
@@ -3058,18 +2527,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHatchFill1() {
-        if (!setOddHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for odd hatch fill settings.
@@ -3132,18 +2590,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHatchFill2() {
-        if (!setOddHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for odd hatch fill settings.
@@ -3206,19 +2653,8 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHatchFill3() {
-        if (!setOddHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill oddHolidayFill;
-    private List<Grid> setOddHolidayFill = new ArrayList<>();
 
     /**
      * Setter for odd holiday fill settings using an array or a string.
@@ -3243,20 +2679,9 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHolidayFill() {
-        if (!setOddHolidayFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHolidayFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color9;
     private Double opacity9;
-    private List<Grid> setOddHolidayFill1 = new ArrayList<>();
 
     /**
      * Odd holiday fill color with opacity.
@@ -3304,16 +2729,6 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHolidayFill1() {
-        if (!setOddHolidayFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHolidayFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys12;
     private String[] keys13;
@@ -3322,7 +2737,6 @@ public class Grid extends VisualBaseWithBounds {
     private VectorRect mode13;
     private String mode14;
     private Double opacity10;
-    private List<Grid> setOddHolidayFill2 = new ArrayList<>();
 
     /**
      * Linear gradient odd holiday fill.
@@ -3401,18 +2815,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHolidayFill2() {
-        if (!setOddHolidayFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHolidayFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddHolidayFill3 = new ArrayList<>();
 
     /**
      * Linear gradient odd holiday fill.
@@ -3491,18 +2894,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHolidayFill3() {
-        if (!setOddHolidayFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHolidayFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddHolidayFill4 = new ArrayList<>();
 
     /**
      * Linear gradient odd holiday fill.
@@ -3581,18 +2973,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHolidayFill4() {
-        if (!setOddHolidayFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHolidayFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddHolidayFill5 = new ArrayList<>();
 
     /**
      * Linear gradient odd holiday fill.
@@ -3671,18 +3052,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHolidayFill5() {
-        if (!setOddHolidayFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHolidayFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddHolidayFill6 = new ArrayList<>();
 
     /**
      * Linear gradient odd holiday fill.
@@ -3761,18 +3131,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHolidayFill6() {
-        if (!setOddHolidayFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHolidayFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddHolidayFill7 = new ArrayList<>();
 
     /**
      * Linear gradient odd holiday fill.
@@ -3851,16 +3210,6 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHolidayFill7() {
-        if (!setOddHolidayFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHolidayFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys14;
     private String[] keys15;
@@ -3870,7 +3219,6 @@ public class Grid extends VisualBaseWithBounds {
     private Double opacity11;
     private Double fx3;
     private Double fy3;
-    private List<Grid> setOddHolidayFill8 = new ArrayList<>();
 
     /**
      * Radial gradient odd holiday fill.
@@ -3974,18 +3322,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHolidayFill8() {
-        if (!setOddHolidayFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHolidayFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddHolidayFill9 = new ArrayList<>();
 
     /**
      * Radial gradient odd holiday fill.
@@ -4089,16 +3426,6 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHolidayFill9() {
-        if (!setOddHolidayFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHolidayFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings3;
     private PatternFill getOddHolidayHatchFill;
@@ -4120,7 +3447,6 @@ public class Grid extends VisualBaseWithBounds {
     private String color10;
     private Double thickness4;
     private Double size3;
-    private List<Grid> setOddHolidayHatchFill = new ArrayList<>();
 
     /**
      * Setter for odd holiday hatch fill settings.
@@ -4191,18 +3517,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHolidayHatchFill() {
-        if (!setOddHolidayHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHolidayHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddHolidayHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for odd holiday hatch fill settings.
@@ -4273,18 +3588,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHolidayHatchFill1() {
-        if (!setOddHolidayHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHolidayHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddHolidayHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for odd holiday hatch fill settings.
@@ -4355,18 +3659,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHolidayHatchFill2() {
-        if (!setOddHolidayHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHolidayHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOddHolidayHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for odd holiday hatch fill settings.
@@ -4437,16 +3730,6 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddHolidayHatchFill3() {
-        if (!setOddHolidayHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOddHolidayHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Overlay getOverlay;
 
@@ -4462,7 +3745,6 @@ public class Grid extends VisualBaseWithBounds {
 
     private String overlay;
     private Boolean overlay1;
-    private List<Grid> setOverlay = new ArrayList<>();
 
     /**
      * Setter for the overlay element.
@@ -4489,18 +3771,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOverlay() {
-        if (!setOverlay.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOverlay) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setOverlay1 = new ArrayList<>();
 
     /**
      * Setter for the overlay element.
@@ -4527,16 +3798,6 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOverlay1() {
-        if (!setOverlay1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setOverlay1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color11;
     private ColoredFill color12;
@@ -4545,7 +3806,6 @@ public class Grid extends VisualBaseWithBounds {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
-    private List<Grid> setVerticalStroke = new ArrayList<>();
 
     /**
      * Setter for the vertical stroke.
@@ -4609,18 +3869,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetVerticalStroke() {
-        if (!setVerticalStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setVerticalStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setVerticalStroke1 = new ArrayList<>();
 
     /**
      * Setter for the vertical stroke.
@@ -4684,18 +3933,7 @@ public class Grid extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetVerticalStroke1() {
-        if (!setVerticalStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setVerticalStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Grid> setVerticalStroke2 = new ArrayList<>();
 
     /**
      * Setter for the vertical stroke.
@@ -4758,16 +3996,6 @@ public class Grid extends VisualBaseWithBounds {
             }
         }
         return this;
-    }
-    private String generateJSsetVerticalStroke2() {
-        if (!setVerticalStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grid item : setVerticalStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetBackground() {
@@ -4838,76 +4066,6 @@ public class Grid extends VisualBaseWithBounds {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetBackground());
-        js.append(generateJSsetBackground1());
-        js.append(generateJSsetDrawBottomLine());
-        js.append(generateJSsetDrawLeftLine());
-        js.append(generateJSsetDrawRightLine());
-        js.append(generateJSsetDrawTopLine());
-        js.append(generateJSsetEvenFill());
-        js.append(generateJSsetEvenFill1());
-        js.append(generateJSsetEvenFill2());
-        js.append(generateJSsetEvenFill3());
-        js.append(generateJSsetEvenFill4());
-        js.append(generateJSsetEvenFill5());
-        js.append(generateJSsetEvenFill6());
-        js.append(generateJSsetEvenFill7());
-        js.append(generateJSsetEvenFill8());
-        js.append(generateJSsetEvenFill9());
-        js.append(generateJSsetEvenHatchFill());
-        js.append(generateJSsetEvenHatchFill1());
-        js.append(generateJSsetEvenHatchFill2());
-        js.append(generateJSsetEvenHatchFill3());
-        js.append(generateJSsetEvenHolidayFill());
-        js.append(generateJSsetEvenHolidayFill1());
-        js.append(generateJSsetEvenHolidayFill2());
-        js.append(generateJSsetEvenHolidayFill3());
-        js.append(generateJSsetEvenHolidayFill4());
-        js.append(generateJSsetEvenHolidayFill5());
-        js.append(generateJSsetEvenHolidayFill6());
-        js.append(generateJSsetEvenHolidayFill7());
-        js.append(generateJSsetEvenHolidayFill8());
-        js.append(generateJSsetEvenHolidayFill9());
-        js.append(generateJSsetEvenHolidayHatchFill());
-        js.append(generateJSsetEvenHolidayHatchFill1());
-        js.append(generateJSsetEvenHolidayHatchFill2());
-        js.append(generateJSsetEvenHolidayHatchFill3());
-        js.append(generateJSsetHorizontalStroke());
-        js.append(generateJSsetHorizontalStroke1());
-        js.append(generateJSsetHorizontalStroke2());
-        js.append(generateJSsetOddFill());
-        js.append(generateJSsetOddFill1());
-        js.append(generateJSsetOddFill2());
-        js.append(generateJSsetOddFill3());
-        js.append(generateJSsetOddFill4());
-        js.append(generateJSsetOddFill5());
-        js.append(generateJSsetOddFill6());
-        js.append(generateJSsetOddFill7());
-        js.append(generateJSsetOddFill8());
-        js.append(generateJSsetOddFill9());
-        js.append(generateJSsetOddHatchFill());
-        js.append(generateJSsetOddHatchFill1());
-        js.append(generateJSsetOddHatchFill2());
-        js.append(generateJSsetOddHatchFill3());
-        js.append(generateJSsetOddHolidayFill());
-        js.append(generateJSsetOddHolidayFill1());
-        js.append(generateJSsetOddHolidayFill2());
-        js.append(generateJSsetOddHolidayFill3());
-        js.append(generateJSsetOddHolidayFill4());
-        js.append(generateJSsetOddHolidayFill5());
-        js.append(generateJSsetOddHolidayFill6());
-        js.append(generateJSsetOddHolidayFill7());
-        js.append(generateJSsetOddHolidayFill8());
-        js.append(generateJSsetOddHolidayFill9());
-        js.append(generateJSsetOddHolidayHatchFill());
-        js.append(generateJSsetOddHolidayHatchFill1());
-        js.append(generateJSsetOddHolidayHatchFill2());
-        js.append(generateJSsetOddHolidayHatchFill3());
-        js.append(generateJSsetOverlay());
-        js.append(generateJSsetOverlay1());
-        js.append(generateJSsetVerticalStroke());
-        js.append(generateJSsetVerticalStroke1());
-        js.append(generateJSsetVerticalStroke2());
         
 
         String result = js.toString();

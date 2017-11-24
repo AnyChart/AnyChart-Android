@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -39,7 +37,6 @@ public class FibonacciFan extends FibonacciBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<FibonacciFan> setGrid = new ArrayList<>();
 
     /**
      * Setter for annotation grid settings.
@@ -76,18 +73,7 @@ public class FibonacciFan extends FibonacciBase {
         }
         return this;
     }
-    private String generateJSsetGrid() {
-        if (!setGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (FibonacciFan item : setGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<FibonacciFan> setGrid1 = new ArrayList<>();
 
     /**
      * Setter for annotation grid settings.
@@ -124,18 +110,7 @@ public class FibonacciFan extends FibonacciBase {
         }
         return this;
     }
-    private String generateJSsetGrid1() {
-        if (!setGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (FibonacciFan item : setGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<FibonacciFan> setGrid2 = new ArrayList<>();
 
     /**
      * Setter for annotation grid settings.
@@ -172,16 +147,6 @@ public class FibonacciFan extends FibonacciBase {
         }
         return this;
     }
-    private String generateJSsetGrid2() {
-        if (!setGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (FibonacciFan item : setGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -203,9 +168,6 @@ public class FibonacciFan extends FibonacciBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetGrid());
-        js.append(generateJSsetGrid1());
-        js.append(generateJSsetGrid2());
         
 
         String result = js.toString();

@@ -46,7 +46,6 @@ public class CoreGridsRadar extends VisualBase {
 
     private CoreAxesRadar axis;
     private CoreAxesRadial axis1;
-    private List<CoreGridsRadar> setAxis = new ArrayList<>();
 
     /**
      * Setter for the radar grid axis.
@@ -70,18 +69,7 @@ public class CoreGridsRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAxis() {
-        if (!setAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsRadar> setAxis1 = new ArrayList<>();
 
     /**
      * Setter for the radar grid axis.
@@ -105,19 +93,8 @@ public class CoreGridsRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAxis1() {
-        if (!setAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean drawLastLine;
-    private List<CoreGridsRadar> setDrawLastLine = new ArrayList<>();
 
     /**
      * Setter for the last line drawing flag.
@@ -141,19 +118,8 @@ public class CoreGridsRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetDrawLastLine() {
-        if (!setDrawLastLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setDrawLastLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
-    private List<CoreGridsRadar> setFill = new ArrayList<>();
 
     /**
      * Setter for the fill settings using an array or a string.
@@ -178,20 +144,9 @@ public class CoreGridsRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<CoreGridsRadar> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -217,16 +172,6 @@ public class CoreGridsRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -235,7 +180,6 @@ public class CoreGridsRadar extends VisualBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<CoreGridsRadar> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -276,18 +220,7 @@ public class CoreGridsRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsRadar> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -328,18 +261,7 @@ public class CoreGridsRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsRadar> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -380,18 +302,7 @@ public class CoreGridsRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsRadar> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -432,18 +343,7 @@ public class CoreGridsRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsRadar> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -484,18 +384,7 @@ public class CoreGridsRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsRadar> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -536,16 +425,6 @@ public class CoreGridsRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -555,7 +434,6 @@ public class CoreGridsRadar extends VisualBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<CoreGridsRadar> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -606,18 +484,7 @@ public class CoreGridsRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsRadar> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -668,20 +535,9 @@ public class CoreGridsRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private Boolean isMinor;
-    private List<CoreGridsRadar> setIsMinor = new ArrayList<>();
 
     /**
      * Setter for the minor grid state flag.
@@ -704,16 +560,6 @@ public class CoreGridsRadar extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetIsMinor() {
-        if (!setIsMinor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setIsMinor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private RangeColors getPalette;
@@ -903,7 +749,6 @@ public class CoreGridsRadar extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<CoreGridsRadar> setStroke = new ArrayList<>();
 
     /**
      * Setter for the grid stroke settings.
@@ -941,18 +786,7 @@ public class CoreGridsRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsRadar> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for the grid stroke settings.
@@ -990,18 +824,7 @@ public class CoreGridsRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsRadar> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for the grid stroke settings.
@@ -1038,16 +861,6 @@ public class CoreGridsRadar extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsRadar item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetAxis() {
@@ -1086,27 +899,10 @@ public class CoreGridsRadar extends VisualBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAxis());
-        js.append(generateJSsetAxis1());
-        js.append(generateJSsetDrawLastLine());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetIsMinor());
         js.append(generateJSsetPalette());
         js.append(generateJSsetPalette1());
         js.append(generateJSsetPalette2());
         js.append(generateJSsetPalette3());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
         
 
         String result = js.toString();

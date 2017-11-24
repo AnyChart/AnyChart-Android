@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class Milestones extends JsObject {
 
     
     private String color;
-    private List<Milestones> setColor = new ArrayList<>();
 
     /**
      * Setter for the milestones color.
@@ -57,19 +54,8 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetColor() {
-        if (!setColor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setColor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
-    private List<Milestones> setFill = new ArrayList<>();
 
     /**
      * Setter for milestones fill settings using an array or a string.
@@ -94,20 +80,9 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color1;
     private Double opacity;
-    private List<Milestones> setFill1 = new ArrayList<>();
 
     /**
      * Setter for the fill color with opacity. Fill as a string or an object.
@@ -136,16 +111,6 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -154,7 +119,6 @@ public class Milestones extends JsObject {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<Milestones> setFill2 = new ArrayList<>();
 
     /**
      * Setter for the linear gradient fill.
@@ -195,18 +159,7 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Milestones> setFill3 = new ArrayList<>();
 
     /**
      * Setter for the linear gradient fill.
@@ -247,18 +200,7 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Milestones> setFill4 = new ArrayList<>();
 
     /**
      * Setter for the linear gradient fill.
@@ -299,18 +241,7 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Milestones> setFill5 = new ArrayList<>();
 
     /**
      * Setter for the linear gradient fill.
@@ -351,18 +282,7 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Milestones> setFill6 = new ArrayList<>();
 
     /**
      * Setter for the linear gradient fill.
@@ -403,18 +323,7 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Milestones> setFill7 = new ArrayList<>();
 
     /**
      * Setter for the linear gradient fill.
@@ -455,16 +364,6 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -474,7 +373,6 @@ public class Milestones extends JsObject {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<Milestones> setFill8 = new ArrayList<>();
 
     /**
      * Setter for the radial gradient fill.
@@ -525,18 +423,7 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Milestones> setFill9 = new ArrayList<>();
 
     /**
      * Setter for the radial gradient fill.
@@ -587,16 +474,6 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private StateSettings getHovered;
@@ -612,7 +489,6 @@ public class Milestones extends JsObject {
     }
 
     private String hovered;
-    private List<Milestones> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -636,16 +512,6 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabelsFactory getLabels;
 
@@ -661,7 +527,6 @@ public class Milestones extends JsObject {
 
     private String labels;
     private Boolean labels1;
-    private List<Milestones> setLabels = new ArrayList<>();
 
     /**
      * Setter for milestones data labels.
@@ -688,18 +553,7 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Milestones> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for milestones data labels.
@@ -726,16 +580,6 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getNormal;
 
@@ -750,7 +594,6 @@ public class Milestones extends JsObject {
     }
 
     private String normal;
-    private List<Milestones> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -774,16 +617,6 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getSelected;
 
@@ -798,7 +631,6 @@ public class Milestones extends JsObject {
     }
 
     private String selected;
-    private List<Milestones> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -822,20 +654,9 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private MilestoneShape shape;
     private String shape1;
-    private List<Milestones> setShape = new ArrayList<>();
 
     /**
      * Setter for milestones shape.
@@ -862,18 +683,7 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetShape() {
-        if (!setShape.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setShape) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Milestones> setShape1 = new ArrayList<>();
 
     /**
      * Setter for milestones shape.
@@ -900,20 +710,9 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetShape1() {
-        if (!setShape1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setShape1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double size;
     private String size1;
-    private List<Milestones> setSize = new ArrayList<>();
 
     /**
      * Setter for milestones size.
@@ -940,18 +739,7 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetSize() {
-        if (!setSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Milestones> setSize1 = new ArrayList<>();
 
     /**
      * Setter for milestones size.
@@ -978,16 +766,6 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetSize1() {
-        if (!setSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color2;
     private ColoredFill color3;
@@ -996,7 +774,6 @@ public class Milestones extends JsObject {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<Milestones> setStroke = new ArrayList<>();
 
     /**
      * Setter for milestones stroke.
@@ -1035,18 +812,7 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Milestones> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for milestones stroke.
@@ -1085,18 +851,7 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Milestones> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for milestones stroke.
@@ -1135,16 +890,6 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Tooltip getTooltip;
 
@@ -1160,7 +905,6 @@ public class Milestones extends JsObject {
 
     private String tooltip;
     private Boolean tooltip1;
-    private List<Milestones> setTooltip = new ArrayList<>();
 
     /**
      * Setter for milestones data tooltip.
@@ -1187,18 +931,7 @@ public class Milestones extends JsObject {
         }
         return this;
     }
-    private String generateJSsetTooltip() {
-        if (!setTooltip.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setTooltip) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Milestones> setTooltip1 = new ArrayList<>();
 
     /**
      * Setter for milestones data tooltip.
@@ -1224,16 +957,6 @@ public class Milestones extends JsObject {
             }
         }
         return this;
-    }
-    private String generateJSsetTooltip1() {
-        if (!setTooltip1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Milestones item : setTooltip1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetHovered() {
@@ -1296,31 +1019,6 @@ public class Milestones extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetColor());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetShape());
-        js.append(generateJSsetShape1());
-        js.append(generateJSsetSize());
-        js.append(generateJSsetSize1());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetTooltip());
-        js.append(generateJSsetTooltip1());
         
 
         String result = js.toString();

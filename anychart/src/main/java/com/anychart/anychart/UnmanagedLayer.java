@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -46,7 +44,6 @@ public class UnmanagedLayer extends Element {
 
     private String content;
     private Element content1;
-    private List<UnmanagedLayer> setContent = new ArrayList<>();
 
     /**
      * Setter for the inner content.
@@ -73,18 +70,7 @@ public class UnmanagedLayer extends Element {
         }
         return this;
     }
-    private String generateJSsetContent() {
-        if (!setContent.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UnmanagedLayer item : setContent) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UnmanagedLayer> setContent1 = new ArrayList<>();
 
     /**
      * Setter for the inner content.
@@ -107,16 +93,6 @@ public class UnmanagedLayer extends Element {
             js.append(String.format(Locale.US, ".content(%s);",  ((content1 != null) ? content1.getJsBase() : "null")));
         }
         return this;
-    }
-    private String generateJSsetContent1() {
-        if (!setContent1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UnmanagedLayer item : setContent1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetContent() {
@@ -147,8 +123,6 @@ public class UnmanagedLayer extends Element {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetContent());
-        js.append(generateJSsetContent1());
         
 
         String result = js.toString();

@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class ChartA11y extends A11y {
 
     
     private Boolean enabled;
-    private List<ChartA11y> setEnabled = new ArrayList<>();
 
     /**
      * Setter for the accessibility enabled state.
@@ -57,20 +54,9 @@ public class ChartA11y extends A11y {
         }
         return this;
     }
-    private String generateJSsetEnabled() {
-        if (!setEnabled.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartA11y item : setEnabled) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private A11yMode mode;
     private String mode1;
-    private List<ChartA11y> setMode = new ArrayList<>();
 
     /**
      * Setter for the accessibility mode.
@@ -97,18 +83,7 @@ public class ChartA11y extends A11y {
         }
         return this;
     }
-    private String generateJSsetMode() {
-        if (!setMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartA11y item : setMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartA11y> setMode1 = new ArrayList<>();
 
     /**
      * Setter for the accessibility mode.
@@ -135,19 +110,8 @@ public class ChartA11y extends A11y {
         }
         return this;
     }
-    private String generateJSsetMode1() {
-        if (!setMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartA11y item : setMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String titleFormat;
-    private List<ChartA11y> setTitleFormat = new ArrayList<>();
 
     /**
      * Setter for the function to format title.<br/>
@@ -172,16 +136,6 @@ public class ChartA11y extends A11y {
         }
         return this;
     }
-    private String generateJSsetTitleFormat() {
-        if (!setTitleFormat.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartA11y item : setTitleFormat) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -203,10 +157,6 @@ public class ChartA11y extends A11y {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetEnabled());
-        js.append(generateJSsetMode());
-        js.append(generateJSsetMode1());
-        js.append(generateJSsetTitleFormat());
         
 
         String result = js.toString();

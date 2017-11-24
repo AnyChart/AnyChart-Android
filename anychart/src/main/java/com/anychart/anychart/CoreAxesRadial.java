@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -35,7 +33,6 @@ public class CoreAxesRadial extends VisualBase {
 
     
     private Boolean drawFirstLabel;
-    private List<CoreAxesRadial> setDrawFirstLabel = new ArrayList<>();
 
     /**
      * Setter for the first label drawing flag.
@@ -59,19 +56,8 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetDrawFirstLabel() {
-        if (!setDrawFirstLabel.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setDrawFirstLabel) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean drawLastLabel;
-    private List<CoreAxesRadial> setDrawLastLabel = new ArrayList<>();
 
     /**
      * Setter for the last label drawing flag.
@@ -95,16 +81,6 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetDrawLastLabel() {
-        if (!setDrawLastLabel.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setDrawLastLabel) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabelsFactory getLabels;
 
@@ -120,7 +96,6 @@ public class CoreAxesRadial extends VisualBase {
 
     private String labels;
     private Boolean labels1;
-    private List<CoreAxesRadial> setLabels = new ArrayList<>();
 
     /**
      * Setter for axis labels.
@@ -147,18 +122,7 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesRadial> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for axis labels.
@@ -185,16 +149,6 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabelsFactory getMinorLabels;
 
@@ -210,7 +164,6 @@ public class CoreAxesRadial extends VisualBase {
 
     private String minorLabels;
     private Boolean minorLabels1;
-    private List<CoreAxesRadial> setMinorLabels = new ArrayList<>();
 
     /**
      * Setter for axis minor labels.
@@ -237,18 +190,7 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMinorLabels() {
-        if (!setMinorLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setMinorLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesRadial> setMinorLabels1 = new ArrayList<>();
 
     /**
      * Setter for axis minor labels.
@@ -275,16 +217,6 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMinorLabels1() {
-        if (!setMinorLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setMinorLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private RadialTicks getMinorTicks;
 
@@ -300,7 +232,6 @@ public class CoreAxesRadial extends VisualBase {
 
     private String minorTicks;
     private Boolean minorTicks1;
-    private List<CoreAxesRadial> setMinorTicks = new ArrayList<>();
 
     /**
      * Setter for axis minor ticks.
@@ -327,18 +258,7 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMinorTicks() {
-        if (!setMinorTicks.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setMinorTicks) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesRadial> setMinorTicks1 = new ArrayList<>();
 
     /**
      * Setter for axis minor ticks.
@@ -365,20 +285,9 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMinorTicks1() {
-        if (!setMinorTicks1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setMinorTicks1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private LabelsOverlapMode overlapMode;
     private String overlapMode1;
-    private List<CoreAxesRadial> setOverlapMode = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode for.
@@ -405,18 +314,7 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetOverlapMode() {
-        if (!setOverlapMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setOverlapMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesRadial> setOverlapMode1 = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode for.
@@ -443,16 +341,6 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetOverlapMode1() {
-        if (!setOverlapMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setOverlapMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScalesBase getScale;
 
@@ -470,7 +358,6 @@ public class CoreAxesRadial extends VisualBase {
     private String scale1;
     private ScaleTypes scale2;
     private String scale3;
-    private List<CoreAxesRadial> setScale = new ArrayList<>();
 
     /**
      * Setter for the axis scale.
@@ -496,18 +383,7 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetScale() {
-        if (!setScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesRadial> setScale1 = new ArrayList<>();
 
     /**
      * Setter for the axis scale.
@@ -536,18 +412,7 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetScale1() {
-        if (!setScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesRadial> setScale2 = new ArrayList<>();
 
     /**
      * Setter for the axis scale.
@@ -576,16 +441,6 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetScale2() {
-        if (!setScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke stroke;
     private ColoredFill stroke1;
@@ -594,7 +449,6 @@ public class CoreAxesRadial extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<CoreAxesRadial> setStroke = new ArrayList<>();
 
     /**
      * Setter for the axis stroke.
@@ -631,18 +485,7 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesRadial> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for the axis stroke.
@@ -679,18 +522,7 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesRadial> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for the axis stroke.
@@ -727,16 +559,6 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private RadialTicks getTicks;
 
@@ -752,7 +574,6 @@ public class CoreAxesRadial extends VisualBase {
 
     private String ticks;
     private Boolean ticks1;
-    private List<CoreAxesRadial> setTicks = new ArrayList<>();
 
     /**
      * Setter for axis ticks.
@@ -779,18 +600,7 @@ public class CoreAxesRadial extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTicks() {
-        if (!setTicks.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setTicks) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesRadial> setTicks1 = new ArrayList<>();
 
     /**
      * Setter for axis ticks.
@@ -816,16 +626,6 @@ public class CoreAxesRadial extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetTicks1() {
-        if (!setTicks1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadial item : setTicks1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetLabels() {
@@ -888,24 +688,6 @@ public class CoreAxesRadial extends VisualBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetDrawFirstLabel());
-        js.append(generateJSsetDrawLastLabel());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
-        js.append(generateJSsetMinorLabels());
-        js.append(generateJSsetMinorLabels1());
-        js.append(generateJSsetMinorTicks());
-        js.append(generateJSsetMinorTicks1());
-        js.append(generateJSsetOverlapMode());
-        js.append(generateJSsetOverlapMode1());
-        js.append(generateJSsetScale());
-        js.append(generateJSsetScale1());
-        js.append(generateJSsetScale2());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetTicks());
-        js.append(generateJSsetTicks1());
         
 
         String result = js.toString();

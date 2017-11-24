@@ -3,7 +3,6 @@ package com.anychart.anychart;
 import com.anychart.anychart.application.MyApplication;
 import com.anychart.anychart.chart.common.ListenersInterface;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -115,7 +114,6 @@ public class Gantt extends SeparateChart {
 
     
     private String taskId;
-    private List<Gantt> setCollapseTask = new ArrayList<>();
 
     /**
      * Collapses task by id.<br/>
@@ -134,20 +132,9 @@ The collapseTask() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetCollapseTask() {
-        if (!setCollapseTask.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setCollapseTask) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke columnStroke;
     private String columnStroke1;
-    private List<Gantt> setColumnStroke = new ArrayList<>();
 
     /**
      * Setter for the column stroke.
@@ -165,18 +152,7 @@ The collapseTask() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetColumnStroke() {
-        if (!setColumnStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setColumnStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setColumnStroke1 = new ArrayList<>();
 
     /**
      * Setter for the column stroke.
@@ -194,16 +170,6 @@ The collapseTask() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetColumnStroke1() {
-        if (!setColumnStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setColumnStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Tree getData;
@@ -217,7 +183,6 @@ The collapseTask() method should be used after drawing a chart.
 
         return getData;
     }
-    private List<Gantt> setData = new ArrayList<>();
 
     /**
      * Setter for the chart data.
@@ -241,18 +206,7 @@ The collapseTask() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setData1 = new ArrayList<>();
 
     /**
      * 
@@ -266,16 +220,6 @@ The collapseTask() method should be used after drawing a chart.
         js.append(mapping.generateJs());
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -291,7 +235,6 @@ The collapseTask() method should be used after drawing a chart.
         return getDataGrid;
     }
     private Boolean enabled;
-    private List<Gantt> setDataGrid = new ArrayList<>();
 
     /**
      * Setter for the data grid.
@@ -309,19 +252,8 @@ The collapseTask() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetDataGrid() {
-        if (!setDataGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setDataGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double defaultRowHeight;
-    private List<Gantt> setDefaultRowHeight = new ArrayList<>();
 
     /**
      * Setter for the default row height.
@@ -339,19 +271,8 @@ The collapseTask() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetDefaultRowHeight() {
-        if (!setDefaultRowHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setDefaultRowHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean editing;
-    private List<Gantt> setEditing = new ArrayList<>();
 
     /**
      * Enables or disables the live edit mode.
@@ -369,19 +290,8 @@ The collapseTask() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetEditing() {
-        if (!setEditing.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setEditing) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String taskId1;
-    private List<Gantt> setExpandTask = new ArrayList<>();
 
     /**
      * Expands task by id.<br/>
@@ -400,19 +310,8 @@ The expandTask() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetExpandTask() {
-        if (!setExpandTask.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setExpandTask) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String taskId2;
-    private List<Gantt> setFitToTask = new ArrayList<>();
 
     /**
      * Fits the visible area of the timeline to the range of specified tasks.
@@ -430,16 +329,6 @@ The expandTask() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetFitToTask() {
-        if (!setFitToTask.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setFitToTask) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiTimeline getGetTimeline;
@@ -455,7 +344,6 @@ The expandTask() method should be used after drawing a chart.
     }
     private Double headerHeight;
     private String headerHeight1;
-    private List<Gantt> setHeaderHeight = new ArrayList<>();
 
     /**
      * Setter for the header height.
@@ -473,18 +361,7 @@ The expandTask() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetHeaderHeight() {
-        if (!setHeaderHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setHeaderHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setHeaderHeight1 = new ArrayList<>();
 
     /**
      * Setter for the header height.
@@ -502,19 +379,8 @@ The expandTask() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetHeaderHeight1() {
-        if (!setHeaderHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setHeaderHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill rowHoverFill;
-    private List<Gantt> setRowHoverFill = new ArrayList<>();
 
     /**
      * Sets row hover fill settings using an array or a string.
@@ -533,20 +399,9 @@ The expandTask() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetRowHoverFill() {
-        if (!setRowHoverFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowHoverFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<Gantt> setRowHoverFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.<br/>
@@ -565,16 +420,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowHoverFill1() {
-        if (!setRowHoverFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowHoverFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -583,7 +428,6 @@ Fill as a string or an object.
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<Gantt> setRowHoverFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -602,18 +446,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowHoverFill2() {
-        if (!setRowHoverFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowHoverFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setRowHoverFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -632,18 +465,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowHoverFill3() {
-        if (!setRowHoverFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowHoverFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setRowHoverFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -662,18 +484,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowHoverFill4() {
-        if (!setRowHoverFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowHoverFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setRowHoverFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -692,18 +503,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowHoverFill5() {
-        if (!setRowHoverFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowHoverFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setRowHoverFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -722,18 +522,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowHoverFill6() {
-        if (!setRowHoverFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowHoverFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setRowHoverFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -752,16 +541,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowHoverFill7() {
-        if (!setRowHoverFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowHoverFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -771,7 +550,6 @@ Fill as a string or an object.
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<Gantt> setRowHoverFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -790,18 +568,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowHoverFill8() {
-        if (!setRowHoverFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowHoverFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setRowHoverFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -820,19 +587,8 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowHoverFill9() {
-        if (!setRowHoverFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowHoverFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill rowSelectedFill;
-    private List<Gantt> setRowSelectedFill = new ArrayList<>();
 
     /**
      * Sets row selected fill settings using an array or a string.
@@ -851,20 +607,9 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowSelectedFill() {
-        if (!setRowSelectedFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowSelectedFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color1;
     private Double opacity3;
-    private List<Gantt> setRowSelectedFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.<br/>
@@ -883,16 +628,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowSelectedFill1() {
-        if (!setRowSelectedFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowSelectedFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys4;
     private String[] keys5;
@@ -901,7 +636,6 @@ Fill as a string or an object.
     private VectorRect mode5;
     private String mode6;
     private Double opacity4;
-    private List<Gantt> setRowSelectedFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -920,18 +654,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowSelectedFill2() {
-        if (!setRowSelectedFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowSelectedFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setRowSelectedFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -950,18 +673,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowSelectedFill3() {
-        if (!setRowSelectedFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowSelectedFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setRowSelectedFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -980,18 +692,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowSelectedFill4() {
-        if (!setRowSelectedFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowSelectedFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setRowSelectedFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1010,18 +711,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowSelectedFill5() {
-        if (!setRowSelectedFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowSelectedFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setRowSelectedFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1040,18 +730,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowSelectedFill6() {
-        if (!setRowSelectedFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowSelectedFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setRowSelectedFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1070,16 +749,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowSelectedFill7() {
-        if (!setRowSelectedFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowSelectedFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys6;
     private String[] keys7;
@@ -1089,7 +758,6 @@ Fill as a string or an object.
     private Double opacity5;
     private Double fx1;
     private Double fy1;
-    private List<Gantt> setRowSelectedFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -1108,18 +776,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowSelectedFill8() {
-        if (!setRowSelectedFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowSelectedFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setRowSelectedFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -1138,20 +795,9 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowSelectedFill9() {
-        if (!setRowSelectedFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowSelectedFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke rowStroke;
     private String rowStroke1;
-    private List<Gantt> setRowStroke = new ArrayList<>();
 
     /**
      * Setter for the row stroke.
@@ -1169,18 +815,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowStroke() {
-        if (!setRowStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setRowStroke1 = new ArrayList<>();
 
     /**
      * Setter for the row stroke.
@@ -1198,19 +833,8 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRowStroke1() {
-        if (!setRowStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setRowStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double pxOffset;
-    private List<Gantt> setScrollTo = new ArrayList<>();
 
     /**
      * Performs vertical scrolling by pixel offset.<br/>
@@ -1229,19 +853,8 @@ The scrollTo() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetScrollTo() {
-        if (!setScrollTo.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setScrollTo) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index;
-    private List<Gantt> setScrollToEnd = new ArrayList<>();
 
     /**
      * Scrolls vertically to specified index.<br/>
@@ -1260,19 +873,8 @@ The scrollToEnd() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetScrollToEnd() {
-        if (!setScrollToEnd.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setScrollToEnd) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double rowIndex;
-    private List<Gantt> setScrollToRow = new ArrayList<>();
 
     /**
      * Performs vertical scroll for a row at the specified index.
@@ -1290,20 +892,9 @@ The scrollToEnd() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetScrollToRow() {
-        if (!setScrollToRow.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setScrollToRow) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String splitterPosition;
     private Double splitterPosition1;
-    private List<Gantt> setSplitterPosition = new ArrayList<>();
 
     /**
      * Setter for the splitter position.
@@ -1321,18 +912,7 @@ The scrollToEnd() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetSplitterPosition() {
-        if (!setSplitterPosition.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setSplitterPosition) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setSplitterPosition1 = new ArrayList<>();
 
     /**
      * Setter for the splitter position.
@@ -1350,16 +930,6 @@ The scrollToEnd() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetSplitterPosition1() {
-        if (!setSplitterPosition1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setSplitterPosition1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private GanttDateTime getXScale;
@@ -1374,7 +944,6 @@ The scrollToEnd() method should be used after drawing a chart.
         return getXScale;
     }
     private String xScale;
-    private List<Gantt> setXScale = new ArrayList<>();
 
     /**
      * Setter for the timeline X-scale.
@@ -1392,19 +961,8 @@ The scrollToEnd() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetXScale() {
-        if (!setXScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setXScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double zoomFactor;
-    private List<Gantt> setZoomIn = new ArrayList<>();
 
     /**
      * Timeline zoom in.
@@ -1422,19 +980,8 @@ The scrollToEnd() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetZoomIn() {
-        if (!setZoomIn.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setZoomIn) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double zoomFactor1;
-    private List<Gantt> setZoomOut = new ArrayList<>();
 
     /**
      * Timeline zoom out.
@@ -1452,20 +999,9 @@ The scrollToEnd() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetZoomOut() {
-        if (!setZoomOut.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setZoomOut) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double startDate;
     private Double endDate;
-    private List<Gantt> setZoomTo = new ArrayList<>();
 
     /**
      * Sets the timeline zoom to range using the date.
@@ -1483,23 +1019,12 @@ The scrollToEnd() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetZoomTo() {
-        if (!setZoomTo.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setZoomTo) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Interval unit;
     private String unit1;
     private Double count;
     private GanttRangeAnchor anchor;
     private String anchor1;
-    private List<Gantt> setZoomTo1 = new ArrayList<>();
 
     /**
      * Sets the timeline zoom to range using the interval.
@@ -1517,18 +1042,7 @@ The scrollToEnd() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetZoomTo1() {
-        if (!setZoomTo1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setZoomTo1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setZoomTo2 = new ArrayList<>();
 
     /**
      * Sets the timeline zoom to range using the interval.
@@ -1546,18 +1060,7 @@ The scrollToEnd() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetZoomTo2() {
-        if (!setZoomTo2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setZoomTo2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setZoomTo3 = new ArrayList<>();
 
     /**
      * Sets the timeline zoom to range using the interval.
@@ -1575,18 +1078,7 @@ The scrollToEnd() method should be used after drawing a chart.
         }
         return this;
     }
-    private String generateJSsetZoomTo3() {
-        if (!setZoomTo3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setZoomTo3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Gantt> setZoomTo4 = new ArrayList<>();
 
     /**
      * Sets the timeline zoom to range using the interval.
@@ -1603,16 +1095,6 @@ The scrollToEnd() method should be used after drawing a chart.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetZoomTo4() {
-        if (!setZoomTo4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Gantt item : setZoomTo4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetData() {
@@ -1654,53 +1136,6 @@ The scrollToEnd() method should be used after drawing a chart.
         js.append(generateJSgetDataGrid());
         js.append(generateJSgetGetTimeline());
         js.append(generateJSgetXScale());
-        js.append(generateJSsetCollapseTask());
-        js.append(generateJSsetColumnStroke());
-        js.append(generateJSsetColumnStroke1());
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetDataGrid());
-        js.append(generateJSsetDefaultRowHeight());
-        js.append(generateJSsetEditing());
-        js.append(generateJSsetExpandTask());
-        js.append(generateJSsetFitToTask());
-        js.append(generateJSsetHeaderHeight());
-        js.append(generateJSsetHeaderHeight1());
-        js.append(generateJSsetRowHoverFill());
-        js.append(generateJSsetRowHoverFill1());
-        js.append(generateJSsetRowHoverFill2());
-        js.append(generateJSsetRowHoverFill3());
-        js.append(generateJSsetRowHoverFill4());
-        js.append(generateJSsetRowHoverFill5());
-        js.append(generateJSsetRowHoverFill6());
-        js.append(generateJSsetRowHoverFill7());
-        js.append(generateJSsetRowHoverFill8());
-        js.append(generateJSsetRowHoverFill9());
-        js.append(generateJSsetRowSelectedFill());
-        js.append(generateJSsetRowSelectedFill1());
-        js.append(generateJSsetRowSelectedFill2());
-        js.append(generateJSsetRowSelectedFill3());
-        js.append(generateJSsetRowSelectedFill4());
-        js.append(generateJSsetRowSelectedFill5());
-        js.append(generateJSsetRowSelectedFill6());
-        js.append(generateJSsetRowSelectedFill7());
-        js.append(generateJSsetRowSelectedFill8());
-        js.append(generateJSsetRowSelectedFill9());
-        js.append(generateJSsetRowStroke());
-        js.append(generateJSsetRowStroke1());
-        js.append(generateJSsetScrollTo());
-        js.append(generateJSsetScrollToEnd());
-        js.append(generateJSsetScrollToRow());
-        js.append(generateJSsetSplitterPosition());
-        js.append(generateJSsetSplitterPosition1());
-        js.append(generateJSsetXScale());
-        js.append(generateJSsetZoomIn());
-        js.append(generateJSsetZoomOut());
-        js.append(generateJSsetZoomTo());
-        js.append(generateJSsetZoomTo1());
-        js.append(generateJSsetZoomTo2());
-        js.append(generateJSsetZoomTo3());
-        js.append(generateJSsetZoomTo4());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

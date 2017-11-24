@@ -364,7 +364,6 @@ public class Quarter extends UiBackground {
     private Double[] margin;
     private String[] margin1;
     private String margin2;
-    private List<Quarter> setMargin = new ArrayList<>();
 
     /**
      * Setter for the quarter margin in pixels using a single complex object.
@@ -392,18 +391,7 @@ public class Quarter extends UiBackground {
         }
         return this;
     }
-    private String generateJSsetMargin() {
-        if (!setMargin.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Quarter item : setMargin) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Quarter> setMargin1 = new ArrayList<>();
 
     /**
      * Setter for the quarter margin in pixels using a single complex object.
@@ -431,18 +419,7 @@ public class Quarter extends UiBackground {
         }
         return this;
     }
-    private String generateJSsetMargin1() {
-        if (!setMargin1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Quarter item : setMargin1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Quarter> setMargin2 = new ArrayList<>();
 
     /**
      * Setter for the quarter margin in pixels using a single complex object.
@@ -470,16 +447,6 @@ public class Quarter extends UiBackground {
         }
         return this;
     }
-    private String generateJSsetMargin2() {
-        if (!setMargin2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Quarter item : setMargin2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String value;
     private Double value1;
@@ -489,7 +456,6 @@ public class Quarter extends UiBackground {
     private Double value5;
     private String value6;
     private Double value7;
-    private List<Quarter> setMargin3 = new ArrayList<>();
 
     /**
      * Setter for the quarter margin in pixels using several simple values.
@@ -555,18 +521,7 @@ public class Quarter extends UiBackground {
         }
         return this;
     }
-    private String generateJSsetMargin3() {
-        if (!setMargin3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Quarter item : setMargin3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Quarter> setMargin4 = new ArrayList<>();
 
     /**
      * Setter for the quarter margin in pixels using several simple values.
@@ -631,16 +586,6 @@ public class Quarter extends UiBackground {
             }
         }
         return this;
-    }
-    private String generateJSsetMargin4() {
-        if (!setMargin4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Quarter item : setMargin4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private UtilsPadding getPadding;
@@ -1032,7 +977,6 @@ public class Quarter extends UiBackground {
     private Boolean title;
     private String title1;
     private String title2;
-    private List<Quarter> setTitle = new ArrayList<>();
 
     /**
      * Setter for the title.
@@ -1060,18 +1004,7 @@ public class Quarter extends UiBackground {
         }
         return this;
     }
-    private String generateJSsetTitle() {
-        if (!setTitle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Quarter item : setTitle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Quarter> setTitle1 = new ArrayList<>();
 
     /**
      * Setter for the title.
@@ -1098,16 +1031,6 @@ public class Quarter extends UiBackground {
             }
         }
         return this;
-    }
-    private String generateJSsetTitle1() {
-        if (!setTitle1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Quarter item : setTitle1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetLabel() {
@@ -1186,18 +1109,11 @@ public class Quarter extends UiBackground {
         js.append(generateJSsetLabel3());
         js.append(generateJSsetLabel4());
         js.append(generateJSsetLabel5());
-        js.append(generateJSsetMargin());
-        js.append(generateJSsetMargin1());
-        js.append(generateJSsetMargin2());
-        js.append(generateJSsetMargin3());
-        js.append(generateJSsetMargin4());
         js.append(generateJSsetPadding());
         js.append(generateJSsetPadding1());
         js.append(generateJSsetPadding2());
         js.append(generateJSsetPadding3());
         js.append(generateJSsetPadding4());
-        js.append(generateJSsetTitle());
-        js.append(generateJSsetTitle1());
         
 
         String result = js.toString();

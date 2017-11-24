@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class LineargaugePointersBase extends VisualBase {
 
     
     private String color;
-    private List<LineargaugePointersBase> setColor = new ArrayList<>();
 
     /**
      * Setter for the pointer color.
@@ -57,19 +54,8 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetColor() {
-        if (!setColor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setColor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index;
-    private List<LineargaugePointersBase> setDataIndex = new ArrayList<>();
 
     /**
      * Setter for the data index.
@@ -93,19 +79,8 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetDataIndex() {
-        if (!setDataIndex.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setDataIndex) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
-    private List<LineargaugePointersBase> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -130,20 +105,9 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color1;
     private Double opacity;
-    private List<LineargaugePointersBase> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -172,16 +136,6 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -190,7 +144,6 @@ public class LineargaugePointersBase extends VisualBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<LineargaugePointersBase> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -231,18 +184,7 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LineargaugePointersBase> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -283,18 +225,7 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LineargaugePointersBase> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -335,18 +266,7 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LineargaugePointersBase> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -387,18 +307,7 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LineargaugePointersBase> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -439,18 +348,7 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LineargaugePointersBase> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -491,16 +389,6 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -510,7 +398,6 @@ public class LineargaugePointersBase extends VisualBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<LineargaugePointersBase> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -561,18 +448,7 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LineargaugePointersBase> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -623,16 +499,6 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private ChartsLinearGauge getGetGauge;
@@ -667,7 +533,6 @@ public class LineargaugePointersBase extends VisualBase {
     private String color2;
     private Double thickness;
     private Double size;
-    private List<LineargaugePointersBase> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -707,18 +572,7 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill() {
-        if (!setHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LineargaugePointersBase> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -758,18 +612,7 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill1() {
-        if (!setHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LineargaugePointersBase> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -809,18 +652,7 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill2() {
-        if (!setHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LineargaugePointersBase> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -860,18 +692,7 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill3() {
-        if (!setHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LineargaugePointersBase> setHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -911,16 +732,6 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill4() {
-        if (!setHatchFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setHatchFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getHovered;
 
@@ -935,7 +746,6 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
     private String hovered;
-    private List<LineargaugePointersBase> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -959,16 +769,6 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabelsFactory getLabel;
 
@@ -985,7 +785,6 @@ public class LineargaugePointersBase extends VisualBase {
     private UiLabelsFactory label;
     private String label1;
     private Boolean label2;
-    private List<LineargaugePointersBase> setLabel = new ArrayList<>();
 
     /**
      * Setter for the pointer label.
@@ -1010,18 +809,7 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLabel() {
-        if (!setLabel.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setLabel) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LineargaugePointersBase> setLabel1 = new ArrayList<>();
 
     /**
      * Setter for the pointer label.
@@ -1049,18 +837,7 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLabel1() {
-        if (!setLabel1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setLabel1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LineargaugePointersBase> setLabel2 = new ArrayList<>();
 
     /**
      * Setter for the pointer label.
@@ -1088,16 +865,6 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLabel2() {
-        if (!setLabel2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setLabel2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private LegendItemSettings getLegendItem;
 
@@ -1112,7 +879,6 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
     private String legendItem;
-    private List<LineargaugePointersBase> setLegendItem = new ArrayList<>();
 
     /**
      * Setter for the legend item settings.
@@ -1136,19 +902,8 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLegendItem() {
-        if (!setLegendItem.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setLegendItem) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String name;
-    private List<LineargaugePointersBase> setName = new ArrayList<>();
 
     /**
      * Setter for the pointer name.
@@ -1172,16 +927,6 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetName() {
-        if (!setName.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setName) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getNormal;
 
@@ -1196,7 +941,6 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
     private String normal;
-    private List<LineargaugePointersBase> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -1220,19 +964,8 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String offset;
-    private List<LineargaugePointersBase> setOffset = new ArrayList<>();
 
     /**
      * Setter for the pointer offset.
@@ -1256,16 +989,6 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetOffset() {
-        if (!setOffset.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setOffset) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScalesBase getScale;
 
@@ -1280,7 +1003,6 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
     private ScalesBase scale;
-    private List<LineargaugePointersBase> setScale = new ArrayList<>();
 
     /**
      * Setter for the pointer scale.
@@ -1301,16 +1023,6 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetScale() {
-        if (!setScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getSelected;
 
@@ -1325,7 +1037,6 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
     private String selected;
-    private List<LineargaugePointersBase> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -1349,19 +1060,8 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke stroke;
-    private List<LineargaugePointersBase> setStroke = new ArrayList<>();
 
     /**
      * Setter for the pointer stroke using function.
@@ -1386,16 +1086,6 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color3;
     private ColoredFill color4;
@@ -1404,7 +1094,6 @@ public class LineargaugePointersBase extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<LineargaugePointersBase> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for the  pointer stroke using several parameters.
@@ -1447,18 +1136,7 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LineargaugePointersBase> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for the  pointer stroke using several parameters.
@@ -1501,18 +1179,7 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LineargaugePointersBase> setStroke3 = new ArrayList<>();
 
     /**
      * Setter for the  pointer stroke using several parameters.
@@ -1555,19 +1222,8 @@ public class LineargaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke3() {
-        if (!setStroke3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setStroke3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String width;
-    private List<LineargaugePointersBase> setWidth = new ArrayList<>();
 
     /**
      * Setter for the pointer width.
@@ -1590,16 +1246,6 @@ public class LineargaugePointersBase extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetWidth() {
-        if (!setWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LineargaugePointersBase item : setWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetGetGauge() {
@@ -1686,38 +1332,6 @@ public class LineargaugePointersBase extends VisualBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetColor());
-        js.append(generateJSsetDataIndex());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetHatchFill());
-        js.append(generateJSsetHatchFill1());
-        js.append(generateJSsetHatchFill2());
-        js.append(generateJSsetHatchFill3());
-        js.append(generateJSsetHatchFill4());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetLabel());
-        js.append(generateJSsetLabel1());
-        js.append(generateJSsetLabel2());
-        js.append(generateJSsetLegendItem());
-        js.append(generateJSsetName());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetOffset());
-        js.append(generateJSsetScale());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetStroke3());
-        js.append(generateJSsetWidth());
         
 
         String result = js.toString();

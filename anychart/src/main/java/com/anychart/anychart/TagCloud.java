@@ -116,7 +116,6 @@ public class TagCloud extends SeparateChart {
 
     
     private Double[] angles;
-    private List<TagCloud> setAngles = new ArrayList<>();
 
     /**
      * Setter for tags rotation angles.
@@ -134,19 +133,8 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetAngles() {
-        if (!setAngles.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setAngles) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double anglesCount;
-    private List<TagCloud> setAnglesCount = new ArrayList<>();
 
     /**
      * Setter for the angles count.
@@ -164,16 +152,6 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetAnglesCount() {
-        if (!setAnglesCount.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setAnglesCount) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiColorRange getColorRange;
@@ -189,7 +167,6 @@ public class TagCloud extends SeparateChart {
     }
     private String colorRange;
     private Boolean colorRange1;
-    private List<TagCloud> setColorRange = new ArrayList<>();
 
     /**
      * Setter for color range.
@@ -207,18 +184,7 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetColorRange() {
-        if (!setColorRange.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setColorRange) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TagCloud> setColorRange1 = new ArrayList<>();
 
     /**
      * Setter for color range.
@@ -235,16 +201,6 @@ public class TagCloud extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetColorRange1() {
-        if (!setColorRange1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setColorRange1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -264,7 +220,6 @@ public class TagCloud extends SeparateChart {
     private String colorScale2;
     private ScaleTypes colorScale3;
     private String colorScale4;
-    private List<TagCloud> setColorScale = new ArrayList<>();
 
     /**
      * Setter for the color scale.
@@ -280,18 +235,7 @@ public class TagCloud extends SeparateChart {
         js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale != null) ? colorScale.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetColorScale() {
-        if (!setColorScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setColorScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TagCloud> setColorScale1 = new ArrayList<>();
 
     /**
      * Setter for the color scale.
@@ -307,18 +251,7 @@ public class TagCloud extends SeparateChart {
         js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetColorScale1() {
-        if (!setColorScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setColorScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TagCloud> setColorScale2 = new ArrayList<>();
 
     /**
      * Setter for the color scale.
@@ -336,18 +269,7 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetColorScale2() {
-        if (!setColorScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setColorScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TagCloud> setColorScale3 = new ArrayList<>();
 
     /**
      * Setter for the color scale.
@@ -365,16 +287,6 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetColorScale3() {
-        if (!setColorScale3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setColorScale3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private View getData;
@@ -388,7 +300,6 @@ public class TagCloud extends SeparateChart {
 
         return getData;
     }
-    private List<TagCloud> setData = new ArrayList<>();
 
     /**
      * Setter for chart data.
@@ -413,18 +324,7 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TagCloud> setData1 = new ArrayList<>();
 
     /**
      * 
@@ -439,19 +339,8 @@ public class TagCloud extends SeparateChart {
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double fromAngle;
-    private List<TagCloud> setFromAngle = new ArrayList<>();
 
     /**
      * Setter for the starting angle.
@@ -469,16 +358,6 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFromAngle() {
-        if (!setFromAngle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setFromAngle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private List<Point> getGetPoint = new ArrayList<>();
@@ -493,7 +372,6 @@ public class TagCloud extends SeparateChart {
     }
     private Double index1;
     private Double[] index2;
-    private List<TagCloud> setHover = new ArrayList<>();
 
     /**
      * Hovers a point by its index.
@@ -511,18 +389,7 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHover() {
-        if (!setHover.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setHover) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TagCloud> setHover1 = new ArrayList<>();
 
     /**
      * Hovers a point by its index.
@@ -540,16 +407,6 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHover1() {
-        if (!setHover1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setHover1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getHovered;
@@ -564,7 +421,6 @@ public class TagCloud extends SeparateChart {
         return getHovered;
     }
     private String hovered;
-    private List<TagCloud> setHovered = new ArrayList<>();
 
     /**
      * Setter for the hovered state settings.
@@ -582,20 +438,9 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TagCloudMode mode;
     private String mode1;
-    private List<TagCloud> setMode = new ArrayList<>();
 
     /**
      * Setter for the tag cloud mode.
@@ -613,18 +458,7 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMode() {
-        if (!setMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TagCloud> setMode1 = new ArrayList<>();
 
     /**
      * Setter for the tag cloud mode.
@@ -642,16 +476,6 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMode1() {
-        if (!setMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getNormal;
@@ -666,7 +490,6 @@ public class TagCloud extends SeparateChart {
         return getNormal;
     }
     private String normal;
-    private List<TagCloud> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -683,16 +506,6 @@ public class TagCloud extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -711,7 +524,6 @@ public class TagCloud extends SeparateChart {
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
-    private List<TagCloud> setPalette = new ArrayList<>();
 
     /**
      * Setter for the palette.
@@ -728,18 +540,7 @@ public class TagCloud extends SeparateChart {
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette() {
-        if (!setPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TagCloud> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for the palette.
@@ -756,18 +557,7 @@ public class TagCloud extends SeparateChart {
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette1() {
-        if (!setPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TagCloud> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for the palette.
@@ -786,18 +576,7 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPalette2() {
-        if (!setPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TagCloud> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for the palette.
@@ -816,16 +595,6 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPalette3() {
-        if (!setPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private ScalesBase getScale;
@@ -843,7 +612,6 @@ public class TagCloud extends SeparateChart {
     private String scale1;
     private ScalesBase scale2;
     private String scale3;
-    private List<TagCloud> setScale = new ArrayList<>();
 
     /**
      * Setter for the font scale.
@@ -861,18 +629,7 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetScale() {
-        if (!setScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TagCloud> setScale1 = new ArrayList<>();
 
     /**
      * Setter for the font scale.
@@ -890,18 +647,7 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetScale1() {
-        if (!setScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TagCloud> setScale2 = new ArrayList<>();
 
     /**
      * Setter for the font scale.
@@ -917,19 +663,8 @@ public class TagCloud extends SeparateChart {
         js.append(String.format(Locale.US, ".scale(%s);",  ((scale2 != null) ? scale2.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetScale2() {
-        if (!setScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index3;
-    private List<TagCloud> setSelect = new ArrayList<>();
 
     /**
      * Selects points by index.
@@ -948,19 +683,8 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetSelect() {
-        if (!setSelect.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setSelect) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double[] indexes;
-    private List<TagCloud> setSelect1 = new ArrayList<>();
 
     /**
      * Selects points by indexes.
@@ -979,16 +703,6 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetSelect1() {
-        if (!setSelect1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setSelect1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getSelected;
@@ -1003,7 +717,6 @@ public class TagCloud extends SeparateChart {
         return getSelected;
     }
     private String selected;
-    private List<TagCloud> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -1021,19 +734,8 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double textSpacing;
-    private List<TagCloud> setTextSpacing = new ArrayList<>();
 
     /**
      * Setter for text spacing.
@@ -1051,19 +753,8 @@ public class TagCloud extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetTextSpacing() {
-        if (!setTextSpacing.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setTextSpacing) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double toAngle;
-    private List<TagCloud> setToAngle = new ArrayList<>();
 
     /**
      * Setter for the end angle.
@@ -1080,16 +771,6 @@ public class TagCloud extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetToAngle() {
-        if (!setToAngle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagCloud item : setToAngle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double indexOrIndexes;
@@ -1212,35 +893,6 @@ public class TagCloud extends SeparateChart {
         js.append(generateJSgetPalette());
         js.append(generateJSgetScale());
         js.append(generateJSgetSelected());
-        js.append(generateJSsetAngles());
-        js.append(generateJSsetAnglesCount());
-        js.append(generateJSsetColorRange());
-        js.append(generateJSsetColorRange1());
-        js.append(generateJSsetColorScale());
-        js.append(generateJSsetColorScale1());
-        js.append(generateJSsetColorScale2());
-        js.append(generateJSsetColorScale3());
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetFromAngle());
-        js.append(generateJSsetHover());
-        js.append(generateJSsetHover1());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetMode());
-        js.append(generateJSsetMode1());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetPalette());
-        js.append(generateJSsetPalette1());
-        js.append(generateJSsetPalette2());
-        js.append(generateJSsetPalette3());
-        js.append(generateJSsetScale());
-        js.append(generateJSsetScale1());
-        js.append(generateJSsetScale2());
-        js.append(generateJSsetSelect());
-        js.append(generateJSsetSelect1());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetTextSpacing());
-        js.append(generateJSsetToAngle());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

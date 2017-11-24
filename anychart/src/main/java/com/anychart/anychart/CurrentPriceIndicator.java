@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -46,7 +44,6 @@ public class CurrentPriceIndicator extends VisualBase {
 
     private Double axis;
     private CoreAxesLinear axis1;
-    private List<CurrentPriceIndicator> setAxis = new ArrayList<>();
 
     /**
      * Setter for the target axis.
@@ -73,18 +70,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAxis() {
-        if (!setAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setAxis1 = new ArrayList<>();
 
     /**
      * Setter for the target axis.
@@ -108,16 +94,6 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAxis1() {
-        if (!setAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabel getFallingLabel;
 
@@ -135,7 +111,6 @@ public class CurrentPriceIndicator extends VisualBase {
     private Double index1;
     private Boolean fallingLabel;
     private String fallingLabel1;
-    private List<CurrentPriceIndicator> setFallingLabel = new ArrayList<>();
 
     /**
      * Setter for the price indicator falling label.
@@ -167,18 +142,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFallingLabel() {
-        if (!setFallingLabel.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setFallingLabel) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setFallingLabel1 = new ArrayList<>();
 
     /**
      * Setter for the price indicator falling label.
@@ -210,18 +174,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFallingLabel1() {
-        if (!setFallingLabel1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setFallingLabel1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setFallingLabel2 = new ArrayList<>();
 
     /**
      * Setter for the price indicator falling label.
@@ -253,18 +206,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFallingLabel2() {
-        if (!setFallingLabel2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setFallingLabel2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setFallingLabel3 = new ArrayList<>();
 
     /**
      * Setter for the price indicator falling label.
@@ -296,16 +238,6 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFallingLabel3() {
-        if (!setFallingLabel3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setFallingLabel3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke fallingStroke;
     private ColoredFill fallingStroke1;
@@ -314,7 +246,6 @@ public class CurrentPriceIndicator extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<CurrentPriceIndicator> setFallingStroke = new ArrayList<>();
 
     /**
      * Setter for the price indicator falling stroke.
@@ -350,18 +281,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFallingStroke() {
-        if (!setFallingStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setFallingStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setFallingStroke1 = new ArrayList<>();
 
     /**
      * Setter for the price indicator falling stroke.
@@ -397,18 +317,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFallingStroke1() {
-        if (!setFallingStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setFallingStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setFallingStroke2 = new ArrayList<>();
 
     /**
      * Setter for the price indicator falling stroke.
@@ -444,16 +353,6 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFallingStroke2() {
-        if (!setFallingStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setFallingStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabelsFactory getLabel;
 
@@ -471,7 +370,6 @@ public class CurrentPriceIndicator extends VisualBase {
     private Double index3;
     private Boolean label;
     private String label1;
-    private List<CurrentPriceIndicator> setLabel = new ArrayList<>();
 
     /**
      * Setter for the price indicator label.
@@ -505,18 +403,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLabel() {
-        if (!setLabel.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setLabel) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setLabel1 = new ArrayList<>();
 
     /**
      * Setter for the price indicator label.
@@ -550,18 +437,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLabel1() {
-        if (!setLabel1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setLabel1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setLabel2 = new ArrayList<>();
 
     /**
      * Setter for the price indicator label.
@@ -595,18 +471,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLabel2() {
-        if (!setLabel2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setLabel2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setLabel3 = new ArrayList<>();
 
     /**
      * Setter for the price indicator label.
@@ -640,16 +505,6 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLabel3() {
-        if (!setLabel3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setLabel3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabel getRisingLabel;
 
@@ -667,7 +522,6 @@ public class CurrentPriceIndicator extends VisualBase {
     private Double index5;
     private Boolean risingLabel;
     private String risingLabel1;
-    private List<CurrentPriceIndicator> setRisingLabel = new ArrayList<>();
 
     /**
      * Setter for the price indicator rising label.
@@ -703,18 +557,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetRisingLabel() {
-        if (!setRisingLabel.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setRisingLabel) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setRisingLabel1 = new ArrayList<>();
 
     /**
      * Setter for the price indicator rising label.
@@ -750,18 +593,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetRisingLabel1() {
-        if (!setRisingLabel1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setRisingLabel1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setRisingLabel2 = new ArrayList<>();
 
     /**
      * Setter for the price indicator rising label.
@@ -797,18 +629,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetRisingLabel2() {
-        if (!setRisingLabel2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setRisingLabel2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setRisingLabel3 = new ArrayList<>();
 
     /**
      * Setter for the price indicator rising label.
@@ -844,16 +665,6 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetRisingLabel3() {
-        if (!setRisingLabel3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setRisingLabel3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke risingStroke;
     private ColoredFill risingStroke1;
@@ -862,7 +673,6 @@ public class CurrentPriceIndicator extends VisualBase {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
-    private List<CurrentPriceIndicator> setRisingStroke = new ArrayList<>();
 
     /**
      * Setter for the price indicator rising stroke.<br/>
@@ -910,18 +720,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetRisingStroke() {
-        if (!setRisingStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setRisingStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setRisingStroke1 = new ArrayList<>();
 
     /**
      * Setter for the price indicator rising stroke.<br/>
@@ -969,18 +768,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetRisingStroke1() {
-        if (!setRisingStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setRisingStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setRisingStroke2 = new ArrayList<>();
 
     /**
      * Setter for the price indicator rising stroke.<br/>
@@ -1028,16 +816,6 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetRisingStroke2() {
-        if (!setRisingStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setRisingStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StockSeriesBase getSeries;
 
@@ -1053,7 +831,6 @@ public class CurrentPriceIndicator extends VisualBase {
 
     private Double series;
     private StockSeriesBase series1;
-    private List<CurrentPriceIndicator> setSeries = new ArrayList<>();
 
     /**
      * Setter for the target series.
@@ -1080,18 +857,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetSeries() {
-        if (!setSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setSeries1 = new ArrayList<>();
 
     /**
      * Setter for the target series.
@@ -1115,16 +881,6 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetSeries1() {
-        if (!setSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke stroke;
     private ColoredFill stroke1;
@@ -1133,7 +889,6 @@ public class CurrentPriceIndicator extends VisualBase {
     private String dashpattern2;
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
-    private List<CurrentPriceIndicator> setStroke = new ArrayList<>();
 
     /**
      * Setter for the price indicator stroke.
@@ -1186,18 +941,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for the price indicator stroke.
@@ -1250,18 +994,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for the price indicator stroke.
@@ -1314,21 +1047,10 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private PriceIndicatorDataSource value;
     private String value1;
     private Double value2;
-    private List<CurrentPriceIndicator> setValue = new ArrayList<>();
 
     /**
      * Setter for the stock price indicator.
@@ -1356,18 +1078,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetValue() {
-        if (!setValue.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setValue) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setValue1 = new ArrayList<>();
 
     /**
      * Setter for the stock price indicator.
@@ -1395,18 +1106,7 @@ public class CurrentPriceIndicator extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetValue1() {
-        if (!setValue1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setValue1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CurrentPriceIndicator> setValue2 = new ArrayList<>();
 
     /**
      * Setter for the stock price indicator.
@@ -1433,16 +1133,6 @@ public class CurrentPriceIndicator extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetValue2() {
-        if (!setValue2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CurrentPriceIndicator item : setValue2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String valueField;
@@ -1532,34 +1222,6 @@ This method sets the field to be used as the value for the price indicator
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAxis());
-        js.append(generateJSsetAxis1());
-        js.append(generateJSsetFallingLabel());
-        js.append(generateJSsetFallingLabel1());
-        js.append(generateJSsetFallingLabel2());
-        js.append(generateJSsetFallingLabel3());
-        js.append(generateJSsetFallingStroke());
-        js.append(generateJSsetFallingStroke1());
-        js.append(generateJSsetFallingStroke2());
-        js.append(generateJSsetLabel());
-        js.append(generateJSsetLabel1());
-        js.append(generateJSsetLabel2());
-        js.append(generateJSsetLabel3());
-        js.append(generateJSsetRisingLabel());
-        js.append(generateJSsetRisingLabel1());
-        js.append(generateJSsetRisingLabel2());
-        js.append(generateJSsetRisingLabel3());
-        js.append(generateJSsetRisingStroke());
-        js.append(generateJSsetRisingStroke1());
-        js.append(generateJSsetRisingStroke2());
-        js.append(generateJSsetSeries());
-        js.append(generateJSsetSeries1());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetValue());
-        js.append(generateJSsetValue1());
-        js.append(generateJSsetValue2());
         
 
         String result = js.toString();

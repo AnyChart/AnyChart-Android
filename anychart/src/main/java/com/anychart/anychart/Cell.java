@@ -1,8 +1,6 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -34,7 +32,6 @@ public class Cell extends TableBase {
 
     
     private Double colSpan;
-    private List<Cell> setColSpan = new ArrayList<>();
 
     /**
      * Setter for cell columns span.
@@ -58,16 +55,6 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetColSpan() {
-        if (!setColSpan.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setColSpan) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private VisualBase getContent;
 
@@ -84,7 +71,6 @@ public class Cell extends TableBase {
     private VisualBase content;
     private String content1;
     private Double content2;
-    private List<Cell> setContent = new ArrayList<>();
 
     /**
      * Setter for cell content.
@@ -109,18 +95,7 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetContent() {
-        if (!setContent.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setContent) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cell> setContent1 = new ArrayList<>();
 
     /**
      * Setter for cell content.
@@ -148,18 +123,7 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetContent1() {
-        if (!setContent1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setContent1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cell> setContent2 = new ArrayList<>();
 
     /**
      * Setter for cell content.
@@ -187,19 +151,8 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetContent2() {
-        if (!setContent2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setContent2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
-    private List<Cell> setFill = new ArrayList<>();
 
     /**
      * Sets fill settings using an object or a string.
@@ -224,20 +177,9 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<Cell> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -263,16 +205,6 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -281,7 +213,6 @@ public class Cell extends TableBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<Cell> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -322,18 +253,7 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cell> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -374,18 +294,7 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cell> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -426,18 +335,7 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cell> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -478,18 +376,7 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cell> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -530,18 +417,7 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cell> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -582,16 +458,6 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -601,7 +467,6 @@ public class Cell extends TableBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<Cell> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -652,18 +517,7 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cell> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -714,16 +568,6 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private TablePadding getPadding;
@@ -741,7 +585,6 @@ public class Cell extends TableBase {
     private Double[] padding;
     private String[] padding1;
     private String padding2;
-    private List<Cell> setPadding = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using a single value.<br/>
@@ -769,18 +612,7 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetPadding() {
-        if (!setPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cell> setPadding1 = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using a single value.<br/>
@@ -808,18 +640,7 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetPadding1() {
-        if (!setPadding1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setPadding1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cell> setPadding2 = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using a single value.<br/>
@@ -847,16 +668,6 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetPadding2() {
-        if (!setPadding2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setPadding2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String value;
     private Double value1;
@@ -866,7 +677,6 @@ public class Cell extends TableBase {
     private Double value5;
     private String value6;
     private Double value7;
-    private List<Cell> setPadding3 = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using several numbers.
@@ -932,18 +742,7 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetPadding3() {
-        if (!setPadding3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setPadding3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cell> setPadding4 = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using several numbers.
@@ -1009,19 +808,8 @@ public class Cell extends TableBase {
         }
         return this;
     }
-    private String generateJSsetPadding4() {
-        if (!setPadding4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setPadding4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double rowSpan;
-    private List<Cell> setRowSpan = new ArrayList<>();
 
     /**
      * Setter for cell rows span.
@@ -1044,16 +832,6 @@ public class Cell extends TableBase {
             }
         }
         return this;
-    }
-    private String generateJSsetRowSpan() {
-        if (!setRowSpan.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cell item : setRowSpan) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetContent() {
@@ -1092,26 +870,6 @@ public class Cell extends TableBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetColSpan());
-        js.append(generateJSsetContent());
-        js.append(generateJSsetContent1());
-        js.append(generateJSsetContent2());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetPadding());
-        js.append(generateJSsetPadding1());
-        js.append(generateJSsetPadding2());
-        js.append(generateJSsetPadding3());
-        js.append(generateJSsetPadding4());
-        js.append(generateJSsetRowSpan());
         
 
         String result = js.toString();

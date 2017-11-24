@@ -329,7 +329,6 @@ public class Cartesian3d extends SeparateChart {
 
         return getData;
     }
-    private List<Cartesian3d> setData = new ArrayList<>();
 
     /**
      * Setter for the data.
@@ -353,18 +352,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setData1 = new ArrayList<>();
 
     /**
      * 
@@ -378,16 +366,6 @@ public class Cartesian3d extends SeparateChart {
         js.append(mapping.generateJs());
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -403,7 +381,6 @@ public class Cartesian3d extends SeparateChart {
         return getHovered;
     }
     private String hovered;
-    private List<Cartesian3d> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -421,16 +398,6 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiLabelsFactory getLabels;
@@ -446,7 +413,6 @@ public class Cartesian3d extends SeparateChart {
     }
     private String labels;
     private Boolean labels1;
-    private List<Cartesian3d> setLabels = new ArrayList<>();
 
     /**
      * Setter for series data labels.
@@ -464,18 +430,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for series data labels.
@@ -492,16 +447,6 @@ public class Cartesian3d extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<Line3d> setLine = new ArrayList<>();
@@ -636,7 +581,6 @@ public class Cartesian3d extends SeparateChart {
 
     private Double maxPointWidth;
     private String maxPointWidth1;
-    private List<Cartesian3d> setMaxPointWidth = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -654,18 +598,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMaxPointWidth() {
-        if (!setMaxPointWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setMaxPointWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setMaxPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -683,20 +616,9 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMaxPointWidth1() {
-        if (!setMaxPointWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setMaxPointWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double minPointLength;
     private String minPointLength1;
-    private List<Cartesian3d> setMinPointLength = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -714,18 +636,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMinPointLength() {
-        if (!setMinPointLength.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setMinPointLength) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setMinPointLength1 = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -743,16 +654,6 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMinPointLength1() {
-        if (!setMinPointLength1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setMinPointLength1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getNormal;
@@ -767,7 +668,6 @@ public class Cartesian3d extends SeparateChart {
         return getNormal;
     }
     private String normal;
-    private List<Cartesian3d> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -785,20 +685,9 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double pointWidth;
     private String pointWidth1;
-    private List<Cartesian3d> setPointWidth = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -816,18 +705,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPointWidth() {
-        if (!setPointWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setPointWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -845,16 +723,6 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPointWidth1() {
-        if (!setPointWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setPointWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getSelected;
@@ -869,7 +737,6 @@ public class Cartesian3d extends SeparateChart {
         return getSelected;
     }
     private String selected;
-    private List<Cartesian3d> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -886,16 +753,6 @@ public class Cartesian3d extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -923,7 +780,6 @@ public class Cartesian3d extends SeparateChart {
     }
     private String xAxis;
     private Boolean xAxis1;
-    private List<Cartesian3d> setXAxis = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis.
@@ -941,18 +797,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXAxis() {
-        if (!setXAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setXAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setXAxis1 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis.
@@ -970,21 +815,10 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXAxis1() {
-        if (!setXAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setXAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index1;
     private String xAxis2;
     private Boolean xAxis3;
-    private List<Cartesian3d> setXAxis2 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis by index.
@@ -1002,18 +836,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXAxis2() {
-        if (!setXAxis2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setXAxis2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setXAxis3 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis by index.
@@ -1030,16 +853,6 @@ public class Cartesian3d extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXAxis3() {
-        if (!setXAxis3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setXAxis3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1067,7 +880,6 @@ public class Cartesian3d extends SeparateChart {
     }
     private String xGrid;
     private Boolean xGrid1;
-    private List<Cartesian3d> setXGrid = new ArrayList<>();
 
     /**
      * Setter for the chart grid by X-scale.
@@ -1085,18 +897,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXGrid() {
-        if (!setXGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setXGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setXGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by X-scale.
@@ -1114,21 +915,10 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXGrid1() {
-        if (!setXGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setXGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index3;
     private String xGrid2;
     private Boolean xGrid3;
-    private List<Cartesian3d> setXGrid2 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -1146,18 +936,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXGrid2() {
-        if (!setXGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setXGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setXGrid3 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -1174,16 +953,6 @@ public class Cartesian3d extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXGrid3() {
-        if (!setXGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setXGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1211,7 +980,6 @@ public class Cartesian3d extends SeparateChart {
     }
     private String xMinorGrid;
     private Boolean xMinorGrid1;
-    private List<Cartesian3d> setXMinorGrid = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by X-scale.
@@ -1229,18 +997,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXMinorGrid() {
-        if (!setXMinorGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setXMinorGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setXMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by X-scale.
@@ -1258,21 +1015,10 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXMinorGrid1() {
-        if (!setXMinorGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setXMinorGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index5;
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
-    private List<Cartesian3d> setXMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -1290,18 +1036,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXMinorGrid2() {
-        if (!setXMinorGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setXMinorGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setXMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -1318,16 +1053,6 @@ public class Cartesian3d extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXMinorGrid3() {
-        if (!setXMinorGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setXMinorGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1346,7 +1071,6 @@ public class Cartesian3d extends SeparateChart {
     private ScaleTypes xScale1;
     private String xScale2;
     private ScalesBase xScale3;
-    private List<Cartesian3d> setXScale = new ArrayList<>();
 
     /**
      * Setter for the chart X-scale.
@@ -1364,18 +1088,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXScale() {
-        if (!setXScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setXScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setXScale1 = new ArrayList<>();
 
     /**
      * Setter for the chart X-scale.
@@ -1393,18 +1106,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXScale1() {
-        if (!setXScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setXScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setXScale2 = new ArrayList<>();
 
     /**
      * Setter for the chart X-scale.
@@ -1419,16 +1121,6 @@ public class Cartesian3d extends SeparateChart {
 
         js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale3 != null) ? xScale3.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetXScale2() {
-        if (!setXScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setXScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1456,7 +1148,6 @@ public class Cartesian3d extends SeparateChart {
     }
     private String yAxis;
     private Boolean yAxis1;
-    private List<Cartesian3d> setYAxis = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis.
@@ -1474,18 +1165,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis() {
-        if (!setYAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setYAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setYAxis1 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis.
@@ -1503,21 +1183,10 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis1() {
-        if (!setYAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setYAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index7;
     private String yAxis2;
     private Boolean yAxis3;
-    private List<Cartesian3d> setYAxis2 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis by index.
@@ -1535,18 +1204,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis2() {
-        if (!setYAxis2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setYAxis2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setYAxis3 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis by index.
@@ -1563,16 +1221,6 @@ public class Cartesian3d extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYAxis3() {
-        if (!setYAxis3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setYAxis3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1600,7 +1248,6 @@ public class Cartesian3d extends SeparateChart {
     }
     private String yGrid;
     private Boolean yGrid1;
-    private List<Cartesian3d> setYGrid = new ArrayList<>();
 
     /**
      * Setter for the chart grid by Y-scale.
@@ -1618,18 +1265,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYGrid() {
-        if (!setYGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setYGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setYGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by Y-scale.
@@ -1647,21 +1283,10 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYGrid1() {
-        if (!setYGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setYGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index9;
     private String yGrid2;
     private Boolean yGrid3;
-    private List<Cartesian3d> setYGrid2 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -1679,18 +1304,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYGrid2() {
-        if (!setYGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setYGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setYGrid3 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -1707,16 +1321,6 @@ public class Cartesian3d extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYGrid3() {
-        if (!setYGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setYGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1744,7 +1348,6 @@ public class Cartesian3d extends SeparateChart {
     }
     private String yMinorGrid;
     private Boolean yMinorGrid1;
-    private List<Cartesian3d> setYMinorGrid = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by Y-scale.
@@ -1762,18 +1365,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYMinorGrid() {
-        if (!setYMinorGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setYMinorGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setYMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by Y-scale.
@@ -1791,21 +1383,10 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYMinorGrid1() {
-        if (!setYMinorGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setYMinorGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index11;
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
-    private List<Cartesian3d> setYMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -1823,18 +1404,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYMinorGrid2() {
-        if (!setYMinorGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setYMinorGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setYMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -1851,16 +1421,6 @@ public class Cartesian3d extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYMinorGrid3() {
-        if (!setYMinorGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setYMinorGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1879,7 +1439,6 @@ public class Cartesian3d extends SeparateChart {
     private ScaleTypes yScale1;
     private String yScale2;
     private ScalesBase yScale3;
-    private List<Cartesian3d> setYScale = new ArrayList<>();
 
     /**
      * Setter for the chart Y-scale.
@@ -1897,18 +1456,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYScale() {
-        if (!setYScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setYScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-scale.
@@ -1926,18 +1474,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYScale1() {
-        if (!setYScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setYScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-scale.
@@ -1953,19 +1490,8 @@ public class Cartesian3d extends SeparateChart {
         js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale3 != null) ? yScale3.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetYScale2() {
-        if (!setYScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setYScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double zAngle;
-    private List<Cartesian3d> setZAngle = new ArrayList<>();
 
     /**
      * Setter for the Z-axis angle.
@@ -1983,20 +1509,9 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetZAngle() {
-        if (!setZAngle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setZAngle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double zAspect;
     private String zAspect1;
-    private List<Cartesian3d> setZAspect = new ArrayList<>();
 
     /**
      * Setter for the depth of the point by Z-axis.
@@ -2014,18 +1529,7 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetZAspect() {
-        if (!setZAspect.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setZAspect) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Cartesian3d> setZAspect1 = new ArrayList<>();
 
     /**
      * Setter for the depth of the point by Z-axis.
@@ -2043,19 +1547,8 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetZAspect1() {
-        if (!setZAspect1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setZAspect1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean zDistribution;
-    private List<Cartesian3d> setZDistribution = new ArrayList<>();
 
     /**
      * Setter for distribution of the series by Z-axis.
@@ -2073,19 +1566,8 @@ public class Cartesian3d extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetZDistribution() {
-        if (!setZDistribution.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setZDistribution) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double zPadding;
-    private List<Cartesian3d> setZPadding = new ArrayList<>();
 
     /**
      * Setter for the Z-axis padding.
@@ -2102,16 +1584,6 @@ public class Cartesian3d extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetZPadding() {
-        if (!setZPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Cartesian3d item : setZPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetData() {
@@ -2309,58 +1781,10 @@ public class Cartesian3d extends SeparateChart {
         js.append(generateJSsetBar1());
         js.append(generateJSsetColumn());
         js.append(generateJSsetColumn1());
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
         js.append(generateJSsetLine());
         js.append(generateJSsetLine1());
         js.append(generateJSsetLine2d());
         js.append(generateJSsetLine2d1());
-        js.append(generateJSsetMaxPointWidth());
-        js.append(generateJSsetMaxPointWidth1());
-        js.append(generateJSsetMinPointLength());
-        js.append(generateJSsetMinPointLength1());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetPointWidth());
-        js.append(generateJSsetPointWidth1());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetXAxis());
-        js.append(generateJSsetXAxis1());
-        js.append(generateJSsetXAxis2());
-        js.append(generateJSsetXAxis3());
-        js.append(generateJSsetXGrid());
-        js.append(generateJSsetXGrid1());
-        js.append(generateJSsetXGrid2());
-        js.append(generateJSsetXGrid3());
-        js.append(generateJSsetXMinorGrid());
-        js.append(generateJSsetXMinorGrid1());
-        js.append(generateJSsetXMinorGrid2());
-        js.append(generateJSsetXMinorGrid3());
-        js.append(generateJSsetXScale());
-        js.append(generateJSsetXScale1());
-        js.append(generateJSsetXScale2());
-        js.append(generateJSsetYAxis());
-        js.append(generateJSsetYAxis1());
-        js.append(generateJSsetYAxis2());
-        js.append(generateJSsetYAxis3());
-        js.append(generateJSsetYGrid());
-        js.append(generateJSsetYGrid1());
-        js.append(generateJSsetYGrid2());
-        js.append(generateJSsetYGrid3());
-        js.append(generateJSsetYMinorGrid());
-        js.append(generateJSsetYMinorGrid1());
-        js.append(generateJSsetYMinorGrid2());
-        js.append(generateJSsetYMinorGrid3());
-        js.append(generateJSsetYScale());
-        js.append(generateJSsetYScale1());
-        js.append(generateJSsetYScale2());
-        js.append(generateJSsetZAngle());
-        js.append(generateJSsetZAspect());
-        js.append(generateJSsetZAspect1());
-        js.append(generateJSsetZDistribution());
-        js.append(generateJSsetZPadding());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

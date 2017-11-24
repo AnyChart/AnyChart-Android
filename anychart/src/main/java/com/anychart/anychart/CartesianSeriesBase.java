@@ -1,8 +1,6 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -53,7 +51,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
 
     private Boolean clip;
     private AnychartMathRect clip1;
-    private List<CartesianSeriesBase> setClip = new ArrayList<>();
 
     /**
      * Setter for series clip settings.
@@ -80,18 +77,7 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetClip() {
-        if (!setClip.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesBase item : setClip) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CartesianSeriesBase> setClip1 = new ArrayList<>();
 
     /**
      * Setter for series clip settings.
@@ -115,16 +101,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetClip1() {
-        if (!setClip1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesBase item : setClip1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Error getError;
 
@@ -142,7 +118,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     private Boolean error1;
     private String error2;
     private Double error3;
-    private List<CartesianSeriesBase> setError = new ArrayList<>();
 
     /**
      * Setter for the series error.
@@ -171,18 +146,7 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetError() {
-        if (!setError.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesBase item : setError) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CartesianSeriesBase> setError1 = new ArrayList<>();
 
     /**
      * Setter for the series error.
@@ -211,18 +175,7 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
         }
         return this;
     }
-    private String generateJSsetError1() {
-        if (!setError1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesBase item : setError1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CartesianSeriesBase> setError2 = new ArrayList<>();
 
     /**
      * Setter for the series error.
@@ -250,16 +203,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
             }
         }
         return this;
-    }
-    private String generateJSsetError2() {
-        if (!setError2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesBase item : setError2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double indexes;
@@ -379,7 +322,6 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     }
 
     private Boolean isVertical;
-    private List<CartesianSeriesBase> setIsVertical = new ArrayList<>();
 
     /**
      * Setter for the series layout direction.
@@ -403,16 +345,6 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
             }
         }
         return this;
-    }
-    private String generateJSsetIsVertical() {
-        if (!setIsVertical.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesBase item : setIsVertical) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double indexes4;
@@ -492,7 +424,6 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     }
 
     private String rendering;
-    private List<CartesianSeriesBase> setRendering = new ArrayList<>();
 
     /**
      * Setter for the series rendering settings.
@@ -516,19 +447,8 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
         }
         return this;
     }
-    private String generateJSsetRendering() {
-        if (!setRendering.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesBase item : setRendering) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String seriesType;
-    private List<CartesianSeriesBase> setSeriesType = new ArrayList<>();
 
     /**
      * Setter for switching of the series type.
@@ -551,16 +471,6 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
             }
         }
         return this;
-    }
-    private String generateJSsetSeriesType() {
-        if (!setSeriesType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesBase item : setSeriesType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double subRangeRatio;
@@ -619,7 +529,6 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     }
 
     private Double position;
-    private List<CartesianSeriesBase> setXPointPosition = new ArrayList<>();
 
     /**
      * Setter for the position of the point on an ordinal scale.
@@ -643,16 +552,6 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
         }
         return this;
     }
-    private String generateJSsetXPointPosition() {
-        if (!setXPointPosition.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesBase item : setXPointPosition) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Ordinal getXScale;
 
@@ -670,7 +569,6 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     private String xScale1;
     private ScaleTypes xScale2;
     private String xScale3;
-    private List<CartesianSeriesBase> setXScale = new ArrayList<>();
 
     /**
      * Setter for the series X scale.
@@ -696,18 +594,7 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
         }
         return this;
     }
-    private String generateJSsetXScale() {
-        if (!setXScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesBase item : setXScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CartesianSeriesBase> setXScale1 = new ArrayList<>();
 
     /**
      * Setter for the series X scale.
@@ -736,18 +623,7 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
         }
         return this;
     }
-    private String generateJSsetXScale1() {
-        if (!setXScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesBase item : setXScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CartesianSeriesBase> setXScale2 = new ArrayList<>();
 
     /**
      * Setter for the series X scale.
@@ -776,16 +652,6 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
         }
         return this;
     }
-    private String generateJSsetXScale2() {
-        if (!setXScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesBase item : setXScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScalesBase getYScale;
 
@@ -803,7 +669,6 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     private String yScale1;
     private ScaleTypes yScale2;
     private String yScale3;
-    private List<CartesianSeriesBase> setYScale = new ArrayList<>();
 
     /**
      * Setter for the series Y scale.
@@ -829,18 +694,7 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
         }
         return this;
     }
-    private String generateJSsetYScale() {
-        if (!setYScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesBase item : setYScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CartesianSeriesBase> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the series Y scale.
@@ -869,18 +723,7 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
         }
         return this;
     }
-    private String generateJSsetYScale1() {
-        if (!setYScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesBase item : setYScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CartesianSeriesBase> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the series Y scale.
@@ -908,16 +751,6 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
             }
         }
         return this;
-    }
-    private String generateJSsetYScale2() {
-        if (!setYScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesBase item : setYScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetClip() {
@@ -980,21 +813,6 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetClip());
-        js.append(generateJSsetClip1());
-        js.append(generateJSsetError());
-        js.append(generateJSsetError1());
-        js.append(generateJSsetError2());
-        js.append(generateJSsetIsVertical());
-        js.append(generateJSsetRendering());
-        js.append(generateJSsetSeriesType());
-        js.append(generateJSsetXPointPosition());
-        js.append(generateJSsetXScale());
-        js.append(generateJSsetXScale1());
-        js.append(generateJSsetXScale2());
-        js.append(generateJSsetYScale());
-        js.append(generateJSsetYScale1());
-        js.append(generateJSsetYScale2());
         
 
         String result = js.toString();

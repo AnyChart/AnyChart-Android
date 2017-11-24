@@ -216,7 +216,6 @@ public class Tree extends CoreBase {
     private String fillingMethod1;
     private String csvSettingsOrDeps;
     private Dependency[] csvSettingsOrDeps1;
-    private List<Tree> setAddData = new ArrayList<>();
 
     /**
      * Adds a data.
@@ -253,18 +252,7 @@ public class Tree extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetAddData() {
-        if (!setAddData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tree item : setAddData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tree> setAddData1 = new ArrayList<>();
 
     /**
      * Adds a data.
@@ -301,18 +289,7 @@ public class Tree extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetAddData1() {
-        if (!setAddData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tree item : setAddData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tree> setAddData2 = new ArrayList<>();
 
     /**
      * Adds a data.
@@ -349,18 +326,7 @@ public class Tree extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetAddData2() {
-        if (!setAddData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tree item : setAddData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tree> setAddData3 = new ArrayList<>();
 
     /**
      * Adds a data.
@@ -397,20 +363,9 @@ public class Tree extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetAddData3() {
-        if (!setAddData3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tree item : setAddData3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String field;
     private Boolean asString;
-    private List<Tree> setCreateIndexOn = new ArrayList<>();
 
     /**
      * Creates an index on a specified field.</br>
@@ -437,19 +392,8 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
         }
         return this;
     }
-    private String generateJSsetCreateIndexOn() {
-        if (!setCreateIndexOn.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tree item : setCreateIndexOn) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean dispatchEvents;
-    private List<Tree> setDispatchEvents = new ArrayList<>();
 
     /**
      * Starts or stops tree CRUD events dispatching.
@@ -472,16 +416,6 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
             }
         }
         return this;
-    }
-    private String generateJSsetDispatchEvents() {
-        if (!setDispatchEvents.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tree item : setDispatchEvents) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<TreeDataItem> getGetChildAt = new ArrayList<>();
@@ -618,7 +552,6 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
     }
 
     private String field1;
-    private List<Tree> setRemoveIndexOn = new ArrayList<>();
 
     /**
      * Removes index on a specified field.
@@ -644,16 +577,6 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
             }
         }
         return this;
-    }
-    private String generateJSsetRemoveIndexOn() {
-        if (!setRemoveIndexOn.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tree item : setRemoveIndexOn) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String soughtField;
@@ -932,16 +855,9 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
         js.append(generateJSsetAddChildAt());
         js.append(generateJSsetAddChildAt1());
         js.append(generateJSsetAddChildAt2());
-        js.append(generateJSsetAddData());
-        js.append(generateJSsetAddData1());
-        js.append(generateJSsetAddData2());
-        js.append(generateJSsetAddData3());
-        js.append(generateJSsetCreateIndexOn());
-        js.append(generateJSsetDispatchEvents());
         js.append(generateJSsetMapAs());
         js.append(generateJSsetRemoveChild());
         js.append(generateJSsetRemoveChildAt());
-        js.append(generateJSsetRemoveIndexOn());
         js.append(generateJSsetSearch());
         js.append(generateJSsetSearch1());
         js.append(generateJSsetSearch2());

@@ -33,7 +33,6 @@ public class DMI extends JsObject {
 
     
     private Double adxPeriod;
-    private List<DMI> setAdxPeriod = new ArrayList<>();
 
     /**
      * Setter for the ADX period.
@@ -57,16 +56,6 @@ public class DMI extends JsObject {
         }
         return this;
     }
-    private String generateJSsetAdxPeriod() {
-        if (!setAdxPeriod.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DMI item : setAdxPeriod) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StockSeriesBase getAdxSeries;
 
@@ -82,7 +71,6 @@ public class DMI extends JsObject {
 
     private StockSeriesType type;
     private String type1;
-    private List<DMI> setAdxSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator ADX series.
@@ -109,18 +97,7 @@ public class DMI extends JsObject {
         }
         return this;
     }
-    private String generateJSsetAdxSeries() {
-        if (!setAdxSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DMI item : setAdxSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<DMI> setAdxSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator ADX series.
@@ -147,16 +124,6 @@ public class DMI extends JsObject {
         }
         return this;
     }
-    private String generateJSsetAdxSeries1() {
-        if (!setAdxSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DMI item : setAdxSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StockSeriesBase getNdiSeries;
 
@@ -172,7 +139,6 @@ public class DMI extends JsObject {
 
     private StockSeriesType type2;
     private String type3;
-    private List<DMI> setNdiSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator -DI series.
@@ -201,18 +167,7 @@ public class DMI extends JsObject {
         }
         return this;
     }
-    private String generateJSsetNdiSeries() {
-        if (!setNdiSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DMI item : setNdiSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<DMI> setNdiSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator -DI series.
@@ -241,16 +196,6 @@ public class DMI extends JsObject {
         }
         return this;
     }
-    private String generateJSsetNdiSeries1() {
-        if (!setNdiSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DMI item : setNdiSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StockSeriesBase getPdiSeries;
 
@@ -266,7 +211,6 @@ public class DMI extends JsObject {
 
     private StockSeriesType type4;
     private String type5;
-    private List<DMI> setPdiSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator +DI series.
@@ -297,18 +241,7 @@ public class DMI extends JsObject {
         }
         return this;
     }
-    private String generateJSsetPdiSeries() {
-        if (!setPdiSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DMI item : setPdiSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<DMI> setPdiSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator +DI series.
@@ -339,19 +272,8 @@ public class DMI extends JsObject {
         }
         return this;
     }
-    private String generateJSsetPdiSeries1() {
-        if (!setPdiSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DMI item : setPdiSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double period;
-    private List<DMI> setPeriod = new ArrayList<>();
 
     /**
      * Setter for the period.
@@ -374,16 +296,6 @@ public class DMI extends JsObject {
             }
         }
         return this;
-    }
-    private String generateJSsetPeriod() {
-        if (!setPeriod.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DMI item : setPeriod) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<DMI> getUseWildersSmoothing = new ArrayList<>();
@@ -454,14 +366,6 @@ public class DMI extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAdxPeriod());
-        js.append(generateJSsetAdxSeries());
-        js.append(generateJSsetAdxSeries1());
-        js.append(generateJSsetNdiSeries());
-        js.append(generateJSsetNdiSeries1());
-        js.append(generateJSsetPdiSeries());
-        js.append(generateJSsetPdiSeries1());
-        js.append(generateJSsetPeriod());
         
 
         String result = js.toString();

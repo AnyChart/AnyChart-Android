@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -34,7 +32,6 @@ public class GaugePointersBar extends GaugePointersBase {
     
     private GaugeSidePosition position;
     private String position1;
-    private List<GaugePointersBar> setPosition = new ArrayList<>();
 
     /**
      * Setter for the bar position.
@@ -61,18 +58,7 @@ public class GaugePointersBar extends GaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetPosition() {
-        if (!setPosition.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBar item : setPosition) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GaugePointersBar> setPosition1 = new ArrayList<>();
 
     /**
      * Setter for the bar position.
@@ -99,20 +85,9 @@ public class GaugePointersBar extends GaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetPosition1() {
-        if (!setPosition1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBar item : setPosition1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double radius;
     private String radius1;
-    private List<GaugePointersBar> setRadius = new ArrayList<>();
 
     /**
      * Setter for the bar pointer radius.
@@ -139,18 +114,7 @@ public class GaugePointersBar extends GaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetRadius() {
-        if (!setRadius.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBar item : setRadius) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GaugePointersBar> setRadius1 = new ArrayList<>();
 
     /**
      * Setter for the bar pointer radius.
@@ -177,20 +141,9 @@ public class GaugePointersBar extends GaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetRadius1() {
-        if (!setRadius1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBar item : setRadius1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double width;
     private String width1;
-    private List<GaugePointersBar> setWidth = new ArrayList<>();
 
     /**
      * Setter for the bar width.
@@ -217,18 +170,7 @@ public class GaugePointersBar extends GaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetWidth() {
-        if (!setWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBar item : setWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GaugePointersBar> setWidth1 = new ArrayList<>();
 
     /**
      * Setter for the bar width.
@@ -255,16 +197,6 @@ public class GaugePointersBar extends GaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetWidth1() {
-        if (!setWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBar item : setWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -286,12 +218,6 @@ public class GaugePointersBar extends GaugePointersBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetPosition());
-        js.append(generateJSsetPosition1());
-        js.append(generateJSsetRadius());
-        js.append(generateJSsetRadius1());
-        js.append(generateJSsetWidth());
-        js.append(generateJSsetWidth1());
         
 
         String result = js.toString();

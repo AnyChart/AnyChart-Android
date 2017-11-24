@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -34,7 +32,6 @@ public class Knob extends GaugePointersBase {
     
     private Double bottomRadius;
     private String bottomRadius1;
-    private List<Knob> setBottomRadius = new ArrayList<>();
 
     /**
      * Setter for the bottom radius.
@@ -61,18 +58,7 @@ public class Knob extends GaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetBottomRadius() {
-        if (!setBottomRadius.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Knob item : setBottomRadius) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Knob> setBottomRadius1 = new ArrayList<>();
 
     /**
      * Setter for the bottom radius.
@@ -99,19 +85,8 @@ public class Knob extends GaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetBottomRadius1() {
-        if (!setBottomRadius1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Knob item : setBottomRadius1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double bottomRatio;
-    private List<Knob> setBottomRatio = new ArrayList<>();
 
     /**
      * Setter for the bottom ratio.
@@ -135,20 +110,9 @@ public class Knob extends GaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetBottomRatio() {
-        if (!setBottomRatio.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Knob item : setBottomRatio) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double topRadius;
     private String topRadius1;
-    private List<Knob> setTopRadius = new ArrayList<>();
 
     /**
      * Setter for the top radius.
@@ -175,18 +139,7 @@ public class Knob extends GaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetTopRadius() {
-        if (!setTopRadius.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Knob item : setTopRadius) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Knob> setTopRadius1 = new ArrayList<>();
 
     /**
      * Setter for the top radius.
@@ -213,19 +166,8 @@ public class Knob extends GaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetTopRadius1() {
-        if (!setTopRadius1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Knob item : setTopRadius1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double topRatio;
-    private List<Knob> setTopRatio = new ArrayList<>();
 
     /**
      * Setter for the top ratio.
@@ -249,19 +191,8 @@ public class Knob extends GaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetTopRatio() {
-        if (!setTopRatio.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Knob item : setTopRatio) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double verticesCount;
-    private List<Knob> setVerticesCount = new ArrayList<>();
 
     /**
      * Setter for vertices count.
@@ -285,19 +216,8 @@ public class Knob extends GaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetVerticesCount() {
-        if (!setVerticesCount.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Knob item : setVerticesCount) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double verticesCurvature;
-    private List<Knob> setVerticesCurvature = new ArrayList<>();
 
     /**
      * Setter for vertices curvature.
@@ -321,16 +241,6 @@ public class Knob extends GaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetVerticesCurvature() {
-        if (!setVerticesCurvature.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Knob item : setVerticesCurvature) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -352,14 +262,6 @@ public class Knob extends GaugePointersBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetBottomRadius());
-        js.append(generateJSsetBottomRadius1());
-        js.append(generateJSsetBottomRatio());
-        js.append(generateJSsetTopRadius());
-        js.append(generateJSsetTopRadius1());
-        js.append(generateJSsetTopRatio());
-        js.append(generateJSsetVerticesCount());
-        js.append(generateJSsetVerticesCurvature());
         
 
         String result = js.toString();

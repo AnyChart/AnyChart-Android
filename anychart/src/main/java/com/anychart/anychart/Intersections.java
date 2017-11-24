@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class Intersections extends CoreBase {
 
     
     private Fill fill;
-    private List<Intersections> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -58,20 +55,9 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<Intersections> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -97,16 +83,6 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -115,7 +91,6 @@ public class Intersections extends CoreBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<Intersections> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -156,18 +131,7 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Intersections> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -208,18 +172,7 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Intersections> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -260,18 +213,7 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Intersections> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -312,18 +254,7 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Intersections> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -364,18 +295,7 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Intersections> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -416,16 +336,6 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -435,7 +345,6 @@ public class Intersections extends CoreBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<Intersections> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -486,18 +395,7 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Intersections> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -548,16 +446,6 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private PatternFill getHatchFill;
@@ -580,7 +468,6 @@ public class Intersections extends CoreBase {
     private String color1;
     private Double thickness;
     private Double size;
-    private List<Intersections> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -619,18 +506,7 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill() {
-        if (!setHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Intersections> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -669,18 +545,7 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill1() {
-        if (!setHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Intersections> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -719,18 +584,7 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill2() {
-        if (!setHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Intersections> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -769,18 +623,7 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill3() {
-        if (!setHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Intersections> setHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -819,16 +662,6 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill4() {
-        if (!setHatchFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setHatchFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getHovered;
 
@@ -843,7 +676,6 @@ public class Intersections extends CoreBase {
     }
 
     private String hovered;
-    private List<Intersections> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -867,16 +699,6 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabelsFactory getLabels;
 
@@ -892,7 +714,6 @@ public class Intersections extends CoreBase {
 
     private String labels;
     private Boolean labels1;
-    private List<Intersections> setLabels = new ArrayList<>();
 
     /**
      * Setter for intersections labels.
@@ -919,18 +740,7 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Intersections> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for intersections labels.
@@ -957,16 +767,6 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiMarkersFactory getMarkers;
 
@@ -983,7 +783,6 @@ public class Intersections extends CoreBase {
     private String markers;
     private Boolean markers1;
     private String markers2;
-    private List<Intersections> setMarkers = new ArrayList<>();
 
     /**
      * Setter for data markers.
@@ -1011,18 +810,7 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetMarkers() {
-        if (!setMarkers.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setMarkers) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Intersections> setMarkers1 = new ArrayList<>();
 
     /**
      * Setter for data markers.
@@ -1050,16 +838,6 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetMarkers1() {
-        if (!setMarkers1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setMarkers1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getNormal;
 
@@ -1074,7 +852,6 @@ public class Intersections extends CoreBase {
     }
 
     private String normal;
-    private List<Intersections> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -1098,16 +875,6 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getSelected;
 
@@ -1122,7 +889,6 @@ public class Intersections extends CoreBase {
     }
 
     private String selected;
-    private List<Intersections> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -1146,16 +912,6 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color2;
     private ColoredFill color3;
@@ -1164,7 +920,6 @@ public class Intersections extends CoreBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<Intersections> setStroke = new ArrayList<>();
 
     /**
      * Setter for the stroke.
@@ -1206,18 +961,7 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Intersections> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for the stroke.
@@ -1259,18 +1003,7 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Intersections> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for the stroke.
@@ -1312,16 +1045,6 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Tooltip getTooltip;
 
@@ -1337,7 +1060,6 @@ public class Intersections extends CoreBase {
 
     private String tooltip;
     private Boolean tooltip1;
-    private List<Intersections> setTooltip = new ArrayList<>();
 
     /**
      * Setter for the tooltip.
@@ -1364,18 +1086,7 @@ public class Intersections extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetTooltip() {
-        if (!setTooltip.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setTooltip) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Intersections> setTooltip1 = new ArrayList<>();
 
     /**
      * Setter for the tooltip.
@@ -1401,16 +1112,6 @@ public class Intersections extends CoreBase {
             }
         }
         return this;
-    }
-    private String generateJSsetTooltip1() {
-        if (!setTooltip1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Intersections item : setTooltip1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetHatchFill() {
@@ -1489,33 +1190,6 @@ public class Intersections extends CoreBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetHatchFill());
-        js.append(generateJSsetHatchFill1());
-        js.append(generateJSsetHatchFill2());
-        js.append(generateJSsetHatchFill3());
-        js.append(generateJSsetHatchFill4());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
-        js.append(generateJSsetMarkers());
-        js.append(generateJSsetMarkers1());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetTooltip());
-        js.append(generateJSsetTooltip1());
         
 
         String result = js.toString();

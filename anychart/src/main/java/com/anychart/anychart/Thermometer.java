@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -34,7 +32,6 @@ public class Thermometer extends LineargaugePointersBase {
     
     private String bulbPadding;
     private Double bulbPadding1;
-    private List<Thermometer> setBulbPadding = new ArrayList<>();
 
     /**
      * Setter for the bulb padding.
@@ -61,18 +58,7 @@ public class Thermometer extends LineargaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetBulbPadding() {
-        if (!setBulbPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thermometer item : setBulbPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Thermometer> setBulbPadding1 = new ArrayList<>();
 
     /**
      * Setter for the bulb padding.
@@ -99,19 +85,8 @@ public class Thermometer extends LineargaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetBulbPadding1() {
-        if (!setBulbPadding1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thermometer item : setBulbPadding1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String bulbRadius;
-    private List<Thermometer> setBulbRadius = new ArrayList<>();
 
     /**
      * Setter for the bulb radius.
@@ -135,16 +110,6 @@ public class Thermometer extends LineargaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetBulbRadius() {
-        if (!setBulbRadius.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thermometer item : setBulbRadius) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -166,9 +131,6 @@ public class Thermometer extends LineargaugePointersBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetBulbPadding());
-        js.append(generateJSsetBulbPadding1());
-        js.append(generateJSsetBulbRadius());
         
 
         String result = js.toString();

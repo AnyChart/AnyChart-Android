@@ -1,8 +1,6 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -35,7 +33,6 @@ public class UiLegend extends CoreText {
     
     private EnumsAlign align;
     private String align1;
-    private List<UiLegend> setAlign = new ArrayList<>();
 
     /**
      * Setter for legend align settings.
@@ -62,18 +59,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetAlign() {
-        if (!setAlign.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setAlign) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setAlign1 = new ArrayList<>();
 
     /**
      * Setter for legend align settings.
@@ -100,16 +86,6 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetAlign1() {
-        if (!setAlign1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setAlign1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiBackground getBackground;
 
@@ -126,7 +102,6 @@ public class UiLegend extends CoreText {
     private String background;
     private String background1;
     private Boolean background2;
-    private List<UiLegend> setBackground = new ArrayList<>();
 
     /**
      * Setter for the legend background.
@@ -154,18 +129,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetBackground() {
-        if (!setBackground.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setBackground) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setBackground1 = new ArrayList<>();
 
     /**
      * Setter for the legend background.
@@ -193,19 +157,8 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetBackground1() {
-        if (!setBackground1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setBackground1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean drag;
-    private List<UiLegend> setDrag = new ArrayList<>();
 
     /**
      * Allows to use drag for legend.
@@ -229,16 +182,6 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetDrag() {
-        if (!setDrag.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setDrag) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private AnychartMathRect getGetRemainingBounds;
 
@@ -254,7 +197,6 @@ public class UiLegend extends CoreText {
 
     private Double height;
     private String height1;
-    private List<UiLegend> setHeight = new ArrayList<>();
 
     /**
      * Setter for the legend height.
@@ -281,18 +223,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetHeight() {
-        if (!setHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setHeight1 = new ArrayList<>();
 
     /**
      * Setter for the legend height.
@@ -319,20 +250,9 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetHeight1() {
-        if (!setHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private EnumsCursor hoverCursor;
     private String hoverCursor1;
-    private List<UiLegend> setHoverCursor = new ArrayList<>();
 
     /**
      * Setter for hover cursor settings.
@@ -359,18 +279,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetHoverCursor() {
-        if (!setHoverCursor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setHoverCursor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setHoverCursor1 = new ArrayList<>();
 
     /**
      * Setter for hover cursor settings.
@@ -397,20 +306,9 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetHoverCursor1() {
-        if (!setHoverCursor1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setHoverCursor1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double iconSize;
     private String iconSize1;
-    private List<UiLegend> setIconSize = new ArrayList<>();
 
     /**
      * Setter for the icon size.
@@ -437,18 +335,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetIconSize() {
-        if (!setIconSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setIconSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setIconSize1 = new ArrayList<>();
 
     /**
      * Setter for the icon size.
@@ -475,20 +362,9 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetIconSize1() {
-        if (!setIconSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setIconSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String iconTextSpacing;
     private Double iconTextSpacing1;
-    private List<UiLegend> setIconTextSpacing = new ArrayList<>();
 
     /**
      * Setter for spacing between icon and text in a legend item.
@@ -515,18 +391,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetIconTextSpacing() {
-        if (!setIconTextSpacing.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setIconTextSpacing) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setIconTextSpacing1 = new ArrayList<>();
 
     /**
      * Setter for spacing between icon and text in a legend item.
@@ -553,19 +418,8 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetIconTextSpacing1() {
-        if (!setIconTextSpacing1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setIconTextSpacing1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean inverted;
-    private List<UiLegend> setInverted = new ArrayList<>();
 
     /**
      * Setter for inverted settings.
@@ -589,19 +443,8 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetInverted() {
-        if (!setInverted.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setInverted) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private LegendItemProvider[] items;
-    private List<UiLegend> setItems = new ArrayList<>();
 
     /**
      * Setter for custom items.
@@ -625,20 +468,9 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetItems() {
-        if (!setItems.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setItems) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private LegendLayout itemsLayout;
     private String itemsLayout1;
-    private List<UiLegend> setItemsLayout = new ArrayList<>();
 
     /**
      * Setter for items layout.
@@ -665,18 +497,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetItemsLayout() {
-        if (!setItemsLayout.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setItemsLayout) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setItemsLayout1 = new ArrayList<>();
 
     /**
      * Setter for items layout.
@@ -703,20 +524,9 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetItemsLayout1() {
-        if (!setItemsLayout1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setItemsLayout1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private LegendItemsSourceMode itemsSourceMode;
     private String itemsSourceMode1;
-    private List<UiLegend> setItemsSourceMode = new ArrayList<>();
 
     /**
      * Setter for items source mode.
@@ -743,18 +553,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetItemsSourceMode() {
-        if (!setItemsSourceMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setItemsSourceMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setItemsSourceMode1 = new ArrayList<>();
 
     /**
      * Setter for items source mode.
@@ -781,20 +580,9 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetItemsSourceMode1() {
-        if (!setItemsSourceMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setItemsSourceMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String itemsSpacing;
     private Double itemsSpacing1;
-    private List<UiLegend> setItemsSpacing = new ArrayList<>();
 
     /**
      * Setter for items spacing settings.
@@ -821,18 +609,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetItemsSpacing() {
-        if (!setItemsSpacing.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setItemsSpacing) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setItemsSpacing1 = new ArrayList<>();
 
     /**
      * Setter for items spacing settings.
@@ -859,16 +636,6 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetItemsSpacing1() {
-        if (!setItemsSpacing1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setItemsSpacing1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Margin getMargin;
 
@@ -887,7 +654,6 @@ public class UiLegend extends CoreText {
     private String margin2;
     private Double margin3;
     private String margin4;
-    private List<UiLegend> setMargin = new ArrayList<>();
 
     /**
      * Setter for the legend margin in pixels using a single value.
@@ -917,18 +683,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetMargin() {
-        if (!setMargin.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setMargin) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setMargin1 = new ArrayList<>();
 
     /**
      * Setter for the legend margin in pixels using a single value.
@@ -958,16 +713,6 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetMargin1() {
-        if (!setMargin1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setMargin1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String value;
     private Double value1;
@@ -977,7 +722,6 @@ public class UiLegend extends CoreText {
     private Double value5;
     private String value6;
     private Double value7;
-    private List<UiLegend> setMargin2 = new ArrayList<>();
 
     /**
      * Setter for the legend margin in pixels using a single simple values.
@@ -1043,18 +787,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetMargin2() {
-        if (!setMargin2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setMargin2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setMargin3 = new ArrayList<>();
 
     /**
      * Setter for the legend margin in pixels using a single simple values.
@@ -1120,20 +853,9 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetMargin3() {
-        if (!setMargin3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setMargin3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxHeight;
     private String maxHeight1;
-    private List<UiLegend> setMaxHeight = new ArrayList<>();
 
     /**
      * Setter for the maximum height.
@@ -1160,18 +882,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetMaxHeight() {
-        if (!setMaxHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setMaxHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setMaxHeight1 = new ArrayList<>();
 
     /**
      * Setter for the maximum height.
@@ -1198,20 +909,9 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetMaxHeight1() {
-        if (!setMaxHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setMaxHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxWidth;
     private String maxWidth1;
-    private List<UiLegend> setMaxWidth = new ArrayList<>();
 
     /**
      * Setter for the maximum width.
@@ -1238,18 +938,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetMaxWidth() {
-        if (!setMaxWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setMaxWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setMaxWidth1 = new ArrayList<>();
 
     /**
      * Setter for the maximum width.
@@ -1276,16 +965,6 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetMaxWidth1() {
-        if (!setMaxWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setMaxWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UtilsPadding getPadding;
 
@@ -1304,7 +983,6 @@ public class UiLegend extends CoreText {
     private String padding2;
     private Double padding3;
     private String padding4;
-    private List<UiLegend> setPadding = new ArrayList<>();
 
     /**
      * Setter for the legend padding in pixels using a single value.
@@ -1334,18 +1012,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetPadding() {
-        if (!setPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setPadding1 = new ArrayList<>();
 
     /**
      * Setter for the legend padding in pixels using a single value.
@@ -1375,16 +1042,6 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetPadding1() {
-        if (!setPadding1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setPadding1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String value8;
     private Double value9;
@@ -1394,7 +1051,6 @@ public class UiLegend extends CoreText {
     private Double value13;
     private String value14;
     private Double value15;
-    private List<UiLegend> setPadding2 = new ArrayList<>();
 
     /**
      * Setter for the legend padding setting in pixels using a several value.
@@ -1492,18 +1148,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetPadding2() {
-        if (!setPadding2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setPadding2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setPadding3 = new ArrayList<>();
 
     /**
      * Setter for the legend padding setting in pixels using a several value.
@@ -1601,16 +1246,6 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetPadding3() {
-        if (!setPadding3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setPadding3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Paginator getPaginator;
 
@@ -1626,7 +1261,6 @@ public class UiLegend extends CoreText {
 
     private String paginator;
     private Boolean paginator1;
-    private List<UiLegend> setPaginator = new ArrayList<>();
 
     /**
      * Setter for paginator settings.
@@ -1653,18 +1287,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetPaginator() {
-        if (!setPaginator.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setPaginator) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setPaginator1 = new ArrayList<>();
 
     /**
      * Setter for paginator settings.
@@ -1691,20 +1314,9 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetPaginator1() {
-        if (!setPaginator1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setPaginator1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Orientation position;
     private String position1;
-    private List<UiLegend> setPosition = new ArrayList<>();
 
     /**
      * Setter for legend position setting.
@@ -1731,18 +1343,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetPosition() {
-        if (!setPosition.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setPosition) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setPosition1 = new ArrayList<>();
 
     /**
      * Setter for legend position setting.
@@ -1769,20 +1370,9 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetPosition1() {
-        if (!setPosition1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setPosition1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private LegendPositionMode positionMode;
     private String positionMode1;
-    private List<UiLegend> setPositionMode = new ArrayList<>();
 
     /**
      * Setter for the position mode.
@@ -1809,18 +1399,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetPositionMode() {
-        if (!setPositionMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setPositionMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setPositionMode1 = new ArrayList<>();
 
     /**
      * Setter for the position mode.
@@ -1847,16 +1426,6 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetPositionMode1() {
-        if (!setPositionMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setPositionMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiTitle getTitle;
 
@@ -1873,7 +1442,6 @@ public class UiLegend extends CoreText {
     private Boolean title;
     private String title1;
     private String title2;
-    private List<UiLegend> setTitle = new ArrayList<>();
 
     /**
      * Setter for the legend title.
@@ -1901,18 +1469,7 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetTitle() {
-        if (!setTitle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setTitle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setTitle1 = new ArrayList<>();
 
     /**
      * Setter for the legend title.
@@ -1940,19 +1497,8 @@ public class UiLegend extends CoreText {
         }
         return this;
     }
-    private String generateJSsetTitle1() {
-        if (!setTitle1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setTitle1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String titleFormat;
-    private List<UiLegend> setTitleFormat = new ArrayList<>();
 
     /**
      * Setter for the legend title format function.
@@ -1978,16 +1524,6 @@ If set, formats title. Currently supported in Stock only.
         }
         return this;
     }
-    private String generateJSsetTitleFormat() {
-        if (!setTitleFormat.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setTitleFormat) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Separator getTitleSeparator;
 
@@ -2003,7 +1539,6 @@ If set, formats title. Currently supported in Stock only.
 
     private String titleSeparator;
     private Boolean titleSeparator1;
-    private List<UiLegend> setTitleSeparator = new ArrayList<>();
 
     /**
      * Setter for title separator settings.
@@ -2030,18 +1565,7 @@ If set, formats title. Currently supported in Stock only.
         }
         return this;
     }
-    private String generateJSsetTitleSeparator() {
-        if (!setTitleSeparator.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setTitleSeparator) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setTitleSeparator1 = new ArrayList<>();
 
     /**
      * Setter for title separator settings.
@@ -2068,16 +1592,6 @@ If set, formats title. Currently supported in Stock only.
         }
         return this;
     }
-    private String generateJSsetTitleSeparator1() {
-        if (!setTitleSeparator1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setTitleSeparator1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Tooltip getTooltip;
 
@@ -2093,7 +1607,6 @@ If set, formats title. Currently supported in Stock only.
 
     private String tooltip;
     private Boolean tooltip1;
-    private List<UiLegend> setTooltip = new ArrayList<>();
 
     /**
      * Setter for legend tooltip.
@@ -2120,18 +1633,7 @@ If set, formats title. Currently supported in Stock only.
         }
         return this;
     }
-    private String generateJSsetTooltip() {
-        if (!setTooltip.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setTooltip) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setTooltip1 = new ArrayList<>();
 
     /**
      * Setter for legend tooltip.
@@ -2158,20 +1660,9 @@ If set, formats title. Currently supported in Stock only.
         }
         return this;
     }
-    private String generateJSsetTooltip1() {
-        if (!setTooltip1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setTooltip1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double width;
     private String width1;
-    private List<UiLegend> setWidth = new ArrayList<>();
 
     /**
      * Setter for the legend width.
@@ -2198,18 +1689,7 @@ If set, formats title. Currently supported in Stock only.
         }
         return this;
     }
-    private String generateJSsetWidth() {
-        if (!setWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiLegend> setWidth1 = new ArrayList<>();
 
     /**
      * Setter for the legend width.
@@ -2235,16 +1715,6 @@ If set, formats title. Currently supported in Stock only.
             }
         }
         return this;
-    }
-    private String generateJSsetWidth1() {
-        if (!setWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiLegend item : setWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetBackground() {
@@ -2331,54 +1801,6 @@ If set, formats title. Currently supported in Stock only.
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAlign());
-        js.append(generateJSsetAlign1());
-        js.append(generateJSsetBackground());
-        js.append(generateJSsetBackground1());
-        js.append(generateJSsetDrag());
-        js.append(generateJSsetHeight());
-        js.append(generateJSsetHeight1());
-        js.append(generateJSsetHoverCursor());
-        js.append(generateJSsetHoverCursor1());
-        js.append(generateJSsetIconSize());
-        js.append(generateJSsetIconSize1());
-        js.append(generateJSsetIconTextSpacing());
-        js.append(generateJSsetIconTextSpacing1());
-        js.append(generateJSsetInverted());
-        js.append(generateJSsetItems());
-        js.append(generateJSsetItemsLayout());
-        js.append(generateJSsetItemsLayout1());
-        js.append(generateJSsetItemsSourceMode());
-        js.append(generateJSsetItemsSourceMode1());
-        js.append(generateJSsetItemsSpacing());
-        js.append(generateJSsetItemsSpacing1());
-        js.append(generateJSsetMargin());
-        js.append(generateJSsetMargin1());
-        js.append(generateJSsetMargin2());
-        js.append(generateJSsetMargin3());
-        js.append(generateJSsetMaxHeight());
-        js.append(generateJSsetMaxHeight1());
-        js.append(generateJSsetMaxWidth());
-        js.append(generateJSsetMaxWidth1());
-        js.append(generateJSsetPadding());
-        js.append(generateJSsetPadding1());
-        js.append(generateJSsetPadding2());
-        js.append(generateJSsetPadding3());
-        js.append(generateJSsetPaginator());
-        js.append(generateJSsetPaginator1());
-        js.append(generateJSsetPosition());
-        js.append(generateJSsetPosition1());
-        js.append(generateJSsetPositionMode());
-        js.append(generateJSsetPositionMode1());
-        js.append(generateJSsetTitle());
-        js.append(generateJSsetTitle1());
-        js.append(generateJSsetTitleFormat());
-        js.append(generateJSsetTitleSeparator());
-        js.append(generateJSsetTitleSeparator1());
-        js.append(generateJSsetTooltip());
-        js.append(generateJSsetTooltip1());
-        js.append(generateJSsetWidth());
-        js.append(generateJSsetWidth1());
         
 
         String result = js.toString();

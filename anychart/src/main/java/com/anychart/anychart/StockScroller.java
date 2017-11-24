@@ -2511,7 +2511,6 @@ public class StockScroller extends UiScroller {
 
     private StockSeriesType defaultSeriesType;
     private String defaultSeriesType1;
-    private List<StockScroller> setDefaultSeriesType = new ArrayList<>();
 
     /**
      * Setter for the stock scroller default series type.<br/>
@@ -2539,18 +2538,7 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
-    private String generateJSsetDefaultSeriesType() {
-        if (!setDefaultSeriesType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setDefaultSeriesType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StockScroller> setDefaultSeriesType1 = new ArrayList<>();
 
     /**
      * Setter for the stock scroller default series type.<br/>
@@ -2577,16 +2565,6 @@ public class StockScroller extends UiScroller {
             }
         }
         return this;
-    }
-    private String generateJSsetDefaultSeriesType1() {
-        if (!setDefaultSeriesType1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setDefaultSeriesType1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private TableMapping mapping10;
@@ -3469,7 +3447,6 @@ public class StockScroller extends UiScroller {
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
-    private List<StockScroller> setHatchFillPalette = new ArrayList<>();
 
     /**
      * Hatch fill palette settings.
@@ -3497,18 +3474,7 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette() {
-        if (!setHatchFillPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setHatchFillPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StockScroller> setHatchFillPalette1 = new ArrayList<>();
 
     /**
      * Hatch fill palette settings.
@@ -3536,18 +3502,7 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette1() {
-        if (!setHatchFillPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setHatchFillPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StockScroller> setHatchFillPalette2 = new ArrayList<>();
 
     /**
      * Hatch fill palette settings.
@@ -3571,16 +3526,6 @@ public class StockScroller extends UiScroller {
             js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         }
         return this;
-    }
-    private String generateJSsetHatchFillPalette2() {
-        if (!setHatchFillPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setHatchFillPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private TableMapping data12;
@@ -8496,7 +8441,6 @@ public class StockScroller extends UiScroller {
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
-    private List<StockScroller> setPalette = new ArrayList<>();
 
     /**
      * Setter for the scroller colors palette.
@@ -8522,18 +8466,7 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
-    private String generateJSsetPalette() {
-        if (!setPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StockScroller> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for the scroller colors palette.
@@ -8559,18 +8492,7 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
-    private String generateJSsetPalette1() {
-        if (!setPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StockScroller> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for the scroller colors palette.
@@ -8599,18 +8521,7 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
-    private String generateJSsetPalette2() {
-        if (!setPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StockScroller> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for the scroller colors palette.
@@ -8638,16 +8549,6 @@ public class StockScroller extends UiScroller {
             }
         }
         return this;
-    }
-    private String generateJSsetPalette3() {
-        if (!setPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private TableMapping data32;
@@ -9972,7 +9873,6 @@ public class StockScroller extends UiScroller {
 
     private Double id;
     private String id1;
-    private List<StockScroller> setRemoveSeries = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -9999,18 +9899,7 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
-    private String generateJSsetRemoveSeries() {
-        if (!setRemoveSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setRemoveSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StockScroller> setRemoveSeries1 = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -10037,19 +9926,8 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
-    private String generateJSsetRemoveSeries1() {
-        if (!setRemoveSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setRemoveSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index;
-    private List<StockScroller> setRemoveSeriesAt = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its index.
@@ -10072,16 +9950,6 @@ public class StockScroller extends UiScroller {
             }
         }
         return this;
-    }
-    private String generateJSsetRemoveSeriesAt() {
-        if (!setRemoveSeriesAt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setRemoveSeriesAt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private TableMapping mapping15;
@@ -14387,7 +14255,6 @@ public class StockScroller extends UiScroller {
 
     private String xAxis;
     private Boolean xAxis1;
-    private List<StockScroller> setXAxis = new ArrayList<>();
 
     /**
      * Setter for the scroller X-axis.
@@ -14414,18 +14281,7 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
-    private String generateJSsetXAxis() {
-        if (!setXAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setXAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StockScroller> setXAxis1 = new ArrayList<>();
 
     /**
      * Setter for the scroller X-axis.
@@ -14452,16 +14308,6 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
-    private String generateJSsetXAxis1() {
-        if (!setXAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setXAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScatterBase getYScale;
 
@@ -14479,7 +14325,6 @@ public class StockScroller extends UiScroller {
     private String yScale1;
     private ScatterBase yScale2;
     private String yScale3;
-    private List<StockScroller> setYScale = new ArrayList<>();
 
     /**
      * Setter for the scroller Y-scale.
@@ -14508,18 +14353,7 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
-    private String generateJSsetYScale() {
-        if (!setYScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setYScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StockScroller> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the scroller Y-scale.
@@ -14548,18 +14382,7 @@ public class StockScroller extends UiScroller {
         }
         return this;
     }
-    private String generateJSsetYScale1() {
-        if (!setYScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setYScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StockScroller> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the scroller Y-scale.
@@ -14584,16 +14407,6 @@ public class StockScroller extends UiScroller {
             js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
         }
         return this;
-    }
-    private String generateJSsetYScale2() {
-        if (!setYScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockScroller item : setYScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetGetSeries() {
@@ -14724,8 +14537,6 @@ public class StockScroller extends UiScroller {
         js.append(generateJSsetColumn());
         js.append(generateJSsetColumn1());
         js.append(generateJSsetColumn2());
-        js.append(generateJSsetDefaultSeriesType());
-        js.append(generateJSsetDefaultSeriesType1());
         js.append(generateJSsetDmi());
         js.append(generateJSsetDmi1());
         js.append(generateJSsetDmi2());
@@ -14736,9 +14547,6 @@ public class StockScroller extends UiScroller {
         js.append(generateJSsetDmi7());
         js.append(generateJSsetEma());
         js.append(generateJSsetEma1());
-        js.append(generateJSsetHatchFillPalette());
-        js.append(generateJSsetHatchFillPalette1());
-        js.append(generateJSsetHatchFillPalette2());
         js.append(generateJSsetHilo());
         js.append(generateJSsetHilo1());
         js.append(generateJSsetHilo2());
@@ -14796,10 +14604,6 @@ public class StockScroller extends UiScroller {
         js.append(generateJSsetOhlc());
         js.append(generateJSsetOhlc1());
         js.append(generateJSsetOhlc2());
-        js.append(generateJSsetPalette());
-        js.append(generateJSsetPalette1());
-        js.append(generateJSsetPalette2());
-        js.append(generateJSsetPalette3());
         js.append(generateJSsetRangeArea());
         js.append(generateJSsetRangeArea1());
         js.append(generateJSsetRangeArea2());
@@ -14812,9 +14616,6 @@ public class StockScroller extends UiScroller {
         js.append(generateJSsetRangeStepArea());
         js.append(generateJSsetRangeStepArea1());
         js.append(generateJSsetRangeStepArea2());
-        js.append(generateJSsetRemoveSeries());
-        js.append(generateJSsetRemoveSeries1());
-        js.append(generateJSsetRemoveSeriesAt());
         js.append(generateJSsetRoc());
         js.append(generateJSsetRoc1());
         js.append(generateJSsetRsi());
@@ -14852,11 +14653,6 @@ public class StockScroller extends UiScroller {
         js.append(generateJSsetStochastic13());
         js.append(generateJSsetStochastic14());
         js.append(generateJSsetStochastic15());
-        js.append(generateJSsetXAxis());
-        js.append(generateJSsetXAxis1());
-        js.append(generateJSsetYScale());
-        js.append(generateJSsetYScale1());
-        js.append(generateJSsetYScale2());
         
 
         String result = js.toString();

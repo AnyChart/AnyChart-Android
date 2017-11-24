@@ -77,7 +77,6 @@ public class StockTicks extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<StockTicks> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings via several parameter.<br/>
@@ -110,16 +109,6 @@ public class StockTicks extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockTicks item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -142,7 +131,6 @@ public class StockTicks extends VisualBase {
         js.append(generateJsGetters());
 
         js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
         
 
         String result = js.toString();

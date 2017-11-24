@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class DateTimeTicks extends CoreBase {
 
     
     private Double count;
-    private List<DateTimeTicks> setCount = new ArrayList<>();
 
     /**
      * Setter for ticks count value.
@@ -57,19 +54,8 @@ public class DateTimeTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetCount() {
-        if (!setCount.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DateTimeTicks item : setCount) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String isodate;
-    private List<DateTimeTicks> setInterval = new ArrayList<>();
 
     /**
      * Setter for ticks interval value by string representing date part or ISO 8601 interval string.
@@ -93,21 +79,10 @@ public class DateTimeTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetInterval() {
-        if (!setInterval.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DateTimeTicks item : setInterval) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Interval unit;
     private String unit1;
     private Double count1;
-    private List<DateTimeTicks> setInterval1 = new ArrayList<>();
 
     /**
      * Setter for ticks interval value by unit.
@@ -139,18 +114,7 @@ public class DateTimeTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetInterval1() {
-        if (!setInterval1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DateTimeTicks item : setInterval1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<DateTimeTicks> setInterval2 = new ArrayList<>();
 
     /**
      * Setter for ticks interval value by unit.
@@ -182,16 +146,6 @@ public class DateTimeTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetInterval2() {
-        if (!setInterval2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DateTimeTicks item : setInterval2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double years;
     private Double months;
@@ -199,7 +153,6 @@ public class DateTimeTicks extends CoreBase {
     private Double hours;
     private Double minutes;
     private Double seconds;
-    private List<DateTimeTicks> setInterval3 = new ArrayList<>();
 
     /**
      * Setter for ticks interval value.
@@ -234,19 +187,8 @@ public class DateTimeTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetInterval3() {
-        if (!setInterval3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DateTimeTicks item : setInterval3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String[] ticks;
-    private List<DateTimeTicks> setSet = new ArrayList<>();
 
     /**
      * Setups ticks as an explicit array of fixed ticks.
@@ -270,16 +212,6 @@ public class DateTimeTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetSet() {
-        if (!setSet.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DateTimeTicks item : setSet) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -301,12 +233,6 @@ public class DateTimeTicks extends CoreBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetCount());
-        js.append(generateJSsetInterval());
-        js.append(generateJSsetInterval1());
-        js.append(generateJSsetInterval2());
-        js.append(generateJSsetInterval3());
-        js.append(generateJSsetSet());
         
 
         String result = js.toString();

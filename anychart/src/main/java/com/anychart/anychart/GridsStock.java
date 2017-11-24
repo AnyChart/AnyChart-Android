@@ -67,7 +67,6 @@ public class GridsStock extends VisualBase {
     }
 
     private Boolean drawFirstLine;
-    private List<GridsStock> setDrawFirstLine = new ArrayList<>();
 
     /**
      * Setter for the first line drawing flag.
@@ -92,19 +91,8 @@ Whether to draw the first line.
         }
         return this;
     }
-    private String generateJSsetDrawFirstLine() {
-        if (!setDrawFirstLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setDrawFirstLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean drawLastLine;
-    private List<GridsStock> setDrawLastLine = new ArrayList<>();
 
     /**
      * Setter for the last line drawing flag.
@@ -129,19 +117,8 @@ Whether to draw the last line.
         }
         return this;
     }
-    private String generateJSsetDrawLastLine() {
-        if (!setDrawLastLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setDrawLastLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
-    private List<GridsStock> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -166,20 +143,9 @@ Whether to draw the last line.
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<GridsStock> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -205,16 +171,6 @@ Whether to draw the last line.
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -223,7 +179,6 @@ Whether to draw the last line.
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<GridsStock> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -264,18 +219,7 @@ Whether to draw the last line.
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsStock> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -316,18 +260,7 @@ Whether to draw the last line.
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsStock> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -368,18 +301,7 @@ Whether to draw the last line.
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsStock> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -420,18 +342,7 @@ Whether to draw the last line.
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsStock> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -472,18 +383,7 @@ Whether to draw the last line.
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsStock> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -524,16 +424,6 @@ Whether to draw the last line.
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -543,7 +433,6 @@ Whether to draw the last line.
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<GridsStock> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -594,18 +483,7 @@ Whether to draw the last line.
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsStock> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -656,20 +534,9 @@ Whether to draw the last line.
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private Boolean isMinor;
-    private List<GridsStock> setIsMinor = new ArrayList<>();
 
     /**
      * Setter for the minor grid state flag.
@@ -693,16 +560,6 @@ Whether it is a minor grid or not.
             }
         }
         return this;
-    }
-    private String generateJSsetIsMinor() {
-        if (!setIsMinor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setIsMinor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private RangeColors getPalette;
@@ -900,7 +757,6 @@ Whether it is a minor grid or not.
     private String scale;
     private ScalesBase scale1;
     private StockScatterDateTime scale2;
-    private List<GridsStock> setScale = new ArrayList<>();
 
     /**
      * Setter for the grid scale.
@@ -928,18 +784,7 @@ Whether it is a minor grid or not.
         }
         return this;
     }
-    private String generateJSsetScale() {
-        if (!setScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsStock> setScale1 = new ArrayList<>();
 
     /**
      * Setter for the grid scale.
@@ -964,18 +809,7 @@ Whether it is a minor grid or not.
         }
         return this;
     }
-    private String generateJSsetScale1() {
-        if (!setScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsStock> setScale2 = new ArrayList<>();
 
     /**
      * Setter for the grid scale.
@@ -1000,16 +834,6 @@ Whether it is a minor grid or not.
         }
         return this;
     }
-    private String generateJSsetScale2() {
-        if (!setScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color1;
     private ColoredFill color2;
@@ -1018,7 +842,6 @@ Whether it is a minor grid or not.
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<GridsStock> setStroke = new ArrayList<>();
 
     /**
      * Setter for grid stroke settings.
@@ -1056,18 +879,7 @@ Whether it is a minor grid or not.
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsStock> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for grid stroke settings.
@@ -1105,18 +917,7 @@ Whether it is a minor grid or not.
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsStock> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for grid stroke settings.
@@ -1153,16 +954,6 @@ Whether it is a minor grid or not.
             }
         }
         return this;
-    }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsStock item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetAxis() {
@@ -1235,29 +1026,10 @@ Whether it is a minor grid or not.
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetDrawFirstLine());
-        js.append(generateJSsetDrawLastLine());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetIsMinor());
         js.append(generateJSsetPalette());
         js.append(generateJSsetPalette1());
         js.append(generateJSsetPalette2());
         js.append(generateJSsetPalette3());
-        js.append(generateJSsetScale());
-        js.append(generateJSsetScale1());
-        js.append(generateJSsetScale2());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
         
 
         String result = js.toString();

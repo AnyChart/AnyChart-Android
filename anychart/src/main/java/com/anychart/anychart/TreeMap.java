@@ -127,7 +127,6 @@ public class TreeMap extends SeparateChart {
         return getColorRange;
     }
     private String colorRange;
-    private List<TreeMap> setColorRange = new ArrayList<>();
 
     /**
      * Setter for the color range.
@@ -144,16 +143,6 @@ public class TreeMap extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetColorRange() {
-        if (!setColorRange.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setColorRange) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -305,7 +294,6 @@ public class TreeMap extends SeparateChart {
 
         return getData;
     }
-    private List<TreeMap> setData = new ArrayList<>();
 
     /**
      * Setter for the data.
@@ -329,18 +317,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setData1 = new ArrayList<>();
 
     /**
      * 
@@ -354,16 +331,6 @@ public class TreeMap extends SeparateChart {
         js.append(mapping.generateJs());
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private TreeDataItem target;
@@ -419,7 +386,6 @@ public class TreeMap extends SeparateChart {
     }
 
     private Fill fill;
-    private List<TreeMap> setFill = new ArrayList<>();
 
     /**
      * Sets fill settings using an array or a string.
@@ -438,20 +404,9 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<TreeMap> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -469,16 +424,6 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -487,7 +432,6 @@ public class TreeMap extends SeparateChart {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<TreeMap> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -506,18 +450,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -536,18 +469,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -566,18 +488,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -596,18 +507,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -626,18 +526,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -656,16 +545,6 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -675,7 +554,6 @@ public class TreeMap extends SeparateChart {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<TreeMap> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -694,18 +572,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -723,16 +590,6 @@ public class TreeMap extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Fill imageSettings;
@@ -756,7 +613,6 @@ public class TreeMap extends SeparateChart {
     private String color1;
     private Double thickness;
     private Double size;
-    private List<TreeMap> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -774,18 +630,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFill() {
-        if (!setHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -803,18 +648,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFill1() {
-        if (!setHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -832,18 +666,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFill2() {
-        if (!setHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -861,18 +684,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFill3() {
-        if (!setHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -890,16 +702,6 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFill4() {
-        if (!setHatchFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setHatchFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiLabelsFactory getHeaders;
@@ -915,7 +717,6 @@ public class TreeMap extends SeparateChart {
     }
     private String headers;
     private Boolean headers1;
-    private List<TreeMap> setHeaders = new ArrayList<>();
 
     /**
      * Setter for the point header labels.
@@ -933,18 +734,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHeaders() {
-        if (!setHeaders.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setHeaders) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setHeaders1 = new ArrayList<>();
 
     /**
      * Setter for the point header labels.
@@ -962,20 +752,9 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHeaders1() {
-        if (!setHeaders1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setHeaders1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private LabelsDisplayMode headersDisplayMode;
     private String headersDisplayMode1;
-    private List<TreeMap> setHeadersDisplayMode = new ArrayList<>();
 
     /**
      * Setter for the headers display mode.
@@ -993,18 +772,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHeadersDisplayMode() {
-        if (!setHeadersDisplayMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setHeadersDisplayMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setHeadersDisplayMode1 = new ArrayList<>();
 
     /**
      * Setter for the headers display mode.
@@ -1022,19 +790,8 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHeadersDisplayMode1() {
-        if (!setHeadersDisplayMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setHeadersDisplayMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double hintDepth;
-    private List<TreeMap> setHintDepth = new ArrayList<>();
 
     /**
      * Setter for the additional segmentation of treeMap points.
@@ -1052,19 +809,8 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHintDepth() {
-        if (!setHintDepth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setHintDepth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double hintOpacity;
-    private List<TreeMap> setHintOpacity = new ArrayList<>();
 
     /**
      * Setter for current hint opacity.
@@ -1082,16 +828,6 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHintOpacity() {
-        if (!setHintOpacity.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setHintOpacity) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getHovered;
@@ -1106,7 +842,6 @@ public class TreeMap extends SeparateChart {
         return getHovered;
     }
     private String hovered;
-    private List<TreeMap> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -1124,16 +859,6 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiLabelsFactory getLabels;
@@ -1149,7 +874,6 @@ public class TreeMap extends SeparateChart {
     }
     private String labels;
     private Boolean labels1;
-    private List<TreeMap> setLabels = new ArrayList<>();
 
     /**
      * Setter for the point labels.
@@ -1167,18 +891,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for the point labels.
@@ -1196,16 +909,6 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiMarkersFactory getMarkers;
@@ -1222,7 +925,6 @@ public class TreeMap extends SeparateChart {
     private String markers;
     private Boolean markers1;
     private String markers2;
-    private List<TreeMap> setMarkers = new ArrayList<>();
 
     /**
      * Setter for the point markers.
@@ -1240,18 +942,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkers() {
-        if (!setMarkers.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setMarkers) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setMarkers1 = new ArrayList<>();
 
     /**
      * Setter for the point markers.
@@ -1269,19 +960,8 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkers1() {
-        if (!setMarkers1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setMarkers1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxDepth;
-    private List<TreeMap> setMaxDepth = new ArrayList<>();
 
     /**
      * Setter for the maximal drawing depth.
@@ -1299,20 +979,9 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMaxDepth() {
-        if (!setMaxDepth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setMaxDepth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxHeadersHeight;
     private String maxHeadersHeight1;
-    private List<TreeMap> setMaxHeadersHeight = new ArrayList<>();
 
     /**
      * Setter for the maximum headers height.
@@ -1330,18 +999,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMaxHeadersHeight() {
-        if (!setMaxHeadersHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setMaxHeadersHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setMaxHeadersHeight1 = new ArrayList<>();
 
     /**
      * Setter for the maximum headers height.
@@ -1359,16 +1017,6 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMaxHeadersHeight1() {
-        if (!setMaxHeadersHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setMaxHeadersHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getNormal;
@@ -1383,7 +1031,6 @@ public class TreeMap extends SeparateChart {
         return getNormal;
     }
     private String normal;
-    private List<TreeMap> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -1401,16 +1048,6 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getSelected;
@@ -1425,7 +1062,6 @@ public class TreeMap extends SeparateChart {
         return getSelected;
     }
     private String selected;
-    private List<TreeMap> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -1443,20 +1079,9 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private SelectionMode selectionMode;
     private String selectionMode1;
-    private List<TreeMap> setSelectionMode = new ArrayList<>();
 
     /**
      * Setter for the selection mode.
@@ -1474,18 +1099,7 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetSelectionMode() {
-        if (!setSelectionMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setSelectionMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setSelectionMode1 = new ArrayList<>();
 
     /**
      * Setter for the selection mode.
@@ -1503,20 +1117,9 @@ public class TreeMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetSelectionMode1() {
-        if (!setSelectionMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setSelectionMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Sort sort;
     private String sort1;
-    private List<TreeMap> setSort = new ArrayList<>();
 
     /**
      * Setter for the sort settings.<br/>
@@ -1535,18 +1138,7 @@ Ascending, Descending and No sorting is supported.
         }
         return this;
     }
-    private String generateJSsetSort() {
-        if (!setSort.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setSort) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setSort1 = new ArrayList<>();
 
     /**
      * Setter for the sort settings.<br/>
@@ -1565,16 +1157,6 @@ Ascending, Descending and No sorting is supported.
         }
         return this;
     }
-    private String generateJSsetSort1() {
-        if (!setSort1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setSort1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color2;
     private ColoredFill color3;
@@ -1583,7 +1165,6 @@ Ascending, Descending and No sorting is supported.
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<TreeMap> setStroke = new ArrayList<>();
 
     /**
      * Setter for the stroke.
@@ -1602,18 +1183,7 @@ Ascending, Descending and No sorting is supported.
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for the stroke.
@@ -1632,18 +1202,7 @@ Ascending, Descending and No sorting is supported.
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeMap> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for the stroke.
@@ -1661,16 +1220,6 @@ Ascending, Descending and No sorting is supported.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeMap item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetColorRange() {
@@ -1760,51 +1309,10 @@ Ascending, Descending and No sorting is supported.
         js.append(generateJSgetMarkers());
         js.append(generateJSgetNormal());
         js.append(generateJSgetSelected());
-        js.append(generateJSsetColorRange());
         js.append(generateJSsetColorScale());
         js.append(generateJSsetColorScale1());
         js.append(generateJSsetColorScale2());
         js.append(generateJSsetColorScale3());
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetHatchFill());
-        js.append(generateJSsetHatchFill1());
-        js.append(generateJSsetHatchFill2());
-        js.append(generateJSsetHatchFill3());
-        js.append(generateJSsetHatchFill4());
-        js.append(generateJSsetHeaders());
-        js.append(generateJSsetHeaders1());
-        js.append(generateJSsetHeadersDisplayMode());
-        js.append(generateJSsetHeadersDisplayMode1());
-        js.append(generateJSsetHintDepth());
-        js.append(generateJSsetHintOpacity());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
-        js.append(generateJSsetMarkers());
-        js.append(generateJSsetMarkers1());
-        js.append(generateJSsetMaxDepth());
-        js.append(generateJSsetMaxHeadersHeight());
-        js.append(generateJSsetMaxHeadersHeight1());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetSelectionMode());
-        js.append(generateJSsetSelectionMode1());
-        js.append(generateJSsetSort());
-        js.append(generateJSsetSort1());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

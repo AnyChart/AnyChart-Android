@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -34,7 +32,6 @@ public class Box extends WidthBased {
 
     
     private Fill fill;
-    private List<Box> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -59,20 +56,9 @@ public class Box extends WidthBased {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<Box> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.<br/>
@@ -99,16 +85,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -117,7 +93,6 @@ Fill as a string or an object.
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<Box> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -158,18 +133,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -210,18 +174,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -262,18 +215,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -314,18 +256,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -366,18 +297,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -418,16 +338,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -437,7 +347,6 @@ Fill as a string or an object.
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<Box> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -488,18 +397,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -550,16 +448,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private PatternFill getHatchFill;
@@ -581,7 +469,6 @@ Fill as a string or an object.
     private String color1;
     private Double thickness;
     private Double size;
-    private List<Box> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -620,18 +507,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetHatchFill() {
-        if (!setHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -670,18 +546,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetHatchFill1() {
-        if (!setHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -720,18 +585,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetHatchFill2() {
-        if (!setHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -770,16 +624,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetHatchFill3() {
-        if (!setHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color2;
     private ColoredFill color3;
@@ -788,7 +632,6 @@ Fill as a string or an object.
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<Box> setMedianStroke = new ArrayList<>();
 
     /**
      * Setter for median stroke settings.
@@ -830,18 +673,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMedianStroke() {
-        if (!setMedianStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setMedianStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setMedianStroke1 = new ArrayList<>();
 
     /**
      * Setter for median stroke settings.
@@ -883,18 +715,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMedianStroke1() {
-        if (!setMedianStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setMedianStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setMedianStroke2 = new ArrayList<>();
 
     /**
      * Setter for median stroke settings.
@@ -936,16 +757,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMedianStroke2() {
-        if (!setMedianStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setMedianStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiMarkersFactory getOutlierMarkers;
 
@@ -962,7 +773,6 @@ Fill as a string or an object.
     private String outlierMarkers;
     private Boolean outlierMarkers1;
     private String outlierMarkers2;
-    private List<Box> setOutlierMarkers = new ArrayList<>();
 
     /**
      * Setter for series outlier markers.
@@ -990,18 +800,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetOutlierMarkers() {
-        if (!setOutlierMarkers.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setOutlierMarkers) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setOutlierMarkers1 = new ArrayList<>();
 
     /**
      * Setter for series outlier markers.
@@ -1029,16 +828,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetOutlierMarkers1() {
-        if (!setOutlierMarkers1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setOutlierMarkers1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color5;
     private ColoredFill color6;
@@ -1047,7 +836,6 @@ Fill as a string or an object.
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
-    private List<Box> setStemStroke = new ArrayList<>();
 
     /**
      * Setter for stem stroke settings.
@@ -1102,18 +890,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetStemStroke() {
-        if (!setStemStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setStemStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setStemStroke1 = new ArrayList<>();
 
     /**
      * Setter for stem stroke settings.
@@ -1168,18 +945,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetStemStroke1() {
-        if (!setStemStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setStemStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setStemStroke2 = new ArrayList<>();
 
     /**
      * Setter for stem stroke settings.
@@ -1234,16 +1000,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetStemStroke2() {
-        if (!setStemStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setStemStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color8;
     private ColoredFill color9;
@@ -1252,7 +1008,6 @@ Fill as a string or an object.
     private String dashpattern2;
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
-    private List<Box> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -1314,18 +1069,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -1387,18 +1131,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -1460,16 +1193,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color11;
     private ColoredFill color12;
@@ -1478,7 +1201,6 @@ Fill as a string or an object.
     private String dashpattern3;
     private StrokeLineJoin lineJoin3;
     private StrokeLineCap lineCap3;
-    private List<Box> setWhiskerStroke = new ArrayList<>();
 
     /**
      * Setter for whisker stroke settings.
@@ -1547,18 +1269,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetWhiskerStroke() {
-        if (!setWhiskerStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setWhiskerStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setWhiskerStroke1 = new ArrayList<>();
 
     /**
      * Setter for whisker stroke settings.
@@ -1627,18 +1338,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetWhiskerStroke1() {
-        if (!setWhiskerStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setWhiskerStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setWhiskerStroke2 = new ArrayList<>();
 
     /**
      * Setter for whisker stroke settings.
@@ -1707,20 +1407,9 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetWhiskerStroke2() {
-        if (!setWhiskerStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setWhiskerStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double whiskerWidth;
     private String whiskerWidth1;
-    private List<Box> setWhiskerWidth = new ArrayList<>();
 
     /**
      * Setter for whisker width settings.
@@ -1747,18 +1436,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetWhiskerWidth() {
-        if (!setWhiskerWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setWhiskerWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Box> setWhiskerWidth1 = new ArrayList<>();
 
     /**
      * Setter for whisker width settings.
@@ -1784,16 +1462,6 @@ Fill as a string or an object.
             }
         }
         return this;
-    }
-    private String generateJSsetWhiskerWidth1() {
-        if (!setWhiskerWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Box item : setWhiskerWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetHatchFill() {
@@ -1832,36 +1500,6 @@ Fill as a string or an object.
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetHatchFill());
-        js.append(generateJSsetHatchFill1());
-        js.append(generateJSsetHatchFill2());
-        js.append(generateJSsetHatchFill3());
-        js.append(generateJSsetMedianStroke());
-        js.append(generateJSsetMedianStroke1());
-        js.append(generateJSsetMedianStroke2());
-        js.append(generateJSsetOutlierMarkers());
-        js.append(generateJSsetOutlierMarkers1());
-        js.append(generateJSsetStemStroke());
-        js.append(generateJSsetStemStroke1());
-        js.append(generateJSsetStemStroke2());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetWhiskerStroke());
-        js.append(generateJSsetWhiskerStroke1());
-        js.append(generateJSsetWhiskerStroke2());
-        js.append(generateJSsetWhiskerWidth());
-        js.append(generateJSsetWhiskerWidth1());
         
 
         String result = js.toString();

@@ -35,7 +35,6 @@ public class StateSettings extends CoreBase {
 
     
     private Fill dummyFill;
-    private List<StateSettings> setDummyFill = new ArrayList<>();
 
     /**
      * Setter for dummy fill settings using a string.
@@ -60,20 +59,9 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetDummyFill() {
-        if (!setDummyFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setDummyFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<StateSettings> setDummyFill1 = new ArrayList<>();
 
     /**
      * Dummy fill color with opacity.
@@ -99,16 +87,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetDummyFill1() {
-        if (!setDummyFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setDummyFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -117,7 +95,6 @@ public class StateSettings extends CoreBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<StateSettings> setDummyFill2 = new ArrayList<>();
 
     /**
      * Linear gradient dummy fill.
@@ -158,18 +135,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetDummyFill2() {
-        if (!setDummyFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setDummyFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setDummyFill3 = new ArrayList<>();
 
     /**
      * Linear gradient dummy fill.
@@ -210,18 +176,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetDummyFill3() {
-        if (!setDummyFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setDummyFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setDummyFill4 = new ArrayList<>();
 
     /**
      * Linear gradient dummy fill.
@@ -262,18 +217,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetDummyFill4() {
-        if (!setDummyFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setDummyFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setDummyFill5 = new ArrayList<>();
 
     /**
      * Linear gradient dummy fill.
@@ -314,18 +258,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetDummyFill5() {
-        if (!setDummyFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setDummyFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setDummyFill6 = new ArrayList<>();
 
     /**
      * Linear gradient dummy fill.
@@ -366,18 +299,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetDummyFill6() {
-        if (!setDummyFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setDummyFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setDummyFill7 = new ArrayList<>();
 
     /**
      * Linear gradient dummy fill.
@@ -418,16 +340,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetDummyFill7() {
-        if (!setDummyFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setDummyFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -437,7 +349,6 @@ public class StateSettings extends CoreBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<StateSettings> setDummyFill8 = new ArrayList<>();
 
     /**
      * Radial gradient dummy fill.
@@ -488,18 +399,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetDummyFill8() {
-        if (!setDummyFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setDummyFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setDummyFill9 = new ArrayList<>();
 
     /**
      * Radial gradient dummy fill.
@@ -550,16 +450,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetDummyFill9() {
-        if (!setDummyFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setDummyFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private Stroke color1;
@@ -569,7 +459,6 @@ public class StateSettings extends CoreBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<StateSettings> setDummyStroke = new ArrayList<>();
 
     /**
      * Setter for tasks dummy stroke.
@@ -607,18 +496,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetDummyStroke() {
-        if (!setDummyStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setDummyStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setDummyStroke1 = new ArrayList<>();
 
     /**
      * Setter for tasks dummy stroke.
@@ -656,18 +534,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetDummyStroke1() {
-        if (!setDummyStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setDummyStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setDummyStroke2 = new ArrayList<>();
 
     /**
      * Setter for tasks dummy stroke.
@@ -705,20 +572,9 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetDummyStroke2() {
-        if (!setDummyStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setDummyStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill emptyFill;
     private String emptyFill1;
-    private List<StateSettings> setEmptyFill = new ArrayList<>();
 
     /**
      * Setter for state fill settings for the empty part of a tank using a string or an object.
@@ -746,18 +602,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetEmptyFill() {
-        if (!setEmptyFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setEmptyFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setEmptyFill1 = new ArrayList<>();
 
     /**
      * Setter for state fill settings for the empty part of a tank using a string or an object.
@@ -785,20 +630,9 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetEmptyFill1() {
-        if (!setEmptyFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setEmptyFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color4;
     private Double opacity3;
-    private List<StateSettings> setEmptyFill2 = new ArrayList<>();
 
     /**
      * State fill color with opacity for the empty part of a tank. Fill as a string or an object.
@@ -835,16 +669,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetEmptyFill2() {
-        if (!setEmptyFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setEmptyFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private PatternFill getEmptyHatchFill;
 
@@ -866,7 +690,6 @@ public class StateSettings extends CoreBase {
     private String color5;
     private Double thickness1;
     private Double size;
-    private List<StateSettings> setEmptyHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -913,18 +736,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetEmptyHatchFill() {
-        if (!setEmptyHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setEmptyHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setEmptyHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -971,18 +783,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetEmptyHatchFill1() {
-        if (!setEmptyHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setEmptyHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setEmptyHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -1029,18 +830,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetEmptyHatchFill2() {
-        if (!setEmptyHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setEmptyHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setEmptyHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -1087,18 +877,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetEmptyHatchFill3() {
-        if (!setEmptyHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setEmptyHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setEmptyHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -1144,16 +923,6 @@ public class StateSettings extends CoreBase {
             }
         }
         return this;
-    }
-    private String generateJSsetEmptyHatchFill4() {
-        if (!setEmptyHatchFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setEmptyHatchFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Fill fallingFill;
@@ -2228,7 +1997,6 @@ public class StateSettings extends CoreBase {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
-    private List<StateSettings> setFallingStroke = new ArrayList<>();
 
     /**
      * Setter for falling stroke settings.
@@ -2279,18 +2047,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFallingStroke() {
-        if (!setFallingStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFallingStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setFallingStroke1 = new ArrayList<>();
 
     /**
      * Setter for falling stroke settings.
@@ -2341,18 +2098,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFallingStroke1() {
-        if (!setFallingStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFallingStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setFallingStroke2 = new ArrayList<>();
 
     /**
      * Setter for falling stroke settings.
@@ -2403,19 +2149,8 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFallingStroke2() {
-        if (!setFallingStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFallingStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
-    private List<StateSettings> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -2440,20 +2175,9 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color8;
     private Double opacity7;
-    private List<StateSettings> setFill1 = new ArrayList<>();
 
     /**
      * Setter for the fill color with opacity.
@@ -2498,16 +2222,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys8;
     private String[] keys9;
@@ -2516,7 +2230,6 @@ public class StateSettings extends CoreBase {
     private VectorRect mode9;
     private String mode10;
     private Double opacity8;
-    private List<StateSettings> setFill2 = new ArrayList<>();
 
     /**
      * Setter for the linear gradient fill.
@@ -2584,18 +2297,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setFill3 = new ArrayList<>();
 
     /**
      * Setter for the linear gradient fill.
@@ -2663,18 +2365,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setFill4 = new ArrayList<>();
 
     /**
      * Setter for the linear gradient fill.
@@ -2742,18 +2433,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setFill5 = new ArrayList<>();
 
     /**
      * Setter for the linear gradient fill.
@@ -2821,18 +2501,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setFill6 = new ArrayList<>();
 
     /**
      * Setter for the linear gradient fill.
@@ -2900,18 +2569,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setFill7 = new ArrayList<>();
 
     /**
      * Setter for the linear gradient fill.
@@ -2979,16 +2637,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys10;
     private String[] keys11;
@@ -2998,7 +2646,6 @@ public class StateSettings extends CoreBase {
     private Double opacity9;
     private Double fx2;
     private Double fy2;
-    private List<StateSettings> setFill8 = new ArrayList<>();
 
     /**
      * Setter for the radial gradient fill.
@@ -3088,18 +2735,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setFill9 = new ArrayList<>();
 
     /**
      * Setter for the radial gradient fill.
@@ -3189,20 +2825,9 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings2;
     private String fontFamily;
-    private List<StateSettings> setFontFamily = new ArrayList<>();
 
     /**
      * Setter for the font family of text.
@@ -3226,20 +2851,9 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFontFamily() {
-        if (!setFontFamily.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFontFamily) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double fontSize;
     private String fontSize1;
-    private List<StateSettings> setFontSize = new ArrayList<>();
 
     /**
      * Setter for font size settings.
@@ -3266,18 +2880,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFontSize() {
-        if (!setFontSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFontSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setFontSize1 = new ArrayList<>();
 
     /**
      * Setter for font size settings.
@@ -3304,20 +2907,9 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFontSize1() {
-        if (!setFontSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFontSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TextFontStyle fontStyle;
     private String fontStyle1;
-    private List<StateSettings> setFontStyle = new ArrayList<>();
 
     /**
      * Setter for the text font style.
@@ -3344,18 +2936,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFontStyle() {
-        if (!setFontStyle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFontStyle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setFontStyle1 = new ArrayList<>();
 
     /**
      * Setter for the text font style.
@@ -3382,20 +2963,9 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFontStyle1() {
-        if (!setFontStyle1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFontStyle1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TextFontVariant fontVariant;
     private String fontVariant1;
-    private List<StateSettings> setFontVariant = new ArrayList<>();
 
     /**
      * Setter for the text font variant.
@@ -3422,18 +2992,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFontVariant() {
-        if (!setFontVariant.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFontVariant) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setFontVariant1 = new ArrayList<>();
 
     /**
      * Setter for the text font variant.
@@ -3460,20 +3019,9 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFontVariant1() {
-        if (!setFontVariant1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFontVariant1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fontWeight;
     private Double fontWeight1;
-    private List<StateSettings> setFontWeight = new ArrayList<>();
 
     /**
      * Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
@@ -3500,18 +3048,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFontWeight() {
-        if (!setFontWeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFontWeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setFontWeight1 = new ArrayList<>();
 
     /**
      * Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
@@ -3538,16 +3075,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFontWeight1() {
-        if (!setFontWeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setFontWeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke grid;
     private ColoredFill grid1;
@@ -3556,7 +3083,6 @@ public class StateSettings extends CoreBase {
     private String dashpattern2;
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
-    private List<StateSettings> setGrid = new ArrayList<>();
 
     /**
      * Setter for annotation grid settings.
@@ -3611,18 +3137,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetGrid() {
-        if (!setGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setGrid1 = new ArrayList<>();
 
     /**
      * Setter for annotation grid settings.
@@ -3677,18 +3192,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetGrid1() {
-        if (!setGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setGrid2 = new ArrayList<>();
 
     /**
      * Setter for annotation grid settings.
@@ -3743,16 +3247,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetGrid2() {
-        if (!setGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private PatternFill getHatchFill;
 
@@ -3773,7 +3267,6 @@ public class StateSettings extends CoreBase {
     private String color9;
     private Double thickness5;
     private Double size2;
-    private List<StateSettings> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -3836,18 +3329,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill() {
-        if (!setHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -3910,18 +3392,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill1() {
-        if (!setHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -3984,18 +3455,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill2() {
-        if (!setHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -4058,16 +3518,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill3() {
-        if (!setHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabelsFactory getHeaders;
 
@@ -4083,7 +3533,6 @@ public class StateSettings extends CoreBase {
 
     private String headers;
     private Boolean headers1;
-    private List<StateSettings> setHeaders = new ArrayList<>();
 
     /**
      * Setter for the header labels (TreeMap).
@@ -4110,18 +3559,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHeaders() {
-        if (!setHeaders.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setHeaders) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setHeaders1 = new ArrayList<>();
 
     /**
      * Setter for the header labels (TreeMap).
@@ -4148,16 +3586,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHeaders1() {
-        if (!setHeaders1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setHeaders1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color10;
     private ColoredFill color11;
@@ -4166,7 +3594,6 @@ public class StateSettings extends CoreBase {
     private String dashpattern3;
     private StrokeLineJoin lineJoin3;
     private StrokeLineCap lineCap3;
-    private List<StateSettings> setHighStroke = new ArrayList<>();
 
     /**
      * Setter for high stroke settings.
@@ -4236,18 +3663,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHighStroke() {
-        if (!setHighStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setHighStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setHighStroke1 = new ArrayList<>();
 
     /**
      * Setter for high stroke settings.
@@ -4317,18 +3733,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHighStroke1() {
-        if (!setHighStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setHighStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setHighStroke2 = new ArrayList<>();
 
     /**
      * Setter for high stroke settings.
@@ -4398,16 +3803,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHighStroke2() {
-        if (!setHighStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setHighStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getHovered;
 
@@ -4460,7 +3855,6 @@ public class StateSettings extends CoreBase {
 
     private String labels;
     private Boolean labels1;
-    private List<StateSettings> setLabels = new ArrayList<>();
 
     /**
      * Setter for labels.
@@ -4487,18 +3881,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for labels.
@@ -4525,16 +3908,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color13;
     private ColoredFill color14;
@@ -4543,7 +3916,6 @@ public class StateSettings extends CoreBase {
     private String dashpattern4;
     private StrokeLineJoin lineJoin4;
     private StrokeLineCap lineCap4;
-    private List<StateSettings> setLowStroke = new ArrayList<>();
 
     /**
      * Setter for low stroke settings.
@@ -4620,18 +3992,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetLowStroke() {
-        if (!setLowStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setLowStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setLowStroke1 = new ArrayList<>();
 
     /**
      * Setter for low stroke settings.
@@ -4708,18 +4069,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetLowStroke1() {
-        if (!setLowStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setLowStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setLowStroke2 = new ArrayList<>();
 
     /**
      * Setter for low stroke settings.
@@ -4796,16 +4146,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetLowStroke2() {
-        if (!setLowStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setLowStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabelsFactory getLowerLabels;
 
@@ -4821,7 +4161,6 @@ public class StateSettings extends CoreBase {
 
     private String lowerLabels;
     private Boolean lowerLabels1;
-    private List<StateSettings> setLowerLabels = new ArrayList<>();
 
     /**
      * Setter for lower labels (for pert tasks).
@@ -4848,18 +4187,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetLowerLabels() {
-        if (!setLowerLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setLowerLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setLowerLabels1 = new ArrayList<>();
 
     /**
      * Setter for lower labels (for pert tasks).
@@ -4886,16 +4214,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetLowerLabels1() {
-        if (!setLowerLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setLowerLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiMarkersFactory getMarkers;
 
@@ -4912,7 +4230,6 @@ public class StateSettings extends CoreBase {
     private String markers;
     private Boolean markers1;
     private String markers2;
-    private List<StateSettings> setMarkers = new ArrayList<>();
 
     /**
      * Setter for data markers.
@@ -4940,18 +4257,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetMarkers() {
-        if (!setMarkers.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setMarkers) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setMarkers1 = new ArrayList<>();
 
     /**
      * Setter for data markers.
@@ -4979,16 +4285,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetMarkers1() {
-        if (!setMarkers1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setMarkers1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color16;
     private ColoredFill color17;
@@ -4997,7 +4293,6 @@ public class StateSettings extends CoreBase {
     private String dashpattern5;
     private StrokeLineJoin lineJoin5;
     private StrokeLineCap lineCap5;
-    private List<StateSettings> setMedianStroke = new ArrayList<>();
 
     /**
      * Setter for median stroke settings.
@@ -5081,18 +4376,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetMedianStroke() {
-        if (!setMedianStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setMedianStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setMedianStroke1 = new ArrayList<>();
 
     /**
      * Setter for median stroke settings.
@@ -5176,18 +4460,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetMedianStroke1() {
-        if (!setMedianStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setMedianStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setMedianStroke2 = new ArrayList<>();
 
     /**
      * Setter for median stroke settings.
@@ -5271,19 +4544,8 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetMedianStroke2() {
-        if (!setMedianStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setMedianStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill negativeFill;
-    private List<StateSettings> setNegativeFill = new ArrayList<>();
 
     /**
      * Setter for negative fill settings using an array or a string.
@@ -5308,20 +4570,9 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeFill() {
-        if (!setNegativeFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color19;
     private Double opacity10;
-    private List<StateSettings> setNegativeFill1 = new ArrayList<>();
 
     /**
      * Negative fill color with opacity.
@@ -5380,16 +4631,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeFill1() {
-        if (!setNegativeFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys12;
     private String[] keys13;
@@ -5398,7 +4639,6 @@ public class StateSettings extends CoreBase {
     private VectorRect mode13;
     private String mode14;
     private Double opacity11;
-    private List<StateSettings> setNegativeFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -5478,18 +4718,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeFill2() {
-        if (!setNegativeFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setNegativeFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -5569,18 +4798,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeFill3() {
-        if (!setNegativeFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setNegativeFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -5660,18 +4878,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeFill4() {
-        if (!setNegativeFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setNegativeFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -5751,18 +4958,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeFill5() {
-        if (!setNegativeFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setNegativeFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -5842,18 +5038,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeFill6() {
-        if (!setNegativeFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setNegativeFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -5933,16 +5118,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeFill7() {
-        if (!setNegativeFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys14;
     private String[] keys15;
@@ -5952,7 +5127,6 @@ public class StateSettings extends CoreBase {
     private Double opacity12;
     private Double fx3;
     private Double fy3;
-    private List<StateSettings> setNegativeFill8 = new ArrayList<>();
 
     /**
      * Radial gradient negative fill.
@@ -6057,18 +5231,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeFill8() {
-        if (!setNegativeFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setNegativeFill9 = new ArrayList<>();
 
     /**
      * Radial gradient negative fill.
@@ -6173,16 +5336,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeFill9() {
-        if (!setNegativeFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings3;
     private PatternFill getNegativeHatchFill;
@@ -6204,7 +5357,6 @@ public class StateSettings extends CoreBase {
     private String color20;
     private Double thickness9;
     private Double size3;
-    private List<StateSettings> setNegativeHatchFill = new ArrayList<>();
 
     /**
      * Setter for negative hatch fill settings.
@@ -6287,18 +5439,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill() {
-        if (!setNegativeHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setNegativeHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for negative hatch fill settings.
@@ -6381,18 +5522,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill1() {
-        if (!setNegativeHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setNegativeHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for negative hatch fill settings.
@@ -6475,18 +5605,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill2() {
-        if (!setNegativeHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setNegativeHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for negative hatch fill settings.
@@ -6569,16 +5688,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill3() {
-        if (!setNegativeHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color21;
     private ColoredFill color22;
@@ -6587,7 +5696,6 @@ public class StateSettings extends CoreBase {
     private String dashpattern6;
     private StrokeLineJoin lineJoin6;
     private StrokeLineCap lineCap6;
-    private List<StateSettings> setNegativeStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -6681,18 +5789,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeStroke() {
-        if (!setNegativeStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setNegativeStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -6786,18 +5883,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeStroke1() {
-        if (!setNegativeStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setNegativeStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -6891,16 +5977,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetNegativeStroke2() {
-        if (!setNegativeStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setNegativeStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getNormal;
 
@@ -6954,7 +6030,6 @@ public class StateSettings extends CoreBase {
     private String outlierMarkers;
     private Boolean outlierMarkers1;
     private String outlierMarkers2;
-    private List<StateSettings> setOutlierMarkers = new ArrayList<>();
 
     /**
      * Setter for series outlier markers.
@@ -6982,18 +6057,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetOutlierMarkers() {
-        if (!setOutlierMarkers.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setOutlierMarkers) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setOutlierMarkers1 = new ArrayList<>();
 
     /**
      * Setter for series outlier markers.
@@ -7020,16 +6084,6 @@ public class StateSettings extends CoreBase {
             }
         }
         return this;
-    }
-    private String generateJSsetOutlierMarkers1() {
-        if (!setOutlierMarkers1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setOutlierMarkers1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Fill risingFill;
@@ -7806,7 +6860,6 @@ public class StateSettings extends CoreBase {
     private Double opacity15;
     private Double fx4;
     private Double fy4;
-    private List<StateSettings> setRisingFill8 = new ArrayList<>();
 
     /**
      * Radial gradient rising fill.
@@ -7926,18 +6979,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetRisingFill8() {
-        if (!setRisingFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setRisingFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setRisingFill9 = new ArrayList<>();
 
     /**
      * Radial gradient rising fill.
@@ -8056,16 +7098,6 @@ public class StateSettings extends CoreBase {
             }
         }
         return this;
-    }
-    private String generateJSsetRisingFill9() {
-        if (!setRisingFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setRisingFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Fill imageSettings4;
@@ -8606,7 +7638,6 @@ public class StateSettings extends CoreBase {
     private String dashpattern7;
     private StrokeLineJoin lineJoin7;
     private StrokeLineCap lineCap7;
-    private List<StateSettings> setRisingStroke = new ArrayList<>();
 
     /**
      * Setter for rising stroke settings.
@@ -8710,18 +7741,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetRisingStroke() {
-        if (!setRisingStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setRisingStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setRisingStroke1 = new ArrayList<>();
 
     /**
      * Setter for rising stroke settings.
@@ -8825,18 +7845,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetRisingStroke1() {
-        if (!setRisingStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setRisingStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setRisingStroke2 = new ArrayList<>();
 
     /**
      * Setter for rising stroke settings.
@@ -8940,16 +7949,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetRisingStroke2() {
-        if (!setRisingStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setRisingStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getSelected;
 
@@ -8989,7 +7988,6 @@ public class StateSettings extends CoreBase {
     }
 
     private Double size5;
-    private List<StateSettings> setSize = new ArrayList<>();
 
     /**
      * Setter for the marker size.
@@ -9020,16 +8018,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetSize() {
-        if (!setSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color29;
     private ColoredFill color30;
@@ -9038,7 +8026,6 @@ public class StateSettings extends CoreBase {
     private String dashpattern8;
     private StrokeLineJoin lineJoin8;
     private StrokeLineCap lineCap8;
-    private List<StateSettings> setStemStroke = new ArrayList<>();
 
     /**
      * Setter for stem stroke settings.
@@ -9149,18 +8136,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetStemStroke() {
-        if (!setStemStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setStemStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setStemStroke1 = new ArrayList<>();
 
     /**
      * Setter for stem stroke settings.
@@ -9271,18 +8247,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetStemStroke1() {
-        if (!setStemStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setStemStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setStemStroke2 = new ArrayList<>();
 
     /**
      * Setter for stem stroke settings.
@@ -9393,16 +8358,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetStemStroke2() {
-        if (!setStemStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setStemStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color32;
     private ColoredFill color33;
@@ -9411,7 +8366,6 @@ public class StateSettings extends CoreBase {
     private String dashpattern9;
     private StrokeLineJoin lineJoin9;
     private StrokeLineCap lineCap9;
-    private List<StateSettings> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -9529,18 +8483,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -9658,18 +8601,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -9787,16 +8719,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke trend;
     private ColoredFill trend1;
@@ -9805,7 +8727,6 @@ public class StateSettings extends CoreBase {
     private String dashpattern10;
     private StrokeLineJoin lineJoin10;
     private StrokeLineCap lineCap10;
-    private List<StateSettings> setTrend = new ArrayList<>();
 
     /**
      * Setter for annotation trend settings.
@@ -9895,18 +8816,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetTrend() {
-        if (!setTrend.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setTrend) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setTrend1 = new ArrayList<>();
 
     /**
      * Setter for annotation trend settings.
@@ -9996,18 +8906,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetTrend1() {
-        if (!setTrend1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setTrend1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setTrend2 = new ArrayList<>();
 
     /**
      * Setter for annotation trend settings.
@@ -10097,20 +8996,9 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetTrend2() {
-        if (!setTrend2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setTrend2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private MarkerType type;
     private String type1;
-    private List<StateSettings> setType = new ArrayList<>();
 
     /**
      * Setter for the marker type.
@@ -10137,18 +9025,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetType() {
-        if (!setType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setType1 = new ArrayList<>();
 
     /**
      * Setter for the marker type.
@@ -10175,16 +9052,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetType1() {
-        if (!setType1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setType1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabelsFactory getUpperLabels;
 
@@ -10200,7 +9067,6 @@ public class StateSettings extends CoreBase {
 
     private String upperLabels;
     private Boolean upperLabels1;
-    private List<StateSettings> setUpperLabels = new ArrayList<>();
 
     /**
      * Setter for upper labels (for pert tasks).
@@ -10227,18 +9093,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetUpperLabels() {
-        if (!setUpperLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setUpperLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setUpperLabels1 = new ArrayList<>();
 
     /**
      * Setter for upper labels (for pert tasks).
@@ -10265,16 +9120,6 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetUpperLabels1() {
-        if (!setUpperLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setUpperLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color35;
     private ColoredFill color36;
@@ -10283,7 +9128,6 @@ public class StateSettings extends CoreBase {
     private String dashpattern11;
     private StrokeLineJoin lineJoin11;
     private StrokeLineCap lineCap11;
-    private List<StateSettings> setWhiskerStroke = new ArrayList<>();
 
     /**
      * Setter for whisker stroke settings.
@@ -10412,18 +9256,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetWhiskerStroke() {
-        if (!setWhiskerStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setWhiskerStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setWhiskerStroke1 = new ArrayList<>();
 
     /**
      * Setter for whisker stroke settings.
@@ -10552,18 +9385,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetWhiskerStroke1() {
-        if (!setWhiskerStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setWhiskerStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setWhiskerStroke2 = new ArrayList<>();
 
     /**
      * Setter for whisker stroke settings.
@@ -10692,20 +9514,9 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetWhiskerStroke2() {
-        if (!setWhiskerStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setWhiskerStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double whiskerWidth;
     private String whiskerWidth1;
-    private List<StateSettings> setWhiskerWidth = new ArrayList<>();
 
     /**
      * Setter for the whisker width.
@@ -10732,18 +9543,7 @@ public class StateSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetWhiskerWidth() {
-        if (!setWhiskerWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setWhiskerWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StateSettings> setWhiskerWidth1 = new ArrayList<>();
 
     /**
      * Setter for the whisker width.
@@ -10769,16 +9569,6 @@ public class StateSettings extends CoreBase {
             }
         }
         return this;
-    }
-    private String generateJSsetWhiskerWidth1() {
-        if (!setWhiskerWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StateSettings item : setWhiskerWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetEmptyHatchFill() {
@@ -10913,27 +9703,6 @@ public class StateSettings extends CoreBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetDummyFill());
-        js.append(generateJSsetDummyFill1());
-        js.append(generateJSsetDummyFill2());
-        js.append(generateJSsetDummyFill3());
-        js.append(generateJSsetDummyFill4());
-        js.append(generateJSsetDummyFill5());
-        js.append(generateJSsetDummyFill6());
-        js.append(generateJSsetDummyFill7());
-        js.append(generateJSsetDummyFill8());
-        js.append(generateJSsetDummyFill9());
-        js.append(generateJSsetDummyStroke());
-        js.append(generateJSsetDummyStroke1());
-        js.append(generateJSsetDummyStroke2());
-        js.append(generateJSsetEmptyFill());
-        js.append(generateJSsetEmptyFill1());
-        js.append(generateJSsetEmptyFill2());
-        js.append(generateJSsetEmptyHatchFill());
-        js.append(generateJSsetEmptyHatchFill1());
-        js.append(generateJSsetEmptyHatchFill2());
-        js.append(generateJSsetEmptyHatchFill3());
-        js.append(generateJSsetEmptyHatchFill4());
         js.append(generateJSsetFallingFill());
         js.append(generateJSsetFallingFill1());
         js.append(generateJSsetFallingFill2());
@@ -10949,71 +9718,6 @@ public class StateSettings extends CoreBase {
         js.append(generateJSsetFallingHatchFill2());
         js.append(generateJSsetFallingHatchFill3());
         js.append(generateJSsetFallingHatchFill4());
-        js.append(generateJSsetFallingStroke());
-        js.append(generateJSsetFallingStroke1());
-        js.append(generateJSsetFallingStroke2());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetFontFamily());
-        js.append(generateJSsetFontSize());
-        js.append(generateJSsetFontSize1());
-        js.append(generateJSsetFontStyle());
-        js.append(generateJSsetFontStyle1());
-        js.append(generateJSsetFontVariant());
-        js.append(generateJSsetFontVariant1());
-        js.append(generateJSsetFontWeight());
-        js.append(generateJSsetFontWeight1());
-        js.append(generateJSsetGrid());
-        js.append(generateJSsetGrid1());
-        js.append(generateJSsetGrid2());
-        js.append(generateJSsetHatchFill());
-        js.append(generateJSsetHatchFill1());
-        js.append(generateJSsetHatchFill2());
-        js.append(generateJSsetHatchFill3());
-        js.append(generateJSsetHeaders());
-        js.append(generateJSsetHeaders1());
-        js.append(generateJSsetHighStroke());
-        js.append(generateJSsetHighStroke1());
-        js.append(generateJSsetHighStroke2());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
-        js.append(generateJSsetLowStroke());
-        js.append(generateJSsetLowStroke1());
-        js.append(generateJSsetLowStroke2());
-        js.append(generateJSsetLowerLabels());
-        js.append(generateJSsetLowerLabels1());
-        js.append(generateJSsetMarkers());
-        js.append(generateJSsetMarkers1());
-        js.append(generateJSsetMedianStroke());
-        js.append(generateJSsetMedianStroke1());
-        js.append(generateJSsetMedianStroke2());
-        js.append(generateJSsetNegativeFill());
-        js.append(generateJSsetNegativeFill1());
-        js.append(generateJSsetNegativeFill2());
-        js.append(generateJSsetNegativeFill3());
-        js.append(generateJSsetNegativeFill4());
-        js.append(generateJSsetNegativeFill5());
-        js.append(generateJSsetNegativeFill6());
-        js.append(generateJSsetNegativeFill7());
-        js.append(generateJSsetNegativeFill8());
-        js.append(generateJSsetNegativeFill9());
-        js.append(generateJSsetNegativeHatchFill());
-        js.append(generateJSsetNegativeHatchFill1());
-        js.append(generateJSsetNegativeHatchFill2());
-        js.append(generateJSsetNegativeHatchFill3());
-        js.append(generateJSsetNegativeStroke());
-        js.append(generateJSsetNegativeStroke1());
-        js.append(generateJSsetNegativeStroke2());
-        js.append(generateJSsetOutlierMarkers());
-        js.append(generateJSsetOutlierMarkers1());
         js.append(generateJSsetRisingFill());
         js.append(generateJSsetRisingFill1());
         js.append(generateJSsetRisingFill2());
@@ -11022,35 +9726,11 @@ public class StateSettings extends CoreBase {
         js.append(generateJSsetRisingFill5());
         js.append(generateJSsetRisingFill6());
         js.append(generateJSsetRisingFill7());
-        js.append(generateJSsetRisingFill8());
-        js.append(generateJSsetRisingFill9());
         js.append(generateJSsetRisingHatchFill());
         js.append(generateJSsetRisingHatchFill1());
         js.append(generateJSsetRisingHatchFill2());
         js.append(generateJSsetRisingHatchFill3());
         js.append(generateJSsetRisingHatchFill4());
-        js.append(generateJSsetRisingStroke());
-        js.append(generateJSsetRisingStroke1());
-        js.append(generateJSsetRisingStroke2());
-        js.append(generateJSsetSize());
-        js.append(generateJSsetStemStroke());
-        js.append(generateJSsetStemStroke1());
-        js.append(generateJSsetStemStroke2());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetTrend());
-        js.append(generateJSsetTrend1());
-        js.append(generateJSsetTrend2());
-        js.append(generateJSsetType());
-        js.append(generateJSsetType1());
-        js.append(generateJSsetUpperLabels());
-        js.append(generateJSsetUpperLabels1());
-        js.append(generateJSsetWhiskerStroke());
-        js.append(generateJSsetWhiskerStroke1());
-        js.append(generateJSsetWhiskerStroke2());
-        js.append(generateJSsetWhiskerWidth());
-        js.append(generateJSsetWhiskerWidth1());
         
 
         String result = js.toString();

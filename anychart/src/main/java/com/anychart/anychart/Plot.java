@@ -269,7 +269,6 @@ public class Plot extends VisualBaseWithBounds {
     }
 
     private String[] annotationsList;
-    private List<Plot> setAnnotations = new ArrayList<>();
 
     /**
      * Setter for the plot annotations.
@@ -292,16 +291,6 @@ public class Plot extends VisualBaseWithBounds {
             }
         }
         return this;
-    }
-    private String generateJSsetAnnotations() {
-        if (!setAnnotations.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setAnnotations) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<StockSeriesArea> setArea = new ArrayList<>();
@@ -704,7 +693,6 @@ public class Plot extends VisualBaseWithBounds {
     private String background;
     private String background1;
     private Boolean background2;
-    private List<Plot> setBackground = new ArrayList<>();
 
     /**
      * Setter for the plot background.
@@ -732,18 +720,7 @@ public class Plot extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackground() {
-        if (!setBackground.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setBackground) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setBackground1 = new ArrayList<>();
 
     /**
      * Setter for the plot background.
@@ -770,16 +747,6 @@ public class Plot extends VisualBaseWithBounds {
             }
         }
         return this;
-    }
-    private String generateJSsetBackground1() {
-        if (!setBackground1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setBackground1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private TableMapping mapping4;
@@ -2344,7 +2311,6 @@ public class Plot extends VisualBaseWithBounds {
 
     private String crosshair;
     private Boolean crosshair1;
-    private List<Plot> setCrosshair = new ArrayList<>();
 
     /**
      * Setter for crosshair settings.<br/>
@@ -2372,18 +2338,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetCrosshair() {
-        if (!setCrosshair.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setCrosshair) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setCrosshair1 = new ArrayList<>();
 
     /**
      * Setter for crosshair settings.<br/>
@@ -2411,20 +2366,9 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetCrosshair1() {
-        if (!setCrosshair1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setCrosshair1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StockSeriesType defaultSeriesType;
     private String defaultSeriesType1;
-    private List<Plot> setDefaultSeriesType = new ArrayList<>();
 
     /**
      * Setter for the stock plot defaultSeriesType.
@@ -2451,18 +2395,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetDefaultSeriesType() {
-        if (!setDefaultSeriesType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setDefaultSeriesType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setDefaultSeriesType1 = new ArrayList<>();
 
     /**
      * Setter for the stock plot defaultSeriesType.
@@ -2488,16 +2421,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
         }
         return this;
-    }
-    private String generateJSsetDefaultSeriesType1() {
-        if (!setDefaultSeriesType1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setDefaultSeriesType1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private TableMapping mapping10;
@@ -6378,7 +6301,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private String legend;
     private Boolean legend1;
-    private List<Plot> setLegend = new ArrayList<>();
 
     /**
      * Setter for the plot legend setting.
@@ -6405,18 +6327,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetLegend() {
-        if (!setLegend.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setLegend) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setLegend1 = new ArrayList<>();
 
     /**
      * Setter for the plot legend setting.
@@ -6442,16 +6353,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
         }
         return this;
-    }
-    private String generateJSsetLegend1() {
-        if (!setLegend1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setLegend1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<StockSeriesLine> setLine = new ArrayList<>();
@@ -7198,7 +7099,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private String markerPalette1;
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
-    private List<Plot> setMarkerPalette = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -7224,18 +7124,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetMarkerPalette() {
-        if (!setMarkerPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setMarkerPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setMarkerPalette1 = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -7264,18 +7153,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetMarkerPalette1() {
-        if (!setMarkerPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setMarkerPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setMarkerPalette2 = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -7304,18 +7182,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetMarkerPalette2() {
-        if (!setMarkerPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setMarkerPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setMarkerPalette3 = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -7344,20 +7211,9 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetMarkerPalette3() {
-        if (!setMarkerPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setMarkerPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxPointWidth;
     private String maxPointWidth1;
-    private List<Plot> setMaxPointWidth = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -7384,18 +7240,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetMaxPointWidth() {
-        if (!setMaxPointWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setMaxPointWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setMaxPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -7422,20 +7267,9 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetMaxPointWidth1() {
-        if (!setMaxPointWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setMaxPointWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double minPointLength;
     private String minPointLength1;
-    private List<Plot> setMinPointLength = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -7462,18 +7296,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetMinPointLength() {
-        if (!setMinPointLength.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setMinPointLength) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setMinPointLength1 = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -7499,16 +7322,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
         }
         return this;
-    }
-    private String generateJSsetMinPointLength1() {
-        if (!setMinPointLength1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setMinPointLength1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private TableMapping mapping14;
@@ -7710,7 +7523,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     }
 
     private String noData;
-    private List<Plot> setNoData = new ArrayList<>();
 
     /**
      * Setter for noData settings.<br/>
@@ -7734,16 +7546,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
         }
         return this;
-    }
-    private String generateJSsetNoData() {
-        if (!setNoData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setNoData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<StockSeriesOHLC> setOhlc = new ArrayList<>();
@@ -7793,7 +7595,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
-    private List<Plot> setPalette = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -7819,18 +7620,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetPalette() {
-        if (!setPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -7856,18 +7646,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetPalette1() {
-        if (!setPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -7896,18 +7675,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetPalette2() {
-        if (!setPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -7936,20 +7704,9 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetPalette3() {
-        if (!setPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double pointWidth;
     private String pointWidth1;
-    private List<Plot> setPointWidth = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -7976,18 +7733,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetPointWidth() {
-        if (!setPointWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setPointWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -8014,16 +7760,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetPointWidth1() {
-        if (!setPointWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setPointWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private List<CurrentPriceIndicator> getPriceIndicator = new ArrayList<>();
 
@@ -8038,7 +7774,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private String priceIndicator;
     private Boolean priceIndicator1;
-    private List<Plot> setPriceIndicator = new ArrayList<>();
 
     /**
      * Setter for the stock price indicator settings.
@@ -8065,18 +7800,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetPriceIndicator() {
-        if (!setPriceIndicator.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setPriceIndicator) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setPriceIndicator1 = new ArrayList<>();
 
     /**
      * Setter for the stock price indicator settings.
@@ -8103,21 +7827,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetPriceIndicator1() {
-        if (!setPriceIndicator1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setPriceIndicator1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index;
     private String priceIndicator2;
     private Boolean priceIndicator3;
-    private List<Plot> setPriceIndicator2 = new ArrayList<>();
 
     /**
      * Setter for the stock price indicator settings by index.
@@ -8148,18 +7861,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetPriceIndicator2() {
-        if (!setPriceIndicator2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setPriceIndicator2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setPriceIndicator3 = new ArrayList<>();
 
     /**
      * Setter for the stock price indicator settings by index.
@@ -8189,16 +7891,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
         }
         return this;
-    }
-    private String generateJSsetPriceIndicator3() {
-        if (!setPriceIndicator3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setPriceIndicator3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<StockSeriesRangeArea> setRangeArea = new ArrayList<>();
@@ -8327,7 +8019,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private Double id;
     private String id1;
-    private List<Plot> setRemoveSeries = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -8354,18 +8045,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetRemoveSeries() {
-        if (!setRemoveSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setRemoveSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setRemoveSeries1 = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -8392,19 +8072,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetRemoveSeries1() {
-        if (!setRemoveSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setRemoveSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index1;
-    private List<Plot> setRemoveSeriesAt = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its index.
@@ -8430,16 +8099,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             }
         }
         return this;
-    }
-    private String generateJSsetRemoveSeriesAt() {
-        if (!setRemoveSeriesAt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setRemoveSeriesAt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private TableMapping mapping15;
@@ -10845,7 +10504,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private String xAxis;
     private Boolean xAxis1;
-    private List<Plot> setXAxis = new ArrayList<>();
 
     /**
      * Setter for the X-axis.
@@ -10872,18 +10530,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetXAxis() {
-        if (!setXAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setXAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setXAxis1 = new ArrayList<>();
 
     /**
      * Setter for the X-axis.
@@ -10910,16 +10557,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetXAxis1() {
-        if (!setXAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setXAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private List<GridsStock> getXGrid = new ArrayList<>();
 
@@ -10934,7 +10571,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private String xGrid;
     private Boolean xGrid1;
-    private List<Plot> setXGrid = new ArrayList<>();
 
     /**
      * Setter for the plot grid by X-scale.
@@ -10961,18 +10597,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetXGrid() {
-        if (!setXGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setXGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setXGrid1 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by X-scale.
@@ -10999,21 +10624,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetXGrid1() {
-        if (!setXGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setXGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index2;
     private String xGrid2;
     private Boolean xGrid3;
-    private List<Plot> setXGrid2 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by index.
@@ -11048,18 +10662,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetXGrid2() {
-        if (!setXGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setXGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setXGrid3 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by index.
@@ -11094,16 +10697,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetXGrid3() {
-        if (!setXGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setXGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private List<GridsStock> getXMinorGrid = new ArrayList<>();
 
@@ -11118,7 +10711,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private String xMinorGrid;
     private Boolean xMinorGrid1;
-    private List<Plot> setXMinorGrid = new ArrayList<>();
 
     /**
      * Setter for the plot grid by X-scale.
@@ -11145,18 +10737,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetXMinorGrid() {
-        if (!setXMinorGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setXMinorGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setXMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by X-scale.
@@ -11183,21 +10764,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetXMinorGrid1() {
-        if (!setXMinorGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setXMinorGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double indexOrValue;
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
-    private List<Plot> setXMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by index.
@@ -11228,18 +10798,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetXMinorGrid2() {
-        if (!setXMinorGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setXMinorGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setXMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by index.
@@ -11270,16 +10829,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetXMinorGrid3() {
-        if (!setXMinorGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setXMinorGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private List<CoreAxesLinear> getYAxis = new ArrayList<>();
 
@@ -11294,7 +10843,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private String yAxis;
     private Boolean yAxis1;
-    private List<Plot> setYAxis = new ArrayList<>();
 
     /**
      * Setter for the plot Y-axis.
@@ -11321,18 +10869,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetYAxis() {
-        if (!setYAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setYAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setYAxis1 = new ArrayList<>();
 
     /**
      * Setter for the plot Y-axis.
@@ -11359,21 +10896,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetYAxis1() {
-        if (!setYAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setYAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index3;
     private String yAxis2;
     private Boolean yAxis3;
-    private List<Plot> setYAxis2 = new ArrayList<>();
 
     /**
      * Setter for the Y-axis by index.
@@ -11409,18 +10935,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetYAxis2() {
-        if (!setYAxis2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setYAxis2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setYAxis3 = new ArrayList<>();
 
     /**
      * Setter for the Y-axis by index.
@@ -11456,16 +10971,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetYAxis3() {
-        if (!setYAxis3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setYAxis3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private List<GridsStock> getYGrid = new ArrayList<>();
 
@@ -11480,7 +10985,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private String yGrid;
     private Boolean yGrid1;
-    private List<Plot> setYGrid = new ArrayList<>();
 
     /**
      * Setter for the plot grid by Y-scale.
@@ -11507,18 +11011,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetYGrid() {
-        if (!setYGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setYGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setYGrid1 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by Y-scale.
@@ -11545,21 +11038,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetYGrid1() {
-        if (!setYGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setYGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index4;
     private String yGrid2;
     private Boolean yGrid3;
-    private List<Plot> setYGrid2 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by index.
@@ -11596,18 +11078,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetYGrid2() {
-        if (!setYGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setYGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setYGrid3 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by index.
@@ -11644,16 +11115,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetYGrid3() {
-        if (!setYGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setYGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private List<GridsStock> getYMinorGrid = new ArrayList<>();
 
@@ -11668,7 +11129,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private String yMinorGrid;
     private Boolean yMinorGrid1;
-    private List<Plot> setYMinorGrid = new ArrayList<>();
 
     /**
      * Setter for the plot grid by Y-scale.
@@ -11695,18 +11155,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetYMinorGrid() {
-        if (!setYMinorGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setYMinorGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setYMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by Y-scale.
@@ -11733,21 +11182,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetYMinorGrid1() {
-        if (!setYMinorGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setYMinorGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double indexOrValue1;
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
-    private List<Plot> setYMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by index.
@@ -11781,18 +11219,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetYMinorGrid2() {
-        if (!setYMinorGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setYMinorGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setYMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for the plot grid by index.
@@ -11826,16 +11253,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetYMinorGrid3() {
-        if (!setYMinorGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setYMinorGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScatterBase getYScale;
 
@@ -11853,7 +11270,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private String yScale1;
     private ScatterBase yScale2;
     private String yScale3;
-    private List<Plot> setYScale = new ArrayList<>();
 
     /**
      * Setter for the plot Y-scale.
@@ -11882,18 +11298,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetYScale() {
-        if (!setYScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setYScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the plot Y-scale.
@@ -11922,18 +11327,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetYScale1() {
-        if (!setYScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setYScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Plot> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the plot Y-scale.
@@ -11958,16 +11352,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
         }
         return this;
-    }
-    private String generateJSsetYScale2() {
-        if (!setYScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Plot item : setYScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetAnnotations() {
@@ -12191,7 +11575,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         js.append(generateJSsetAdl1());
         js.append(generateJSsetAma());
         js.append(generateJSsetAma1());
-        js.append(generateJSsetAnnotations());
         js.append(generateJSsetArea());
         js.append(generateJSsetAroon());
         js.append(generateJSsetAroon1());
@@ -12199,8 +11582,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         js.append(generateJSsetAroon3());
         js.append(generateJSsetAtr());
         js.append(generateJSsetAtr1());
-        js.append(generateJSsetBackground());
-        js.append(generateJSsetBackground1());
         js.append(generateJSsetBbands());
         js.append(generateJSsetBbands1());
         js.append(generateJSsetBbands2());
@@ -12223,10 +11604,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         js.append(generateJSsetCmf());
         js.append(generateJSsetCmf1());
         js.append(generateJSsetColumn());
-        js.append(generateJSsetCrosshair());
-        js.append(generateJSsetCrosshair1());
-        js.append(generateJSsetDefaultSeriesType());
-        js.append(generateJSsetDefaultSeriesType1());
         js.append(generateJSsetDmi());
         js.append(generateJSsetDmi1());
         js.append(generateJSsetDmi2());
@@ -12274,8 +11651,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         js.append(generateJSsetKdj29());
         js.append(generateJSsetKdj30());
         js.append(generateJSsetKdj31());
-        js.append(generateJSsetLegend());
-        js.append(generateJSsetLegend1());
         js.append(generateJSsetLine());
         js.append(generateJSsetMacd());
         js.append(generateJSsetMacd1());
@@ -12286,35 +11661,13 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         js.append(generateJSsetMacd6());
         js.append(generateJSsetMacd7());
         js.append(generateJSsetMarker());
-        js.append(generateJSsetMarkerPalette());
-        js.append(generateJSsetMarkerPalette1());
-        js.append(generateJSsetMarkerPalette2());
-        js.append(generateJSsetMarkerPalette3());
-        js.append(generateJSsetMaxPointWidth());
-        js.append(generateJSsetMaxPointWidth1());
-        js.append(generateJSsetMinPointLength());
-        js.append(generateJSsetMinPointLength1());
         js.append(generateJSsetMma());
         js.append(generateJSsetMma1());
-        js.append(generateJSsetNoData());
         js.append(generateJSsetOhlc());
-        js.append(generateJSsetPalette());
-        js.append(generateJSsetPalette1());
-        js.append(generateJSsetPalette2());
-        js.append(generateJSsetPalette3());
-        js.append(generateJSsetPointWidth());
-        js.append(generateJSsetPointWidth1());
-        js.append(generateJSsetPriceIndicator());
-        js.append(generateJSsetPriceIndicator1());
-        js.append(generateJSsetPriceIndicator2());
-        js.append(generateJSsetPriceIndicator3());
         js.append(generateJSsetRangeArea());
         js.append(generateJSsetRangeColumn());
         js.append(generateJSsetRangeSplineArea());
         js.append(generateJSsetRangeStepArea());
-        js.append(generateJSsetRemoveSeries());
-        js.append(generateJSsetRemoveSeries1());
-        js.append(generateJSsetRemoveSeriesAt());
         js.append(generateJSsetRoc());
         js.append(generateJSsetRoc1());
         js.append(generateJSsetRsi());
@@ -12342,31 +11695,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         js.append(generateJSsetStochastic13());
         js.append(generateJSsetStochastic14());
         js.append(generateJSsetStochastic15());
-        js.append(generateJSsetXAxis());
-        js.append(generateJSsetXAxis1());
-        js.append(generateJSsetXGrid());
-        js.append(generateJSsetXGrid1());
-        js.append(generateJSsetXGrid2());
-        js.append(generateJSsetXGrid3());
-        js.append(generateJSsetXMinorGrid());
-        js.append(generateJSsetXMinorGrid1());
-        js.append(generateJSsetXMinorGrid2());
-        js.append(generateJSsetXMinorGrid3());
-        js.append(generateJSsetYAxis());
-        js.append(generateJSsetYAxis1());
-        js.append(generateJSsetYAxis2());
-        js.append(generateJSsetYAxis3());
-        js.append(generateJSsetYGrid());
-        js.append(generateJSsetYGrid1());
-        js.append(generateJSsetYGrid2());
-        js.append(generateJSsetYGrid3());
-        js.append(generateJSsetYMinorGrid());
-        js.append(generateJSsetYMinorGrid1());
-        js.append(generateJSsetYMinorGrid2());
-        js.append(generateJSsetYMinorGrid3());
-        js.append(generateJSsetYScale());
-        js.append(generateJSsetYScale1());
-        js.append(generateJSsetYScale2());
         
 
         String result = js.toString();

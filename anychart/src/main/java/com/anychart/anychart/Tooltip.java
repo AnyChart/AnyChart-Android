@@ -1,8 +1,6 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -37,7 +35,6 @@ public class Tooltip extends VisualBase {
     private Boolean[] adjustOrAdjustByWidth1;
     private String adjustOrAdjustByWidth2;
     private Boolean adjustByHeight;
-    private List<Tooltip> setAdjustFontSize = new ArrayList<>();
 
     /**
      * Setter for the adjusting font size.
@@ -67,18 +64,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAdjustFontSize() {
-        if (!setAdjustFontSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setAdjustFontSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setAdjustFontSize1 = new ArrayList<>();
 
     /**
      * Setter for the adjusting font size.
@@ -108,18 +94,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAdjustFontSize1() {
-        if (!setAdjustFontSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setAdjustFontSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setAdjustFontSize2 = new ArrayList<>();
 
     /**
      * Setter for the adjusting font size.
@@ -149,19 +124,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAdjustFontSize2() {
-        if (!setAdjustFontSize2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setAdjustFontSize2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean allowLeaveChart;
-    private List<Tooltip> setAllowLeaveChart = new ArrayList<>();
 
     /**
      * Setter for the allowLeaveChart tooltip mode.
@@ -185,19 +149,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAllowLeaveChart() {
-        if (!setAllowLeaveChart.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setAllowLeaveChart) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean allowLeaveScreen;
-    private List<Tooltip> setAllowLeaveScreen = new ArrayList<>();
 
     /**
      * Setter for the allowLeaveScreen tooltip mode.
@@ -221,19 +174,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAllowLeaveScreen() {
-        if (!setAllowLeaveScreen.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setAllowLeaveScreen) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean allowLeaveStage;
-    private List<Tooltip> setAllowLeaveStage = new ArrayList<>();
 
     /**
      * Setter for the allowLeaveStage tooltip mode.
@@ -257,20 +199,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAllowLeaveStage() {
-        if (!setAllowLeaveStage.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setAllowLeaveStage) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private EnumsAnchor anchor;
     private String anchor1;
-    private List<Tooltip> setAnchor = new ArrayList<>();
 
     /**
      * Setter for the tooltip anchor.
@@ -297,18 +228,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAnchor() {
-        if (!setAnchor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setAnchor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setAnchor1 = new ArrayList<>();
 
     /**
      * Setter for the tooltip anchor.
@@ -335,16 +255,6 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAnchor1() {
-        if (!setAnchor1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setAnchor1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiBackground getBackground;
 
@@ -361,7 +271,6 @@ public class Tooltip extends VisualBase {
     private Boolean background;
     private String background1;
     private String background2;
-    private List<Tooltip> setBackground = new ArrayList<>();
 
     /**
      * Setter for tooltip background settings.
@@ -389,18 +298,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetBackground() {
-        if (!setBackground.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setBackground) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setBackground1 = new ArrayList<>();
 
     /**
      * Setter for tooltip background settings.
@@ -428,19 +326,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetBackground1() {
-        if (!setBackground1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setBackground1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean disablePointerEvents;
-    private List<Tooltip> setDisablePointerEvents = new ArrayList<>();
 
     /**
      * Setter for the pointer events setting.
@@ -464,20 +351,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetDisablePointerEvents() {
-        if (!setDisablePointerEvents.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setDisablePointerEvents) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TooltipDisplayMode displayMode;
     private String displayMode1;
-    private List<Tooltip> setDisplayMode = new ArrayList<>();
 
     /**
      * Setter for display mode settings.
@@ -505,18 +381,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetDisplayMode() {
-        if (!setDisplayMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setDisplayMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setDisplayMode1 = new ArrayList<>();
 
     /**
      * Setter for display mode settings.
@@ -544,19 +409,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetDisplayMode1() {
-        if (!setDisplayMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setDisplayMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fontColor;
-    private List<Tooltip> setFontColor = new ArrayList<>();
 
     /**
      * Setter for font color settings.
@@ -580,20 +434,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFontColor() {
-        if (!setFontColor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setFontColor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Decoration fontDecoration;
     private String fontDecoration1;
-    private List<Tooltip> setFontDecoration = new ArrayList<>();
 
     /**
      * Setter for font decoration settings.
@@ -620,18 +463,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFontDecoration() {
-        if (!setFontDecoration.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setFontDecoration) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setFontDecoration1 = new ArrayList<>();
 
     /**
      * Setter for font decoration settings.
@@ -658,19 +490,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFontDecoration1() {
-        if (!setFontDecoration1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setFontDecoration1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fontFamily;
-    private List<Tooltip> setFontFamily = new ArrayList<>();
 
     /**
      * Setter for font family settings.
@@ -694,19 +515,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFontFamily() {
-        if (!setFontFamily.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setFontFamily) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double fontOpacity;
-    private List<Tooltip> setFontOpacity = new ArrayList<>();
 
     /**
      * Setter for font opacity settings.
@@ -730,20 +540,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFontOpacity() {
-        if (!setFontOpacity.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setFontOpacity) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double fontSize;
     private String fontSize1;
-    private List<Tooltip> setFontSize = new ArrayList<>();
 
     /**
      * Setter for font size settings.
@@ -770,18 +569,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFontSize() {
-        if (!setFontSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setFontSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setFontSize1 = new ArrayList<>();
 
     /**
      * Setter for font size settings.
@@ -808,20 +596,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFontSize1() {
-        if (!setFontSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setFontSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fontStyle;
     private TextFontStyle fontStyle1;
-    private List<Tooltip> setFontStyle = new ArrayList<>();
 
     /**
      * Setter for font style settings.
@@ -848,18 +625,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFontStyle() {
-        if (!setFontStyle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setFontStyle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setFontStyle1 = new ArrayList<>();
 
     /**
      * Setter for font style settings.
@@ -886,20 +652,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFontStyle1() {
-        if (!setFontStyle1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setFontStyle1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fontVariant;
     private TextFontVariant fontVariant1;
-    private List<Tooltip> setFontVariant = new ArrayList<>();
 
     /**
      * Setter for font variant settings.
@@ -926,18 +681,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFontVariant() {
-        if (!setFontVariant.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setFontVariant) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setFontVariant1 = new ArrayList<>();
 
     /**
      * Setter for font variant settings.
@@ -964,20 +708,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFontVariant1() {
-        if (!setFontVariant1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setFontVariant1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fontWeight;
     private Double fontWeight1;
-    private List<Tooltip> setFontWeight = new ArrayList<>();
 
     /**
      * Setter for font weight settings.
@@ -1004,18 +737,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFontWeight() {
-        if (!setFontWeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setFontWeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setFontWeight1 = new ArrayList<>();
 
     /**
      * Setter for font weight settings.
@@ -1042,19 +764,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFontWeight1() {
-        if (!setFontWeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setFontWeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String format;
-    private List<Tooltip> setFormat = new ArrayList<>();
 
     /**
      * Setter for function content text for the tooltip.<br/>
@@ -1079,20 +790,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFormat() {
-        if (!setFormat.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setFormat) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String hAlign;
     private TextHAlign hAlign1;
-    private List<Tooltip> setHAlign = new ArrayList<>();
 
     /**
      * Setter for the text horizontal align settings.
@@ -1119,18 +819,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetHAlign() {
-        if (!setHAlign.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setHAlign) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setHAlign1 = new ArrayList<>();
 
     /**
      * Setter for the text horizontal align settings.
@@ -1157,20 +846,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetHAlign1() {
-        if (!setHAlign1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setHAlign1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String height;
     private Double height1;
-    private List<Tooltip> setHeight = new ArrayList<>();
 
     /**
      * Setter for the tooltip height.
@@ -1197,18 +875,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetHeight() {
-        if (!setHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setHeight1 = new ArrayList<>();
 
     /**
      * Setter for the tooltip height.
@@ -1234,16 +901,6 @@ public class Tooltip extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetHeight1() {
-        if (!setHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Boolean force;
@@ -1272,7 +929,6 @@ public class Tooltip extends VisualBase {
     }
 
     private Double hideDelay;
-    private List<Tooltip> setHideDelay = new ArrayList<>();
 
     /**
      * Setter for the delay in milliseconds before a tooltip becomes hidden.
@@ -1296,19 +952,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetHideDelay() {
-        if (!setHideDelay.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setHideDelay) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double letterSpacing;
-    private List<Tooltip> setLetterSpacing = new ArrayList<>();
 
     /**
      * Setter for text letter spacing settings.
@@ -1332,20 +977,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLetterSpacing() {
-        if (!setLetterSpacing.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setLetterSpacing) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double lineHeight;
     private String lineHeight1;
-    private List<Tooltip> setLineHeight = new ArrayList<>();
 
     /**
      * Setter for text line height settings.
@@ -1372,18 +1006,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLineHeight() {
-        if (!setLineHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setLineHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setLineHeight1 = new ArrayList<>();
 
     /**
      * Setter for text line height settings.
@@ -1410,20 +1033,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLineHeight1() {
-        if (!setLineHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setLineHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxFontSize;
     private String maxFontSize1;
-    private List<Tooltip> setMaxFontSize = new ArrayList<>();
 
     /**
      * Setter for maximum font size settings for adjust text from.
@@ -1450,18 +1062,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMaxFontSize() {
-        if (!setMaxFontSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setMaxFontSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setMaxFontSize1 = new ArrayList<>();
 
     /**
      * Setter for maximum font size settings for adjust text from.
@@ -1488,20 +1089,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMaxFontSize1() {
-        if (!setMaxFontSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setMaxFontSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double minFontSize;
     private String minFontSize1;
-    private List<Tooltip> setMinFontSize = new ArrayList<>();
 
     /**
      * Setter for minimum font size settings for adjust text from.
@@ -1528,18 +1118,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMinFontSize() {
-        if (!setMinFontSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setMinFontSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setMinFontSize1 = new ArrayList<>();
 
     /**
      * Setter for minimum font size settings for adjust text from.
@@ -1566,19 +1145,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMinFontSize1() {
-        if (!setMinFontSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setMinFontSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double offsetX;
-    private List<Tooltip> setOffsetX = new ArrayList<>();
 
     /**
      * Setter for union tooltip offsetX.
@@ -1602,19 +1170,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetOffsetX() {
-        if (!setOffsetX.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setOffsetX) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double offsetY;
-    private List<Tooltip> setOffsetY = new ArrayList<>();
 
     /**
      * Setter for the tooltip offset by Y.
@@ -1638,16 +1195,6 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetOffsetY() {
-        if (!setOffsetY.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setOffsetY) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UtilsPadding getPadding;
 
@@ -1664,7 +1211,6 @@ public class Tooltip extends VisualBase {
     private Double[] padding;
     private String[] padding1;
     private String padding2;
-    private List<Tooltip> setPadding = new ArrayList<>();
 
     /**
      * Setter for the tooltip padding in pixels by one value.
@@ -1692,18 +1238,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPadding() {
-        if (!setPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setPadding1 = new ArrayList<>();
 
     /**
      * Setter for the tooltip padding in pixels by one value.
@@ -1731,18 +1266,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPadding1() {
-        if (!setPadding1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setPadding1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setPadding2 = new ArrayList<>();
 
     /**
      * Setter for the tooltip padding in pixels by one value.
@@ -1770,16 +1294,6 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPadding2() {
-        if (!setPadding2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setPadding2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String value;
     private Double value1;
@@ -1789,7 +1303,6 @@ public class Tooltip extends VisualBase {
     private Double value5;
     private String value6;
     private Double value7;
-    private List<Tooltip> setPadding3 = new ArrayList<>();
 
     /**
      * Setter for the tooltip padding in pixels.
@@ -1855,18 +1368,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPadding3() {
-        if (!setPadding3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setPadding3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setPadding4 = new ArrayList<>();
 
     /**
      * Setter for the tooltip padding in pixels.
@@ -1932,20 +1434,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPadding4() {
-        if (!setPadding4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setPadding4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Position position;
     private String position1;
-    private List<Tooltip> setPosition = new ArrayList<>();
 
     /**
      * Setter for the union tooltip position.<br/>
@@ -1973,18 +1464,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPosition() {
-        if (!setPosition.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setPosition) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setPosition1 = new ArrayList<>();
 
     /**
      * Setter for the union tooltip position.<br/>
@@ -2012,20 +1492,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPosition1() {
-        if (!setPosition1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setPosition1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TooltipPositionMode positionMode;
     private String positionMode1;
-    private List<Tooltip> setPositionMode = new ArrayList<>();
 
     /**
      * Setter for all tooltips position mode.
@@ -2052,18 +1521,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPositionMode() {
-        if (!setPositionMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setPositionMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setPositionMode1 = new ArrayList<>();
 
     /**
      * Setter for all tooltips position mode.
@@ -2090,19 +1548,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPositionMode1() {
-        if (!setPositionMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setPositionMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean selectable;
-    private List<Tooltip> setSelectable = new ArrayList<>();
 
     /**
      * Setter for the text selectable option.
@@ -2126,16 +1573,6 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetSelectable() {
-        if (!setSelectable.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setSelectable) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Separator getSeparator;
 
@@ -2151,7 +1588,6 @@ public class Tooltip extends VisualBase {
 
     private Boolean separator;
     private String separator1;
-    private List<Tooltip> setSeparator = new ArrayList<>();
 
     /**
      * Setter for the union tooltip separator.
@@ -2178,18 +1614,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetSeparator() {
-        if (!setSeparator.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setSeparator) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setSeparator1 = new ArrayList<>();
 
     /**
      * Setter for the union tooltip separator.
@@ -2216,20 +1641,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetSeparator1() {
-        if (!setSeparator1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setSeparator1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String textDirection;
     private Direction textDirection1;
-    private List<Tooltip> setTextDirection = new ArrayList<>();
 
     /**
      * Setter for text direction settings.
@@ -2256,18 +1670,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTextDirection() {
-        if (!setTextDirection.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setTextDirection) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setTextDirection1 = new ArrayList<>();
 
     /**
      * Setter for text direction settings.
@@ -2294,19 +1697,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTextDirection1() {
-        if (!setTextDirection1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setTextDirection1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double textIndent;
-    private List<Tooltip> setTextIndent = new ArrayList<>();
 
     /**
      * Setter for text-indent settings.
@@ -2330,20 +1722,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTextIndent() {
-        if (!setTextIndent.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setTextIndent) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TextOverflow textOverflow;
     private String textOverflow1;
-    private List<Tooltip> setTextOverflow = new ArrayList<>();
 
     /**
      * Setter for text overflow settings.
@@ -2370,18 +1751,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTextOverflow() {
-        if (!setTextOverflow.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setTextOverflow) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setTextOverflow1 = new ArrayList<>();
 
     /**
      * Setter for text overflow settings.
@@ -2408,19 +1778,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTextOverflow1() {
-        if (!setTextOverflow1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setTextOverflow1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String textSettings;
-    private List<Tooltip> setTextSettings = new ArrayList<>();
 
     /**
      * Setter for the full text appearance settings.
@@ -2444,22 +1803,11 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTextSettings() {
-        if (!setTextSettings.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setTextSettings) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String name;
     private String textSettings1;
     private Double textSettings2;
     private Boolean textSettings3;
-    private List<Tooltip> setTextSettings1 = new ArrayList<>();
 
     /**
      * Setter for the custom text appearance settings.
@@ -2490,18 +1838,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTextSettings1() {
-        if (!setTextSettings1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setTextSettings1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setTextSettings2 = new ArrayList<>();
 
     /**
      * Setter for the custom text appearance settings.
@@ -2532,18 +1869,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTextSettings2() {
-        if (!setTextSettings2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setTextSettings2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setTextSettings3 = new ArrayList<>();
 
     /**
      * Setter for the custom text appearance settings.
@@ -2574,16 +1900,6 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTextSettings3() {
-        if (!setTextSettings3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setTextSettings3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiTitle getTitle;
 
@@ -2599,7 +1915,6 @@ public class Tooltip extends VisualBase {
 
     private Boolean title;
     private String title1;
-    private List<Tooltip> setTitle = new ArrayList<>();
 
     /**
      * Setter for union tooltip title visual settings.
@@ -2626,18 +1941,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTitle() {
-        if (!setTitle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setTitle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setTitle1 = new ArrayList<>();
 
     /**
      * Setter for union tooltip title visual settings.
@@ -2664,19 +1968,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTitle1() {
-        if (!setTitle1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setTitle1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String titleFormat;
-    private List<Tooltip> setTitleFormat = new ArrayList<>();
 
     /**
      * Setter for the function to format title.<br/>
@@ -2701,19 +1994,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTitleFormat() {
-        if (!setTitleFormat.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setTitleFormat) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String unionFormat;
-    private List<Tooltip> setUnionFormat = new ArrayList<>();
 
     /**
      * Setter for the function content text for union tooltip.<br/>
@@ -2738,19 +2020,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetUnionFormat() {
-        if (!setUnionFormat.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setUnionFormat) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean useHtml;
-    private List<Tooltip> setUseHtml = new ArrayList<>();
 
     /**
      * Setter for the useHTML flag.
@@ -2774,20 +2045,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetUseHtml() {
-        if (!setUseHtml.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setUseHtml) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String vAlign;
     private TextVAlign vAlign1;
-    private List<Tooltip> setVAlign = new ArrayList<>();
 
     /**
      * Setter for text vertical align settings.
@@ -2814,18 +2074,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetVAlign() {
-        if (!setVAlign.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setVAlign) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setVAlign1 = new ArrayList<>();
 
     /**
      * Setter for text vertical align settings.
@@ -2852,19 +2101,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetVAlign1() {
-        if (!setVAlign1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setVAlign1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String valuePostfix;
-    private List<Tooltip> setValuePostfix = new ArrayList<>();
 
     /**
      * Setter for tooltip postfix value.
@@ -2888,19 +2126,8 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetValuePostfix() {
-        if (!setValuePostfix.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setValuePostfix) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String valuePrefix;
-    private List<Tooltip> setValuePrefix = new ArrayList<>();
 
     /**
      * Setter for tooltip prefix value.
@@ -2924,20 +2151,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetValuePrefix() {
-        if (!setValuePrefix.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setValuePrefix) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String width;
     private Double width1;
-    private List<Tooltip> setWidth = new ArrayList<>();
 
     /**
      * Setter for the tooltip width.
@@ -2964,18 +2180,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetWidth() {
-        if (!setWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setWidth1 = new ArrayList<>();
 
     /**
      * Setter for the tooltip width.
@@ -3002,20 +2207,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetWidth1() {
-        if (!setWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private EnumsWordBreak wordBreak;
     private String wordBreak1;
-    private List<Tooltip> setWordBreak = new ArrayList<>();
 
     /**
      * Setter for the word-break mode.
@@ -3042,18 +2236,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetWordBreak() {
-        if (!setWordBreak.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setWordBreak) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setWordBreak1 = new ArrayList<>();
 
     /**
      * Setter for the word-break mode.
@@ -3080,20 +2263,9 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetWordBreak1() {
-        if (!setWordBreak1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setWordBreak1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private EnumsWordWrap wordWrap;
     private String wordWrap1;
-    private List<Tooltip> setWordWrap = new ArrayList<>();
 
     /**
      * Setter for the word-wrap mode.
@@ -3120,18 +2292,7 @@ public class Tooltip extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetWordWrap() {
-        if (!setWordWrap.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setWordWrap) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tooltip> setWordWrap1 = new ArrayList<>();
 
     /**
      * Setter for the word-wrap mode.
@@ -3157,16 +2318,6 @@ public class Tooltip extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetWordWrap1() {
-        if (!setWordWrap1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tooltip item : setWordWrap1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetBackground() {
@@ -3221,83 +2372,6 @@ public class Tooltip extends VisualBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAdjustFontSize());
-        js.append(generateJSsetAdjustFontSize1());
-        js.append(generateJSsetAdjustFontSize2());
-        js.append(generateJSsetAllowLeaveChart());
-        js.append(generateJSsetAllowLeaveScreen());
-        js.append(generateJSsetAllowLeaveStage());
-        js.append(generateJSsetAnchor());
-        js.append(generateJSsetAnchor1());
-        js.append(generateJSsetBackground());
-        js.append(generateJSsetBackground1());
-        js.append(generateJSsetDisablePointerEvents());
-        js.append(generateJSsetDisplayMode());
-        js.append(generateJSsetDisplayMode1());
-        js.append(generateJSsetFontColor());
-        js.append(generateJSsetFontDecoration());
-        js.append(generateJSsetFontDecoration1());
-        js.append(generateJSsetFontFamily());
-        js.append(generateJSsetFontOpacity());
-        js.append(generateJSsetFontSize());
-        js.append(generateJSsetFontSize1());
-        js.append(generateJSsetFontStyle());
-        js.append(generateJSsetFontStyle1());
-        js.append(generateJSsetFontVariant());
-        js.append(generateJSsetFontVariant1());
-        js.append(generateJSsetFontWeight());
-        js.append(generateJSsetFontWeight1());
-        js.append(generateJSsetFormat());
-        js.append(generateJSsetHAlign());
-        js.append(generateJSsetHAlign1());
-        js.append(generateJSsetHeight());
-        js.append(generateJSsetHeight1());
-        js.append(generateJSsetHideDelay());
-        js.append(generateJSsetLetterSpacing());
-        js.append(generateJSsetLineHeight());
-        js.append(generateJSsetLineHeight1());
-        js.append(generateJSsetMaxFontSize());
-        js.append(generateJSsetMaxFontSize1());
-        js.append(generateJSsetMinFontSize());
-        js.append(generateJSsetMinFontSize1());
-        js.append(generateJSsetOffsetX());
-        js.append(generateJSsetOffsetY());
-        js.append(generateJSsetPadding());
-        js.append(generateJSsetPadding1());
-        js.append(generateJSsetPadding2());
-        js.append(generateJSsetPadding3());
-        js.append(generateJSsetPadding4());
-        js.append(generateJSsetPosition());
-        js.append(generateJSsetPosition1());
-        js.append(generateJSsetPositionMode());
-        js.append(generateJSsetPositionMode1());
-        js.append(generateJSsetSelectable());
-        js.append(generateJSsetSeparator());
-        js.append(generateJSsetSeparator1());
-        js.append(generateJSsetTextDirection());
-        js.append(generateJSsetTextDirection1());
-        js.append(generateJSsetTextIndent());
-        js.append(generateJSsetTextOverflow());
-        js.append(generateJSsetTextOverflow1());
-        js.append(generateJSsetTextSettings());
-        js.append(generateJSsetTextSettings1());
-        js.append(generateJSsetTextSettings2());
-        js.append(generateJSsetTextSettings3());
-        js.append(generateJSsetTitle());
-        js.append(generateJSsetTitle1());
-        js.append(generateJSsetTitleFormat());
-        js.append(generateJSsetUnionFormat());
-        js.append(generateJSsetUseHtml());
-        js.append(generateJSsetVAlign());
-        js.append(generateJSsetVAlign1());
-        js.append(generateJSsetValuePostfix());
-        js.append(generateJSsetValuePrefix());
-        js.append(generateJSsetWidth());
-        js.append(generateJSsetWidth1());
-        js.append(generateJSsetWordBreak());
-        js.append(generateJSsetWordBreak1());
-        js.append(generateJSsetWordWrap());
-        js.append(generateJSsetWordWrap1());
         
 
         String result = js.toString();

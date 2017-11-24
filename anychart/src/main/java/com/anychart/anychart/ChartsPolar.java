@@ -220,7 +220,6 @@ public class ChartsPolar extends SeparateChart {
     }
 
     private Double barGroupsPadding;
-    private List<ChartsPolar> setBarGroupsPadding = new ArrayList<>();
 
     /**
      * Setter for the space between bar groups on the ordinal scale by ratio of bars width.
@@ -238,19 +237,8 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetBarGroupsPadding() {
-        if (!setBarGroupsPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setBarGroupsPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double barsPadding;
-    private List<ChartsPolar> setBarsPadding = new ArrayList<>();
 
     /**
      * Setter for the space between bars on the ordinal scale by ratio of bars width.
@@ -267,16 +255,6 @@ public class ChartsPolar extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetBarsPadding() {
-        if (!setBarsPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setBarsPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<PolarSeriesColumn> setColumn = new ArrayList<>();
@@ -346,7 +324,6 @@ public class ChartsPolar extends SeparateChart {
 
     private PolarSeriesType defaultSeriesType;
     private String defaultSeriesType1;
-    private List<ChartsPolar> setDefaultSeriesType = new ArrayList<>();
 
     /**
      * Setter for the polar default series type.
@@ -364,18 +341,7 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetDefaultSeriesType() {
-        if (!setDefaultSeriesType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setDefaultSeriesType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setDefaultSeriesType1 = new ArrayList<>();
 
     /**
      * Setter for the polar default series type.
@@ -392,16 +358,6 @@ public class ChartsPolar extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetDefaultSeriesType1() {
-        if (!setDefaultSeriesType1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setDefaultSeriesType1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -465,7 +421,6 @@ public class ChartsPolar extends SeparateChart {
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
-    private List<ChartsPolar> setHatchFillPalette = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -483,18 +438,7 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette() {
-        if (!setHatchFillPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setHatchFillPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setHatchFillPalette1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -512,18 +456,7 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette1() {
-        if (!setHatchFillPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setHatchFillPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setHatchFillPalette2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -539,16 +472,6 @@ public class ChartsPolar extends SeparateChart {
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetHatchFillPalette2() {
-        if (!setHatchFillPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setHatchFillPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getHovered;
@@ -563,7 +486,6 @@ public class ChartsPolar extends SeparateChart {
         return getHovered;
     }
     private String hovered;
-    private List<ChartsPolar> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -581,20 +503,9 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double innerRadius;
     private String innerRadius1;
-    private List<ChartsPolar> setInnerRadius = new ArrayList<>();
 
     /**
      * Setter for the inner radius in pixels or percent of main radius.
@@ -612,18 +523,7 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetInnerRadius() {
-        if (!setInnerRadius.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setInnerRadius) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setInnerRadius1 = new ArrayList<>();
 
     /**
      * Setter for the inner radius in pixels or percent of main radius.
@@ -641,16 +541,6 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetInnerRadius1() {
-        if (!setInnerRadius1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setInnerRadius1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiLabelsFactory getLabels;
@@ -666,7 +556,6 @@ public class ChartsPolar extends SeparateChart {
     }
     private String labels;
     private Boolean labels1;
-    private List<ChartsPolar> setLabels = new ArrayList<>();
 
     /**
      * Setter for series data labels.
@@ -684,18 +573,7 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for series data labels.
@@ -712,16 +590,6 @@ public class ChartsPolar extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<PolarSeriesLine> setLine = new ArrayList<>();
@@ -870,7 +738,6 @@ public class ChartsPolar extends SeparateChart {
     private String markerPalette1;
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
-    private List<ChartsPolar> setMarkerPalette = new ArrayList<>();
 
     /**
      * Setter for the markers palette settings.
@@ -886,18 +753,7 @@ public class ChartsPolar extends SeparateChart {
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetMarkerPalette() {
-        if (!setMarkerPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setMarkerPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setMarkerPalette1 = new ArrayList<>();
 
     /**
      * Setter for the markers palette settings.
@@ -915,18 +771,7 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette1() {
-        if (!setMarkerPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setMarkerPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setMarkerPalette2 = new ArrayList<>();
 
     /**
      * Setter for the markers palette settings.
@@ -944,18 +789,7 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette2() {
-        if (!setMarkerPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setMarkerPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setMarkerPalette3 = new ArrayList<>();
 
     /**
      * Setter for the markers palette settings.
@@ -973,20 +807,9 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette3() {
-        if (!setMarkerPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setMarkerPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxPointWidth;
     private String maxPointWidth1;
-    private List<ChartsPolar> setMaxPointWidth = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -1004,18 +827,7 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMaxPointWidth() {
-        if (!setMaxPointWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setMaxPointWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setMaxPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -1033,16 +845,6 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMaxPointWidth1() {
-        if (!setMaxPointWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setMaxPointWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getNormal;
@@ -1057,7 +859,6 @@ public class ChartsPolar extends SeparateChart {
         return getNormal;
     }
     private String normal;
-    private List<ChartsPolar> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -1074,16 +875,6 @@ public class ChartsPolar extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1102,7 +893,6 @@ public class ChartsPolar extends SeparateChart {
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
-    private List<ChartsPolar> setPalette = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.<br/>
@@ -1119,18 +909,7 @@ public class ChartsPolar extends SeparateChart {
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette() {
-        if (!setPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.<br/>
@@ -1147,18 +926,7 @@ public class ChartsPolar extends SeparateChart {
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette1() {
-        if (!setPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.<br/>
@@ -1177,18 +945,7 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPalette2() {
-        if (!setPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.<br/>
@@ -1207,20 +964,9 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPalette3() {
-        if (!setPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double pointWidth;
     private String pointWidth1;
-    private List<ChartsPolar> setPointWidth = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -1238,18 +984,7 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPointWidth() {
-        if (!setPointWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setPointWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -1266,16 +1001,6 @@ public class ChartsPolar extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetPointWidth1() {
-        if (!setPointWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setPointWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<Polygon> setPolygon = new ArrayList<>();
@@ -1475,7 +1200,6 @@ public class ChartsPolar extends SeparateChart {
 
     private Double id2;
     private String id3;
-    private List<ChartsPolar> setRemoveSeries = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -1493,18 +1217,7 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRemoveSeries() {
-        if (!setRemoveSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setRemoveSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setRemoveSeries1 = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -1522,19 +1235,8 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRemoveSeries1() {
-        if (!setRemoveSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setRemoveSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index1;
-    private List<ChartsPolar> setRemoveSeriesAt = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its index.
@@ -1552,16 +1254,6 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRemoveSeriesAt() {
-        if (!setRemoveSeriesAt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setRemoveSeriesAt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getSelected;
@@ -1576,7 +1268,6 @@ public class ChartsPolar extends SeparateChart {
         return getSelected;
     }
     private String selected;
-    private List<ChartsPolar> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -1594,19 +1285,8 @@ public class ChartsPolar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean sortPointsByX;
-    private List<ChartsPolar> setSortPointsByX = new ArrayList<>();
 
     /**
      * Setter for the sortPointsByX mode.
@@ -1625,20 +1305,9 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetSortPointsByX() {
-        if (!setSortPointsByX.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setSortPointsByX) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String startAngle;
     private Double startAngle1;
-    private List<ChartsPolar> setStartAngle = new ArrayList<>();
 
     /**
      * Setter for the chart start angle.
@@ -1656,18 +1325,7 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetStartAngle() {
-        if (!setStartAngle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setStartAngle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setStartAngle1 = new ArrayList<>();
 
     /**
      * Setter for the chart start angle.
@@ -1685,16 +1343,6 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetStartAngle1() {
-        if (!setStartAngle1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setStartAngle1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private CoreAxesRadar getXAxis;
@@ -1710,7 +1358,6 @@ If the points of series should be sorted by X before drawing.
     }
     private String xAxis;
     private Boolean xAxis1;
-    private List<ChartsPolar> setXAxis = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis.
@@ -1728,18 +1375,7 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetXAxis() {
-        if (!setXAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setXAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setXAxis1 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis.
@@ -1756,16 +1392,6 @@ If the points of series should be sorted by X before drawing.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXAxis1() {
-        if (!setXAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setXAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1793,7 +1419,6 @@ If the points of series should be sorted by X before drawing.
     }
     private String xGrid;
     private Boolean xGrid1;
-    private List<ChartsPolar> setXGrid = new ArrayList<>();
 
     /**
      * Setter for the chart grid by X-scale.
@@ -1811,18 +1436,7 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetXGrid() {
-        if (!setXGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setXGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setXGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by X-scale.
@@ -1840,21 +1454,10 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetXGrid1() {
-        if (!setXGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setXGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index3;
     private String xGrid2;
     private Boolean xGrid3;
-    private List<ChartsPolar> setXGrid2 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -1872,18 +1475,7 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetXGrid2() {
-        if (!setXGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setXGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setXGrid3 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -1900,16 +1492,6 @@ If the points of series should be sorted by X before drawing.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXGrid3() {
-        if (!setXGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setXGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1937,7 +1519,6 @@ If the points of series should be sorted by X before drawing.
     }
     private String xMinorGrid;
     private Boolean xMinorGrid1;
-    private List<ChartsPolar> setXMinorGrid = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by X-scale.
@@ -1955,18 +1536,7 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetXMinorGrid() {
-        if (!setXMinorGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setXMinorGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setXMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by X-scale.
@@ -1984,21 +1554,10 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetXMinorGrid1() {
-        if (!setXMinorGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setXMinorGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index5;
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
-    private List<ChartsPolar> setXMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -2016,18 +1575,7 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetXMinorGrid2() {
-        if (!setXMinorGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setXMinorGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setXMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -2045,16 +1593,6 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetXMinorGrid3() {
-        if (!setXMinorGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setXMinorGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private ScatterBase getXScale;
@@ -2064,7 +1602,7 @@ If the points of series should be sorted by X before drawing.
      */
     public ScatterBase getXScale() {
         if (getXScale == null)
-            getXScale = new ScatterBase(jsBase + ".xScale()");
+            getXScale = new ScalesLinear(jsBase + ".xScale()");
 
         return getXScale;
     }
@@ -2072,7 +1610,6 @@ If the points of series should be sorted by X before drawing.
     private ScaleTypes xScale1;
     private String xScale2;
     private ScalesBase xScale3;
-    private List<ChartsPolar> setXScale = new ArrayList<>();
 
     /**
      * Setter for the chart X scale.
@@ -2090,18 +1627,7 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetXScale() {
-        if (!setXScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setXScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setXScale1 = new ArrayList<>();
 
     /**
      * Setter for the chart X scale.
@@ -2119,18 +1645,7 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetXScale1() {
-        if (!setXScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setXScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setXScale2 = new ArrayList<>();
 
     /**
      * Setter for the chart X scale.
@@ -2145,16 +1660,6 @@ If the points of series should be sorted by X before drawing.
 
         js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale3 != null) ? xScale3.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetXScale2() {
-        if (!setXScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setXScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2171,7 +1676,6 @@ If the points of series should be sorted by X before drawing.
     }
     private String yAxis;
     private Boolean yAxis1;
-    private List<ChartsPolar> setYAxis = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis.
@@ -2189,18 +1693,7 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetYAxis() {
-        if (!setYAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setYAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setYAxis1 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis.
@@ -2217,16 +1710,6 @@ If the points of series should be sorted by X before drawing.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYAxis1() {
-        if (!setYAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setYAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2254,7 +1737,6 @@ If the points of series should be sorted by X before drawing.
     }
     private String yGrid;
     private Boolean yGrid1;
-    private List<ChartsPolar> setYGrid = new ArrayList<>();
 
     /**
      * Setter for the chart grid by Y-scale.
@@ -2272,18 +1754,7 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetYGrid() {
-        if (!setYGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setYGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setYGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by Y-scale.
@@ -2301,21 +1772,10 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetYGrid1() {
-        if (!setYGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setYGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index7;
     private String yGrid2;
     private Boolean yGrid3;
-    private List<ChartsPolar> setYGrid2 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -2333,18 +1793,7 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetYGrid2() {
-        if (!setYGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setYGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setYGrid3 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -2361,16 +1810,6 @@ If the points of series should be sorted by X before drawing.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYGrid3() {
-        if (!setYGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setYGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2398,7 +1837,6 @@ If the points of series should be sorted by X before drawing.
     }
     private String yMinorGrid;
     private Boolean yMinorGrid1;
-    private List<ChartsPolar> setYMinorGrid = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by Y-scale.
@@ -2416,18 +1854,7 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetYMinorGrid() {
-        if (!setYMinorGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setYMinorGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setYMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by Y-scale.
@@ -2445,21 +1872,10 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetYMinorGrid1() {
-        if (!setYMinorGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setYMinorGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index9;
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
-    private List<ChartsPolar> setYMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -2477,18 +1893,7 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetYMinorGrid2() {
-        if (!setYMinorGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setYMinorGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setYMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -2506,16 +1911,6 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetYMinorGrid3() {
-        if (!setYMinorGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setYMinorGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private ScatterBase getYScale;
@@ -2525,7 +1920,7 @@ If the points of series should be sorted by X before drawing.
      */
     public ScatterBase getYScale() {
         if (getYScale == null)
-            getYScale = new ScatterBase(jsBase + ".yScale()");
+            getYScale = new ScalesLinear(jsBase + ".yScale()");
 
         return getYScale;
     }
@@ -2533,7 +1928,6 @@ If the points of series should be sorted by X before drawing.
     private ScatterScaleTypes yScale1;
     private String yScale2;
     private ScatterBase yScale3;
-    private List<ChartsPolar> setYScale = new ArrayList<>();
 
     /**
      * Setter for the chart Y scale.
@@ -2551,18 +1945,7 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetYScale() {
-        if (!setYScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setYScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the chart Y scale.
@@ -2580,18 +1963,7 @@ If the points of series should be sorted by X before drawing.
         }
         return this;
     }
-    private String generateJSsetYScale1() {
-        if (!setYScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setYScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsPolar> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the chart Y scale.
@@ -2606,16 +1978,6 @@ If the points of series should be sorted by X before drawing.
 
         js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale3 != null) ? yScale3.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetYScale2() {
-        if (!setYScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsPolar item : setYScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetGetPlotBounds() {
@@ -2846,76 +2208,18 @@ If the points of series should be sorted by X before drawing.
         js.append(generateJSgetYScale());
         js.append(generateJSsetArea());
         js.append(generateJSsetArea1());
-        js.append(generateJSsetBarGroupsPadding());
-        js.append(generateJSsetBarsPadding());
         js.append(generateJSsetColumn());
         js.append(generateJSsetColumn1());
-        js.append(generateJSsetDefaultSeriesType());
-        js.append(generateJSsetDefaultSeriesType1());
-        js.append(generateJSsetHatchFillPalette());
-        js.append(generateJSsetHatchFillPalette1());
-        js.append(generateJSsetHatchFillPalette2());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetInnerRadius());
-        js.append(generateJSsetInnerRadius1());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
         js.append(generateJSsetLine());
         js.append(generateJSsetLine1());
         js.append(generateJSsetMarker());
         js.append(generateJSsetMarker1());
-        js.append(generateJSsetMarkerPalette());
-        js.append(generateJSsetMarkerPalette1());
-        js.append(generateJSsetMarkerPalette2());
-        js.append(generateJSsetMarkerPalette3());
-        js.append(generateJSsetMaxPointWidth());
-        js.append(generateJSsetMaxPointWidth1());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetPalette());
-        js.append(generateJSsetPalette1());
-        js.append(generateJSsetPalette2());
-        js.append(generateJSsetPalette3());
-        js.append(generateJSsetPointWidth());
-        js.append(generateJSsetPointWidth1());
         js.append(generateJSsetPolygon());
         js.append(generateJSsetPolygon1());
         js.append(generateJSsetPolyline());
         js.append(generateJSsetPolyline1());
         js.append(generateJSsetRangeColumn());
         js.append(generateJSsetRangeColumn1());
-        js.append(generateJSsetRemoveSeries());
-        js.append(generateJSsetRemoveSeries1());
-        js.append(generateJSsetRemoveSeriesAt());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetSortPointsByX());
-        js.append(generateJSsetStartAngle());
-        js.append(generateJSsetStartAngle1());
-        js.append(generateJSsetXAxis());
-        js.append(generateJSsetXAxis1());
-        js.append(generateJSsetXGrid());
-        js.append(generateJSsetXGrid1());
-        js.append(generateJSsetXGrid2());
-        js.append(generateJSsetXGrid3());
-        js.append(generateJSsetXMinorGrid());
-        js.append(generateJSsetXMinorGrid1());
-        js.append(generateJSsetXMinorGrid2());
-        js.append(generateJSsetXMinorGrid3());
-        js.append(generateJSsetXScale());
-        js.append(generateJSsetXScale1());
-        js.append(generateJSsetXScale2());
-        js.append(generateJSsetYAxis());
-        js.append(generateJSsetYAxis1());
-        js.append(generateJSsetYGrid());
-        js.append(generateJSsetYGrid1());
-        js.append(generateJSsetYGrid2());
-        js.append(generateJSsetYGrid3());
-        js.append(generateJSsetYMinorGrid());
-        js.append(generateJSsetYMinorGrid1());
-        js.append(generateJSsetYMinorGrid2());
-        js.append(generateJSsetYMinorGrid3());
-        js.append(generateJSsetYScale());
-        js.append(generateJSsetYScale1());
-        js.append(generateJSsetYScale2());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

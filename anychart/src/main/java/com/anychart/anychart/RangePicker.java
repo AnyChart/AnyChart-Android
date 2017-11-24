@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -79,7 +77,6 @@ public class RangePicker extends JsObject {
     }
 
     private String fromLabelText;
-    private List<RangePicker> setFromLabelText = new ArrayList<>();
 
     /**
      * Setter for the text for 'from'-label.
@@ -102,16 +99,6 @@ public class RangePicker extends JsObject {
             }
         }
         return this;
-    }
-    private String generateJSsetFromLabelText() {
-        if (!setFromLabelText.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (RangePicker item : setFromLabelText) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private ChartsStock parentElement;
@@ -184,7 +171,6 @@ public class RangePicker extends JsObject {
     }
 
     private String toLabelText;
-    private List<RangePicker> setToLabelText = new ArrayList<>();
 
     /**
      * Setter for the text for 'to'-label.
@@ -208,16 +194,6 @@ public class RangePicker extends JsObject {
         }
         return this;
     }
-    private String generateJSsetToLabelText() {
-        if (!setToLabelText.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (RangePicker item : setToLabelText) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -239,8 +215,6 @@ public class RangePicker extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetFromLabelText());
-        js.append(generateJSsetToLabelText());
         
 
         String result = js.toString();

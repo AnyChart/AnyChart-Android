@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -34,7 +32,6 @@ public class CircularLabelsFactory extends UiLabelsFactory {
 
     
     private Boolean autoRotate;
-    private List<CircularLabelsFactory> setAutoRotate = new ArrayList<>();
 
     /**
      * Setter for labels rotation.<br/>
@@ -59,16 +56,6 @@ Auto rotates a labels around an anchor.
         }
         return this;
     }
-    private String generateJSsetAutoRotate() {
-        if (!setAutoRotate.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CircularLabelsFactory item : setAutoRotate) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -90,7 +77,6 @@ Auto rotates a labels around an anchor.
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAutoRotate());
         
 
         String result = js.toString();

@@ -53,7 +53,6 @@ public class UiTable extends VisualBaseWithBounds {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<UiTable> setBorder = new ArrayList<>();
 
     /**
      * Setter for border of the table (not cells).
@@ -89,18 +88,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBorder() {
-        if (!setBorder.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setBorder) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setBorder1 = new ArrayList<>();
 
     /**
      * Setter for border of the table (not cells).
@@ -136,18 +124,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBorder1() {
-        if (!setBorder1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setBorder1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setBorder2 = new ArrayList<>();
 
     /**
      * Setter for border of the table (not cells).
@@ -183,16 +160,6 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBorder2() {
-        if (!setBorder2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setBorder2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke strokeOrFill;
     private ColoredFill strokeOrFill1;
@@ -201,7 +168,6 @@ public class UiTable extends VisualBaseWithBounds {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
-    private List<UiTable> setCellBorder = new ArrayList<>();
 
     /**
      * Setter for cell border settings.
@@ -250,18 +216,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellBorder() {
-        if (!setCellBorder.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellBorder) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setCellBorder1 = new ArrayList<>();
 
     /**
      * Setter for cell border settings.
@@ -310,18 +265,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellBorder1() {
-        if (!setCellBorder1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellBorder1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setCellBorder2 = new ArrayList<>();
 
     /**
      * Setter for cell border settings.
@@ -370,19 +314,8 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellBorder2() {
-        if (!setCellBorder2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellBorder2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill cellFill;
-    private List<UiTable> setCellFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -407,20 +340,9 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellFill() {
-        if (!setCellFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color3;
     private Double opacity;
-    private List<UiTable> setCellFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -451,16 +373,6 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellFill1() {
-        if (!setCellFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -469,7 +381,6 @@ public class UiTable extends VisualBaseWithBounds {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<UiTable> setCellFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -510,18 +421,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellFill2() {
-        if (!setCellFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setCellFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -562,18 +462,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellFill3() {
-        if (!setCellFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setCellFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -614,18 +503,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellFill4() {
-        if (!setCellFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setCellFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -666,18 +544,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellFill5() {
-        if (!setCellFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setCellFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -718,18 +585,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellFill6() {
-        if (!setCellFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setCellFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -770,16 +626,6 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellFill7() {
-        if (!setCellFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -789,7 +635,6 @@ public class UiTable extends VisualBaseWithBounds {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<UiTable> setCellFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -840,18 +685,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellFill8() {
-        if (!setCellFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setCellFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -902,16 +736,6 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellFill9() {
-        if (!setCellFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private TablePadding getCellPadding;
@@ -929,7 +753,6 @@ public class UiTable extends VisualBaseWithBounds {
     private Double[] cellPadding;
     private String[] cellPadding1;
     private String cellPadding2;
-    private List<UiTable> setCellPadding = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using a single value.
@@ -957,18 +780,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellPadding() {
-        if (!setCellPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setCellPadding1 = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using a single value.
@@ -996,18 +808,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellPadding1() {
-        if (!setCellPadding1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellPadding1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setCellPadding2 = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using a single value.
@@ -1035,16 +836,6 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellPadding2() {
-        if (!setCellPadding2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellPadding2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String value;
     private Double value1;
@@ -1054,7 +845,6 @@ public class UiTable extends VisualBaseWithBounds {
     private Double value5;
     private String value6;
     private Double value7;
-    private List<UiTable> setCellPadding3 = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using several numbers.
@@ -1120,18 +910,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellPadding3() {
-        if (!setCellPadding3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellPadding3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setCellPadding4 = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using several numbers.
@@ -1197,19 +976,8 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetCellPadding4() {
-        if (!setCellPadding4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setCellPadding4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double colsCount;
-    private List<UiTable> setColsCount = new ArrayList<>();
 
     /**
      * Setter for table columns count.
@@ -1233,20 +1001,9 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetColsCount() {
-        if (!setColsCount.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setColsCount) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String colsMaxWidth;
     private Double colsMaxWidth1;
-    private List<UiTable> setColsMaxWidth = new ArrayList<>();
 
     /**
      * Setter for the column width maximum.
@@ -1273,18 +1030,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetColsMaxWidth() {
-        if (!setColsMaxWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setColsMaxWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setColsMaxWidth1 = new ArrayList<>();
 
     /**
      * Setter for the column width maximum.
@@ -1311,20 +1057,9 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetColsMaxWidth1() {
-        if (!setColsMaxWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setColsMaxWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String colsMinWidth;
     private Double colsMinWidth1;
-    private List<UiTable> setColsMinWidth = new ArrayList<>();
 
     /**
      * Setter for column width minimum.
@@ -1351,18 +1086,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetColsMinWidth() {
-        if (!setColsMinWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setColsMinWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setColsMinWidth1 = new ArrayList<>();
 
     /**
      * Setter for column width minimum.
@@ -1389,20 +1113,9 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetColsMinWidth1() {
-        if (!setColsMinWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setColsMinWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String colsWidth;
     private Double colsWidth1;
-    private List<UiTable> setColsWidth = new ArrayList<>();
 
     /**
      * Setter for the column width.
@@ -1429,18 +1142,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetColsWidth() {
-        if (!setColsWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setColsWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setColsWidth1 = new ArrayList<>();
 
     /**
      * Setter for the column width.
@@ -1467,20 +1169,9 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetColsWidth1() {
-        if (!setColsWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setColsWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String tableValues;
     private Boolean demergeCells;
-    private List<UiTable> setContents = new ArrayList<>();
 
     /**
      * Setter for the table content.
@@ -1506,19 +1197,8 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetContents() {
-        if (!setContents.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setContents) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean disablePointerEvents;
-    private List<UiTable> setDisablePointerEvents = new ArrayList<>();
 
     /**
      * Setter for the text disablePointerEvents option.
@@ -1542,19 +1222,8 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetDisablePointerEvents() {
-        if (!setDisablePointerEvents.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setDisablePointerEvents) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fontColor;
-    private List<UiTable> setFontColor = new ArrayList<>();
 
     /**
      * Setter for the text font color.
@@ -1579,20 +1248,9 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetFontColor() {
-        if (!setFontColor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setFontColor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Decoration fontDecoration;
     private String fontDecoration1;
-    private List<UiTable> setFontDecoration = new ArrayList<>();
 
     /**
      * Setter for the text font decoration.
@@ -1619,18 +1277,7 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetFontDecoration() {
-        if (!setFontDecoration.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setFontDecoration) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setFontDecoration1 = new ArrayList<>();
 
     /**
      * Setter for the text font decoration.
@@ -1657,19 +1304,8 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetFontDecoration1() {
-        if (!setFontDecoration1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setFontDecoration1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fontFamily;
-    private List<UiTable> setFontFamily = new ArrayList<>();
 
     /**
      * Setter for font family.
@@ -1693,19 +1329,8 @@ public class UiTable extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetFontFamily() {
-        if (!setFontFamily.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setFontFamily) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double fontOpacity;
-    private List<UiTable> setFontOpacity = new ArrayList<>();
 
     /**
      * Setter for the text font opacity.
@@ -1730,20 +1355,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetFontOpacity() {
-        if (!setFontOpacity.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setFontOpacity) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fontSize;
     private Double fontSize1;
-    private List<UiTable> setFontSize = new ArrayList<>();
 
     /**
      * Setter for text font size.
@@ -1770,18 +1384,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetFontSize() {
-        if (!setFontSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setFontSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setFontSize1 = new ArrayList<>();
 
     /**
      * Setter for text font size.
@@ -1808,20 +1411,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetFontSize1() {
-        if (!setFontSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setFontSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TextFontStyle fontStyle;
     private String fontStyle1;
-    private List<UiTable> setFontStyle = new ArrayList<>();
 
     /**
      * Setter for the text font style.
@@ -1848,18 +1440,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetFontStyle() {
-        if (!setFontStyle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setFontStyle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setFontStyle1 = new ArrayList<>();
 
     /**
      * Setter for the text font style.
@@ -1886,20 +1467,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetFontStyle1() {
-        if (!setFontStyle1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setFontStyle1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TextFontVariant fontVariant;
     private String fontVariant1;
-    private List<UiTable> setFontVariant = new ArrayList<>();
 
     /**
      * Setter for the text font variant.
@@ -1926,18 +1496,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetFontVariant() {
-        if (!setFontVariant.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setFontVariant) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setFontVariant1 = new ArrayList<>();
 
     /**
      * Setter for the text font variant.
@@ -1964,20 +1523,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetFontVariant1() {
-        if (!setFontVariant1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setFontVariant1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fontWeight;
     private Double fontWeight1;
-    private List<UiTable> setFontWeight = new ArrayList<>();
 
     /**
      * Setter for the text font weight.
@@ -2005,18 +1553,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetFontWeight() {
-        if (!setFontWeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setFontWeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setFontWeight1 = new ArrayList<>();
 
     /**
      * Setter for the text font weight.
@@ -2043,16 +1580,6 @@ Double value from 0 to 1.
             }
         }
         return this;
-    }
-    private String generateJSsetFontWeight1() {
-        if (!setFontWeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setFontWeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double row;
@@ -2547,7 +2074,6 @@ Double value from 0 to 1.
 
     private TextHAlign hAlign;
     private String hAlign1;
-    private List<UiTable> setHAlign = new ArrayList<>();
 
     /**
      * Setter for the text horizontal align.
@@ -2574,18 +2100,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetHAlign() {
-        if (!setHAlign.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setHAlign) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setHAlign1 = new ArrayList<>();
 
     /**
      * Setter for the text horizontal align.
@@ -2612,20 +2127,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetHAlign1() {
-        if (!setHAlign1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setHAlign1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String letterSpacing;
     private Double letterSpacing1;
-    private List<UiTable> setLetterSpacing = new ArrayList<>();
 
     /**
      * Setter for the text letter spacing.
@@ -2653,18 +2157,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetLetterSpacing() {
-        if (!setLetterSpacing.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setLetterSpacing) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setLetterSpacing1 = new ArrayList<>();
 
     /**
      * Setter for the text letter spacing.
@@ -2692,20 +2185,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetLetterSpacing1() {
-        if (!setLetterSpacing1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setLetterSpacing1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String lineHeight;
     private Double lineHeight1;
-    private List<UiTable> setLineHeight = new ArrayList<>();
 
     /**
      * Setter for the text line height. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
@@ -2732,18 +2214,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetLineHeight() {
-        if (!setLineHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setLineHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setLineHeight1 = new ArrayList<>();
 
     /**
      * Setter for the text line height. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
@@ -2770,19 +2241,8 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetLineHeight1() {
-        if (!setLineHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setLineHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill rowEvenFill;
-    private List<UiTable> setRowEvenFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -2807,20 +2267,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowEvenFill() {
-        if (!setRowEvenFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowEvenFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color4;
     private Double opacity3;
-    private List<UiTable> setRowEvenFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -2857,16 +2306,6 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowEvenFill1() {
-        if (!setRowEvenFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowEvenFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys4;
     private String[] keys5;
@@ -2875,7 +2314,6 @@ Double value from 0 to 1.
     private VectorRect mode5;
     private String mode6;
     private Double opacity4;
-    private List<UiTable> setRowEvenFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2930,18 +2368,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowEvenFill2() {
-        if (!setRowEvenFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowEvenFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setRowEvenFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2996,18 +2423,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowEvenFill3() {
-        if (!setRowEvenFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowEvenFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setRowEvenFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3062,18 +2478,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowEvenFill4() {
-        if (!setRowEvenFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowEvenFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setRowEvenFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3128,18 +2533,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowEvenFill5() {
-        if (!setRowEvenFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowEvenFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setRowEvenFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3194,18 +2588,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowEvenFill6() {
-        if (!setRowEvenFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowEvenFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setRowEvenFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3260,16 +2643,6 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowEvenFill7() {
-        if (!setRowEvenFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowEvenFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys6;
     private String[] keys7;
@@ -3279,7 +2652,6 @@ Double value from 0 to 1.
     private Double opacity5;
     private Double fx1;
     private Double fy1;
-    private List<UiTable> setRowEvenFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -3353,18 +2725,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowEvenFill8() {
-        if (!setRowEvenFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowEvenFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setRowEvenFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -3438,20 +2799,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowEvenFill9() {
-        if (!setRowEvenFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowEvenFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings1;
     private Fill rowOddFill;
-    private List<UiTable> setRowOddFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -3476,20 +2826,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowOddFill() {
-        if (!setRowOddFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowOddFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color5;
     private Double opacity6;
-    private List<UiTable> setRowOddFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -3530,16 +2869,6 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowOddFill1() {
-        if (!setRowOddFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowOddFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys8;
     private String[] keys9;
@@ -3548,7 +2877,6 @@ Double value from 0 to 1.
     private VectorRect mode9;
     private String mode10;
     private Double opacity7;
-    private List<UiTable> setRowOddFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3615,18 +2943,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowOddFill2() {
-        if (!setRowOddFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowOddFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setRowOddFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3693,18 +3010,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowOddFill3() {
-        if (!setRowOddFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowOddFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setRowOddFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3771,18 +3077,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowOddFill4() {
-        if (!setRowOddFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowOddFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setRowOddFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3849,18 +3144,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowOddFill5() {
-        if (!setRowOddFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowOddFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setRowOddFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3927,18 +3211,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowOddFill6() {
-        if (!setRowOddFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowOddFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setRowOddFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -4005,16 +3278,6 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowOddFill7() {
-        if (!setRowOddFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowOddFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys10;
     private String[] keys11;
@@ -4024,7 +3287,6 @@ Double value from 0 to 1.
     private Double opacity8;
     private Double fx2;
     private Double fy2;
-    private List<UiTable> setRowOddFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -4113,18 +3375,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowOddFill8() {
-        if (!setRowOddFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowOddFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setRowOddFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -4213,20 +3464,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowOddFill9() {
-        if (!setRowOddFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowOddFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings2;
     private Double rowsCount;
-    private List<UiTable> setRowsCount = new ArrayList<>();
 
     /**
      * Setter for table rows count.
@@ -4250,20 +3490,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowsCount() {
-        if (!setRowsCount.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowsCount) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String rowsHeight;
     private Double rowsHeight1;
-    private List<UiTable> setRowsHeight = new ArrayList<>();
 
     /**
      * Setter for row height.
@@ -4290,18 +3519,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowsHeight() {
-        if (!setRowsHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowsHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setRowsHeight1 = new ArrayList<>();
 
     /**
      * Setter for row height.
@@ -4328,20 +3546,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowsHeight1() {
-        if (!setRowsHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowsHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String rowsMaxHeight;
     private Double rowsMaxHeight1;
-    private List<UiTable> setRowsMaxHeight = new ArrayList<>();
 
     /**
      * Setter for the row height maximum.
@@ -4368,18 +3575,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowsMaxHeight() {
-        if (!setRowsMaxHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowsMaxHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setRowsMaxHeight1 = new ArrayList<>();
 
     /**
      * Setter for the row height maximum.
@@ -4406,20 +3602,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowsMaxHeight1() {
-        if (!setRowsMaxHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowsMaxHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String rowsMinHeight;
     private Double rowsMinHeight1;
-    private List<UiTable> setRowsMinHeight = new ArrayList<>();
 
     /**
      * Setter for the row height minimum.
@@ -4446,18 +3631,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetRowsMinHeight() {
-        if (!setRowsMinHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowsMinHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setRowsMinHeight1 = new ArrayList<>();
 
     /**
      * Setter for the row height minimum.
@@ -4483,16 +3657,6 @@ Double value from 0 to 1.
             }
         }
         return this;
-    }
-    private String generateJSsetRowsMinHeight1() {
-        if (!setRowsMinHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setRowsMinHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double width2;
@@ -4705,7 +3869,6 @@ Double value from 0 to 1.
     }
 
     private Boolean selectable;
-    private List<UiTable> setSelectable = new ArrayList<>();
 
     /**
      * Setter for the text selectable.
@@ -4728,16 +3891,6 @@ Double value from 0 to 1.
             }
         }
         return this;
-    }
-    private String generateJSsetSelectable() {
-        if (!setSelectable.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setSelectable) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Boolean asBase;
@@ -5344,7 +4497,6 @@ Double value from 0 to 1.
 
     private Direction textDirection;
     private String textDirection1;
-    private List<UiTable> setTextDirection = new ArrayList<>();
 
     /**
      * Setter for the text direction.
@@ -5371,18 +4523,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetTextDirection() {
-        if (!setTextDirection.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setTextDirection) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setTextDirection1 = new ArrayList<>();
 
     /**
      * Setter for the text direction.
@@ -5409,19 +4550,8 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetTextDirection1() {
-        if (!setTextDirection1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setTextDirection1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double textIndent;
-    private List<UiTable> setTextIndent = new ArrayList<>();
 
     /**
      * Setter for the text indent.
@@ -5445,20 +4575,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetTextIndent() {
-        if (!setTextIndent.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setTextIndent) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TextOverflow textOverflow;
     private String textOverflow1;
-    private List<UiTable> setTextOverflow = new ArrayList<>();
 
     /**
      * Setter for the text overflow settings.
@@ -5485,18 +4604,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetTextOverflow() {
-        if (!setTextOverflow.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setTextOverflow) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setTextOverflow1 = new ArrayList<>();
 
     /**
      * Setter for the text overflow settings.
@@ -5522,16 +4630,6 @@ Double value from 0 to 1.
             }
         }
         return this;
-    }
-    private String generateJSsetTextOverflow1() {
-        if (!setTextOverflow1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setTextOverflow1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String paperSize2;
@@ -5617,7 +4715,6 @@ Double value from 0 to 1.
     }
 
     private Boolean useHtml;
-    private List<UiTable> setUseHtml = new ArrayList<>();
 
     /**
      * Setter for flag useHtml.
@@ -5641,20 +4738,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetUseHtml() {
-        if (!setUseHtml.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setUseHtml) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TextVAlign vAlign;
     private String vAlign1;
-    private List<UiTable> setVAlign = new ArrayList<>();
 
     /**
      * Setter for the text vertical align.
@@ -5681,18 +4767,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetVAlign() {
-        if (!setVAlign.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setVAlign) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setVAlign1 = new ArrayList<>();
 
     /**
      * Setter for the text vertical align.
@@ -5719,20 +4794,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetVAlign1() {
-        if (!setVAlign1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setVAlign1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private EnumsWordBreak wordBreak;
     private String wordBreak1;
-    private List<UiTable> setWordBreak = new ArrayList<>();
 
     /**
      * Setter for the word-break mode.
@@ -5759,18 +4823,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetWordBreak() {
-        if (!setWordBreak.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setWordBreak) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setWordBreak1 = new ArrayList<>();
 
     /**
      * Setter for the word-break mode.
@@ -5797,20 +4850,9 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetWordBreak1() {
-        if (!setWordBreak1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setWordBreak1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private EnumsWordWrap wordWrap;
     private String wordWrap1;
-    private List<UiTable> setWordWrap = new ArrayList<>();
 
     /**
      * Setter for the word-wrap mode.
@@ -5837,18 +4879,7 @@ Double value from 0 to 1.
         }
         return this;
     }
-    private String generateJSsetWordWrap() {
-        if (!setWordWrap.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setWordWrap) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiTable> setWordWrap1 = new ArrayList<>();
 
     /**
      * Setter for the word-wrap mode.
@@ -5874,16 +4905,6 @@ Double value from 0 to 1.
             }
         }
         return this;
-    }
-    private String generateJSsetWordWrap1() {
-        if (!setWordWrap1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiTable item : setWordWrap1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetBorder() {
@@ -5922,98 +4943,9 @@ Double value from 0 to 1.
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetBorder());
-        js.append(generateJSsetBorder1());
-        js.append(generateJSsetBorder2());
-        js.append(generateJSsetCellBorder());
-        js.append(generateJSsetCellBorder1());
-        js.append(generateJSsetCellBorder2());
-        js.append(generateJSsetCellFill());
-        js.append(generateJSsetCellFill1());
-        js.append(generateJSsetCellFill2());
-        js.append(generateJSsetCellFill3());
-        js.append(generateJSsetCellFill4());
-        js.append(generateJSsetCellFill5());
-        js.append(generateJSsetCellFill6());
-        js.append(generateJSsetCellFill7());
-        js.append(generateJSsetCellFill8());
-        js.append(generateJSsetCellFill9());
-        js.append(generateJSsetCellPadding());
-        js.append(generateJSsetCellPadding1());
-        js.append(generateJSsetCellPadding2());
-        js.append(generateJSsetCellPadding3());
-        js.append(generateJSsetCellPadding4());
-        js.append(generateJSsetColsCount());
-        js.append(generateJSsetColsMaxWidth());
-        js.append(generateJSsetColsMaxWidth1());
-        js.append(generateJSsetColsMinWidth());
-        js.append(generateJSsetColsMinWidth1());
-        js.append(generateJSsetColsWidth());
-        js.append(generateJSsetColsWidth1());
-        js.append(generateJSsetContents());
-        js.append(generateJSsetDisablePointerEvents());
-        js.append(generateJSsetFontColor());
-        js.append(generateJSsetFontDecoration());
-        js.append(generateJSsetFontDecoration1());
-        js.append(generateJSsetFontFamily());
-        js.append(generateJSsetFontOpacity());
-        js.append(generateJSsetFontSize());
-        js.append(generateJSsetFontSize1());
-        js.append(generateJSsetFontStyle());
-        js.append(generateJSsetFontStyle1());
-        js.append(generateJSsetFontVariant());
-        js.append(generateJSsetFontVariant1());
-        js.append(generateJSsetFontWeight());
-        js.append(generateJSsetFontWeight1());
         js.append(generateJSsetGetCell());
         js.append(generateJSsetGetCol());
         js.append(generateJSsetGetRow());
-        js.append(generateJSsetHAlign());
-        js.append(generateJSsetHAlign1());
-        js.append(generateJSsetLetterSpacing());
-        js.append(generateJSsetLetterSpacing1());
-        js.append(generateJSsetLineHeight());
-        js.append(generateJSsetLineHeight1());
-        js.append(generateJSsetRowEvenFill());
-        js.append(generateJSsetRowEvenFill1());
-        js.append(generateJSsetRowEvenFill2());
-        js.append(generateJSsetRowEvenFill3());
-        js.append(generateJSsetRowEvenFill4());
-        js.append(generateJSsetRowEvenFill5());
-        js.append(generateJSsetRowEvenFill6());
-        js.append(generateJSsetRowEvenFill7());
-        js.append(generateJSsetRowEvenFill8());
-        js.append(generateJSsetRowEvenFill9());
-        js.append(generateJSsetRowOddFill());
-        js.append(generateJSsetRowOddFill1());
-        js.append(generateJSsetRowOddFill2());
-        js.append(generateJSsetRowOddFill3());
-        js.append(generateJSsetRowOddFill4());
-        js.append(generateJSsetRowOddFill5());
-        js.append(generateJSsetRowOddFill6());
-        js.append(generateJSsetRowOddFill7());
-        js.append(generateJSsetRowOddFill8());
-        js.append(generateJSsetRowOddFill9());
-        js.append(generateJSsetRowsCount());
-        js.append(generateJSsetRowsHeight());
-        js.append(generateJSsetRowsHeight1());
-        js.append(generateJSsetRowsMaxHeight());
-        js.append(generateJSsetRowsMaxHeight1());
-        js.append(generateJSsetRowsMinHeight());
-        js.append(generateJSsetRowsMinHeight1());
-        js.append(generateJSsetSelectable());
-        js.append(generateJSsetTextDirection());
-        js.append(generateJSsetTextDirection1());
-        js.append(generateJSsetTextIndent());
-        js.append(generateJSsetTextOverflow());
-        js.append(generateJSsetTextOverflow1());
-        js.append(generateJSsetUseHtml());
-        js.append(generateJSsetVAlign());
-        js.append(generateJSsetVAlign1());
-        js.append(generateJSsetWordBreak());
-        js.append(generateJSsetWordBreak1());
-        js.append(generateJSsetWordWrap());
-        js.append(generateJSsetWordWrap1());
         
 
         String result = js.toString();

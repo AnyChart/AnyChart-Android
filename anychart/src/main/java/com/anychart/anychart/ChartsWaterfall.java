@@ -168,7 +168,6 @@ public class ChartsWaterfall extends SeparateChart {
         return getAnnotations;
     }
     private String[] annotationsList;
-    private List<ChartsWaterfall> setAnnotations = new ArrayList<>();
 
     /**
      * Setter for the annotations.
@@ -186,16 +185,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetAnnotations() {
-        if (!setAnnotations.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setAnnotations) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color;
     private ColoredFill color1;
@@ -204,7 +193,6 @@ public class ChartsWaterfall extends SeparateChart {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<ChartsWaterfall> setConnectorStroke = new ArrayList<>();
 
     /**
      * Setter for the connector stroke.
@@ -222,18 +210,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetConnectorStroke() {
-        if (!setConnectorStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setConnectorStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setConnectorStroke1 = new ArrayList<>();
 
     /**
      * Setter for the connector stroke.
@@ -251,18 +228,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetConnectorStroke1() {
-        if (!setConnectorStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setConnectorStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setConnectorStroke2 = new ArrayList<>();
 
     /**
      * Setter for the connector stroke.
@@ -280,16 +246,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetConnectorStroke2() {
-        if (!setConnectorStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setConnectorStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Crosshair getCrosshair;
@@ -305,7 +261,6 @@ public class ChartsWaterfall extends SeparateChart {
     }
     private String crosshair;
     private Boolean crosshair1;
-    private List<ChartsWaterfall> setCrosshair = new ArrayList<>();
 
     /**
      * Setter for crosshair settings.
@@ -323,18 +278,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetCrosshair() {
-        if (!setCrosshair.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setCrosshair) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setCrosshair1 = new ArrayList<>();
 
     /**
      * Setter for crosshair settings.
@@ -352,16 +296,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetCrosshair1() {
-        if (!setCrosshair1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setCrosshair1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private View getData;
@@ -375,7 +309,6 @@ public class ChartsWaterfall extends SeparateChart {
 
         return getData;
     }
-    private List<ChartsWaterfall> setData = new ArrayList<>();
 
     /**
      * Setter for the data.
@@ -399,18 +332,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setData1 = new ArrayList<>();
 
     /**
      * 
@@ -425,20 +347,9 @@ public class ChartsWaterfall extends SeparateChart {
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private WaterfallDataMode dataMode;
     private String dataMode1;
-    private List<ChartsWaterfall> setDataMode = new ArrayList<>();
 
     /**
      * Setter for the data mode.
@@ -456,18 +367,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetDataMode() {
-        if (!setDataMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setDataMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setDataMode1 = new ArrayList<>();
 
     /**
      * Setter for the data mode.
@@ -484,16 +384,6 @@ public class ChartsWaterfall extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetDataMode1() {
-        if (!setDataMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setDataMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -557,7 +447,6 @@ public class ChartsWaterfall extends SeparateChart {
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
-    private List<ChartsWaterfall> setHatchFillPalette = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -575,18 +464,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette() {
-        if (!setHatchFillPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setHatchFillPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setHatchFillPalette1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -604,18 +482,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette1() {
-        if (!setHatchFillPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setHatchFillPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setHatchFillPalette2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -630,16 +497,6 @@ public class ChartsWaterfall extends SeparateChart {
 
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetHatchFillPalette2() {
-        if (!setHatchFillPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setHatchFillPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -656,7 +513,6 @@ public class ChartsWaterfall extends SeparateChart {
     }
     private String labels;
     private Boolean labels1;
-    private List<ChartsWaterfall> setLabels = new ArrayList<>();
 
     /**
      * Setter for chart labels.<br>
@@ -674,18 +530,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for chart labels.<br>
@@ -702,16 +547,6 @@ public class ChartsWaterfall extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -739,7 +574,6 @@ public class ChartsWaterfall extends SeparateChart {
     }
     private String lineMarker;
     private Boolean lineMarker1;
-    private List<ChartsWaterfall> setLineMarker = new ArrayList<>();
 
     /**
      * Setter for the line marker settings.
@@ -757,18 +591,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLineMarker() {
-        if (!setLineMarker.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setLineMarker) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setLineMarker1 = new ArrayList<>();
 
     /**
      * Setter for the line marker settings.
@@ -786,21 +609,10 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLineMarker1() {
-        if (!setLineMarker1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setLineMarker1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index2;
     private String lineMarker2;
     private Boolean lineMarker3;
-    private List<ChartsWaterfall> setLineMarker2 = new ArrayList<>();
 
     /**
      * Setter for the line marker settings by index.
@@ -818,18 +630,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLineMarker2() {
-        if (!setLineMarker2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setLineMarker2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setLineMarker3 = new ArrayList<>();
 
     /**
      * Setter for the line marker settings by index.
@@ -846,16 +647,6 @@ public class ChartsWaterfall extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetLineMarker3() {
-        if (!setLineMarker3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setLineMarker3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -874,7 +665,6 @@ public class ChartsWaterfall extends SeparateChart {
     private String markerPalette1;
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
-    private List<ChartsWaterfall> setMarkerPalette = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -890,18 +680,7 @@ public class ChartsWaterfall extends SeparateChart {
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetMarkerPalette() {
-        if (!setMarkerPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setMarkerPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setMarkerPalette1 = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -919,18 +698,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette1() {
-        if (!setMarkerPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setMarkerPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setMarkerPalette2 = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -948,18 +716,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette2() {
-        if (!setMarkerPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setMarkerPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setMarkerPalette3 = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -977,20 +734,9 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette3() {
-        if (!setMarkerPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setMarkerPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxPointWidth;
     private String maxPointWidth1;
-    private List<ChartsWaterfall> setMaxPointWidth = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -1008,18 +754,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMaxPointWidth() {
-        if (!setMaxPointWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setMaxPointWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setMaxPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -1037,20 +772,9 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMaxPointWidth1() {
-        if (!setMaxPointWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setMaxPointWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double minPointLength;
     private String minPointLength1;
-    private List<ChartsWaterfall> setMinPointLength = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -1068,18 +792,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMinPointLength() {
-        if (!setMinPointLength.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setMinPointLength) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setMinPointLength1 = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -1096,16 +809,6 @@ public class ChartsWaterfall extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetMinPointLength1() {
-        if (!setMinPointLength1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setMinPointLength1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1124,7 +827,6 @@ public class ChartsWaterfall extends SeparateChart {
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
-    private List<ChartsWaterfall> setPalette = new ArrayList<>();
 
     /**
      * Setter for the current series colors palette.
@@ -1140,18 +842,7 @@ public class ChartsWaterfall extends SeparateChart {
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette() {
-        if (!setPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for the current series colors palette.
@@ -1167,18 +858,7 @@ public class ChartsWaterfall extends SeparateChart {
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette1() {
-        if (!setPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for the current series colors palette.
@@ -1196,18 +876,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPalette2() {
-        if (!setPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for the current series colors palette.
@@ -1225,20 +894,9 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPalette3() {
-        if (!setPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double pointWidth;
     private String pointWidth1;
-    private List<ChartsWaterfall> setPointWidth = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -1256,18 +914,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPointWidth() {
-        if (!setPointWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setPointWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -1284,16 +931,6 @@ public class ChartsWaterfall extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetPointWidth1() {
-        if (!setPointWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setPointWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1321,7 +958,6 @@ public class ChartsWaterfall extends SeparateChart {
     }
     private String rangeMarker;
     private Boolean rangeMarker1;
-    private List<ChartsWaterfall> setRangeMarker = new ArrayList<>();
 
     /**
      * Setter for the range marker.
@@ -1339,18 +975,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRangeMarker() {
-        if (!setRangeMarker.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setRangeMarker) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setRangeMarker1 = new ArrayList<>();
 
     /**
      * Setter for the range marker.
@@ -1368,21 +993,10 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRangeMarker1() {
-        if (!setRangeMarker1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setRangeMarker1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index4;
     private String rangeMarker2;
     private Boolean rangeMarker3;
-    private List<ChartsWaterfall> setRangeMarker2 = new ArrayList<>();
 
     /**
      * Setter for the range marker by index.
@@ -1400,18 +1014,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRangeMarker2() {
-        if (!setRangeMarker2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setRangeMarker2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setRangeMarker3 = new ArrayList<>();
 
     /**
      * Setter for the range marker by index.
@@ -1429,20 +1032,9 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRangeMarker3() {
-        if (!setRangeMarker3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setRangeMarker3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double id2;
     private String id3;
-    private List<ChartsWaterfall> setRemoveSeries = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -1460,18 +1052,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRemoveSeries() {
-        if (!setRemoveSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setRemoveSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setRemoveSeries1 = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -1489,19 +1070,8 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRemoveSeries1() {
-        if (!setRemoveSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setRemoveSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index5;
-    private List<ChartsWaterfall> setRemoveSeriesAt = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its index.
@@ -1518,16 +1088,6 @@ public class ChartsWaterfall extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetRemoveSeriesAt() {
-        if (!setRemoveSeriesAt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setRemoveSeriesAt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1555,7 +1115,6 @@ public class ChartsWaterfall extends SeparateChart {
     }
     private String textMarker;
     private Boolean textMarker1;
-    private List<ChartsWaterfall> setTextMarker = new ArrayList<>();
 
     /**
      * Setter for the text marker.
@@ -1573,18 +1132,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetTextMarker() {
-        if (!setTextMarker.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setTextMarker) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setTextMarker1 = new ArrayList<>();
 
     /**
      * Setter for the text marker.
@@ -1602,21 +1150,10 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetTextMarker1() {
-        if (!setTextMarker1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setTextMarker1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index7;
     private String textMarker2;
     private Boolean textMarker3;
-    private List<ChartsWaterfall> setTextMarker2 = new ArrayList<>();
 
     /**
      * Setter for the text marker by index.
@@ -1634,18 +1171,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetTextMarker2() {
-        if (!setTextMarker2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setTextMarker2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setTextMarker3 = new ArrayList<>();
 
     /**
      * Setter for the text marker by index.
@@ -1662,16 +1188,6 @@ public class ChartsWaterfall extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetTextMarker3() {
-        if (!setTextMarker3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setTextMarker3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1699,7 +1215,6 @@ public class ChartsWaterfall extends SeparateChart {
     }
     private String xAxis;
     private Boolean xAxis1;
-    private List<ChartsWaterfall> setXAxis = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis.
@@ -1717,18 +1232,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXAxis() {
-        if (!setXAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setXAxis1 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis.
@@ -1746,21 +1250,10 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXAxis1() {
-        if (!setXAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index9;
     private String xAxis2;
     private Boolean xAxis3;
-    private List<ChartsWaterfall> setXAxis2 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis by index.
@@ -1778,18 +1271,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXAxis2() {
-        if (!setXAxis2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXAxis2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setXAxis3 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis by index.
@@ -1806,16 +1288,6 @@ public class ChartsWaterfall extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXAxis3() {
-        if (!setXAxis3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXAxis3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1843,7 +1315,6 @@ public class ChartsWaterfall extends SeparateChart {
     }
     private String xGrid;
     private Boolean xGrid1;
-    private List<ChartsWaterfall> setXGrid = new ArrayList<>();
 
     /**
      * Setter for the chart grid by X-scale.
@@ -1861,18 +1332,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXGrid() {
-        if (!setXGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setXGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by X-scale.
@@ -1890,21 +1350,10 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXGrid1() {
-        if (!setXGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index11;
     private String xGrid2;
     private Boolean xGrid3;
-    private List<ChartsWaterfall> setXGrid2 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -1922,18 +1371,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXGrid2() {
-        if (!setXGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setXGrid3 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -1950,16 +1388,6 @@ public class ChartsWaterfall extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXGrid3() {
-        if (!setXGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1987,7 +1415,6 @@ public class ChartsWaterfall extends SeparateChart {
     }
     private String xMinorGrid;
     private Boolean xMinorGrid1;
-    private List<ChartsWaterfall> setXMinorGrid = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by X-scale.
@@ -2005,18 +1432,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXMinorGrid() {
-        if (!setXMinorGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXMinorGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setXMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by X-scale.
@@ -2034,21 +1450,10 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXMinorGrid1() {
-        if (!setXMinorGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXMinorGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index13;
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
-    private List<ChartsWaterfall> setXMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -2066,18 +1471,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXMinorGrid2() {
-        if (!setXMinorGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXMinorGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setXMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -2094,16 +1488,6 @@ public class ChartsWaterfall extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXMinorGrid3() {
-        if (!setXMinorGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXMinorGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2122,7 +1506,6 @@ public class ChartsWaterfall extends SeparateChart {
     private ScaleTypes xScale1;
     private String xScale2;
     private ScalesBase xScale3;
-    private List<ChartsWaterfall> setXScale = new ArrayList<>();
 
     /**
      * Setter for the chart X-scale.
@@ -2140,18 +1523,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXScale() {
-        if (!setXScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setXScale1 = new ArrayList<>();
 
     /**
      * Setter for the chart X-scale.
@@ -2169,18 +1541,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXScale1() {
-        if (!setXScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setXScale2 = new ArrayList<>();
 
     /**
      * Setter for the chart X-scale.
@@ -2195,16 +1556,6 @@ public class ChartsWaterfall extends SeparateChart {
 
         js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale3 != null) ? xScale3.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetXScale2() {
-        if (!setXScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2221,7 +1572,6 @@ public class ChartsWaterfall extends SeparateChart {
     }
     private String xScroller;
     private Boolean xScroller1;
-    private List<ChartsWaterfall> setXScroller = new ArrayList<>();
 
     /**
      * Setter for the scroller.
@@ -2239,18 +1589,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXScroller() {
-        if (!setXScroller.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXScroller) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setXScroller1 = new ArrayList<>();
 
     /**
      * Setter for the scroller.
@@ -2268,16 +1607,6 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXScroller1() {
-        if (!setXScroller1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXScroller1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private OrdinalZoom getXZoom;
@@ -2294,7 +1623,6 @@ public class ChartsWaterfall extends SeparateChart {
     private Double xZoom;
     private Boolean xZoom1;
     private String xZoom2;
-    private List<ChartsWaterfall> setXZoom = new ArrayList<>();
 
     /**
      * Setter for the zoom settings.
@@ -2312,18 +1640,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXZoom() {
-        if (!setXZoom.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXZoom) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setXZoom1 = new ArrayList<>();
 
     /**
      * Setter for the zoom settings.
@@ -2341,18 +1658,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXZoom1() {
-        if (!setXZoom1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXZoom1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setXZoom2 = new ArrayList<>();
 
     /**
      * Setter for the zoom settings.
@@ -2369,16 +1675,6 @@ public class ChartsWaterfall extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXZoom2() {
-        if (!setXZoom2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setXZoom2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2406,7 +1702,6 @@ public class ChartsWaterfall extends SeparateChart {
     }
     private String yAxis;
     private Boolean yAxis1;
-    private List<ChartsWaterfall> setYAxis = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis.
@@ -2424,18 +1719,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis() {
-        if (!setYAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setYAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setYAxis1 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis.
@@ -2453,21 +1737,10 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis1() {
-        if (!setYAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setYAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index15;
     private String yAxis2;
     private Boolean yAxis3;
-    private List<ChartsWaterfall> setYAxis2 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis by index.
@@ -2485,18 +1758,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis2() {
-        if (!setYAxis2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setYAxis2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setYAxis3 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis by index.
@@ -2513,16 +1775,6 @@ public class ChartsWaterfall extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYAxis3() {
-        if (!setYAxis3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setYAxis3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2550,7 +1802,6 @@ public class ChartsWaterfall extends SeparateChart {
     }
     private String yGrid;
     private Boolean yGrid1;
-    private List<ChartsWaterfall> setYGrid = new ArrayList<>();
 
     /**
      * Setter for the chart grid by Y-scale.
@@ -2568,18 +1819,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYGrid() {
-        if (!setYGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setYGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setYGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by Y-scale.
@@ -2597,21 +1837,10 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYGrid1() {
-        if (!setYGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setYGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index17;
     private String yGrid2;
     private Boolean yGrid3;
-    private List<ChartsWaterfall> setYGrid2 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -2629,18 +1858,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYGrid2() {
-        if (!setYGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setYGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setYGrid3 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -2657,16 +1875,6 @@ public class ChartsWaterfall extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYGrid3() {
-        if (!setYGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setYGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2694,7 +1902,6 @@ public class ChartsWaterfall extends SeparateChart {
     }
     private String yMinorGrid;
     private Boolean yMinorGrid1;
-    private List<ChartsWaterfall> setYMinorGrid = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by Y-scale.
@@ -2712,18 +1919,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYMinorGrid() {
-        if (!setYMinorGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setYMinorGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setYMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by Y-scale.
@@ -2741,21 +1937,10 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYMinorGrid1() {
-        if (!setYMinorGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setYMinorGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index19;
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
-    private List<ChartsWaterfall> setYMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -2773,18 +1958,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYMinorGrid2() {
-        if (!setYMinorGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setYMinorGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setYMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -2801,16 +1975,6 @@ public class ChartsWaterfall extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYMinorGrid3() {
-        if (!setYMinorGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setYMinorGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2829,7 +1993,6 @@ public class ChartsWaterfall extends SeparateChart {
     private ScaleTypes yScale1;
     private String yScale2;
     private ScalesBase yScale3;
-    private List<ChartsWaterfall> setYScale = new ArrayList<>();
 
     /**
      * Setter for the chart Y-scale.
@@ -2847,18 +2010,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYScale() {
-        if (!setYScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setYScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-scale.
@@ -2876,18 +2028,7 @@ public class ChartsWaterfall extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYScale1() {
-        if (!setYScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setYScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsWaterfall> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-scale.
@@ -2902,16 +2043,6 @@ public class ChartsWaterfall extends SeparateChart {
 
         js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale3 != null) ? yScale3.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetYScale2() {
-        if (!setYScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsWaterfall item : setYScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetAnnotations() {
@@ -3245,85 +2376,6 @@ public class ChartsWaterfall extends SeparateChart {
         js.append(generateJSgetYMinorGrid());
         js.append(generateJSgetYMinorGrid1());
         js.append(generateJSgetYScale());
-        js.append(generateJSsetAnnotations());
-        js.append(generateJSsetConnectorStroke());
-        js.append(generateJSsetConnectorStroke1());
-        js.append(generateJSsetConnectorStroke2());
-        js.append(generateJSsetCrosshair());
-        js.append(generateJSsetCrosshair1());
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetDataMode());
-        js.append(generateJSsetDataMode1());
-        js.append(generateJSsetHatchFillPalette());
-        js.append(generateJSsetHatchFillPalette1());
-        js.append(generateJSsetHatchFillPalette2());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
-        js.append(generateJSsetLineMarker());
-        js.append(generateJSsetLineMarker1());
-        js.append(generateJSsetLineMarker2());
-        js.append(generateJSsetLineMarker3());
-        js.append(generateJSsetMarkerPalette());
-        js.append(generateJSsetMarkerPalette1());
-        js.append(generateJSsetMarkerPalette2());
-        js.append(generateJSsetMarkerPalette3());
-        js.append(generateJSsetMaxPointWidth());
-        js.append(generateJSsetMaxPointWidth1());
-        js.append(generateJSsetMinPointLength());
-        js.append(generateJSsetMinPointLength1());
-        js.append(generateJSsetPalette());
-        js.append(generateJSsetPalette1());
-        js.append(generateJSsetPalette2());
-        js.append(generateJSsetPalette3());
-        js.append(generateJSsetPointWidth());
-        js.append(generateJSsetPointWidth1());
-        js.append(generateJSsetRangeMarker());
-        js.append(generateJSsetRangeMarker1());
-        js.append(generateJSsetRangeMarker2());
-        js.append(generateJSsetRangeMarker3());
-        js.append(generateJSsetRemoveSeries());
-        js.append(generateJSsetRemoveSeries1());
-        js.append(generateJSsetRemoveSeriesAt());
-        js.append(generateJSsetTextMarker());
-        js.append(generateJSsetTextMarker1());
-        js.append(generateJSsetTextMarker2());
-        js.append(generateJSsetTextMarker3());
-        js.append(generateJSsetXAxis());
-        js.append(generateJSsetXAxis1());
-        js.append(generateJSsetXAxis2());
-        js.append(generateJSsetXAxis3());
-        js.append(generateJSsetXGrid());
-        js.append(generateJSsetXGrid1());
-        js.append(generateJSsetXGrid2());
-        js.append(generateJSsetXGrid3());
-        js.append(generateJSsetXMinorGrid());
-        js.append(generateJSsetXMinorGrid1());
-        js.append(generateJSsetXMinorGrid2());
-        js.append(generateJSsetXMinorGrid3());
-        js.append(generateJSsetXScale());
-        js.append(generateJSsetXScale1());
-        js.append(generateJSsetXScale2());
-        js.append(generateJSsetXScroller());
-        js.append(generateJSsetXScroller1());
-        js.append(generateJSsetXZoom());
-        js.append(generateJSsetXZoom1());
-        js.append(generateJSsetXZoom2());
-        js.append(generateJSsetYAxis());
-        js.append(generateJSsetYAxis1());
-        js.append(generateJSsetYAxis2());
-        js.append(generateJSsetYAxis3());
-        js.append(generateJSsetYGrid());
-        js.append(generateJSsetYGrid1());
-        js.append(generateJSsetYGrid2());
-        js.append(generateJSsetYGrid3());
-        js.append(generateJSsetYMinorGrid());
-        js.append(generateJSsetYMinorGrid1());
-        js.append(generateJSsetYMinorGrid2());
-        js.append(generateJSsetYMinorGrid3());
-        js.append(generateJSsetYScale());
-        js.append(generateJSsetYScale1());
-        js.append(generateJSsetYScale2());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

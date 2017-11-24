@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class ChoroplethPoint extends SeriesPoint {
 
     
     private String crs;
-    private List<ChoroplethPoint> setCrs = new ArrayList<>();
 
     /**
      * Changes crs (coordinate system) of the point.<br/>
@@ -58,16 +55,6 @@ public class ChoroplethPoint extends SeriesPoint {
         }
         return this;
     }
-    private String generateJSsetCrs() {
-        if (!setCrs.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChoroplethPoint item : setCrs) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private AnychartMathRect getGetFeatureBounds;
 
@@ -83,7 +70,6 @@ public class ChoroplethPoint extends SeriesPoint {
     }
 
     private Double middleX;
-    private List<ChoroplethPoint> setMiddleX = new ArrayList<>();
 
     /**
      * Setter for the X center of the point label.<br/>
@@ -108,19 +94,8 @@ public class ChoroplethPoint extends SeriesPoint {
         }
         return this;
     }
-    private String generateJSsetMiddleX() {
-        if (!setMiddleX.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChoroplethPoint item : setMiddleX) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double middleY;
-    private List<ChoroplethPoint> setMiddleY = new ArrayList<>();
 
     /**
      * Setter for the Y center of the point label.<br/>
@@ -145,19 +120,8 @@ public class ChoroplethPoint extends SeriesPoint {
         }
         return this;
     }
-    private String generateJSsetMiddleY() {
-        if (!setMiddleY.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChoroplethPoint item : setMiddleY) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double scale;
-    private List<ChoroplethPoint> setScaleFactor = new ArrayList<>();
 
     /**
      * Scales point.<br/>
@@ -182,20 +146,9 @@ public class ChoroplethPoint extends SeriesPoint {
         }
         return this;
     }
-    private String generateJSsetScaleFactor() {
-        if (!setScaleFactor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChoroplethPoint item : setScaleFactor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double dx;
     private Double dy;
-    private List<ChoroplethPoint> setTranslate = new ArrayList<>();
 
     /**
      * Moves point.<br/>
@@ -222,20 +175,9 @@ public class ChoroplethPoint extends SeriesPoint {
         }
         return this;
     }
-    private String generateJSsetTranslate() {
-        if (!setTranslate.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChoroplethPoint item : setTranslate) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double dx1;
     private Double dy1;
-    private List<ChoroplethPoint> setTranslation = new ArrayList<>();
 
     /**
      * Setter for the point translation.<br/>
@@ -268,16 +210,6 @@ public class ChoroplethPoint extends SeriesPoint {
         }
         return this;
     }
-    private String generateJSsetTranslation() {
-        if (!setTranslation.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChoroplethPoint item : setTranslation) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String generateJSgetGetFeatureBounds() {
         if (getGetFeatureBounds != null) {
@@ -307,12 +239,6 @@ public class ChoroplethPoint extends SeriesPoint {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetCrs());
-        js.append(generateJSsetMiddleX());
-        js.append(generateJSsetMiddleY());
-        js.append(generateJSsetScaleFactor());
-        js.append(generateJSsetTranslate());
-        js.append(generateJSsetTranslation());
         
 
         String result = js.toString();

@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class Thumbs extends JsObject {
 
     
     private Boolean autoHide;
-    private List<Thumbs> setAutoHide = new ArrayList<>();
 
     /**
      * Setter for the auto hide.
@@ -58,19 +55,8 @@ Whether the thumbs should be hidden on scroller mouse out event.
         }
         return this;
     }
-    private String generateJSsetAutoHide() {
-        if (!setAutoHide.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setAutoHide) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean enabled;
-    private List<Thumbs> setEnabled = new ArrayList<>();
 
     /**
      * Setter for the thumbs state.
@@ -95,19 +81,8 @@ Whether the thumbs should be drawn.
         }
         return this;
     }
-    private String generateJSsetEnabled() {
-        if (!setEnabled.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setEnabled) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
-    private List<Thumbs> setFill = new ArrayList<>();
 
     /**
      * Setter for thumbs fill settings using an array or a string.
@@ -132,20 +107,9 @@ Whether the thumbs should be drawn.
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<Thumbs> setFill1 = new ArrayList<>();
 
     /**
      * Thumbs fill color with opacity.
@@ -171,16 +135,6 @@ Whether the thumbs should be drawn.
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -189,7 +143,6 @@ Whether the thumbs should be drawn.
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<Thumbs> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -230,18 +183,7 @@ Whether the thumbs should be drawn.
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Thumbs> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -282,18 +224,7 @@ Whether the thumbs should be drawn.
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Thumbs> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -334,18 +265,7 @@ Whether the thumbs should be drawn.
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Thumbs> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -386,18 +306,7 @@ Whether the thumbs should be drawn.
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Thumbs> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -438,18 +347,7 @@ Whether the thumbs should be drawn.
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Thumbs> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -490,16 +388,6 @@ Whether the thumbs should be drawn.
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -509,7 +397,6 @@ Whether the thumbs should be drawn.
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<Thumbs> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -560,18 +447,7 @@ Whether the thumbs should be drawn.
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Thumbs> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -622,16 +498,6 @@ Whether the thumbs should be drawn.
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private StateSettings getHovered;
@@ -647,7 +513,6 @@ Whether the thumbs should be drawn.
     }
 
     private String hovered;
-    private List<Thumbs> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -671,16 +536,6 @@ Whether the thumbs should be drawn.
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getNormal;
 
@@ -695,7 +550,6 @@ Whether the thumbs should be drawn.
     }
 
     private String normal;
-    private List<Thumbs> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -719,16 +573,6 @@ Whether the thumbs should be drawn.
         }
         return this;
     }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke stroke;
     private ColoredFill stroke1;
@@ -737,7 +581,6 @@ Whether the thumbs should be drawn.
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<Thumbs> setStroke = new ArrayList<>();
 
     /**
      * Setter for thumbs stroke settings.
@@ -774,18 +617,7 @@ Whether the thumbs should be drawn.
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Thumbs> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for thumbs stroke settings.
@@ -822,18 +654,7 @@ Whether the thumbs should be drawn.
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Thumbs> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for thumbs stroke settings.
@@ -869,16 +690,6 @@ Whether the thumbs should be drawn.
             }
         }
         return this;
-    }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Thumbs item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetHovered() {
@@ -917,23 +728,6 @@ Whether the thumbs should be drawn.
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAutoHide());
-        js.append(generateJSsetEnabled());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
         
 
         String result = js.toString();

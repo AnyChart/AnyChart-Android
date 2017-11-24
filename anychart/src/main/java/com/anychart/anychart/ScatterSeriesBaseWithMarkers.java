@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -47,7 +45,6 @@ public class ScatterSeriesBaseWithMarkers extends ScatterSeriesBase {
     private String markers;
     private Boolean markers1;
     private String markers2;
-    private List<ScatterSeriesBaseWithMarkers> setMarkers = new ArrayList<>();
 
     /**
      * Setter for series data markers.
@@ -75,18 +72,7 @@ public class ScatterSeriesBaseWithMarkers extends ScatterSeriesBase {
         }
         return this;
     }
-    private String generateJSsetMarkers() {
-        if (!setMarkers.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBaseWithMarkers item : setMarkers) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBaseWithMarkers> setMarkers1 = new ArrayList<>();
 
     /**
      * Setter for series data markers.
@@ -113,16 +99,6 @@ public class ScatterSeriesBaseWithMarkers extends ScatterSeriesBase {
             }
         }
         return this;
-    }
-    private String generateJSsetMarkers1() {
-        if (!setMarkers1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBaseWithMarkers item : setMarkers1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetMarkers() {
@@ -153,8 +129,6 @@ public class ScatterSeriesBaseWithMarkers extends ScatterSeriesBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetMarkers());
-        js.append(generateJSsetMarkers1());
         
 
         String result = js.toString();

@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class Grouping extends CoreBase {
 
     
     private Boolean enabled;
-    private List<Grouping> setEnabled = new ArrayList<>();
 
     /**
      * Setter for the grouping enabled state.
@@ -57,19 +54,8 @@ public class Grouping extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetEnabled() {
-        if (!setEnabled.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grouping item : setEnabled) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean forced;
-    private List<Grouping> setForced = new ArrayList<>();
 
     /**
      * Setter for the forced grouping settings.
@@ -93,19 +79,8 @@ public class Grouping extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetForced() {
-        if (!setForced.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grouping item : setForced) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String[] levels;
-    private List<Grouping> setLevels = new ArrayList<>();
 
     /**
      * Setter for the data grouping levels.
@@ -129,19 +104,8 @@ public class Grouping extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetLevels() {
-        if (!setLevels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grouping item : setLevels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxVisiblePoints;
-    private List<Grouping> setMaxVisiblePoints = new ArrayList<>();
 
     /**
      * Setter for the maximum visible points count.
@@ -165,19 +129,8 @@ public class Grouping extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetMaxVisiblePoints() {
-        if (!setMaxVisiblePoints.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grouping item : setMaxVisiblePoints) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double minPixPerPoint;
-    private List<Grouping> setMinPixPerPoint = new ArrayList<>();
 
     /**
      * Setter for minimum pixels per point count.
@@ -201,16 +154,6 @@ public class Grouping extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetMinPixPerPoint() {
-        if (!setMinPixPerPoint.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Grouping item : setMinPixPerPoint) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -232,11 +175,6 @@ public class Grouping extends CoreBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetEnabled());
-        js.append(generateJSsetForced());
-        js.append(generateJSsetLevels());
-        js.append(generateJSsetMaxVisiblePoints());
-        js.append(generateJSsetMinPixPerPoint());
         
 
         String result = js.toString();

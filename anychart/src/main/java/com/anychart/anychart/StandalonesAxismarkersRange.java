@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -48,7 +46,6 @@ public class StandalonesAxismarkersRange extends CoreAxismarkersRange {
     private Stage container1;
     private String container2;
     private Element container3;
-    private List<StandalonesAxismarkersRange> setContainer = new ArrayList<>();
 
     /**
      * Setter for the range marker current container.
@@ -74,18 +71,7 @@ public class StandalonesAxismarkersRange extends CoreAxismarkersRange {
         }
         return this;
     }
-    private String generateJSsetContainer() {
-        if (!setContainer.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxismarkersRange item : setContainer) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesAxismarkersRange> setContainer1 = new ArrayList<>();
 
     /**
      * Setter for the range marker current container.
@@ -111,18 +97,7 @@ public class StandalonesAxismarkersRange extends CoreAxismarkersRange {
         }
         return this;
     }
-    private String generateJSsetContainer1() {
-        if (!setContainer1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxismarkersRange item : setContainer1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesAxismarkersRange> setContainer2 = new ArrayList<>();
 
     /**
      * Setter for the range marker current container.
@@ -151,18 +126,7 @@ public class StandalonesAxismarkersRange extends CoreAxismarkersRange {
         }
         return this;
     }
-    private String generateJSsetContainer2() {
-        if (!setContainer2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxismarkersRange item : setContainer2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesAxismarkersRange> setContainer3 = new ArrayList<>();
 
     /**
      * Setter for the range marker current container.
@@ -188,16 +152,6 @@ public class StandalonesAxismarkersRange extends CoreAxismarkersRange {
         }
         return this;
     }
-    private String generateJSsetContainer3() {
-        if (!setContainer3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxismarkersRange item : setContainer3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private AnychartMathRect getParentBounds;
 
@@ -213,7 +167,6 @@ public class StandalonesAxismarkersRange extends CoreAxismarkersRange {
 
     private AnychartMathRect parentBounds;
     private String parentBounds1;
-    private List<StandalonesAxismarkersRange> setParentBounds = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -237,18 +190,7 @@ public class StandalonesAxismarkersRange extends CoreAxismarkersRange {
         }
         return this;
     }
-    private String generateJSsetParentBounds() {
-        if (!setParentBounds.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxismarkersRange item : setParentBounds) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesAxismarkersRange> setParentBounds1 = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -275,22 +217,11 @@ public class StandalonesAxismarkersRange extends CoreAxismarkersRange {
         }
         return this;
     }
-    private String generateJSsetParentBounds1() {
-        if (!setParentBounds1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxismarkersRange item : setParentBounds1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double left;
     private Double top;
     private Double width;
     private Double height;
-    private List<StandalonesAxismarkersRange> setParentBounds2 = new ArrayList<>();
 
     /**
      * Setter for bounds using several values.
@@ -319,16 +250,6 @@ public class StandalonesAxismarkersRange extends CoreAxismarkersRange {
             }
         }
         return this;
-    }
-    private String generateJSsetParentBounds2() {
-        if (!setParentBounds2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxismarkersRange item : setParentBounds2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetContainer() {
@@ -367,13 +288,6 @@ public class StandalonesAxismarkersRange extends CoreAxismarkersRange {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetContainer());
-        js.append(generateJSsetContainer1());
-        js.append(generateJSsetContainer2());
-        js.append(generateJSsetContainer3());
-        js.append(generateJSsetParentBounds());
-        js.append(generateJSsetParentBounds1());
-        js.append(generateJSsetParentBounds2());
         
 
         String result = js.toString();

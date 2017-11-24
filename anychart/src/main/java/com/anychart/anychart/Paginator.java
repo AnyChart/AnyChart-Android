@@ -1,8 +1,6 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -36,7 +34,6 @@ public class Paginator extends CoreText {
     private String background;
     private String background1;
     private Boolean background2;
-    private List<Paginator> setBackground = new ArrayList<>();
 
     /**
      * Paginator background.
@@ -64,18 +61,7 @@ public class Paginator extends CoreText {
         }
         return this;
     }
-    private String generateJSsetBackground() {
-        if (!setBackground.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Paginator item : setBackground) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Paginator> setBackground1 = new ArrayList<>();
 
     /**
      * Paginator background.
@@ -103,20 +89,9 @@ public class Paginator extends CoreText {
         }
         return this;
     }
-    private String generateJSsetBackground1() {
-        if (!setBackground1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Paginator item : setBackground1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double currentPage;
     private String currentPage1;
-    private List<Paginator> setCurrentPage = new ArrayList<>();
 
     /**
      * Setter for active page.
@@ -143,18 +118,7 @@ public class Paginator extends CoreText {
         }
         return this;
     }
-    private String generateJSsetCurrentPage() {
-        if (!setCurrentPage.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Paginator item : setCurrentPage) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Paginator> setCurrentPage1 = new ArrayList<>();
 
     /**
      * Setter for active page.
@@ -181,20 +145,9 @@ public class Paginator extends CoreText {
         }
         return this;
     }
-    private String generateJSsetCurrentPage1() {
-        if (!setCurrentPage1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Paginator item : setCurrentPage1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Layout layout;
     private String layout1;
-    private List<Paginator> setLayout = new ArrayList<>();
 
     /**
      * Setter for paginator layout.
@@ -221,18 +174,7 @@ public class Paginator extends CoreText {
         }
         return this;
     }
-    private String generateJSsetLayout() {
-        if (!setLayout.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Paginator item : setLayout) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Paginator> setLayout1 = new ArrayList<>();
 
     /**
      * Setter for paginator layout.
@@ -259,16 +201,6 @@ public class Paginator extends CoreText {
         }
         return this;
     }
-    private String generateJSsetLayout1() {
-        if (!setLayout1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Paginator item : setLayout1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Margin getMargin;
 
@@ -293,7 +225,6 @@ public class Paginator extends CoreText {
     private Double bottom1;
     private String left;
     private Double left1;
-    private List<Paginator> setMargin = new ArrayList<>();
 
     /**
      * Setter for the paginator margin.
@@ -323,18 +254,7 @@ public class Paginator extends CoreText {
         }
         return this;
     }
-    private String generateJSsetMargin() {
-        if (!setMargin.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Paginator item : setMargin) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Paginator> setMargin1 = new ArrayList<>();
 
     /**
      * Setter for the paginator margin.
@@ -364,18 +284,7 @@ public class Paginator extends CoreText {
         }
         return this;
     }
-    private String generateJSsetMargin1() {
-        if (!setMargin1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Paginator item : setMargin1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Paginator> setMargin2 = new ArrayList<>();
 
     /**
      * Setter for the paginator margin.
@@ -420,20 +329,9 @@ public class Paginator extends CoreText {
         }
         return this;
     }
-    private String generateJSsetMargin2() {
-        if (!setMargin2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Paginator item : setMargin2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Orientation orientation;
     private String orientation1;
-    private List<Paginator> setOrientation = new ArrayList<>();
 
     /**
      * Orientation of the paginator.
@@ -460,18 +358,7 @@ public class Paginator extends CoreText {
         }
         return this;
     }
-    private String generateJSsetOrientation() {
-        if (!setOrientation.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Paginator item : setOrientation) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Paginator> setOrientation1 = new ArrayList<>();
 
     /**
      * Orientation of the paginator.
@@ -498,16 +385,6 @@ public class Paginator extends CoreText {
         }
         return this;
     }
-    private String generateJSsetOrientation1() {
-        if (!setOrientation1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Paginator item : setOrientation1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UtilsPadding getPadding;
 
@@ -532,7 +409,6 @@ public class Paginator extends CoreText {
     private Double bottom3;
     private String left2;
     private Double left3;
-    private List<Paginator> setPadding = new ArrayList<>();
 
     /**
      * Setter for the paginator padding.
@@ -567,18 +443,7 @@ public class Paginator extends CoreText {
         }
         return this;
     }
-    private String generateJSsetPadding() {
-        if (!setPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Paginator item : setPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Paginator> setPadding1 = new ArrayList<>();
 
     /**
      * Setter for the paginator padding.
@@ -613,18 +478,7 @@ public class Paginator extends CoreText {
         }
         return this;
     }
-    private String generateJSsetPadding1() {
-        if (!setPadding1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Paginator item : setPadding1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Paginator> setPadding2 = new ArrayList<>();
 
     /**
      * Setter for the paginator padding.
@@ -680,16 +534,6 @@ public class Paginator extends CoreText {
         }
         return this;
     }
-    private String generateJSsetPadding2() {
-        if (!setPadding2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Paginator item : setPadding2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String generateJSgetMargin() {
         if (getMargin != null) {
@@ -727,20 +571,6 @@ public class Paginator extends CoreText {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetBackground());
-        js.append(generateJSsetBackground1());
-        js.append(generateJSsetCurrentPage());
-        js.append(generateJSsetCurrentPage1());
-        js.append(generateJSsetLayout());
-        js.append(generateJSsetLayout1());
-        js.append(generateJSsetMargin());
-        js.append(generateJSsetMargin1());
-        js.append(generateJSsetMargin2());
-        js.append(generateJSsetOrientation());
-        js.append(generateJSsetOrientation1());
-        js.append(generateJSsetPadding());
-        js.append(generateJSsetPadding1());
-        js.append(generateJSsetPadding2());
         
 
         String result = js.toString();

@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class Overlay extends CoreBase {
 
     
     private String className;
-    private List<Overlay> setClassName = new ArrayList<>();
 
     /**
      * Setter for the name of DIV class.
@@ -57,19 +54,8 @@ public class Overlay extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetClassName() {
-        if (!setClassName.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Overlay item : setClassName) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean enabled;
-    private List<Overlay> setEnabled = new ArrayList<>();
 
     /**
      * Setter for the enabled state.
@@ -93,16 +79,6 @@ public class Overlay extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetEnabled() {
-        if (!setEnabled.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Overlay item : setEnabled) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Element getGetElement;
 
@@ -117,7 +93,6 @@ public class Overlay extends CoreBase {
     }
 
     private String id;
-    private List<Overlay> setId = new ArrayList<>();
 
     /**
      * Setter for the DIV identifier.
@@ -140,16 +115,6 @@ public class Overlay extends CoreBase {
             }
         }
         return this;
-    }
-    private String generateJSsetId() {
-        if (!setId.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Overlay item : setId) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetGetElement() {
@@ -180,9 +145,6 @@ public class Overlay extends CoreBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetClassName());
-        js.append(generateJSsetEnabled());
-        js.append(generateJSsetId());
         
 
         String result = js.toString();

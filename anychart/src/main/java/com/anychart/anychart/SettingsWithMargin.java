@@ -1,8 +1,6 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -48,7 +46,6 @@ public class SettingsWithMargin extends JsObject {
     private Double[] margin;
     private String[] margin1;
     private String margin2;
-    private List<SettingsWithMargin> setMargin = new ArrayList<>();
 
     /**
      * Setter for the margin using a single value.
@@ -76,18 +73,7 @@ public class SettingsWithMargin extends JsObject {
         }
         return this;
     }
-    private String generateJSsetMargin() {
-        if (!setMargin.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (SettingsWithMargin item : setMargin) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<SettingsWithMargin> setMargin1 = new ArrayList<>();
 
     /**
      * Setter for the margin using a single value.
@@ -115,18 +101,7 @@ public class SettingsWithMargin extends JsObject {
         }
         return this;
     }
-    private String generateJSsetMargin1() {
-        if (!setMargin1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (SettingsWithMargin item : setMargin1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<SettingsWithMargin> setMargin2 = new ArrayList<>();
 
     /**
      * Setter for the margin using a single value.
@@ -154,16 +129,6 @@ public class SettingsWithMargin extends JsObject {
         }
         return this;
     }
-    private String generateJSsetMargin2() {
-        if (!setMargin2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (SettingsWithMargin item : setMargin2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String value;
     private Double value1;
@@ -173,7 +138,6 @@ public class SettingsWithMargin extends JsObject {
     private Double value5;
     private String value6;
     private Double value7;
-    private List<SettingsWithMargin> setMargin3 = new ArrayList<>();
 
     /**
      * Setter for the callout margin using several values.
@@ -239,18 +203,7 @@ public class SettingsWithMargin extends JsObject {
         }
         return this;
     }
-    private String generateJSsetMargin3() {
-        if (!setMargin3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (SettingsWithMargin item : setMargin3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<SettingsWithMargin> setMargin4 = new ArrayList<>();
 
     /**
      * Setter for the callout margin using several values.
@@ -316,16 +269,6 @@ public class SettingsWithMargin extends JsObject {
         }
         return this;
     }
-    private String generateJSsetMargin4() {
-        if (!setMargin4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (SettingsWithMargin item : setMargin4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String generateJSgetMargin() {
         if (getMargin != null) {
@@ -355,11 +298,6 @@ public class SettingsWithMargin extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetMargin());
-        js.append(generateJSsetMargin1());
-        js.append(generateJSsetMargin2());
-        js.append(generateJSsetMargin3());
-        js.append(generateJSsetMargin4());
         
 
         String result = js.toString();

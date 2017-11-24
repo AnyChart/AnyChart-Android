@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -34,7 +32,6 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
 
     
     private Fill fill;
-    private List<ScrollerseriesRangeStepArea> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an object or a string.
@@ -59,20 +56,9 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<ScrollerseriesRangeStepArea> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -98,16 +84,6 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -116,7 +92,6 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<ScrollerseriesRangeStepArea> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -157,18 +132,7 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesRangeStepArea> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -209,18 +173,7 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesRangeStepArea> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -261,18 +214,7 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesRangeStepArea> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -313,18 +255,7 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesRangeStepArea> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -365,18 +296,7 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesRangeStepArea> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -417,16 +337,6 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -436,7 +346,6 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<ScrollerseriesRangeStepArea> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -487,18 +396,7 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesRangeStepArea> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -549,16 +447,6 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private PatternFill getHatchFill;
@@ -580,7 +468,6 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
     private String color1;
     private Double thickness;
     private Double size;
-    private List<ScrollerseriesRangeStepArea> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -619,18 +506,7 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill() {
-        if (!setHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesRangeStepArea> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -669,18 +545,7 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill1() {
-        if (!setHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesRangeStepArea> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -719,18 +584,7 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill2() {
-        if (!setHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesRangeStepArea> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -769,16 +623,6 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetHatchFill3() {
-        if (!setHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color2;
     private ColoredFill color3;
@@ -787,7 +631,6 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<ScrollerseriesRangeStepArea> setHighStroke = new ArrayList<>();
 
     /**
      * Setter for high stroke settings.
@@ -829,18 +672,7 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetHighStroke() {
-        if (!setHighStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setHighStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesRangeStepArea> setHighStroke1 = new ArrayList<>();
 
     /**
      * Setter for high stroke settings.
@@ -882,18 +714,7 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetHighStroke1() {
-        if (!setHighStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setHighStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesRangeStepArea> setHighStroke2 = new ArrayList<>();
 
     /**
      * Setter for high stroke settings.
@@ -935,16 +756,6 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetHighStroke2() {
-        if (!setHighStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setHighStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color5;
     private ColoredFill color6;
@@ -953,7 +764,6 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
-    private List<ScrollerseriesRangeStepArea> setLowStroke = new ArrayList<>();
 
     /**
      * Setter for low stroke settings.
@@ -1008,18 +818,7 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetLowStroke() {
-        if (!setLowStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setLowStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesRangeStepArea> setLowStroke1 = new ArrayList<>();
 
     /**
      * Setter for low stroke settings.
@@ -1074,18 +873,7 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetLowStroke1() {
-        if (!setLowStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setLowStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesRangeStepArea> setLowStroke2 = new ArrayList<>();
 
     /**
      * Setter for low stroke settings.
@@ -1140,20 +928,9 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetLowStroke2() {
-        if (!setLowStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setLowStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StepDirection stepDirection;
     private String stepDirection1;
-    private List<ScrollerseriesRangeStepArea> setStepDirection = new ArrayList<>();
 
     /**
      * Setter for the step direction.
@@ -1180,18 +957,7 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetStepDirection() {
-        if (!setStepDirection.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setStepDirection) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesRangeStepArea> setStepDirection1 = new ArrayList<>();
 
     /**
      * Setter for the step direction.
@@ -1217,16 +983,6 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
             }
         }
         return this;
-    }
-    private String generateJSsetStepDirection1() {
-        if (!setStepDirection1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesRangeStepArea item : setStepDirection1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetHatchFill() {
@@ -1257,28 +1013,6 @@ public class ScrollerseriesRangeStepArea extends ScrollerseriesBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetHatchFill());
-        js.append(generateJSsetHatchFill1());
-        js.append(generateJSsetHatchFill2());
-        js.append(generateJSsetHatchFill3());
-        js.append(generateJSsetHighStroke());
-        js.append(generateJSsetHighStroke1());
-        js.append(generateJSsetHighStroke2());
-        js.append(generateJSsetLowStroke());
-        js.append(generateJSsetLowStroke1());
-        js.append(generateJSsetLowStroke2());
-        js.append(generateJSsetStepDirection());
-        js.append(generateJSsetStepDirection1());
         
 
         String result = js.toString();

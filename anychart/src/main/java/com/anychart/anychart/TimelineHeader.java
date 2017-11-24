@@ -33,7 +33,6 @@ public class TimelineHeader extends VisualBaseWithBounds {
 
     
     private Fill backgroundFill;
-    private List<TimelineHeader> setBackgroundFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -58,20 +57,9 @@ public class TimelineHeader extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill() {
-        if (!setBackgroundFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : setBackgroundFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<TimelineHeader> setBackgroundFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -97,16 +85,6 @@ public class TimelineHeader extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill1() {
-        if (!setBackgroundFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : setBackgroundFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -115,7 +93,6 @@ public class TimelineHeader extends VisualBaseWithBounds {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<TimelineHeader> setBackgroundFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -156,18 +133,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill2() {
-        if (!setBackgroundFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : setBackgroundFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TimelineHeader> setBackgroundFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -208,18 +174,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill3() {
-        if (!setBackgroundFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : setBackgroundFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TimelineHeader> setBackgroundFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -260,18 +215,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill4() {
-        if (!setBackgroundFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : setBackgroundFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TimelineHeader> setBackgroundFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -312,18 +256,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill5() {
-        if (!setBackgroundFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : setBackgroundFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TimelineHeader> setBackgroundFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -364,18 +297,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill6() {
-        if (!setBackgroundFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : setBackgroundFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TimelineHeader> setBackgroundFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -416,16 +338,6 @@ public class TimelineHeader extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill7() {
-        if (!setBackgroundFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : setBackgroundFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -435,7 +347,6 @@ public class TimelineHeader extends VisualBaseWithBounds {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<TimelineHeader> setBackgroundFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -486,18 +397,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill8() {
-        if (!setBackgroundFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : setBackgroundFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TimelineHeader> setBackgroundFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -548,21 +448,10 @@ public class TimelineHeader extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill9() {
-        if (!setBackgroundFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : setBackgroundFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private Stroke levelsSeparationStroke;
     private String levelsSeparationStroke1;
-    private List<TimelineHeader> setLevelsSeparationStroke = new ArrayList<>();
 
     /**
      * Setter for the levels separation stroke.
@@ -589,18 +478,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetLevelsSeparationStroke() {
-        if (!setLevelsSeparationStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : setLevelsSeparationStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TimelineHeader> setLevelsSeparationStroke1 = new ArrayList<>();
 
     /**
      * Setter for the levels separation stroke.
@@ -627,16 +505,6 @@ public class TimelineHeader extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetLevelsSeparationStroke1() {
-        if (!setLevelsSeparationStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : setLevelsSeparationStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private List<TimelineHeader> getLowLevel = new ArrayList<>();
 
@@ -662,7 +530,6 @@ public class TimelineHeader extends VisualBaseWithBounds {
 
     private String midLevel;
     private Boolean midLevel1;
-    private List<TimelineHeader> setMidLevel = new ArrayList<>();
 
     /**
      * Setter for the middle level of header.
@@ -689,18 +556,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetMidLevel() {
-        if (!setMidLevel.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : setMidLevel) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TimelineHeader> setMidLevel1 = new ArrayList<>();
 
     /**
      * Setter for the middle level of header.
@@ -727,20 +583,9 @@ public class TimelineHeader extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetMidLevel1() {
-        if (!setMidLevel1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : setMidLevel1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String topLevel;
     private Boolean topLevel1;
-    private List<TimelineHeader> setTopLevel = new ArrayList<>();
 
     /**
      * Setter for top level of header.
@@ -767,18 +612,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetTopLevel() {
-        if (!setTopLevel.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : setTopLevel) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TimelineHeader> setTopLevel1 = new ArrayList<>();
 
     /**
      * Setter for top level of header.
@@ -804,16 +638,6 @@ public class TimelineHeader extends VisualBaseWithBounds {
             }
         }
         return this;
-    }
-    private String generateJSsetTopLevel1() {
-        if (!setTopLevel1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TimelineHeader item : setTopLevel1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetLowLevel() {
@@ -862,22 +686,6 @@ public class TimelineHeader extends VisualBaseWithBounds {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetBackgroundFill());
-        js.append(generateJSsetBackgroundFill1());
-        js.append(generateJSsetBackgroundFill2());
-        js.append(generateJSsetBackgroundFill3());
-        js.append(generateJSsetBackgroundFill4());
-        js.append(generateJSsetBackgroundFill5());
-        js.append(generateJSsetBackgroundFill6());
-        js.append(generateJSsetBackgroundFill7());
-        js.append(generateJSsetBackgroundFill8());
-        js.append(generateJSsetBackgroundFill9());
-        js.append(generateJSsetLevelsSeparationStroke());
-        js.append(generateJSsetLevelsSeparationStroke1());
-        js.append(generateJSsetMidLevel());
-        js.append(generateJSsetMidLevel1());
-        js.append(generateJSsetTopLevel());
-        js.append(generateJSsetTopLevel1());
         
 
         String result = js.toString();

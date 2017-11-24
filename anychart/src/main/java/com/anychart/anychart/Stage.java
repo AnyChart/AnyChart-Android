@@ -46,7 +46,6 @@ public class Stage extends JsObject {
 
     
     private Element element;
-    private List<Stage> setAddChild = new ArrayList<>();
 
     /**
      * Adds an element.<br/>
@@ -68,20 +67,9 @@ Similar to {@link anychart.graphics.vector.Layer#addChild}
         }
         return this;
     }
-    private String generateJSsetAddChild() {
-        if (!setAddChild.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setAddChild) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Element element1;
     private Double index;
-    private List<Stage> setAddChildAt = new ArrayList<>();
 
     /**
      * Adds an element by index.<br/>
@@ -111,16 +99,6 @@ Similar to {@link anychart.graphics.vector.Layer#addChildAt}
         }
         return this;
     }
-    private String generateJSsetAddChildAt() {
-        if (!setAddChildAt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setAddChildAt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double m;
     private Double m1;
@@ -128,7 +106,6 @@ Similar to {@link anychart.graphics.vector.Layer#addChildAt}
     private Double m3;
     private Double m4;
     private Double m5;
-    private List<Stage> setAppendTransformationMatrix = new ArrayList<>();
 
     /**
      * Combines current transformation with another.<br/>
@@ -206,19 +183,8 @@ Read more at: {@link anychart.graphics.vector.Element#appendTransformationMatrix
         }
         return this;
     }
-    private String generateJSsetAppendTransformationMatrix() {
-        if (!setAppendTransformationMatrix.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setAppendTransformationMatrix) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean asyncMode;
-    private List<Stage> setAsyncMode = new ArrayList<>();
 
     /**
      * Setter for the stage rendering mode.
@@ -241,16 +207,6 @@ Read more at: {@link anychart.graphics.vector.Element#appendTransformationMatrix
             }
         }
         return this;
-    }
-    private String generateJSsetAsyncMode() {
-        if (!setAsyncMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setAsyncMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double cx;
@@ -316,7 +272,6 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
     }
 
     private GraphicsMathRect clip;
-    private List<Stage> setClip = new ArrayList<>();
 
     /**
      * Clips a stage.<br/>
@@ -339,19 +294,8 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
         }
         return this;
     }
-    private String generateJSsetClip() {
-        if (!setClip.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setClip) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Element container;
-    private List<Stage> setContainer = new ArrayList<>();
 
     /**
      * Sets DOM element where everything is drawn upon rendering.
@@ -371,16 +315,6 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
             js.append(String.format(Locale.US, ".container(%s);",  ((container != null) ? container.getJsBase() : "null")));
         }
         return this;
-    }
-    private String generateJSsetContainer() {
-        if (!setContainer.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setContainer) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double[] rect;
@@ -570,7 +504,6 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
 
     private String credits;
     private Boolean credits1;
-    private List<Stage> setCredits = new ArrayList<>();
 
     /**
      * Setter for stage credits.
@@ -598,18 +531,7 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
         }
         return this;
     }
-    private String generateJSsetCredits() {
-        if (!setCredits.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setCredits) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Stage> setCredits1 = new ArrayList<>();
 
     /**
      * Setter for stage credits.
@@ -637,19 +559,8 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
         }
         return this;
     }
-    private String generateJSsetCredits1() {
-        if (!setCredits1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setCredits1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String data;
-    private List<Stage> setData = new ArrayList<>();
 
     /**
      * Deserialize JSON. Objects are created and rendered to the current stage.<br/>
@@ -678,19 +589,8 @@ when we deserialize - JSON schema does this. JSON schema is created in
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String desc;
-    private List<Stage> setDesc = new ArrayList<>();
 
     /**
      * Setter for the element desc value.
@@ -713,16 +613,6 @@ when we deserialize - JSON schema does this. JSON schema is created in
             }
         }
         return this;
-    }
-    private String generateJSsetDesc() {
-        if (!setDesc.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setDesc) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double cx1;
@@ -1276,7 +1166,6 @@ Read more at: {@link anychart.graphics.vector.HatchFill}
 
     private String height3;
     private Double height4;
-    private List<Stage> setHeight = new ArrayList<>();
 
     /**
      * Sets a stage height.
@@ -1306,18 +1195,7 @@ Read more at: {@link anychart.graphics.vector.HatchFill}
         }
         return this;
     }
-    private String generateJSsetHeight() {
-        if (!setHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Stage> setHeight1 = new ArrayList<>();
 
     /**
      * Sets a stage height.
@@ -1346,16 +1224,6 @@ Read more at: {@link anychart.graphics.vector.HatchFill}
             }
         }
         return this;
-    }
-    private String generateJSsetHeight1() {
-        if (!setHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double x1;
@@ -1413,7 +1281,6 @@ You must delete them yourself after you finish using them.
     }
 
     private String id;
-    private List<Stage> setId = new ArrayList<>();
 
     /**
      * Setter for a stage identifier. Instantly applied to the DOM.
@@ -1436,16 +1303,6 @@ You must delete them yourself after you finish using them.
             }
         }
         return this;
-    }
-    private String generateJSsetId() {
-        if (!setId.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setId) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String src;
@@ -1548,160 +1405,7 @@ Similar to {@link anychart.graphics.vector.Layer#indexOfChild}
         }
     }
 
-    private String type1;
-    private StageEventType type2;
-    private Boolean useCapture;
-    private String listenerScope;
-
-    /**
-     * Adds an event listener to a stage.
-     */
-    public void listen(String type1, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type1 = type1;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type1 = type1;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-            
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".listen(%s, %b, %s);", wrapQuotes(type1), useCapture, wrapQuotes(listenerScope)));
-            
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s)", wrapQuotes(type1), useCapture, wrapQuotes(listenerScope)));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    /**
-     * Adds an event listener to a stage.
-     */
-    public void listen(StageEventType type2, Boolean useCapture, String listenerScope) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            
-            this.type2 = type2;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-        } else {
-            this.type2 = type2;
-            this.useCapture = useCapture;
-            this.listenerScope = listenerScope;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-            
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".listen(%s, %b, %s);", ((type2 != null) ? type2.generateJs() : "null"), useCapture, wrapQuotes(listenerScope)));
-            
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listen(%s, %b, %s)", ((type2 != null) ? type2.generateJs() : "null"), useCapture, wrapQuotes(listenerScope)));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String type3;
-    private StageEventType type4;
-    private Boolean useCapture1;
-    private String listenerScope1;
-
-    /**
-     * Adds an event listener that is removed automatically after the listener fired once.
-     */
-    public void listenOnce(String type3, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            this.type4 = null;
-            
-            this.type3 = type3;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type3 = type3;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-            
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".listenOnce(%s, %b, %s);", wrapQuotes(type3), useCapture1, wrapQuotes(listenerScope1)));
-            
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s)", wrapQuotes(type3), useCapture1, wrapQuotes(listenerScope1)));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    /**
-     * Adds an event listener that is removed automatically after the listener fired once.
-     */
-    public void listenOnce(StageEventType type4, Boolean useCapture1, String listenerScope1) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            this.type4 = null;
-            
-            this.type4 = type4;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            
-            this.useCapture1 = useCapture1;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            
-            this.listenerScope1 = listenerScope1;
-        } else {
-            this.type4 = type4;
-            this.useCapture1 = useCapture1;
-            this.listenerScope1 = listenerScope1;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-            
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".listenOnce(%s, %b, %s);", ((type4 != null) ? type4.generateJs() : "null"), useCapture1, wrapQuotes(listenerScope1)));
-            
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".listenOnce(%s, %b, %s)", ((type4 != null) ? type4.generateJs() : "null"), useCapture1, wrapQuotes(listenerScope1)));
-                js.setLength(0);
-            }
-        }
-    }
-
     private Double maxResizeDelay;
-    private List<Stage> setMaxResizeDelay = new ArrayList<>();
 
     /**
      * Setter for max delay.
@@ -1724,16 +1428,6 @@ Similar to {@link anychart.graphics.vector.Layer#indexOfChild}
             }
         }
         return this;
-    }
-    private String generateJSsetMaxResizeDelay() {
-        if (!setMaxResizeDelay.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setMaxResizeDelay) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private GraphicsMathRect bounds;
@@ -2002,38 +1696,6 @@ You must delete them yourself after you finish using them.
             return resultJs.toString();
         }
         return "";
-    }
-
-    private String type5;
-
-    /**
-     * Removes all listeners from an object. You can also optionally remove listeners of some particular type.
-     */
-    public void removeAllListeners(String type5) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            this.type4 = null;
-            this.type5 = null;
-            
-            this.type5 = type5;
-        } else {
-            this.type5 = type5;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-            
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".removeAllListeners(%s);", wrapQuotes(type5)));
-            
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAllListeners(%s)", wrapQuotes(type5)));
-                js.setLength(0);
-            }
-        }
     }
 
     private Element element4;
@@ -2307,7 +1969,6 @@ So any part that doesn't fit will be clipped.
     }
 
     private Boolean force;
-    private List<Stage> setResume = new ArrayList<>();
 
     /**
      * Removes suspend state and applies all changes in sync (if any).<br/>
@@ -2332,21 +1993,10 @@ Read more at {@link anychart.graphics.vector.Stage#suspend}.
         }
         return this;
     }
-    private String generateJSsetResume() {
-        if (!setResume.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setResume) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double degrees;
     private Double cx2;
     private Double cy2;
-    private List<Stage> setRotate = new ArrayList<>();
 
     /**
      * Rotates root layer.<br/>
@@ -2383,21 +2033,10 @@ Read more at: {@link anychart.graphics.vector.Element#rotate}.
         }
         return this;
     }
-    private String generateJSsetRotate() {
-        if (!setRotate.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setRotate) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double degrees1;
     private VectorAnchor anchor;
     private String anchor1;
-    private List<Stage> setRotateByAnchor = new ArrayList<>();
 
     /**
      * Rotates root layer around an anchor.<br/>
@@ -2430,18 +2069,7 @@ Read more at: {@link anychart.graphics.vector.Element#rotateByAnchor}.
         }
         return this;
     }
-    private String generateJSsetRotateByAnchor() {
-        if (!setRotateByAnchor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setRotateByAnchor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Stage> setRotateByAnchor1 = new ArrayList<>();
 
     /**
      * Rotates root layer around an anchor.<br/>
@@ -2473,16 +2101,6 @@ Read more at: {@link anychart.graphics.vector.Element#rotateByAnchor}.
             }
         }
         return this;
-    }
-    private String generateJSsetRotateByAnchor1() {
-        if (!setRotateByAnchor1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setRotateByAnchor1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double width7;
@@ -2769,7 +2387,6 @@ For export to SVG use {@link anychart#server}.
     private Double sy;
     private Double cx3;
     private Double cy3;
-    private List<Stage> setScale = new ArrayList<>();
 
     /**
      * Scales root layer in parent coordinates system. Scaling center is set in the parent system too.<br/>
@@ -2810,22 +2427,11 @@ Read more at: {@link anychart.graphics.vector.Element#scale}.
         }
         return this;
     }
-    private String generateJSsetScale() {
-        if (!setScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double sx1;
     private Double sy1;
     private VectorAnchor anchor2;
     private String anchor3;
-    private List<Stage> setScaleByAnchor = new ArrayList<>();
 
     /**
      * Scales root layer in parent coordinates system. Scaling center is set by root layer anchor.<br/>
@@ -2865,18 +2471,7 @@ Read more at: {@link anychart.graphics.vector.Element#scaleByAnchor}.
         }
         return this;
     }
-    private String generateJSsetScaleByAnchor() {
-        if (!setScaleByAnchor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setScaleByAnchor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Stage> setScaleByAnchor1 = new ArrayList<>();
 
     /**
      * Scales root layer in parent coordinates system. Scaling center is set by root layer anchor.<br/>
@@ -2916,20 +2511,9 @@ Read more at: {@link anychart.graphics.vector.Element#scaleByAnchor}.
         }
         return this;
     }
-    private String generateJSsetScaleByAnchor1() {
-        if (!setScaleByAnchor1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setScaleByAnchor1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double x5;
     private Double y5;
-    private List<Stage> setSetPosition = new ArrayList<>();
 
     /**
      * Sets top left corner coordinates of root layer (with transformation,in parent coordinate system).<br/>
@@ -2970,21 +2554,10 @@ Read more at: {@link anychart.graphics.vector.Element#setPosition}.
         }
         return this;
     }
-    private String generateJSsetSetPosition() {
-        if (!setSetPosition.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setSetPosition) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double degrees2;
     private Double cx4;
     private Double cy4;
-    private List<Stage> setSetRotation = new ArrayList<>();
 
     /**
      * Rotates root layer around a point.<br/>
@@ -3029,21 +2602,10 @@ Read more at: {@link anychart.graphics.vector.Element#setRotation}.
         }
         return this;
     }
-    private String generateJSsetSetRotation() {
-        if (!setSetRotation.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setSetRotation) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double degrees3;
     private VectorAnchor anchor4;
     private String anchor5;
-    private List<Stage> setSetRotationByAnchor = new ArrayList<>();
 
     /**
      * Rotates root layer around an anchor.<br/>
@@ -3082,18 +2644,7 @@ Read more at: {@link anychart.graphics.vector.Element#setRotationByAnchor}.
         }
         return this;
     }
-    private String generateJSsetSetRotationByAnchor() {
-        if (!setSetRotationByAnchor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setSetRotationByAnchor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Stage> setSetRotationByAnchor1 = new ArrayList<>();
 
     /**
      * Rotates root layer around an anchor.<br/>
@@ -3132,16 +2683,6 @@ Read more at: {@link anychart.graphics.vector.Element#setRotationByAnchor}.
         }
         return this;
     }
-    private String generateJSsetSetRotationByAnchor1() {
-        if (!setSetRotationByAnchor1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setSetRotationByAnchor1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double m6;
     private Double m7;
@@ -3149,7 +2690,6 @@ Read more at: {@link anychart.graphics.vector.Element#setRotationByAnchor}.
     private Double m9;
     private Double m10;
     private Double m11;
-    private List<Stage> setSetTransformationMatrix = new ArrayList<>();
 
     /**
      * Sets transformation matrix.<br/>
@@ -3261,16 +2801,6 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             }
         }
         return this;
-    }
-    private String generateJSsetSetTransformationMatrix() {
-        if (!setSetTransformationMatrix.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setSetTransformationMatrix) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Boolean asBase;
@@ -3999,7 +3529,6 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
 
     private Element element5;
     private Element element6;
-    private List<Stage> setSwapChildren = new ArrayList<>();
 
     /**
      * Swaps two children.<br/>
@@ -4039,20 +3568,9 @@ Similar to {@link anychart.graphics.vector.Layer#swapChildren}
         }
         return this;
     }
-    private String generateJSsetSwapChildren() {
-        if (!setSwapChildren.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setSwapChildren) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index3;
     private Double index4;
-    private List<Stage> setSwapChildrenAt = new ArrayList<>();
 
     /**
      * Swaps two children by id.<br/>
@@ -4090,16 +3608,6 @@ Similar to {@link anychart.graphics.vector.Layer#swapChildrenAt}
             }
         }
         return this;
-    }
-    private String generateJSsetSwapChildrenAt() {
-        if (!setSwapChildrenAt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setSwapChildrenAt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double x7;
@@ -4171,7 +3679,6 @@ You must delete them yourself after you finish using them.
     }
 
     private String title;
-    private List<Stage> setTitle = new ArrayList<>();
 
     /**
      * Setter for the element title value.
@@ -4194,16 +3701,6 @@ You must delete them yourself after you finish using them.
             }
         }
         return this;
-    }
-    private String generateJSsetTitle() {
-        if (!setTitle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setTitle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String paperSize2;
@@ -4302,7 +3799,6 @@ You must delete them yourself after you finish using them.
 
     private Double tx;
     private Double ty;
-    private List<Stage> setTranslate = new ArrayList<>();
 
     /**
      * Moves root layer taking transformation into account.<br/>
@@ -4330,138 +3826,8 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
         }
         return this;
     }
-    private String generateJSsetTranslate() {
-        if (!setTranslate.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setTranslate) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private String type6;
-    private StageEventType type7;
-    private Boolean useCapture2;
-    private String listenerScope2;
-
-    /**
-     * Removes a listener added with {@link anychart.graphics.vector.Stage#listen} or {@link anychart.graphics.vector.Stage#listenOnce} methods.
-     */
-    public void unlisten(String type6, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            this.type4 = null;
-            this.type5 = null;
-            this.type6 = null;
-            this.type7 = null;
-            
-            this.type6 = type6;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type6 = type6;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-            
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unlisten(%s, %b, %s);", wrapQuotes(type6), useCapture2, wrapQuotes(listenerScope2)));
-            
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s)", wrapQuotes(type6), useCapture2, wrapQuotes(listenerScope2)));
-                js.setLength(0);
-            }
-        }
-    }
-
-
-    /**
-     * Removes a listener added with {@link anychart.graphics.vector.Stage#listen} or {@link anychart.graphics.vector.Stage#listenOnce} methods.
-     */
-    public void unlisten(StageEventType type7, Boolean useCapture2, String listenerScope2) {
-        if (jsBase == null) {
-            this.type = null;
-            this.type1 = null;
-            this.type2 = null;
-            this.type3 = null;
-            this.type4 = null;
-            this.type5 = null;
-            this.type6 = null;
-            this.type7 = null;
-            
-            this.type7 = type7;
-            this.useCapture = null;
-            this.useCapture1 = null;
-            this.useCapture2 = null;
-            
-            this.useCapture2 = useCapture2;
-            this.listenerScope = null;
-            this.listenerScope1 = null;
-            this.listenerScope2 = null;
-            
-            this.listenerScope2 = listenerScope2;
-        } else {
-            this.type7 = type7;
-            this.useCapture2 = useCapture2;
-            this.listenerScope2 = listenerScope2;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-            
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unlisten(%s, %b, %s);", ((type7 != null) ? type7.generateJs() : "null"), useCapture2, wrapQuotes(listenerScope2)));
-            
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlisten(%s, %b, %s)", ((type7 != null) ? type7.generateJs() : "null"), useCapture2, wrapQuotes(listenerScope2)));
-                js.setLength(0);
-            }
-        }
-    }
-
-    private String key;
-
-    /**
-     * Removes an event listener which was added with {@link anychart.graphics.vector.Stage#listen} by the key returned by {@link anychart.graphics.vector.Stage#listen} or {@link anychart.graphics.vector.Stage#listenOnce}.
-     */
-    public void unlistenByKey(String key) {
-        if (jsBase == null) {
-            this.key = key;
-        } else {
-            this.key = key;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-            
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unlistenByKey(%s);", wrapQuotes(key)));
-            
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unlistenByKey(%s)", wrapQuotes(key)));
-                js.setLength(0);
-            }
-        }
-    }
 
     private Boolean isVisible;
-    private List<Stage> setVisible = new ArrayList<>();
 
     /**
      * Shows or hides a stage.
@@ -4485,20 +3851,9 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
         }
         return this;
     }
-    private String generateJSsetVisible() {
-        if (!setVisible.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setVisible) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String width13;
     private Double width14;
-    private List<Stage> setWidth = new ArrayList<>();
 
     /**
      * Sets a stage width.
@@ -4538,18 +3893,7 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
         }
         return this;
     }
-    private String generateJSsetWidth() {
-        if (!setWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Stage> setWidth1 = new ArrayList<>();
 
     /**
      * Sets a stage width.
@@ -4589,16 +3933,6 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
         }
         return this;
     }
-    private String generateJSsetWidth1() {
-        if (!setWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stage item : setWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String generateJSgetClip() {
         if (getClip != null) {
@@ -4636,54 +3970,21 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAddChild());
-        js.append(generateJSsetAddChildAt());
-        js.append(generateJSsetAppendTransformationMatrix());
-        js.append(generateJSsetAsyncMode());
         js.append(generateJSsetCircle());
-        js.append(generateJSsetClip());
-        js.append(generateJSsetContainer());
         js.append(generateJSsetCreateClip());
         js.append(generateJSsetCreateClip1());
         js.append(generateJSsetCreateClip2());
         js.append(generateJSsetCreateClip3());
-        js.append(generateJSsetCredits());
-        js.append(generateJSsetCredits1());
-        js.append(generateJSsetData());
-        js.append(generateJSsetDesc());
         js.append(generateJSsetEllipse());
         js.append(generateJSsetGetChildAt());
         js.append(generateJSsetHatchFill());
-        js.append(generateJSsetHeight());
-        js.append(generateJSsetHeight1());
         js.append(generateJSsetHtml());
-        js.append(generateJSsetId());
         js.append(generateJSsetImage());
-        js.append(generateJSsetMaxResizeDelay());
         js.append(generateJSsetPattern());
         js.append(generateJSsetRect());
         js.append(generateJSsetRemoveChild());
         js.append(generateJSsetRemoveChildAt());
-        js.append(generateJSsetResume());
-        js.append(generateJSsetRotate());
-        js.append(generateJSsetRotateByAnchor());
-        js.append(generateJSsetRotateByAnchor1());
-        js.append(generateJSsetScale());
-        js.append(generateJSsetScaleByAnchor());
-        js.append(generateJSsetScaleByAnchor1());
-        js.append(generateJSsetSetPosition());
-        js.append(generateJSsetSetRotation());
-        js.append(generateJSsetSetRotationByAnchor());
-        js.append(generateJSsetSetRotationByAnchor1());
-        js.append(generateJSsetSetTransformationMatrix());
-        js.append(generateJSsetSwapChildren());
-        js.append(generateJSsetSwapChildrenAt());
         js.append(generateJSsetText());
-        js.append(generateJSsetTitle());
-        js.append(generateJSsetTranslate());
-        js.append(generateJSsetVisible());
-        js.append(generateJSsetWidth());
-        js.append(generateJSsetWidth1());
         
 
         String result = js.toString();

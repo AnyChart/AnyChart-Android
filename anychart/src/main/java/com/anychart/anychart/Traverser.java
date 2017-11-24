@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -70,7 +68,6 @@ public class Traverser extends JsObject {
     }
 
     private String key1;
-    private List<Traverser> setSet = new ArrayList<>();
 
     /**
      * Sets current item's value by key specified.
@@ -96,16 +93,6 @@ public class Traverser extends JsObject {
             }
         }
         return this;
-    }
-    private String generateJSsetSet() {
-        if (!setSet.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Traverser item : setSet) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetCurrent() {
@@ -136,7 +123,6 @@ public class Traverser extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetSet());
         
 
         String result = js.toString();

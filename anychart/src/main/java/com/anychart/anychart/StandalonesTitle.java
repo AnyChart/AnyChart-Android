@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -46,7 +44,6 @@ public class StandalonesTitle extends UiTitle {
 
     private String container;
     private Element container1;
-    private List<StandalonesTitle> setContainer = new ArrayList<>();
 
     /**
      * Setter for the title container.
@@ -73,18 +70,7 @@ public class StandalonesTitle extends UiTitle {
         }
         return this;
     }
-    private String generateJSsetContainer() {
-        if (!setContainer.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesTitle item : setContainer) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesTitle> setContainer1 = new ArrayList<>();
 
     /**
      * Setter for the title container.
@@ -108,16 +94,6 @@ public class StandalonesTitle extends UiTitle {
         }
         return this;
     }
-    private String generateJSsetContainer1() {
-        if (!setContainer1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesTitle item : setContainer1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private AnychartMathRect getParentBounds;
 
@@ -133,7 +109,6 @@ public class StandalonesTitle extends UiTitle {
 
     private AnychartMathRect parentBounds;
     private String parentBounds1;
-    private List<StandalonesTitle> setParentBounds = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -157,18 +132,7 @@ public class StandalonesTitle extends UiTitle {
         }
         return this;
     }
-    private String generateJSsetParentBounds() {
-        if (!setParentBounds.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesTitle item : setParentBounds) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesTitle> setParentBounds1 = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -195,22 +159,11 @@ public class StandalonesTitle extends UiTitle {
         }
         return this;
     }
-    private String generateJSsetParentBounds1() {
-        if (!setParentBounds1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesTitle item : setParentBounds1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double left;
     private Double top;
     private Double width;
     private Double height;
-    private List<StandalonesTitle> setParentBounds2 = new ArrayList<>();
 
     /**
      * Setter for bounds using several value.
@@ -239,16 +192,6 @@ public class StandalonesTitle extends UiTitle {
             }
         }
         return this;
-    }
-    private String generateJSsetParentBounds2() {
-        if (!setParentBounds2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesTitle item : setParentBounds2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetContainer() {
@@ -287,11 +230,6 @@ public class StandalonesTitle extends UiTitle {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetContainer());
-        js.append(generateJSsetContainer1());
-        js.append(generateJSsetParentBounds());
-        js.append(generateJSsetParentBounds1());
-        js.append(generateJSsetParentBounds2());
         
 
         String result = js.toString();

@@ -129,7 +129,6 @@ public class Bullet extends Chart {
     }
     private String axis;
     private Boolean axis1;
-    private List<Bullet> setAxis = new ArrayList<>();
 
     /**
      * Setter for the bullet chart axis settings.
@@ -147,18 +146,7 @@ public class Bullet extends Chart {
         }
         return this;
     }
-    private String generateJSsetAxis() {
-        if (!setAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Bullet> setAxis1 = new ArrayList<>();
 
     /**
      * Setter for the bullet chart axis settings.
@@ -176,16 +164,6 @@ public class Bullet extends Chart {
         }
         return this;
     }
-    private String generateJSsetAxis1() {
-        if (!setAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private View getData;
@@ -199,7 +177,6 @@ public class Bullet extends Chart {
 
         return getData;
     }
-    private List<Bullet> setData = new ArrayList<>();
 
     /**
      * Setter for the chart data.<br/>
@@ -224,18 +201,7 @@ public class Bullet extends Chart {
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Bullet> setData1 = new ArrayList<>();
 
     /**
      * 
@@ -250,20 +216,9 @@ public class Bullet extends Chart {
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Layout layout;
     private String layout1;
-    private List<Bullet> setLayout = new ArrayList<>();
 
     /**
      * Setter for the chart layout.
@@ -281,18 +236,7 @@ public class Bullet extends Chart {
         }
         return this;
     }
-    private String generateJSsetLayout() {
-        if (!setLayout.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setLayout) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Bullet> setLayout1 = new ArrayList<>();
 
     /**
      * Setter for the chart layout.
@@ -309,16 +253,6 @@ public class Bullet extends Chart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetLayout1() {
-        if (!setLayout1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setLayout1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -337,7 +271,6 @@ public class Bullet extends Chart {
     private String[] markerPalette1;
     private String markerPalette2;
     private Markers markerPalette3;
-    private List<Bullet> setMarkerPalette = new ArrayList<>();
 
     /**
      * Setter for the markers palette settings.<br/>
@@ -356,18 +289,7 @@ public class Bullet extends Chart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette() {
-        if (!setMarkerPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setMarkerPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Bullet> setMarkerPalette1 = new ArrayList<>();
 
     /**
      * Setter for the markers palette settings.<br/>
@@ -386,18 +308,7 @@ public class Bullet extends Chart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette1() {
-        if (!setMarkerPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setMarkerPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Bullet> setMarkerPalette2 = new ArrayList<>();
 
     /**
      * Setter for the markers palette settings.<br/>
@@ -416,18 +327,7 @@ public class Bullet extends Chart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette2() {
-        if (!setMarkerPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setMarkerPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Bullet> setMarkerPalette3 = new ArrayList<>();
 
     /**
      * Setter for the markers palette settings.<br/>
@@ -443,16 +343,6 @@ public class Bullet extends Chart {
 
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette3 != null) ? markerPalette3.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetMarkerPalette3() {
-        if (!setMarkerPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setMarkerPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -480,7 +370,6 @@ public class Bullet extends Chart {
     }
     private String range;
     private Boolean range1;
-    private List<Bullet> setRange = new ArrayList<>();
 
     /**
      * Setter for the bullet chart first range settings.
@@ -498,18 +387,7 @@ public class Bullet extends Chart {
         }
         return this;
     }
-    private String generateJSsetRange() {
-        if (!setRange.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setRange) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Bullet> setRange1 = new ArrayList<>();
 
     /**
      * Setter for the bullet chart first range settings.
@@ -527,21 +405,10 @@ public class Bullet extends Chart {
         }
         return this;
     }
-    private String generateJSsetRange1() {
-        if (!setRange1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setRange1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index1;
     private String range2;
     private Boolean range3;
-    private List<Bullet> setRange2 = new ArrayList<>();
 
     /**
      * Setter for bullet chart ranges settings.
@@ -559,18 +426,7 @@ public class Bullet extends Chart {
         }
         return this;
     }
-    private String generateJSsetRange2() {
-        if (!setRange2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setRange2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Bullet> setRange3 = new ArrayList<>();
 
     /**
      * Setter for bullet chart ranges settings.
@@ -588,16 +444,6 @@ public class Bullet extends Chart {
         }
         return this;
     }
-    private String generateJSsetRange3() {
-        if (!setRange3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setRange3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private DistinctColors getRangePalette;
@@ -614,7 +460,6 @@ public class Bullet extends Chart {
     private DistinctColors rangePalette;
     private String rangePalette1;
     private String[] rangePalette2;
-    private List<Bullet> setRangePalette = new ArrayList<>();
 
     /**
      * Setter for the range palette settings.
@@ -630,18 +475,7 @@ public class Bullet extends Chart {
         js.append(String.format(Locale.US, ".rangePalette(%s);",  ((rangePalette != null) ? rangePalette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetRangePalette() {
-        if (!setRangePalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setRangePalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Bullet> setRangePalette1 = new ArrayList<>();
 
     /**
      * Setter for the range palette settings.
@@ -659,18 +493,7 @@ public class Bullet extends Chart {
         }
         return this;
     }
-    private String generateJSsetRangePalette1() {
-        if (!setRangePalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setRangePalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Bullet> setRangePalette2 = new ArrayList<>();
 
     /**
      * Setter for the range palette settings.
@@ -687,16 +510,6 @@ public class Bullet extends Chart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetRangePalette2() {
-        if (!setRangePalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setRangePalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -715,7 +528,6 @@ public class Bullet extends Chart {
     private String scale1;
     private ScaleTypes scale2;
     private String scale3;
-    private List<Bullet> setScale = new ArrayList<>();
 
     /**
      * Setter for the bullet chart scale settings.
@@ -731,18 +543,7 @@ public class Bullet extends Chart {
         js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetScale() {
-        if (!setScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Bullet> setScale1 = new ArrayList<>();
 
     /**
      * Setter for the bullet chart scale settings.
@@ -760,18 +561,7 @@ public class Bullet extends Chart {
         }
         return this;
     }
-    private String generateJSsetScale1() {
-        if (!setScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Bullet> setScale2 = new ArrayList<>();
 
     /**
      * Setter for the bullet chart scale settings.
@@ -788,16 +578,6 @@ public class Bullet extends Chart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetScale2() {
-        if (!setScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Bullet item : setScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetAxis() {
@@ -868,26 +648,6 @@ public class Bullet extends Chart {
         js.append(generateJSgetRange1());
         js.append(generateJSgetRangePalette());
         js.append(generateJSgetScale());
-        js.append(generateJSsetAxis());
-        js.append(generateJSsetAxis1());
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetLayout());
-        js.append(generateJSsetLayout1());
-        js.append(generateJSsetMarkerPalette());
-        js.append(generateJSsetMarkerPalette1());
-        js.append(generateJSsetMarkerPalette2());
-        js.append(generateJSsetMarkerPalette3());
-        js.append(generateJSsetRange());
-        js.append(generateJSsetRange1());
-        js.append(generateJSsetRange2());
-        js.append(generateJSsetRange3());
-        js.append(generateJSsetRangePalette());
-        js.append(generateJSsetRangePalette1());
-        js.append(generateJSsetRangePalette2());
-        js.append(generateJSsetScale());
-        js.append(generateJSsetScale1());
-        js.append(generateJSsetScale2());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

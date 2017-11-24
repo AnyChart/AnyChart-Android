@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -41,7 +39,6 @@ public class CartesianSeriesSpline extends CartesianSeriesContinuousBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<CartesianSeriesSpline> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -78,18 +75,7 @@ public class CartesianSeriesSpline extends CartesianSeriesContinuousBase {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesSpline item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CartesianSeriesSpline> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -126,18 +112,7 @@ public class CartesianSeriesSpline extends CartesianSeriesContinuousBase {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesSpline item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CartesianSeriesSpline> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -174,16 +149,6 @@ public class CartesianSeriesSpline extends CartesianSeriesContinuousBase {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesSpline item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -205,9 +170,6 @@ public class CartesianSeriesSpline extends CartesianSeriesContinuousBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
         
 
         String result = js.toString();

@@ -34,7 +34,6 @@ public class UiColorRange extends CoreAxesLinear {
     
     private EnumsAlign align;
     private String align1;
-    private List<UiColorRange> setAlign = new ArrayList<>();
 
     /**
      * Setter for color range align settings.
@@ -61,18 +60,7 @@ public class UiColorRange extends CoreAxesLinear {
         }
         return this;
     }
-    private String generateJSsetAlign() {
-        if (!setAlign.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiColorRange item : setAlign) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiColorRange> setAlign1 = new ArrayList<>();
 
     /**
      * Setter for color range align settings.
@@ -99,19 +87,8 @@ public class UiColorRange extends CoreAxesLinear {
         }
         return this;
     }
-    private String generateJSsetAlign1() {
-        if (!setAlign1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiColorRange item : setAlign1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double colorLineSize;
-    private List<UiColorRange> setColorLineSize = new ArrayList<>();
 
     /**
      * Setter for the color line size.
@@ -135,20 +112,9 @@ public class UiColorRange extends CoreAxesLinear {
         }
         return this;
     }
-    private String generateJSsetColorLineSize() {
-        if (!setColorLineSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiColorRange item : setColorLineSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String length;
     private Double length1;
-    private List<UiColorRange> setLength = new ArrayList<>();
 
     /**
      * Setter for the current color range line length.
@@ -175,18 +141,7 @@ public class UiColorRange extends CoreAxesLinear {
         }
         return this;
     }
-    private String generateJSsetLength() {
-        if (!setLength.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiColorRange item : setLength) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiColorRange> setLength1 = new ArrayList<>();
 
     /**
      * Setter for the current color range line length.
@@ -212,16 +167,6 @@ public class UiColorRange extends CoreAxesLinear {
             }
         }
         return this;
-    }
-    private String generateJSsetLength1() {
-        if (!setLength1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiColorRange item : setLength1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private UiMarkersfactoryMarker getMarker;
@@ -312,11 +257,6 @@ public class UiColorRange extends CoreAxesLinear {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAlign());
-        js.append(generateJSsetAlign1());
-        js.append(generateJSsetColorLineSize());
-        js.append(generateJSsetLength());
-        js.append(generateJSsetLength1());
         
 
         String result = js.toString();

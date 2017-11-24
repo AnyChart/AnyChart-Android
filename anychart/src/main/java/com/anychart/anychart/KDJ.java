@@ -35,7 +35,6 @@ public class KDJ extends JsObject {
     
     private MovingAverageType dMAType;
     private String dMAType1;
-    private List<KDJ> setDMAType = new ArrayList<>();
 
     /**
      * Setter for the %D smoothing type.
@@ -62,18 +61,7 @@ public class KDJ extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDMAType() {
-        if (!setDMAType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (KDJ item : setDMAType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<KDJ> setDMAType1 = new ArrayList<>();
 
     /**
      * Setter for the %D smoothing type.
@@ -100,19 +88,8 @@ public class KDJ extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDMAType1() {
-        if (!setDMAType1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (KDJ item : setDMAType1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double dMultiplier;
-    private List<KDJ> setDMultiplier = new ArrayList<>();
 
     /**
      * Setter for the %D multiplier.
@@ -136,19 +113,8 @@ public class KDJ extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDMultiplier() {
-        if (!setDMultiplier.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (KDJ item : setDMultiplier) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double dPeriod;
-    private List<KDJ> setDPeriod = new ArrayList<>();
 
     /**
      * Setter for the %D Period.
@@ -172,16 +138,6 @@ public class KDJ extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDPeriod() {
-        if (!setDPeriod.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (KDJ item : setDPeriod) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StockSeriesBase getDSeries;
 
@@ -197,7 +153,6 @@ public class KDJ extends JsObject {
 
     private StockSeriesType type;
     private String type1;
-    private List<KDJ> setDSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator %D Series.
@@ -224,18 +179,7 @@ public class KDJ extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDSeries() {
-        if (!setDSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (KDJ item : setDSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<KDJ> setDSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator %D Series.
@@ -262,16 +206,6 @@ public class KDJ extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDSeries1() {
-        if (!setDSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (KDJ item : setDSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StockSeriesBase getJSeries;
 
@@ -287,7 +221,6 @@ public class KDJ extends JsObject {
 
     private StockSeriesType type2;
     private String type3;
-    private List<KDJ> setJSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator %J Series.
@@ -316,18 +249,7 @@ public class KDJ extends JsObject {
         }
         return this;
     }
-    private String generateJSsetJSeries() {
-        if (!setJSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (KDJ item : setJSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<KDJ> setJSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator %J Series.
@@ -356,16 +278,6 @@ public class KDJ extends JsObject {
         }
         return this;
     }
-    private String generateJSsetJSeries1() {
-        if (!setJSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (KDJ item : setJSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private List<KDJ> getKMAPeriod = new ArrayList<>();
 
@@ -380,7 +292,6 @@ public class KDJ extends JsObject {
 
     private MovingAverageType kMAType;
     private String kMAType1;
-    private List<KDJ> setKMAType = new ArrayList<>();
 
     /**
      * Setter for the %K smoothing type.
@@ -407,18 +318,7 @@ public class KDJ extends JsObject {
         }
         return this;
     }
-    private String generateJSsetKMAType() {
-        if (!setKMAType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (KDJ item : setKMAType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<KDJ> setKMAType1 = new ArrayList<>();
 
     /**
      * Setter for the %K smoothing type.
@@ -445,19 +345,8 @@ public class KDJ extends JsObject {
         }
         return this;
     }
-    private String generateJSsetKMAType1() {
-        if (!setKMAType1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (KDJ item : setKMAType1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double kMultiplier;
-    private List<KDJ> setKMultiplier = new ArrayList<>();
 
     /**
      * Setter for the %K multiplier.
@@ -481,19 +370,8 @@ public class KDJ extends JsObject {
         }
         return this;
     }
-    private String generateJSsetKMultiplier() {
-        if (!setKMultiplier.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (KDJ item : setKMultiplier) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double kPeriod;
-    private List<KDJ> setKPeriod = new ArrayList<>();
 
     /**
      * Setter for the %K Period.
@@ -517,16 +395,6 @@ public class KDJ extends JsObject {
         }
         return this;
     }
-    private String generateJSsetKPeriod() {
-        if (!setKPeriod.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (KDJ item : setKPeriod) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StockSeriesBase getKSeries;
 
@@ -542,7 +410,6 @@ public class KDJ extends JsObject {
 
     private StockSeriesType type4;
     private String type5;
-    private List<KDJ> setKSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator %K Series.
@@ -573,18 +440,7 @@ public class KDJ extends JsObject {
         }
         return this;
     }
-    private String generateJSsetKSeries() {
-        if (!setKSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (KDJ item : setKSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<KDJ> setKSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator %K Series.
@@ -614,16 +470,6 @@ public class KDJ extends JsObject {
             }
         }
         return this;
-    }
-    private String generateJSsetKSeries1() {
-        if (!setKSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (KDJ item : setKSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetDSeries() {
@@ -683,20 +529,6 @@ public class KDJ extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetDMAType());
-        js.append(generateJSsetDMAType1());
-        js.append(generateJSsetDMultiplier());
-        js.append(generateJSsetDPeriod());
-        js.append(generateJSsetDSeries());
-        js.append(generateJSsetDSeries1());
-        js.append(generateJSsetJSeries());
-        js.append(generateJSsetJSeries1());
-        js.append(generateJSsetKMAType());
-        js.append(generateJSsetKMAType1());
-        js.append(generateJSsetKMultiplier());
-        js.append(generateJSsetKPeriod());
-        js.append(generateJSsetKSeries());
-        js.append(generateJSsetKSeries1());
         
 
         String result = js.toString();

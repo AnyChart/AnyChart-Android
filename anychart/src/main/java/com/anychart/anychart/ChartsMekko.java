@@ -170,7 +170,6 @@ public class ChartsMekko extends SeparateChart {
         return getAnnotations;
     }
     private String[] annotationsList;
-    private List<ChartsMekko> setAnnotations = new ArrayList<>();
 
     /**
      * Setter for the annotations.
@@ -188,16 +187,6 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetAnnotations() {
-        if (!setAnnotations.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setAnnotations) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Crosshair getCrosshair;
@@ -213,7 +202,6 @@ public class ChartsMekko extends SeparateChart {
     }
     private String crosshair;
     private Boolean crosshair1;
-    private List<ChartsMekko> setCrosshair = new ArrayList<>();
 
     /**
      * Setter for crosshair settings.
@@ -231,18 +219,7 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetCrosshair() {
-        if (!setCrosshair.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setCrosshair) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMekko> setCrosshair1 = new ArrayList<>();
 
     /**
      * Setter for crosshair settings.
@@ -260,16 +237,6 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetCrosshair1() {
-        if (!setCrosshair1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setCrosshair1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private View getData;
@@ -283,7 +250,6 @@ public class ChartsMekko extends SeparateChart {
 
         return getData;
     }
-    private List<ChartsMekko> setData = new ArrayList<>();
 
     /**
      * Setter for the data.
@@ -307,18 +273,7 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMekko> setData1 = new ArrayList<>();
 
     /**
      * 
@@ -332,16 +287,6 @@ public class ChartsMekko extends SeparateChart {
         js.append(mapping.generateJs());
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -405,7 +350,6 @@ public class ChartsMekko extends SeparateChart {
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
-    private List<ChartsMekko> setHatchFillPalette = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -423,18 +367,7 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette() {
-        if (!setHatchFillPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setHatchFillPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMekko> setHatchFillPalette1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -452,18 +385,7 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette1() {
-        if (!setHatchFillPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setHatchFillPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMekko> setHatchFillPalette2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -478,16 +400,6 @@ public class ChartsMekko extends SeparateChart {
 
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetHatchFillPalette2() {
-        if (!setHatchFillPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setHatchFillPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -647,7 +559,6 @@ public class ChartsMekko extends SeparateChart {
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
-    private List<ChartsMekko> setPalette = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -664,18 +575,7 @@ public class ChartsMekko extends SeparateChart {
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette() {
-        if (!setPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMekko> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -692,18 +592,7 @@ public class ChartsMekko extends SeparateChart {
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette1() {
-        if (!setPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMekko> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -722,18 +611,7 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPalette2() {
-        if (!setPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMekko> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -752,19 +630,8 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPalette3() {
-        if (!setPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double pointsPadding;
-    private List<ChartsMekko> setPointsPadding = new ArrayList<>();
 
     /**
      * Setter for points padding.
@@ -782,20 +649,9 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPointsPadding() {
-        if (!setPointsPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setPointsPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double id2;
     private String id3;
-    private List<ChartsMekko> setRemoveSeries = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -813,18 +669,7 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRemoveSeries() {
-        if (!setRemoveSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setRemoveSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMekko> setRemoveSeries1 = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -842,19 +687,8 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRemoveSeries1() {
-        if (!setRemoveSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setRemoveSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index1;
-    private List<ChartsMekko> setRemoveSeriesAt = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its index.
@@ -871,16 +705,6 @@ public class ChartsMekko extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetRemoveSeriesAt() {
-        if (!setRemoveSeriesAt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setRemoveSeriesAt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -908,7 +732,6 @@ public class ChartsMekko extends SeparateChart {
     }
     private String xAxis;
     private Boolean xAxis1;
-    private List<ChartsMekko> setXAxis = new ArrayList<>();
 
     /**
      * Setter for chart X-axis.
@@ -926,18 +749,7 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXAxis() {
-        if (!setXAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setXAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMekko> setXAxis1 = new ArrayList<>();
 
     /**
      * Setter for chart X-axis.
@@ -955,21 +767,10 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXAxis1() {
-        if (!setXAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setXAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index3;
     private String xAxis2;
     private Boolean xAxis3;
-    private List<ChartsMekko> setXAxis2 = new ArrayList<>();
 
     /**
      * Setter for chart X-axis by index.
@@ -987,18 +788,7 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXAxis2() {
-        if (!setXAxis2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setXAxis2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMekko> setXAxis3 = new ArrayList<>();
 
     /**
      * Setter for chart X-axis by index.
@@ -1015,16 +805,6 @@ public class ChartsMekko extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXAxis3() {
-        if (!setXAxis3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setXAxis3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1043,7 +823,6 @@ public class ChartsMekko extends SeparateChart {
     private ScaleTypes xScale1;
     private String xScale2;
     private Ordinal xScale3;
-    private List<ChartsMekko> setXScale = new ArrayList<>();
 
     /**
      * Setter for default chart X scale.
@@ -1061,18 +840,7 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXScale() {
-        if (!setXScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setXScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMekko> setXScale1 = new ArrayList<>();
 
     /**
      * Setter for default chart X scale.
@@ -1090,18 +858,7 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXScale1() {
-        if (!setXScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setXScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMekko> setXScale2 = new ArrayList<>();
 
     /**
      * Setter for default chart X scale.
@@ -1116,16 +873,6 @@ public class ChartsMekko extends SeparateChart {
 
         js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale3 != null) ? xScale3.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetXScale2() {
-        if (!setXScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setXScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1153,7 +900,6 @@ public class ChartsMekko extends SeparateChart {
     }
     private String yAxis;
     private Boolean yAxis1;
-    private List<ChartsMekko> setYAxis = new ArrayList<>();
 
     /**
      * Setter for chart Y-axis.
@@ -1171,18 +917,7 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis() {
-        if (!setYAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setYAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMekko> setYAxis1 = new ArrayList<>();
 
     /**
      * Setter for chart Y-axis.
@@ -1200,21 +935,10 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis1() {
-        if (!setYAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setYAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index5;
     private String yAxis2;
     private Boolean yAxis3;
-    private List<ChartsMekko> setYAxis2 = new ArrayList<>();
 
     /**
      * Setter for chart Y-axis by index.
@@ -1232,18 +956,7 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis2() {
-        if (!setYAxis2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setYAxis2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMekko> setYAxis3 = new ArrayList<>();
 
     /**
      * Setter for chart Y-axis by index.
@@ -1261,16 +974,6 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis3() {
-        if (!setYAxis3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setYAxis3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private ScalesBase getYScale;
@@ -1280,7 +983,7 @@ public class ChartsMekko extends SeparateChart {
      */
     public ScalesBase getYScale() {
         if (getYScale == null)
-            getYScale = new ScalesBase(jsBase + ".yScale()");
+            getYScale = new ScalesLinear(jsBase + ".yScale()");
 
         return getYScale;
     }
@@ -1288,7 +991,6 @@ public class ChartsMekko extends SeparateChart {
     private ScaleTypes yScale1;
     private String yScale2;
     private ScalesBase yScale3;
-    private List<ChartsMekko> setYScale = new ArrayList<>();
 
     /**
      * Setter for default chart Y scale.
@@ -1306,18 +1008,7 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYScale() {
-        if (!setYScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setYScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMekko> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for default chart Y scale.
@@ -1335,18 +1026,7 @@ public class ChartsMekko extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYScale1() {
-        if (!setYScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setYScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMekko> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for default chart Y scale.
@@ -1361,16 +1041,6 @@ public class ChartsMekko extends SeparateChart {
 
         js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale3 != null) ? yScale3.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetYScale2() {
-        if (!setYScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMekko item : setYScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetAnnotations() {
@@ -1533,40 +1203,10 @@ public class ChartsMekko extends SeparateChart {
         js.append(generateJSgetYAxis());
         js.append(generateJSgetYAxis1());
         js.append(generateJSgetYScale());
-        js.append(generateJSsetAnnotations());
-        js.append(generateJSsetCrosshair());
-        js.append(generateJSsetCrosshair1());
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetHatchFillPalette());
-        js.append(generateJSsetHatchFillPalette1());
-        js.append(generateJSsetHatchFillPalette2());
         js.append(generateJSsetLabels());
         js.append(generateJSsetLabels1());
         js.append(generateJSsetMekko());
         js.append(generateJSsetMekko1());
-        js.append(generateJSsetPalette());
-        js.append(generateJSsetPalette1());
-        js.append(generateJSsetPalette2());
-        js.append(generateJSsetPalette3());
-        js.append(generateJSsetPointsPadding());
-        js.append(generateJSsetRemoveSeries());
-        js.append(generateJSsetRemoveSeries1());
-        js.append(generateJSsetRemoveSeriesAt());
-        js.append(generateJSsetXAxis());
-        js.append(generateJSsetXAxis1());
-        js.append(generateJSsetXAxis2());
-        js.append(generateJSsetXAxis3());
-        js.append(generateJSsetXScale());
-        js.append(generateJSsetXScale1());
-        js.append(generateJSsetXScale2());
-        js.append(generateJSsetYAxis());
-        js.append(generateJSsetYAxis1());
-        js.append(generateJSsetYAxis2());
-        js.append(generateJSsetYAxis3());
-        js.append(generateJSsetYScale());
-        js.append(generateJSsetYScale1());
-        js.append(generateJSsetYScale2());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

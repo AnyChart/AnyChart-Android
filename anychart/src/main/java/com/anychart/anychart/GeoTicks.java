@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class GeoTicks extends CoreBase {
 
     
     private Double count;
-    private List<GeoTicks> setCount = new ArrayList<>();
 
     /**
      * Setter for ticks count value.
@@ -58,20 +55,9 @@ public class GeoTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetCount() {
-        if (!setCount.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GeoTicks item : setCount) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double minimumCount;
     private Double maximumCount;
-    private List<GeoTicks> setCount1 = new ArrayList<>();
 
     /**
      * Setter for ticks count value using two parameters.
@@ -98,19 +84,8 @@ public class GeoTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetCount1() {
-        if (!setCount1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GeoTicks item : setCount1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double interval;
-    private List<GeoTicks> setInterval = new ArrayList<>();
 
     /**
      * Setter for ticks interval value.
@@ -134,19 +109,8 @@ public class GeoTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetInterval() {
-        if (!setInterval.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GeoTicks item : setInterval) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String[] ticks;
-    private List<GeoTicks> setSet = new ArrayList<>();
 
     /**
      * Setups ticks as an explicit array of fixed ticks.
@@ -170,16 +134,6 @@ public class GeoTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetSet() {
-        if (!setSet.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GeoTicks item : setSet) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -201,10 +155,6 @@ public class GeoTicks extends CoreBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetCount());
-        js.append(generateJSsetCount1());
-        js.append(generateJSsetInterval());
-        js.append(generateJSsetSet());
         
 
         String result = js.toString();

@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class ScatterTicks extends CoreBase {
 
     
     private Double base;
-    private List<ScatterTicks> setBase = new ArrayList<>();
 
     /**
      * Setter for ticks base value.
@@ -58,19 +55,8 @@ public class ScatterTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetBase() {
-        if (!setBase.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterTicks item : setBase) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double count;
-    private List<ScatterTicks> setCount = new ArrayList<>();
 
     /**
      * Setter for ticks count value.
@@ -95,20 +81,9 @@ public class ScatterTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetCount() {
-        if (!setCount.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterTicks item : setCount) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double minimumCount;
     private Double maximumCount;
-    private List<ScatterTicks> setCount1 = new ArrayList<>();
 
     /**
      * Setter for ticks count value using two parameters.
@@ -135,19 +110,8 @@ public class ScatterTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetCount1() {
-        if (!setCount1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterTicks item : setCount1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double interval;
-    private List<ScatterTicks> setInterval = new ArrayList<>();
 
     /**
      * Setter for ticks interval value.
@@ -171,20 +135,9 @@ public class ScatterTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetInterval() {
-        if (!setInterval.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterTicks item : setInterval) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScatterTicksMode mode;
     private String mode1;
-    private List<ScatterTicks> setMode = new ArrayList<>();
 
     /**
      * Setter for ticks mode.
@@ -212,18 +165,7 @@ public class ScatterTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetMode() {
-        if (!setMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterTicks item : setMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterTicks> setMode1 = new ArrayList<>();
 
     /**
      * Setter for ticks mode.
@@ -251,19 +193,8 @@ public class ScatterTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetMode1() {
-        if (!setMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterTicks item : setMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String[] ticks;
-    private List<ScatterTicks> setSet = new ArrayList<>();
 
     /**
      * Setups ticks as an explicit array of fixed ticks.
@@ -287,16 +218,6 @@ public class ScatterTicks extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetSet() {
-        if (!setSet.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterTicks item : setSet) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -318,13 +239,6 @@ public class ScatterTicks extends CoreBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetBase());
-        js.append(generateJSsetCount());
-        js.append(generateJSsetCount1());
-        js.append(generateJSsetInterval());
-        js.append(generateJSsetMode());
-        js.append(generateJSsetMode1());
-        js.append(generateJSsetSet());
         
 
         String result = js.toString();

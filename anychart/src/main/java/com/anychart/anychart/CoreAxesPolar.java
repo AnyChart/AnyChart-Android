@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -46,7 +44,6 @@ public class CoreAxesPolar extends VisualBase {
 
     private String labels;
     private Boolean labels1;
-    private List<CoreAxesPolar> setLabels = new ArrayList<>();
 
     /**
      * Setter for axis labels.<br>
@@ -74,18 +71,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesPolar item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesPolar> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for axis labels.<br>
@@ -113,16 +99,6 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
         }
         return this;
     }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesPolar item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabelsFactory getMinorLabels;
 
@@ -138,7 +114,6 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
 
     private String minorLabels;
     private Boolean minorLabels1;
-    private List<CoreAxesPolar> setMinorLabels = new ArrayList<>();
 
     /**
      * Setter for axis minor labels.
@@ -165,18 +140,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
         }
         return this;
     }
-    private String generateJSsetMinorLabels() {
-        if (!setMinorLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesPolar item : setMinorLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesPolar> setMinorLabels1 = new ArrayList<>();
 
     /**
      * Setter for axis minor labels.
@@ -203,16 +167,6 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
         }
         return this;
     }
-    private String generateJSsetMinorLabels1() {
-        if (!setMinorLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesPolar item : setMinorLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private RadialTicks getMinorTicks;
 
@@ -228,7 +182,6 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
 
     private String minorTicks;
     private Boolean minorTicks1;
-    private List<CoreAxesPolar> setMinorTicks = new ArrayList<>();
 
     /**
      * Setter for minor axis ticks.
@@ -255,18 +208,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
         }
         return this;
     }
-    private String generateJSsetMinorTicks() {
-        if (!setMinorTicks.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesPolar item : setMinorTicks) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesPolar> setMinorTicks1 = new ArrayList<>();
 
     /**
      * Setter for minor axis ticks.
@@ -293,20 +235,9 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
         }
         return this;
     }
-    private String generateJSsetMinorTicks1() {
-        if (!setMinorTicks1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesPolar item : setMinorTicks1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private LabelsOverlapMode overlapMode;
     private String overlapMode1;
-    private List<CoreAxesPolar> setOverlapMode = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -333,18 +264,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
         }
         return this;
     }
-    private String generateJSsetOverlapMode() {
-        if (!setOverlapMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesPolar item : setOverlapMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesPolar> setOverlapMode1 = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -371,16 +291,6 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
         }
         return this;
     }
-    private String generateJSsetOverlapMode1() {
-        if (!setOverlapMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesPolar item : setOverlapMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScatterBase getScale;
 
@@ -398,7 +308,6 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
     private ScaleTypes scale1;
     private String scale2;
     private String scale3;
-    private List<CoreAxesPolar> setScale = new ArrayList<>();
 
     /**
      * Setter for the axis scale.
@@ -424,18 +333,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
         }
         return this;
     }
-    private String generateJSsetScale() {
-        if (!setScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesPolar item : setScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesPolar> setScale1 = new ArrayList<>();
 
     /**
      * Setter for the axis scale.
@@ -464,18 +362,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
         }
         return this;
     }
-    private String generateJSsetScale1() {
-        if (!setScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesPolar item : setScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesPolar> setScale2 = new ArrayList<>();
 
     /**
      * Setter for the axis scale.
@@ -504,16 +391,6 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
         }
         return this;
     }
-    private String generateJSsetScale2() {
-        if (!setScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesPolar item : setScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke stroke;
     private ColoredFill stroke1;
@@ -522,7 +399,6 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<CoreAxesPolar> setStroke = new ArrayList<>();
 
     /**
      * Setter for axis stroke settings.
@@ -559,18 +435,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesPolar item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesPolar> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for axis stroke settings.
@@ -607,18 +472,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesPolar item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesPolar> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for axis stroke settings.
@@ -655,16 +509,6 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesPolar item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private RadialTicks getTicks;
 
@@ -680,7 +524,6 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
 
     private String ticks;
     private Boolean ticks1;
-    private List<CoreAxesPolar> setTicks = new ArrayList<>();
 
     /**
      * Setter for axis ticks.
@@ -707,18 +550,7 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
         }
         return this;
     }
-    private String generateJSsetTicks() {
-        if (!setTicks.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesPolar item : setTicks) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesPolar> setTicks1 = new ArrayList<>();
 
     /**
      * Setter for axis ticks.
@@ -744,16 +576,6 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
             }
         }
         return this;
-    }
-    private String generateJSsetTicks1() {
-        if (!setTicks1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesPolar item : setTicks1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetLabels() {
@@ -816,22 +638,6 @@ Labels layout can be changed using the {@link anychart.core.ui.LabelsFactory#pos
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
-        js.append(generateJSsetMinorLabels());
-        js.append(generateJSsetMinorLabels1());
-        js.append(generateJSsetMinorTicks());
-        js.append(generateJSsetMinorTicks1());
-        js.append(generateJSsetOverlapMode());
-        js.append(generateJSsetOverlapMode1());
-        js.append(generateJSsetScale());
-        js.append(generateJSsetScale1());
-        js.append(generateJSsetScale2());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetTicks());
-        js.append(generateJSsetTicks1());
         
 
         String result = js.toString();

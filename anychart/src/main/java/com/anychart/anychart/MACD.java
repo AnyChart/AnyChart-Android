@@ -34,7 +34,6 @@ public class MACD extends JsObject {
 
     
     private Double fastPeriod;
-    private List<MACD> setFastPeriod = new ArrayList<>();
 
     /**
      * Setter for the fast period.
@@ -58,16 +57,6 @@ public class MACD extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFastPeriod() {
-        if (!setFastPeriod.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MACD item : setFastPeriod) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StockSeriesBase getHistogramSeries;
 
@@ -83,7 +72,6 @@ public class MACD extends JsObject {
 
     private StockSeriesType type;
     private String type1;
-    private List<MACD> setHistogramSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator histogram series.
@@ -110,18 +98,7 @@ public class MACD extends JsObject {
         }
         return this;
     }
-    private String generateJSsetHistogramSeries() {
-        if (!setHistogramSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MACD item : setHistogramSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MACD> setHistogramSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator histogram series.
@@ -148,16 +125,6 @@ public class MACD extends JsObject {
         }
         return this;
     }
-    private String generateJSsetHistogramSeries1() {
-        if (!setHistogramSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MACD item : setHistogramSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StockSeriesBase getMacdSeries;
 
@@ -173,7 +140,6 @@ public class MACD extends JsObject {
 
     private StockSeriesType type2;
     private String type3;
-    private List<MACD> setMacdSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator MACD series.
@@ -202,18 +168,7 @@ public class MACD extends JsObject {
         }
         return this;
     }
-    private String generateJSsetMacdSeries() {
-        if (!setMacdSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MACD item : setMacdSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MACD> setMacdSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator MACD series.
@@ -242,19 +197,8 @@ public class MACD extends JsObject {
         }
         return this;
     }
-    private String generateJSsetMacdSeries1() {
-        if (!setMacdSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MACD item : setMacdSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double signalPeriod;
-    private List<MACD> setSignalPeriod = new ArrayList<>();
 
     /**
      * Setter for the signal period.
@@ -278,16 +222,6 @@ public class MACD extends JsObject {
         }
         return this;
     }
-    private String generateJSsetSignalPeriod() {
-        if (!setSignalPeriod.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MACD item : setSignalPeriod) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StockSeriesBase getSignalSeries;
 
@@ -303,7 +237,6 @@ public class MACD extends JsObject {
 
     private StockSeriesType type4;
     private String type5;
-    private List<MACD> setSignalSeries = new ArrayList<>();
 
     /**
      * Setter for the signal series.
@@ -334,18 +267,7 @@ public class MACD extends JsObject {
         }
         return this;
     }
-    private String generateJSsetSignalSeries() {
-        if (!setSignalSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MACD item : setSignalSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MACD> setSignalSeries1 = new ArrayList<>();
 
     /**
      * Setter for the signal series.
@@ -375,16 +297,6 @@ public class MACD extends JsObject {
             }
         }
         return this;
-    }
-    private String generateJSsetSignalSeries1() {
-        if (!setSignalSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MACD item : setSignalSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<MACD> getSlowPeriod = new ArrayList<>();
@@ -455,14 +367,6 @@ public class MACD extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetFastPeriod());
-        js.append(generateJSsetHistogramSeries());
-        js.append(generateJSsetHistogramSeries1());
-        js.append(generateJSsetMacdSeries());
-        js.append(generateJSsetMacdSeries1());
-        js.append(generateJSsetSignalPeriod());
-        js.append(generateJSsetSignalSeries());
-        js.append(generateJSsetSignalSeries1());
         
 
         String result = js.toString();

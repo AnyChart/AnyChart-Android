@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -41,7 +39,6 @@ public class VectorRect extends Shape {
     
     private String radiusAll;
     private Double radiusAll1;
-    private List<VectorRect> setCut = new ArrayList<>();
 
     /**
      * Sets cut corners.
@@ -68,18 +65,7 @@ public class VectorRect extends Shape {
         }
         return this;
     }
-    private String generateJSsetCut() {
-        if (!setCut.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VectorRect item : setCut) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<VectorRect> setCut1 = new ArrayList<>();
 
     /**
      * Sets cut corners.
@@ -106,22 +92,11 @@ public class VectorRect extends Shape {
         }
         return this;
     }
-    private String generateJSsetCut1() {
-        if (!setCut1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VectorRect item : setCut1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double radiusLeftTop;
     private Double radiusRightTop;
     private Double radiusRightBottom;
     private Double radiusLeftBottom;
-    private List<VectorRect> setCut2 = new ArrayList<>();
 
     /**
      * Sets cut corners.
@@ -151,20 +126,9 @@ public class VectorRect extends Shape {
         }
         return this;
     }
-    private String generateJSsetCut2() {
-        if (!setCut2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VectorRect item : setCut2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String radiusAll2;
     private Double radiusAll3;
-    private List<VectorRect> setRound = new ArrayList<>();
 
     /**
      * Sets corners rounding using single value.
@@ -193,18 +157,7 @@ public class VectorRect extends Shape {
         }
         return this;
     }
-    private String generateJSsetRound() {
-        if (!setRound.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VectorRect item : setRound) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<VectorRect> setRound1 = new ArrayList<>();
 
     /**
      * Sets corners rounding using single value.
@@ -233,22 +186,11 @@ public class VectorRect extends Shape {
         }
         return this;
     }
-    private String generateJSsetRound1() {
-        if (!setRound1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VectorRect item : setRound1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double radiusLeftTop1;
     private Double radiusRightTop1;
     private Double radiusRightBottom1;
     private Double radiusLeftBottom1;
-    private List<VectorRect> setRound2 = new ArrayList<>();
 
     /**
      * Sets corners rounding using several value.
@@ -290,20 +232,9 @@ public class VectorRect extends Shape {
         }
         return this;
     }
-    private String generateJSsetRound2() {
-        if (!setRound2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VectorRect item : setRound2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String radiusAll4;
     private Double radiusAll5;
-    private List<VectorRect> setRoundInner = new ArrayList<>();
 
     /**
      * Sets corners inner rounding.
@@ -334,18 +265,7 @@ public class VectorRect extends Shape {
         }
         return this;
     }
-    private String generateJSsetRoundInner() {
-        if (!setRoundInner.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VectorRect item : setRoundInner) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<VectorRect> setRoundInner1 = new ArrayList<>();
 
     /**
      * Sets corners inner rounding.
@@ -376,22 +296,11 @@ public class VectorRect extends Shape {
         }
         return this;
     }
-    private String generateJSsetRoundInner1() {
-        if (!setRoundInner1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VectorRect item : setRoundInner1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double radiusLeftTop2;
     private Double radiusRightTop2;
     private Double radiusRightBottom2;
     private Double radiusLeftBottom2;
-    private List<VectorRect> setRoundInner2 = new ArrayList<>();
 
     /**
      * Sets corners inner rounding.
@@ -437,19 +346,8 @@ public class VectorRect extends Shape {
         }
         return this;
     }
-    private String generateJSsetRoundInner2() {
-        if (!setRoundInner2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VectorRect item : setRoundInner2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GraphicsMathRect setBounds;
-    private List<VectorRect> setSetBounds = new ArrayList<>();
 
     /**
      * Sets bounds.
@@ -470,19 +368,8 @@ public class VectorRect extends Shape {
         }
         return this;
     }
-    private String generateJSsetSetBounds() {
-        if (!setSetBounds.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VectorRect item : setSetBounds) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double setHeight;
-    private List<VectorRect> setSetHeight = new ArrayList<>();
 
     /**
      * Sets a height.
@@ -506,19 +393,8 @@ public class VectorRect extends Shape {
         }
         return this;
     }
-    private String generateJSsetSetHeight() {
-        if (!setSetHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VectorRect item : setSetHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double setWidth;
-    private List<VectorRect> setSetWidth = new ArrayList<>();
 
     /**
      * Sets a width.
@@ -542,19 +418,8 @@ public class VectorRect extends Shape {
         }
         return this;
     }
-    private String generateJSsetSetWidth() {
-        if (!setSetWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VectorRect item : setSetWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double setX;
-    private List<VectorRect> setSetX = new ArrayList<>();
 
     /**
      * Sets X in parent container.
@@ -578,19 +443,8 @@ public class VectorRect extends Shape {
         }
         return this;
     }
-    private String generateJSsetSetX() {
-        if (!setSetX.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VectorRect item : setSetX) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double setY;
-    private List<VectorRect> setSetY = new ArrayList<>();
 
     /**
      * Sets Y in parent container.
@@ -614,16 +468,6 @@ public class VectorRect extends Shape {
         }
         return this;
     }
-    private String generateJSsetSetY() {
-        if (!setSetY.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VectorRect item : setSetY) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -645,20 +489,6 @@ public class VectorRect extends Shape {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetCut());
-        js.append(generateJSsetCut1());
-        js.append(generateJSsetCut2());
-        js.append(generateJSsetRound());
-        js.append(generateJSsetRound1());
-        js.append(generateJSsetRound2());
-        js.append(generateJSsetRoundInner());
-        js.append(generateJSsetRoundInner1());
-        js.append(generateJSsetRoundInner2());
-        js.append(generateJSsetSetBounds());
-        js.append(generateJSsetSetHeight());
-        js.append(generateJSsetSetWidth());
-        js.append(generateJSsetSetX());
-        js.append(generateJSsetSetY());
         
 
         String result = js.toString();

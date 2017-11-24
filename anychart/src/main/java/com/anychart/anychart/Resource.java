@@ -3,7 +3,6 @@ package com.anychart.anychart;
 import com.anychart.anychart.application.MyApplication;
 import com.anychart.anychart.chart.common.ListenersInterface;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -128,7 +127,6 @@ public class Resource extends Chart {
         return getActivities;
     }
     private String activities;
-    private List<Resource> setActivities = new ArrayList<>();
 
     /**
      * Setter for the activities settings.
@@ -146,16 +144,6 @@ public class Resource extends Chart {
         }
         return this;
     }
-    private String generateJSsetActivities() {
-        if (!setActivities.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setActivities) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Calendar getCalendar;
@@ -170,7 +158,6 @@ public class Resource extends Chart {
         return getCalendar;
     }
     private String calendar;
-    private List<Resource> setCalendar = new ArrayList<>();
 
     /**
      * Setter for calendar.
@@ -188,16 +175,6 @@ public class Resource extends Chart {
         }
         return this;
     }
-    private String generateJSsetCalendar() {
-        if (!setCalendar.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCalendar) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UtilsPadding getCellPadding;
@@ -214,7 +191,6 @@ public class Resource extends Chart {
     private Double[] cellPadding;
     private String[] cellPadding1;
     private String cellPadding2;
-    private List<Resource> setCellPadding = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using a single value.
@@ -232,18 +208,7 @@ public class Resource extends Chart {
         }
         return this;
     }
-    private String generateJSsetCellPadding() {
-        if (!setCellPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setCellPadding1 = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using a single value.
@@ -261,18 +226,7 @@ public class Resource extends Chart {
         }
         return this;
     }
-    private String generateJSsetCellPadding1() {
-        if (!setCellPadding1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setCellPadding2 = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using a single value.
@@ -290,16 +244,6 @@ public class Resource extends Chart {
         }
         return this;
     }
-    private String generateJSsetCellPadding2() {
-        if (!setCellPadding2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String value;
     private Double value1;
@@ -309,7 +253,6 @@ public class Resource extends Chart {
     private Double value5;
     private String value6;
     private Double value7;
-    private List<Resource> setCellPadding3 = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using several numbers.
@@ -327,18 +270,7 @@ public class Resource extends Chart {
         }
         return this;
     }
-    private String generateJSsetCellPadding3() {
-        if (!setCellPadding3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setCellPadding4 = new ArrayList<>();
 
     /**
      * Setter for cell paddings in pixels using several numbers.
@@ -356,16 +288,6 @@ public class Resource extends Chart {
         }
         return this;
     }
-    private String generateJSsetCellPadding4() {
-        if (!setCellPadding4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCellPadding4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Conflicts getConflicts;
@@ -380,7 +302,6 @@ public class Resource extends Chart {
         return getConflicts;
     }
     private String conflicts;
-    private List<Resource> setConflicts = new ArrayList<>();
 
     /**
      * Setter for the conflicts settings.
@@ -398,20 +319,9 @@ public class Resource extends Chart {
         }
         return this;
     }
-    private String generateJSsetConflicts() {
-        if (!setConflicts.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setConflicts) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double currentStartDate;
     private String currentStartDate1;
-    private List<Resource> setCurrentStartDate = new ArrayList<>();
 
     /**
      * Setter for the current start date.
@@ -429,18 +339,7 @@ public class Resource extends Chart {
         }
         return this;
     }
-    private String generateJSsetCurrentStartDate() {
-        if (!setCurrentStartDate.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCurrentStartDate) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setCurrentStartDate1 = new ArrayList<>();
 
     /**
      * Setter for the current start date.
@@ -458,16 +357,6 @@ public class Resource extends Chart {
         }
         return this;
     }
-    private String generateJSsetCurrentStartDate1() {
-        if (!setCurrentStartDate1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setCurrentStartDate1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private View getData;
@@ -481,7 +370,6 @@ public class Resource extends Chart {
 
         return getData;
     }
-    private List<Resource> setData = new ArrayList<>();
 
     /**
      * Setter for the chart data.
@@ -506,18 +394,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setData1 = new ArrayList<>();
 
     /**
      * 
@@ -532,19 +409,8 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double defaultMinutesPerDay;
-    private List<Resource> setDefaultMinutesPerDay = new ArrayList<>();
 
     /**
      * Setter for default minutes per day.
@@ -563,16 +429,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetDefaultMinutesPerDay() {
-        if (!setDefaultMinutesPerDay.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setDefaultMinutesPerDay) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Grid getGrid;
@@ -588,7 +444,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     }
     private String grid;
     private Boolean grid1;
-    private List<Resource> setGrid = new ArrayList<>();
 
     /**
      * Setter for the grid.
@@ -606,18 +461,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetGrid() {
-        if (!setGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setGrid1 = new ArrayList<>();
 
     /**
      * Setter for the grid.
@@ -635,16 +479,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetGrid1() {
-        if (!setGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiScroller getHorizontalScrollBar;
@@ -660,7 +494,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     }
     private String horizontalScrollBar;
     private Boolean horizontalScrollBar1;
-    private List<Resource> setHorizontalScrollBar = new ArrayList<>();
 
     /**
      * Setter for the horizontal scrollbar.
@@ -678,18 +511,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetHorizontalScrollBar() {
-        if (!setHorizontalScrollBar.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setHorizontalScrollBar) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setHorizontalScrollBar1 = new ArrayList<>();
 
     /**
      * Setter for the horizontal scrollbar.
@@ -707,20 +529,9 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetHorizontalScrollBar1() {
-        if (!setHorizontalScrollBar1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setHorizontalScrollBar1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double resourceIndex;
     private Double activityIndex;
-    private List<Resource> setHover = new ArrayList<>();
 
     /**
      * Setter for the hover state on an activity.<br/>
@@ -739,19 +550,8 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetHover() {
-        if (!setHover.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setHover) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double globalIndex;
-    private List<Resource> setHoverPoint = new ArrayList<>();
 
     /**
      * Hovers an activity by its global index.
@@ -769,16 +569,6 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetHoverPoint() {
-        if (!setHoverPoint.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setHoverPoint) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Logo getLogo;
@@ -793,7 +583,6 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         return getLogo;
     }
     private String logo;
-    private List<Resource> setLogo = new ArrayList<>();
 
     /**
      * Setter for the logo.
@@ -811,19 +600,8 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetLogo() {
-        if (!setLogo.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setLogo) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double minRowHeight;
-    private List<Resource> setMinRowHeight = new ArrayList<>();
 
     /**
      * Setter for the minimal row height.
@@ -841,16 +619,6 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetMinRowHeight() {
-        if (!setMinRowHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setMinRowHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Overlay getOverlay;
@@ -866,7 +634,6 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
     }
     private String overlay;
     private Boolean overlay1;
-    private List<Resource> setOverlay = new ArrayList<>();
 
     /**
      * Setter for the overlay element.
@@ -884,18 +651,7 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetOverlay() {
-        if (!setOverlay.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setOverlay) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setOverlay1 = new ArrayList<>();
 
     /**
      * Setter for the overlay element.
@@ -913,19 +669,8 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetOverlay1() {
-        if (!setOverlay1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setOverlay1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double pixPerHour;
-    private List<Resource> setPixPerHour = new ArrayList<>();
 
     /**
      * Setter for hours row height in pixels.
@@ -943,20 +688,9 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetPixPerHour() {
-        if (!setPixPerHour.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setPixPerHour) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double resourceListWidth;
     private String resourceListWidth1;
-    private List<Resource> setResourceListWidth = new ArrayList<>();
 
     /**
      * Setter for the resource list width.
@@ -974,18 +708,7 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetResourceListWidth() {
-        if (!setResourceListWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setResourceListWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setResourceListWidth1 = new ArrayList<>();
 
     /**
      * Setter for the resource list width.
@@ -1003,20 +726,9 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetResourceListWidth1() {
-        if (!setResourceListWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setResourceListWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double resourceIndex1;
     private Double activityIndex1;
-    private List<Resource> setSelect = new ArrayList<>();
 
     /**
      * Setter for the select state on an activity.<br/>
@@ -1035,19 +747,8 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetSelect() {
-        if (!setSelect.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setSelect) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double globalIndex1;
-    private List<Resource> setSelectPoint = new ArrayList<>();
 
     /**
      * Selects an activity by its global index.
@@ -1065,16 +766,6 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetSelectPoint() {
-        if (!setSelectPoint.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setSelectPoint) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color;
     private ColoredFill color1;
@@ -1083,7 +774,6 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<Resource> setSplitterStroke = new ArrayList<>();
 
     /**
      * Setter for the splitter stroke.
@@ -1101,18 +791,7 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetSplitterStroke() {
-        if (!setSplitterStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setSplitterStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setSplitterStroke1 = new ArrayList<>();
 
     /**
      * Setter for the splitter stroke.
@@ -1130,18 +809,7 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetSplitterStroke1() {
-        if (!setSplitterStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setSplitterStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setSplitterStroke2 = new ArrayList<>();
 
     /**
      * Setter for the splitter stroke.
@@ -1159,16 +827,6 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetSplitterStroke2() {
-        if (!setSplitterStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setSplitterStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private CoreResourceTimeline getTimeLine;
@@ -1184,7 +842,6 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     }
     private String timeLine;
     private Boolean timeLine1;
-    private List<Resource> setTimeLine = new ArrayList<>();
 
     /**
      * Setter for the time line.
@@ -1202,18 +859,7 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetTimeLine() {
-        if (!setTimeLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setTimeLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setTimeLine1 = new ArrayList<>();
 
     /**
      * Setter for the time line.
@@ -1231,20 +877,9 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetTimeLine1() {
-        if (!setTimeLine1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setTimeLine1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double timeLineHeight;
     private String timeLineHeight1;
-    private List<Resource> setTimeLineHeight = new ArrayList<>();
 
     /**
      * Setter for the time line height.
@@ -1262,18 +897,7 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetTimeLineHeight() {
-        if (!setTimeLineHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setTimeLineHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setTimeLineHeight1 = new ArrayList<>();
 
     /**
      * Setter for the time line height.
@@ -1291,20 +915,9 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetTimeLineHeight1() {
-        if (!setTimeLineHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setTimeLineHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TimeTrackingMode timeTrackingMode;
     private String timeTrackingMode1;
-    private List<Resource> setTimeTrackingMode = new ArrayList<>();
 
     /**
      * Setter for the time tracking mode.
@@ -1322,18 +935,7 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetTimeTrackingMode() {
-        if (!setTimeTrackingMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setTimeTrackingMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setTimeTrackingMode1 = new ArrayList<>();
 
     /**
      * Setter for the time tracking mode.
@@ -1351,21 +953,10 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetTimeTrackingMode1() {
-        if (!setTimeTrackingMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setTimeTrackingMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double resourceIndex2;
     private Double[] resourceIndex3;
     private Double activityIndex2;
-    private List<Resource> setUnhover = new ArrayList<>();
 
     /**
      * Removes hover from an activity by index.
@@ -1383,18 +974,7 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetUnhover() {
-        if (!setUnhover.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setUnhover) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setUnhover1 = new ArrayList<>();
 
     /**
      * Removes hover from an activity by index.
@@ -1411,16 +991,6 @@ Selects an activity determined by the resourceIndex and the activityIndex.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetUnhover1() {
-        if (!setUnhover1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setUnhover1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double resourceIndex4;
@@ -1474,7 +1044,6 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     }
     private String verticalScrollBar;
     private Boolean verticalScrollBar1;
-    private List<Resource> setVerticalScrollBar = new ArrayList<>();
 
     /**
      * Setter for the vertical scrollbar.
@@ -1492,18 +1061,7 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetVerticalScrollBar() {
-        if (!setVerticalScrollBar.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setVerticalScrollBar) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setVerticalScrollBar1 = new ArrayList<>();
 
     /**
      * Setter for the vertical scrollbar.
@@ -1521,16 +1079,6 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetVerticalScrollBar1() {
-        if (!setVerticalScrollBar1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setVerticalScrollBar1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private DateTimeWithCalendar getXScale;
@@ -1545,7 +1093,6 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         return getXScale;
     }
     private String xScale;
-    private List<Resource> setXScale = new ArrayList<>();
 
     /**
      * Setter for the X scale.
@@ -1563,20 +1110,9 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         }
         return this;
     }
-    private String generateJSsetXScale() {
-        if (!setXScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setXScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double indexOrId;
     private String indexOrId1;
-    private List<Resource> setZoomLevel = new ArrayList<>();
 
     /**
      * Setter for the zoom level.
@@ -1595,18 +1131,7 @@ Zooms chart to the level denoted by the passed index or identifier.
         }
         return this;
     }
-    private String generateJSsetZoomLevel() {
-        if (!setZoomLevel.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setZoomLevel) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Resource> setZoomLevel1 = new ArrayList<>();
 
     /**
      * Setter for the zoom level.
@@ -1625,19 +1150,8 @@ Zooms chart to the level denoted by the passed index or identifier.
         }
         return this;
     }
-    private String generateJSsetZoomLevel1() {
-        if (!setZoomLevel1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setZoomLevel1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ZoomLevel[] zoomLevels;
-    private List<Resource> setZoomLevels = new ArrayList<>();
 
     /**
      * Setter for zoom levels set.
@@ -1654,16 +1168,6 @@ Zooms chart to the level denoted by the passed index or identifier.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetZoomLevels() {
-        if (!setZoomLevels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Resource item : setZoomLevels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetActivities() {
@@ -1769,51 +1273,6 @@ Zooms chart to the level denoted by the passed index or identifier.
         js.append(generateJSgetTimeLine());
         js.append(generateJSgetVerticalScrollBar());
         js.append(generateJSgetXScale());
-        js.append(generateJSsetActivities());
-        js.append(generateJSsetCalendar());
-        js.append(generateJSsetCellPadding());
-        js.append(generateJSsetCellPadding1());
-        js.append(generateJSsetCellPadding2());
-        js.append(generateJSsetCellPadding3());
-        js.append(generateJSsetCellPadding4());
-        js.append(generateJSsetConflicts());
-        js.append(generateJSsetCurrentStartDate());
-        js.append(generateJSsetCurrentStartDate1());
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetDefaultMinutesPerDay());
-        js.append(generateJSsetGrid());
-        js.append(generateJSsetGrid1());
-        js.append(generateJSsetHorizontalScrollBar());
-        js.append(generateJSsetHorizontalScrollBar1());
-        js.append(generateJSsetHover());
-        js.append(generateJSsetHoverPoint());
-        js.append(generateJSsetLogo());
-        js.append(generateJSsetMinRowHeight());
-        js.append(generateJSsetOverlay());
-        js.append(generateJSsetOverlay1());
-        js.append(generateJSsetPixPerHour());
-        js.append(generateJSsetResourceListWidth());
-        js.append(generateJSsetResourceListWidth1());
-        js.append(generateJSsetSelect());
-        js.append(generateJSsetSelectPoint());
-        js.append(generateJSsetSplitterStroke());
-        js.append(generateJSsetSplitterStroke1());
-        js.append(generateJSsetSplitterStroke2());
-        js.append(generateJSsetTimeLine());
-        js.append(generateJSsetTimeLine1());
-        js.append(generateJSsetTimeLineHeight());
-        js.append(generateJSsetTimeLineHeight1());
-        js.append(generateJSsetTimeTrackingMode());
-        js.append(generateJSsetTimeTrackingMode1());
-        js.append(generateJSsetUnhover());
-        js.append(generateJSsetUnhover1());
-        js.append(generateJSsetVerticalScrollBar());
-        js.append(generateJSsetVerticalScrollBar1());
-        js.append(generateJSsetXScale());
-        js.append(generateJSsetZoomLevel());
-        js.append(generateJSsetZoomLevel1());
-        js.append(generateJSsetZoomLevels());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

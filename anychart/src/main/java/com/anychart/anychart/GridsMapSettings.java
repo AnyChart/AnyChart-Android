@@ -33,7 +33,6 @@ public class GridsMapSettings extends CoreBase {
 
     
     private Boolean drawFirstLine;
-    private List<GridsMapSettings> setDrawFirstLine = new ArrayList<>();
 
     /**
      * Setter for the first line drawing.
@@ -57,19 +56,8 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetDrawFirstLine() {
-        if (!setDrawFirstLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setDrawFirstLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean drawLastLine;
-    private List<GridsMapSettings> setDrawLastLine = new ArrayList<>();
 
     /**
      * Setter for the last line drawing.
@@ -93,19 +81,8 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetDrawLastLine() {
-        if (!setDrawLastLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setDrawLastLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean enabled;
-    private List<GridsMapSettings> setEnabled = new ArrayList<>();
 
     /**
      * Setter for the grid enabled state.
@@ -129,19 +106,8 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetEnabled() {
-        if (!setEnabled.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setEnabled) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
-    private List<GridsMapSettings> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -166,20 +132,9 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<GridsMapSettings> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -205,16 +160,6 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -223,7 +168,6 @@ public class GridsMapSettings extends CoreBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<GridsMapSettings> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -264,18 +208,7 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsMapSettings> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -316,18 +249,7 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsMapSettings> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -368,18 +290,7 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsMapSettings> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -420,18 +331,7 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsMapSettings> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -472,18 +372,7 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsMapSettings> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -524,16 +413,6 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -543,7 +422,6 @@ public class GridsMapSettings extends CoreBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<GridsMapSettings> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -594,18 +472,7 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsMapSettings> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -656,16 +523,6 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private GridsMap getHorizontal;
@@ -682,7 +539,6 @@ public class GridsMapSettings extends CoreBase {
 
     private Boolean horizontal;
     private String horizontal1;
-    private List<GridsMapSettings> setHorizontal = new ArrayList<>();
 
     /**
      * Setter for the horizontal grid.
@@ -709,18 +565,7 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHorizontal() {
-        if (!setHorizontal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setHorizontal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsMapSettings> setHorizontal1 = new ArrayList<>();
 
     /**
      * Setter for the horizontal grid.
@@ -747,16 +592,6 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHorizontal1() {
-        if (!setHorizontal1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setHorizontal1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color1;
     private ColoredFill color2;
@@ -765,7 +600,6 @@ public class GridsMapSettings extends CoreBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<GridsMapSettings> setMinorStroke = new ArrayList<>();
 
     /**
      * Setter for grid stroke settings.
@@ -803,18 +637,7 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetMinorStroke() {
-        if (!setMinorStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setMinorStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsMapSettings> setMinorStroke1 = new ArrayList<>();
 
     /**
      * Setter for grid stroke settings.
@@ -852,18 +675,7 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetMinorStroke1() {
-        if (!setMinorStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setMinorStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsMapSettings> setMinorStroke2 = new ArrayList<>();
 
     /**
      * Setter for grid stroke settings.
@@ -900,16 +712,6 @@ public class GridsMapSettings extends CoreBase {
             }
         }
         return this;
-    }
-    private String generateJSsetMinorStroke2() {
-        if (!setMinorStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setMinorStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private RangeColors getPalette;
@@ -1099,7 +901,6 @@ public class GridsMapSettings extends CoreBase {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
-    private List<GridsMapSettings> setStroke = new ArrayList<>();
 
     /**
      * Setter for grid stroke settings.
@@ -1152,18 +953,7 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsMapSettings> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for grid stroke settings.
@@ -1216,18 +1006,7 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsMapSettings> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for grid stroke settings.
@@ -1280,16 +1059,6 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GridsMap getVertical;
 
@@ -1305,7 +1074,6 @@ public class GridsMapSettings extends CoreBase {
 
     private Boolean vertical;
     private String vertical1;
-    private List<GridsMapSettings> setVertical = new ArrayList<>();
 
     /**
      * Setter for the vertical grid.
@@ -1332,18 +1100,7 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetVertical() {
-        if (!setVertical.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setVertical) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsMapSettings> setVertical1 = new ArrayList<>();
 
     /**
      * Setter for the vertical grid.
@@ -1370,20 +1127,9 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetVertical1() {
-        if (!setVertical1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setVertical1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double zIndex;
     private String zIndex1;
-    private List<GridsMapSettings> setZIndex = new ArrayList<>();
 
     /**
      * Setter for the grid zIndex.
@@ -1410,18 +1156,7 @@ public class GridsMapSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetZIndex() {
-        if (!setZIndex.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setZIndex) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GridsMapSettings> setZIndex1 = new ArrayList<>();
 
     /**
      * Setter for the grid zIndex.
@@ -1447,16 +1182,6 @@ public class GridsMapSettings extends CoreBase {
             }
         }
         return this;
-    }
-    private String generateJSsetZIndex1() {
-        if (!setZIndex1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GridsMapSettings item : setZIndex1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetHorizontal() {
@@ -1503,35 +1228,10 @@ public class GridsMapSettings extends CoreBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetDrawFirstLine());
-        js.append(generateJSsetDrawLastLine());
-        js.append(generateJSsetEnabled());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetHorizontal());
-        js.append(generateJSsetHorizontal1());
-        js.append(generateJSsetMinorStroke());
-        js.append(generateJSsetMinorStroke1());
-        js.append(generateJSsetMinorStroke2());
         js.append(generateJSsetPalette());
         js.append(generateJSsetPalette1());
         js.append(generateJSsetPalette2());
         js.append(generateJSsetPalette3());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetVertical());
-        js.append(generateJSsetVertical1());
-        js.append(generateJSsetZIndex());
-        js.append(generateJSsetZIndex1());
         
 
         String result = js.toString();

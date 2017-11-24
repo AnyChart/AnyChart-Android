@@ -44,7 +44,6 @@ public class Layer extends Element {
 
     
     private Element element;
-    private List<Layer> setAddChild = new ArrayList<>();
 
     /**
      * Add element to a layer, to the top (maximal index).<br/>
@@ -67,20 +66,9 @@ All DOM changes will happen instantly, except {@link anychart.graphics.vector.St
         }
         return this;
     }
-    private String generateJSsetAddChild() {
-        if (!setAddChild.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Layer item : setAddChild) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Element element1;
     private Double index;
-    private List<Layer> setAddChildAt = new ArrayList<>();
 
     /**
      * Adds an element to a layer by index. <br/>
@@ -114,16 +102,6 @@ Right image does the same, but star is added to 0 index.<br/>
             }
         }
         return this;
-    }
-    private String generateJSsetAddChildAt() {
-        if (!setAddChildAt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Layer item : setAddChildAt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double cx;
@@ -586,7 +564,6 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
 
     private Element element5;
     private Element element6;
-    private List<Layer> setSwapChildren = new ArrayList<>();
 
     /**
      * Swaps children.
@@ -625,20 +602,9 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
         }
         return this;
     }
-    private String generateJSsetSwapChildren() {
-        if (!setSwapChildren.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Layer item : setSwapChildren) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index3;
     private Double index4;
-    private List<Layer> setSwapChildrenAt = new ArrayList<>();
 
     /**
      * Swaps children by indexes.
@@ -675,16 +641,6 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
             }
         }
         return this;
-    }
-    private String generateJSsetSwapChildrenAt() {
-        if (!setSwapChildrenAt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Layer item : setSwapChildrenAt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double x3;
@@ -767,8 +723,6 @@ You have to take care of used objects yourself.
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAddChild());
-        js.append(generateJSsetAddChildAt());
         js.append(generateJSsetCircle());
         js.append(generateJSsetEllipse());
         js.append(generateJSsetGetChildAt());
@@ -777,8 +731,6 @@ You have to take care of used objects yourself.
         js.append(generateJSsetRect());
         js.append(generateJSsetRemoveChild());
         js.append(generateJSsetRemoveChildAt());
-        js.append(generateJSsetSwapChildren());
-        js.append(generateJSsetSwapChildrenAt());
         js.append(generateJSsetText());
         
 

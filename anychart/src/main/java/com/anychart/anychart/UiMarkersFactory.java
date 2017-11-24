@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -42,7 +40,6 @@ public class UiMarkersFactory extends VisualBase {
     
     private EnumsAnchor anchor;
     private String anchor1;
-    private List<UiMarkersFactory> setAnchor = new ArrayList<>();
 
     /**
      * Setter for anchor settings of all markers.
@@ -69,18 +66,7 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAnchor() {
-        if (!setAnchor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setAnchor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiMarkersFactory> setAnchor1 = new ArrayList<>();
 
     /**
      * Setter for anchor settings of all markers.
@@ -107,20 +93,9 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAnchor1() {
-        if (!setAnchor1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setAnchor1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
     private String fill1;
-    private List<UiMarkersFactory> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings of all markers.
@@ -148,18 +123,7 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiMarkersFactory> setFill1 = new ArrayList<>();
 
     /**
      * Setter for fill settings of all markers.
@@ -187,20 +151,9 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<UiMarkersFactory> setFill2 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -226,16 +179,6 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -244,7 +187,6 @@ public class UiMarkersFactory extends VisualBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<UiMarkersFactory> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -285,18 +227,7 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiMarkersFactory> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -337,18 +268,7 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiMarkersFactory> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -389,18 +309,7 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiMarkersFactory> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -441,18 +350,7 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiMarkersFactory> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -493,18 +391,7 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiMarkersFactory> setFill8 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -545,16 +432,6 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -564,7 +441,6 @@ public class UiMarkersFactory extends VisualBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<UiMarkersFactory> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -615,18 +491,7 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiMarkersFactory> setFill10 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -677,21 +542,10 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill10() {
-        if (!setFill10.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setFill10) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private Double offsetX;
     private String offsetX1;
-    private List<UiMarkersFactory> setOffsetX = new ArrayList<>();
 
     /**
      * Setter for the offset by X of all markers.
@@ -718,18 +572,7 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetOffsetX() {
-        if (!setOffsetX.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setOffsetX) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiMarkersFactory> setOffsetX1 = new ArrayList<>();
 
     /**
      * Setter for the offset by X of all markers.
@@ -756,20 +599,9 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetOffsetX1() {
-        if (!setOffsetX1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setOffsetX1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double offsetY;
     private String offsetY1;
-    private List<UiMarkersFactory> setOffsetY = new ArrayList<>();
 
     /**
      * Setter for the offset by Y of all markers.
@@ -796,18 +628,7 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetOffsetY() {
-        if (!setOffsetY.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setOffsetY) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiMarkersFactory> setOffsetY1 = new ArrayList<>();
 
     /**
      * Setter for the offset by Y of all markers.
@@ -834,19 +655,8 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetOffsetY1() {
-        if (!setOffsetY1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setOffsetY1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String position;
-    private List<UiMarkersFactory> setPosition = new ArrayList<>();
 
     /**
      * Setter for position settings of all markers.
@@ -870,19 +680,8 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPosition() {
-        if (!setPosition.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setPosition) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double rotation;
-    private List<UiMarkersFactory> setRotation = new ArrayList<>();
 
     /**
      * Setter for the rotation angle around an anchor.
@@ -907,19 +706,8 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetRotation() {
-        if (!setRotation.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setRotation) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double size;
-    private List<UiMarkersFactory> setSize = new ArrayList<>();
 
     /**
      * Setter for the size of all markers.
@@ -943,20 +731,9 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetSize() {
-        if (!setSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke stroke;
     private String stroke1;
-    private List<UiMarkersFactory> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings of all markers.
@@ -984,18 +761,7 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiMarkersFactory> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings of all markers.
@@ -1023,16 +789,6 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color1;
     private ColoredFill color2;
@@ -1041,7 +797,6 @@ public class UiMarkersFactory extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<UiMarkersFactory> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke settings of all markers.
@@ -1079,18 +834,7 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiMarkersFactory> setStroke3 = new ArrayList<>();
 
     /**
      * Setter for stroke settings of all markers.
@@ -1128,18 +872,7 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke3() {
-        if (!setStroke3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setStroke3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiMarkersFactory> setStroke4 = new ArrayList<>();
 
     /**
      * Setter for stroke settings of all markers.
@@ -1177,20 +910,9 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke4() {
-        if (!setStroke4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setStroke4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private MarkerType type;
     private String type1;
-    private List<UiMarkersFactory> setType = new ArrayList<>();
 
     /**
      * Setter for type settings of all markers.
@@ -1217,18 +939,7 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetType() {
-        if (!setType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UiMarkersFactory> setType1 = new ArrayList<>();
 
     /**
      * Setter for type settings of all markers.
@@ -1255,16 +966,6 @@ public class UiMarkersFactory extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetType1() {
-        if (!setType1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UiMarkersFactory item : setType1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -1286,33 +987,6 @@ public class UiMarkersFactory extends VisualBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAnchor());
-        js.append(generateJSsetAnchor1());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetFill10());
-        js.append(generateJSsetOffsetX());
-        js.append(generateJSsetOffsetX1());
-        js.append(generateJSsetOffsetY());
-        js.append(generateJSsetOffsetY1());
-        js.append(generateJSsetPosition());
-        js.append(generateJSsetRotation());
-        js.append(generateJSsetSize());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetStroke3());
-        js.append(generateJSsetStroke4());
-        js.append(generateJSsetType());
-        js.append(generateJSsetType1());
         
 
         String result = js.toString();

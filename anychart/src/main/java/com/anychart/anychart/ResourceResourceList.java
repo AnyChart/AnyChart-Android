@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -47,7 +45,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String background;
     private String background1;
     private Boolean background2;
-    private List<ResourceResourceList> setBackground = new ArrayList<>();
 
     /**
      * Setter for the background.
@@ -75,18 +72,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackground() {
-        if (!setBackground.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setBackground) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ResourceResourceList> setBackground1 = new ArrayList<>();
 
     /**
      * Setter for the background.
@@ -114,16 +100,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackground1() {
-        if (!setBackground1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setBackground1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TextSettings getDescriptions;
 
@@ -138,7 +114,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
     private String descriptions;
-    private List<ResourceResourceList> setDescriptions = new ArrayList<>();
 
     /**
      * Setter for descriptions.
@@ -162,19 +137,8 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetDescriptions() {
-        if (!setDescriptions.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setDescriptions) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean drawBottomLine;
-    private List<ResourceResourceList> setDrawBottomLine = new ArrayList<>();
 
     /**
      * Setter for the bottom line drawing flag.
@@ -198,19 +162,8 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetDrawBottomLine() {
-        if (!setDrawBottomLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setDrawBottomLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean drawLeftLine;
-    private List<ResourceResourceList> setDrawLeftLine = new ArrayList<>();
 
     /**
      * Setter for the left line drawing flag.
@@ -234,19 +187,8 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetDrawLeftLine() {
-        if (!setDrawLeftLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setDrawLeftLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean drawRightLine;
-    private List<ResourceResourceList> setDrawRightLine = new ArrayList<>();
 
     /**
      * Setter for the right line drawing flag.
@@ -270,19 +212,8 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetDrawRightLine() {
-        if (!setDrawRightLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setDrawRightLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean drawTopLine;
-    private List<ResourceResourceList> setDrawTopLine = new ArrayList<>();
 
     /**
      * Setter for the top line drawing flag.
@@ -306,19 +237,8 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetDrawTopLine() {
-        if (!setDrawTopLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setDrawTopLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill evenFill;
-    private List<ResourceResourceList> setEvenFill = new ArrayList<>();
 
     /**
      * Setter for even fill settings using an array or a string.
@@ -343,20 +263,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill() {
-        if (!setEvenFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setEvenFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<ResourceResourceList> setEvenFill1 = new ArrayList<>();
 
     /**
      * Even fill color with opacity.
@@ -382,16 +291,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill1() {
-        if (!setEvenFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setEvenFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -400,7 +299,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<ResourceResourceList> setEvenFill2 = new ArrayList<>();
 
     /**
      * Linear gradient even fill.
@@ -441,18 +339,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill2() {
-        if (!setEvenFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setEvenFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ResourceResourceList> setEvenFill3 = new ArrayList<>();
 
     /**
      * Linear gradient even fill.
@@ -493,18 +380,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill3() {
-        if (!setEvenFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setEvenFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ResourceResourceList> setEvenFill4 = new ArrayList<>();
 
     /**
      * Linear gradient even fill.
@@ -545,18 +421,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill4() {
-        if (!setEvenFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setEvenFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ResourceResourceList> setEvenFill5 = new ArrayList<>();
 
     /**
      * Linear gradient even fill.
@@ -597,18 +462,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill5() {
-        if (!setEvenFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setEvenFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ResourceResourceList> setEvenFill6 = new ArrayList<>();
 
     /**
      * Linear gradient even fill.
@@ -649,18 +503,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill6() {
-        if (!setEvenFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setEvenFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ResourceResourceList> setEvenFill7 = new ArrayList<>();
 
     /**
      * Linear gradient even fill.
@@ -701,16 +544,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill7() {
-        if (!setEvenFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setEvenFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -720,7 +553,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<ResourceResourceList> setEvenFill8 = new ArrayList<>();
 
     /**
      * Radial gradient even fill.
@@ -771,18 +603,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill8() {
-        if (!setEvenFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setEvenFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ResourceResourceList> setEvenFill9 = new ArrayList<>();
 
     /**
      * Radial gradient even fill.
@@ -833,16 +654,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetEvenFill9() {
-        if (!setEvenFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setEvenFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private ImageSettings getImages;
@@ -858,7 +669,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
     private String images;
-    private List<ResourceResourceList> setImages = new ArrayList<>();
 
     /**
      * Setter for images.
@@ -882,16 +692,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetImages() {
-        if (!setImages.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setImages) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TextSettings getNames;
 
@@ -906,7 +706,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
     private String names;
-    private List<ResourceResourceList> setNames = new ArrayList<>();
 
     /**
      * Setter for names.
@@ -930,19 +729,8 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetNames() {
-        if (!setNames.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setNames) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill oddFill;
-    private List<ResourceResourceList> setOddFill = new ArrayList<>();
 
     /**
      * Setter for odd fill settings using an array or a string.
@@ -967,20 +755,9 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill() {
-        if (!setOddFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setOddFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color1;
     private Double opacity3;
-    private List<ResourceResourceList> setOddFill1 = new ArrayList<>();
 
     /**
      * Odd fill color with opacity.
@@ -1014,16 +791,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill1() {
-        if (!setOddFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setOddFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys4;
     private String[] keys5;
@@ -1032,7 +799,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private VectorRect mode5;
     private String mode6;
     private Double opacity4;
-    private List<ResourceResourceList> setOddFill2 = new ArrayList<>();
 
     /**
      * Linear gradient odd fill.
@@ -1087,18 +853,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill2() {
-        if (!setOddFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setOddFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ResourceResourceList> setOddFill3 = new ArrayList<>();
 
     /**
      * Linear gradient odd fill.
@@ -1153,18 +908,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill3() {
-        if (!setOddFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setOddFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ResourceResourceList> setOddFill4 = new ArrayList<>();
 
     /**
      * Linear gradient odd fill.
@@ -1219,18 +963,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill4() {
-        if (!setOddFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setOddFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ResourceResourceList> setOddFill5 = new ArrayList<>();
 
     /**
      * Linear gradient odd fill.
@@ -1285,18 +1018,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill5() {
-        if (!setOddFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setOddFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ResourceResourceList> setOddFill6 = new ArrayList<>();
 
     /**
      * Linear gradient odd fill.
@@ -1351,18 +1073,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill6() {
-        if (!setOddFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setOddFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ResourceResourceList> setOddFill7 = new ArrayList<>();
 
     /**
      * Linear gradient odd fill.
@@ -1417,16 +1128,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill7() {
-        if (!setOddFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setOddFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys6;
     private String[] keys7;
@@ -1436,7 +1137,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private Double opacity5;
     private Double fx1;
     private Double fy1;
-    private List<ResourceResourceList> setOddFill8 = new ArrayList<>();
 
     /**
      * Radial gradient odd fill.
@@ -1510,18 +1210,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill8() {
-        if (!setOddFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setOddFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ResourceResourceList> setOddFill9 = new ArrayList<>();
 
     /**
      * Radial gradient odd fill.
@@ -1595,16 +1284,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOddFill9() {
-        if (!setOddFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setOddFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings1;
     private Overlay getOverlay;
@@ -1622,7 +1301,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String overlay;
     private String overlay1;
     private Boolean overlay2;
-    private List<ResourceResourceList> setOverlay = new ArrayList<>();
 
     /**
      * Setter for the overlay element.
@@ -1650,18 +1328,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOverlay() {
-        if (!setOverlay.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setOverlay) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ResourceResourceList> setOverlay1 = new ArrayList<>();
 
     /**
      * Setter for the overlay element.
@@ -1689,16 +1356,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetOverlay1() {
-        if (!setOverlay1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setOverlay1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color2;
     private ColoredFill color3;
@@ -1707,7 +1364,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<ResourceResourceList> setStroke = new ArrayList<>();
 
     /**
      * Setter for the stroke.
@@ -1746,18 +1402,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ResourceResourceList> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for the stroke.
@@ -1796,18 +1441,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ResourceResourceList> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for the stroke.
@@ -1846,16 +1480,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TagsSettings getTags;
 
@@ -1870,7 +1494,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
     private String tags;
-    private List<ResourceResourceList> setTags = new ArrayList<>();
 
     /**
      * Setter for tags.
@@ -1894,16 +1517,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetTags() {
-        if (!setTags.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setTags) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TextSettings getTypes;
 
@@ -1918,7 +1531,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
     private String types;
-    private List<ResourceResourceList> setTypes = new ArrayList<>();
 
     /**
      * Setter for types.
@@ -1941,16 +1553,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             }
         }
         return this;
-    }
-    private String generateJSsetTypes() {
-        if (!setTypes.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ResourceResourceList item : setTypes) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetBackground() {
@@ -2029,42 +1631,6 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetBackground());
-        js.append(generateJSsetBackground1());
-        js.append(generateJSsetDescriptions());
-        js.append(generateJSsetDrawBottomLine());
-        js.append(generateJSsetDrawLeftLine());
-        js.append(generateJSsetDrawRightLine());
-        js.append(generateJSsetDrawTopLine());
-        js.append(generateJSsetEvenFill());
-        js.append(generateJSsetEvenFill1());
-        js.append(generateJSsetEvenFill2());
-        js.append(generateJSsetEvenFill3());
-        js.append(generateJSsetEvenFill4());
-        js.append(generateJSsetEvenFill5());
-        js.append(generateJSsetEvenFill6());
-        js.append(generateJSsetEvenFill7());
-        js.append(generateJSsetEvenFill8());
-        js.append(generateJSsetEvenFill9());
-        js.append(generateJSsetImages());
-        js.append(generateJSsetNames());
-        js.append(generateJSsetOddFill());
-        js.append(generateJSsetOddFill1());
-        js.append(generateJSsetOddFill2());
-        js.append(generateJSsetOddFill3());
-        js.append(generateJSsetOddFill4());
-        js.append(generateJSsetOddFill5());
-        js.append(generateJSsetOddFill6());
-        js.append(generateJSsetOddFill7());
-        js.append(generateJSsetOddFill8());
-        js.append(generateJSsetOddFill9());
-        js.append(generateJSsetOverlay());
-        js.append(generateJSsetOverlay1());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetTags());
-        js.append(generateJSsetTypes());
         
 
         String result = js.toString();

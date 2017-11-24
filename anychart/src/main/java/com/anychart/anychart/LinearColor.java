@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -66,7 +64,6 @@ public class LinearColor extends ScatterBase {
     private SolidFill[] var_args5;
     private LinearGradientFill[] var_args6;
     private RadialGradientFill[] var_args7;
-    private List<LinearColor> setColors = new ArrayList<>();
 
     /**
      * Sets linear gradient for the linear color scale.
@@ -99,18 +96,7 @@ public class LinearColor extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetColors() {
-        if (!setColors.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LinearColor item : setColors) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LinearColor> setColors1 = new ArrayList<>();
 
     /**
      * Sets linear gradient for the linear color scale.
@@ -143,18 +129,7 @@ public class LinearColor extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetColors1() {
-        if (!setColors1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LinearColor item : setColors1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LinearColor> setColors2 = new ArrayList<>();
 
     /**
      * Sets linear gradient for the linear color scale.
@@ -187,18 +162,7 @@ public class LinearColor extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetColors2() {
-        if (!setColors2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LinearColor item : setColors2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LinearColor> setColors3 = new ArrayList<>();
 
     /**
      * Sets linear gradient for the linear color scale.
@@ -231,18 +195,7 @@ public class LinearColor extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetColors3() {
-        if (!setColors3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LinearColor item : setColors3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LinearColor> setColors4 = new ArrayList<>();
 
     /**
      * Sets linear gradient for the linear color scale.
@@ -275,18 +228,7 @@ public class LinearColor extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetColors4() {
-        if (!setColors4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LinearColor item : setColors4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LinearColor> setColors5 = new ArrayList<>();
 
     /**
      * Sets linear gradient for the linear color scale.
@@ -319,18 +261,7 @@ public class LinearColor extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetColors5() {
-        if (!setColors5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LinearColor item : setColors5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LinearColor> setColors6 = new ArrayList<>();
 
     /**
      * Sets linear gradient for the linear color scale.
@@ -363,18 +294,7 @@ public class LinearColor extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetColors6() {
-        if (!setColors6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LinearColor item : setColors6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LinearColor> setColors7 = new ArrayList<>();
 
     /**
      * Sets linear gradient for the linear color scale.
@@ -407,16 +327,6 @@ public class LinearColor extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetColors7() {
-        if (!setColors7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LinearColor item : setColors7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScatterTicks getMinorTicks;
 
@@ -432,7 +342,6 @@ public class LinearColor extends ScatterBase {
 
     private String minorTicks;
     private String[] minorTicks1;
-    private List<LinearColor> setMinorTicks = new ArrayList<>();
 
     /**
      * Sets a set of scale minor ticks in terms of data values.
@@ -459,18 +368,7 @@ public class LinearColor extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetMinorTicks() {
-        if (!setMinorTicks.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LinearColor item : setMinorTicks) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LinearColor> setMinorTicks1 = new ArrayList<>();
 
     /**
      * Sets a set of scale minor ticks in terms of data values.
@@ -497,16 +395,6 @@ public class LinearColor extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetMinorTicks1() {
-        if (!setMinorTicks1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LinearColor item : setMinorTicks1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScatterTicks getTicks;
 
@@ -522,7 +410,6 @@ public class LinearColor extends ScatterBase {
 
     private String ticks;
     private String[] ticks1;
-    private List<LinearColor> setTicks = new ArrayList<>();
 
     /**
      * Sets a set of scale ticks in terms of data values.
@@ -549,18 +436,7 @@ public class LinearColor extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetTicks() {
-        if (!setTicks.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LinearColor item : setTicks) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LinearColor> setTicks1 = new ArrayList<>();
 
     /**
      * Sets a set of scale ticks in terms of data values.
@@ -586,16 +462,6 @@ public class LinearColor extends ScatterBase {
             }
         }
         return this;
-    }
-    private String generateJSsetTicks1() {
-        if (!setTicks1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LinearColor item : setTicks1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double valueToColor;
@@ -659,18 +525,6 @@ public class LinearColor extends ScatterBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetColors());
-        js.append(generateJSsetColors1());
-        js.append(generateJSsetColors2());
-        js.append(generateJSsetColors3());
-        js.append(generateJSsetColors4());
-        js.append(generateJSsetColors5());
-        js.append(generateJSsetColors6());
-        js.append(generateJSsetColors7());
-        js.append(generateJSsetMinorTicks());
-        js.append(generateJSsetMinorTicks1());
-        js.append(generateJSsetTicks());
-        js.append(generateJSsetTicks1());
         
 
         String result = js.toString();

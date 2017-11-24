@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -45,7 +43,6 @@ public class CoreAxismarkersLine extends VisualBase {
     }
 
     private CoreAxesLinear axis;
-    private List<CoreAxismarkersLine> setAxis = new ArrayList<>();
 
     /**
      * Setter for the line marker axis.
@@ -66,20 +63,9 @@ public class CoreAxismarkersLine extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAxis() {
-        if (!setAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersLine item : setAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Layout layout;
     private String layout1;
-    private List<CoreAxismarkersLine> setLayout = new ArrayList<>();
 
     /**
      * Setter for the line marker layout.
@@ -106,18 +92,7 @@ public class CoreAxismarkersLine extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLayout() {
-        if (!setLayout.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersLine item : setLayout) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxismarkersLine> setLayout1 = new ArrayList<>();
 
     /**
      * Setter for the line marker layout.
@@ -144,16 +119,6 @@ public class CoreAxismarkersLine extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLayout1() {
-        if (!setLayout1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersLine item : setLayout1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScalesBase getScale;
 
@@ -171,7 +136,6 @@ public class CoreAxismarkersLine extends VisualBase {
     private String scale1;
     private ScaleTypes scale2;
     private String scale3;
-    private List<CoreAxismarkersLine> setScale = new ArrayList<>();
 
     /**
      * Setter for the line marker scale.
@@ -197,18 +161,7 @@ public class CoreAxismarkersLine extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetScale() {
-        if (!setScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersLine item : setScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxismarkersLine> setScale1 = new ArrayList<>();
 
     /**
      * Setter for the line marker scale.
@@ -237,18 +190,7 @@ public class CoreAxismarkersLine extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetScale1() {
-        if (!setScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersLine item : setScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxismarkersLine> setScale2 = new ArrayList<>();
 
     /**
      * Setter for the line marker scale.
@@ -277,16 +219,6 @@ public class CoreAxismarkersLine extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetScale2() {
-        if (!setScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersLine item : setScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke stroke;
     private ColoredFill stroke1;
@@ -295,7 +227,6 @@ public class CoreAxismarkersLine extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<CoreAxismarkersLine> setStroke = new ArrayList<>();
 
     /**
      * Setter for the line marker stroke.
@@ -331,18 +262,7 @@ public class CoreAxismarkersLine extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersLine item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxismarkersLine> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for the line marker stroke.
@@ -378,18 +298,7 @@ public class CoreAxismarkersLine extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersLine item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxismarkersLine> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for the line marker stroke.
@@ -425,19 +334,8 @@ public class CoreAxismarkersLine extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersLine item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double newValue;
-    private List<CoreAxismarkersLine> setValue = new ArrayList<>();
 
     /**
      * Setter for the line marker value.
@@ -460,16 +358,6 @@ public class CoreAxismarkersLine extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetValue() {
-        if (!setValue.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersLine item : setValue) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetAxis() {
@@ -508,16 +396,6 @@ public class CoreAxismarkersLine extends VisualBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAxis());
-        js.append(generateJSsetLayout());
-        js.append(generateJSsetLayout1());
-        js.append(generateJSsetScale());
-        js.append(generateJSsetScale1());
-        js.append(generateJSsetScale2());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetValue());
         
 
         String result = js.toString();

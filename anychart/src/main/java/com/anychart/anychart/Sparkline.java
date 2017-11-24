@@ -128,7 +128,6 @@ public class Sparkline extends Chart {
         return getClip;
     }
     private AnychartMathRect clip;
-    private List<Sparkline> setClip = new ArrayList<>();
 
     /**
      * Setter for series clip settings. Clips visible part of a series by a rectangle (or chart).<br/>
@@ -145,19 +144,8 @@ False, if series is created manually. True, if created via the chart.
         js.append(String.format(Locale.US, ".clip(%s);",  ((clip != null) ? clip.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetClip() {
-        if (!setClip.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setClip) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean connectMissingPoints;
-    private List<Sparkline> setConnectMissingPoints = new ArrayList<>();
 
     /**
      * Setter for connecting missing points settings.
@@ -175,16 +163,6 @@ False, if series is created manually. True, if created via the chart.
         }
         return this;
     }
-    private String generateJSsetConnectMissingPoints() {
-        if (!setConnectMissingPoints.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setConnectMissingPoints) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private View getData;
@@ -198,7 +176,6 @@ False, if series is created manually. True, if created via the chart.
 
         return getData;
     }
-    private List<Sparkline> setData = new ArrayList<>();
 
     /**
      * Setter for the series mapping.
@@ -222,18 +199,7 @@ False, if series is created manually. True, if created via the chart.
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setData1 = new ArrayList<>();
 
     /**
      * 
@@ -248,19 +214,8 @@ False, if series is created manually. True, if created via the chart.
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
-    private List<Sparkline> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -279,20 +234,9 @@ False, if series is created manually. True, if created via the chart.
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<Sparkline> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.<br/>
@@ -311,16 +255,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -329,7 +263,6 @@ Fill as a string or an object.
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<Sparkline> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -348,18 +281,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -378,18 +300,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -408,18 +319,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -438,18 +338,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -468,18 +357,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -498,16 +376,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -517,7 +385,6 @@ Fill as a string or an object.
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<Sparkline> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -536,18 +403,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -566,20 +422,9 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private Fill firstFill;
-    private List<Sparkline> setFirstFill = new ArrayList<>();
 
     /**
      * Setter for first fill settings using an array or a string.
@@ -598,20 +443,9 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFirstFill() {
-        if (!setFirstFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color1;
     private Double opacity3;
-    private List<Sparkline> setFirstFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.<br/>
@@ -630,16 +464,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFirstFill1() {
-        if (!setFirstFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys4;
     private String[] keys5;
@@ -648,7 +472,6 @@ Fill as a string or an object.
     private VectorRect mode5;
     private String mode6;
     private Double opacity4;
-    private List<Sparkline> setFirstFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -667,18 +490,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFirstFill2() {
-        if (!setFirstFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFirstFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -697,18 +509,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFirstFill3() {
-        if (!setFirstFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFirstFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -727,18 +528,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFirstFill4() {
-        if (!setFirstFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFirstFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -757,18 +547,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFirstFill5() {
-        if (!setFirstFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFirstFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -787,18 +566,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFirstFill6() {
-        if (!setFirstFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFirstFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -817,16 +585,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFirstFill7() {
-        if (!setFirstFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys6;
     private String[] keys7;
@@ -836,7 +594,6 @@ Fill as a string or an object.
     private Double opacity5;
     private Double fx1;
     private Double fy1;
-    private List<Sparkline> setFirstFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -855,18 +612,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFirstFill8() {
-        if (!setFirstFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFirstFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -884,16 +630,6 @@ Fill as a string or an object.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetFirstFill9() {
-        if (!setFirstFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Fill imageSettings1;
@@ -916,7 +652,6 @@ Fill as a string or an object.
     private String color2;
     private Double thickness;
     private Double size;
-    private List<Sparkline> setFirstHatchFill = new ArrayList<>();
 
     /**
      * Setter for first hatch fill settings.
@@ -935,18 +670,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFirstHatchFill() {
-        if (!setFirstHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFirstHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for first hatch fill settings.
@@ -965,18 +689,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFirstHatchFill1() {
-        if (!setFirstHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFirstHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for first hatch fill settings.
@@ -995,18 +708,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFirstHatchFill2() {
-        if (!setFirstHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFirstHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for first hatch fill settings.
@@ -1025,16 +727,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFirstHatchFill3() {
-        if (!setFirstHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private LabelsfactoryLabel getFirstLabels;
@@ -1050,7 +742,6 @@ Fill as a string or an object.
     }
     private String firstLabels;
     private Boolean firstLabels1;
-    private List<Sparkline> setFirstLabels = new ArrayList<>();
 
     /**
      * Setter for data labels of first point.
@@ -1068,18 +759,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFirstLabels() {
-        if (!setFirstLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFirstLabels1 = new ArrayList<>();
 
     /**
      * Setter for data labels of first point.
@@ -1097,16 +777,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFirstLabels1() {
-        if (!setFirstLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiMarkersfactoryMarker getFirstMarkers;
@@ -1122,7 +792,6 @@ Fill as a string or an object.
     }
     private String firstMarkers;
     private Boolean firstMarkers1;
-    private List<Sparkline> setFirstMarkers = new ArrayList<>();
 
     /**
      * Setter for data markers of the first point.
@@ -1140,18 +809,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFirstMarkers() {
-        if (!setFirstMarkers.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstMarkers) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setFirstMarkers1 = new ArrayList<>();
 
     /**
      * Setter for data markers of the first point.
@@ -1168,16 +826,6 @@ Fill as a string or an object.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetFirstMarkers1() {
-        if (!setFirstMarkers1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setFirstMarkers1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1199,7 +847,6 @@ Fill as a string or an object.
     private String color3;
     private Double thickness1;
     private Double size1;
-    private List<Sparkline> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -1218,18 +865,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetHatchFill() {
-        if (!setHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -1248,18 +884,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetHatchFill1() {
-        if (!setHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -1278,18 +903,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetHatchFill2() {
-        if (!setHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -1308,16 +922,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetHatchFill3() {
-        if (!setHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private LabelsfactoryLabel getLabels;
@@ -1333,7 +937,6 @@ Fill as a string or an object.
     }
     private String labels;
     private Boolean labels1;
-    private List<Sparkline> setLabels = new ArrayList<>();
 
     /**
      * Setter for data labels.
@@ -1351,18 +954,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for data labels.
@@ -1380,19 +972,8 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill lastFill;
-    private List<Sparkline> setLastFill = new ArrayList<>();
 
     /**
      * Setter for last fill settings using an array or a string.
@@ -1411,20 +992,9 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLastFill() {
-        if (!setLastFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color4;
     private Double opacity6;
-    private List<Sparkline> setLastFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.<br/>
@@ -1443,16 +1013,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLastFill1() {
-        if (!setLastFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys8;
     private String[] keys9;
@@ -1461,7 +1021,6 @@ Fill as a string or an object.
     private VectorRect mode9;
     private String mode10;
     private Double opacity7;
-    private List<Sparkline> setLastFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1480,18 +1039,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLastFill2() {
-        if (!setLastFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setLastFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1510,18 +1058,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLastFill3() {
-        if (!setLastFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setLastFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1540,18 +1077,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLastFill4() {
-        if (!setLastFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setLastFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1570,18 +1096,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLastFill5() {
-        if (!setLastFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setLastFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1600,18 +1115,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLastFill6() {
-        if (!setLastFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setLastFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1630,16 +1134,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLastFill7() {
-        if (!setLastFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys10;
     private String[] keys11;
@@ -1649,7 +1143,6 @@ Fill as a string or an object.
     private Double opacity8;
     private Double fx2;
     private Double fy2;
-    private List<Sparkline> setLastFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -1668,18 +1161,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLastFill8() {
-        if (!setLastFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setLastFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -1697,16 +1179,6 @@ Fill as a string or an object.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetLastFill9() {
-        if (!setLastFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Fill imageSettings2;
@@ -1729,7 +1201,6 @@ Fill as a string or an object.
     private String color5;
     private Double thickness2;
     private Double size2;
-    private List<Sparkline> setLastHatchFill = new ArrayList<>();
 
     /**
      * Setter for last hatch fill settings.
@@ -1748,18 +1219,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLastHatchFill() {
-        if (!setLastHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setLastHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for last hatch fill settings.
@@ -1778,18 +1238,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLastHatchFill1() {
-        if (!setLastHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setLastHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for last hatch fill settings.
@@ -1808,18 +1257,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLastHatchFill2() {
-        if (!setLastHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setLastHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for last hatch fill settings.
@@ -1838,16 +1276,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLastHatchFill3() {
-        if (!setLastHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private LabelsfactoryLabel getLastLabels;
@@ -1863,7 +1291,6 @@ Fill as a string or an object.
     }
     private String lastLabels;
     private Boolean lastLabels1;
-    private List<Sparkline> setLastLabels = new ArrayList<>();
 
     /**
      * Setter for data labels of the last point.
@@ -1881,18 +1308,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLastLabels() {
-        if (!setLastLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setLastLabels1 = new ArrayList<>();
 
     /**
      * Setter for data labels of the last point.
@@ -1910,16 +1326,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLastLabels1() {
-        if (!setLastLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiMarkersfactoryMarker getLastMarkers;
@@ -1935,7 +1341,6 @@ Fill as a string or an object.
     }
     private String lastMarkers;
     private Boolean lastMarkers1;
-    private List<Sparkline> setLastMarkers = new ArrayList<>();
 
     /**
      * Setter for data markers of the last point.
@@ -1953,18 +1358,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLastMarkers() {
-        if (!setLastMarkers.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastMarkers) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setLastMarkers1 = new ArrayList<>();
 
     /**
      * Setter for data markers of the last point.
@@ -1981,16 +1375,6 @@ Fill as a string or an object.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetLastMarkers1() {
-        if (!setLastMarkers1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLastMarkers1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2018,7 +1402,6 @@ Fill as a string or an object.
     }
     private String lineMarker;
     private Boolean lineMarker1;
-    private List<Sparkline> setLineMarker = new ArrayList<>();
 
     /**
      * Setter for the chart line marker.
@@ -2036,18 +1419,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLineMarker() {
-        if (!setLineMarker.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLineMarker) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setLineMarker1 = new ArrayList<>();
 
     /**
      * Setter for the chart line marker.
@@ -2065,21 +1437,10 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLineMarker1() {
-        if (!setLineMarker1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLineMarker1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index1;
     private String lineMarker2;
     private Boolean lineMarker3;
-    private List<Sparkline> setLineMarker2 = new ArrayList<>();
 
     /**
      * Setter for the chart line marker by index.
@@ -2097,18 +1458,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLineMarker2() {
-        if (!setLineMarker2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLineMarker2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setLineMarker3 = new ArrayList<>();
 
     /**
      * Setter for the chart line marker by index.
@@ -2126,16 +1476,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetLineMarker3() {
-        if (!setLineMarker3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setLineMarker3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiMarkersfactoryMarker getMarkers;
@@ -2151,7 +1491,6 @@ Fill as a string or an object.
     }
     private String markers;
     private Boolean markers1;
-    private List<Sparkline> setMarkers = new ArrayList<>();
 
     /**
      * Setter for data markers.
@@ -2169,18 +1508,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMarkers() {
-        if (!setMarkers.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMarkers) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMarkers1 = new ArrayList<>();
 
     /**
      * Setter for data markers.
@@ -2198,19 +1526,8 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMarkers1() {
-        if (!setMarkers1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMarkers1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill maxFill;
-    private List<Sparkline> setMaxFill = new ArrayList<>();
 
     /**
      * Setter for maximum fill settings using an array or a string.
@@ -2229,20 +1546,9 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxFill() {
-        if (!setMaxFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color6;
     private Double opacity9;
-    private List<Sparkline> setMaxFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.<br/>
@@ -2261,16 +1567,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxFill1() {
-        if (!setMaxFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys12;
     private String[] keys13;
@@ -2279,7 +1575,6 @@ Fill as a string or an object.
     private VectorRect mode13;
     private String mode14;
     private Double opacity10;
-    private List<Sparkline> setMaxFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2298,18 +1593,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxFill2() {
-        if (!setMaxFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMaxFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2328,18 +1612,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxFill3() {
-        if (!setMaxFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMaxFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2358,18 +1631,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxFill4() {
-        if (!setMaxFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMaxFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2388,18 +1650,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxFill5() {
-        if (!setMaxFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMaxFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2418,18 +1669,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxFill6() {
-        if (!setMaxFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMaxFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2448,16 +1688,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxFill7() {
-        if (!setMaxFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys14;
     private String[] keys15;
@@ -2467,7 +1697,6 @@ Fill as a string or an object.
     private Double opacity11;
     private Double fx3;
     private Double fy3;
-    private List<Sparkline> setMaxFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -2486,18 +1715,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxFill8() {
-        if (!setMaxFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMaxFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -2515,16 +1733,6 @@ Fill as a string or an object.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetMaxFill9() {
-        if (!setMaxFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Fill imageSettings3;
@@ -2547,7 +1755,6 @@ Fill as a string or an object.
     private String color7;
     private Double thickness3;
     private Double size3;
-    private List<Sparkline> setMaxHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings of maximum point.
@@ -2566,18 +1773,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxHatchFill() {
-        if (!setMaxHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMaxHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings of maximum point.
@@ -2596,18 +1792,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxHatchFill1() {
-        if (!setMaxHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMaxHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings of maximum point.
@@ -2626,18 +1811,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxHatchFill2() {
-        if (!setMaxHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMaxHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings of maximum point.
@@ -2656,16 +1830,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxHatchFill3() {
-        if (!setMaxHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private LabelsfactoryLabel getMaxLabels;
@@ -2681,7 +1845,6 @@ Fill as a string or an object.
     }
     private String maxLabels;
     private Boolean maxLabels1;
-    private List<Sparkline> setMaxLabels = new ArrayList<>();
 
     /**
      * Setter for data labels of maximum point.
@@ -2699,18 +1862,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxLabels() {
-        if (!setMaxLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMaxLabels1 = new ArrayList<>();
 
     /**
      * Setter for data labels of maximum point.
@@ -2728,16 +1880,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxLabels1() {
-        if (!setMaxLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiMarkersfactoryMarker getMaxMarkers;
@@ -2753,7 +1895,6 @@ Fill as a string or an object.
     }
     private String maxMarkers;
     private Boolean maxMarkers1;
-    private List<Sparkline> setMaxMarkers = new ArrayList<>();
 
     /**
      * Setter for data markers of maximum point.
@@ -2771,18 +1912,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxMarkers() {
-        if (!setMaxMarkers.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxMarkers) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMaxMarkers1 = new ArrayList<>();
 
     /**
      * Setter for data markers of maximum point.
@@ -2800,19 +1930,8 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMaxMarkers1() {
-        if (!setMaxMarkers1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMaxMarkers1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill minFill;
-    private List<Sparkline> setMinFill = new ArrayList<>();
 
     /**
      * Setter for minimum fill settings using an array or a string.
@@ -2831,20 +1950,9 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinFill() {
-        if (!setMinFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color8;
     private Double opacity12;
-    private List<Sparkline> setMinFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.<br/>
@@ -2863,16 +1971,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinFill1() {
-        if (!setMinFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys16;
     private String[] keys17;
@@ -2881,7 +1979,6 @@ Fill as a string or an object.
     private VectorRect mode17;
     private String mode18;
     private Double opacity13;
-    private List<Sparkline> setMinFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2900,18 +1997,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinFill2() {
-        if (!setMinFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMinFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2930,18 +2016,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinFill3() {
-        if (!setMinFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMinFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2960,18 +2035,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinFill4() {
-        if (!setMinFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMinFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2990,18 +2054,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinFill5() {
-        if (!setMinFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMinFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3020,18 +2073,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinFill6() {
-        if (!setMinFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMinFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3050,16 +2092,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinFill7() {
-        if (!setMinFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys18;
     private String[] keys19;
@@ -3069,7 +2101,6 @@ Fill as a string or an object.
     private Double opacity14;
     private Double fx4;
     private Double fy4;
-    private List<Sparkline> setMinFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -3088,18 +2119,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinFill8() {
-        if (!setMinFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMinFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -3117,16 +2137,6 @@ Fill as a string or an object.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetMinFill9() {
-        if (!setMinFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Fill imageSettings4;
@@ -3149,7 +2159,6 @@ Fill as a string or an object.
     private String color9;
     private Double thickness4;
     private Double size4;
-    private List<Sparkline> setMinHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings of minimum point.
@@ -3168,18 +2177,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinHatchFill() {
-        if (!setMinHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMinHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings of minimum point.
@@ -3198,18 +2196,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinHatchFill1() {
-        if (!setMinHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMinHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings of minimum point.
@@ -3228,18 +2215,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinHatchFill2() {
-        if (!setMinHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMinHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings of minimum point.
@@ -3258,16 +2234,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinHatchFill3() {
-        if (!setMinHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private LabelsfactoryLabel getMinLabels;
@@ -3283,7 +2249,6 @@ Fill as a string or an object.
     }
     private String minLabels;
     private Boolean minLabels1;
-    private List<Sparkline> setMinLabels = new ArrayList<>();
 
     /**
      * Setter for data labels of minimum point.
@@ -3301,18 +2266,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinLabels() {
-        if (!setMinLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMinLabels1 = new ArrayList<>();
 
     /**
      * Setter for data labels of minimum point.
@@ -3330,16 +2284,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinLabels1() {
-        if (!setMinLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiMarkersfactoryMarker getMinMarkers;
@@ -3355,7 +2299,6 @@ Fill as a string or an object.
     }
     private String minMarkers;
     private Boolean minMarkers1;
-    private List<Sparkline> setMinMarkers = new ArrayList<>();
 
     /**
      * Setter for data markers of minimum point.
@@ -3373,18 +2316,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinMarkers() {
-        if (!setMinMarkers.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinMarkers) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setMinMarkers1 = new ArrayList<>();
 
     /**
      * Setter for data markers of minimum point.
@@ -3402,19 +2334,8 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetMinMarkers1() {
-        if (!setMinMarkers1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setMinMarkers1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill negativeFill;
-    private List<Sparkline> setNegativeFill = new ArrayList<>();
 
     /**
      * Setter for the negative fill settings using an array or a string.
@@ -3433,20 +2354,9 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeFill() {
-        if (!setNegativeFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color10;
     private Double opacity15;
-    private List<Sparkline> setNegativeFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.<br/>
@@ -3465,16 +2375,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeFill1() {
-        if (!setNegativeFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys20;
     private String[] keys21;
@@ -3483,7 +2383,6 @@ Fill as a string or an object.
     private VectorRect mode21;
     private String mode22;
     private Double opacity16;
-    private List<Sparkline> setNegativeFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3502,18 +2401,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeFill2() {
-        if (!setNegativeFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setNegativeFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3532,18 +2420,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeFill3() {
-        if (!setNegativeFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setNegativeFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3562,18 +2439,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeFill4() {
-        if (!setNegativeFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setNegativeFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3592,18 +2458,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeFill5() {
-        if (!setNegativeFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setNegativeFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3622,18 +2477,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeFill6() {
-        if (!setNegativeFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setNegativeFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -3652,16 +2496,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeFill7() {
-        if (!setNegativeFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys22;
     private String[] keys23;
@@ -3671,7 +2505,6 @@ Fill as a string or an object.
     private Double opacity17;
     private Double fx5;
     private Double fy5;
-    private List<Sparkline> setNegativeFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -3690,18 +2523,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeFill8() {
-        if (!setNegativeFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setNegativeFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -3719,16 +2541,6 @@ Fill as a string or an object.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetNegativeFill9() {
-        if (!setNegativeFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Fill imageSettings5;
@@ -3751,7 +2563,6 @@ Fill as a string or an object.
     private String color11;
     private Double thickness5;
     private Double size5;
-    private List<Sparkline> setNegativeHatchFill = new ArrayList<>();
 
     /**
      * Setter for negative hatch fill settings.
@@ -3770,18 +2581,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill() {
-        if (!setNegativeHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setNegativeHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for negative hatch fill settings.
@@ -3800,18 +2600,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill1() {
-        if (!setNegativeHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setNegativeHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for negative hatch fill settings.
@@ -3830,18 +2619,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill2() {
-        if (!setNegativeHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setNegativeHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for negative hatch fill settings.
@@ -3860,16 +2638,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill3() {
-        if (!setNegativeHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private LabelsfactoryLabel getNegativeLabels;
@@ -3885,7 +2653,6 @@ Fill as a string or an object.
     }
     private String negativeLabels;
     private Boolean negativeLabels1;
-    private List<Sparkline> setNegativeLabels = new ArrayList<>();
 
     /**
      * Setter for data labels of negative points.
@@ -3903,18 +2670,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeLabels() {
-        if (!setNegativeLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setNegativeLabels1 = new ArrayList<>();
 
     /**
      * Setter for data labels of negative points.
@@ -3932,16 +2688,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeLabels1() {
-        if (!setNegativeLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiMarkersfactoryMarker getNegativeMarkers;
@@ -3957,7 +2703,6 @@ Fill as a string or an object.
     }
     private String negativeMarkers;
     private Boolean negativeMarkers1;
-    private List<Sparkline> setNegativeMarkers = new ArrayList<>();
 
     /**
      * Setter for data negative markers.
@@ -3975,18 +2720,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeMarkers() {
-        if (!setNegativeMarkers.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeMarkers) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setNegativeMarkers1 = new ArrayList<>();
 
     /**
      * Setter for data negative markers.
@@ -4004,20 +2738,9 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetNegativeMarkers1() {
-        if (!setNegativeMarkers1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setNegativeMarkers1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double pointWidth;
     private String pointWidth1;
-    private List<Sparkline> setPointWidth = new ArrayList<>();
 
     /**
      * Setter for point width settings.
@@ -4035,18 +2758,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetPointWidth() {
-        if (!setPointWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setPointWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for point width settings.
@@ -4063,16 +2775,6 @@ Fill as a string or an object.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetPointWidth1() {
-        if (!setPointWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setPointWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -4100,7 +2802,6 @@ Fill as a string or an object.
     }
     private String rangeMarker;
     private Boolean rangeMarker1;
-    private List<Sparkline> setRangeMarker = new ArrayList<>();
 
     /**
      * Setter for the chart range marker.
@@ -4118,18 +2819,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRangeMarker() {
-        if (!setRangeMarker.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setRangeMarker) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setRangeMarker1 = new ArrayList<>();
 
     /**
      * Setter for the chart range marker.
@@ -4147,21 +2837,10 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRangeMarker1() {
-        if (!setRangeMarker1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setRangeMarker1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index3;
     private String rangeMarker2;
     private Boolean rangeMarker3;
-    private List<Sparkline> setRangeMarker2 = new ArrayList<>();
 
     /**
      * Setter for the chart range marker by index.
@@ -4179,18 +2858,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRangeMarker2() {
-        if (!setRangeMarker2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setRangeMarker2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setRangeMarker3 = new ArrayList<>();
 
     /**
      * Setter for the chart range marker by index.
@@ -4208,20 +2876,9 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetRangeMarker3() {
-        if (!setRangeMarker3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setRangeMarker3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private SparklineSeriesType type;
     private String type1;
-    private List<Sparkline> setSeriesType = new ArrayList<>();
 
     /**
      * Setter for the sparkline series type.
@@ -4239,18 +2896,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetSeriesType() {
-        if (!setSeriesType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setSeriesType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setSeriesType1 = new ArrayList<>();
 
     /**
      * Setter for the sparkline series type.
@@ -4268,16 +2914,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetSeriesType1() {
-        if (!setSeriesType1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setSeriesType1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color12;
     private ColoredFill color13;
@@ -4286,7 +2922,6 @@ Fill as a string or an object.
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<Sparkline> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -4305,18 +2940,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -4335,18 +2959,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -4364,16 +2977,6 @@ Fill as a string or an object.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -4401,7 +3004,6 @@ Fill as a string or an object.
     }
     private String textMarker;
     private Boolean textMarker1;
-    private List<Sparkline> setTextMarker = new ArrayList<>();
 
     /**
      * Setter for the chart text marker.
@@ -4419,18 +3021,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetTextMarker() {
-        if (!setTextMarker.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setTextMarker) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setTextMarker1 = new ArrayList<>();
 
     /**
      * Setter for the chart text marker.
@@ -4448,21 +3039,10 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetTextMarker1() {
-        if (!setTextMarker1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setTextMarker1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index5;
     private String textMarker2;
     private Boolean textMarker3;
-    private List<Sparkline> setTextMarker2 = new ArrayList<>();
 
     /**
      * Setter for the chart text marker by index.
@@ -4480,18 +3060,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetTextMarker2() {
-        if (!setTextMarker2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setTextMarker2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setTextMarker3 = new ArrayList<>();
 
     /**
      * Setter for the chart text marker by index.
@@ -4508,16 +3077,6 @@ Fill as a string or an object.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetTextMarker3() {
-        if (!setTextMarker3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setTextMarker3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -4536,7 +3095,6 @@ Fill as a string or an object.
     private String xScale1;
     private ScalesBase xScale2;
     private String xScale3;
-    private List<Sparkline> setXScale = new ArrayList<>();
 
     /**
      * Setter for the chart X scale.<br/>
@@ -4555,18 +3113,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetXScale() {
-        if (!setXScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setXScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setXScale1 = new ArrayList<>();
 
     /**
      * Setter for the chart X scale.<br/>
@@ -4585,18 +3132,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetXScale1() {
-        if (!setXScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setXScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setXScale2 = new ArrayList<>();
 
     /**
      * Setter for the chart X scale.<br/>
@@ -4613,16 +3149,6 @@ Fill as a string or an object.
         js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale2 != null) ? xScale2.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetXScale2() {
-        if (!setXScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setXScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private ScalesBase getYScale;
@@ -4632,7 +3158,7 @@ Fill as a string or an object.
      */
     public ScalesBase getYScale() {
         if (getYScale == null)
-            getYScale = new ScalesBase(jsBase + ".yScale()");
+            getYScale = new ScalesLinear(jsBase + ".yScale()");
 
         return getYScale;
     }
@@ -4640,7 +3166,6 @@ Fill as a string or an object.
     private String yScale1;
     private ScalesBase yScale2;
     private String yScale3;
-    private List<Sparkline> setYScale = new ArrayList<>();
 
     /**
      * Setter for the chart Y scale.<br/>
@@ -4659,18 +3184,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetYScale() {
-        if (!setYScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setYScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the chart Y scale.<br/>
@@ -4689,18 +3203,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetYScale1() {
-        if (!setYScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setYScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Sparkline> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the chart Y scale.<br/>
@@ -4716,16 +3219,6 @@ Fill as a string or an object.
 
         js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetYScale2() {
-        if (!setYScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Sparkline item : setYScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetClip() {
@@ -4974,143 +3467,6 @@ Fill as a string or an object.
         js.append(generateJSgetTextMarker1());
         js.append(generateJSgetXScale());
         js.append(generateJSgetYScale());
-        js.append(generateJSsetClip());
-        js.append(generateJSsetConnectMissingPoints());
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetFirstFill());
-        js.append(generateJSsetFirstFill1());
-        js.append(generateJSsetFirstFill2());
-        js.append(generateJSsetFirstFill3());
-        js.append(generateJSsetFirstFill4());
-        js.append(generateJSsetFirstFill5());
-        js.append(generateJSsetFirstFill6());
-        js.append(generateJSsetFirstFill7());
-        js.append(generateJSsetFirstFill8());
-        js.append(generateJSsetFirstFill9());
-        js.append(generateJSsetFirstHatchFill());
-        js.append(generateJSsetFirstHatchFill1());
-        js.append(generateJSsetFirstHatchFill2());
-        js.append(generateJSsetFirstHatchFill3());
-        js.append(generateJSsetFirstLabels());
-        js.append(generateJSsetFirstLabels1());
-        js.append(generateJSsetFirstMarkers());
-        js.append(generateJSsetFirstMarkers1());
-        js.append(generateJSsetHatchFill());
-        js.append(generateJSsetHatchFill1());
-        js.append(generateJSsetHatchFill2());
-        js.append(generateJSsetHatchFill3());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
-        js.append(generateJSsetLastFill());
-        js.append(generateJSsetLastFill1());
-        js.append(generateJSsetLastFill2());
-        js.append(generateJSsetLastFill3());
-        js.append(generateJSsetLastFill4());
-        js.append(generateJSsetLastFill5());
-        js.append(generateJSsetLastFill6());
-        js.append(generateJSsetLastFill7());
-        js.append(generateJSsetLastFill8());
-        js.append(generateJSsetLastFill9());
-        js.append(generateJSsetLastHatchFill());
-        js.append(generateJSsetLastHatchFill1());
-        js.append(generateJSsetLastHatchFill2());
-        js.append(generateJSsetLastHatchFill3());
-        js.append(generateJSsetLastLabels());
-        js.append(generateJSsetLastLabels1());
-        js.append(generateJSsetLastMarkers());
-        js.append(generateJSsetLastMarkers1());
-        js.append(generateJSsetLineMarker());
-        js.append(generateJSsetLineMarker1());
-        js.append(generateJSsetLineMarker2());
-        js.append(generateJSsetLineMarker3());
-        js.append(generateJSsetMarkers());
-        js.append(generateJSsetMarkers1());
-        js.append(generateJSsetMaxFill());
-        js.append(generateJSsetMaxFill1());
-        js.append(generateJSsetMaxFill2());
-        js.append(generateJSsetMaxFill3());
-        js.append(generateJSsetMaxFill4());
-        js.append(generateJSsetMaxFill5());
-        js.append(generateJSsetMaxFill6());
-        js.append(generateJSsetMaxFill7());
-        js.append(generateJSsetMaxFill8());
-        js.append(generateJSsetMaxFill9());
-        js.append(generateJSsetMaxHatchFill());
-        js.append(generateJSsetMaxHatchFill1());
-        js.append(generateJSsetMaxHatchFill2());
-        js.append(generateJSsetMaxHatchFill3());
-        js.append(generateJSsetMaxLabels());
-        js.append(generateJSsetMaxLabels1());
-        js.append(generateJSsetMaxMarkers());
-        js.append(generateJSsetMaxMarkers1());
-        js.append(generateJSsetMinFill());
-        js.append(generateJSsetMinFill1());
-        js.append(generateJSsetMinFill2());
-        js.append(generateJSsetMinFill3());
-        js.append(generateJSsetMinFill4());
-        js.append(generateJSsetMinFill5());
-        js.append(generateJSsetMinFill6());
-        js.append(generateJSsetMinFill7());
-        js.append(generateJSsetMinFill8());
-        js.append(generateJSsetMinFill9());
-        js.append(generateJSsetMinHatchFill());
-        js.append(generateJSsetMinHatchFill1());
-        js.append(generateJSsetMinHatchFill2());
-        js.append(generateJSsetMinHatchFill3());
-        js.append(generateJSsetMinLabels());
-        js.append(generateJSsetMinLabels1());
-        js.append(generateJSsetMinMarkers());
-        js.append(generateJSsetMinMarkers1());
-        js.append(generateJSsetNegativeFill());
-        js.append(generateJSsetNegativeFill1());
-        js.append(generateJSsetNegativeFill2());
-        js.append(generateJSsetNegativeFill3());
-        js.append(generateJSsetNegativeFill4());
-        js.append(generateJSsetNegativeFill5());
-        js.append(generateJSsetNegativeFill6());
-        js.append(generateJSsetNegativeFill7());
-        js.append(generateJSsetNegativeFill8());
-        js.append(generateJSsetNegativeFill9());
-        js.append(generateJSsetNegativeHatchFill());
-        js.append(generateJSsetNegativeHatchFill1());
-        js.append(generateJSsetNegativeHatchFill2());
-        js.append(generateJSsetNegativeHatchFill3());
-        js.append(generateJSsetNegativeLabels());
-        js.append(generateJSsetNegativeLabels1());
-        js.append(generateJSsetNegativeMarkers());
-        js.append(generateJSsetNegativeMarkers1());
-        js.append(generateJSsetPointWidth());
-        js.append(generateJSsetPointWidth1());
-        js.append(generateJSsetRangeMarker());
-        js.append(generateJSsetRangeMarker1());
-        js.append(generateJSsetRangeMarker2());
-        js.append(generateJSsetRangeMarker3());
-        js.append(generateJSsetSeriesType());
-        js.append(generateJSsetSeriesType1());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetTextMarker());
-        js.append(generateJSsetTextMarker1());
-        js.append(generateJSsetTextMarker2());
-        js.append(generateJSsetTextMarker3());
-        js.append(generateJSsetXScale());
-        js.append(generateJSsetXScale1());
-        js.append(generateJSsetXScale2());
-        js.append(generateJSsetYScale());
-        js.append(generateJSsetYScale1());
-        js.append(generateJSsetYScale2());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

@@ -164,7 +164,6 @@ public class Pareto extends SeparateChart {
         return getAnnotations;
     }
     private String[] annotationsList;
-    private List<Pareto> setAnnotations = new ArrayList<>();
 
     /**
      * Setter for annotations.
@@ -182,19 +181,8 @@ public class Pareto extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetAnnotations() {
-        if (!setAnnotations.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setAnnotations) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double barGroupsPadding;
-    private List<Pareto> setBarGroupsPadding = new ArrayList<>();
 
     /**
      * Setter for space between bar groups on the ordinal scale by a ratio of bars width.<br/>
@@ -213,19 +201,8 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetBarGroupsPadding() {
-        if (!setBarGroupsPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setBarGroupsPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double barsPadding;
-    private List<Pareto> setBarsPadding = new ArrayList<>();
 
     /**
      * Setter for space between bars on the ordinal scale by ratio of bars width.</br>
@@ -244,16 +221,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetBarsPadding() {
-        if (!setBarsPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setBarsPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Crosshair getCrosshair;
@@ -269,7 +236,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     }
     private String crosshair;
     private Boolean crosshair1;
-    private List<Pareto> setCrosshair = new ArrayList<>();
 
     /**
      * Setter for crosshair settings.
@@ -287,18 +253,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetCrosshair() {
-        if (!setCrosshair.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setCrosshair) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setCrosshair1 = new ArrayList<>();
 
     /**
      * Setter for crosshair settings.
@@ -316,16 +271,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetCrosshair1() {
-        if (!setCrosshair1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setCrosshair1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private View getData;
@@ -339,7 +284,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
 
         return getData;
     }
-    private List<Pareto> setData = new ArrayList<>();
 
     /**
      * Setter for the data.
@@ -363,18 +307,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setData1 = new ArrayList<>();
 
     /**
      * 
@@ -389,20 +322,9 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private CartesianSeriesType defaultSeriesType;
     private String defaultSeriesType1;
-    private List<Pareto> setDefaultSeriesType = new ArrayList<>();
 
     /**
      * Setter for the series type.
@@ -420,18 +342,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetDefaultSeriesType() {
-        if (!setDefaultSeriesType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setDefaultSeriesType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setDefaultSeriesType1 = new ArrayList<>();
 
     /**
      * Setter for the series type.
@@ -448,16 +359,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetDefaultSeriesType1() {
-        if (!setDefaultSeriesType1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setDefaultSeriesType1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -521,7 +422,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
-    private List<Pareto> setHatchFillPalette = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -539,18 +439,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette() {
-        if (!setHatchFillPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setHatchFillPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setHatchFillPalette1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -568,18 +457,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette1() {
-        if (!setHatchFillPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setHatchFillPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setHatchFillPalette2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -595,16 +473,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetHatchFillPalette2() {
-        if (!setHatchFillPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setHatchFillPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getHovered;
@@ -619,7 +487,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return getHovered;
     }
     private String hovered;
-    private List<Pareto> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -637,16 +504,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiLabelsFactory getLabels;
@@ -662,7 +519,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     }
     private String labels;
     private Boolean labels1;
-    private List<Pareto> setLabels = new ArrayList<>();
 
     /**
      * Setter for series data labels.
@@ -680,18 +536,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for series data labels.
@@ -708,16 +553,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -745,7 +580,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     }
     private String lineMarker;
     private Boolean lineMarker1;
-    private List<Pareto> setLineMarker = new ArrayList<>();
 
     /**
      * Setter for the line marker settings.
@@ -763,18 +597,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetLineMarker() {
-        if (!setLineMarker.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setLineMarker) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setLineMarker1 = new ArrayList<>();
 
     /**
      * Setter for the line marker settings.
@@ -792,21 +615,10 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetLineMarker1() {
-        if (!setLineMarker1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setLineMarker1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index2;
     private String lineMarker2;
     private Boolean lineMarker3;
-    private List<Pareto> setLineMarker2 = new ArrayList<>();
 
     /**
      * Setter for the line marker settings by index.
@@ -824,18 +636,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetLineMarker2() {
-        if (!setLineMarker2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setLineMarker2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setLineMarker3 = new ArrayList<>();
 
     /**
      * Setter for the line marker settings by index.
@@ -852,16 +653,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetLineMarker3() {
-        if (!setLineMarker3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setLineMarker3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -880,7 +671,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     private String markerPalette1;
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
-    private List<Pareto> setMarkerPalette = new ArrayList<>();
 
     /**
      * Setter for chart markers palette settings.
@@ -896,18 +686,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetMarkerPalette() {
-        if (!setMarkerPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setMarkerPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setMarkerPalette1 = new ArrayList<>();
 
     /**
      * Setter for chart markers palette settings.
@@ -925,18 +704,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMarkerPalette1() {
-        if (!setMarkerPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setMarkerPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setMarkerPalette2 = new ArrayList<>();
 
     /**
      * Setter for chart markers palette settings.
@@ -954,18 +722,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMarkerPalette2() {
-        if (!setMarkerPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setMarkerPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setMarkerPalette3 = new ArrayList<>();
 
     /**
      * Setter for chart markers palette settings.
@@ -983,20 +740,9 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMarkerPalette3() {
-        if (!setMarkerPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setMarkerPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxBubbleSize;
     private String maxBubbleSize1;
-    private List<Pareto> setMaxBubbleSize = new ArrayList<>();
 
     /**
      * Setter for the maximum size for all bubbles on the charts.
@@ -1014,18 +760,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMaxBubbleSize() {
-        if (!setMaxBubbleSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setMaxBubbleSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setMaxBubbleSize1 = new ArrayList<>();
 
     /**
      * Setter for the maximum size for all bubbles on the charts.
@@ -1043,20 +778,9 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMaxBubbleSize1() {
-        if (!setMaxBubbleSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setMaxBubbleSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxPointWidth;
     private String maxPointWidth1;
-    private List<Pareto> setMaxPointWidth = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -1074,18 +798,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMaxPointWidth() {
-        if (!setMaxPointWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setMaxPointWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setMaxPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -1103,20 +816,9 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMaxPointWidth1() {
-        if (!setMaxPointWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setMaxPointWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double minBubbleSize;
     private String minBubbleSize1;
-    private List<Pareto> setMinBubbleSize = new ArrayList<>();
 
     /**
      * Setter for the minimum size for all bubbles on the charts.
@@ -1134,18 +836,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMinBubbleSize() {
-        if (!setMinBubbleSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setMinBubbleSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setMinBubbleSize1 = new ArrayList<>();
 
     /**
      * Setter for the minimum size for all bubbles on the charts.
@@ -1163,20 +854,9 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMinBubbleSize1() {
-        if (!setMinBubbleSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setMinBubbleSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double minPointLength;
     private String minPointLength1;
-    private List<Pareto> setMinPointLength = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -1194,18 +874,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMinPointLength() {
-        if (!setMinPointLength.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setMinPointLength) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setMinPointLength1 = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -1223,16 +892,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetMinPointLength1() {
-        if (!setMinPointLength1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setMinPointLength1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getNormal;
@@ -1247,7 +906,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return getNormal;
     }
     private String normal;
-    private List<Pareto> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -1264,16 +922,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1292,7 +940,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
-    private List<Pareto> setPalette = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -1308,18 +955,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette() {
-        if (!setPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -1335,18 +971,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette1() {
-        if (!setPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -1364,18 +989,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetPalette2() {
-        if (!setPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -1393,20 +1007,9 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetPalette3() {
-        if (!setPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double pointWidth;
     private String pointWidth1;
-    private List<Pareto> setPointWidth = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -1424,18 +1027,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetPointWidth() {
-        if (!setPointWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setPointWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -1452,16 +1044,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetPointWidth1() {
-        if (!setPointWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setPointWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1489,7 +1071,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     }
     private String rangeMarker;
     private Boolean rangeMarker1;
-    private List<Pareto> setRangeMarker = new ArrayList<>();
 
     /**
      * Setter for the range marker.
@@ -1507,18 +1088,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetRangeMarker() {
-        if (!setRangeMarker.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setRangeMarker) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setRangeMarker1 = new ArrayList<>();
 
     /**
      * Setter for the range marker.
@@ -1536,21 +1106,10 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetRangeMarker1() {
-        if (!setRangeMarker1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setRangeMarker1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index4;
     private String rangeMarker2;
     private Boolean rangeMarker3;
-    private List<Pareto> setRangeMarker2 = new ArrayList<>();
 
     /**
      * Setter for the range marker by index.
@@ -1568,18 +1127,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetRangeMarker2() {
-        if (!setRangeMarker2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setRangeMarker2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setRangeMarker3 = new ArrayList<>();
 
     /**
      * Setter for the range marker by index.
@@ -1597,20 +1145,9 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetRangeMarker3() {
-        if (!setRangeMarker3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setRangeMarker3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double id2;
     private String id3;
-    private List<Pareto> setRemoveSeries = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -1628,18 +1165,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetRemoveSeries() {
-        if (!setRemoveSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setRemoveSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setRemoveSeries1 = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -1657,19 +1183,8 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetRemoveSeries1() {
-        if (!setRemoveSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setRemoveSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index5;
-    private List<Pareto> setRemoveSeriesAt = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its index.
@@ -1687,16 +1202,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetRemoveSeriesAt() {
-        if (!setRemoveSeriesAt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setRemoveSeriesAt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getSelected;
@@ -1711,7 +1216,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return getSelected;
     }
     private String selected;
-    private List<Pareto> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -1728,16 +1232,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1765,7 +1259,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     }
     private String textMarker;
     private Boolean textMarker1;
-    private List<Pareto> setTextMarker = new ArrayList<>();
 
     /**
      * Setter for the text marker.
@@ -1783,18 +1276,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetTextMarker() {
-        if (!setTextMarker.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setTextMarker) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setTextMarker1 = new ArrayList<>();
 
     /**
      * Setter for the text marker.
@@ -1812,21 +1294,10 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetTextMarker1() {
-        if (!setTextMarker1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setTextMarker1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index7;
     private String textMarker2;
     private Boolean textMarker3;
-    private List<Pareto> setTextMarker2 = new ArrayList<>();
 
     /**
      * Setter for the text marker by index.
@@ -1844,18 +1315,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetTextMarker2() {
-        if (!setTextMarker2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setTextMarker2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setTextMarker3 = new ArrayList<>();
 
     /**
      * Setter for the text marker by index.
@@ -1872,16 +1332,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetTextMarker3() {
-        if (!setTextMarker3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setTextMarker3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1909,7 +1359,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     }
     private String xAxis;
     private Boolean xAxis1;
-    private List<Pareto> setXAxis = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis.
@@ -1927,18 +1376,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXAxis() {
-        if (!setXAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setXAxis1 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis.
@@ -1956,21 +1394,10 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXAxis1() {
-        if (!setXAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index9;
     private String xAxis2;
     private Boolean xAxis3;
-    private List<Pareto> setXAxis2 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis by index.
@@ -1988,18 +1415,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXAxis2() {
-        if (!setXAxis2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXAxis2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setXAxis3 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis by index.
@@ -2016,16 +1432,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXAxis3() {
-        if (!setXAxis3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXAxis3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2053,7 +1459,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     }
     private String xGrid;
     private Boolean xGrid1;
-    private List<Pareto> setXGrid = new ArrayList<>();
 
     /**
      * Setter for the chart grid by X-scale.
@@ -2071,18 +1476,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXGrid() {
-        if (!setXGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setXGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by X-scale.
@@ -2100,21 +1494,10 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXGrid1() {
-        if (!setXGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index11;
     private String xGrid2;
     private Boolean xGrid3;
-    private List<Pareto> setXGrid2 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -2132,18 +1515,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXGrid2() {
-        if (!setXGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setXGrid3 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -2160,16 +1532,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXGrid3() {
-        if (!setXGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2197,7 +1559,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     }
     private String xMinorGrid;
     private Boolean xMinorGrid1;
-    private List<Pareto> setXMinorGrid = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by X-scale.
@@ -2215,18 +1576,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXMinorGrid() {
-        if (!setXMinorGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXMinorGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setXMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by X-scale.
@@ -2244,21 +1594,10 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXMinorGrid1() {
-        if (!setXMinorGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXMinorGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index13;
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
-    private List<Pareto> setXMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -2276,18 +1615,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXMinorGrid2() {
-        if (!setXMinorGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXMinorGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setXMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -2305,16 +1633,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXMinorGrid3() {
-        if (!setXMinorGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXMinorGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private ScalesBase getXScale;
@@ -2324,7 +1642,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
      */
     public ScalesBase getXScale() {
         if (getXScale == null)
-            getXScale = new ScalesBase(jsBase + ".xScale()");
+            getXScale = new Ordinal(jsBase + ".xScale()");
 
         return getXScale;
     }
@@ -2332,7 +1650,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     private ScaleTypes xScale1;
     private String xScale2;
     private ScalesBase xScale3;
-    private List<Pareto> setXScale = new ArrayList<>();
 
     /**
      * Setter for the chart X-scale.
@@ -2350,18 +1667,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXScale() {
-        if (!setXScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setXScale1 = new ArrayList<>();
 
     /**
      * Setter for the chart X-scale.
@@ -2379,18 +1685,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXScale1() {
-        if (!setXScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setXScale2 = new ArrayList<>();
 
     /**
      * Setter for the chart X-scale.
@@ -2405,16 +1700,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
 
         js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale3 != null) ? xScale3.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetXScale2() {
-        if (!setXScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2431,7 +1716,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     }
     private String xScroller;
     private Boolean xScroller1;
-    private List<Pareto> setXScroller = new ArrayList<>();
 
     /**
      * Setter for the scroller.
@@ -2449,18 +1733,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXScroller() {
-        if (!setXScroller.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXScroller) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setXScroller1 = new ArrayList<>();
 
     /**
      * Setter for the scroller.
@@ -2478,16 +1751,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXScroller1() {
-        if (!setXScroller1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXScroller1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private OrdinalZoom getXZoom;
@@ -2504,7 +1767,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     private Double xZoom;
     private Boolean xZoom1;
     private String xZoom2;
-    private List<Pareto> setXZoom = new ArrayList<>();
 
     /**
      * Setter for the zoom settings.
@@ -2522,18 +1784,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXZoom() {
-        if (!setXZoom.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXZoom) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setXZoom1 = new ArrayList<>();
 
     /**
      * Setter for the zoom settings.
@@ -2551,18 +1802,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetXZoom1() {
-        if (!setXZoom1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXZoom1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setXZoom2 = new ArrayList<>();
 
     /**
      * Setter for the zoom settings.
@@ -2579,16 +1819,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXZoom2() {
-        if (!setXZoom2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setXZoom2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2616,7 +1846,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     }
     private String yAxis;
     private Boolean yAxis1;
-    private List<Pareto> setYAxis = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis.
@@ -2634,18 +1863,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYAxis() {
-        if (!setYAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setYAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setYAxis1 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis.
@@ -2663,21 +1881,10 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYAxis1() {
-        if (!setYAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setYAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index15;
     private String yAxis2;
     private Boolean yAxis3;
-    private List<Pareto> setYAxis2 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis by index.
@@ -2695,18 +1902,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYAxis2() {
-        if (!setYAxis2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setYAxis2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setYAxis3 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis by index.
@@ -2723,16 +1919,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYAxis3() {
-        if (!setYAxis3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setYAxis3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2760,7 +1946,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     }
     private String yGrid;
     private Boolean yGrid1;
-    private List<Pareto> setYGrid = new ArrayList<>();
 
     /**
      * Setter for the chart grid by Y-scale.
@@ -2778,18 +1963,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYGrid() {
-        if (!setYGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setYGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setYGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by Y-scale.
@@ -2807,21 +1981,10 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYGrid1() {
-        if (!setYGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setYGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index17;
     private String yGrid2;
     private Boolean yGrid3;
-    private List<Pareto> setYGrid2 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -2839,18 +2002,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYGrid2() {
-        if (!setYGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setYGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setYGrid3 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -2867,16 +2019,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYGrid3() {
-        if (!setYGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setYGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2904,7 +2046,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     }
     private String yMinorGrid;
     private Boolean yMinorGrid1;
-    private List<Pareto> setYMinorGrid = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by Y-scale.
@@ -2922,18 +2063,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYMinorGrid() {
-        if (!setYMinorGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setYMinorGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setYMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by Y-scale.
@@ -2951,21 +2081,10 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYMinorGrid1() {
-        if (!setYMinorGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setYMinorGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index19;
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
-    private List<Pareto> setYMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -2983,18 +2102,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYMinorGrid2() {
-        if (!setYMinorGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setYMinorGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setYMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -3012,16 +2120,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYMinorGrid3() {
-        if (!setYMinorGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setYMinorGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private ScalesBase getYScale;
@@ -3031,7 +2129,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
      */
     public ScalesBase getYScale() {
         if (getYScale == null)
-            getYScale = new ScalesBase(jsBase + ".yScale()");
+            getYScale = new ScalesLinear(jsBase + ".yScale()");
 
         return getYScale;
     }
@@ -3039,7 +2137,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     private ScaleTypes yScale1;
     private String yScale2;
     private ScalesBase yScale3;
-    private List<Pareto> setYScale = new ArrayList<>();
 
     /**
      * Setter for the chart Y-scale.
@@ -3057,18 +2154,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYScale() {
-        if (!setYScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setYScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-scale.
@@ -3086,18 +2172,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         }
         return this;
     }
-    private String generateJSsetYScale1() {
-        if (!setYScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setYScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pareto> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-scale.
@@ -3112,16 +2187,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
 
         js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale3 != null) ? yScale3.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetYScale2() {
-        if (!setYScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pareto item : setYScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetAnnotations() {
@@ -3479,91 +2544,6 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         js.append(generateJSgetYMinorGrid());
         js.append(generateJSgetYMinorGrid1());
         js.append(generateJSgetYScale());
-        js.append(generateJSsetAnnotations());
-        js.append(generateJSsetBarGroupsPadding());
-        js.append(generateJSsetBarsPadding());
-        js.append(generateJSsetCrosshair());
-        js.append(generateJSsetCrosshair1());
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetDefaultSeriesType());
-        js.append(generateJSsetDefaultSeriesType1());
-        js.append(generateJSsetHatchFillPalette());
-        js.append(generateJSsetHatchFillPalette1());
-        js.append(generateJSsetHatchFillPalette2());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
-        js.append(generateJSsetLineMarker());
-        js.append(generateJSsetLineMarker1());
-        js.append(generateJSsetLineMarker2());
-        js.append(generateJSsetLineMarker3());
-        js.append(generateJSsetMarkerPalette());
-        js.append(generateJSsetMarkerPalette1());
-        js.append(generateJSsetMarkerPalette2());
-        js.append(generateJSsetMarkerPalette3());
-        js.append(generateJSsetMaxBubbleSize());
-        js.append(generateJSsetMaxBubbleSize1());
-        js.append(generateJSsetMaxPointWidth());
-        js.append(generateJSsetMaxPointWidth1());
-        js.append(generateJSsetMinBubbleSize());
-        js.append(generateJSsetMinBubbleSize1());
-        js.append(generateJSsetMinPointLength());
-        js.append(generateJSsetMinPointLength1());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetPalette());
-        js.append(generateJSsetPalette1());
-        js.append(generateJSsetPalette2());
-        js.append(generateJSsetPalette3());
-        js.append(generateJSsetPointWidth());
-        js.append(generateJSsetPointWidth1());
-        js.append(generateJSsetRangeMarker());
-        js.append(generateJSsetRangeMarker1());
-        js.append(generateJSsetRangeMarker2());
-        js.append(generateJSsetRangeMarker3());
-        js.append(generateJSsetRemoveSeries());
-        js.append(generateJSsetRemoveSeries1());
-        js.append(generateJSsetRemoveSeriesAt());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetTextMarker());
-        js.append(generateJSsetTextMarker1());
-        js.append(generateJSsetTextMarker2());
-        js.append(generateJSsetTextMarker3());
-        js.append(generateJSsetXAxis());
-        js.append(generateJSsetXAxis1());
-        js.append(generateJSsetXAxis2());
-        js.append(generateJSsetXAxis3());
-        js.append(generateJSsetXGrid());
-        js.append(generateJSsetXGrid1());
-        js.append(generateJSsetXGrid2());
-        js.append(generateJSsetXGrid3());
-        js.append(generateJSsetXMinorGrid());
-        js.append(generateJSsetXMinorGrid1());
-        js.append(generateJSsetXMinorGrid2());
-        js.append(generateJSsetXMinorGrid3());
-        js.append(generateJSsetXScale());
-        js.append(generateJSsetXScale1());
-        js.append(generateJSsetXScale2());
-        js.append(generateJSsetXScroller());
-        js.append(generateJSsetXScroller1());
-        js.append(generateJSsetXZoom());
-        js.append(generateJSsetXZoom1());
-        js.append(generateJSsetXZoom2());
-        js.append(generateJSsetYAxis());
-        js.append(generateJSsetYAxis1());
-        js.append(generateJSsetYAxis2());
-        js.append(generateJSsetYAxis3());
-        js.append(generateJSsetYGrid());
-        js.append(generateJSsetYGrid1());
-        js.append(generateJSsetYGrid2());
-        js.append(generateJSsetYGrid3());
-        js.append(generateJSsetYMinorGrid());
-        js.append(generateJSsetYMinorGrid1());
-        js.append(generateJSsetYMinorGrid2());
-        js.append(generateJSsetYMinorGrid3());
-        js.append(generateJSsetYScale());
-        js.append(generateJSsetYScale1());
-        js.append(generateJSsetYScale2());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

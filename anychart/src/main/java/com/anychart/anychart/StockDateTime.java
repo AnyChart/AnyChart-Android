@@ -47,7 +47,6 @@ public class StockDateTime extends VisualBase {
     private String background;
     private Boolean background1;
     private String background2;
-    private List<StockDateTime> setBackground = new ArrayList<>();
 
     /**
      * Setter for axis background settings.
@@ -75,18 +74,7 @@ public class StockDateTime extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetBackground() {
-        if (!setBackground.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockDateTime item : setBackground) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StockDateTime> setBackground1 = new ArrayList<>();
 
     /**
      * Setter for axis background settings.
@@ -114,19 +102,8 @@ public class StockDateTime extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetBackground1() {
-        if (!setBackground1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockDateTime item : setBackground1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double height;
-    private List<StockDateTime> setHeight = new ArrayList<>();
 
     /**
      * Setter for the axis height.
@@ -150,16 +127,6 @@ public class StockDateTime extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetHeight() {
-        if (!setHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockDateTime item : setHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabelsFactory getLabels;
 
@@ -175,7 +142,6 @@ public class StockDateTime extends VisualBase {
 
     private String labels;
     private Boolean labels1;
-    private List<StockDateTime> setLabels = new ArrayList<>();
 
     /**
      * Setter for axis labels settings.
@@ -202,18 +168,7 @@ public class StockDateTime extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockDateTime item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StockDateTime> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for axis labels settings.
@@ -240,16 +195,6 @@ public class StockDateTime extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockDateTime item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabelsFactory getMinorLabels;
 
@@ -265,7 +210,6 @@ public class StockDateTime extends VisualBase {
 
     private String minorLabels;
     private Boolean minorLabels1;
-    private List<StockDateTime> setMinorLabels = new ArrayList<>();
 
     /**
      * Setter for minor labels settings.
@@ -292,18 +236,7 @@ public class StockDateTime extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMinorLabels() {
-        if (!setMinorLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockDateTime item : setMinorLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StockDateTime> setMinorLabels1 = new ArrayList<>();
 
     /**
      * Setter for minor labels settings.
@@ -330,16 +263,6 @@ public class StockDateTime extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMinorLabels1() {
-        if (!setMinorLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockDateTime item : setMinorLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StockTicks getMinorTicks;
 
@@ -355,7 +278,6 @@ public class StockDateTime extends VisualBase {
 
     private String minorTicks;
     private Boolean minorTicks1;
-    private List<StockDateTime> setMinorTicks = new ArrayList<>();
 
     /**
      * Setter for the minor ticks.
@@ -382,18 +304,7 @@ public class StockDateTime extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMinorTicks() {
-        if (!setMinorTicks.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockDateTime item : setMinorTicks) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StockDateTime> setMinorTicks1 = new ArrayList<>();
 
     /**
      * Setter for the minor ticks.
@@ -420,20 +331,9 @@ public class StockDateTime extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMinorTicks1() {
-        if (!setMinorTicks1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockDateTime item : setMinorTicks1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StockLabelsOverlapMode overlapMode;
     private String overlapMode1;
-    private List<StockDateTime> setOverlapMode = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -461,18 +361,7 @@ Whether to allow labels to overlap.
         }
         return this;
     }
-    private String generateJSsetOverlapMode() {
-        if (!setOverlapMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockDateTime item : setOverlapMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StockDateTime> setOverlapMode1 = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -500,19 +389,8 @@ Whether to allow labels to overlap.
         }
         return this;
     }
-    private String generateJSsetOverlapMode1() {
-        if (!setOverlapMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockDateTime item : setOverlapMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean showHelperLabel;
-    private List<StockDateTime> setShowHelperLabel = new ArrayList<>();
 
     /**
      * Setter for the drawing helper label.
@@ -536,16 +414,6 @@ Whether to draw helper label (leftmost hanging label).
             }
         }
         return this;
-    }
-    private String generateJSsetShowHelperLabel() {
-        if (!setShowHelperLabel.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StockDateTime item : setShowHelperLabel) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private StockTicks getTicks;
@@ -668,18 +536,6 @@ Whether to draw helper label (leftmost hanging label).
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetBackground());
-        js.append(generateJSsetBackground1());
-        js.append(generateJSsetHeight());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
-        js.append(generateJSsetMinorLabels());
-        js.append(generateJSsetMinorLabels1());
-        js.append(generateJSsetMinorTicks());
-        js.append(generateJSsetMinorTicks1());
-        js.append(generateJSsetOverlapMode());
-        js.append(generateJSsetOverlapMode1());
-        js.append(generateJSsetShowHelperLabel());
         
 
         String result = js.toString();

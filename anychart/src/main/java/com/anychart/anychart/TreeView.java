@@ -305,7 +305,6 @@ public class TreeView extends CoreBase {
     private String fillMethodOrCsvMapping2;
     private String csvSettingsOrDeps;
     private Dependency[] csvSettingsOrDeps1;
-    private List<TreeView> setAddData = new ArrayList<>();
 
     /**
      * Adds a data.
@@ -343,18 +342,7 @@ public class TreeView extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetAddData() {
-        if (!setAddData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeView item : setAddData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeView> setAddData1 = new ArrayList<>();
 
     /**
      * Adds a data.
@@ -392,18 +380,7 @@ public class TreeView extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetAddData1() {
-        if (!setAddData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeView item : setAddData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeView> setAddData2 = new ArrayList<>();
 
     /**
      * Adds a data.
@@ -441,18 +418,7 @@ public class TreeView extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetAddData2() {
-        if (!setAddData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeView item : setAddData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TreeView> setAddData3 = new ArrayList<>();
 
     /**
      * Adds a data.
@@ -489,16 +455,6 @@ public class TreeView extends CoreBase {
             }
         }
         return this;
-    }
-    private String generateJSsetAddData3() {
-        if (!setAddData3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TreeView item : setAddData3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<TreeviewDataItem> getGetChildAt = new ArrayList<>();
@@ -943,10 +899,6 @@ public class TreeView extends CoreBase {
         js.append(generateJSsetAddChildAt());
         js.append(generateJSsetAddChildAt1());
         js.append(generateJSsetAddChildAt2());
-        js.append(generateJSsetAddData());
-        js.append(generateJSsetAddData1());
-        js.append(generateJSsetAddData2());
-        js.append(generateJSsetAddData3());
         js.append(generateJSsetRemoveChild());
         js.append(generateJSsetRemoveChild1());
         js.append(generateJSsetRemoveChildAt());

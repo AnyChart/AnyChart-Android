@@ -118,7 +118,6 @@ public class StandalonesGridsPolar extends CoreGridsPolar {
 
     private Layout layout;
     private String layout1;
-    private List<StandalonesGridsPolar> setLayout = new ArrayList<>();
 
     /**
      * Setter for the grid layout.
@@ -145,18 +144,7 @@ public class StandalonesGridsPolar extends CoreGridsPolar {
         }
         return this;
     }
-    private String generateJSsetLayout() {
-        if (!setLayout.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesGridsPolar item : setLayout) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesGridsPolar> setLayout1 = new ArrayList<>();
 
     /**
      * Setter for the grid layout.
@@ -183,16 +171,6 @@ public class StandalonesGridsPolar extends CoreGridsPolar {
         }
         return this;
     }
-    private String generateJSsetLayout1() {
-        if (!setLayout1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesGridsPolar item : setLayout1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -216,8 +194,6 @@ public class StandalonesGridsPolar extends CoreGridsPolar {
 
         js.append(generateJSsetInnerRadius());
         js.append(generateJSsetInnerRadius1());
-        js.append(generateJSsetLayout());
-        js.append(generateJSsetLayout1());
         
 
         String result = js.toString();

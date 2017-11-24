@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.ConsoleMessage;
@@ -55,7 +54,7 @@ public final class AnyChartView extends FrameLayout {
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-                Log.e("AnyChart", consoleMessage.message());
+                webView.setEnabled(false);
                 return true;
             }
         });
@@ -63,6 +62,11 @@ public final class AnyChartView extends FrameLayout {
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                return true;
+            }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 return true;
             }
 

@@ -62,7 +62,6 @@ public class LegendItem extends CoreText {
     private String color;
     private Double thickness;
     private Double size;
-    private List<LegendItem> setIconHatchFill = new ArrayList<>();
 
     /**
      * Setter for icon hatch fill settings.
@@ -97,18 +96,7 @@ public class LegendItem extends CoreText {
         }
         return this;
     }
-    private String generateJSsetIconHatchFill() {
-        if (!setIconHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LegendItem item : setIconHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LegendItem> setIconHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for icon hatch fill settings.
@@ -143,18 +131,7 @@ public class LegendItem extends CoreText {
         }
         return this;
     }
-    private String generateJSsetIconHatchFill1() {
-        if (!setIconHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LegendItem item : setIconHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LegendItem> setIconHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for icon hatch fill settings.
@@ -189,18 +166,7 @@ public class LegendItem extends CoreText {
         }
         return this;
     }
-    private String generateJSsetIconHatchFill2() {
-        if (!setIconHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LegendItem item : setIconHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LegendItem> setIconHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for icon hatch fill settings.
@@ -234,16 +200,6 @@ public class LegendItem extends CoreText {
             }
         }
         return this;
-    }
-    private String generateJSsetIconHatchFill3() {
-        if (!setIconHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LegendItem item : setIconHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<LegendItem> getIconStroke = new ArrayList<>();
@@ -281,7 +237,6 @@ public class LegendItem extends CoreText {
 
     private Double maxHeight;
     private String maxHeight1;
-    private List<LegendItem> setMaxHeight = new ArrayList<>();
 
     /**
      * Setter for the maximal height of a legend item.
@@ -308,18 +263,7 @@ public class LegendItem extends CoreText {
         }
         return this;
     }
-    private String generateJSsetMaxHeight() {
-        if (!setMaxHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LegendItem item : setMaxHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LegendItem> setMaxHeight1 = new ArrayList<>();
 
     /**
      * Setter for the maximal height of a legend item.
@@ -346,20 +290,9 @@ public class LegendItem extends CoreText {
         }
         return this;
     }
-    private String generateJSsetMaxHeight1() {
-        if (!setMaxHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LegendItem item : setMaxHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxWidth;
     private String maxWidth1;
-    private List<LegendItem> setMaxWidth = new ArrayList<>();
 
     /**
      * Setter for the maximal width of a legend item.
@@ -386,18 +319,7 @@ public class LegendItem extends CoreText {
         }
         return this;
     }
-    private String generateJSsetMaxWidth() {
-        if (!setMaxWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LegendItem item : setMaxWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<LegendItem> setMaxWidth1 = new ArrayList<>();
 
     /**
      * Setter for the maximal width of a legend item.
@@ -423,16 +345,6 @@ public class LegendItem extends CoreText {
             }
         }
         return this;
-    }
-    private String generateJSsetMaxWidth1() {
-        if (!setMaxWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (LegendItem item : setMaxWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<LegendItem> getText = new ArrayList<>();
@@ -635,14 +547,6 @@ public class LegendItem extends CoreText {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetIconHatchFill());
-        js.append(generateJSsetIconHatchFill1());
-        js.append(generateJSsetIconHatchFill2());
-        js.append(generateJSsetIconHatchFill3());
-        js.append(generateJSsetMaxHeight());
-        js.append(generateJSsetMaxHeight1());
-        js.append(generateJSsetMaxWidth());
-        js.append(generateJSsetMaxWidth1());
         
 
         String result = js.toString();

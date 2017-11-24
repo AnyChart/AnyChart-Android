@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -46,7 +44,6 @@ public class Logo extends UiBackground {
 
     private String overlay;
     private Boolean overlay1;
-    private List<Logo> setOverlay = new ArrayList<>();
 
     /**
      * Setter for the overlay element.
@@ -73,18 +70,7 @@ public class Logo extends UiBackground {
         }
         return this;
     }
-    private String generateJSsetOverlay() {
-        if (!setOverlay.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Logo item : setOverlay) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Logo> setOverlay1 = new ArrayList<>();
 
     /**
      * Setter for the overlay element.
@@ -110,16 +96,6 @@ public class Logo extends UiBackground {
             }
         }
         return this;
-    }
-    private String generateJSsetOverlay1() {
-        if (!setOverlay1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Logo item : setOverlay1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetOverlay() {
@@ -150,8 +126,6 @@ public class Logo extends UiBackground {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetOverlay());
-        js.append(generateJSsetOverlay1());
         
 
         String result = js.toString();

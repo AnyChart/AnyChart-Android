@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -36,7 +34,6 @@ public class CartesianSeriesRangeStepArea extends ContinuousRangeBase {
     
     private StepDirection stepDirection;
     private String stepDirection1;
-    private List<CartesianSeriesRangeStepArea> setStepDirection = new ArrayList<>();
 
     /**
      * Setter for the step direction.
@@ -63,18 +60,7 @@ public class CartesianSeriesRangeStepArea extends ContinuousRangeBase {
         }
         return this;
     }
-    private String generateJSsetStepDirection() {
-        if (!setStepDirection.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesRangeStepArea item : setStepDirection) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CartesianSeriesRangeStepArea> setStepDirection1 = new ArrayList<>();
 
     /**
      * Setter for the step direction.
@@ -101,16 +87,6 @@ public class CartesianSeriesRangeStepArea extends ContinuousRangeBase {
         }
         return this;
     }
-    private String generateJSsetStepDirection1() {
-        if (!setStepDirection1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesRangeStepArea item : setStepDirection1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -132,8 +108,6 @@ public class CartesianSeriesRangeStepArea extends ContinuousRangeBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetStepDirection());
-        js.append(generateJSsetStepDirection1());
         
 
         String result = js.toString();

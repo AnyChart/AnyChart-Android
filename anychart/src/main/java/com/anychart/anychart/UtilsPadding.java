@@ -1,8 +1,6 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -36,7 +34,6 @@ public class UtilsPadding extends CoreBase {
     
     private Double bottom;
     private String bottom1;
-    private List<UtilsPadding> setBottom = new ArrayList<>();
 
     /**
      * Setter for the bottom space.
@@ -63,18 +60,7 @@ public class UtilsPadding extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetBottom() {
-        if (!setBottom.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UtilsPadding item : setBottom) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UtilsPadding> setBottom1 = new ArrayList<>();
 
     /**
      * Setter for the bottom space.
@@ -101,20 +87,9 @@ public class UtilsPadding extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetBottom1() {
-        if (!setBottom1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UtilsPadding item : setBottom1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double left;
     private String left1;
-    private List<UtilsPadding> setLeft = new ArrayList<>();
 
     /**
      * Setter for the left space.
@@ -141,18 +116,7 @@ public class UtilsPadding extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetLeft() {
-        if (!setLeft.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UtilsPadding item : setLeft) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UtilsPadding> setLeft1 = new ArrayList<>();
 
     /**
      * Setter for the left space.
@@ -179,20 +143,9 @@ public class UtilsPadding extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetLeft1() {
-        if (!setLeft1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UtilsPadding item : setLeft1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double right;
     private String right1;
-    private List<UtilsPadding> setRight = new ArrayList<>();
 
     /**
      * Setter for the right space.
@@ -219,18 +172,7 @@ public class UtilsPadding extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetRight() {
-        if (!setRight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UtilsPadding item : setRight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UtilsPadding> setRight1 = new ArrayList<>();
 
     /**
      * Setter for the right space.
@@ -257,16 +199,6 @@ public class UtilsPadding extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetRight1() {
-        if (!setRight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UtilsPadding item : setRight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String value;
     private Double value1;
@@ -279,7 +211,6 @@ public class UtilsPadding extends CoreBase {
     private Double value8;
     private String value9;
     private Double value10;
-    private List<UtilsPadding> setSet = new ArrayList<>();
 
     /**
      * Sets all offsets.
@@ -315,18 +246,7 @@ public class UtilsPadding extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetSet() {
-        if (!setSet.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UtilsPadding item : setSet) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UtilsPadding> setSet1 = new ArrayList<>();
 
     /**
      * Sets all offsets.
@@ -362,20 +282,9 @@ public class UtilsPadding extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetSet1() {
-        if (!setSet1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UtilsPadding item : setSet1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double top;
     private String top1;
-    private List<UtilsPadding> setTop = new ArrayList<>();
 
     /**
      * Setter for the top space.
@@ -402,18 +311,7 @@ public class UtilsPadding extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetTop() {
-        if (!setTop.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UtilsPadding item : setTop) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<UtilsPadding> setTop1 = new ArrayList<>();
 
     /**
      * Setter for the top space.
@@ -440,16 +338,6 @@ public class UtilsPadding extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetTop1() {
-        if (!setTop1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (UtilsPadding item : setTop1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -471,16 +359,6 @@ public class UtilsPadding extends CoreBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetBottom());
-        js.append(generateJSsetBottom1());
-        js.append(generateJSsetLeft());
-        js.append(generateJSsetLeft1());
-        js.append(generateJSsetRight());
-        js.append(generateJSsetRight1());
-        js.append(generateJSsetSet());
-        js.append(generateJSsetSet1());
-        js.append(generateJSsetTop());
-        js.append(generateJSsetTop1());
         
 
         String result = js.toString();

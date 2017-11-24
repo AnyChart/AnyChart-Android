@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -52,7 +50,6 @@ public class TableBase extends JsObject {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<TableBase> setBorder = new ArrayList<>();
 
     /**
      * Setter for cell border settings.
@@ -89,18 +86,7 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetBorder() {
-        if (!setBorder.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setBorder) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableBase> setBorder1 = new ArrayList<>();
 
     /**
      * Setter for cell border settings.
@@ -137,18 +123,7 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetBorder1() {
-        if (!setBorder1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setBorder1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableBase> setBorder2 = new ArrayList<>();
 
     /**
      * Setter for cell border settings.
@@ -185,19 +160,8 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetBorder2() {
-        if (!setBorder2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setBorder2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean disablePointerEvents;
-    private List<TableBase> setDisablePointerEvents = new ArrayList<>();
 
     /**
      * Setter for the text disablePointerEvents option.
@@ -221,19 +185,8 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDisablePointerEvents() {
-        if (!setDisablePointerEvents.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setDisablePointerEvents) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fontColor;
-    private List<TableBase> setFontColor = new ArrayList<>();
 
     /**
      * Setter for the text font color. {@link https://www.w3schools.com/html/html_colors.asp}
@@ -257,20 +210,9 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFontColor() {
-        if (!setFontColor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setFontColor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Decoration fontDecoration;
     private String fontDecoration1;
-    private List<TableBase> setFontDecoration = new ArrayList<>();
 
     /**
      * Setter for the text font decoration.
@@ -297,18 +239,7 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFontDecoration() {
-        if (!setFontDecoration.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setFontDecoration) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableBase> setFontDecoration1 = new ArrayList<>();
 
     /**
      * Setter for the text font decoration.
@@ -335,19 +266,8 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFontDecoration1() {
-        if (!setFontDecoration1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setFontDecoration1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fontFamily;
-    private List<TableBase> setFontFamily = new ArrayList<>();
 
     /**
      * Setter for the font family.
@@ -371,19 +291,8 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFontFamily() {
-        if (!setFontFamily.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setFontFamily) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double fontOpacity;
-    private List<TableBase> setFontOpacity = new ArrayList<>();
 
     /**
      * Setter for the text font opacity. Double value from 0 to 1.
@@ -407,20 +316,9 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFontOpacity() {
-        if (!setFontOpacity.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setFontOpacity) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fontSize;
     private Double fontSize1;
-    private List<TableBase> setFontSize = new ArrayList<>();
 
     /**
      * Setter for text font size.
@@ -447,18 +345,7 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFontSize() {
-        if (!setFontSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setFontSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableBase> setFontSize1 = new ArrayList<>();
 
     /**
      * Setter for text font size.
@@ -485,20 +372,9 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFontSize1() {
-        if (!setFontSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setFontSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TextFontStyle fontStyle;
     private String fontStyle1;
-    private List<TableBase> setFontStyle = new ArrayList<>();
 
     /**
      * Setter for the text font style.
@@ -525,18 +401,7 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFontStyle() {
-        if (!setFontStyle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setFontStyle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableBase> setFontStyle1 = new ArrayList<>();
 
     /**
      * Setter for the text font style.
@@ -563,20 +428,9 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFontStyle1() {
-        if (!setFontStyle1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setFontStyle1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TextFontVariant fontVariant;
     private String fontVariant1;
-    private List<TableBase> setFontVariant = new ArrayList<>();
 
     /**
      * Setter for the text font variant.
@@ -603,18 +457,7 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFontVariant() {
-        if (!setFontVariant.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setFontVariant) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableBase> setFontVariant1 = new ArrayList<>();
 
     /**
      * Setter for the text font variant.
@@ -641,20 +484,9 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFontVariant1() {
-        if (!setFontVariant1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setFontVariant1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String fontWeight;
     private Double fontWeight1;
-    private List<TableBase> setFontWeight = new ArrayList<>();
 
     /**
      * Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
@@ -681,18 +513,7 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFontWeight() {
-        if (!setFontWeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setFontWeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableBase> setFontWeight1 = new ArrayList<>();
 
     /**
      * Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
@@ -719,20 +540,9 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFontWeight1() {
-        if (!setFontWeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setFontWeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TextHAlign hAlign;
     private String hAlign1;
-    private List<TableBase> setHAlign = new ArrayList<>();
 
     /**
      * Setter for the text horizontal align.
@@ -759,18 +569,7 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetHAlign() {
-        if (!setHAlign.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setHAlign) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableBase> setHAlign1 = new ArrayList<>();
 
     /**
      * Setter for the text horizontal align.
@@ -797,20 +596,9 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetHAlign1() {
-        if (!setHAlign1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setHAlign1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String letterSpacing;
     private Double letterSpacing1;
-    private List<TableBase> setLetterSpacing = new ArrayList<>();
 
     /**
      * Setter for the text letter spacing. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
@@ -837,18 +625,7 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetLetterSpacing() {
-        if (!setLetterSpacing.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setLetterSpacing) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableBase> setLetterSpacing1 = new ArrayList<>();
 
     /**
      * Setter for the text letter spacing. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
@@ -875,20 +652,9 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetLetterSpacing1() {
-        if (!setLetterSpacing1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setLetterSpacing1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String lineHeight;
     private Double lineHeight1;
-    private List<TableBase> setLineHeight = new ArrayList<>();
 
     /**
      * Setter for the text line height. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
@@ -915,18 +681,7 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetLineHeight() {
-        if (!setLineHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setLineHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableBase> setLineHeight1 = new ArrayList<>();
 
     /**
      * Setter for the text line height. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
@@ -953,19 +708,8 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetLineHeight1() {
-        if (!setLineHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setLineHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean selectable;
-    private List<TableBase> setSelectable = new ArrayList<>();
 
     /**
      * Setter for the text selectable.
@@ -989,20 +733,9 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetSelectable() {
-        if (!setSelectable.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setSelectable) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Direction textDirection;
     private String textDirection1;
-    private List<TableBase> setTextDirection = new ArrayList<>();
 
     /**
      * Setter for the text direction.
@@ -1029,18 +762,7 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetTextDirection() {
-        if (!setTextDirection.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setTextDirection) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableBase> setTextDirection1 = new ArrayList<>();
 
     /**
      * Setter for the text direction.
@@ -1067,19 +789,8 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetTextDirection1() {
-        if (!setTextDirection1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setTextDirection1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double textIndent;
-    private List<TableBase> setTextIndent = new ArrayList<>();
 
     /**
      * Setter for the text indent.
@@ -1103,20 +814,9 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetTextIndent() {
-        if (!setTextIndent.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setTextIndent) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TextOverflow textOverflow;
     private String textOverflow1;
-    private List<TableBase> setTextOverflow = new ArrayList<>();
 
     /**
      * Setter for the text overflow settings.
@@ -1143,18 +843,7 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetTextOverflow() {
-        if (!setTextOverflow.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setTextOverflow) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableBase> setTextOverflow1 = new ArrayList<>();
 
     /**
      * Setter for the text overflow settings.
@@ -1181,19 +870,8 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetTextOverflow1() {
-        if (!setTextOverflow1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setTextOverflow1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean useHtml;
-    private List<TableBase> setUseHtml = new ArrayList<>();
 
     /**
      * Setter for flag useHtml.
@@ -1217,20 +895,9 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetUseHtml() {
-        if (!setUseHtml.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setUseHtml) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TextVAlign vAlign;
     private String vAlign1;
-    private List<TableBase> setVAlign = new ArrayList<>();
 
     /**
      * Setter for the text vertical align.
@@ -1257,18 +924,7 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetVAlign() {
-        if (!setVAlign.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setVAlign) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableBase> setVAlign1 = new ArrayList<>();
 
     /**
      * Setter for the text vertical align.
@@ -1295,20 +951,9 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetVAlign1() {
-        if (!setVAlign1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setVAlign1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private EnumsWordBreak wordBreak;
     private String wordBreak1;
-    private List<TableBase> setWordBreak = new ArrayList<>();
 
     /**
      * Setter for the word-break mode.
@@ -1335,18 +980,7 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetWordBreak() {
-        if (!setWordBreak.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setWordBreak) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableBase> setWordBreak1 = new ArrayList<>();
 
     /**
      * Setter for the word-break mode.
@@ -1373,20 +1007,9 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetWordBreak1() {
-        if (!setWordBreak1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setWordBreak1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private EnumsWordWrap wordWrap;
     private String wordWrap1;
-    private List<TableBase> setWordWrap = new ArrayList<>();
 
     /**
      * Setter for the word-wrap mode.
@@ -1413,18 +1036,7 @@ public class TableBase extends JsObject {
         }
         return this;
     }
-    private String generateJSsetWordWrap() {
-        if (!setWordWrap.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setWordWrap) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableBase> setWordWrap1 = new ArrayList<>();
 
     /**
      * Setter for the word-wrap mode.
@@ -1450,16 +1062,6 @@ public class TableBase extends JsObject {
             }
         }
         return this;
-    }
-    private String generateJSsetWordWrap1() {
-        if (!setWordWrap1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableBase item : setWordWrap1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetBorder() {
@@ -1490,42 +1092,6 @@ public class TableBase extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetBorder());
-        js.append(generateJSsetBorder1());
-        js.append(generateJSsetBorder2());
-        js.append(generateJSsetDisablePointerEvents());
-        js.append(generateJSsetFontColor());
-        js.append(generateJSsetFontDecoration());
-        js.append(generateJSsetFontDecoration1());
-        js.append(generateJSsetFontFamily());
-        js.append(generateJSsetFontOpacity());
-        js.append(generateJSsetFontSize());
-        js.append(generateJSsetFontSize1());
-        js.append(generateJSsetFontStyle());
-        js.append(generateJSsetFontStyle1());
-        js.append(generateJSsetFontVariant());
-        js.append(generateJSsetFontVariant1());
-        js.append(generateJSsetFontWeight());
-        js.append(generateJSsetFontWeight1());
-        js.append(generateJSsetHAlign());
-        js.append(generateJSsetHAlign1());
-        js.append(generateJSsetLetterSpacing());
-        js.append(generateJSsetLetterSpacing1());
-        js.append(generateJSsetLineHeight());
-        js.append(generateJSsetLineHeight1());
-        js.append(generateJSsetSelectable());
-        js.append(generateJSsetTextDirection());
-        js.append(generateJSsetTextDirection1());
-        js.append(generateJSsetTextIndent());
-        js.append(generateJSsetTextOverflow());
-        js.append(generateJSsetTextOverflow1());
-        js.append(generateJSsetUseHtml());
-        js.append(generateJSsetVAlign());
-        js.append(generateJSsetVAlign1());
-        js.append(generateJSsetWordBreak());
-        js.append(generateJSsetWordBreak1());
-        js.append(generateJSsetWordWrap());
-        js.append(generateJSsetWordWrap1());
         
 
         String result = js.toString();

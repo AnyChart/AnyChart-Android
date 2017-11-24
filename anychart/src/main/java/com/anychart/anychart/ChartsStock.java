@@ -129,7 +129,6 @@ public class ChartsStock extends Chart {
     }
     private String crosshair;
     private Boolean crosshair1;
-    private List<ChartsStock> setCrosshair = new ArrayList<>();
 
     /**
      * Setter for crosshair settings.<br/>
@@ -148,18 +147,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetCrosshair() {
-        if (!setCrosshair.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setCrosshair) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setCrosshair1 = new ArrayList<>();
 
     /**
      * Setter for crosshair settings.<br/>
@@ -178,16 +166,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetCrosshair1() {
-        if (!setCrosshair1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setCrosshair1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Grouping getGrouping;
@@ -204,7 +182,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private Boolean grouping;
     private String[] grouping1;
     private String grouping2;
-    private List<ChartsStock> setGrouping = new ArrayList<>();
 
     /**
      * Setter for the data grouping settings.
@@ -222,18 +199,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetGrouping() {
-        if (!setGrouping.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setGrouping) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setGrouping1 = new ArrayList<>();
 
     /**
      * Setter for the data grouping settings.
@@ -251,18 +217,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetGrouping1() {
-        if (!setGrouping1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setGrouping1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setGrouping2 = new ArrayList<>();
 
     /**
      * Setter for the data grouping settings.
@@ -279,16 +234,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetGrouping2() {
-        if (!setGrouping2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setGrouping2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -393,7 +338,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     }
     private String plot;
     private Boolean plot1;
-    private List<ChartsStock> setPlot = new ArrayList<>();
 
     /**
      * Setter for the plots.
@@ -411,18 +355,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetPlot() {
-        if (!setPlot.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setPlot) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setPlot1 = new ArrayList<>();
 
     /**
      * Setter for the plots.
@@ -440,21 +373,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetPlot1() {
-        if (!setPlot1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setPlot1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index1;
     private String plot2;
     private Boolean plot3;
-    private List<ChartsStock> setPlot2 = new ArrayList<>();
 
     /**
      * Setter for the plots by index.
@@ -472,18 +394,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetPlot2() {
-        if (!setPlot2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setPlot2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setPlot3 = new ArrayList<>();
 
     /**
      * Setter for the plots by index.
@@ -501,19 +412,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetPlot3() {
-        if (!setPlot3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setPlot3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean preserveSelectedRangeOnDataUpdate;
-    private List<ChartsStock> setPreserveSelectedRangeOnDataUpdate = new ArrayList<>();
 
     /**
      * Setter for the Selected Range Change Behaviour.
@@ -531,16 +431,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetPreserveSelectedRangeOnDataUpdate() {
-        if (!setPreserveSelectedRangeOnDataUpdate.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setPreserveSelectedRangeOnDataUpdate) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StockScroller getScroller;
@@ -556,7 +446,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     }
     private String scroller;
     private Boolean scroller1;
-    private List<ChartsStock> setScroller = new ArrayList<>();
 
     /**
      * Setter for the scroller.
@@ -574,18 +463,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetScroller() {
-        if (!setScroller.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setScroller) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setScroller1 = new ArrayList<>();
 
     /**
      * Setter for the scroller.
@@ -603,16 +481,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetScroller1() {
-        if (!setScroller1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setScroller1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Grouping getScrollerGrouping;
@@ -629,7 +497,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private Boolean scrollerGrouping;
     private String[] scrollerGrouping1;
     private String scrollerGrouping2;
-    private List<ChartsStock> setScrollerGrouping = new ArrayList<>();
 
     /**
      * Setter for the scroller data grouping settings.
@@ -647,18 +514,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetScrollerGrouping() {
-        if (!setScrollerGrouping.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setScrollerGrouping) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setScrollerGrouping1 = new ArrayList<>();
 
     /**
      * Setter for the scroller data grouping settings.
@@ -676,18 +532,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetScrollerGrouping1() {
-        if (!setScrollerGrouping1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setScrollerGrouping1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setScrollerGrouping2 = new ArrayList<>();
 
     /**
      * Setter for the scroller data grouping settings.
@@ -705,16 +550,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetScrollerGrouping2() {
-        if (!setScrollerGrouping2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setScrollerGrouping2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double typeOrUnitOrStart;
     private String typeOrUnitOrStart1;
@@ -728,7 +563,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private String anchorOrDispatchEvent1;
     private Boolean anchorOrDispatchEvent2;
     private Boolean dispatchEvent;
-    private List<ChartsStock> setSelectRange = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -746,18 +580,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange() {
-        if (!setSelectRange.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange1 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -775,18 +598,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange1() {
-        if (!setSelectRange1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange2 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -804,18 +616,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange2() {
-        if (!setSelectRange2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange3 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -833,18 +634,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange3() {
-        if (!setSelectRange3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange4 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -862,18 +652,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange4() {
-        if (!setSelectRange4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange5 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -891,18 +670,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange5() {
-        if (!setSelectRange5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange6 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -920,18 +688,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange6() {
-        if (!setSelectRange6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange7 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -949,18 +706,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange7() {
-        if (!setSelectRange7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange8 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -978,18 +724,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange8() {
-        if (!setSelectRange8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange9 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1007,18 +742,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange9() {
-        if (!setSelectRange9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange10 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1036,18 +760,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange10() {
-        if (!setSelectRange10.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange10) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange11 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1065,18 +778,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange11() {
-        if (!setSelectRange11.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange11) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange12 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1094,18 +796,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange12() {
-        if (!setSelectRange12.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange12) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange13 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1123,18 +814,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange13() {
-        if (!setSelectRange13.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange13) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange14 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1152,18 +832,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange14() {
-        if (!setSelectRange14.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange14) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange15 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1181,18 +850,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange15() {
-        if (!setSelectRange15.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange15) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange16 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1210,18 +868,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange16() {
-        if (!setSelectRange16.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange16) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange17 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1239,18 +886,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange17() {
-        if (!setSelectRange17.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange17) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange18 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1268,18 +904,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange18() {
-        if (!setSelectRange18.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange18) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange19 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1297,18 +922,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange19() {
-        if (!setSelectRange19.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange19) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange20 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1326,18 +940,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange20() {
-        if (!setSelectRange20.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange20) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange21 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1355,18 +958,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange21() {
-        if (!setSelectRange21.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange21) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange22 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1384,18 +976,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange22() {
-        if (!setSelectRange22.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange22) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange23 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1413,18 +994,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange23() {
-        if (!setSelectRange23.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange23) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange24 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1442,18 +1012,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange24() {
-        if (!setSelectRange24.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange24) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange25 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1471,18 +1030,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange25() {
-        if (!setSelectRange25.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange25) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange26 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1500,18 +1048,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange26() {
-        if (!setSelectRange26.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange26) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange27 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1529,18 +1066,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange27() {
-        if (!setSelectRange27.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange27) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange28 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1558,18 +1084,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange28() {
-        if (!setSelectRange28.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange28) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange29 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1587,18 +1102,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange29() {
-        if (!setSelectRange29.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange29) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange30 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1616,18 +1120,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange30() {
-        if (!setSelectRange30.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange30) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange31 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1645,18 +1138,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange31() {
-        if (!setSelectRange31.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange31) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange32 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1674,18 +1156,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange32() {
-        if (!setSelectRange32.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange32) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange33 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1703,18 +1174,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange33() {
-        if (!setSelectRange33.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange33) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange34 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1732,18 +1192,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange34() {
-        if (!setSelectRange34.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange34) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setSelectRange35 = new ArrayList<>();
 
     /**
      * Selects passed range and initiates data redraw.
@@ -1761,20 +1210,9 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetSelectRange35() {
-        if (!setSelectRange35.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setSelectRange35) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean repeat;
     private Boolean asRect;
-    private List<ChartsStock> setStartZoomMarquee = new ArrayList<>();
 
     /**
      * Starts zoom marquee.
@@ -1792,16 +1230,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetStartZoomMarquee() {
-        if (!setStartZoomMarquee.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setStartZoomMarquee) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StockScatterDateTime getXScale;
@@ -1817,7 +1245,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     }
     private String xScale;
     private String xScale1;
-    private List<ChartsStock> setXScale = new ArrayList<>();
 
     /**
      * Setter for stock chart X-scale.
@@ -1835,19 +1262,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetXScale() {
-        if (!setXScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setXScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill zoomMarqueeFill;
-    private List<ChartsStock> setZoomMarqueeFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -1866,20 +1282,9 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetZoomMarqueeFill() {
-        if (!setZoomMarqueeFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setZoomMarqueeFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<ChartsStock> setZoomMarqueeFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -1897,16 +1302,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetZoomMarqueeFill1() {
-        if (!setZoomMarqueeFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setZoomMarqueeFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -1915,7 +1310,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<ChartsStock> setZoomMarqueeFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1934,18 +1328,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetZoomMarqueeFill2() {
-        if (!setZoomMarqueeFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setZoomMarqueeFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setZoomMarqueeFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1964,18 +1347,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetZoomMarqueeFill3() {
-        if (!setZoomMarqueeFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setZoomMarqueeFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setZoomMarqueeFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1994,18 +1366,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetZoomMarqueeFill4() {
-        if (!setZoomMarqueeFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setZoomMarqueeFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setZoomMarqueeFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2024,18 +1385,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetZoomMarqueeFill5() {
-        if (!setZoomMarqueeFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setZoomMarqueeFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setZoomMarqueeFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2054,18 +1404,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetZoomMarqueeFill6() {
-        if (!setZoomMarqueeFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setZoomMarqueeFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setZoomMarqueeFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -2084,16 +1423,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetZoomMarqueeFill7() {
-        if (!setZoomMarqueeFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setZoomMarqueeFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -2103,7 +1432,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<ChartsStock> setZoomMarqueeFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -2122,18 +1450,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         }
         return this;
     }
-    private String generateJSsetZoomMarqueeFill8() {
-        if (!setZoomMarqueeFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setZoomMarqueeFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsStock> setZoomMarqueeFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -2151,16 +1468,6 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetZoomMarqueeFill9() {
-        if (!setZoomMarqueeFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsStock item : setZoomMarqueeFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Fill imageSettings;
@@ -2343,71 +1650,8 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         js.append(generateJSgetScroller());
         js.append(generateJSgetScrollerGrouping());
         js.append(generateJSgetXScale());
-        js.append(generateJSsetCrosshair());
-        js.append(generateJSsetCrosshair1());
-        js.append(generateJSsetGrouping());
-        js.append(generateJSsetGrouping1());
-        js.append(generateJSsetGrouping2());
         js.append(generateJSsetInteractivity());
         js.append(generateJSsetInteractivity1());
-        js.append(generateJSsetPlot());
-        js.append(generateJSsetPlot1());
-        js.append(generateJSsetPlot2());
-        js.append(generateJSsetPlot3());
-        js.append(generateJSsetPreserveSelectedRangeOnDataUpdate());
-        js.append(generateJSsetScroller());
-        js.append(generateJSsetScroller1());
-        js.append(generateJSsetScrollerGrouping());
-        js.append(generateJSsetScrollerGrouping1());
-        js.append(generateJSsetScrollerGrouping2());
-        js.append(generateJSsetSelectRange());
-        js.append(generateJSsetSelectRange1());
-        js.append(generateJSsetSelectRange2());
-        js.append(generateJSsetSelectRange3());
-        js.append(generateJSsetSelectRange4());
-        js.append(generateJSsetSelectRange5());
-        js.append(generateJSsetSelectRange6());
-        js.append(generateJSsetSelectRange7());
-        js.append(generateJSsetSelectRange8());
-        js.append(generateJSsetSelectRange9());
-        js.append(generateJSsetSelectRange10());
-        js.append(generateJSsetSelectRange11());
-        js.append(generateJSsetSelectRange12());
-        js.append(generateJSsetSelectRange13());
-        js.append(generateJSsetSelectRange14());
-        js.append(generateJSsetSelectRange15());
-        js.append(generateJSsetSelectRange16());
-        js.append(generateJSsetSelectRange17());
-        js.append(generateJSsetSelectRange18());
-        js.append(generateJSsetSelectRange19());
-        js.append(generateJSsetSelectRange20());
-        js.append(generateJSsetSelectRange21());
-        js.append(generateJSsetSelectRange22());
-        js.append(generateJSsetSelectRange23());
-        js.append(generateJSsetSelectRange24());
-        js.append(generateJSsetSelectRange25());
-        js.append(generateJSsetSelectRange26());
-        js.append(generateJSsetSelectRange27());
-        js.append(generateJSsetSelectRange28());
-        js.append(generateJSsetSelectRange29());
-        js.append(generateJSsetSelectRange30());
-        js.append(generateJSsetSelectRange31());
-        js.append(generateJSsetSelectRange32());
-        js.append(generateJSsetSelectRange33());
-        js.append(generateJSsetSelectRange34());
-        js.append(generateJSsetSelectRange35());
-        js.append(generateJSsetStartZoomMarquee());
-        js.append(generateJSsetXScale());
-        js.append(generateJSsetZoomMarqueeFill());
-        js.append(generateJSsetZoomMarqueeFill1());
-        js.append(generateJSsetZoomMarqueeFill2());
-        js.append(generateJSsetZoomMarqueeFill3());
-        js.append(generateJSsetZoomMarqueeFill4());
-        js.append(generateJSsetZoomMarqueeFill5());
-        js.append(generateJSsetZoomMarqueeFill6());
-        js.append(generateJSsetZoomMarqueeFill7());
-        js.append(generateJSsetZoomMarqueeFill8());
-        js.append(generateJSsetZoomMarqueeFill9());
         js.append(generateJSsetZoomMarqueeStroke());
         js.append(generateJSsetZoomMarqueeStroke1());
         js.append(generateJSsetZoomMarqueeStroke2());

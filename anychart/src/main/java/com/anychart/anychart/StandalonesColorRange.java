@@ -1,8 +1,6 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -47,7 +45,6 @@ public class StandalonesColorRange extends UiColorRange {
 
     private String container;
     private Element container1;
-    private List<StandalonesColorRange> setContainer = new ArrayList<>();
 
     /**
      * Setter for the color range container.
@@ -74,18 +71,7 @@ public class StandalonesColorRange extends UiColorRange {
         }
         return this;
     }
-    private String generateJSsetContainer() {
-        if (!setContainer.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesColorRange item : setContainer) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesColorRange> setContainer1 = new ArrayList<>();
 
     /**
      * Setter for the color range container.
@@ -109,16 +95,6 @@ public class StandalonesColorRange extends UiColorRange {
         }
         return this;
     }
-    private String generateJSsetContainer1() {
-        if (!setContainer1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesColorRange item : setContainer1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private TablePadding getPadding;
 
@@ -135,7 +111,6 @@ public class StandalonesColorRange extends UiColorRange {
     private Double[] padding;
     private String[] padding1;
     private String padding2;
-    private List<StandalonesColorRange> setPadding = new ArrayList<>();
 
     /**
      * Setter for paddings in pixels using a single value.<br/>
@@ -163,18 +138,7 @@ public class StandalonesColorRange extends UiColorRange {
         }
         return this;
     }
-    private String generateJSsetPadding() {
-        if (!setPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesColorRange item : setPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesColorRange> setPadding1 = new ArrayList<>();
 
     /**
      * Setter for paddings in pixels using a single value.<br/>
@@ -202,18 +166,7 @@ public class StandalonesColorRange extends UiColorRange {
         }
         return this;
     }
-    private String generateJSsetPadding1() {
-        if (!setPadding1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesColorRange item : setPadding1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesColorRange> setPadding2 = new ArrayList<>();
 
     /**
      * Setter for paddings in pixels using a single value.<br/>
@@ -241,16 +194,6 @@ public class StandalonesColorRange extends UiColorRange {
         }
         return this;
     }
-    private String generateJSsetPadding2() {
-        if (!setPadding2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesColorRange item : setPadding2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String value;
     private Double value1;
@@ -260,7 +203,6 @@ public class StandalonesColorRange extends UiColorRange {
     private Double value5;
     private String value6;
     private Double value7;
-    private List<StandalonesColorRange> setPadding3 = new ArrayList<>();
 
     /**
      * Setter for current cell paddings in pixels using several numbers.
@@ -326,18 +268,7 @@ public class StandalonesColorRange extends UiColorRange {
         }
         return this;
     }
-    private String generateJSsetPadding3() {
-        if (!setPadding3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesColorRange item : setPadding3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesColorRange> setPadding4 = new ArrayList<>();
 
     /**
      * Setter for current cell paddings in pixels using several numbers.
@@ -403,16 +334,6 @@ public class StandalonesColorRange extends UiColorRange {
         }
         return this;
     }
-    private String generateJSsetPadding4() {
-        if (!setPadding4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesColorRange item : setPadding4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private AnychartMathRect getParentBounds;
 
@@ -429,7 +350,6 @@ As a getter falls back to stage bounds.
 
     private AnychartMathRect parentBounds;
     private String parentBounds1;
-    private List<StandalonesColorRange> setParentBounds = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -453,18 +373,7 @@ As a getter falls back to stage bounds.
         }
         return this;
     }
-    private String generateJSsetParentBounds() {
-        if (!setParentBounds.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesColorRange item : setParentBounds) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesColorRange> setParentBounds1 = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -491,22 +400,11 @@ As a getter falls back to stage bounds.
         }
         return this;
     }
-    private String generateJSsetParentBounds1() {
-        if (!setParentBounds1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesColorRange item : setParentBounds1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double left;
     private Double top;
     private Double width;
     private Double height;
-    private List<StandalonesColorRange> setParentBounds2 = new ArrayList<>();
 
     /**
      * Setter for bounds using several value.
@@ -535,16 +433,6 @@ As a getter falls back to stage bounds.
             }
         }
         return this;
-    }
-    private String generateJSsetParentBounds2() {
-        if (!setParentBounds2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesColorRange item : setParentBounds2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetContainer() {
@@ -591,16 +479,6 @@ As a getter falls back to stage bounds.
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetContainer());
-        js.append(generateJSsetContainer1());
-        js.append(generateJSsetPadding());
-        js.append(generateJSsetPadding1());
-        js.append(generateJSsetPadding2());
-        js.append(generateJSsetPadding3());
-        js.append(generateJSsetPadding4());
-        js.append(generateJSsetParentBounds());
-        js.append(generateJSsetParentBounds1());
-        js.append(generateJSsetParentBounds2());
         
 
         String result = js.toString();

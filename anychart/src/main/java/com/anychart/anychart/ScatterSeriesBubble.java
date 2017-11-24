@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -34,7 +32,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
 
     
     private Boolean displayNegative;
-    private List<ScatterSeriesBubble> setDisplayNegative = new ArrayList<>();
 
     /**
      * Setter for negative value option.
@@ -58,19 +55,8 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetDisplayNegative() {
-        if (!setDisplayNegative.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setDisplayNegative) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
-    private List<ScatterSeriesBubble> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -95,20 +81,9 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<ScatterSeriesBubble> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -134,16 +109,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -152,7 +117,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<ScatterSeriesBubble> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -193,18 +157,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -245,18 +198,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -297,18 +239,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -349,18 +280,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -401,18 +321,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -453,16 +362,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -472,7 +371,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<ScatterSeriesBubble> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -523,18 +421,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -585,16 +472,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private PatternFill getHatchFill;
@@ -616,7 +493,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
     private String color1;
     private Double thickness;
     private Double size;
-    private List<ScatterSeriesBubble> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -655,18 +531,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetHatchFill() {
-        if (!setHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -705,18 +570,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetHatchFill1() {
-        if (!setHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -755,18 +609,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetHatchFill2() {
-        if (!setHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -805,19 +648,8 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetHatchFill3() {
-        if (!setHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill negativeFill;
-    private List<ScatterSeriesBubble> setNegativeFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -842,20 +674,9 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill() {
-        if (!setNegativeFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color2;
     private Double opacity3;
-    private List<ScatterSeriesBubble> setNegativeFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -890,16 +711,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill1() {
-        if (!setNegativeFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys4;
     private String[] keys5;
@@ -908,7 +719,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
     private VectorRect mode5;
     private String mode6;
     private Double opacity4;
-    private List<ScatterSeriesBubble> setNegativeFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -963,18 +773,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill2() {
-        if (!setNegativeFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setNegativeFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1029,18 +828,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill3() {
-        if (!setNegativeFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setNegativeFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1095,18 +883,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill4() {
-        if (!setNegativeFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setNegativeFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1161,18 +938,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill5() {
-        if (!setNegativeFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setNegativeFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1227,18 +993,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill6() {
-        if (!setNegativeFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setNegativeFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1293,16 +1048,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill7() {
-        if (!setNegativeFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys6;
     private String[] keys7;
@@ -1312,7 +1057,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
     private Double opacity5;
     private Double fx1;
     private Double fy1;
-    private List<ScatterSeriesBubble> setNegativeFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -1386,18 +1130,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill8() {
-        if (!setNegativeFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setNegativeFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -1471,16 +1204,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill9() {
-        if (!setNegativeFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings1;
     private PatternFill getNegativeHatchFill;
@@ -1502,7 +1225,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
     private String color3;
     private Double thickness1;
     private Double size1;
-    private List<ScatterSeriesBubble> setNegativeHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -1553,18 +1275,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill() {
-        if (!setNegativeHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setNegativeHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -1615,18 +1326,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill1() {
-        if (!setNegativeHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setNegativeHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -1677,18 +1377,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill2() {
-        if (!setNegativeHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setNegativeHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -1739,16 +1428,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill3() {
-        if (!setNegativeHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color4;
     private ColoredFill color5;
@@ -1757,7 +1436,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<ScatterSeriesBubble> setNegativeStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -1802,18 +1480,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeStroke() {
-        if (!setNegativeStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setNegativeStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -1858,18 +1525,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeStroke1() {
-        if (!setNegativeStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setNegativeStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -1914,16 +1570,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeStroke2() {
-        if (!setNegativeStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setNegativeStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color7;
     private ColoredFill color8;
@@ -1932,7 +1578,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
-    private List<ScatterSeriesBubble> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -1990,18 +1635,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -2059,18 +1693,7 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScatterSeriesBubble> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -2128,16 +1751,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScatterSeriesBubble item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
@@ -2175,41 +1788,6 @@ public class ScatterSeriesBubble extends ScatterSeriesBaseWithMarkers {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetDisplayNegative());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetHatchFill());
-        js.append(generateJSsetHatchFill1());
-        js.append(generateJSsetHatchFill2());
-        js.append(generateJSsetHatchFill3());
-        js.append(generateJSsetNegativeFill());
-        js.append(generateJSsetNegativeFill1());
-        js.append(generateJSsetNegativeFill2());
-        js.append(generateJSsetNegativeFill3());
-        js.append(generateJSsetNegativeFill4());
-        js.append(generateJSsetNegativeFill5());
-        js.append(generateJSsetNegativeFill6());
-        js.append(generateJSsetNegativeFill7());
-        js.append(generateJSsetNegativeFill8());
-        js.append(generateJSsetNegativeFill9());
-        js.append(generateJSsetNegativeHatchFill());
-        js.append(generateJSsetNegativeHatchFill1());
-        js.append(generateJSsetNegativeHatchFill2());
-        js.append(generateJSsetNegativeHatchFill3());
-        js.append(generateJSsetNegativeStroke());
-        js.append(generateJSsetNegativeStroke1());
-        js.append(generateJSsetNegativeStroke2());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
         
 
         String result = js.toString();

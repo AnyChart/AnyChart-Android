@@ -1,8 +1,6 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -35,7 +33,6 @@ public class Callout extends VisualBase {
     
     private EnumsAlign align;
     private String align1;
-    private List<Callout> setAlign = new ArrayList<>();
 
     /**
      * Setter for callout align setting.
@@ -62,18 +59,7 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAlign() {
-        if (!setAlign.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setAlign) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Callout> setAlign1 = new ArrayList<>();
 
     /**
      * Setter for callout align setting.
@@ -100,16 +86,6 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAlign1() {
-        if (!setAlign1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setAlign1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiBackground getBackground;
 
@@ -126,7 +102,6 @@ public class Callout extends VisualBase {
     private String background;
     private String background1;
     private Boolean background2;
-    private List<Callout> setBackground = new ArrayList<>();
 
     /**
      * Setter for the callout background.
@@ -154,18 +129,7 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetBackground() {
-        if (!setBackground.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setBackground) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Callout> setBackground1 = new ArrayList<>();
 
     /**
      * Setter for the callout background.
@@ -193,16 +157,6 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetBackground1() {
-        if (!setBackground1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setBackground1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getHovered;
 
@@ -217,7 +171,6 @@ public class Callout extends VisualBase {
     }
 
     private String hovered;
-    private List<Callout> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -241,19 +194,8 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String[] items;
-    private List<Callout> setItems = new ArrayList<>();
 
     /**
      * Setter for callout items.
@@ -277,16 +219,6 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetItems() {
-        if (!setItems.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setItems) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabelsFactory getLabels;
 
@@ -302,7 +234,6 @@ public class Callout extends VisualBase {
 
     private String labels;
     private Boolean labels1;
-    private List<Callout> setLabels = new ArrayList<>();
 
     /**
      * Setter for callout labels.
@@ -329,18 +260,7 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Callout> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for callout labels.
@@ -367,20 +287,9 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String length;
     private Double length1;
-    private List<Callout> setLength = new ArrayList<>();
 
     /**
      * Setter for the callout length.
@@ -407,18 +316,7 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLength() {
-        if (!setLength.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setLength) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Callout> setLength1 = new ArrayList<>();
 
     /**
      * Setter for the callout length.
@@ -445,16 +343,6 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLength1() {
-        if (!setLength1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setLength1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Margin getMargin;
 
@@ -471,7 +359,6 @@ public class Callout extends VisualBase {
     private Double[] margin;
     private String[] margin1;
     private String margin2;
-    private List<Callout> setMargin = new ArrayList<>();
 
     /**
      * Setter for the callout margin using a single value.
@@ -499,18 +386,7 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMargin() {
-        if (!setMargin.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setMargin) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Callout> setMargin1 = new ArrayList<>();
 
     /**
      * Setter for the callout margin using a single value.
@@ -538,18 +414,7 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMargin1() {
-        if (!setMargin1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setMargin1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Callout> setMargin2 = new ArrayList<>();
 
     /**
      * Setter for the callout margin using a single value.
@@ -577,16 +442,6 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMargin2() {
-        if (!setMargin2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setMargin2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String value;
     private Double value1;
@@ -596,7 +451,6 @@ public class Callout extends VisualBase {
     private Double value5;
     private String value6;
     private Double value7;
-    private List<Callout> setMargin3 = new ArrayList<>();
 
     /**
      * Setter for the callout margin using several values.
@@ -662,18 +516,7 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMargin3() {
-        if (!setMargin3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setMargin3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Callout> setMargin4 = new ArrayList<>();
 
     /**
      * Setter for the callout margin using several values.
@@ -739,16 +582,6 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetMargin4() {
-        if (!setMargin4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setMargin4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getNormal;
 
@@ -763,7 +596,6 @@ public class Callout extends VisualBase {
     }
 
     private String normal;
-    private List<Callout> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -787,20 +619,9 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Orientation orientation;
     private String orientation1;
-    private List<Callout> setOrientation = new ArrayList<>();
 
     /**
      * Setter for the callout orientation.
@@ -827,18 +648,7 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetOrientation() {
-        if (!setOrientation.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setOrientation) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Callout> setOrientation1 = new ArrayList<>();
 
     /**
      * Setter for the callout orientation.
@@ -865,16 +675,6 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetOrientation1() {
-        if (!setOrientation1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setOrientation1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UtilsPadding getPadding;
 
@@ -891,7 +691,6 @@ public class Callout extends VisualBase {
     private Double[] padding;
     private String[] padding1;
     private String padding2;
-    private List<Callout> setPadding = new ArrayList<>();
 
     /**
      * Setter for the callout padding using a single value.
@@ -919,18 +718,7 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPadding() {
-        if (!setPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Callout> setPadding1 = new ArrayList<>();
 
     /**
      * Setter for the callout padding using a single value.
@@ -958,18 +746,7 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPadding1() {
-        if (!setPadding1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setPadding1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Callout> setPadding2 = new ArrayList<>();
 
     /**
      * Setter for the callout padding using a single value.
@@ -997,16 +774,6 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPadding2() {
-        if (!setPadding2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setPadding2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String value8;
     private Double value9;
@@ -1016,7 +783,6 @@ public class Callout extends VisualBase {
     private Double value13;
     private String value14;
     private Double value15;
-    private List<Callout> setPadding3 = new ArrayList<>();
 
     /**
      * Setter for the callout padding using several numbers.
@@ -1114,18 +880,7 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPadding3() {
-        if (!setPadding3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setPadding3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Callout> setPadding4 = new ArrayList<>();
 
     /**
      * Setter for the callout padding using several numbers.
@@ -1223,16 +978,6 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPadding4() {
-        if (!setPadding4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setPadding4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getSelected;
 
@@ -1247,7 +992,6 @@ public class Callout extends VisualBase {
     }
 
     private String selected;
-    private List<Callout> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -1271,16 +1015,6 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiTitle getTitle;
 
@@ -1297,7 +1031,6 @@ public class Callout extends VisualBase {
     private Boolean title;
     private String title1;
     private String title2;
-    private List<Callout> setTitle = new ArrayList<>();
 
     /**
      * Setter for the callout title.
@@ -1325,18 +1058,7 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTitle() {
-        if (!setTitle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setTitle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Callout> setTitle1 = new ArrayList<>();
 
     /**
      * Setter for the callout title.
@@ -1364,20 +1086,9 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTitle1() {
-        if (!setTitle1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setTitle1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double width;
     private String width1;
-    private List<Callout> setWidth = new ArrayList<>();
 
     /**
      * Setter for the callout width.
@@ -1404,18 +1115,7 @@ public class Callout extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetWidth() {
-        if (!setWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Callout> setWidth1 = new ArrayList<>();
 
     /**
      * Setter for the callout width.
@@ -1441,16 +1141,6 @@ public class Callout extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetWidth1() {
-        if (!setWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Callout item : setWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetBackground() {
@@ -1537,34 +1227,6 @@ public class Callout extends VisualBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAlign());
-        js.append(generateJSsetAlign1());
-        js.append(generateJSsetBackground());
-        js.append(generateJSsetBackground1());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetItems());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
-        js.append(generateJSsetLength());
-        js.append(generateJSsetLength1());
-        js.append(generateJSsetMargin());
-        js.append(generateJSsetMargin1());
-        js.append(generateJSsetMargin2());
-        js.append(generateJSsetMargin3());
-        js.append(generateJSsetMargin4());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetOrientation());
-        js.append(generateJSsetOrientation1());
-        js.append(generateJSsetPadding());
-        js.append(generateJSsetPadding1());
-        js.append(generateJSsetPadding2());
-        js.append(generateJSsetPadding3());
-        js.append(generateJSsetPadding4());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetTitle());
-        js.append(generateJSsetTitle1());
-        js.append(generateJSsetWidth());
-        js.append(generateJSsetWidth1());
         
 
         String result = js.toString();

@@ -3,7 +3,6 @@ package com.anychart.anychart;
 import com.anychart.anychart.application.MyApplication;
 import com.anychart.anychart.chart.common.ListenersInterface;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -128,7 +127,6 @@ public class Pert extends SeparateChart {
         return getCriticalPath;
     }
     private String criticalPath;
-    private List<Pert> setCriticalPath = new ArrayList<>();
 
     /**
      * Setter for the critical path settings.
@@ -146,16 +144,6 @@ public class Pert extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetCriticalPath() {
-        if (!setCriticalPath.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pert item : setCriticalPath) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Tree getData;
@@ -169,7 +157,6 @@ public class Pert extends SeparateChart {
 
         return getData;
     }
-    private List<Pert> setData = new ArrayList<>();
 
     /**
      * Setter for the chart data.
@@ -193,18 +180,7 @@ public class Pert extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pert item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pert> setData1 = new ArrayList<>();
 
     /**
      * 
@@ -219,20 +195,9 @@ public class Pert extends SeparateChart {
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pert item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double horizontalSpacing;
     private String horizontalSpacing1;
-    private List<Pert> setHorizontalSpacing = new ArrayList<>();
 
     /**
      * Setter for milestones horizontal spacing.
@@ -250,18 +215,7 @@ public class Pert extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHorizontalSpacing() {
-        if (!setHorizontalSpacing.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pert item : setHorizontalSpacing) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pert> setHorizontalSpacing1 = new ArrayList<>();
 
     /**
      * Setter for milestones horizontal spacing.
@@ -279,16 +233,6 @@ public class Pert extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHorizontalSpacing1() {
-        if (!setHorizontalSpacing1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pert item : setHorizontalSpacing1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Milestones getMilestones;
@@ -303,7 +247,6 @@ public class Pert extends SeparateChart {
         return getMilestones;
     }
     private String milestones;
-    private List<Pert> setMilestones = new ArrayList<>();
 
     /**
      * Setter for milestones settings object.
@@ -321,16 +264,6 @@ public class Pert extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMilestones() {
-        if (!setMilestones.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pert item : setMilestones) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Tasks getTasks;
@@ -345,7 +278,6 @@ public class Pert extends SeparateChart {
         return getTasks;
     }
     private String tasks;
-    private List<Pert> setTasks = new ArrayList<>();
 
     /**
      * Setter for the tasks settings.
@@ -363,20 +295,9 @@ public class Pert extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetTasks() {
-        if (!setTasks.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pert item : setTasks) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double verticalSpacing;
     private String verticalSpacing1;
-    private List<Pert> setVerticalSpacing = new ArrayList<>();
 
     /**
      * Setter for milestones vertical spacing.
@@ -394,18 +315,7 @@ public class Pert extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetVerticalSpacing() {
-        if (!setVerticalSpacing.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pert item : setVerticalSpacing) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pert> setVerticalSpacing1 = new ArrayList<>();
 
     /**
      * Setter for milestones vertical spacing.
@@ -422,16 +332,6 @@ public class Pert extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetVerticalSpacing1() {
-        if (!setVerticalSpacing1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pert item : setVerticalSpacing1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetCriticalPath() {
@@ -473,15 +373,6 @@ public class Pert extends SeparateChart {
         js.append(generateJSgetData());
         js.append(generateJSgetMilestones());
         js.append(generateJSgetTasks());
-        js.append(generateJSsetCriticalPath());
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetHorizontalSpacing());
-        js.append(generateJSsetHorizontalSpacing1());
-        js.append(generateJSsetMilestones());
-        js.append(generateJSsetTasks());
-        js.append(generateJSsetVerticalSpacing());
-        js.append(generateJSsetVerticalSpacing1());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

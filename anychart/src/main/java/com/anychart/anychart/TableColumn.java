@@ -1140,7 +1140,6 @@ public class TableColumn extends TableBase {
 
     private String minWidth;
     private Double minWidth1;
-    private List<TableColumn> setMinWidth = new ArrayList<>();
 
     /**
      * Setter for column minimum width settings.
@@ -1167,18 +1166,7 @@ public class TableColumn extends TableBase {
         }
         return this;
     }
-    private String generateJSsetMinWidth() {
-        if (!setMinWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableColumn item : setMinWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableColumn> setMinWidth1 = new ArrayList<>();
 
     /**
      * Setter for column minimum width settings.
@@ -1205,20 +1193,9 @@ public class TableColumn extends TableBase {
         }
         return this;
     }
-    private String generateJSsetMinWidth1() {
-        if (!setMinWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableColumn item : setMinWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String width;
     private Double width1;
-    private List<TableColumn> setWidth = new ArrayList<>();
 
     /**
      * Setter for column width settings.
@@ -1245,18 +1222,7 @@ public class TableColumn extends TableBase {
         }
         return this;
     }
-    private String generateJSsetWidth() {
-        if (!setWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableColumn item : setWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TableColumn> setWidth1 = new ArrayList<>();
 
     /**
      * Setter for column width settings.
@@ -1282,16 +1248,6 @@ public class TableColumn extends TableBase {
             }
         }
         return this;
-    }
-    private String generateJSsetWidth1() {
-        if (!setWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TableColumn item : setWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetCellBorder() {
@@ -1375,10 +1331,6 @@ public class TableColumn extends TableBase {
         js.append(generateJSsetCellPadding3());
         js.append(generateJSsetCellPadding4());
         js.append(generateJSsetGetCell());
-        js.append(generateJSsetMinWidth());
-        js.append(generateJSsetMinWidth1());
-        js.append(generateJSsetWidth());
-        js.append(generateJSsetWidth1());
         
 
         String result = js.toString();

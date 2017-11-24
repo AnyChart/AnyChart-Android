@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
 
     
     private Boolean displayNegative;
-    private List<MapSeriesBubble> setDisplayNegative = new ArrayList<>();
 
     /**
      * Setter for the negative value option.
@@ -57,19 +54,8 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetDisplayNegative() {
-        if (!setDisplayNegative.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setDisplayNegative) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill negativeFill;
-    private List<MapSeriesBubble> setNegativeFill = new ArrayList<>();
 
     /**
      * Setter for series negative fill settings using an array or a string.
@@ -94,20 +80,9 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill() {
-        if (!setNegativeFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<MapSeriesBubble> setNegativeFill1 = new ArrayList<>();
 
     /**
      * Series negative fill color with opacity. Fill as a string or an object.
@@ -133,16 +108,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill1() {
-        if (!setNegativeFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -151,7 +116,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<MapSeriesBubble> setNegativeFill2 = new ArrayList<>();
 
     /**
      * Linear gradient series negative fill.
@@ -192,18 +156,7 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill2() {
-        if (!setNegativeFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBubble> setNegativeFill3 = new ArrayList<>();
 
     /**
      * Linear gradient series negative fill.
@@ -244,18 +197,7 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill3() {
-        if (!setNegativeFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBubble> setNegativeFill4 = new ArrayList<>();
 
     /**
      * Linear gradient series negative fill.
@@ -296,18 +238,7 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill4() {
-        if (!setNegativeFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBubble> setNegativeFill5 = new ArrayList<>();
 
     /**
      * Linear gradient series negative fill.
@@ -348,18 +279,7 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill5() {
-        if (!setNegativeFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBubble> setNegativeFill6 = new ArrayList<>();
 
     /**
      * Linear gradient series negative fill.
@@ -400,18 +320,7 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill6() {
-        if (!setNegativeFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBubble> setNegativeFill7 = new ArrayList<>();
 
     /**
      * Linear gradient series negative fill.
@@ -452,16 +361,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill7() {
-        if (!setNegativeFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -471,7 +370,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<MapSeriesBubble> setNegativeFill8 = new ArrayList<>();
 
     /**
      * Radial series negative fill.
@@ -522,18 +420,7 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill8() {
-        if (!setNegativeFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBubble> setNegativeFill9 = new ArrayList<>();
 
     /**
      * Radial series negative fill.
@@ -584,16 +471,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeFill9() {
-        if (!setNegativeFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private PatternFill getNegativeHatchFill;
@@ -616,7 +493,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     private String color1;
     private Double thickness;
     private Double size;
-    private List<MapSeriesBubble> setNegativeHatchFill = new ArrayList<>();
 
     /**
      * Setter for the negative hatch fill.
@@ -655,18 +531,7 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill() {
-        if (!setNegativeHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBubble> setNegativeHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for the negative hatch fill.
@@ -705,18 +570,7 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill1() {
-        if (!setNegativeHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBubble> setNegativeHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for the negative hatch fill.
@@ -755,18 +609,7 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill2() {
-        if (!setNegativeHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBubble> setNegativeHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for the negative hatch fill.
@@ -805,18 +648,7 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill3() {
-        if (!setNegativeHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBubble> setNegativeHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for the negative hatch fill.
@@ -855,16 +687,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeHatchFill4() {
-        if (!setNegativeHatchFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeHatchFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private MapSeriesBubble getNegativeStroke;
 
@@ -885,7 +707,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<MapSeriesBubble> setNegativeStroke = new ArrayList<>();
 
     /**
      * Setter for series negative stroke settings.
@@ -927,18 +748,7 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeStroke() {
-        if (!setNegativeStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBubble> setNegativeStroke1 = new ArrayList<>();
 
     /**
      * Setter for series negative stroke settings.
@@ -980,18 +790,7 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeStroke1() {
-        if (!setNegativeStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesBubble> setNegativeStroke2 = new ArrayList<>();
 
     /**
      * Setter for series negative stroke settings.
@@ -1033,16 +832,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
         }
         return this;
     }
-    private String generateJSsetNegativeStroke2() {
-        if (!setNegativeStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBubble item : setNegativeStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String generateJSgetNegativeHatchFill() {
         if (getNegativeHatchFill != null) {
@@ -1080,25 +869,6 @@ public class MapSeriesBubble extends MapSeriesBaseWithMarkers {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetDisplayNegative());
-        js.append(generateJSsetNegativeFill());
-        js.append(generateJSsetNegativeFill1());
-        js.append(generateJSsetNegativeFill2());
-        js.append(generateJSsetNegativeFill3());
-        js.append(generateJSsetNegativeFill4());
-        js.append(generateJSsetNegativeFill5());
-        js.append(generateJSsetNegativeFill6());
-        js.append(generateJSsetNegativeFill7());
-        js.append(generateJSsetNegativeFill8());
-        js.append(generateJSsetNegativeFill9());
-        js.append(generateJSsetNegativeHatchFill());
-        js.append(generateJSsetNegativeHatchFill1());
-        js.append(generateJSsetNegativeHatchFill2());
-        js.append(generateJSsetNegativeHatchFill3());
-        js.append(generateJSsetNegativeHatchFill4());
-        js.append(generateJSsetNegativeStroke());
-        js.append(generateJSsetNegativeStroke1());
-        js.append(generateJSsetNegativeStroke2());
         
 
         String result = js.toString();

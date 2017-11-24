@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -75,7 +73,6 @@ public class Preloader extends JsObject {
     }
 
     private Boolean visible;
-    private List<Preloader> setVisible = new ArrayList<>();
 
     /**
      * Setter for the visibility of the preloader.
@@ -99,16 +96,6 @@ public class Preloader extends JsObject {
         }
         return this;
     }
-    private String generateJSsetVisible() {
-        if (!setVisible.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Preloader item : setVisible) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -130,7 +117,6 @@ public class Preloader extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetVisible());
         
 
         String result = js.toString();

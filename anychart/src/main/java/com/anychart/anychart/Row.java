@@ -1118,7 +1118,6 @@ public class Row extends TableBase {
 
     private String height;
     private Double height1;
-    private List<Row> setHeight = new ArrayList<>();
 
     /**
      * Setter for row height settings.
@@ -1145,18 +1144,7 @@ public class Row extends TableBase {
         }
         return this;
     }
-    private String generateJSsetHeight() {
-        if (!setHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Row item : setHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Row> setHeight1 = new ArrayList<>();
 
     /**
      * Setter for row height settings.
@@ -1183,16 +1171,6 @@ public class Row extends TableBase {
         }
         return this;
     }
-    private String generateJSsetHeight1() {
-        if (!setHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Row item : setHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private List<Row> getMaxHeight = new ArrayList<>();
 
@@ -1218,7 +1196,6 @@ public class Row extends TableBase {
 
     private String minHeight;
     private Double minHeight1;
-    private List<Row> setMinHeight = new ArrayList<>();
 
     /**
      * Setter for row minimum height settings.
@@ -1245,18 +1222,7 @@ public class Row extends TableBase {
         }
         return this;
     }
-    private String generateJSsetMinHeight() {
-        if (!setMinHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Row item : setMinHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Row> setMinHeight1 = new ArrayList<>();
 
     /**
      * Setter for row minimum height settings.
@@ -1282,16 +1248,6 @@ public class Row extends TableBase {
             }
         }
         return this;
-    }
-    private String generateJSsetMinHeight1() {
-        if (!setMinHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Row item : setMinHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetCellBorder() {
@@ -1375,10 +1331,6 @@ public class Row extends TableBase {
         js.append(generateJSsetCellPadding3());
         js.append(generateJSsetCellPadding4());
         js.append(generateJSsetGetCell());
-        js.append(generateJSsetHeight());
-        js.append(generateJSsetHeight1());
-        js.append(generateJSsetMinHeight());
-        js.append(generateJSsetMinHeight1());
         
 
         String result = js.toString();

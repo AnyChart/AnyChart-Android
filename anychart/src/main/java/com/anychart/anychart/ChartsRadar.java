@@ -221,7 +221,6 @@ public class ChartsRadar extends SeparateChart {
 
     private RadarSeriesType defaultSeriesType;
     private String defaultSeriesType1;
-    private List<ChartsRadar> setDefaultSeriesType = new ArrayList<>();
 
     /**
      * Setter for the radar default series type.
@@ -239,18 +238,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetDefaultSeriesType() {
-        if (!setDefaultSeriesType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setDefaultSeriesType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setDefaultSeriesType1 = new ArrayList<>();
 
     /**
      * Setter for the radar default series type.
@@ -267,16 +255,6 @@ public class ChartsRadar extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetDefaultSeriesType1() {
-        if (!setDefaultSeriesType1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setDefaultSeriesType1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -340,7 +318,6 @@ public class ChartsRadar extends SeparateChart {
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
-    private List<ChartsRadar> setHatchFillPalette = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -358,18 +335,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette() {
-        if (!setHatchFillPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setHatchFillPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setHatchFillPalette1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -387,18 +353,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette1() {
-        if (!setHatchFillPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setHatchFillPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setHatchFillPalette2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -414,16 +369,6 @@ public class ChartsRadar extends SeparateChart {
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetHatchFillPalette2() {
-        if (!setHatchFillPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setHatchFillPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getHovered;
@@ -438,7 +383,6 @@ public class ChartsRadar extends SeparateChart {
         return getHovered;
     }
     private String hovered;
-    private List<ChartsRadar> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -456,20 +400,9 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double innerRadius;
     private String innerRadius1;
-    private List<ChartsRadar> setInnerRadius = new ArrayList<>();
 
     /**
      * Setter for the inner radius in pixels or percent of main radius.
@@ -487,18 +420,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetInnerRadius() {
-        if (!setInnerRadius.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setInnerRadius) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setInnerRadius1 = new ArrayList<>();
 
     /**
      * Setter for the inner radius in pixels or percent of main radius.
@@ -516,16 +438,6 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetInnerRadius1() {
-        if (!setInnerRadius1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setInnerRadius1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiLabelsFactory getLabels;
@@ -541,7 +453,6 @@ public class ChartsRadar extends SeparateChart {
     }
     private String labels;
     private Boolean labels1;
-    private List<ChartsRadar> setLabels = new ArrayList<>();
 
     /**
      * Setter for series data labels.
@@ -559,18 +470,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for series data labels.
@@ -587,16 +487,6 @@ public class ChartsRadar extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<RadarSeriesLine> setLine = new ArrayList<>();
@@ -745,7 +635,6 @@ public class ChartsRadar extends SeparateChart {
     private String markerPalette1;
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
-    private List<ChartsRadar> setMarkerPalette = new ArrayList<>();
 
     /**
      * Setter for markers palette settings.
@@ -761,18 +650,7 @@ public class ChartsRadar extends SeparateChart {
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetMarkerPalette() {
-        if (!setMarkerPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setMarkerPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setMarkerPalette1 = new ArrayList<>();
 
     /**
      * Setter for markers palette settings.
@@ -790,18 +668,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette1() {
-        if (!setMarkerPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setMarkerPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setMarkerPalette2 = new ArrayList<>();
 
     /**
      * Setter for markers palette settings.
@@ -819,18 +686,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette2() {
-        if (!setMarkerPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setMarkerPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setMarkerPalette3 = new ArrayList<>();
 
     /**
      * Setter for markers palette settings.
@@ -848,16 +704,6 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette3() {
-        if (!setMarkerPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setMarkerPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getNormal;
@@ -872,7 +718,6 @@ public class ChartsRadar extends SeparateChart {
         return getNormal;
     }
     private String normal;
-    private List<ChartsRadar> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -889,16 +734,6 @@ public class ChartsRadar extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -917,7 +752,6 @@ public class ChartsRadar extends SeparateChart {
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
-    private List<ChartsRadar> setPalette = new ArrayList<>();
 
     /**
      * Setter for series colors palette.<br/>
@@ -934,18 +768,7 @@ public class ChartsRadar extends SeparateChart {
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette() {
-        if (!setPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for series colors palette.<br/>
@@ -962,18 +785,7 @@ public class ChartsRadar extends SeparateChart {
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette1() {
-        if (!setPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for series colors palette.<br/>
@@ -992,18 +804,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPalette2() {
-        if (!setPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for series colors palette.<br/>
@@ -1022,20 +823,9 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPalette3() {
-        if (!setPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double id2;
     private String id3;
-    private List<ChartsRadar> setRemoveSeries = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -1053,18 +843,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRemoveSeries() {
-        if (!setRemoveSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setRemoveSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setRemoveSeries1 = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -1082,19 +861,8 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRemoveSeries1() {
-        if (!setRemoveSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setRemoveSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index1;
-    private List<ChartsRadar> setRemoveSeriesAt = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its index.
@@ -1112,16 +880,6 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRemoveSeriesAt() {
-        if (!setRemoveSeriesAt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setRemoveSeriesAt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getSelected;
@@ -1136,7 +894,6 @@ public class ChartsRadar extends SeparateChart {
         return getSelected;
     }
     private String selected;
-    private List<ChartsRadar> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -1154,20 +911,9 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String startAngle;
     private Double startAngle1;
-    private List<ChartsRadar> setStartAngle = new ArrayList<>();
 
     /**
      * Setter for the chart start angle.
@@ -1185,18 +931,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetStartAngle() {
-        if (!setStartAngle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setStartAngle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setStartAngle1 = new ArrayList<>();
 
     /**
      * Setter for the chart start angle.
@@ -1214,16 +949,6 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetStartAngle1() {
-        if (!setStartAngle1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setStartAngle1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private CoreAxesRadar getXAxis;
@@ -1239,7 +964,6 @@ public class ChartsRadar extends SeparateChart {
     }
     private String xAxis;
     private Boolean xAxis1;
-    private List<ChartsRadar> setXAxis = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis.
@@ -1257,18 +981,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXAxis() {
-        if (!setXAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setXAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setXAxis1 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis.
@@ -1285,16 +998,6 @@ public class ChartsRadar extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXAxis1() {
-        if (!setXAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setXAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1322,7 +1025,6 @@ public class ChartsRadar extends SeparateChart {
     }
     private String xGrid;
     private Boolean xGrid1;
-    private List<ChartsRadar> setXGrid = new ArrayList<>();
 
     /**
      * Setter for the chart grid by X-scale.
@@ -1340,18 +1042,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXGrid() {
-        if (!setXGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setXGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setXGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by X-scale.
@@ -1369,21 +1060,10 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXGrid1() {
-        if (!setXGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setXGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index3;
     private String xGrid2;
     private Boolean xGrid3;
-    private List<ChartsRadar> setXGrid2 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by index.
@@ -1401,18 +1081,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXGrid2() {
-        if (!setXGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setXGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setXGrid3 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by index.
@@ -1429,16 +1098,6 @@ public class ChartsRadar extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXGrid3() {
-        if (!setXGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setXGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1466,7 +1125,6 @@ public class ChartsRadar extends SeparateChart {
     }
     private String xMinorGrid;
     private Boolean xMinorGrid1;
-    private List<ChartsRadar> setXMinorGrid = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by X-scale.
@@ -1484,18 +1142,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXMinorGrid() {
-        if (!setXMinorGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setXMinorGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setXMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by X-scale.
@@ -1513,21 +1160,10 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXMinorGrid1() {
-        if (!setXMinorGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setXMinorGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index5;
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
-    private List<ChartsRadar> setXMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -1545,18 +1181,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXMinorGrid2() {
-        if (!setXMinorGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setXMinorGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setXMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -1574,16 +1199,6 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXMinorGrid3() {
-        if (!setXMinorGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setXMinorGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Ordinal getXScale;
@@ -1598,7 +1213,6 @@ public class ChartsRadar extends SeparateChart {
         return getXScale;
     }
     private Ordinal xScale;
-    private List<ChartsRadar> setXScale = new ArrayList<>();
 
     /**
      * Setter for the chart X scale.<br/>
@@ -1615,16 +1229,6 @@ public class ChartsRadar extends SeparateChart {
         js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale != null) ? xScale.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetXScale() {
-        if (!setXScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setXScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private CoreAxesRadar getYAxis;
@@ -1640,7 +1244,6 @@ public class ChartsRadar extends SeparateChart {
     }
     private String yAxis;
     private Boolean yAxis1;
-    private List<ChartsRadar> setYAxis = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis.
@@ -1658,18 +1261,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis() {
-        if (!setYAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setYAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setYAxis1 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis.
@@ -1686,16 +1278,6 @@ public class ChartsRadar extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYAxis1() {
-        if (!setYAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setYAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1723,7 +1305,6 @@ public class ChartsRadar extends SeparateChart {
     }
     private String yGrid;
     private Boolean yGrid1;
-    private List<ChartsRadar> setYGrid = new ArrayList<>();
 
     /**
      * Setter for the chart grid by Y-scale.
@@ -1741,18 +1322,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYGrid() {
-        if (!setYGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setYGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setYGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by Y-scale.
@@ -1770,21 +1340,10 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYGrid1() {
-        if (!setYGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setYGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index7;
     private String yGrid2;
     private Boolean yGrid3;
-    private List<ChartsRadar> setYGrid2 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by index.
@@ -1802,18 +1361,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYGrid2() {
-        if (!setYGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setYGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setYGrid3 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by index.
@@ -1830,16 +1378,6 @@ public class ChartsRadar extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYGrid3() {
-        if (!setYGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setYGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1867,7 +1405,6 @@ public class ChartsRadar extends SeparateChart {
     }
     private String yMinorGrid;
     private Boolean yMinorGrid1;
-    private List<ChartsRadar> setYMinorGrid = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by X-scale.
@@ -1885,18 +1422,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYMinorGrid() {
-        if (!setYMinorGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setYMinorGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setYMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by X-scale.
@@ -1914,21 +1440,10 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYMinorGrid1() {
-        if (!setYMinorGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setYMinorGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index9;
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
-    private List<ChartsRadar> setYMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -1946,18 +1461,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYMinorGrid2() {
-        if (!setYMinorGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setYMinorGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setYMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for the chart minor grid by index.
@@ -1974,16 +1478,6 @@ public class ChartsRadar extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYMinorGrid3() {
-        if (!setYMinorGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setYMinorGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2002,7 +1496,6 @@ public class ChartsRadar extends SeparateChart {
     private String yScale1;
     private ScalesBase yScale2;
     private ScaleTypes yScale3;
-    private List<ChartsRadar> setYScale = new ArrayList<>();
 
     /**
      * Setter for the chart Y scale.<br/>
@@ -2021,18 +1514,7 @@ public class ChartsRadar extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYScale() {
-        if (!setYScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setYScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the chart Y scale.<br/>
@@ -2049,18 +1531,7 @@ public class ChartsRadar extends SeparateChart {
         js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetYScale1() {
-        if (!setYScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setYScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsRadar> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the chart Y scale.<br/>
@@ -2078,16 +1549,6 @@ public class ChartsRadar extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYScale2() {
-        if (!setYScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsRadar item : setYScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetGetPlotBounds() {
@@ -2318,59 +1779,10 @@ public class ChartsRadar extends SeparateChart {
         js.append(generateJSgetYScale());
         js.append(generateJSsetArea());
         js.append(generateJSsetArea1());
-        js.append(generateJSsetDefaultSeriesType());
-        js.append(generateJSsetDefaultSeriesType1());
-        js.append(generateJSsetHatchFillPalette());
-        js.append(generateJSsetHatchFillPalette1());
-        js.append(generateJSsetHatchFillPalette2());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetInnerRadius());
-        js.append(generateJSsetInnerRadius1());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
         js.append(generateJSsetLine());
         js.append(generateJSsetLine1());
         js.append(generateJSsetMarker());
         js.append(generateJSsetMarker1());
-        js.append(generateJSsetMarkerPalette());
-        js.append(generateJSsetMarkerPalette1());
-        js.append(generateJSsetMarkerPalette2());
-        js.append(generateJSsetMarkerPalette3());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetPalette());
-        js.append(generateJSsetPalette1());
-        js.append(generateJSsetPalette2());
-        js.append(generateJSsetPalette3());
-        js.append(generateJSsetRemoveSeries());
-        js.append(generateJSsetRemoveSeries1());
-        js.append(generateJSsetRemoveSeriesAt());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetStartAngle());
-        js.append(generateJSsetStartAngle1());
-        js.append(generateJSsetXAxis());
-        js.append(generateJSsetXAxis1());
-        js.append(generateJSsetXGrid());
-        js.append(generateJSsetXGrid1());
-        js.append(generateJSsetXGrid2());
-        js.append(generateJSsetXGrid3());
-        js.append(generateJSsetXMinorGrid());
-        js.append(generateJSsetXMinorGrid1());
-        js.append(generateJSsetXMinorGrid2());
-        js.append(generateJSsetXMinorGrid3());
-        js.append(generateJSsetXScale());
-        js.append(generateJSsetYAxis());
-        js.append(generateJSsetYAxis1());
-        js.append(generateJSsetYGrid());
-        js.append(generateJSsetYGrid1());
-        js.append(generateJSsetYGrid2());
-        js.append(generateJSsetYGrid3());
-        js.append(generateJSsetYMinorGrid());
-        js.append(generateJSsetYMinorGrid1());
-        js.append(generateJSsetYMinorGrid2());
-        js.append(generateJSsetYMinorGrid3());
-        js.append(generateJSsetYScale());
-        js.append(generateJSsetYScale1());
-        js.append(generateJSsetYScale2());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

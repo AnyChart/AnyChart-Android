@@ -51,7 +51,6 @@ public class DataTable extends CoreBase {
     private Boolean removeFromStart;
     private Double removeFromStart1;
     private String csvSettings;
-    private List<DataTable> setAddData = new ArrayList<>();
 
     /**
      * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
@@ -85,18 +84,7 @@ public class DataTable extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetAddData() {
-        if (!setAddData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DataTable item : setAddData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<DataTable> setAddData1 = new ArrayList<>();
 
     /**
      * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
@@ -130,18 +118,7 @@ public class DataTable extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetAddData1() {
-        if (!setAddData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DataTable item : setAddData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<DataTable> setAddData2 = new ArrayList<>();
 
     /**
      * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
@@ -175,18 +152,7 @@ public class DataTable extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetAddData2() {
-        if (!setAddData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DataTable item : setAddData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<DataTable> setAddData3 = new ArrayList<>();
 
     /**
      * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
@@ -219,16 +185,6 @@ public class DataTable extends CoreBase {
             }
         }
         return this;
-    }
-    private String generateJSsetAddData3() {
-        if (!setAddData3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DataTable item : setAddData3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private TableMapping mappingSettingsOrMapping;
@@ -351,7 +307,6 @@ You can add fields to table mappings after the mapping is created using it's add
     private String startKey1;
     private Double endKey;
     private String endKey1;
-    private List<DataTable> setRemove = new ArrayList<>();
 
     /**
      * Removes all items between start and end keys.
@@ -383,18 +338,7 @@ You can add fields to table mappings after the mapping is created using it's add
         }
         return this;
     }
-    private String generateJSsetRemove() {
-        if (!setRemove.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DataTable item : setRemove) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<DataTable> setRemove1 = new ArrayList<>();
 
     /**
      * Removes all items between start and end keys.
@@ -426,18 +370,7 @@ You can add fields to table mappings after the mapping is created using it's add
         }
         return this;
     }
-    private String generateJSsetRemove1() {
-        if (!setRemove1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DataTable item : setRemove1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<DataTable> setRemove2 = new ArrayList<>();
 
     /**
      * Removes all items between start and end keys.
@@ -469,18 +402,7 @@ You can add fields to table mappings after the mapping is created using it's add
         }
         return this;
     }
-    private String generateJSsetRemove2() {
-        if (!setRemove2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DataTable item : setRemove2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<DataTable> setRemove3 = new ArrayList<>();
 
     /**
      * Removes all items between start and end keys.
@@ -512,19 +434,8 @@ You can add fields to table mappings after the mapping is created using it's add
         }
         return this;
     }
-    private String generateJSsetRemove3() {
-        if (!setRemove3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DataTable item : setRemove3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double count;
-    private List<DataTable> setRemoveFirst = new ArrayList<>();
 
     /**
      * Removes first opt_count rows from the storage also considering appended but not yet committed rows.
@@ -548,16 +459,6 @@ You can add fields to table mappings after the mapping is created using it's add
         }
         return this;
     }
-    private String generateJSsetRemoveFirst() {
-        if (!setRemoveFirst.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DataTable item : setRemoveFirst) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -579,18 +480,9 @@ You can add fields to table mappings after the mapping is created using it's add
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAddData());
-        js.append(generateJSsetAddData1());
-        js.append(generateJSsetAddData2());
-        js.append(generateJSsetAddData3());
         js.append(generateJSsetCreateComputer());
         js.append(generateJSsetCreateComputer1());
         js.append(generateJSsetMapAs());
-        js.append(generateJSsetRemove());
-        js.append(generateJSsetRemove1());
-        js.append(generateJSsetRemove2());
-        js.append(generateJSsetRemove3());
-        js.append(generateJSsetRemoveFirst());
         
 
         String result = js.toString();

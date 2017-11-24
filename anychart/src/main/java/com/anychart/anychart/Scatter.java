@@ -164,7 +164,6 @@ public class Scatter extends SeparateChart {
         return getAnnotations;
     }
     private String[] annotationsList;
-    private List<Scatter> setAnnotations = new ArrayList<>();
 
     /**
      * Setter for the annotations.
@@ -181,16 +180,6 @@ public class Scatter extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetAnnotations() {
-        if (!setAnnotations.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setAnnotations) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<ScatterSeriesBubble> setBubble = new ArrayList<>();
@@ -272,7 +261,6 @@ public class Scatter extends SeparateChart {
     }
     private String crosshair;
     private Boolean crosshair1;
-    private List<Scatter> setCrosshair = new ArrayList<>();
 
     /**
      * Setter for crosshair settings.
@@ -290,18 +278,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetCrosshair() {
-        if (!setCrosshair.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setCrosshair) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setCrosshair1 = new ArrayList<>();
 
     /**
      * Setter for crosshair settings.
@@ -319,16 +296,6 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetCrosshair1() {
-        if (!setCrosshair1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setCrosshair1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Crossing getCrossing;
@@ -343,7 +310,6 @@ public class Scatter extends SeparateChart {
         return getCrossing;
     }
     private String crossing;
-    private List<Scatter> setCrossing = new ArrayList<>();
 
     /**
      * Setter for crossing settings.
@@ -361,19 +327,8 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetCrossing() {
-        if (!setCrossing.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setCrossing) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String defaultSeriesType;
-    private List<Scatter> setDefaultSeriesType = new ArrayList<>();
 
     /**
      * Setter for the scatter default series type.
@@ -390,16 +345,6 @@ public class Scatter extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetDefaultSeriesType() {
-        if (!setDefaultSeriesType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setDefaultSeriesType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -463,7 +408,6 @@ public class Scatter extends SeparateChart {
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
-    private List<Scatter> setHatchFillPalette = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -481,18 +425,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette() {
-        if (!setHatchFillPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setHatchFillPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setHatchFillPalette1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -510,18 +443,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette1() {
-        if (!setHatchFillPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setHatchFillPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setHatchFillPalette2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.
@@ -537,16 +459,6 @@ public class Scatter extends SeparateChart {
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetHatchFillPalette2() {
-        if (!setHatchFillPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setHatchFillPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getHovered;
@@ -561,7 +473,6 @@ public class Scatter extends SeparateChart {
         return getHovered;
     }
     private String hovered;
-    private List<Scatter> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -579,16 +490,6 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiLabelsFactory getLabels;
@@ -604,7 +505,6 @@ public class Scatter extends SeparateChart {
     }
     private String labels;
     private Boolean labels1;
-    private List<Scatter> setLabels = new ArrayList<>();
 
     /**
      * Setter for series data labels.
@@ -622,18 +522,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for series data labels.
@@ -650,16 +539,6 @@ public class Scatter extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<ScatterSeriesLine> setLine = new ArrayList<>();
@@ -752,7 +631,6 @@ public class Scatter extends SeparateChart {
     }
     private String lineMarker;
     private Boolean lineMarker1;
-    private List<Scatter> setLineMarker = new ArrayList<>();
 
     /**
      * Setter for the chart line marker.
@@ -770,18 +648,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLineMarker() {
-        if (!setLineMarker.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setLineMarker) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setLineMarker1 = new ArrayList<>();
 
     /**
      * Setter for the chart line marker.
@@ -799,21 +666,10 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLineMarker1() {
-        if (!setLineMarker1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setLineMarker1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index2;
     private String lineMarker2;
     private Boolean lineMarker3;
-    private List<Scatter> setLineMarker2 = new ArrayList<>();
 
     /**
      * Setter for the chart line marker by index.
@@ -831,18 +687,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLineMarker2() {
-        if (!setLineMarker2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setLineMarker2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setLineMarker3 = new ArrayList<>();
 
     /**
      * Setter for the chart line marker by index.
@@ -859,16 +704,6 @@ public class Scatter extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetLineMarker3() {
-        if (!setLineMarker3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setLineMarker3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<ScatterSeriesMarker> setMarker = new ArrayList<>();
@@ -952,7 +787,6 @@ public class Scatter extends SeparateChart {
     private String markerPalette1;
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
-    private List<Scatter> setMarkerPalette = new ArrayList<>();
 
     /**
      * Setter for markers palette settings.
@@ -968,18 +802,7 @@ public class Scatter extends SeparateChart {
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetMarkerPalette() {
-        if (!setMarkerPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setMarkerPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setMarkerPalette1 = new ArrayList<>();
 
     /**
      * Setter for markers palette settings.
@@ -997,18 +820,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette1() {
-        if (!setMarkerPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setMarkerPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setMarkerPalette2 = new ArrayList<>();
 
     /**
      * Setter for markers palette settings.
@@ -1026,18 +838,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette2() {
-        if (!setMarkerPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setMarkerPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setMarkerPalette3 = new ArrayList<>();
 
     /**
      * Setter for markers palette settings.
@@ -1055,20 +856,9 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette3() {
-        if (!setMarkerPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setMarkerPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxBubbleSize;
     private String maxBubbleSize1;
-    private List<Scatter> setMaxBubbleSize = new ArrayList<>();
 
     /**
      * Setter for the maximum size for all bubbles on the charts.
@@ -1086,18 +876,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMaxBubbleSize() {
-        if (!setMaxBubbleSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setMaxBubbleSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setMaxBubbleSize1 = new ArrayList<>();
 
     /**
      * Setter for the maximum size for all bubbles on the charts.
@@ -1115,20 +894,9 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMaxBubbleSize1() {
-        if (!setMaxBubbleSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setMaxBubbleSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double minBubbleSize;
     private String minBubbleSize1;
-    private List<Scatter> setMinBubbleSize = new ArrayList<>();
 
     /**
      * Setter for the minimum size for all bubbles on the charts.
@@ -1146,18 +914,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMinBubbleSize() {
-        if (!setMinBubbleSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setMinBubbleSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setMinBubbleSize1 = new ArrayList<>();
 
     /**
      * Setter for the minimum size for all bubbles on the charts.
@@ -1175,16 +932,6 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMinBubbleSize1() {
-        if (!setMinBubbleSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setMinBubbleSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getNormal;
@@ -1199,7 +946,6 @@ public class Scatter extends SeparateChart {
         return getNormal;
     }
     private String normal;
-    private List<Scatter> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -1216,16 +962,6 @@ public class Scatter extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1244,7 +980,6 @@ public class Scatter extends SeparateChart {
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
-    private List<Scatter> setPalette = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -1261,18 +996,7 @@ public class Scatter extends SeparateChart {
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette() {
-        if (!setPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -1289,18 +1013,7 @@ public class Scatter extends SeparateChart {
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette1() {
-        if (!setPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -1319,18 +1032,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPalette2() {
-        if (!setPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for the series colors palette.
@@ -1349,16 +1051,6 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPalette3() {
-        if (!setPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private QuarterSettings getQuarters;
@@ -1373,7 +1065,6 @@ public class Scatter extends SeparateChart {
         return getQuarters;
     }
     private String quarters;
-    private List<Scatter> setQuarters = new ArrayList<>();
 
     /**
      * Setter for quarter settings.
@@ -1390,16 +1081,6 @@ public class Scatter extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetQuarters() {
-        if (!setQuarters.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setQuarters) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1427,7 +1108,6 @@ public class Scatter extends SeparateChart {
     }
     private String rangeMarker;
     private Boolean rangeMarker1;
-    private List<Scatter> setRangeMarker = new ArrayList<>();
 
     /**
      * Setter for the chart range marker.
@@ -1445,18 +1125,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRangeMarker() {
-        if (!setRangeMarker.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setRangeMarker) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setRangeMarker1 = new ArrayList<>();
 
     /**
      * Setter for the chart range marker.
@@ -1474,21 +1143,10 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRangeMarker1() {
-        if (!setRangeMarker1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setRangeMarker1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index4;
     private String rangeMarker2;
     private Boolean rangeMarker3;
-    private List<Scatter> setRangeMarker2 = new ArrayList<>();
 
     /**
      * Setter for the chart range marker by index.
@@ -1506,18 +1164,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRangeMarker2() {
-        if (!setRangeMarker2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setRangeMarker2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setRangeMarker3 = new ArrayList<>();
 
     /**
      * Setter for the chart range marker by index.
@@ -1535,20 +1182,9 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRangeMarker3() {
-        if (!setRangeMarker3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setRangeMarker3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double id2;
     private String id3;
-    private List<Scatter> setRemoveSeries = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -1566,18 +1202,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRemoveSeries() {
-        if (!setRemoveSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setRemoveSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setRemoveSeries1 = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -1595,19 +1220,8 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRemoveSeries1() {
-        if (!setRemoveSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setRemoveSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index5;
-    private List<Scatter> setRemoveSeriesAt = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its index.
@@ -1625,16 +1239,6 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetRemoveSeriesAt() {
-        if (!setRemoveSeriesAt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setRemoveSeriesAt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getSelected;
@@ -1649,7 +1253,6 @@ public class Scatter extends SeparateChart {
         return getSelected;
     }
     private String selected;
-    private List<Scatter> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -1666,16 +1269,6 @@ public class Scatter extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1703,7 +1296,6 @@ public class Scatter extends SeparateChart {
     }
     private String textMarker;
     private Boolean textMarker1;
-    private List<Scatter> setTextMarker = new ArrayList<>();
 
     /**
      * Setter for the chart text marker.
@@ -1721,18 +1313,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetTextMarker() {
-        if (!setTextMarker.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setTextMarker) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setTextMarker1 = new ArrayList<>();
 
     /**
      * Setter for the chart text marker.
@@ -1750,21 +1331,10 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetTextMarker1() {
-        if (!setTextMarker1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setTextMarker1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index7;
     private String textMarker2;
     private Boolean textMarker3;
-    private List<Scatter> setTextMarker2 = new ArrayList<>();
 
     /**
      * Setter for the chart text marker by index.
@@ -1782,18 +1352,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetTextMarker2() {
-        if (!setTextMarker2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setTextMarker2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setTextMarker3 = new ArrayList<>();
 
     /**
      * Setter for the chart text marker by index.
@@ -1810,16 +1369,6 @@ public class Scatter extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetTextMarker3() {
-        if (!setTextMarker3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setTextMarker3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1847,7 +1396,6 @@ public class Scatter extends SeparateChart {
     }
     private String xAxis;
     private Boolean xAxis1;
-    private List<Scatter> setXAxis = new ArrayList<>();
 
     /**
      * Setter for chart X-axis.
@@ -1865,18 +1413,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXAxis() {
-        if (!setXAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setXAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setXAxis1 = new ArrayList<>();
 
     /**
      * Setter for chart X-axis.
@@ -1894,21 +1431,10 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXAxis1() {
-        if (!setXAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setXAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index9;
     private String xAxis2;
     private Boolean xAxis3;
-    private List<Scatter> setXAxis2 = new ArrayList<>();
 
     /**
      * Setter for chart X-axis by index.
@@ -1926,18 +1452,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXAxis2() {
-        if (!setXAxis2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setXAxis2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setXAxis3 = new ArrayList<>();
 
     /**
      * Setter for chart X-axis by index.
@@ -1954,16 +1469,6 @@ public class Scatter extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXAxis3() {
-        if (!setXAxis3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setXAxis3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1991,7 +1496,6 @@ public class Scatter extends SeparateChart {
     }
     private String xGrid;
     private Boolean xGrid1;
-    private List<Scatter> setXGrid = new ArrayList<>();
 
     /**
      * Setter for chart grid by X-scale.
@@ -2009,18 +1513,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXGrid() {
-        if (!setXGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setXGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setXGrid1 = new ArrayList<>();
 
     /**
      * Setter for chart grid by X-scale.
@@ -2038,21 +1531,10 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXGrid1() {
-        if (!setXGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setXGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index11;
     private String xGrid2;
     private Boolean xGrid3;
-    private List<Scatter> setXGrid2 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -2070,18 +1552,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXGrid2() {
-        if (!setXGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setXGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setXGrid3 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -2098,16 +1569,6 @@ public class Scatter extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXGrid3() {
-        if (!setXGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setXGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2135,7 +1596,6 @@ public class Scatter extends SeparateChart {
     }
     private String xMinorGrid;
     private Boolean xMinorGrid1;
-    private List<Scatter> setXMinorGrid = new ArrayList<>();
 
     /**
      * Setter for chart minor grid by X-scale.
@@ -2153,18 +1613,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXMinorGrid() {
-        if (!setXMinorGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setXMinorGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setXMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for chart minor grid by X-scale.
@@ -2182,21 +1631,10 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXMinorGrid1() {
-        if (!setXMinorGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setXMinorGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index13;
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
-    private List<Scatter> setXMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for chart minor grid by index.
@@ -2214,18 +1652,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXMinorGrid2() {
-        if (!setXMinorGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setXMinorGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setXMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for chart minor grid by index.
@@ -2243,16 +1670,6 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXMinorGrid3() {
-        if (!setXMinorGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setXMinorGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private ScatterBase getXScale;
@@ -2262,7 +1679,7 @@ public class Scatter extends SeparateChart {
      */
     public ScatterBase getXScale() {
         if (getXScale == null)
-            getXScale = new ScatterBase(jsBase + ".xScale()");
+            getXScale = new ScalesLinear(jsBase + ".xScale()");
 
         return getXScale;
     }
@@ -2270,7 +1687,6 @@ public class Scatter extends SeparateChart {
     private ScatterScaleTypes xScale1;
     private String xScale2;
     private ScatterBase xScale3;
-    private List<Scatter> setXScale = new ArrayList<>();
 
     /**
      * Setter for default chart X scale.
@@ -2288,18 +1704,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXScale() {
-        if (!setXScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setXScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setXScale1 = new ArrayList<>();
 
     /**
      * Setter for default chart X scale.
@@ -2317,18 +1722,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXScale1() {
-        if (!setXScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setXScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setXScale2 = new ArrayList<>();
 
     /**
      * Setter for default chart X scale.
@@ -2343,16 +1737,6 @@ public class Scatter extends SeparateChart {
 
         js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale3 != null) ? xScale3.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetXScale2() {
-        if (!setXScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setXScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2380,7 +1764,6 @@ public class Scatter extends SeparateChart {
     }
     private String yAxis;
     private Boolean yAxis1;
-    private List<Scatter> setYAxis = new ArrayList<>();
 
     /**
      * Setter for chart Y-axis.
@@ -2398,18 +1781,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis() {
-        if (!setYAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setYAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setYAxis1 = new ArrayList<>();
 
     /**
      * Setter for chart Y-axis.
@@ -2427,21 +1799,10 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis1() {
-        if (!setYAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setYAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index15;
     private String yAxis2;
     private Boolean yAxis3;
-    private List<Scatter> setYAxis2 = new ArrayList<>();
 
     /**
      * Setter for chart Y-axis by index.
@@ -2459,18 +1820,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis2() {
-        if (!setYAxis2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setYAxis2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setYAxis3 = new ArrayList<>();
 
     /**
      * Setter for chart Y-axis by index.
@@ -2487,16 +1837,6 @@ public class Scatter extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYAxis3() {
-        if (!setYAxis3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setYAxis3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2524,7 +1864,6 @@ public class Scatter extends SeparateChart {
     }
     private String yGrid;
     private Boolean yGrid1;
-    private List<Scatter> setYGrid = new ArrayList<>();
 
     /**
      * Setter for chart grid by Y-scale.
@@ -2542,18 +1881,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYGrid() {
-        if (!setYGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setYGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setYGrid1 = new ArrayList<>();
 
     /**
      * Setter for chart grid by Y-scale.
@@ -2571,21 +1899,10 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYGrid1() {
-        if (!setYGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setYGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index17;
     private String yGrid2;
     private Boolean yGrid3;
-    private List<Scatter> setYGrid2 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -2603,18 +1920,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYGrid2() {
-        if (!setYGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setYGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setYGrid3 = new ArrayList<>();
 
     /**
      * Setter for chart grid by index.
@@ -2631,16 +1937,6 @@ public class Scatter extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYGrid3() {
-        if (!setYGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setYGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2668,7 +1964,6 @@ public class Scatter extends SeparateChart {
     }
     private String yMinorGrid;
     private Boolean yMinorGrid1;
-    private List<Scatter> setYMinorGrid = new ArrayList<>();
 
     /**
      * Setter for chart minor grid by Y-scale.
@@ -2686,18 +1981,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYMinorGrid() {
-        if (!setYMinorGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setYMinorGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setYMinorGrid1 = new ArrayList<>();
 
     /**
      * Setter for chart minor grid by Y-scale.
@@ -2715,21 +1999,10 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYMinorGrid1() {
-        if (!setYMinorGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setYMinorGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index19;
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
-    private List<Scatter> setYMinorGrid2 = new ArrayList<>();
 
     /**
      * Setter for chart minor grid by index.
@@ -2747,18 +2020,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYMinorGrid2() {
-        if (!setYMinorGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setYMinorGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setYMinorGrid3 = new ArrayList<>();
 
     /**
      * Setter for chart minor grid by index.
@@ -2776,16 +2038,6 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYMinorGrid3() {
-        if (!setYMinorGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setYMinorGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private ScatterBase getYScale;
@@ -2795,7 +2047,7 @@ public class Scatter extends SeparateChart {
      */
     public ScatterBase getYScale() {
         if (getYScale == null)
-            getYScale = new ScatterBase(jsBase + ".yScale()");
+            getYScale = new ScalesLinear(jsBase + ".yScale()");
 
         return getYScale;
     }
@@ -2803,7 +2055,6 @@ public class Scatter extends SeparateChart {
     private ScatterScaleTypes yScale1;
     private String yScale2;
     private ScatterBase yScale3;
-    private List<Scatter> setYScale = new ArrayList<>();
 
     /**
      * Setter for default chart Y scale.
@@ -2821,18 +2072,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYScale() {
-        if (!setYScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setYScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for default chart Y scale.
@@ -2850,18 +2090,7 @@ public class Scatter extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYScale1() {
-        if (!setYScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setYScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Scatter> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for default chart Y scale.
@@ -2876,16 +2105,6 @@ public class Scatter extends SeparateChart {
 
         js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale3 != null) ? yScale3.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetYScale2() {
-        if (!setYScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Scatter item : setYScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetAnnotations() {
@@ -3235,83 +2454,12 @@ public class Scatter extends SeparateChart {
         js.append(generateJSgetYMinorGrid());
         js.append(generateJSgetYMinorGrid1());
         js.append(generateJSgetYScale());
-        js.append(generateJSsetAnnotations());
         js.append(generateJSsetBubble());
         js.append(generateJSsetBubble1());
-        js.append(generateJSsetCrosshair());
-        js.append(generateJSsetCrosshair1());
-        js.append(generateJSsetCrossing());
-        js.append(generateJSsetDefaultSeriesType());
-        js.append(generateJSsetHatchFillPalette());
-        js.append(generateJSsetHatchFillPalette1());
-        js.append(generateJSsetHatchFillPalette2());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
         js.append(generateJSsetLine());
         js.append(generateJSsetLine1());
-        js.append(generateJSsetLineMarker());
-        js.append(generateJSsetLineMarker1());
-        js.append(generateJSsetLineMarker2());
-        js.append(generateJSsetLineMarker3());
         js.append(generateJSsetMarker());
         js.append(generateJSsetMarker1());
-        js.append(generateJSsetMarkerPalette());
-        js.append(generateJSsetMarkerPalette1());
-        js.append(generateJSsetMarkerPalette2());
-        js.append(generateJSsetMarkerPalette3());
-        js.append(generateJSsetMaxBubbleSize());
-        js.append(generateJSsetMaxBubbleSize1());
-        js.append(generateJSsetMinBubbleSize());
-        js.append(generateJSsetMinBubbleSize1());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetPalette());
-        js.append(generateJSsetPalette1());
-        js.append(generateJSsetPalette2());
-        js.append(generateJSsetPalette3());
-        js.append(generateJSsetQuarters());
-        js.append(generateJSsetRangeMarker());
-        js.append(generateJSsetRangeMarker1());
-        js.append(generateJSsetRangeMarker2());
-        js.append(generateJSsetRangeMarker3());
-        js.append(generateJSsetRemoveSeries());
-        js.append(generateJSsetRemoveSeries1());
-        js.append(generateJSsetRemoveSeriesAt());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetTextMarker());
-        js.append(generateJSsetTextMarker1());
-        js.append(generateJSsetTextMarker2());
-        js.append(generateJSsetTextMarker3());
-        js.append(generateJSsetXAxis());
-        js.append(generateJSsetXAxis1());
-        js.append(generateJSsetXAxis2());
-        js.append(generateJSsetXAxis3());
-        js.append(generateJSsetXGrid());
-        js.append(generateJSsetXGrid1());
-        js.append(generateJSsetXGrid2());
-        js.append(generateJSsetXGrid3());
-        js.append(generateJSsetXMinorGrid());
-        js.append(generateJSsetXMinorGrid1());
-        js.append(generateJSsetXMinorGrid2());
-        js.append(generateJSsetXMinorGrid3());
-        js.append(generateJSsetXScale());
-        js.append(generateJSsetXScale1());
-        js.append(generateJSsetXScale2());
-        js.append(generateJSsetYAxis());
-        js.append(generateJSsetYAxis1());
-        js.append(generateJSsetYAxis2());
-        js.append(generateJSsetYAxis3());
-        js.append(generateJSsetYGrid());
-        js.append(generateJSsetYGrid1());
-        js.append(generateJSsetYGrid2());
-        js.append(generateJSsetYGrid3());
-        js.append(generateJSsetYMinorGrid());
-        js.append(generateJSsetYMinorGrid1());
-        js.append(generateJSsetYMinorGrid2());
-        js.append(generateJSsetYMinorGrid3());
-        js.append(generateJSsetYScale());
-        js.append(generateJSsetYScale1());
-        js.append(generateJSsetYScale2());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

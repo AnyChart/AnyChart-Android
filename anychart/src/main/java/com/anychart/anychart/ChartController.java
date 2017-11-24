@@ -33,7 +33,6 @@ public class ChartController extends CoreBase {
 
     
     private AnnotationsBase annotation;
-    private List<ChartController> setRemoveAnnotation = new ArrayList<>();
 
     /**
      * Removes one of annotations from plot by its instance.
@@ -54,19 +53,8 @@ public class ChartController extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetRemoveAnnotation() {
-        if (!setRemoveAnnotation.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartController item : setRemoveAnnotation) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private AnnotationsBase annotation1;
-    private List<ChartController> setSelect = new ArrayList<>();
 
     /**
      * Selects annotation.
@@ -89,16 +77,6 @@ public class ChartController extends CoreBase {
             js.append(String.format(Locale.US, ".select(%s);",  ((annotation1 != null) ? annotation1.getJsBase() : "null")));
         }
         return this;
-    }
-    private String generateJSsetSelect() {
-        if (!setSelect.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartController item : setSelect) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private AnnotationTypes annotationTypeOrConfig;
@@ -253,8 +231,6 @@ public class ChartController extends CoreBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetRemoveAnnotation());
-        js.append(generateJSsetSelect());
         js.append(generateJSsetStartDrawing());
         js.append(generateJSsetStartDrawing1());
         js.append(generateJSsetStartDrawing2());

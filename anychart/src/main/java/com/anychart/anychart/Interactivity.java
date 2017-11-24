@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -35,7 +33,6 @@ public class Interactivity extends CoreBase {
     
     private HoverMode hoverMode;
     private String hoverMode1;
-    private List<Interactivity> setHoverMode = new ArrayList<>();
 
     /**
      * Setter for the hover mode.
@@ -62,18 +59,7 @@ public class Interactivity extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHoverMode() {
-        if (!setHoverMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Interactivity item : setHoverMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Interactivity> setHoverMode1 = new ArrayList<>();
 
     /**
      * Setter for the hover mode.
@@ -100,20 +86,9 @@ public class Interactivity extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetHoverMode1() {
-        if (!setHoverMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Interactivity item : setHoverMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private SelectionMode selectionMode;
     private String selectionMode1;
-    private List<Interactivity> setSelectionMode = new ArrayList<>();
 
     /**
      * Setter for the selection mode.
@@ -140,18 +115,7 @@ public class Interactivity extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetSelectionMode() {
-        if (!setSelectionMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Interactivity item : setSelectionMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Interactivity> setSelectionMode1 = new ArrayList<>();
 
     /**
      * Setter for the selection mode.
@@ -178,19 +142,8 @@ public class Interactivity extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetSelectionMode1() {
-        if (!setSelectionMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Interactivity item : setSelectionMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double spotRadius;
-    private List<Interactivity> setSpotRadius = new ArrayList<>();
 
     /**
      * Setter for the spot radius.
@@ -216,16 +169,6 @@ Size of the area under cursor in pixels for radius hovering.
         }
         return this;
     }
-    private String generateJSsetSpotRadius() {
-        if (!setSpotRadius.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Interactivity item : setSpotRadius) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -247,11 +190,6 @@ Size of the area under cursor in pixels for radius hovering.
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetHoverMode());
-        js.append(generateJSsetHoverMode1());
-        js.append(generateJSsetSelectionMode());
-        js.append(generateJSsetSelectionMode1());
-        js.append(generateJSsetSpotRadius());
         
 
         String result = js.toString();

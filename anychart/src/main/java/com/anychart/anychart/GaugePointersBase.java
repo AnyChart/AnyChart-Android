@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class GaugePointersBase extends VisualBase {
 
     
     private Double index;
-    private List<GaugePointersBase> setAxisIndex = new ArrayList<>();
 
     /**
      * Setter for the axis index.
@@ -57,19 +54,8 @@ public class GaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAxisIndex() {
-        if (!setAxisIndex.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setAxisIndex) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index1;
-    private List<GaugePointersBase> setDataIndex = new ArrayList<>();
 
     /**
      * Setter for the data index.
@@ -96,19 +82,8 @@ public class GaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetDataIndex() {
-        if (!setDataIndex.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setDataIndex) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
-    private List<GaugePointersBase> setFill = new ArrayList<>();
 
     /**
      * Sets pointer fill settings using an array or a string.
@@ -133,20 +108,9 @@ public class GaugePointersBase extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<GaugePointersBase> setFill1 = new ArrayList<>();
 
     /**
      * Pointer fill color with opacity.<br/>
@@ -173,16 +137,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -191,7 +145,6 @@ Fill as a string or an object.
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<GaugePointersBase> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient pointer fill.
@@ -232,18 +185,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GaugePointersBase> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient pointer fill.
@@ -284,18 +226,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GaugePointersBase> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient pointer fill.
@@ -336,18 +267,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GaugePointersBase> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient pointer fill.
@@ -388,18 +308,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GaugePointersBase> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient pointer fill.
@@ -440,18 +349,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GaugePointersBase> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient pointer fill.
@@ -492,16 +390,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -511,7 +399,6 @@ Fill as a string or an object.
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<GaugePointersBase> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient pointer fill.
@@ -562,18 +449,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GaugePointersBase> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient pointer fill.
@@ -624,16 +500,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private PatternFill getHatchFill;
@@ -656,7 +522,6 @@ Fill as a string or an object.
     private String color1;
     private Double thickness;
     private Double size;
-    private List<GaugePointersBase> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -696,18 +561,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetHatchFill() {
-        if (!setHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GaugePointersBase> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -747,18 +601,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetHatchFill1() {
-        if (!setHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GaugePointersBase> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -798,18 +641,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetHatchFill2() {
-        if (!setHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GaugePointersBase> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -849,18 +681,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetHatchFill3() {
-        if (!setHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GaugePointersBase> setHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for hatch fill settings.
@@ -900,16 +721,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetHatchFill4() {
-        if (!setHatchFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setHatchFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color2;
     private ColoredFill color3;
@@ -918,7 +729,6 @@ Fill as a string or an object.
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<GaugePointersBase> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -960,18 +770,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GaugePointersBase> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -1013,18 +812,7 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GaugePointersBase> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -1066,16 +854,6 @@ Fill as a string or an object.
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GaugePointersBase item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String generateJSgetHatchFill() {
         if (getHatchFill != null) {
@@ -1105,26 +883,6 @@ Fill as a string or an object.
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAxisIndex());
-        js.append(generateJSsetDataIndex());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetHatchFill());
-        js.append(generateJSsetHatchFill1());
-        js.append(generateJSsetHatchFill2());
-        js.append(generateJSsetHatchFill3());
-        js.append(generateJSsetHatchFill4());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
         
 
         String result = js.toString();

@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -34,7 +32,6 @@ public class MMA extends JsObject {
 
     
     private Double period;
-    private List<MMA> setPeriod = new ArrayList<>();
 
     /**
      * Setter for the indicator period.
@@ -58,16 +55,6 @@ public class MMA extends JsObject {
         }
         return this;
     }
-    private String generateJSsetPeriod() {
-        if (!setPeriod.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MMA item : setPeriod) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StockSeriesBase getSeries;
 
@@ -83,7 +70,6 @@ public class MMA extends JsObject {
 
     private StockSeriesType type;
     private String type1;
-    private List<MMA> setSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator series.
@@ -110,18 +96,7 @@ public class MMA extends JsObject {
         }
         return this;
     }
-    private String generateJSsetSeries() {
-        if (!setSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MMA item : setSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MMA> setSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator series.
@@ -147,16 +122,6 @@ public class MMA extends JsObject {
             }
         }
         return this;
-    }
-    private String generateJSsetSeries1() {
-        if (!setSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MMA item : setSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetSeries() {
@@ -187,9 +152,6 @@ public class MMA extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetPeriod());
-        js.append(generateJSsetSeries());
-        js.append(generateJSsetSeries1());
         
 
         String result = js.toString();

@@ -33,7 +33,6 @@ public class Tasks extends JsObject {
 
     
     private String color;
-    private List<Tasks> setColor = new ArrayList<>();
 
     /**
      * Setter for tasks color.
@@ -56,16 +55,6 @@ public class Tasks extends JsObject {
             }
         }
         return this;
-    }
-    private String generateJSsetColor() {
-        if (!setColor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setColor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Fill dummyFill;
@@ -110,7 +99,6 @@ public class Tasks extends JsObject {
 
     private String color1;
     private Double opacity;
-    private List<Tasks> setDummyFill1 = new ArrayList<>();
 
     /**
      * Dummy fill color with opacity.
@@ -139,16 +127,6 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDummyFill1() {
-        if (!setDummyFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setDummyFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -157,7 +135,6 @@ public class Tasks extends JsObject {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<Tasks> setDummyFill2 = new ArrayList<>();
 
     /**
      * Linear gradient dummy fill.
@@ -198,18 +175,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDummyFill2() {
-        if (!setDummyFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setDummyFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setDummyFill3 = new ArrayList<>();
 
     /**
      * Linear gradient dummy fill.
@@ -250,18 +216,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDummyFill3() {
-        if (!setDummyFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setDummyFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setDummyFill4 = new ArrayList<>();
 
     /**
      * Linear gradient dummy fill.
@@ -302,18 +257,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDummyFill4() {
-        if (!setDummyFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setDummyFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setDummyFill5 = new ArrayList<>();
 
     /**
      * Linear gradient dummy fill.
@@ -354,18 +298,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDummyFill5() {
-        if (!setDummyFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setDummyFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setDummyFill6 = new ArrayList<>();
 
     /**
      * Linear gradient dummy fill.
@@ -406,18 +339,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDummyFill6() {
-        if (!setDummyFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setDummyFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setDummyFill7 = new ArrayList<>();
 
     /**
      * Linear gradient dummy fill.
@@ -458,16 +380,6 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDummyFill7() {
-        if (!setDummyFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setDummyFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -477,7 +389,6 @@ public class Tasks extends JsObject {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<Tasks> setDummyFill8 = new ArrayList<>();
 
     /**
      * Radial gradient dummy fill.
@@ -528,18 +439,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDummyFill8() {
-        if (!setDummyFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setDummyFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setDummyFill9 = new ArrayList<>();
 
     /**
      * Radial gradient dummy fill.
@@ -590,16 +490,6 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDummyFill9() {
-        if (!setDummyFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setDummyFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private Stroke color2;
@@ -609,7 +499,6 @@ public class Tasks extends JsObject {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<Tasks> setDummyStroke = new ArrayList<>();
 
     /**
      * Setter for tasks dummy stroke.
@@ -648,18 +537,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDummyStroke() {
-        if (!setDummyStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setDummyStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setDummyStroke1 = new ArrayList<>();
 
     /**
      * Setter for tasks dummy stroke.
@@ -698,18 +576,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDummyStroke1() {
-        if (!setDummyStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setDummyStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setDummyStroke2 = new ArrayList<>();
 
     /**
      * Setter for tasks dummy stroke.
@@ -747,16 +614,6 @@ public class Tasks extends JsObject {
             }
         }
         return this;
-    }
-    private String generateJSsetDummyStroke2() {
-        if (!setDummyStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setDummyStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Fill fill;
@@ -801,7 +658,6 @@ public class Tasks extends JsObject {
 
     private String color5;
     private Double opacity3;
-    private List<Tasks> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -839,16 +695,6 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys4;
     private String[] keys5;
@@ -857,7 +703,6 @@ public class Tasks extends JsObject {
     private VectorRect mode5;
     private String mode6;
     private Double opacity4;
-    private List<Tasks> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -912,18 +757,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -978,18 +812,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1044,18 +867,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1110,18 +922,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1176,18 +977,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -1242,16 +1032,6 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys6;
     private String[] keys7;
@@ -1261,7 +1041,6 @@ public class Tasks extends JsObject {
     private Double opacity5;
     private Double fx1;
     private Double fy1;
-    private List<Tasks> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -1335,18 +1114,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -1420,16 +1188,6 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings1;
     private StateSettings getHovered;
@@ -1445,7 +1203,6 @@ public class Tasks extends JsObject {
     }
 
     private String hovered;
-    private List<Tasks> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -1469,16 +1226,6 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabelsFactory getLowerLabels;
 
@@ -1494,7 +1241,6 @@ public class Tasks extends JsObject {
 
     private String lowerLabels;
     private Boolean lowerLabels1;
-    private List<Tasks> setLowerLabels = new ArrayList<>();
 
     /**
      * Setter for the lower labels settings.
@@ -1521,18 +1267,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetLowerLabels() {
-        if (!setLowerLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setLowerLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setLowerLabels1 = new ArrayList<>();
 
     /**
      * Setter for the lower labels settings.
@@ -1559,16 +1294,6 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetLowerLabels1() {
-        if (!setLowerLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setLowerLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getNormal;
 
@@ -1583,7 +1308,6 @@ public class Tasks extends JsObject {
     }
 
     private String normal;
-    private List<Tasks> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -1607,16 +1331,6 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getSelected;
 
@@ -1631,7 +1345,6 @@ public class Tasks extends JsObject {
     }
 
     private String selected;
-    private List<Tasks> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -1655,16 +1368,6 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color6;
     private ColoredFill color7;
@@ -1673,7 +1376,6 @@ public class Tasks extends JsObject {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
-    private List<Tasks> setStroke = new ArrayList<>();
 
     /**
      * Setter for tasks stroke settings.
@@ -1728,18 +1430,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for tasks stroke settings.
@@ -1794,18 +1485,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for tasks stroke settings.
@@ -1860,16 +1540,6 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Tooltip getTooltip;
 
@@ -1885,7 +1555,6 @@ public class Tasks extends JsObject {
 
     private String tooltip;
     private Boolean tooltip1;
-    private List<Tasks> setTooltip = new ArrayList<>();
 
     /**
      * Setter for tasks data tooltip.
@@ -1912,18 +1581,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetTooltip() {
-        if (!setTooltip.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setTooltip) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setTooltip1 = new ArrayList<>();
 
     /**
      * Setter for tasks data tooltip.
@@ -1950,16 +1608,6 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetTooltip1() {
-        if (!setTooltip1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setTooltip1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabelsFactory getUpperLabels;
 
@@ -1975,7 +1623,6 @@ public class Tasks extends JsObject {
 
     private String upperLabels;
     private Boolean upperLabels1;
-    private List<Tasks> setUpperLabels = new ArrayList<>();
 
     /**
      * Setter for the upper labels settings.
@@ -2002,18 +1649,7 @@ public class Tasks extends JsObject {
         }
         return this;
     }
-    private String generateJSsetUpperLabels() {
-        if (!setUpperLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setUpperLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Tasks> setUpperLabels1 = new ArrayList<>();
 
     /**
      * Setter for the upper labels settings.
@@ -2039,16 +1675,6 @@ public class Tasks extends JsObject {
             }
         }
         return this;
-    }
-    private String generateJSsetUpperLabels1() {
-        if (!setUpperLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Tasks item : setUpperLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetHovered() {
@@ -2119,42 +1745,8 @@ public class Tasks extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetColor());
         js.append(generateJSsetDummyFill());
-        js.append(generateJSsetDummyFill1());
-        js.append(generateJSsetDummyFill2());
-        js.append(generateJSsetDummyFill3());
-        js.append(generateJSsetDummyFill4());
-        js.append(generateJSsetDummyFill5());
-        js.append(generateJSsetDummyFill6());
-        js.append(generateJSsetDummyFill7());
-        js.append(generateJSsetDummyFill8());
-        js.append(generateJSsetDummyFill9());
-        js.append(generateJSsetDummyStroke());
-        js.append(generateJSsetDummyStroke1());
-        js.append(generateJSsetDummyStroke2());
         js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetLowerLabels());
-        js.append(generateJSsetLowerLabels1());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetTooltip());
-        js.append(generateJSsetTooltip1());
-        js.append(generateJSsetUpperLabels());
-        js.append(generateJSsetUpperLabels1());
         
 
         String result = js.toString();

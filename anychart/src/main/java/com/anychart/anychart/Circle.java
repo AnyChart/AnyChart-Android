@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -40,7 +38,6 @@ public class Circle extends VectorEllipse {
 
     
     private Double radius;
-    private List<Circle> setRadius = new ArrayList<>();
 
     /**
      * Setter for the circle radius.
@@ -64,16 +61,6 @@ public class Circle extends VectorEllipse {
         }
         return this;
     }
-    private String generateJSsetRadius() {
-        if (!setRadius.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Circle item : setRadius) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -95,7 +82,6 @@ public class Circle extends VectorEllipse {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetRadius());
         
 
         String result = js.toString();

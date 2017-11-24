@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -37,7 +35,6 @@ public class ScalesLinear extends ScatterBase {
     private ScaleCompareWithMode compareWith;
     private String compareWith1;
     private Double compareWith2;
-    private List<ScalesLinear> setCompareWith = new ArrayList<>();
 
     /**
      * Setter for the date which should be used as a changes zero for series.
@@ -65,18 +62,7 @@ public class ScalesLinear extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetCompareWith() {
-        if (!setCompareWith.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setCompareWith) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScalesLinear> setCompareWith1 = new ArrayList<>();
 
     /**
      * Setter for the date which should be used as a changes zero for series.
@@ -104,18 +90,7 @@ public class ScalesLinear extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetCompareWith1() {
-        if (!setCompareWith1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setCompareWith1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScalesLinear> setCompareWith2 = new ArrayList<>();
 
     /**
      * Setter for the date which should be used as a changes zero for series.
@@ -143,20 +118,9 @@ public class ScalesLinear extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetCompareWith2() {
-        if (!setCompareWith2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setCompareWith2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScaleComparisonMode comparisonMode;
     private String comparisonMode1;
-    private List<ScalesLinear> setComparisonMode = new ArrayList<>();
 
     /**
      * Setter for the scale changes mode.
@@ -183,18 +147,7 @@ public class ScalesLinear extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetComparisonMode() {
-        if (!setComparisonMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setComparisonMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScalesLinear> setComparisonMode1 = new ArrayList<>();
 
     /**
      * Setter for the scale changes mode.
@@ -221,19 +174,8 @@ public class ScalesLinear extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetComparisonMode1() {
-        if (!setComparisonMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setComparisonMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maximumGap;
-    private List<ScalesLinear> setMaximumGap = new ArrayList<>();
 
     /**
      * Setter for the scale maximum gap.
@@ -257,19 +199,8 @@ public class ScalesLinear extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetMaximumGap() {
-        if (!setMaximumGap.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setMaximumGap) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double minimumGap;
-    private List<ScalesLinear> setMinimumGap = new ArrayList<>();
 
     /**
      * Setter for the scale minimum gap.
@@ -293,16 +224,6 @@ public class ScalesLinear extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetMinimumGap() {
-        if (!setMinimumGap.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setMinimumGap) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScatterTicks getMinorTicks;
 
@@ -318,7 +239,6 @@ public class ScalesLinear extends ScatterBase {
 
     private String minorTicks;
     private String[] minorTicks1;
-    private List<ScalesLinear> setMinorTicks = new ArrayList<>();
 
     /**
      * Setter for set of scale minor ticks in terms of data values.
@@ -345,18 +265,7 @@ public class ScalesLinear extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetMinorTicks() {
-        if (!setMinorTicks.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setMinorTicks) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScalesLinear> setMinorTicks1 = new ArrayList<>();
 
     /**
      * Setter for set of scale minor ticks in terms of data values.
@@ -383,19 +292,8 @@ public class ScalesLinear extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetMinorTicks1() {
-        if (!setMinorTicks1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setMinorTicks1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double softMaximum;
-    private List<ScalesLinear> setSoftMaximum = new ArrayList<>();
 
     /**
      * Setter for soft maximum.
@@ -419,19 +317,8 @@ public class ScalesLinear extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetSoftMaximum() {
-        if (!setSoftMaximum.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setSoftMaximum) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double softMinimum;
-    private List<ScalesLinear> setSoftMinimum = new ArrayList<>();
 
     /**
      * Setter for soft minimum.
@@ -455,20 +342,9 @@ public class ScalesLinear extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetSoftMinimum() {
-        if (!setSoftMinimum.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setSoftMinimum) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScaleStackDirection stackDirection;
     private String stackDirection1;
-    private List<ScalesLinear> setStackDirection = new ArrayList<>();
 
     /**
      * Setter for the stacking direction.
@@ -495,18 +371,7 @@ public class ScalesLinear extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetStackDirection() {
-        if (!setStackDirection.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setStackDirection) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScalesLinear> setStackDirection1 = new ArrayList<>();
 
     /**
      * Setter for the stacking direction.
@@ -533,20 +398,9 @@ public class ScalesLinear extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetStackDirection1() {
-        if (!setStackDirection1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setStackDirection1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScaleStackMode stackMode;
     private String stackMode1;
-    private List<ScalesLinear> setStackMode = new ArrayList<>();
 
     /**
      * Setter for stacked mode.
@@ -573,18 +427,7 @@ public class ScalesLinear extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetStackMode() {
-        if (!setStackMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setStackMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScalesLinear> setStackMode1 = new ArrayList<>();
 
     /**
      * Setter for stacked mode.
@@ -611,19 +454,8 @@ public class ScalesLinear extends ScatterBase {
         }
         return this;
     }
-    private String generateJSsetStackMode1() {
-        if (!setStackMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setStackMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean stickToZero;
-    private List<ScalesLinear> setStickToZero = new ArrayList<>();
 
     /**
      * Setter for stick to zero.
@@ -648,16 +480,6 @@ Flag to stick to zero value on auto calc if gaps lead to zero crossing.
         }
         return this;
     }
-    private String generateJSsetStickToZero() {
-        if (!setStickToZero.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setStickToZero) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScatterTicks getTicks;
 
@@ -673,7 +495,6 @@ Flag to stick to zero value on auto calc if gaps lead to zero crossing.
 
     private String ticks;
     private String[] ticks1;
-    private List<ScalesLinear> setTicks = new ArrayList<>();
 
     /**
      * Setter for set of scale ticks in terms of data values.
@@ -700,18 +521,7 @@ Flag to stick to zero value on auto calc if gaps lead to zero crossing.
         }
         return this;
     }
-    private String generateJSsetTicks() {
-        if (!setTicks.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setTicks) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScalesLinear> setTicks1 = new ArrayList<>();
 
     /**
      * Setter for set of scale ticks in terms of data values.
@@ -737,16 +547,6 @@ Flag to stick to zero value on auto calc if gaps lead to zero crossing.
             }
         }
         return this;
-    }
-    private String generateJSsetTicks1() {
-        if (!setTicks1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScalesLinear item : setTicks1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetMinorTicks() {
@@ -785,24 +585,6 @@ Flag to stick to zero value on auto calc if gaps lead to zero crossing.
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetCompareWith());
-        js.append(generateJSsetCompareWith1());
-        js.append(generateJSsetCompareWith2());
-        js.append(generateJSsetComparisonMode());
-        js.append(generateJSsetComparisonMode1());
-        js.append(generateJSsetMaximumGap());
-        js.append(generateJSsetMinimumGap());
-        js.append(generateJSsetMinorTicks());
-        js.append(generateJSsetMinorTicks1());
-        js.append(generateJSsetSoftMaximum());
-        js.append(generateJSsetSoftMinimum());
-        js.append(generateJSsetStackDirection());
-        js.append(generateJSsetStackDirection1());
-        js.append(generateJSsetStackMode());
-        js.append(generateJSsetStackMode1());
-        js.append(generateJSsetStickToZero());
-        js.append(generateJSsetTicks());
-        js.append(generateJSsetTicks1());
         
 
         String result = js.toString();

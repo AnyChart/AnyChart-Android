@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -46,7 +44,6 @@ public class ADL extends JsObject {
 
     private StockSeriesType type;
     private String type1;
-    private List<ADL> setSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator series.
@@ -73,18 +70,7 @@ public class ADL extends JsObject {
         }
         return this;
     }
-    private String generateJSsetSeries() {
-        if (!setSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ADL item : setSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ADL> setSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator series.
@@ -110,16 +96,6 @@ public class ADL extends JsObject {
             }
         }
         return this;
-    }
-    private String generateJSsetSeries1() {
-        if (!setSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ADL item : setSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetSeries() {
@@ -150,8 +126,6 @@ public class ADL extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetSeries());
-        js.append(generateJSsetSeries1());
         
 
         String result = js.toString();

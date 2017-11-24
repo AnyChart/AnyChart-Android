@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -46,7 +44,6 @@ public class Led extends LineargaugePointersBase {
 
     private LinearColor colorScale;
     private OrdinalColor colorScale1;
-    private List<Led> setColorScale = new ArrayList<>();
 
     /**
      * Setter for the led color scale.
@@ -70,18 +67,7 @@ public class Led extends LineargaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetColorScale() {
-        if (!setColorScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Led item : setColorScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Led> setColorScale1 = new ArrayList<>();
 
     /**
      * Setter for the led color scale.
@@ -105,19 +91,8 @@ public class Led extends LineargaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetColorScale1() {
-        if (!setColorScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Led item : setColorScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double count;
-    private List<Led> setCount = new ArrayList<>();
 
     /**
      * Setter for the led interval.
@@ -141,20 +116,9 @@ public class Led extends LineargaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetCount() {
-        if (!setCount.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Led item : setCount) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double gap;
     private String gap1;
-    private List<Led> setGap = new ArrayList<>();
 
     /**
      * Setter for the led gap.
@@ -181,18 +145,7 @@ public class Led extends LineargaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetGap() {
-        if (!setGap.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Led item : setGap) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Led> setGap1 = new ArrayList<>();
 
     /**
      * Setter for the led gap.
@@ -219,20 +172,9 @@ public class Led extends LineargaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetGap1() {
-        if (!setGap1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Led item : setGap1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double size;
     private String size1;
-    private List<Led> setSize = new ArrayList<>();
 
     /**
      * Setter for the led size.
@@ -259,18 +201,7 @@ public class Led extends LineargaugePointersBase {
         }
         return this;
     }
-    private String generateJSsetSize() {
-        if (!setSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Led item : setSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Led> setSize1 = new ArrayList<>();
 
     /**
      * Setter for the led size.
@@ -296,16 +227,6 @@ public class Led extends LineargaugePointersBase {
             }
         }
         return this;
-    }
-    private String generateJSsetSize1() {
-        if (!setSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Led item : setSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetColorScale() {
@@ -336,13 +257,6 @@ public class Led extends LineargaugePointersBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetColorScale());
-        js.append(generateJSsetColorScale1());
-        js.append(generateJSsetCount());
-        js.append(generateJSsetGap());
-        js.append(generateJSsetGap1());
-        js.append(generateJSsetSize());
-        js.append(generateJSsetSize1());
         
 
         String result = js.toString();

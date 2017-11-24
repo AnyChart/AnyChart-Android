@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -41,7 +39,6 @@ public class CartesianSeriesOHLC extends WidthBased {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<CartesianSeriesOHLC> setFallingStroke = new ArrayList<>();
 
     /**
      * Setter for falling stroke settings.
@@ -78,18 +75,7 @@ public class CartesianSeriesOHLC extends WidthBased {
         }
         return this;
     }
-    private String generateJSsetFallingStroke() {
-        if (!setFallingStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesOHLC item : setFallingStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CartesianSeriesOHLC> setFallingStroke1 = new ArrayList<>();
 
     /**
      * Setter for falling stroke settings.
@@ -126,18 +112,7 @@ public class CartesianSeriesOHLC extends WidthBased {
         }
         return this;
     }
-    private String generateJSsetFallingStroke1() {
-        if (!setFallingStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesOHLC item : setFallingStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CartesianSeriesOHLC> setFallingStroke2 = new ArrayList<>();
 
     /**
      * Setter for falling stroke settings.
@@ -174,16 +149,6 @@ public class CartesianSeriesOHLC extends WidthBased {
         }
         return this;
     }
-    private String generateJSsetFallingStroke2() {
-        if (!setFallingStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesOHLC item : setFallingStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color;
     private ColoredFill color1;
@@ -192,7 +157,6 @@ public class CartesianSeriesOHLC extends WidthBased {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
-    private List<CartesianSeriesOHLC> setRisingStroke = new ArrayList<>();
 
     /**
      * Setter for rising stroke settings.
@@ -241,18 +205,7 @@ public class CartesianSeriesOHLC extends WidthBased {
         }
         return this;
     }
-    private String generateJSsetRisingStroke() {
-        if (!setRisingStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesOHLC item : setRisingStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CartesianSeriesOHLC> setRisingStroke1 = new ArrayList<>();
 
     /**
      * Setter for rising stroke settings.
@@ -301,18 +254,7 @@ public class CartesianSeriesOHLC extends WidthBased {
         }
         return this;
     }
-    private String generateJSsetRisingStroke1() {
-        if (!setRisingStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesOHLC item : setRisingStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CartesianSeriesOHLC> setRisingStroke2 = new ArrayList<>();
 
     /**
      * Setter for rising stroke settings.
@@ -361,16 +303,6 @@ public class CartesianSeriesOHLC extends WidthBased {
         }
         return this;
     }
-    private String generateJSsetRisingStroke2() {
-        if (!setRisingStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CartesianSeriesOHLC item : setRisingStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -392,12 +324,6 @@ public class CartesianSeriesOHLC extends WidthBased {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetFallingStroke());
-        js.append(generateJSsetFallingStroke1());
-        js.append(generateJSsetFallingStroke2());
-        js.append(generateJSsetRisingStroke());
-        js.append(generateJSsetRisingStroke1());
-        js.append(generateJSsetRisingStroke2());
         
 
         String result = js.toString();

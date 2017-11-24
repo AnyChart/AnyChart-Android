@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -35,7 +33,6 @@ public class StageCredits extends JsObject {
 
     
     private String alt;
-    private List<StageCredits> setAlt = new ArrayList<>();
 
     /**
      * Setter for credits alternative text.
@@ -59,19 +56,8 @@ public class StageCredits extends JsObject {
         }
         return this;
     }
-    private String generateJSsetAlt() {
-        if (!setAlt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StageCredits item : setAlt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean enabled;
-    private List<StageCredits> setEnabled = new ArrayList<>();
 
     /**
      * Setter for the stage credits state.
@@ -95,19 +81,8 @@ public class StageCredits extends JsObject {
         }
         return this;
     }
-    private String generateJSsetEnabled() {
-        if (!setEnabled.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StageCredits item : setEnabled) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String imgAlt;
-    private List<StageCredits> setImgAlt = new ArrayList<>();
 
     /**
      * Setter for the image alternative text.
@@ -131,19 +106,8 @@ public class StageCredits extends JsObject {
         }
         return this;
     }
-    private String generateJSsetImgAlt() {
-        if (!setImgAlt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StageCredits item : setImgAlt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String logoSrc;
-    private List<StageCredits> setLogoSrc = new ArrayList<>();
 
     /**
      * Setter for credits logo source.<br/>
@@ -168,19 +132,8 @@ public class StageCredits extends JsObject {
         }
         return this;
     }
-    private String generateJSsetLogoSrc() {
-        if (!setLogoSrc.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StageCredits item : setLogoSrc) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String text;
-    private List<StageCredits> setText = new ArrayList<>();
 
     /**
      * Setter for credits text value.
@@ -204,19 +157,8 @@ public class StageCredits extends JsObject {
         }
         return this;
     }
-    private String generateJSsetText() {
-        if (!setText.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StageCredits item : setText) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String url;
-    private List<StageCredits> setUrl = new ArrayList<>();
 
     /**
      * Setter for credits url.
@@ -240,16 +182,6 @@ public class StageCredits extends JsObject {
         }
         return this;
     }
-    private String generateJSsetUrl() {
-        if (!setUrl.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StageCredits item : setUrl) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -271,12 +203,6 @@ public class StageCredits extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAlt());
-        js.append(generateJSsetEnabled());
-        js.append(generateJSsetImgAlt());
-        js.append(generateJSsetLogoSrc());
-        js.append(generateJSsetText());
-        js.append(generateJSsetUrl());
         
 
         String result = js.toString();

@@ -1,8 +1,6 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -35,7 +33,6 @@ public class Calendar extends CoreBase {
 
     
     private Availability[] availabilities;
-    private List<Calendar> setAvailabilities = new ArrayList<>();
 
     /**
      * Setter for the availabilities for the calendar.
@@ -59,19 +56,8 @@ public class Calendar extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetAvailabilities() {
-        if (!setAvailabilities.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Calendar item : setAvailabilities) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double var_value;
-    private List<Calendar> setTimezoneOffset = new ArrayList<>();
 
     /**
      * Setter for the timezone offset for the output availabilities.
@@ -95,19 +81,8 @@ public class Calendar extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetTimezoneOffset() {
-        if (!setTimezoneOffset.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Calendar item : setTimezoneOffset) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double[] var_value1;
-    private List<Calendar> setWeekendRange = new ArrayList<>();
 
     /**
      * Setter for the regular weekend days.
@@ -134,16 +109,6 @@ public class Calendar extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetWeekendRange() {
-        if (!setWeekendRange.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Calendar item : setWeekendRange) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -165,9 +130,6 @@ public class Calendar extends CoreBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAvailabilities());
-        js.append(generateJSsetTimezoneOffset());
-        js.append(generateJSsetWeekendRange());
         
 
         String result = js.toString();

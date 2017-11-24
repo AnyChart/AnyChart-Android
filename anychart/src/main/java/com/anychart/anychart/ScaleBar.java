@@ -49,7 +49,6 @@ public class ScaleBar extends VisualBase {
     private String colorScale2;
     private ScaleTypes colorScale3;
     private String colorScale4;
-    private List<ScaleBar> setColorScale = new ArrayList<>();
 
     /**
      * Setter for the color scale.
@@ -76,18 +75,7 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetColorScale() {
-        if (!setColorScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setColorScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScaleBar> setColorScale1 = new ArrayList<>();
 
     /**
      * Setter for the color scale.
@@ -114,18 +102,7 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetColorScale1() {
-        if (!setColorScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setColorScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScaleBar> setColorScale2 = new ArrayList<>();
 
     /**
      * Setter for the color scale.
@@ -155,18 +132,7 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetColorScale2() {
-        if (!setColorScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setColorScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScaleBar> setColorScale3 = new ArrayList<>();
 
     /**
      * Setter for the color scale.
@@ -196,19 +162,8 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetColorScale3() {
-        if (!setColorScale3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setColorScale3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
-    private List<ScaleBar> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -233,20 +188,9 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<ScaleBar> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -272,16 +216,6 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -290,7 +224,6 @@ public class ScaleBar extends VisualBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<ScaleBar> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -331,18 +264,7 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScaleBar> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -383,18 +305,7 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScaleBar> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -435,18 +346,7 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScaleBar> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -487,18 +387,7 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScaleBar> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -539,18 +428,7 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScaleBar> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -591,16 +469,6 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -610,7 +478,6 @@ public class ScaleBar extends VisualBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<ScaleBar> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -661,18 +528,7 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScaleBar> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -723,21 +579,10 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private String from;
     private Double from1;
-    private List<ScaleBar> setFrom = new ArrayList<>();
 
     /**
      * Setter for the starting range value.
@@ -764,18 +609,7 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFrom() {
-        if (!setFrom.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setFrom) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScaleBar> setFrom1 = new ArrayList<>();
 
     /**
      * Setter for the starting range value.
@@ -802,19 +636,8 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFrom1() {
-        if (!setFrom1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setFrom1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String offset;
-    private List<ScaleBar> setOffset = new ArrayList<>();
 
     /**
      * Setter for scale bar offset.
@@ -838,19 +661,8 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetOffset() {
-        if (!setOffset.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setOffset) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ControlPoint[] points;
-    private List<ScaleBar> setPoints = new ArrayList<>();
 
     /**
      * Setter for points.
@@ -873,16 +685,6 @@ public class ScaleBar extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetPoints() {
-        if (!setPoints.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setPoints) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private ScalesBase getScale;
@@ -939,7 +741,6 @@ public class ScaleBar extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<ScaleBar> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -977,18 +778,7 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScaleBar> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -1026,18 +816,7 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScaleBar> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for stroke settings.
@@ -1075,20 +854,9 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String to;
     private Double to1;
-    private List<ScaleBar> setTo = new ArrayList<>();
 
     /**
      * Setter for the ending range value.
@@ -1115,18 +883,7 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTo() {
-        if (!setTo.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setTo) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScaleBar> setTo1 = new ArrayList<>();
 
     /**
      * Setter for the ending range value.
@@ -1153,19 +910,8 @@ public class ScaleBar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTo1() {
-        if (!setTo1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setTo1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String width;
-    private List<ScaleBar> setWidth = new ArrayList<>();
 
     /**
      * Setter for the scale bar width.
@@ -1188,16 +934,6 @@ public class ScaleBar extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetWidth() {
-        if (!setWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScaleBar item : setWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetColorScale() {
@@ -1236,31 +972,7 @@ public class ScaleBar extends VisualBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetColorScale());
-        js.append(generateJSsetColorScale1());
-        js.append(generateJSsetColorScale2());
-        js.append(generateJSsetColorScale3());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetFrom());
-        js.append(generateJSsetFrom1());
-        js.append(generateJSsetOffset());
-        js.append(generateJSsetPoints());
         js.append(generateJSsetScale());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetTo());
-        js.append(generateJSsetTo1());
-        js.append(generateJSsetWidth());
         
 
         String result = js.toString();

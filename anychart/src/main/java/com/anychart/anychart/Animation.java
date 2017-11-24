@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class Animation extends CoreBase {
 
     
     private Double duration;
-    private List<Animation> setDuration = new ArrayList<>();
 
     /**
      * Setter for animation duration in milliseconds.
@@ -58,19 +55,8 @@ See sample at {@link anychart.core.Chart#animation}.
         }
         return this;
     }
-    private String generateJSsetDuration() {
-        if (!setDuration.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Animation item : setDuration) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean enabled;
-    private List<Animation> setEnabled = new ArrayList<>();
 
     /**
      * Setter for the animation enabled state.<br/>
@@ -95,16 +81,6 @@ See sample at {@link anychart.core.Chart#animation}.
         }
         return this;
     }
-    private String generateJSsetEnabled() {
-        if (!setEnabled.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Animation item : setEnabled) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -126,8 +102,6 @@ See sample at {@link anychart.core.Chart#animation}.
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetDuration());
-        js.append(generateJSsetEnabled());
         
 
         String result = js.toString();

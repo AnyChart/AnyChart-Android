@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -34,7 +32,6 @@ public class Ticks extends VisualBase {
 
     
     private Double length;
-    private List<Ticks> setLength = new ArrayList<>();
 
     /**
      * Setter for ticks length.<br/>
@@ -59,20 +56,9 @@ public class Ticks extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLength() {
-        if (!setLength.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Ticks item : setLength) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private SidePosition position;
     private String position1;
-    private List<Ticks> setPosition = new ArrayList<>();
 
     /**
      * Setter for ticks position.<br/>
@@ -101,18 +87,7 @@ You can set ticks inside of a chart area or outside its position.<br/>
         }
         return this;
     }
-    private String generateJSsetPosition() {
-        if (!setPosition.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Ticks item : setPosition) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Ticks> setPosition1 = new ArrayList<>();
 
     /**
      * Setter for ticks position.<br/>
@@ -141,19 +116,8 @@ You can set ticks inside of a chart area or outside its position.<br/>
         }
         return this;
     }
-    private String generateJSsetPosition1() {
-        if (!setPosition1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Ticks item : setPosition1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke stroke;
-    private List<Ticks> setStroke = new ArrayList<>();
 
     /**
      * Setter for stroke settings via single parameter.<br/>
@@ -178,23 +142,12 @@ You can set ticks inside of a chart area or outside its position.<br/>
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Ticks item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<Ticks> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for stroke settings via several parameter.<br/>
@@ -241,16 +194,6 @@ The following options are acceptable:
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Ticks item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -272,11 +215,6 @@ The following options are acceptable:
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetLength());
-        js.append(generateJSsetPosition());
-        js.append(generateJSsetPosition1());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
         
 
         String result = js.toString();

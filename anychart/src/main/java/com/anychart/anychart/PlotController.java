@@ -422,7 +422,6 @@ public class PlotController extends VisualBase {
 
     private String config6;
     private String config7;
-    private List<PlotController> setFromJson = new ArrayList<>();
 
     /**
      * Creates annotations list by JSON config.
@@ -455,19 +454,8 @@ public class PlotController extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFromJson() {
-        if (!setFromJson.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (PlotController item : setFromJson) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String config8;
-    private List<PlotController> setFromXml = new ArrayList<>();
 
     /**
      * Creates annotations list by XML config.
@@ -500,16 +488,6 @@ public class PlotController extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetFromXml() {
-        if (!setFromXml.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (PlotController item : setFromXml) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double index;
@@ -867,7 +845,6 @@ public class PlotController extends VisualBase {
     }
 
     private AnnotationsBase annotation;
-    private List<PlotController> setRemoveAnnotation = new ArrayList<>();
 
     /**
      * Removes an annotation from a plot by its instance.
@@ -888,19 +865,8 @@ public class PlotController extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetRemoveAnnotation() {
-        if (!setRemoveAnnotation.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (PlotController item : setRemoveAnnotation) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index1;
-    private List<PlotController> setRemoveAnnotationAt = new ArrayList<>();
 
     /**
      * Removes an annotation from a plot by its index.
@@ -927,19 +893,8 @@ public class PlotController extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetRemoveAnnotationAt() {
-        if (!setRemoveAnnotationAt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (PlotController item : setRemoveAnnotationAt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private AnnotationsBase annotation1;
-    private List<PlotController> setSelect = new ArrayList<>();
 
     /**
      * Selects annotation.
@@ -962,16 +917,6 @@ public class PlotController extends VisualBase {
             js.append(String.format(Locale.US, ".select(%s);",  ((annotation1 != null) ? annotation1.getJsBase() : "null")));
         }
         return this;
-    }
-    private String generateJSsetSelect() {
-        if (!setSelect.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (PlotController item : setSelect) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private AnnotationTypes annotationTypeOrConfig3;
@@ -1365,8 +1310,6 @@ public class PlotController extends VisualBase {
         js.append(generateJSsetFibonacciFan());
         js.append(generateJSsetFibonacciRetracement());
         js.append(generateJSsetFibonacciTimezones());
-        js.append(generateJSsetFromJson());
-        js.append(generateJSsetFromXml());
         js.append(generateJSsetGetAnnotationAt());
         js.append(generateJSsetHorizontalLine());
         js.append(generateJSsetInfiniteLine());
@@ -1374,9 +1317,6 @@ public class PlotController extends VisualBase {
         js.append(generateJSsetMarker());
         js.append(generateJSsetRay());
         js.append(generateJSsetRectangle());
-        js.append(generateJSsetRemoveAnnotation());
-        js.append(generateJSsetRemoveAnnotationAt());
-        js.append(generateJSsetSelect());
         js.append(generateJSsetStartDrawing());
         js.append(generateJSsetStartDrawing1());
         js.append(generateJSsetStartDrawing2());

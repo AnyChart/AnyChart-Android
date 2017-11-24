@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -148,7 +146,6 @@ public class RangeSelector extends JsObject {
     }
 
     private String zoomLabelText;
-    private List<RangeSelector> setZoomLabelText = new ArrayList<>();
 
     /**
      * Setter fot the label text.
@@ -172,16 +169,6 @@ public class RangeSelector extends JsObject {
         }
         return this;
     }
-    private String generateJSsetZoomLabelText() {
-        if (!setZoomLabelText.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (RangeSelector item : setZoomLabelText) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -203,7 +190,6 @@ public class RangeSelector extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetZoomLabelText());
         
 
         String result = js.toString();

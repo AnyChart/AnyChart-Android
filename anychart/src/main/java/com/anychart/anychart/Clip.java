@@ -1,8 +1,6 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -50,7 +48,6 @@ public class Clip extends JsObject {
     private Shape shape1;
     private GraphicsMathRect shape2;
     private String shape3;
-    private List<Clip> setShape = new ArrayList<>();
 
     /**
      * Setter for the shape of the clip.
@@ -79,18 +76,7 @@ public class Clip extends JsObject {
         }
         return this;
     }
-    private String generateJSsetShape() {
-        if (!setShape.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Clip item : setShape) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Clip> setShape1 = new ArrayList<>();
 
     /**
      * Setter for the shape of the clip.
@@ -116,18 +102,7 @@ public class Clip extends JsObject {
         }
         return this;
     }
-    private String generateJSsetShape1() {
-        if (!setShape1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Clip item : setShape1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Clip> setShape2 = new ArrayList<>();
 
     /**
      * Setter for the shape of the clip.
@@ -153,18 +128,7 @@ public class Clip extends JsObject {
         }
         return this;
     }
-    private String generateJSsetShape2() {
-        if (!setShape2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Clip item : setShape2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Clip> setShape3 = new ArrayList<>();
 
     /**
      * Setter for the shape of the clip.
@@ -193,22 +157,11 @@ public class Clip extends JsObject {
         }
         return this;
     }
-    private String generateJSsetShape3() {
-        if (!setShape3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Clip item : setShape3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double left;
     private Double top;
     private Double width;
     private Double height;
-    private List<Clip> setShape4 = new ArrayList<>();
 
     /**
      * Setter for the shape of the clip with coordinates.
@@ -237,16 +190,6 @@ public class Clip extends JsObject {
             }
         }
         return this;
-    }
-    private String generateJSsetShape4() {
-        if (!setShape4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Clip item : setShape4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetShape() {
@@ -277,11 +220,6 @@ public class Clip extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetShape());
-        js.append(generateJSsetShape1());
-        js.append(generateJSsetShape2());
-        js.append(generateJSsetShape3());
-        js.append(generateJSsetShape4());
         
 
         String result = js.toString();

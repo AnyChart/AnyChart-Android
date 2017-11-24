@@ -45,7 +45,6 @@ public class DateTimeWithCalendar extends ScatterBase {
     }
 
     private Double count;
-    private List<DateTimeWithCalendar> setCount = new ArrayList<>();
 
     /**
      * Setter for the unit count.
@@ -68,16 +67,6 @@ public class DateTimeWithCalendar extends ScatterBase {
             }
         }
         return this;
-    }
-    private String generateJSsetCount() {
-        if (!setCount.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DateTimeWithCalendar item : setCount) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double date;
@@ -288,7 +277,6 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
     }
 
     private Boolean skipHolidays;
-    private List<DateTimeWithCalendar> setSkipHolidays = new ArrayList<>();
 
     /**
      * Setter for skipping holidays.
@@ -311,16 +299,6 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
             }
         }
         return this;
-    }
-    private String generateJSsetSkipHolidays() {
-        if (!setSkipHolidays.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DateTimeWithCalendar item : setSkipHolidays) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double softMaximum;
@@ -403,7 +381,6 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
 
     private Interval unit2;
     private String unit3;
-    private List<DateTimeWithCalendar> setUnit = new ArrayList<>();
 
     /**
      * Setter for the unit interval.
@@ -432,18 +409,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
         }
         return this;
     }
-    private String generateJSsetUnit() {
-        if (!setUnit.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DateTimeWithCalendar item : setUnit) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<DateTimeWithCalendar> setUnit1 = new ArrayList<>();
 
     /**
      * Setter for the unit interval.
@@ -472,20 +438,9 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
         }
         return this;
     }
-    private String generateJSsetUnit1() {
-        if (!setUnit1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DateTimeWithCalendar item : setUnit1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double unitPixSize;
     private String unitPixSize1;
-    private List<DateTimeWithCalendar> setUnitPixSize = new ArrayList<>();
 
     /**
      * Setter for unit size.
@@ -512,18 +467,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
         }
         return this;
     }
-    private String generateJSsetUnitPixSize() {
-        if (!setUnitPixSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DateTimeWithCalendar item : setUnitPixSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<DateTimeWithCalendar> setUnitPixSize1 = new ArrayList<>();
 
     /**
      * Setter for unit size.
@@ -549,16 +493,6 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
             }
         }
         return this;
-    }
-    private String generateJSsetUnitPixSize1() {
-        if (!setUnitPixSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (DateTimeWithCalendar item : setUnitPixSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetCalendar() {
@@ -589,16 +523,10 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetCount());
         js.append(generateJSsetMaximumGap());
         js.append(generateJSsetMinimumGap());
-        js.append(generateJSsetSkipHolidays());
         js.append(generateJSsetSoftMaximum());
         js.append(generateJSsetSoftMinimum());
-        js.append(generateJSsetUnit());
-        js.append(generateJSsetUnit1());
-        js.append(generateJSsetUnitPixSize());
-        js.append(generateJSsetUnitPixSize1());
         
 
         String result = js.toString();

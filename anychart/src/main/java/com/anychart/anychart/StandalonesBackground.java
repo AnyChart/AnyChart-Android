@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -46,7 +44,6 @@ public class StandalonesBackground extends UiBackground {
 
     private String container;
     private Element container1;
-    private List<StandalonesBackground> setContainer = new ArrayList<>();
 
     /**
      * Setter for the background container.
@@ -73,18 +70,7 @@ public class StandalonesBackground extends UiBackground {
         }
         return this;
     }
-    private String generateJSsetContainer() {
-        if (!setContainer.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesBackground item : setContainer) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesBackground> setContainer1 = new ArrayList<>();
 
     /**
      * Setter for the background container.
@@ -108,16 +94,6 @@ public class StandalonesBackground extends UiBackground {
         }
         return this;
     }
-    private String generateJSsetContainer1() {
-        if (!setContainer1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesBackground item : setContainer1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private AnychartMathRect getParentBounds;
 
@@ -133,7 +109,6 @@ public class StandalonesBackground extends UiBackground {
 
     private AnychartMathRect parentBounds;
     private String parentBounds1;
-    private List<StandalonesBackground> setParentBounds = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -157,18 +132,7 @@ public class StandalonesBackground extends UiBackground {
         }
         return this;
     }
-    private String generateJSsetParentBounds() {
-        if (!setParentBounds.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesBackground item : setParentBounds) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesBackground> setParentBounds1 = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -195,22 +159,11 @@ public class StandalonesBackground extends UiBackground {
         }
         return this;
     }
-    private String generateJSsetParentBounds1() {
-        if (!setParentBounds1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesBackground item : setParentBounds1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double left;
     private Double top;
     private Double width;
     private Double height;
-    private List<StandalonesBackground> setParentBounds2 = new ArrayList<>();
 
     /**
      * Setter for bounds using several value.
@@ -239,16 +192,6 @@ public class StandalonesBackground extends UiBackground {
             }
         }
         return this;
-    }
-    private String generateJSsetParentBounds2() {
-        if (!setParentBounds2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesBackground item : setParentBounds2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetContainer() {
@@ -287,11 +230,6 @@ public class StandalonesBackground extends UiBackground {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetContainer());
-        js.append(generateJSsetContainer1());
-        js.append(generateJSsetParentBounds());
-        js.append(generateJSsetParentBounds1());
-        js.append(generateJSsetParentBounds2());
         
 
         String result = js.toString();

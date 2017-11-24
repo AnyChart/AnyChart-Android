@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -45,7 +43,6 @@ public class CoreGridsLinear extends VisualBase {
     }
 
     private CoreAxesLinear axis;
-    private List<CoreGridsLinear> setAxis = new ArrayList<>();
 
     /**
      * Setter for the grid axis.
@@ -66,19 +63,8 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetAxis() {
-        if (!setAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean drawFirstLine;
-    private List<CoreGridsLinear> setDrawFirstLine = new ArrayList<>();
 
     /**
      * Setter for the first line drawing flag.
@@ -102,19 +88,8 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetDrawFirstLine() {
-        if (!setDrawFirstLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setDrawFirstLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean drawLastLine;
-    private List<CoreGridsLinear> setDrawLastLine = new ArrayList<>();
 
     /**
      * Setter for the last line drawing flag.
@@ -138,19 +113,8 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetDrawLastLine() {
-        if (!setDrawLastLine.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setDrawLastLine) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
-    private List<CoreGridsLinear> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -175,20 +139,9 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<CoreGridsLinear> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -214,16 +167,6 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -232,7 +175,6 @@ public class CoreGridsLinear extends VisualBase {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<CoreGridsLinear> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -273,18 +215,7 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsLinear> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -325,18 +256,7 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsLinear> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -377,18 +297,7 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsLinear> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -429,18 +338,7 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsLinear> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -481,18 +379,7 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsLinear> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -533,16 +420,6 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -552,7 +429,6 @@ public class CoreGridsLinear extends VisualBase {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<CoreGridsLinear> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -603,18 +479,7 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsLinear> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -665,20 +530,9 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private Boolean isMinor;
-    private List<CoreGridsLinear> setIsMinor = new ArrayList<>();
 
     /**
      * Setter for the minor grid state flag.
@@ -702,16 +556,6 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetIsMinor() {
-        if (!setIsMinor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setIsMinor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private RangeColors getPalette;
 
@@ -729,7 +573,6 @@ public class CoreGridsLinear extends VisualBase {
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
-    private List<CoreGridsLinear> setPalette = new ArrayList<>();
 
     /**
      * Setter for the grid colors palette.
@@ -755,18 +598,7 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPalette() {
-        if (!setPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsLinear> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for the grid colors palette.
@@ -792,18 +624,7 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPalette1() {
-        if (!setPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsLinear> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for the grid colors palette.
@@ -832,18 +653,7 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPalette2() {
-        if (!setPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsLinear> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for the grid colors palette.
@@ -872,16 +682,6 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetPalette3() {
-        if (!setPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScalesBase getScale;
 
@@ -899,7 +699,6 @@ public class CoreGridsLinear extends VisualBase {
     private ScaleTypes scale1;
     private String scale2;
     private ScalesBase scale3;
-    private List<CoreGridsLinear> setScale = new ArrayList<>();
 
     /**
      * Setter for the grid scale.
@@ -928,18 +727,7 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetScale() {
-        if (!setScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsLinear> setScale1 = new ArrayList<>();
 
     /**
      * Setter for the grid scale.
@@ -968,18 +756,7 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetScale1() {
-        if (!setScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsLinear> setScale2 = new ArrayList<>();
 
     /**
      * Setter for the grid scale.
@@ -1005,16 +782,6 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetScale2() {
-        if (!setScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke stroke;
     private ColoredFill stroke1;
@@ -1023,7 +790,6 @@ public class CoreGridsLinear extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<CoreGridsLinear> setStroke = new ArrayList<>();
 
     /**
      * Setter for the grid stroke settings.
@@ -1060,18 +826,7 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsLinear> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for the grid stroke settings.
@@ -1108,18 +863,7 @@ public class CoreGridsLinear extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreGridsLinear> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for the grid stroke settings.
@@ -1155,16 +899,6 @@ public class CoreGridsLinear extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreGridsLinear item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetAxis() {
@@ -1211,30 +945,6 @@ public class CoreGridsLinear extends VisualBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAxis());
-        js.append(generateJSsetDrawFirstLine());
-        js.append(generateJSsetDrawLastLine());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetIsMinor());
-        js.append(generateJSsetPalette());
-        js.append(generateJSsetPalette1());
-        js.append(generateJSsetPalette2());
-        js.append(generateJSsetPalette3());
-        js.append(generateJSsetScale());
-        js.append(generateJSsetScale1());
-        js.append(generateJSsetScale2());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
         
 
         String result = js.toString();

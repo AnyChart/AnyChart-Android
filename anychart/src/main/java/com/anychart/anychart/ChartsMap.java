@@ -165,7 +165,6 @@ public class ChartsMap extends SeparateChart {
     }
     private String axes;
     private Boolean axes1;
-    private List<ChartsMap> setAxes = new ArrayList<>();
 
     /**
      * Setter for map axes.
@@ -183,18 +182,7 @@ public class ChartsMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetAxes() {
-        if (!setAxes.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setAxes) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setAxes1 = new ArrayList<>();
 
     /**
      * Setter for map axes.
@@ -211,16 +199,6 @@ public class ChartsMap extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetAxes1() {
-        if (!setAxes1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setAxes1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<MapSeriesBubble> setBubble = new ArrayList<>();
@@ -313,7 +291,6 @@ public class ChartsMap extends SeparateChart {
     }
     private String callout;
     private Boolean callout1;
-    private List<ChartsMap> setCallout = new ArrayList<>();
 
     /**
      * Setter for callout elements.
@@ -331,18 +308,7 @@ public class ChartsMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetCallout() {
-        if (!setCallout.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setCallout) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setCallout1 = new ArrayList<>();
 
     /**
      * Setter for callout elements.
@@ -360,21 +326,10 @@ public class ChartsMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetCallout1() {
-        if (!setCallout1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setCallout1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index1;
     private String callout2;
     private Boolean callout3;
-    private List<ChartsMap> setCallout2 = new ArrayList<>();
 
     /**
      * Setter for callout elements by index.
@@ -392,18 +347,7 @@ public class ChartsMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetCallout2() {
-        if (!setCallout2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setCallout2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setCallout3 = new ArrayList<>();
 
     /**
      * Setter for callout elements by index.
@@ -420,16 +364,6 @@ public class ChartsMap extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetCallout3() {
-        if (!setCallout3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setCallout3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<Choropleth> setChoropleth = new ArrayList<>();
@@ -510,7 +444,6 @@ public class ChartsMap extends SeparateChart {
         return getColorRange;
     }
     private String colorRange;
-    private List<ChartsMap> setColorRange = new ArrayList<>();
 
     /**
      * Setter for the color range.
@@ -527,16 +460,6 @@ public class ChartsMap extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetColorRange() {
-        if (!setColorRange.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setColorRange) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<Connector> setConnector = new ArrayList<>();
@@ -618,7 +541,6 @@ public class ChartsMap extends SeparateChart {
     }
     private String crosshair;
     private Boolean crosshair1;
-    private List<ChartsMap> setCrosshair = new ArrayList<>();
 
     /**
      * Setter for map crosshair settings.
@@ -636,18 +558,7 @@ public class ChartsMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetCrosshair() {
-        if (!setCrosshair.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setCrosshair) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setCrosshair1 = new ArrayList<>();
 
     /**
      * Setter for map crosshair settings.
@@ -664,16 +575,6 @@ public class ChartsMap extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetCrosshair1() {
-        if (!setCrosshair1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setCrosshair1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String crs;
@@ -728,7 +629,6 @@ public class ChartsMap extends SeparateChart {
     private Boolean crsAnimation;
     private String crsAnimation1;
     private Double duration;
-    private List<ChartsMap> setCrsAnimation = new ArrayList<>();
 
     /**
      * Setter for animation settings.
@@ -746,18 +646,7 @@ public class ChartsMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetCrsAnimation() {
-        if (!setCrsAnimation.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setCrsAnimation) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setCrsAnimation1 = new ArrayList<>();
 
     /**
      * Setter for animation settings.
@@ -775,20 +664,9 @@ public class ChartsMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetCrsAnimation1() {
-        if (!setCrsAnimation1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setCrsAnimation1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private MapSeriesType defaultSeriesType;
     private String defaultSeriesType1;
-    private List<ChartsMap> setDefaultSeriesType = new ArrayList<>();
 
     /**
      * Setter for the map default series type.
@@ -806,18 +684,7 @@ public class ChartsMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetDefaultSeriesType() {
-        if (!setDefaultSeriesType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setDefaultSeriesType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setDefaultSeriesType1 = new ArrayList<>();
 
     /**
      * Setter for the map default series type.
@@ -834,16 +701,6 @@ public class ChartsMap extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetDefaultSeriesType1() {
-        if (!setDefaultSeriesType1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setDefaultSeriesType1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String drillDownMap;
@@ -867,7 +724,6 @@ Set the transitions to drill down.
 
     private String id;
     private ChartsMap map;
-    private List<ChartsMap> setDrillTo = new ArrayList<>();
 
     /**
      * Drills down to a map.
@@ -885,20 +741,9 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetDrillTo() {
-        if (!setDrillTo.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setDrillTo) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String id2;
     private String crs3;
-    private List<ChartsMap> setFeatureCrs = new ArrayList<>();
 
     /**
      * Setter for the crs of the feature.<br/>
@@ -917,20 +762,9 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetFeatureCrs() {
-        if (!setFeatureCrs.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setFeatureCrs) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String id4;
     private Double ratio;
-    private List<ChartsMap> setFeatureScaleFactor = new ArrayList<>();
 
     /**
      * Setter for the feature scale factor.<br/>
@@ -949,21 +783,10 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetFeatureScaleFactor() {
-        if (!setFeatureScaleFactor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setFeatureScaleFactor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String id6;
     private Double dx;
     private Double dy;
-    private List<ChartsMap> setFeatureTranslation = new ArrayList<>();
 
     /**
      * Setter for the translation feature.<br/>
@@ -981,16 +804,6 @@ Set the transitions to drill down.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetFeatureTranslation() {
-        if (!setFeatureTranslation.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setFeatureTranslation) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String data12;
@@ -1013,7 +826,6 @@ Set the transitions to drill down.
     }
 
     private String geoIdField;
-    private List<ChartsMap> setGeoIdField = new ArrayList<>();
 
     /**
      * Setter for the geo id field.
@@ -1030,16 +842,6 @@ Set the transitions to drill down.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetGeoIdField() {
-        if (!setGeoIdField.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setGeoIdField) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1102,7 +904,6 @@ Set the transitions to drill down.
     }
     private String grids;
     private Boolean grids1;
-    private List<ChartsMap> setGrids = new ArrayList<>();
 
     /**
      * Setter for map grids.
@@ -1120,18 +921,7 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetGrids() {
-        if (!setGrids.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setGrids) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setGrids1 = new ArrayList<>();
 
     /**
      * Setter for map grids.
@@ -1149,16 +939,6 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetGrids1() {
-        if (!setGrids1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setGrids1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private HatchFills getHatchFillPalette;
@@ -1175,7 +955,6 @@ Set the transitions to drill down.
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
-    private List<ChartsMap> setHatchFillPalette = new ArrayList<>();
 
     /**
      * Setter for the map hatch fill palette settings.
@@ -1193,18 +972,7 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette() {
-        if (!setHatchFillPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setHatchFillPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setHatchFillPalette1 = new ArrayList<>();
 
     /**
      * Setter for the map hatch fill palette settings.
@@ -1222,18 +990,7 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette1() {
-        if (!setHatchFillPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setHatchFillPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setHatchFillPalette2 = new ArrayList<>();
 
     /**
      * Setter for the map hatch fill palette settings.
@@ -1249,16 +1006,6 @@ Set the transitions to drill down.
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetHatchFillPalette2() {
-        if (!setHatchFillPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setHatchFillPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getHovered;
@@ -1273,7 +1020,6 @@ Set the transitions to drill down.
         return getHovered;
     }
     private String hovered;
-    private List<ChartsMap> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -1290,16 +1036,6 @@ Set the transitions to drill down.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double x;
@@ -1335,7 +1071,6 @@ Set the transitions to drill down.
     }
     private String labels;
     private Boolean labels1;
-    private List<ChartsMap> setLabels = new ArrayList<>();
 
     /**
      * Setter for series data labels.
@@ -1353,18 +1088,7 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for series data labels.
@@ -1381,16 +1105,6 @@ Set the transitions to drill down.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private List<MapSeriesMarker> setMarker = new ArrayList<>();
@@ -1474,7 +1188,6 @@ Set the transitions to drill down.
     private String markerPalette1;
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
-    private List<ChartsMap> setMarkerPalette = new ArrayList<>();
 
     /**
      * Setter for the map markers palette settings.
@@ -1490,18 +1203,7 @@ Set the transitions to drill down.
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetMarkerPalette() {
-        if (!setMarkerPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setMarkerPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setMarkerPalette1 = new ArrayList<>();
 
     /**
      * Setter for the map markers palette settings.
@@ -1519,18 +1221,7 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetMarkerPalette1() {
-        if (!setMarkerPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setMarkerPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setMarkerPalette2 = new ArrayList<>();
 
     /**
      * Setter for the map markers palette settings.
@@ -1548,18 +1239,7 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetMarkerPalette2() {
-        if (!setMarkerPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setMarkerPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setMarkerPalette3 = new ArrayList<>();
 
     /**
      * Setter for the map markers palette settings.
@@ -1577,20 +1257,9 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetMarkerPalette3() {
-        if (!setMarkerPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setMarkerPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxBubbleSize;
     private String maxBubbleSize1;
-    private List<ChartsMap> setMaxBubbleSize = new ArrayList<>();
 
     /**
      * Setter for the maximum size for all bubbles on the charts.
@@ -1608,18 +1277,7 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetMaxBubbleSize() {
-        if (!setMaxBubbleSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setMaxBubbleSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setMaxBubbleSize1 = new ArrayList<>();
 
     /**
      * Setter for the maximum size for all bubbles on the charts.
@@ -1637,19 +1295,8 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetMaxBubbleSize1() {
-        if (!setMaxBubbleSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setMaxBubbleSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxZoomLevel;
-    private List<ChartsMap> setMaxZoomLevel = new ArrayList<>();
 
     /**
      * Setter for the maximum zoom level.
@@ -1667,20 +1314,9 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetMaxZoomLevel() {
-        if (!setMaxZoomLevel.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setMaxZoomLevel) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double minBubbleSize;
     private String minBubbleSize1;
-    private List<ChartsMap> setMinBubbleSize = new ArrayList<>();
 
     /**
      * Setter for the minimum size for all bubbles on the charts.
@@ -1698,18 +1334,7 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetMinBubbleSize() {
-        if (!setMinBubbleSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setMinBubbleSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setMinBubbleSize1 = new ArrayList<>();
 
     /**
      * Setter for the minimum size for all bubbles on the charts.
@@ -1727,20 +1352,9 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetMinBubbleSize1() {
-        if (!setMinBubbleSize1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setMinBubbleSize1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double dx1;
     private Double dy1;
-    private List<ChartsMap> setMove = new ArrayList<>();
 
     /**
      * Moves focus point for the map.<br/>
@@ -1759,16 +1373,6 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetMove() {
-        if (!setMove.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setMove) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getNormal;
@@ -1783,7 +1387,6 @@ Set the transitions to drill down.
         return getNormal;
     }
     private String normal;
-    private List<ChartsMap> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -1801,21 +1404,10 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private LabelsOverlapMode overlapMode;
     private String overlapMode1;
     private Boolean overlapMode2;
-    private List<ChartsMap> setOverlapMode = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -1833,18 +1425,7 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetOverlapMode() {
-        if (!setOverlapMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setOverlapMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setOverlapMode1 = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -1862,18 +1443,7 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetOverlapMode1() {
-        if (!setOverlapMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setOverlapMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setOverlapMode2 = new ArrayList<>();
 
     /**
      * Setter for labels overlap mode.
@@ -1890,16 +1460,6 @@ Set the transitions to drill down.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetOverlapMode2() {
-        if (!setOverlapMode2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setOverlapMode2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1918,7 +1478,6 @@ Set the transitions to drill down.
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
-    private List<ChartsMap> setPalette = new ArrayList<>();
 
     /**
      * Setter for the map palette.
@@ -1934,18 +1493,7 @@ Set the transitions to drill down.
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette() {
-        if (!setPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for the map palette.
@@ -1961,18 +1509,7 @@ Set the transitions to drill down.
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette1() {
-        if (!setPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for the map palette.
@@ -1990,18 +1527,7 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetPalette2() {
-        if (!setPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for the map palette.
@@ -2019,20 +1545,9 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetPalette3() {
-        if (!setPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double id9;
     private String id10;
-    private List<ChartsMap> setRemoveSeries = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -2050,18 +1565,7 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetRemoveSeries() {
-        if (!setRemoveSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setRemoveSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setRemoveSeries1 = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its id.
@@ -2079,19 +1583,8 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetRemoveSeries1() {
-        if (!setRemoveSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setRemoveSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index3;
-    private List<ChartsMap> setRemoveSeriesAt = new ArrayList<>();
 
     /**
      * Removes one of series from chart by its index.
@@ -2108,16 +1601,6 @@ Set the transitions to drill down.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetRemoveSeriesAt() {
-        if (!setRemoveSeriesAt.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setRemoveSeriesAt) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2207,7 +1690,6 @@ Set the transitions to drill down.
         return getSelected;
     }
     private String selected;
-    private List<ChartsMap> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -2224,16 +1706,6 @@ Set the transitions to drill down.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double xLong;
@@ -2259,7 +1731,6 @@ Set the transitions to drill down.
     private String id11;
     private Double dx2;
     private Double dy2;
-    private List<ChartsMap> setTranslateFeature = new ArrayList<>();
 
     /**
      * Translates feature on passed dx and dy.<br/>
@@ -2278,16 +1749,6 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetTranslateFeature() {
-        if (!setTranslateFeature.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setTranslateFeature) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UnboundRegionsSettings getUnboundRegions;
@@ -2305,7 +1766,6 @@ Set the transitions to drill down.
     private MapUnboundRegionsMode unboundRegions1;
     private String unboundRegions2;
     private Boolean unboundRegions3;
-    private List<ChartsMap> setUnboundRegions = new ArrayList<>();
 
     /**
      * Setter for the settings for regions that are not linked to any series data.
@@ -2323,18 +1783,7 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetUnboundRegions() {
-        if (!setUnboundRegions.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setUnboundRegions) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setUnboundRegions1 = new ArrayList<>();
 
     /**
      * Setter for the settings for regions that are not linked to any series data.
@@ -2352,18 +1801,7 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetUnboundRegions1() {
-        if (!setUnboundRegions1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setUnboundRegions1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartsMap> setUnboundRegions2 = new ArrayList<>();
 
     /**
      * Setter for the settings for regions that are not linked to any series data.
@@ -2381,22 +1819,11 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetUnboundRegions2() {
-        if (!setUnboundRegions2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setUnboundRegions2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double zoom;
     private Double cx;
     private Double cy;
     private Double duration1;
-    private List<ChartsMap> setZoom = new ArrayList<>();
 
     /**
      * Zooms a map.
@@ -2414,21 +1841,10 @@ Set the transitions to drill down.
         }
         return this;
     }
-    private String generateJSsetZoom() {
-        if (!setZoom.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setZoom) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double zoomTo;
     private Double cx1;
     private Double cy1;
-    private List<ChartsMap> setZoomTo = new ArrayList<>();
 
     /**
      * Zooms the map to passed zoom level and coordinates.
@@ -2445,16 +1861,6 @@ Set the transitions to drill down.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetZoomTo() {
-        if (!setZoomTo.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartsMap item : setZoomTo) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String id12;
@@ -2662,70 +2068,16 @@ Set the transitions to drill down.
         js.append(generateJSgetScale());
         js.append(generateJSgetSelected());
         js.append(generateJSgetUnboundRegions());
-        js.append(generateJSsetAxes());
-        js.append(generateJSsetAxes1());
         js.append(generateJSsetBubble());
         js.append(generateJSsetBubble1());
-        js.append(generateJSsetCallout());
-        js.append(generateJSsetCallout1());
-        js.append(generateJSsetCallout2());
-        js.append(generateJSsetCallout3());
         js.append(generateJSsetChoropleth());
         js.append(generateJSsetChoropleth1());
-        js.append(generateJSsetColorRange());
         js.append(generateJSsetConnector());
         js.append(generateJSsetConnector1());
-        js.append(generateJSsetCrosshair());
-        js.append(generateJSsetCrosshair1());
-        js.append(generateJSsetCrsAnimation());
-        js.append(generateJSsetCrsAnimation1());
-        js.append(generateJSsetDefaultSeriesType());
-        js.append(generateJSsetDefaultSeriesType1());
-        js.append(generateJSsetDrillTo());
-        js.append(generateJSsetFeatureCrs());
-        js.append(generateJSsetFeatureScaleFactor());
-        js.append(generateJSsetFeatureTranslation());
-        js.append(generateJSsetGeoIdField());
-        js.append(generateJSsetGrids());
-        js.append(generateJSsetGrids1());
-        js.append(generateJSsetHatchFillPalette());
-        js.append(generateJSsetHatchFillPalette1());
-        js.append(generateJSsetHatchFillPalette2());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
         js.append(generateJSsetMarker());
         js.append(generateJSsetMarker1());
-        js.append(generateJSsetMarkerPalette());
-        js.append(generateJSsetMarkerPalette1());
-        js.append(generateJSsetMarkerPalette2());
-        js.append(generateJSsetMarkerPalette3());
-        js.append(generateJSsetMaxBubbleSize());
-        js.append(generateJSsetMaxBubbleSize1());
-        js.append(generateJSsetMaxZoomLevel());
-        js.append(generateJSsetMinBubbleSize());
-        js.append(generateJSsetMinBubbleSize1());
-        js.append(generateJSsetMove());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetOverlapMode());
-        js.append(generateJSsetOverlapMode1());
-        js.append(generateJSsetOverlapMode2());
-        js.append(generateJSsetPalette());
-        js.append(generateJSsetPalette1());
-        js.append(generateJSsetPalette2());
-        js.append(generateJSsetPalette3());
-        js.append(generateJSsetRemoveSeries());
-        js.append(generateJSsetRemoveSeries1());
-        js.append(generateJSsetRemoveSeriesAt());
         js.append(generateJSsetScale());
         js.append(generateJSsetScale1());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetTranslateFeature());
-        js.append(generateJSsetUnboundRegions());
-        js.append(generateJSsetUnboundRegions1());
-        js.append(generateJSsetUnboundRegions2());
-        js.append(generateJSsetZoom());
-        js.append(generateJSsetZoomTo());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -35,7 +33,6 @@ public class Error extends CoreBase {
     
     private ErrorMode mode;
     private String mode1;
-    private List<Error> setMode = new ArrayList<>();
 
     /**
      * Setter for error mode.<br/>
@@ -63,18 +60,7 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetMode() {
-        if (!setMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Error> setMode1 = new ArrayList<>();
 
     /**
      * Setter for error mode.<br/>
@@ -102,20 +88,9 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetMode1() {
-        if (!setMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String valueError;
     private Double valueError1;
-    private List<Error> setValueError = new ArrayList<>();
 
     /**
      * Setter for value error.
@@ -142,18 +117,7 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetValueError() {
-        if (!setValueError.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setValueError) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Error> setValueError1 = new ArrayList<>();
 
     /**
      * Setter for value error.
@@ -180,16 +144,6 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetValueError1() {
-        if (!setValueError1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setValueError1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke strokeOrFill;
     private ColoredFill strokeOrFill1;
@@ -198,7 +152,6 @@ Error mode defines the rule to parse values for series with error.
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<Error> setValueErrorStroke = new ArrayList<>();
 
     /**
      * Setter for value error stroke settings.
@@ -234,18 +187,7 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetValueErrorStroke() {
-        if (!setValueErrorStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setValueErrorStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Error> setValueErrorStroke1 = new ArrayList<>();
 
     /**
      * Setter for value error stroke settings.
@@ -281,18 +223,7 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetValueErrorStroke1() {
-        if (!setValueErrorStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setValueErrorStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Error> setValueErrorStroke2 = new ArrayList<>();
 
     /**
      * Setter for value error stroke settings.
@@ -328,19 +259,8 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetValueErrorStroke2() {
-        if (!setValueErrorStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setValueErrorStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double valueErrorWidth;
-    private List<Error> setValueErrorWidth = new ArrayList<>();
 
     /**
      * Setter for value error width settings. Length pins for value axis in pixels.
@@ -364,20 +284,9 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetValueErrorWidth() {
-        if (!setValueErrorWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setValueErrorWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String valueLowerError;
     private Double valueLowerError1;
-    private List<Error> setValueLowerError = new ArrayList<>();
 
     /**
      * Setter for value lower error.
@@ -404,18 +313,7 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetValueLowerError() {
-        if (!setValueLowerError.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setValueLowerError) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Error> setValueLowerError1 = new ArrayList<>();
 
     /**
      * Setter for value lower error.
@@ -442,20 +340,9 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetValueLowerError1() {
-        if (!setValueLowerError1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setValueLowerError1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String valueUpperError;
     private Double valueUpperError1;
-    private List<Error> setValueUpperError = new ArrayList<>();
 
     /**
      * Setter for value upper error.
@@ -482,18 +369,7 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetValueUpperError() {
-        if (!setValueUpperError.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setValueUpperError) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Error> setValueUpperError1 = new ArrayList<>();
 
     /**
      * Setter for value upper error.
@@ -520,20 +396,9 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetValueUpperError1() {
-        if (!setValueUpperError1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setValueUpperError1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String xError;
     private Double xError1;
-    private List<Error> setXError = new ArrayList<>();
 
     /**
      * Setter for X error.
@@ -560,18 +425,7 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetXError() {
-        if (!setXError.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setXError) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Error> setXError1 = new ArrayList<>();
 
     /**
      * Setter for X error.
@@ -598,16 +452,6 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetXError1() {
-        if (!setXError1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setXError1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke strokeOrFill3;
     private ColoredFill strokeOrFill4;
@@ -616,7 +460,6 @@ Error mode defines the rule to parse values for series with error.
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
-    private List<Error> setXErrorStroke = new ArrayList<>();
 
     /**
      * Setter for X error stroke settings.
@@ -668,18 +511,7 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetXErrorStroke() {
-        if (!setXErrorStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setXErrorStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Error> setXErrorStroke1 = new ArrayList<>();
 
     /**
      * Setter for X error stroke settings.
@@ -731,18 +563,7 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetXErrorStroke1() {
-        if (!setXErrorStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setXErrorStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Error> setXErrorStroke2 = new ArrayList<>();
 
     /**
      * Setter for X error stroke settings.
@@ -794,19 +615,8 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetXErrorStroke2() {
-        if (!setXErrorStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setXErrorStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double xErrorWidth;
-    private List<Error> setXErrorWidth = new ArrayList<>();
 
     /**
      * Setter for X error width settings. Length pins for X axis in pixels.
@@ -830,20 +640,9 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetXErrorWidth() {
-        if (!setXErrorWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setXErrorWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String xLowerError;
     private Double xLowerError1;
-    private List<Error> setXLowerError = new ArrayList<>();
 
     /**
      * Setter for X lower error.
@@ -870,18 +669,7 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetXLowerError() {
-        if (!setXLowerError.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setXLowerError) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Error> setXLowerError1 = new ArrayList<>();
 
     /**
      * Setter for X lower error.
@@ -908,20 +696,9 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetXLowerError1() {
-        if (!setXLowerError1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setXLowerError1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String xUpperError;
     private Double xUpperError1;
-    private List<Error> setXUpperError = new ArrayList<>();
 
     /**
      * Setter for X upper error.
@@ -948,18 +725,7 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetXUpperError() {
-        if (!setXUpperError.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setXUpperError) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Error> setXUpperError1 = new ArrayList<>();
 
     /**
      * Setter for X upper error.
@@ -986,16 +752,6 @@ Error mode defines the rule to parse values for series with error.
         }
         return this;
     }
-    private String generateJSsetXUpperError1() {
-        if (!setXUpperError1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Error item : setXUpperError1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -1017,28 +773,6 @@ Error mode defines the rule to parse values for series with error.
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetMode());
-        js.append(generateJSsetMode1());
-        js.append(generateJSsetValueError());
-        js.append(generateJSsetValueError1());
-        js.append(generateJSsetValueErrorStroke());
-        js.append(generateJSsetValueErrorStroke1());
-        js.append(generateJSsetValueErrorStroke2());
-        js.append(generateJSsetValueErrorWidth());
-        js.append(generateJSsetValueLowerError());
-        js.append(generateJSsetValueLowerError1());
-        js.append(generateJSsetValueUpperError());
-        js.append(generateJSsetValueUpperError1());
-        js.append(generateJSsetXError());
-        js.append(generateJSsetXError1());
-        js.append(generateJSsetXErrorStroke());
-        js.append(generateJSsetXErrorStroke1());
-        js.append(generateJSsetXErrorStroke2());
-        js.append(generateJSsetXErrorWidth());
-        js.append(generateJSsetXLowerError());
-        js.append(generateJSsetXLowerError1());
-        js.append(generateJSsetXUpperError());
-        js.append(generateJSsetXUpperError1());
         
 
         String result = js.toString();

@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class ChartScroller extends UiScroller {
 
     
     private Boolean inverted;
-    private List<ChartScroller> setInverted = new ArrayList<>();
 
     /**
      * Setter for the scroller inversion.
@@ -57,20 +54,9 @@ public class ChartScroller extends UiScroller {
         }
         return this;
     }
-    private String generateJSsetInverted() {
-        if (!setInverted.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartScroller item : setInverted) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ChartScrollerPosition position;
     private String position1;
-    private List<ChartScroller> setPosition = new ArrayList<>();
 
     /**
      * Setter for the scroller position.
@@ -97,18 +83,7 @@ public class ChartScroller extends UiScroller {
         }
         return this;
     }
-    private String generateJSsetPosition() {
-        if (!setPosition.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartScroller item : setPosition) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ChartScroller> setPosition1 = new ArrayList<>();
 
     /**
      * Setter for the scroller position.
@@ -135,16 +110,6 @@ public class ChartScroller extends UiScroller {
         }
         return this;
     }
-    private String generateJSsetPosition1() {
-        if (!setPosition1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ChartScroller item : setPosition1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -166,9 +131,6 @@ public class ChartScroller extends UiScroller {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetInverted());
-        js.append(generateJSsetPosition());
-        js.append(generateJSsetPosition1());
         
 
         String result = js.toString();

@@ -53,7 +53,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private Boolean ay;
     private String ay1;
-    private List<AnychartSeriesBase> setA11y = new ArrayList<>();
 
     /**
      * Setter for the accessibility setting.
@@ -80,18 +79,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetA11y() {
-        if (!setA11y.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setA11y) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setA11y1 = new ArrayList<>();
 
     /**
      * Setter for the accessibility setting.
@@ -118,19 +106,8 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetA11y1() {
-        if (!setA11y1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setA11y1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
-    private List<AnychartSeriesBase> setColor = new ArrayList<>();
 
     /**
      * Setter for the series color.
@@ -154,16 +131,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetColor() {
-        if (!setColor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setColor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private View getData;
 
@@ -184,7 +151,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private TextParsingMode csvSettings;
     private String csvSettings1;
     private TextParsingSettings csvSettings2;
-    private List<AnychartSeriesBase> setData = new ArrayList<>();
 
     /**
      * Setter for series mapping.
@@ -219,18 +185,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setData1 = new ArrayList<>();
 
     /**
      * Setter for series mapping.
@@ -265,18 +220,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setData2 = new ArrayList<>();
 
     /**
      * Setter for series mapping.
@@ -311,18 +255,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setData3 = new ArrayList<>();
 
     /**
      * Setter for series mapping.
@@ -357,18 +290,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetData3() {
-        if (!setData3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setData3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setData4 = new ArrayList<>();
 
     /**
      * Setter for series mapping.
@@ -403,18 +325,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetData4() {
-        if (!setData4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setData4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setData5 = new ArrayList<>();
 
     /**
      * Setter for series mapping.
@@ -449,18 +360,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetData5() {
-        if (!setData5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setData5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setData6 = new ArrayList<>();
 
     /**
      * Setter for series mapping.
@@ -495,18 +395,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetData6() {
-        if (!setData6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setData6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setData7 = new ArrayList<>();
 
     /**
      * Setter for series mapping.
@@ -541,18 +430,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetData7() {
-        if (!setData7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setData7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setData8 = new ArrayList<>();
 
     /**
      * Setter for series mapping.
@@ -587,18 +465,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetData8() {
-        if (!setData8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setData8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setData9 = new ArrayList<>();
 
     /**
      * Setter for series mapping.
@@ -633,18 +500,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetData9() {
-        if (!setData9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setData9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setData10 = new ArrayList<>();
 
     /**
      * Setter for series mapping.
@@ -679,18 +535,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetData10() {
-        if (!setData10.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setData10) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setData11 = new ArrayList<>();
 
     /**
      * Setter for series mapping.
@@ -725,16 +570,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetData11() {
-        if (!setData11.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setData11) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private List<SeriesPoint> getGetPoint = new ArrayList<>();
 
@@ -748,7 +583,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
     private Double index;
-    private List<AnychartSeriesBase> setHover = new ArrayList<>();
 
     /**
      * Hovers point by index.
@@ -772,19 +606,8 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetHover() {
-        if (!setHover.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setHover) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double[] indexes;
-    private List<AnychartSeriesBase> setHover1 = new ArrayList<>();
 
     /**
      * Hovers points by indexes.
@@ -808,16 +631,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetHover1() {
-        if (!setHover1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setHover1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getHovered;
 
@@ -832,7 +645,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
     private String hovered;
-    private List<AnychartSeriesBase> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -856,20 +668,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String id;
     private Double id1;
-    private List<AnychartSeriesBase> setId = new ArrayList<>();
 
     /**
      * Setter for the series id.
@@ -896,18 +697,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetId() {
-        if (!setId.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setId) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setId1 = new ArrayList<>();
 
     /**
      * Setter for the series id.
@@ -934,16 +724,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetId1() {
-        if (!setId1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setId1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiLabelsFactory getLabels;
 
@@ -959,7 +739,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
 
     private String labels;
     private Boolean labels1;
-    private List<AnychartSeriesBase> setLabels = new ArrayList<>();
 
     /**
      * Setter for the series data labels.
@@ -986,18 +765,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for the series data labels.
@@ -1024,16 +792,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private LegendItemSettings getLegendItem;
 
@@ -1048,7 +806,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
     private String legendItem;
-    private List<AnychartSeriesBase> setLegendItem = new ArrayList<>();
 
     /**
      * Sets the legend item setting for series.
@@ -1072,16 +829,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetLegendItem() {
-        if (!setLegendItem.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setLegendItem) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UiMarkersFactory getMarkers;
 
@@ -1098,7 +845,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String markers;
     private Boolean markers1;
     private String markers2;
-    private List<AnychartSeriesBase> setMarkers = new ArrayList<>();
 
     /**
      * Setter for series data markers.
@@ -1126,18 +872,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetMarkers() {
-        if (!setMarkers.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setMarkers) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setMarkers1 = new ArrayList<>();
 
     /**
      * Setter for series data markers.
@@ -1165,19 +900,8 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetMarkers1() {
-        if (!setMarkers1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setMarkers1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String name;
-    private List<AnychartSeriesBase> setName = new ArrayList<>();
 
     /**
      * Setter for the series name.
@@ -1201,16 +925,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetName() {
-        if (!setName.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setName) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getNormal;
 
@@ -1225,7 +939,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
     private String normal;
-    private List<AnychartSeriesBase> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -1249,19 +962,8 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index1;
-    private List<AnychartSeriesBase> setSelect = new ArrayList<>();
 
     /**
      * Selects point by index.
@@ -1288,20 +990,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSelect() {
-        if (!setSelect.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setSelect) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double indexes1;
     private Double[] indexes2;
-    private List<AnychartSeriesBase> setSelect1 = new ArrayList<>();
 
     /**
      * Selects point by indexes.
@@ -1329,16 +1020,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSelect1() {
-        if (!setSelect1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setSelect1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getSelected;
 
@@ -1353,7 +1034,6 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
     private String selected;
-    private List<AnychartSeriesBase> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -1377,20 +1057,9 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private SelectionMode selectionMode;
     private String selectionMode1;
-    private List<AnychartSeriesBase> setSelectionMode = new ArrayList<>();
 
     /**
      * Allows to select points of the series.
@@ -1418,18 +1087,7 @@ To select multiple points, press "ctrl" and click on them.
         }
         return this;
     }
-    private String generateJSsetSelectionMode() {
-        if (!setSelectionMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setSelectionMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setSelectionMode1 = new ArrayList<>();
 
     /**
      * Allows to select points of the series.
@@ -1457,16 +1115,6 @@ To select multiple points, press "ctrl" and click on them.
         }
         return this;
     }
-    private String generateJSsetSelectionMode1() {
-        if (!setSelectionMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setSelectionMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Tooltip getTooltip;
 
@@ -1482,7 +1130,6 @@ To select multiple points, press "ctrl" and click on them.
 
     private String tooltip;
     private Boolean tooltip1;
-    private List<AnychartSeriesBase> setTooltip = new ArrayList<>();
 
     /**
      * Sets series data tooltip.
@@ -1509,18 +1156,7 @@ To select multiple points, press "ctrl" and click on them.
         }
         return this;
     }
-    private String generateJSsetTooltip() {
-        if (!setTooltip.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setTooltip) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setTooltip1 = new ArrayList<>();
 
     /**
      * Sets series data tooltip.
@@ -1547,20 +1183,9 @@ To select multiple points, press "ctrl" and click on them.
         }
         return this;
     }
-    private String generateJSsetTooltip1() {
-        if (!setTooltip1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setTooltip1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double indexOrIndexes;
     private Double[] indexOrIndexes1;
-    private List<AnychartSeriesBase> setUnhover = new ArrayList<>();
 
     /**
      * Removes hover from the series.
@@ -1587,18 +1212,7 @@ To select multiple points, press "ctrl" and click on them.
         }
         return this;
     }
-    private String generateJSsetUnhover() {
-        if (!setUnhover.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setUnhover) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<AnychartSeriesBase> setUnhover1 = new ArrayList<>();
 
     /**
      * Removes hover from the series.
@@ -1625,19 +1239,8 @@ To select multiple points, press "ctrl" and click on them.
         }
         return this;
     }
-    private String generateJSsetUnhover1() {
-        if (!setUnhover1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setUnhover1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index2;
-    private List<AnychartSeriesBase> setUnselect = new ArrayList<>();
 
     /**
      * Deselects selected point by index.
@@ -1665,19 +1268,8 @@ To select multiple points, press "ctrl" and click on them.
         }
         return this;
     }
-    private String generateJSsetUnselect() {
-        if (!setUnselect.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setUnselect) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double[] indexes3;
-    private List<AnychartSeriesBase> setUnselect1 = new ArrayList<>();
 
     /**
      * Deselects selected points by indexes.
@@ -1705,16 +1297,6 @@ To select multiple points, press "ctrl" and click on them.
             }
         }
         return this;
-    }
-    private String generateJSsetUnselect1() {
-        if (!setUnselect1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (AnychartSeriesBase item : setUnselect1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetA11y() {
@@ -1822,44 +1404,6 @@ To select multiple points, press "ctrl" and click on them.
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetA11y());
-        js.append(generateJSsetA11y1());
-        js.append(generateJSsetColor());
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetData2());
-        js.append(generateJSsetData3());
-        js.append(generateJSsetData4());
-        js.append(generateJSsetData5());
-        js.append(generateJSsetData6());
-        js.append(generateJSsetData7());
-        js.append(generateJSsetData8());
-        js.append(generateJSsetData9());
-        js.append(generateJSsetData10());
-        js.append(generateJSsetData11());
-        js.append(generateJSsetHover());
-        js.append(generateJSsetHover1());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetId());
-        js.append(generateJSsetId1());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
-        js.append(generateJSsetLegendItem());
-        js.append(generateJSsetMarkers());
-        js.append(generateJSsetMarkers1());
-        js.append(generateJSsetName());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetSelect());
-        js.append(generateJSsetSelect1());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetSelectionMode());
-        js.append(generateJSsetSelectionMode1());
-        js.append(generateJSsetTooltip());
-        js.append(generateJSsetTooltip1());
-        js.append(generateJSsetUnhover());
-        js.append(generateJSsetUnhover1());
-        js.append(generateJSsetUnselect());
-        js.append(generateJSsetUnselect1());
         
 
         String result = js.toString();

@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -35,7 +33,6 @@ public class Stochastic extends JsObject {
     
     private MovingAverageType dMAType;
     private String dMAType1;
-    private List<Stochastic> setDMAType = new ArrayList<>();
 
     /**
      * Setter for the %D smoothing type.
@@ -62,18 +59,7 @@ public class Stochastic extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDMAType() {
-        if (!setDMAType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stochastic item : setDMAType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Stochastic> setDMAType1 = new ArrayList<>();
 
     /**
      * Setter for the %D smoothing type.
@@ -100,19 +86,8 @@ public class Stochastic extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDMAType1() {
-        if (!setDMAType1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stochastic item : setDMAType1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double dPeriod;
-    private List<Stochastic> setDPeriod = new ArrayList<>();
 
     /**
      * Setter for the %D Period.
@@ -136,16 +111,6 @@ public class Stochastic extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDPeriod() {
-        if (!setDPeriod.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stochastic item : setDPeriod) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StockSeriesBase getDSeries;
 
@@ -161,7 +126,6 @@ public class Stochastic extends JsObject {
 
     private StockSeriesType type;
     private String type1;
-    private List<Stochastic> setDSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator %D Series.
@@ -188,18 +152,7 @@ public class Stochastic extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDSeries() {
-        if (!setDSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stochastic item : setDSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Stochastic> setDSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator %D Series.
@@ -226,19 +179,8 @@ public class Stochastic extends JsObject {
         }
         return this;
     }
-    private String generateJSsetDSeries1() {
-        if (!setDSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stochastic item : setDSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double kMAPeriod;
-    private List<Stochastic> setKMAPeriod = new ArrayList<>();
 
     /**
      * Setter for the %K smoothing period.
@@ -262,20 +204,9 @@ public class Stochastic extends JsObject {
         }
         return this;
     }
-    private String generateJSsetKMAPeriod() {
-        if (!setKMAPeriod.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stochastic item : setKMAPeriod) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private MovingAverageType kMAType;
     private String kMAType1;
-    private List<Stochastic> setKMAType = new ArrayList<>();
 
     /**
      * Setter for the %K smoothing type.
@@ -302,18 +233,7 @@ public class Stochastic extends JsObject {
         }
         return this;
     }
-    private String generateJSsetKMAType() {
-        if (!setKMAType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stochastic item : setKMAType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Stochastic> setKMAType1 = new ArrayList<>();
 
     /**
      * Setter for the %K smoothing type.
@@ -340,19 +260,8 @@ public class Stochastic extends JsObject {
         }
         return this;
     }
-    private String generateJSsetKMAType1() {
-        if (!setKMAType1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stochastic item : setKMAType1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double kPeriod;
-    private List<Stochastic> setKPeriod = new ArrayList<>();
 
     /**
      * Setter for the %K Period.
@@ -376,16 +285,6 @@ public class Stochastic extends JsObject {
         }
         return this;
     }
-    private String generateJSsetKPeriod() {
-        if (!setKPeriod.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stochastic item : setKPeriod) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StockSeriesBase getKSeries;
 
@@ -401,7 +300,6 @@ public class Stochastic extends JsObject {
 
     private StockSeriesType type2;
     private String type3;
-    private List<Stochastic> setKSeries = new ArrayList<>();
 
     /**
      * Setter for the indicator %K Series.
@@ -430,18 +328,7 @@ public class Stochastic extends JsObject {
         }
         return this;
     }
-    private String generateJSsetKSeries() {
-        if (!setKSeries.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stochastic item : setKSeries) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Stochastic> setKSeries1 = new ArrayList<>();
 
     /**
      * Setter for the indicator %K Series.
@@ -469,16 +356,6 @@ public class Stochastic extends JsObject {
             }
         }
         return this;
-    }
-    private String generateJSsetKSeries1() {
-        if (!setKSeries1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Stochastic item : setKSeries1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetDSeries() {
@@ -517,17 +394,6 @@ public class Stochastic extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetDMAType());
-        js.append(generateJSsetDMAType1());
-        js.append(generateJSsetDPeriod());
-        js.append(generateJSsetDSeries());
-        js.append(generateJSsetDSeries1());
-        js.append(generateJSsetKMAPeriod());
-        js.append(generateJSsetKMAType());
-        js.append(generateJSsetKMAType1());
-        js.append(generateJSsetKPeriod());
-        js.append(generateJSsetKSeries());
-        js.append(generateJSsetKSeries1());
         
 
         String result = js.toString();

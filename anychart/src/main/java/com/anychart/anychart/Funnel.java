@@ -3,7 +3,6 @@ package com.anychart.anychart;
 import com.anychart.anychart.application.MyApplication;
 import com.anychart.anychart.chart.common.ListenersInterface;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -118,7 +117,6 @@ public class Funnel extends SeparateChart {
     
     private String baseWidth;
     private Double baseWidth1;
-    private List<Funnel> setBaseWidth = new ArrayList<>();
 
     /**
      * Setter for the funnel width in pixels or in percentage.
@@ -136,18 +134,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetBaseWidth() {
-        if (!setBaseWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setBaseWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setBaseWidth1 = new ArrayList<>();
 
     /**
      * Setter for the funnel width in pixels or in percentage.
@@ -165,20 +152,9 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetBaseWidth1() {
-        if (!setBaseWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setBaseWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double connectorLength;
     private String connectorLength1;
-    private List<Funnel> setConnectorLength = new ArrayList<>();
 
     /**
      * Setter for outside labels connector length.
@@ -196,18 +172,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetConnectorLength() {
-        if (!setConnectorLength.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setConnectorLength) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setConnectorLength1 = new ArrayList<>();
 
     /**
      * Setter for outside labels connector length.
@@ -225,16 +190,6 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetConnectorLength1() {
-        if (!setConnectorLength1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setConnectorLength1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke connectorStroke;
     private ColoredFill connectorStroke1;
@@ -243,7 +198,6 @@ public class Funnel extends SeparateChart {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<Funnel> setConnectorStroke = new ArrayList<>();
 
     /**
      * Setter for outside labels connectors stroke settings.
@@ -262,18 +216,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetConnectorStroke() {
-        if (!setConnectorStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setConnectorStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setConnectorStroke1 = new ArrayList<>();
 
     /**
      * Setter for outside labels connectors stroke settings.
@@ -292,18 +235,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetConnectorStroke1() {
-        if (!setConnectorStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setConnectorStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setConnectorStroke2 = new ArrayList<>();
 
     /**
      * Setter for outside labels connectors stroke settings.
@@ -322,16 +254,6 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetConnectorStroke2() {
-        if (!setConnectorStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setConnectorStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private View getData;
@@ -345,7 +267,6 @@ public class Funnel extends SeparateChart {
 
         return getData;
     }
-    private List<Funnel> setData = new ArrayList<>();
 
     /**
      * Setter for the data for the current chart.
@@ -369,18 +290,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setData1 = new ArrayList<>();
 
     /**
      * 
@@ -395,19 +305,8 @@ public class Funnel extends SeparateChart {
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
-    private List<Funnel> setFill = new ArrayList<>();
 
     /**
      * Sets fill settings using an array or a string.
@@ -426,20 +325,9 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<Funnel> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -457,16 +345,6 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -475,7 +353,6 @@ public class Funnel extends SeparateChart {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<Funnel> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -494,18 +371,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -524,18 +390,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -554,18 +409,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -584,18 +428,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -614,18 +447,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -644,16 +466,6 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -663,7 +475,6 @@ public class Funnel extends SeparateChart {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<Funnel> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -682,18 +493,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -711,16 +511,6 @@ public class Funnel extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Fill imageSettings;
@@ -744,7 +534,6 @@ public class Funnel extends SeparateChart {
     private String color1;
     private Double thickness1;
     private Double size;
-    private List<Funnel> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -762,18 +551,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFill() {
-        if (!setHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -791,18 +569,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFill1() {
-        if (!setHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -820,18 +587,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFill2() {
-        if (!setHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -849,18 +605,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFill3() {
-        if (!setHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -878,16 +623,6 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFill4() {
-        if (!setHatchFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setHatchFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private HatchFills getHatchFillPalette;
@@ -904,7 +639,6 @@ public class Funnel extends SeparateChart {
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
-    private List<Funnel> setHatchFillPalette = new ArrayList<>();
 
     /**
      * Setter for the chart hatch fill palette settings.
@@ -922,18 +656,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette() {
-        if (!setHatchFillPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setHatchFillPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setHatchFillPalette1 = new ArrayList<>();
 
     /**
      * Setter for the chart hatch fill palette settings.
@@ -951,18 +674,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette1() {
-        if (!setHatchFillPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setHatchFillPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setHatchFillPalette2 = new ArrayList<>();
 
     /**
      * Setter for the chart hatch fill palette settings.
@@ -978,19 +690,8 @@ public class Funnel extends SeparateChart {
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetHatchFillPalette2() {
-        if (!setHatchFillPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setHatchFillPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index;
-    private List<Funnel> setHover = new ArrayList<>();
 
     /**
      * Setter for the hover state on a element or all elements.
@@ -1008,16 +709,6 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHover() {
-        if (!setHover.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setHover) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getHovered;
@@ -1032,7 +723,6 @@ public class Funnel extends SeparateChart {
         return getHovered;
     }
     private String hovered;
-    private List<Funnel> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -1050,16 +740,6 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiLabelsFactory getLabels;
@@ -1075,7 +755,6 @@ public class Funnel extends SeparateChart {
     }
     private String labels;
     private Boolean labels1;
-    private List<Funnel> setLabels = new ArrayList<>();
 
     /**
      * Setter for the funnel labels.
@@ -1093,18 +772,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for the funnel labels.
@@ -1121,16 +789,6 @@ public class Funnel extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1149,7 +807,6 @@ public class Funnel extends SeparateChart {
     private String markerPalette1;
     private MarkerType[] markerPalette2;
     private String[] markerPalette3;
-    private List<Funnel> setMarkerPalette = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -1165,18 +822,7 @@ public class Funnel extends SeparateChart {
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetMarkerPalette() {
-        if (!setMarkerPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setMarkerPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setMarkerPalette1 = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -1194,18 +840,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette1() {
-        if (!setMarkerPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setMarkerPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setMarkerPalette2 = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -1223,18 +858,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette2() {
-        if (!setMarkerPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setMarkerPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setMarkerPalette3 = new ArrayList<>();
 
     /**
      * Setter for the chart markers palette settings.
@@ -1252,16 +876,6 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkerPalette3() {
-        if (!setMarkerPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setMarkerPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiMarkersFactory getMarkers;
@@ -1278,7 +892,6 @@ public class Funnel extends SeparateChart {
     private String markers;
     private Boolean markers1;
     private String markers2;
-    private List<Funnel> setMarkers = new ArrayList<>();
 
     /**
      * Setter for data markers.
@@ -1296,18 +909,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkers() {
-        if (!setMarkers.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setMarkers) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setMarkers1 = new ArrayList<>();
 
     /**
      * Setter for data markers.
@@ -1325,20 +927,9 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkers1() {
-        if (!setMarkers1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setMarkers1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String neckHeight;
     private Double neckHeight1;
-    private List<Funnel> setNeckHeight = new ArrayList<>();
 
     /**
      * Setter for the height of the neck.
@@ -1356,18 +947,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetNeckHeight() {
-        if (!setNeckHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setNeckHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setNeckHeight1 = new ArrayList<>();
 
     /**
      * Setter for the height of the neck.
@@ -1385,20 +965,9 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetNeckHeight1() {
-        if (!setNeckHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setNeckHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String neckWidth;
     private Double neckWidth1;
-    private List<Funnel> setNeckWidth = new ArrayList<>();
 
     /**
      * Setter for the width of the neck.
@@ -1416,18 +985,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetNeckWidth() {
-        if (!setNeckWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setNeckWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setNeckWidth1 = new ArrayList<>();
 
     /**
      * Setter for the width of the neck.
@@ -1445,16 +1003,6 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetNeckWidth1() {
-        if (!setNeckWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setNeckWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getNormal;
@@ -1469,7 +1017,6 @@ public class Funnel extends SeparateChart {
         return getNormal;
     }
     private String normal;
-    private List<Funnel> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -1487,21 +1034,10 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private LabelsOverlapMode overlapMode;
     private String overlapMode1;
     private Boolean overlapMode2;
-    private List<Funnel> setOverlapMode = new ArrayList<>();
 
     /**
      * Setter for overlap mode for labels.
@@ -1519,18 +1055,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetOverlapMode() {
-        if (!setOverlapMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setOverlapMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setOverlapMode1 = new ArrayList<>();
 
     /**
      * Setter for overlap mode for labels.
@@ -1548,18 +1073,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetOverlapMode1() {
-        if (!setOverlapMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setOverlapMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setOverlapMode2 = new ArrayList<>();
 
     /**
      * Setter for overlap mode for labels.
@@ -1576,16 +1090,6 @@ public class Funnel extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetOverlapMode2() {
-        if (!setOverlapMode2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setOverlapMode2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1604,7 +1108,6 @@ public class Funnel extends SeparateChart {
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
-    private List<Funnel> setPalette = new ArrayList<>();
 
     /**
      * Setter for the funnel palette.
@@ -1621,18 +1124,7 @@ public class Funnel extends SeparateChart {
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette() {
-        if (!setPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for the funnel palette.
@@ -1649,18 +1141,7 @@ public class Funnel extends SeparateChart {
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette1() {
-        if (!setPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for the funnel palette.
@@ -1679,18 +1160,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPalette2() {
-        if (!setPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for the funnel palette.
@@ -1709,20 +1179,9 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPalette3() {
-        if (!setPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String pointsPadding;
     private Double pointsPadding1;
-    private List<Funnel> setPointsPadding = new ArrayList<>();
 
     /**
      * Setter for the padding between points.
@@ -1740,18 +1199,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPointsPadding() {
-        if (!setPointsPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setPointsPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setPointsPadding1 = new ArrayList<>();
 
     /**
      * Setter for the padding between points.
@@ -1769,19 +1217,8 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetPointsPadding1() {
-        if (!setPointsPadding1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setPointsPadding1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index1;
-    private List<Funnel> setSelect = new ArrayList<>();
 
     /**
      * Selects points by index.
@@ -1800,19 +1237,8 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetSelect() {
-        if (!setSelect.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setSelect) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double[] indexes;
-    private List<Funnel> setSelect1 = new ArrayList<>();
 
     /**
      * Selects points by indexes.<br/>
@@ -1831,16 +1257,6 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetSelect1() {
-        if (!setSelect1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setSelect1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getSelected;
@@ -1855,7 +1271,6 @@ public class Funnel extends SeparateChart {
         return getSelected;
     }
     private String selected;
-    private List<Funnel> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -1873,19 +1288,8 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke stroke;
-    private List<Funnel> setStroke = new ArrayList<>();
 
     /**
      * Setter for the funnel points stroke using function.
@@ -1904,16 +1308,6 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color2;
     private ColoredFill color3;
@@ -1922,7 +1316,6 @@ public class Funnel extends SeparateChart {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
-    private List<Funnel> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for the funnel points stroke using several parameters.
@@ -1941,18 +1334,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for the funnel points stroke using several parameters.
@@ -1971,18 +1353,7 @@ public class Funnel extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Funnel> setStroke3 = new ArrayList<>();
 
     /**
      * Setter for the funnel points stroke using several parameters.
@@ -2000,16 +1371,6 @@ public class Funnel extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetStroke3() {
-        if (!setStroke3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Funnel item : setStroke3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetData() {
@@ -2099,64 +1460,6 @@ public class Funnel extends SeparateChart {
         js.append(generateJSgetNormal());
         js.append(generateJSgetPalette());
         js.append(generateJSgetSelected());
-        js.append(generateJSsetBaseWidth());
-        js.append(generateJSsetBaseWidth1());
-        js.append(generateJSsetConnectorLength());
-        js.append(generateJSsetConnectorLength1());
-        js.append(generateJSsetConnectorStroke());
-        js.append(generateJSsetConnectorStroke1());
-        js.append(generateJSsetConnectorStroke2());
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetHatchFill());
-        js.append(generateJSsetHatchFill1());
-        js.append(generateJSsetHatchFill2());
-        js.append(generateJSsetHatchFill3());
-        js.append(generateJSsetHatchFill4());
-        js.append(generateJSsetHatchFillPalette());
-        js.append(generateJSsetHatchFillPalette1());
-        js.append(generateJSsetHatchFillPalette2());
-        js.append(generateJSsetHover());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
-        js.append(generateJSsetMarkerPalette());
-        js.append(generateJSsetMarkerPalette1());
-        js.append(generateJSsetMarkerPalette2());
-        js.append(generateJSsetMarkerPalette3());
-        js.append(generateJSsetMarkers());
-        js.append(generateJSsetMarkers1());
-        js.append(generateJSsetNeckHeight());
-        js.append(generateJSsetNeckHeight1());
-        js.append(generateJSsetNeckWidth());
-        js.append(generateJSsetNeckWidth1());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetOverlapMode());
-        js.append(generateJSsetOverlapMode1());
-        js.append(generateJSsetOverlapMode2());
-        js.append(generateJSsetPalette());
-        js.append(generateJSsetPalette1());
-        js.append(generateJSsetPalette2());
-        js.append(generateJSsetPalette3());
-        js.append(generateJSsetPointsPadding());
-        js.append(generateJSsetPointsPadding1());
-        js.append(generateJSsetSelect());
-        js.append(generateJSsetSelect1());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetStroke3());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

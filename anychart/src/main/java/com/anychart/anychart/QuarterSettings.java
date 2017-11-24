@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -45,7 +43,6 @@ public class QuarterSettings extends CoreBase {
     }
 
     private String leftBottom;
-    private List<QuarterSettings> setLeftBottom = new ArrayList<>();
 
     /**
      * Setter for left-bottom quarter.
@@ -69,16 +66,6 @@ public class QuarterSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetLeftBottom() {
-        if (!setLeftBottom.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (QuarterSettings item : setLeftBottom) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Quarter getLeftTop;
 
@@ -93,7 +80,6 @@ public class QuarterSettings extends CoreBase {
     }
 
     private String leftTop;
-    private List<QuarterSettings> setLeftTop = new ArrayList<>();
 
     /**
      * Setter for left-top quarter.
@@ -117,16 +103,6 @@ public class QuarterSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetLeftTop() {
-        if (!setLeftTop.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (QuarterSettings item : setLeftTop) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Quarter getRightBottom;
 
@@ -141,7 +117,6 @@ public class QuarterSettings extends CoreBase {
     }
 
     private String rightBottom;
-    private List<QuarterSettings> setRightBottom = new ArrayList<>();
 
     /**
      * Setter for right-bottom quarter.
@@ -165,16 +140,6 @@ public class QuarterSettings extends CoreBase {
         }
         return this;
     }
-    private String generateJSsetRightBottom() {
-        if (!setRightBottom.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (QuarterSettings item : setRightBottom) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Quarter getRightTop;
 
@@ -189,7 +154,6 @@ public class QuarterSettings extends CoreBase {
     }
 
     private String rightTop;
-    private List<QuarterSettings> setRightTop = new ArrayList<>();
 
     /**
      * Setter for right-top quarter.
@@ -212,16 +176,6 @@ public class QuarterSettings extends CoreBase {
             }
         }
         return this;
-    }
-    private String generateJSsetRightTop() {
-        if (!setRightTop.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (QuarterSettings item : setRightTop) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetLeftBottom() {
@@ -276,10 +230,6 @@ public class QuarterSettings extends CoreBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetLeftBottom());
-        js.append(generateJSsetLeftTop());
-        js.append(generateJSsetRightBottom());
-        js.append(generateJSsetRightTop());
         
 
         String result = js.toString();

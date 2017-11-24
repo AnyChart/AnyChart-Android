@@ -34,7 +34,6 @@ public class CoreAxismarkersText extends CoreText {
     
     private EnumsAlign align;
     private String align1;
-    private List<CoreAxismarkersText> setAlign = new ArrayList<>();
 
     /**
      * Setter for the text marker align.
@@ -61,18 +60,7 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetAlign() {
-        if (!setAlign.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setAlign) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxismarkersText> setAlign1 = new ArrayList<>();
 
     /**
      * Setter for the text marker align.
@@ -99,20 +87,9 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetAlign1() {
-        if (!setAlign1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setAlign1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private EnumsAnchor anchor;
     private String anchor1;
-    private List<CoreAxismarkersText> setAnchor = new ArrayList<>();
 
     /**
      * Setter for the text marker anchor settings.
@@ -139,18 +116,7 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetAnchor() {
-        if (!setAnchor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setAnchor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxismarkersText> setAnchor1 = new ArrayList<>();
 
     /**
      * Setter for the text marker anchor settings.
@@ -176,16 +142,6 @@ public class CoreAxismarkersText extends CoreText {
             }
         }
         return this;
-    }
-    private String generateJSsetAnchor1() {
-        if (!setAnchor1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setAnchor1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private CoreAxesLinear getAxis;
@@ -237,7 +193,6 @@ public class CoreAxismarkersText extends CoreText {
 
     private Double height;
     private String height1;
-    private List<CoreAxismarkersText> setHeight = new ArrayList<>();
 
     /**
      * Setter for the text marker height.
@@ -264,18 +219,7 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetHeight() {
-        if (!setHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxismarkersText> setHeight1 = new ArrayList<>();
 
     /**
      * Setter for the text marker height.
@@ -302,20 +246,9 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetHeight1() {
-        if (!setHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Layout layout;
     private String layout1;
-    private List<CoreAxismarkersText> setLayout = new ArrayList<>();
 
     /**
      * Setter for text marker layout.
@@ -342,18 +275,7 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetLayout() {
-        if (!setLayout.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setLayout) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxismarkersText> setLayout1 = new ArrayList<>();
 
     /**
      * Setter for text marker layout.
@@ -380,20 +302,9 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetLayout1() {
-        if (!setLayout1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setLayout1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double offsetX;
     private String offsetX1;
-    private List<CoreAxismarkersText> setOffsetX = new ArrayList<>();
 
     /**
      * Setter for the text marker offset by x.
@@ -420,18 +331,7 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetOffsetX() {
-        if (!setOffsetX.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setOffsetX) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxismarkersText> setOffsetX1 = new ArrayList<>();
 
     /**
      * Setter for the text marker offset by x.
@@ -458,20 +358,9 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetOffsetX1() {
-        if (!setOffsetX1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setOffsetX1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double offsetY;
     private String offsetY1;
-    private List<CoreAxismarkersText> setOffsetY = new ArrayList<>();
 
     /**
      * Setter for the text marker offset by y.
@@ -498,18 +387,7 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetOffsetY() {
-        if (!setOffsetY.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setOffsetY) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxismarkersText> setOffsetY1 = new ArrayList<>();
 
     /**
      * Setter for the text marker offset by y.
@@ -536,19 +414,8 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetOffsetY1() {
-        if (!setOffsetY1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setOffsetY1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double rotation;
-    private List<CoreAxismarkersText> setRotation = new ArrayList<>();
 
     /**
      * Setter for the text marker rotation.
@@ -572,16 +439,6 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetRotation() {
-        if (!setRotation.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setRotation) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScalesBase getScale;
 
@@ -599,7 +456,6 @@ public class CoreAxismarkersText extends CoreText {
     private String scale1;
     private ScaleTypes scale2;
     private String scale3;
-    private List<CoreAxismarkersText> setScale = new ArrayList<>();
 
     /**
      * Setter for the text marker scale.
@@ -625,18 +481,7 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetScale() {
-        if (!setScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxismarkersText> setScale1 = new ArrayList<>();
 
     /**
      * Setter for the text marker scale.
@@ -665,18 +510,7 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetScale1() {
-        if (!setScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxismarkersText> setScale2 = new ArrayList<>();
 
     /**
      * Setter for the text marker scale.
@@ -705,19 +539,8 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetScale2() {
-        if (!setScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String text;
-    private List<CoreAxismarkersText> setText = new ArrayList<>();
 
     /**
      * Setter for the text marker text settings.
@@ -741,19 +564,8 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetText() {
-        if (!setText.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setText) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double value;
-    private List<CoreAxismarkersText> setValue = new ArrayList<>();
 
     /**
      * Setter for the text marker value.
@@ -777,20 +589,9 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetValue() {
-        if (!setValue.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setValue) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double width;
     private String width1;
-    private List<CoreAxismarkersText> setWidth = new ArrayList<>();
 
     /**
      * Setter for the text marker width.
@@ -817,18 +618,7 @@ public class CoreAxismarkersText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetWidth() {
-        if (!setWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxismarkersText> setWidth1 = new ArrayList<>();
 
     /**
      * Setter for the text marker width.
@@ -854,16 +644,6 @@ public class CoreAxismarkersText extends CoreText {
             }
         }
         return this;
-    }
-    private String generateJSsetWidth1() {
-        if (!setWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxismarkersText item : setWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetAxis() {
@@ -902,27 +682,7 @@ public class CoreAxismarkersText extends CoreText {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAlign());
-        js.append(generateJSsetAlign1());
-        js.append(generateJSsetAnchor());
-        js.append(generateJSsetAnchor1());
         js.append(generateJSsetAxis());
-        js.append(generateJSsetHeight());
-        js.append(generateJSsetHeight1());
-        js.append(generateJSsetLayout());
-        js.append(generateJSsetLayout1());
-        js.append(generateJSsetOffsetX());
-        js.append(generateJSsetOffsetX1());
-        js.append(generateJSsetOffsetY());
-        js.append(generateJSsetOffsetY1());
-        js.append(generateJSsetRotation());
-        js.append(generateJSsetScale());
-        js.append(generateJSsetScale1());
-        js.append(generateJSsetScale2());
-        js.append(generateJSsetText());
-        js.append(generateJSsetValue());
-        js.append(generateJSsetWidth());
-        js.append(generateJSsetWidth1());
         
 
         String result = js.toString();

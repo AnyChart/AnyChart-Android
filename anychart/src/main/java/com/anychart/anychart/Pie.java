@@ -3,7 +3,6 @@ package com.anychart.anychart;
 import com.anychart.anychart.application.MyApplication;
 import com.anychart.anychart.chart.common.ListenersInterface;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -117,7 +116,6 @@ public class Pie extends SeparateChart {
     
     private Double connectorLength;
     private String connectorLength1;
-    private List<Pie> setConnectorLength = new ArrayList<>();
 
     /**
      * Setter for the outside labels connector length.<br/>
@@ -136,18 +134,7 @@ public class Pie extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetConnectorLength() {
-        if (!setConnectorLength.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setConnectorLength) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setConnectorLength1 = new ArrayList<>();
 
     /**
      * Setter for the outside labels connector length.<br/>
@@ -166,16 +153,6 @@ public class Pie extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetConnectorLength1() {
-        if (!setConnectorLength1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setConnectorLength1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke connectorStroke;
     private ColoredFill connectorStroke1;
@@ -184,7 +161,6 @@ public class Pie extends SeparateChart {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<Pie> setConnectorStroke = new ArrayList<>();
 
     /**
      * Setter for outside labels connectors stroke settings.
@@ -204,18 +180,7 @@ public class Pie extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetConnectorStroke() {
-        if (!setConnectorStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setConnectorStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setConnectorStroke1 = new ArrayList<>();
 
     /**
      * Setter for outside labels connectors stroke settings.
@@ -235,18 +200,7 @@ public class Pie extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetConnectorStroke1() {
-        if (!setConnectorStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setConnectorStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setConnectorStroke2 = new ArrayList<>();
 
     /**
      * Setter for outside labels connectors stroke settings.
@@ -266,16 +220,6 @@ public class Pie extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetConnectorStroke2() {
-        if (!setConnectorStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setConnectorStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private View getData;
@@ -289,7 +233,6 @@ public class Pie extends SeparateChart {
 
         return getData;
     }
-    private List<Pie> setData = new ArrayList<>();
 
     /**
      * Setter for the chart data.<br/>
@@ -314,18 +257,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setData1 = new ArrayList<>();
 
     /**
      * 
@@ -340,20 +272,9 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String explode;
     private Double explode1;
-    private List<Pie> setExplode = new ArrayList<>();
 
     /**
      * Setter for the value of the exploded pie slice.<br/>
@@ -372,18 +293,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetExplode() {
-        if (!setExplode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setExplode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setExplode1 = new ArrayList<>();
 
     /**
      * Setter for the value of the exploded pie slice.<br/>
@@ -402,20 +312,9 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetExplode1() {
-        if (!setExplode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setExplode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index;
     private Boolean explode2;
-    private List<Pie> setExplodeSlice = new ArrayList<>();
 
     /**
      * Explodes slice at index.
@@ -433,19 +332,8 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetExplodeSlice() {
-        if (!setExplodeSlice.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setExplodeSlice) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean explodeSlices;
-    private List<Pie> setExplodeSlices = new ArrayList<>();
 
     /**
      * Explodes all slices.
@@ -463,19 +351,8 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetExplodeSlices() {
-        if (!setExplodeSlices.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setExplodeSlices) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
-    private List<Pie> setFill = new ArrayList<>();
 
     /**
      * Setter for fill settings using an array or a string.
@@ -494,20 +371,9 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<Pie> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
@@ -525,16 +391,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -543,7 +399,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<Pie> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -562,18 +417,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -592,18 +436,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -622,18 +455,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -652,18 +474,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -682,18 +493,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -712,16 +512,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -731,7 +521,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<Pie> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -750,18 +539,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -780,20 +558,9 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private Boolean forceHoverLabels;
-    private List<Pie> setForceHoverLabels = new ArrayList<>();
 
     /**
      * Setter for the displaying of the label on hover event.
@@ -811,19 +578,8 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetForceHoverLabels() {
-        if (!setForceHoverLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setForceHoverLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String group;
-    private List<Pie> setGroup = new ArrayList<>();
 
     /**
      * Setter for the points grouping function.
@@ -840,16 +596,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetGroup() {
-        if (!setGroup.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setGroup) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -872,7 +618,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     private String color1;
     private Double thickness1;
     private Double size;
-    private List<Pie> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -890,18 +635,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetHatchFill() {
-        if (!setHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -919,18 +653,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetHatchFill1() {
-        if (!setHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -948,18 +671,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetHatchFill2() {
-        if (!setHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -977,18 +689,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetHatchFill3() {
-        if (!setHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -1006,16 +707,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetHatchFill4() {
-        if (!setHatchFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setHatchFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private HatchFills getHatchFillPalette;
@@ -1032,7 +723,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     private HatchFillType[] hatchFillPalette;
     private String hatchFillPalette1;
     private HatchFills hatchFillPalette2;
-    private List<Pie> setHatchFillPalette = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.<br/>
@@ -1051,18 +741,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette() {
-        if (!setHatchFillPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setHatchFillPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setHatchFillPalette1 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.<br/>
@@ -1081,18 +760,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetHatchFillPalette1() {
-        if (!setHatchFillPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setHatchFillPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setHatchFillPalette2 = new ArrayList<>();
 
     /**
      * Setter for hatch fill palette settings.<br/>
@@ -1109,19 +777,8 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetHatchFillPalette2() {
-        if (!setHatchFillPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setHatchFillPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index1;
-    private List<Pie> setHover = new ArrayList<>();
 
     /**
      * Setter for the hover state on a slice by index.
@@ -1139,16 +796,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetHover() {
-        if (!setHover.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setHover) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getHovered;
@@ -1163,7 +810,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         return getHovered;
     }
     private String hovered;
-    private List<Pie> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -1181,20 +827,9 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String innerRadius;
     private Double innerRadius1;
-    private List<Pie> setInnerRadius = new ArrayList<>();
 
     /**
      * Setter for the inner radius in case of a Donut chart.
@@ -1212,18 +847,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetInnerRadius() {
-        if (!setInnerRadius.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setInnerRadius) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setInnerRadius1 = new ArrayList<>();
 
     /**
      * Setter for the inner radius in case of a Donut chart.
@@ -1241,20 +865,9 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetInnerRadius1() {
-        if (!setInnerRadius1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setInnerRadius1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double insideLabelsOffset;
     private String insideLabelsOffset1;
-    private List<Pie> setInsideLabelsOffset = new ArrayList<>();
 
     /**
      * Setter for inside labels space settings.<br/>
@@ -1273,18 +886,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetInsideLabelsOffset() {
-        if (!setInsideLabelsOffset.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setInsideLabelsOffset) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setInsideLabelsOffset1 = new ArrayList<>();
 
     /**
      * Setter for inside labels space settings.<br/>
@@ -1303,16 +905,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetInsideLabelsOffset1() {
-        if (!setInsideLabelsOffset1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setInsideLabelsOffset1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiLabelsFactory getLabels;
@@ -1328,7 +920,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     }
     private String labels;
     private Boolean labels1;
-    private List<Pie> setLabels = new ArrayList<>();
 
     /**
      * Setter for the pie labels.
@@ -1346,18 +937,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for the pie labels.
@@ -1375,16 +955,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getNormal;
@@ -1399,7 +969,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         return getNormal;
     }
     private String normal;
-    private List<Pie> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -1417,20 +986,9 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double outsideLabelsCriticalAngle;
     private String outsideLabelsCriticalAngle1;
-    private List<Pie> setOutsideLabelsCriticalAngle = new ArrayList<>();
 
     /**
      * Setter for the outside labels connector critical angle settings.<br/>
@@ -1449,18 +1007,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetOutsideLabelsCriticalAngle() {
-        if (!setOutsideLabelsCriticalAngle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setOutsideLabelsCriticalAngle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setOutsideLabelsCriticalAngle1 = new ArrayList<>();
 
     /**
      * Setter for the outside labels connector critical angle settings.<br/>
@@ -1479,20 +1026,9 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetOutsideLabelsCriticalAngle1() {
-        if (!setOutsideLabelsCriticalAngle1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setOutsideLabelsCriticalAngle1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double outsideLabelsSpace;
     private String outsideLabelsSpace1;
-    private List<Pie> setOutsideLabelsSpace = new ArrayList<>();
 
     /**
      * Setter for the outside labels space settings.<br/>
@@ -1511,18 +1047,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetOutsideLabelsSpace() {
-        if (!setOutsideLabelsSpace.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setOutsideLabelsSpace) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setOutsideLabelsSpace1 = new ArrayList<>();
 
     /**
      * Setter for the outside labels space settings.<br/>
@@ -1541,21 +1066,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetOutsideLabelsSpace1() {
-        if (!setOutsideLabelsSpace1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setOutsideLabelsSpace1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private LabelsOverlapMode overlapMode;
     private String overlapMode1;
     private Boolean overlapMode2;
-    private List<Pie> setOverlapMode = new ArrayList<>();
 
     /**
      * Setter for the overlap mode for labels.
@@ -1573,18 +1087,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetOverlapMode() {
-        if (!setOverlapMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setOverlapMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setOverlapMode1 = new ArrayList<>();
 
     /**
      * Setter for the overlap mode for labels.
@@ -1602,18 +1105,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetOverlapMode1() {
-        if (!setOverlapMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setOverlapMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setOverlapMode2 = new ArrayList<>();
 
     /**
      * Setter for the overlap mode for labels.
@@ -1630,16 +1122,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetOverlapMode2() {
-        if (!setOverlapMode2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setOverlapMode2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1658,7 +1140,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     private DistinctColors palette1;
     private String palette2;
     private String[] palette3;
-    private List<Pie> setPalette = new ArrayList<>();
 
     /**
      * Setter for the pie palette.
@@ -1675,18 +1156,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette() {
-        if (!setPalette.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setPalette) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setPalette1 = new ArrayList<>();
 
     /**
      * Setter for the pie palette.
@@ -1703,18 +1173,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetPalette1() {
-        if (!setPalette1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setPalette1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setPalette2 = new ArrayList<>();
 
     /**
      * Setter for the pie palette.
@@ -1733,18 +1192,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetPalette2() {
-        if (!setPalette2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setPalette2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setPalette3 = new ArrayList<>();
 
     /**
      * Setter for the pie palette.
@@ -1763,20 +1211,9 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetPalette3() {
-        if (!setPalette3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setPalette3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String radius;
     private Double radius1;
-    private List<Pie> setRadius = new ArrayList<>();
 
     /**
      * Setter for the outer pie radius.
@@ -1794,18 +1231,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetRadius() {
-        if (!setRadius.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setRadius) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setRadius1 = new ArrayList<>();
 
     /**
      * Setter for the outer pie radius.
@@ -1823,20 +1249,9 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         }
         return this;
     }
-    private String generateJSsetRadius1() {
-        if (!setRadius1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setRadius1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Sort sort;
     private String sort1;
-    private List<Pie> setSort = new ArrayList<>();
 
     /**
      * Setter for the sorting setting.<br/>
@@ -1855,18 +1270,7 @@ Ascending, Descending and No sorting is supported.
         }
         return this;
     }
-    private String generateJSsetSort() {
-        if (!setSort.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setSort) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setSort1 = new ArrayList<>();
 
     /**
      * Setter for the sorting setting.<br/>
@@ -1885,20 +1289,9 @@ Ascending, Descending and No sorting is supported.
         }
         return this;
     }
-    private String generateJSsetSort1() {
-        if (!setSort1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setSort1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String startAngle;
     private Double startAngle1;
-    private List<Pie> setStartAngle = new ArrayList<>();
 
     /**
      * Setter for the angle of the first slice.
@@ -1916,18 +1309,7 @@ Ascending, Descending and No sorting is supported.
         }
         return this;
     }
-    private String generateJSsetStartAngle() {
-        if (!setStartAngle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setStartAngle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setStartAngle1 = new ArrayList<>();
 
     /**
      * Setter for the angle of the first slice.
@@ -1945,16 +1327,6 @@ Ascending, Descending and No sorting is supported.
         }
         return this;
     }
-    private String generateJSsetStartAngle1() {
-        if (!setStartAngle1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setStartAngle1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke stroke;
     private ColoredFill stroke1;
@@ -1963,7 +1335,6 @@ Ascending, Descending and No sorting is supported.
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
-    private List<Pie> setStroke = new ArrayList<>();
 
     /**
      * Setter for the pie slices stroke.
@@ -1982,18 +1353,7 @@ Ascending, Descending and No sorting is supported.
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for the pie slices stroke.
@@ -2012,18 +1372,7 @@ Ascending, Descending and No sorting is supported.
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Pie> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for the pie slices stroke.
@@ -2041,16 +1390,6 @@ Ascending, Descending and No sorting is supported.
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Pie item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetData() {
@@ -2116,66 +1455,6 @@ Ascending, Descending and No sorting is supported.
         js.append(generateJSgetLabels());
         js.append(generateJSgetNormal());
         js.append(generateJSgetPalette());
-        js.append(generateJSsetConnectorLength());
-        js.append(generateJSsetConnectorLength1());
-        js.append(generateJSsetConnectorStroke());
-        js.append(generateJSsetConnectorStroke1());
-        js.append(generateJSsetConnectorStroke2());
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetExplode());
-        js.append(generateJSsetExplode1());
-        js.append(generateJSsetExplodeSlice());
-        js.append(generateJSsetExplodeSlices());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetForceHoverLabels());
-        js.append(generateJSsetGroup());
-        js.append(generateJSsetHatchFill());
-        js.append(generateJSsetHatchFill1());
-        js.append(generateJSsetHatchFill2());
-        js.append(generateJSsetHatchFill3());
-        js.append(generateJSsetHatchFill4());
-        js.append(generateJSsetHatchFillPalette());
-        js.append(generateJSsetHatchFillPalette1());
-        js.append(generateJSsetHatchFillPalette2());
-        js.append(generateJSsetHover());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetInnerRadius());
-        js.append(generateJSsetInnerRadius1());
-        js.append(generateJSsetInsideLabelsOffset());
-        js.append(generateJSsetInsideLabelsOffset1());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetOutsideLabelsCriticalAngle());
-        js.append(generateJSsetOutsideLabelsCriticalAngle1());
-        js.append(generateJSsetOutsideLabelsSpace());
-        js.append(generateJSsetOutsideLabelsSpace1());
-        js.append(generateJSsetOverlapMode());
-        js.append(generateJSsetOverlapMode1());
-        js.append(generateJSsetOverlapMode2());
-        js.append(generateJSsetPalette());
-        js.append(generateJSsetPalette1());
-        js.append(generateJSsetPalette2());
-        js.append(generateJSsetPalette3());
-        js.append(generateJSsetRadius());
-        js.append(generateJSsetRadius1());
-        js.append(generateJSsetSort());
-        js.append(generateJSsetSort1());
-        js.append(generateJSsetStartAngle());
-        js.append(generateJSsetStartAngle1());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

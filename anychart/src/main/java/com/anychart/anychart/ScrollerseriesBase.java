@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -50,7 +48,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
     private String data3;
     private String mappingSettings;
     private String csvSettings;
-    private List<ScrollerseriesBase> setData = new ArrayList<>();
 
     /**
      * Sets data for the scroller series.
@@ -83,18 +80,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesBase item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesBase> setData1 = new ArrayList<>();
 
     /**
      * Sets data for the scroller series.
@@ -127,18 +113,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesBase item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesBase> setData2 = new ArrayList<>();
 
     /**
      * Sets data for the scroller series.
@@ -171,20 +146,9 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetData2() {
-        if (!setData2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesBase item : setData2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double maxPointWidth;
     private String maxPointWidth1;
-    private List<ScrollerseriesBase> setMaxPointWidth = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -211,18 +175,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetMaxPointWidth() {
-        if (!setMaxPointWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesBase item : setMaxPointWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesBase> setMaxPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the maximum point width.
@@ -249,20 +202,9 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetMaxPointWidth1() {
-        if (!setMaxPointWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesBase item : setMaxPointWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double minPointLength;
     private String minPointLength1;
-    private List<ScrollerseriesBase> setMinPointLength = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -289,18 +231,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetMinPointLength() {
-        if (!setMinPointLength.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesBase item : setMinPointLength) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesBase> setMinPointLength1 = new ArrayList<>();
 
     /**
      * Setter for the minimum point length.
@@ -327,16 +258,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetMinPointLength1() {
-        if (!setMinPointLength1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesBase item : setMinPointLength1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getNormal;
 
@@ -351,7 +272,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
     }
 
     private String normal;
-    private List<ScrollerseriesBase> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -375,20 +295,9 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesBase item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double pointWidth;
     private String pointWidth1;
-    private List<ScrollerseriesBase> setPointWidth = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -415,18 +324,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetPointWidth() {
-        if (!setPointWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesBase item : setPointWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesBase> setPointWidth1 = new ArrayList<>();
 
     /**
      * Setter for the point width settings.
@@ -453,16 +351,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetPointWidth1() {
-        if (!setPointWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesBase item : setPointWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private RenderingSettings getRendering;
 
@@ -477,7 +365,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
     }
 
     private String rendering;
-    private List<ScrollerseriesBase> setRendering = new ArrayList<>();
 
     /**
      * Setter for the series rendering settings.
@@ -501,16 +388,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetRendering() {
-        if (!setRendering.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesBase item : setRendering) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private StateSettings getSelected;
 
@@ -525,7 +402,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
     }
 
     private String selected;
-    private List<ScrollerseriesBase> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -549,19 +425,8 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesBase item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String seriesType;
-    private List<ScrollerseriesBase> setSeriesType = new ArrayList<>();
 
     /**
      * Setter for switching of the series type.
@@ -585,16 +450,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSeriesType() {
-        if (!setSeriesType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesBase item : setSeriesType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScatterBase getYScale;
 
@@ -612,7 +467,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
     private String yScale1;
     private ScaleTypes yScale2;
     private String yScale3;
-    private List<ScrollerseriesBase> setYScale = new ArrayList<>();
 
     /**
      * Setter for the Y-scale.
@@ -638,18 +492,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetYScale() {
-        if (!setYScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesBase item : setYScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesBase> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the Y-scale.
@@ -678,18 +521,7 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetYScale1() {
-        if (!setYScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesBase item : setYScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesBase> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the Y-scale.
@@ -717,16 +549,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
             }
         }
         return this;
-    }
-    private String generateJSsetYScale2() {
-        if (!setYScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesBase item : setYScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetData() {
@@ -789,22 +611,6 @@ public class ScrollerseriesBase extends VisualBaseWithBounds {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetData2());
-        js.append(generateJSsetMaxPointWidth());
-        js.append(generateJSsetMaxPointWidth1());
-        js.append(generateJSsetMinPointLength());
-        js.append(generateJSsetMinPointLength1());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetPointWidth());
-        js.append(generateJSsetPointWidth1());
-        js.append(generateJSsetRendering());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetSeriesType());
-        js.append(generateJSsetYScale());
-        js.append(generateJSsetYScale1());
-        js.append(generateJSsetYScale2());
         
 
         String result = js.toString();

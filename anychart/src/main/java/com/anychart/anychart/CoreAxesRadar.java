@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -46,7 +44,6 @@ public class CoreAxesRadar extends VisualBase {
 
     private String labels;
     private Boolean labels1;
-    private List<CoreAxesRadar> setLabels = new ArrayList<>();
 
     /**
      * Setter for axis labels.
@@ -73,18 +70,7 @@ public class CoreAxesRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadar item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesRadar> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for axis labels.
@@ -111,16 +97,6 @@ public class CoreAxesRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadar item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScalesBase getScale;
 
@@ -138,7 +114,6 @@ public class CoreAxesRadar extends VisualBase {
     private ScaleTypes scale1;
     private String scale2;
     private String scale3;
-    private List<CoreAxesRadar> setScale = new ArrayList<>();
 
     /**
      * Setter for the axis scale.
@@ -164,18 +139,7 @@ public class CoreAxesRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetScale() {
-        if (!setScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadar item : setScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesRadar> setScale1 = new ArrayList<>();
 
     /**
      * Setter for the axis scale.
@@ -204,18 +168,7 @@ public class CoreAxesRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetScale1() {
-        if (!setScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadar item : setScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesRadar> setScale2 = new ArrayList<>();
 
     /**
      * Setter for the axis scale.
@@ -244,16 +197,6 @@ public class CoreAxesRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetScale2() {
-        if (!setScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadar item : setScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke stroke;
     private ColoredFill stroke1;
@@ -262,7 +205,6 @@ public class CoreAxesRadar extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<CoreAxesRadar> setStroke = new ArrayList<>();
 
     /**
      * Setter for axis stroke settings.
@@ -299,18 +241,7 @@ public class CoreAxesRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadar item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesRadar> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for axis stroke settings.
@@ -347,18 +278,7 @@ public class CoreAxesRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadar item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesRadar> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for axis stroke settings.
@@ -395,16 +315,6 @@ public class CoreAxesRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadar item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private RadialTicks getTicks;
 
@@ -420,7 +330,6 @@ public class CoreAxesRadar extends VisualBase {
 
     private String ticks;
     private Boolean ticks1;
-    private List<CoreAxesRadar> setTicks = new ArrayList<>();
 
     /**
      * Setter for axis ticks.
@@ -447,18 +356,7 @@ public class CoreAxesRadar extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTicks() {
-        if (!setTicks.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadar item : setTicks) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<CoreAxesRadar> setTicks1 = new ArrayList<>();
 
     /**
      * Setter for axis ticks.
@@ -484,16 +382,6 @@ public class CoreAxesRadar extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetTicks1() {
-        if (!setTicks1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (CoreAxesRadar item : setTicks1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetLabels() {
@@ -540,16 +428,6 @@ public class CoreAxesRadar extends VisualBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
-        js.append(generateJSsetScale());
-        js.append(generateJSsetScale1());
-        js.append(generateJSsetScale2());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetTicks());
-        js.append(generateJSsetTicks1());
         
 
         String result = js.toString();

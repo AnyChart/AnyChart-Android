@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -34,7 +32,6 @@ public class Crosshair extends VisualBase {
     
     private CrosshairDisplayMode displayMode;
     private String displayMode1;
-    private List<Crosshair> setDisplayMode = new ArrayList<>();
 
     /**
      * Setter for the display mode for crosshair.
@@ -61,18 +58,7 @@ public class Crosshair extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetDisplayMode() {
-        if (!setDisplayMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Crosshair item : setDisplayMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Crosshair> setDisplayMode1 = new ArrayList<>();
 
     /**
      * Setter for the display mode for crosshair.
@@ -99,16 +85,6 @@ public class Crosshair extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetDisplayMode1() {
-        if (!setDisplayMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Crosshair item : setDisplayMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private CrosshairLabel getXLabel;
 
@@ -124,7 +100,6 @@ public class Crosshair extends VisualBase {
 
     private String xLabel;
     private Boolean xLabel1;
-    private List<Crosshair> setXLabel = new ArrayList<>();
 
     /**
      * Setter for the crosshair X-label settings.
@@ -151,18 +126,7 @@ public class Crosshair extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetXLabel() {
-        if (!setXLabel.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Crosshair item : setXLabel) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Crosshair> setXLabel1 = new ArrayList<>();
 
     /**
      * Setter for the crosshair X-label settings.
@@ -189,16 +153,6 @@ public class Crosshair extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetXLabel1() {
-        if (!setXLabel1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Crosshair item : setXLabel1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke xStroke;
     private String xStroke1;
@@ -206,7 +160,6 @@ public class Crosshair extends VisualBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<Crosshair> setXStroke = new ArrayList<>();
 
     /**
      * Setter for the X-line stroke.
@@ -241,18 +194,7 @@ public class Crosshair extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetXStroke() {
-        if (!setXStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Crosshair item : setXStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Crosshair> setXStroke1 = new ArrayList<>();
 
     /**
      * Setter for the X-line stroke.
@@ -287,16 +229,6 @@ public class Crosshair extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetXStroke1() {
-        if (!setXStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Crosshair item : setXStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private CrosshairLabel getYLabel;
 
@@ -312,7 +244,6 @@ public class Crosshair extends VisualBase {
 
     private String yLabel;
     private Boolean yLabel1;
-    private List<Crosshair> setYLabel = new ArrayList<>();
 
     /**
      * Setter for the crosshair Y-label settings.
@@ -339,18 +270,7 @@ public class Crosshair extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetYLabel() {
-        if (!setYLabel.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Crosshair item : setYLabel) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Crosshair> setYLabel1 = new ArrayList<>();
 
     /**
      * Setter for the crosshair Y-label settings.
@@ -377,16 +297,6 @@ public class Crosshair extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetYLabel1() {
-        if (!setYLabel1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Crosshair item : setYLabel1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke yStroke;
     private String yStroke1;
@@ -394,7 +304,6 @@ public class Crosshair extends VisualBase {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
-    private List<Crosshair> setYStroke = new ArrayList<>();
 
     /**
      * Setter for the Y-line stroke.
@@ -441,18 +350,7 @@ public class Crosshair extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetYStroke() {
-        if (!setYStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Crosshair item : setYStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<Crosshair> setYStroke1 = new ArrayList<>();
 
     /**
      * Setter for the Y-line stroke.
@@ -499,16 +397,6 @@ public class Crosshair extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetYStroke1() {
-        if (!setYStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (Crosshair item : setYStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String generateJSgetXLabel() {
         if (getXLabel != null) {
@@ -546,16 +434,6 @@ public class Crosshair extends VisualBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetDisplayMode());
-        js.append(generateJSsetDisplayMode1());
-        js.append(generateJSsetXLabel());
-        js.append(generateJSsetXLabel1());
-        js.append(generateJSsetXStroke());
-        js.append(generateJSsetXStroke1());
-        js.append(generateJSsetYLabel());
-        js.append(generateJSsetYLabel1());
-        js.append(generateJSsetYStroke());
-        js.append(generateJSsetYStroke1());
         
 
         String result = js.toString();

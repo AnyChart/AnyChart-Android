@@ -132,7 +132,6 @@ public class HeatMap extends SeparateChart {
     private String colorScale1;
     private ScaleTypes colorScale2;
     private String colorScale3;
-    private List<HeatMap> setColorScale = new ArrayList<>();
 
     /**
      * Setter for the color scale.
@@ -148,18 +147,7 @@ public class HeatMap extends SeparateChart {
         js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale != null) ? colorScale.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetColorScale() {
-        if (!setColorScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setColorScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setColorScale1 = new ArrayList<>();
 
     /**
      * Setter for the color scale.
@@ -177,18 +165,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetColorScale1() {
-        if (!setColorScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setColorScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setColorScale2 = new ArrayList<>();
 
     /**
      * Setter for the color scale.
@@ -206,16 +183,6 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetColorScale2() {
-        if (!setColorScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setColorScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private View getData;
@@ -229,7 +196,6 @@ public class HeatMap extends SeparateChart {
 
         return getData;
     }
-    private List<HeatMap> setData = new ArrayList<>();
 
     /**
      * Setter for the chart data.
@@ -253,18 +219,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetData() {
-        if (!setData.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setData) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setData1 = new ArrayList<>();
 
     /**
      * 
@@ -279,19 +234,8 @@ public class HeatMap extends SeparateChart {
         js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
         return this;
     }
-    private String generateJSsetData1() {
-        if (!setData1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setData1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill fill;
-    private List<HeatMap> setFill = new ArrayList<>();
 
     /**
      * Sets fill settings using an array or a string.
@@ -310,20 +254,9 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill() {
-        if (!setFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<HeatMap> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
@@ -341,16 +274,6 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill1() {
-        if (!setFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -359,7 +282,6 @@ public class HeatMap extends SeparateChart {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<HeatMap> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -378,18 +300,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -408,18 +319,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -438,18 +338,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -468,18 +357,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -498,18 +376,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -528,16 +395,6 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -547,7 +404,6 @@ public class HeatMap extends SeparateChart {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<HeatMap> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -566,18 +422,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -595,16 +440,6 @@ public class HeatMap extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Fill imageSettings;
@@ -628,7 +463,6 @@ public class HeatMap extends SeparateChart {
     private String color1;
     private Double thickness;
     private Double size;
-    private List<HeatMap> setHatchFill = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -646,18 +480,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFill() {
-        if (!setHatchFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setHatchFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setHatchFill1 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -675,18 +498,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFill1() {
-        if (!setHatchFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setHatchFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setHatchFill2 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -704,18 +516,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFill2() {
-        if (!setHatchFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setHatchFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setHatchFill3 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -733,18 +534,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFill3() {
-        if (!setHatchFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setHatchFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setHatchFill4 = new ArrayList<>();
 
     /**
      * Setter for the hatch fill settings.
@@ -762,20 +552,9 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHatchFill4() {
-        if (!setHatchFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setHatchFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double indexOrIndexes;
     private Double[] indexOrIndexes1;
-    private List<HeatMap> setHover = new ArrayList<>();
 
     /**
      * Hovers point by index.
@@ -794,18 +573,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHover() {
-        if (!setHover.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setHover) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setHover1 = new ArrayList<>();
 
     /**
      * Hovers point by index.
@@ -824,16 +592,6 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHover1() {
-        if (!setHover1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setHover1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getHovered;
@@ -848,7 +606,6 @@ public class HeatMap extends SeparateChart {
         return getHovered;
     }
     private String hovered;
-    private List<HeatMap> setHovered = new ArrayList<>();
 
     /**
      * Setter for hovered state settings.
@@ -866,16 +623,6 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetHovered() {
-        if (!setHovered.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setHovered) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiLabelsFactory getLabels;
@@ -891,7 +638,6 @@ public class HeatMap extends SeparateChart {
     }
     private String labels;
     private Boolean labels1;
-    private List<HeatMap> setLabels = new ArrayList<>();
 
     /**
      * Setter for the chart data labels.
@@ -909,18 +655,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLabels() {
-        if (!setLabels.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setLabels) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setLabels1 = new ArrayList<>();
 
     /**
      * Setter for the chart data labels.
@@ -938,20 +673,9 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLabels1() {
-        if (!setLabels1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setLabels1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private LabelsDisplayMode labelsDisplayMode;
     private String labelsDisplayMode1;
-    private List<HeatMap> setLabelsDisplayMode = new ArrayList<>();
 
     /**
      * Setter for the labels display mode.
@@ -969,18 +693,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLabelsDisplayMode() {
-        if (!setLabelsDisplayMode.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setLabelsDisplayMode) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setLabelsDisplayMode1 = new ArrayList<>();
 
     /**
      * Setter for the labels display mode.
@@ -998,16 +711,6 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetLabelsDisplayMode1() {
-        if (!setLabelsDisplayMode1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setLabelsDisplayMode1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private UiMarkersFactory getMarkers;
@@ -1024,7 +727,6 @@ public class HeatMap extends SeparateChart {
     private String markers;
     private Boolean markers1;
     private String markers2;
-    private List<HeatMap> setMarkers = new ArrayList<>();
 
     /**
      * Setter for data markers.
@@ -1042,18 +744,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkers() {
-        if (!setMarkers.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setMarkers) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setMarkers1 = new ArrayList<>();
 
     /**
      * Setter for data markers.
@@ -1071,16 +762,6 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetMarkers1() {
-        if (!setMarkers1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setMarkers1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getNormal;
@@ -1095,7 +776,6 @@ public class HeatMap extends SeparateChart {
         return getNormal;
     }
     private String normal;
-    private List<HeatMap> setNormal = new ArrayList<>();
 
     /**
      * Setter for normal state settings.
@@ -1113,20 +793,9 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetNormal() {
-        if (!setNormal.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setNormal) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double indexOrIndexes2;
     private Double[] indexOrIndexes3;
-    private List<HeatMap> setSelect = new ArrayList<>();
 
     /**
      * Selects point by index.
@@ -1145,18 +814,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetSelect() {
-        if (!setSelect.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setSelect) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setSelect1 = new ArrayList<>();
 
     /**
      * Selects point by index.
@@ -1175,16 +833,6 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetSelect1() {
-        if (!setSelect1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setSelect1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private StateSettings getSelected;
@@ -1199,7 +847,6 @@ public class HeatMap extends SeparateChart {
         return getSelected;
     }
     private String selected;
-    private List<HeatMap> setSelected = new ArrayList<>();
 
     /**
      * Setter for selected state settings.
@@ -1217,16 +864,6 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetSelected() {
-        if (!setSelected.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setSelected) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Stroke color2;
     private ColoredFill color3;
@@ -1235,7 +872,6 @@ public class HeatMap extends SeparateChart {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<HeatMap> setStroke = new ArrayList<>();
 
     /**
      * Setter for the stroke settings.
@@ -1254,18 +890,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for the stroke settings.
@@ -1284,18 +909,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for the stroke settings.
@@ -1313,16 +927,6 @@ public class HeatMap extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1350,7 +954,6 @@ public class HeatMap extends SeparateChart {
     }
     private String xAxis;
     private Boolean xAxis1;
-    private List<HeatMap> setXAxis = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis.
@@ -1368,18 +971,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXAxis() {
-        if (!setXAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setXAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setXAxis1 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis.
@@ -1397,21 +989,10 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXAxis1() {
-        if (!setXAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setXAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index1;
     private String xAxis2;
     private Boolean xAxis3;
-    private List<HeatMap> setXAxis2 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis by index.
@@ -1429,18 +1010,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXAxis2() {
-        if (!setXAxis2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setXAxis2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setXAxis3 = new ArrayList<>();
 
     /**
      * Setter for the chart X-axis by index.
@@ -1457,16 +1027,6 @@ public class HeatMap extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXAxis3() {
-        if (!setXAxis3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setXAxis3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1494,7 +1054,6 @@ public class HeatMap extends SeparateChart {
     }
     private String xGrid;
     private Boolean xGrid1;
-    private List<HeatMap> setXGrid = new ArrayList<>();
 
     /**
      * Setter for the chart grid by X-scale.
@@ -1512,18 +1071,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXGrid() {
-        if (!setXGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setXGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setXGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by X-scale.
@@ -1541,21 +1089,10 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXGrid1() {
-        if (!setXGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setXGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index3;
     private String xGrid2;
     private Boolean xGrid3;
-    private List<HeatMap> setXGrid2 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by index.
@@ -1573,18 +1110,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXGrid2() {
-        if (!setXGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setXGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setXGrid3 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by index.
@@ -1602,16 +1128,6 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXGrid3() {
-        if (!setXGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setXGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Ordinal getXScale;
@@ -1628,7 +1144,6 @@ public class HeatMap extends SeparateChart {
     private ScaleTypes xScale;
     private String xScale1;
     private Ordinal xScale2;
-    private List<HeatMap> setXScale = new ArrayList<>();
 
     /**
      * Setter for the chart X scale.
@@ -1646,18 +1161,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXScale() {
-        if (!setXScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setXScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setXScale1 = new ArrayList<>();
 
     /**
      * Setter for the chart X scale.
@@ -1675,18 +1179,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXScale1() {
-        if (!setXScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setXScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setXScale2 = new ArrayList<>();
 
     /**
      * Setter for the chart X scale.
@@ -1701,16 +1194,6 @@ public class HeatMap extends SeparateChart {
 
         js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale2 != null) ? xScale2.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetXScale2() {
-        if (!setXScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setXScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1727,7 +1210,6 @@ public class HeatMap extends SeparateChart {
     }
     private String xScroller;
     private Boolean xScroller1;
-    private List<HeatMap> setXScroller = new ArrayList<>();
 
     /**
      * Setter for the X scroller.
@@ -1745,18 +1227,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXScroller() {
-        if (!setXScroller.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setXScroller) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setXScroller1 = new ArrayList<>();
 
     /**
      * Setter for the X scroller.
@@ -1774,16 +1245,6 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXScroller1() {
-        if (!setXScroller1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setXScroller1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private OrdinalZoom getXZoom;
@@ -1800,7 +1261,6 @@ public class HeatMap extends SeparateChart {
     private Double xZoom;
     private Boolean xZoom1;
     private String xZoom2;
-    private List<HeatMap> setXZoom = new ArrayList<>();
 
     /**
      * Setter for X Zoom settings.
@@ -1818,18 +1278,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXZoom() {
-        if (!setXZoom.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setXZoom) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setXZoom1 = new ArrayList<>();
 
     /**
      * Setter for X Zoom settings.
@@ -1847,18 +1296,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetXZoom1() {
-        if (!setXZoom1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setXZoom1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setXZoom2 = new ArrayList<>();
 
     /**
      * Setter for X Zoom settings.
@@ -1875,16 +1313,6 @@ public class HeatMap extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetXZoom2() {
-        if (!setXZoom2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setXZoom2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -1912,7 +1340,6 @@ public class HeatMap extends SeparateChart {
     }
     private String yAxis;
     private Boolean yAxis1;
-    private List<HeatMap> setYAxis = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis.
@@ -1930,18 +1357,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis() {
-        if (!setYAxis.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setYAxis) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setYAxis1 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis.
@@ -1959,21 +1375,10 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis1() {
-        if (!setYAxis1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setYAxis1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index5;
     private String yAxis2;
     private Boolean yAxis3;
-    private List<HeatMap> setYAxis2 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis by index.
@@ -1991,18 +1396,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYAxis2() {
-        if (!setYAxis2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setYAxis2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setYAxis3 = new ArrayList<>();
 
     /**
      * Setter for the chart Y-axis by index.
@@ -2019,16 +1413,6 @@ public class HeatMap extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYAxis3() {
-        if (!setYAxis3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setYAxis3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2056,7 +1440,6 @@ public class HeatMap extends SeparateChart {
     }
     private String yGrid;
     private Boolean yGrid1;
-    private List<HeatMap> setYGrid = new ArrayList<>();
 
     /**
      * Setter for the chart grid by X-scale.
@@ -2074,18 +1457,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYGrid() {
-        if (!setYGrid.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setYGrid) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setYGrid1 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by X-scale.
@@ -2103,21 +1475,10 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYGrid1() {
-        if (!setYGrid1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setYGrid1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double index7;
     private String yGrid2;
     private Boolean yGrid3;
-    private List<HeatMap> setYGrid2 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by index.
@@ -2135,18 +1496,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYGrid2() {
-        if (!setYGrid2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setYGrid2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setYGrid3 = new ArrayList<>();
 
     /**
      * Setter for the chart grid by index.
@@ -2164,16 +1514,6 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYGrid3() {
-        if (!setYGrid3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setYGrid3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private Ordinal getYScale;
@@ -2190,7 +1530,6 @@ public class HeatMap extends SeparateChart {
     private ScaleTypes yScale;
     private String yScale1;
     private Ordinal yScale2;
-    private List<HeatMap> setYScale = new ArrayList<>();
 
     /**
      * Setter for the chart Y scale.
@@ -2208,18 +1547,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYScale() {
-        if (!setYScale.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setYScale) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setYScale1 = new ArrayList<>();
 
     /**
      * Setter for the chart Y scale.
@@ -2237,18 +1565,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYScale1() {
-        if (!setYScale1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setYScale1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setYScale2 = new ArrayList<>();
 
     /**
      * Setter for the chart Y scale.
@@ -2263,16 +1580,6 @@ public class HeatMap extends SeparateChart {
 
         js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
         return this;
-    }
-    private String generateJSsetYScale2() {
-        if (!setYScale2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setYScale2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
 
@@ -2289,7 +1596,6 @@ public class HeatMap extends SeparateChart {
     }
     private String yScroller;
     private Boolean yScroller1;
-    private List<HeatMap> setYScroller = new ArrayList<>();
 
     /**
      * Setter for the Y scroller.
@@ -2307,18 +1613,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYScroller() {
-        if (!setYScroller.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setYScroller) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setYScroller1 = new ArrayList<>();
 
     /**
      * Setter for the Y scroller.
@@ -2336,16 +1631,6 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYScroller1() {
-        if (!setYScroller1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setYScroller1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     private OrdinalZoom getYZoom;
@@ -2362,7 +1647,6 @@ public class HeatMap extends SeparateChart {
     private Double yZoom;
     private Boolean yZoom1;
     private String yZoom2;
-    private List<HeatMap> setYZoom = new ArrayList<>();
 
     /**
      * Setter for Y Zoom settings.
@@ -2380,18 +1664,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYZoom() {
-        if (!setYZoom.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setYZoom) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setYZoom1 = new ArrayList<>();
 
     /**
      * Setter for Y Zoom settings.
@@ -2409,18 +1682,7 @@ public class HeatMap extends SeparateChart {
         }
         return this;
     }
-    private String generateJSsetYZoom1() {
-        if (!setYZoom1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setYZoom1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<HeatMap> setYZoom2 = new ArrayList<>();
 
     /**
      * Setter for Y Zoom settings.
@@ -2437,16 +1699,6 @@ public class HeatMap extends SeparateChart {
             js.setLength(0);
         }
         return this;
-    }
-    private String generateJSsetYZoom2() {
-        if (!setYZoom2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (HeatMap item : setYZoom2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetColorScale() {
@@ -2652,74 +1904,6 @@ public class HeatMap extends SeparateChart {
         js.append(generateJSgetYScale());
         js.append(generateJSgetYScroller());
         js.append(generateJSgetYZoom());
-        js.append(generateJSsetColorScale());
-        js.append(generateJSsetColorScale1());
-        js.append(generateJSsetColorScale2());
-        js.append(generateJSsetData());
-        js.append(generateJSsetData1());
-        js.append(generateJSsetFill());
-        js.append(generateJSsetFill1());
-        js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
-        js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
-        js.append(generateJSsetHatchFill());
-        js.append(generateJSsetHatchFill1());
-        js.append(generateJSsetHatchFill2());
-        js.append(generateJSsetHatchFill3());
-        js.append(generateJSsetHatchFill4());
-        js.append(generateJSsetHover());
-        js.append(generateJSsetHover1());
-        js.append(generateJSsetHovered());
-        js.append(generateJSsetLabels());
-        js.append(generateJSsetLabels1());
-        js.append(generateJSsetLabelsDisplayMode());
-        js.append(generateJSsetLabelsDisplayMode1());
-        js.append(generateJSsetMarkers());
-        js.append(generateJSsetMarkers1());
-        js.append(generateJSsetNormal());
-        js.append(generateJSsetSelect());
-        js.append(generateJSsetSelect1());
-        js.append(generateJSsetSelected());
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
-        js.append(generateJSsetXAxis());
-        js.append(generateJSsetXAxis1());
-        js.append(generateJSsetXAxis2());
-        js.append(generateJSsetXAxis3());
-        js.append(generateJSsetXGrid());
-        js.append(generateJSsetXGrid1());
-        js.append(generateJSsetXGrid2());
-        js.append(generateJSsetXGrid3());
-        js.append(generateJSsetXScale());
-        js.append(generateJSsetXScale1());
-        js.append(generateJSsetXScale2());
-        js.append(generateJSsetXScroller());
-        js.append(generateJSsetXScroller1());
-        js.append(generateJSsetXZoom());
-        js.append(generateJSsetXZoom1());
-        js.append(generateJSsetXZoom2());
-        js.append(generateJSsetYAxis());
-        js.append(generateJSsetYAxis1());
-        js.append(generateJSsetYAxis2());
-        js.append(generateJSsetYAxis3());
-        js.append(generateJSsetYGrid());
-        js.append(generateJSsetYGrid1());
-        js.append(generateJSsetYGrid2());
-        js.append(generateJSsetYGrid3());
-        js.append(generateJSsetYScale());
-        js.append(generateJSsetYScale1());
-        js.append(generateJSsetYScale2());
-        js.append(generateJSsetYScroller());
-        js.append(generateJSsetYScroller1());
-        js.append(generateJSsetYZoom());
-        js.append(generateJSsetYZoom1());
-        js.append(generateJSsetYZoom2());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -40,7 +38,6 @@ public class ScrollerseriesLine extends ScrollerseriesBase {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<ScrollerseriesLine> setStroke = new ArrayList<>();
 
     /**
      * Setter for line stroke settings.
@@ -77,18 +74,7 @@ public class ScrollerseriesLine extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetStroke() {
-        if (!setStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesLine item : setStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesLine> setStroke1 = new ArrayList<>();
 
     /**
      * Setter for line stroke settings.
@@ -125,18 +111,7 @@ public class ScrollerseriesLine extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesLine item : setStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesLine> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for line stroke settings.
@@ -173,16 +148,6 @@ public class ScrollerseriesLine extends ScrollerseriesBase {
         }
         return this;
     }
-    private String generateJSsetStroke2() {
-        if (!setStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesLine item : setStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -204,9 +169,6 @@ public class ScrollerseriesLine extends ScrollerseriesBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
-        js.append(generateJSsetStroke2());
         
 
         String result = js.toString();

@@ -47,7 +47,6 @@ public class SeparateChart extends ChartWithCredits {
     private String interactivity;
     private HoverMode interactivity1;
     private String interactivity2;
-    private List<SeparateChart> setInteractivity = new ArrayList<>();
 
     /**
      * Sets interactivity settings for chart.
@@ -75,18 +74,7 @@ public class SeparateChart extends ChartWithCredits {
         }
         return this;
     }
-    private String generateJSsetInteractivity() {
-        if (!setInteractivity.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (SeparateChart item : setInteractivity) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<SeparateChart> setInteractivity1 = new ArrayList<>();
 
     /**
      * Sets interactivity settings for chart.
@@ -113,16 +101,6 @@ public class SeparateChart extends ChartWithCredits {
             }
         }
         return this;
-    }
-    private String generateJSsetInteractivity1() {
-        if (!setInteractivity1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (SeparateChart item : setInteractivity1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private UiLegend getLegend;
@@ -257,8 +235,6 @@ public class SeparateChart extends ChartWithCredits {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetInteractivity());
-        js.append(generateJSsetInteractivity1());
         js.append(generateJSsetLegend());
         js.append(generateJSsetLegend1());
         

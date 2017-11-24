@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -48,7 +46,6 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
     private Stage container1;
     private String container2;
     private Element container3;
-    private List<StandalonesAxesRadial> setContainer = new ArrayList<>();
 
     /**
      * Setter for the axis container.
@@ -74,18 +71,7 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
         }
         return this;
     }
-    private String generateJSsetContainer() {
-        if (!setContainer.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxesRadial item : setContainer) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesAxesRadial> setContainer1 = new ArrayList<>();
 
     /**
      * Setter for the axis container.
@@ -111,18 +97,7 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
         }
         return this;
     }
-    private String generateJSsetContainer1() {
-        if (!setContainer1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxesRadial item : setContainer1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesAxesRadial> setContainer2 = new ArrayList<>();
 
     /**
      * Setter for the axis container.
@@ -151,18 +126,7 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
         }
         return this;
     }
-    private String generateJSsetContainer2() {
-        if (!setContainer2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxesRadial item : setContainer2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesAxesRadial> setContainer3 = new ArrayList<>();
 
     /**
      * Setter for the axis container.
@@ -188,20 +152,9 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
         }
         return this;
     }
-    private String generateJSsetContainer3() {
-        if (!setContainer3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxesRadial item : setContainer3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String innerRadius;
     private Double innerRadius1;
-    private List<StandalonesAxesRadial> setInnerRadius = new ArrayList<>();
 
     /**
      * Setter for the inner radius.
@@ -228,18 +181,7 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
         }
         return this;
     }
-    private String generateJSsetInnerRadius() {
-        if (!setInnerRadius.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxesRadial item : setInnerRadius) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesAxesRadial> setInnerRadius1 = new ArrayList<>();
 
     /**
      * Setter for the inner radius.
@@ -266,16 +208,6 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
         }
         return this;
     }
-    private String generateJSsetInnerRadius1() {
-        if (!setInnerRadius1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxesRadial item : setInnerRadius1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private AnychartMathRect getParentBounds;
 
@@ -291,7 +223,6 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
 
     private AnychartMathRect parentBounds;
     private String parentBounds1;
-    private List<StandalonesAxesRadial> setParentBounds = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -315,18 +246,7 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
         }
         return this;
     }
-    private String generateJSsetParentBounds() {
-        if (!setParentBounds.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxesRadial item : setParentBounds) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesAxesRadial> setParentBounds1 = new ArrayList<>();
 
     /**
      * Setter for bounds using single value.
@@ -353,22 +273,11 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
         }
         return this;
     }
-    private String generateJSsetParentBounds1() {
-        if (!setParentBounds1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxesRadial item : setParentBounds1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double left;
     private Double top;
     private Double width;
     private Double height;
-    private List<StandalonesAxesRadial> setParentBounds2 = new ArrayList<>();
 
     /**
      * Setter for bounds using several values.
@@ -398,20 +307,9 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
         }
         return this;
     }
-    private String generateJSsetParentBounds2() {
-        if (!setParentBounds2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxesRadial item : setParentBounds2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String startAngle;
     private Double startAngle1;
-    private List<StandalonesAxesRadial> setStartAngle = new ArrayList<>();
 
     /**
      * Setter for a start angle.
@@ -438,18 +336,7 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
         }
         return this;
     }
-    private String generateJSsetStartAngle() {
-        if (!setStartAngle.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxesRadial item : setStartAngle) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<StandalonesAxesRadial> setStartAngle1 = new ArrayList<>();
 
     /**
      * Setter for a start angle.
@@ -475,16 +362,6 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
             }
         }
         return this;
-    }
-    private String generateJSsetStartAngle1() {
-        if (!setStartAngle1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (StandalonesAxesRadial item : setStartAngle1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetContainer() {
@@ -523,17 +400,6 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetContainer());
-        js.append(generateJSsetContainer1());
-        js.append(generateJSsetContainer2());
-        js.append(generateJSsetContainer3());
-        js.append(generateJSsetInnerRadius());
-        js.append(generateJSsetInnerRadius1());
-        js.append(generateJSsetParentBounds());
-        js.append(generateJSsetParentBounds1());
-        js.append(generateJSsetParentBounds2());
-        js.append(generateJSsetStartAngle());
-        js.append(generateJSsetStartAngle1());
         
 
         String result = js.toString();

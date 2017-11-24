@@ -34,7 +34,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
 
     
     private Fill fallingFill;
-    private List<ScrollerseriesCandlestick> setFallingFill = new ArrayList<>();
 
     /**
      * Setter for the falling fill settings using an object or a string.
@@ -59,20 +58,9 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
-    private String generateJSsetFallingFill() {
-        if (!setFallingFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesCandlestick item : setFallingFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<ScrollerseriesCandlestick> setFallingFill1 = new ArrayList<>();
 
     /**
      * Falling fill color with opacity.
@@ -98,16 +86,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
-    private String generateJSsetFallingFill1() {
-        if (!setFallingFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesCandlestick item : setFallingFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -116,7 +94,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<ScrollerseriesCandlestick> setFallingFill2 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -157,18 +134,7 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
-    private String generateJSsetFallingFill2() {
-        if (!setFallingFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesCandlestick item : setFallingFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesCandlestick> setFallingFill3 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -209,18 +175,7 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
-    private String generateJSsetFallingFill3() {
-        if (!setFallingFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesCandlestick item : setFallingFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesCandlestick> setFallingFill4 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -261,18 +216,7 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
-    private String generateJSsetFallingFill4() {
-        if (!setFallingFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesCandlestick item : setFallingFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesCandlestick> setFallingFill5 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -313,18 +257,7 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
-    private String generateJSsetFallingFill5() {
-        if (!setFallingFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesCandlestick item : setFallingFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesCandlestick> setFallingFill6 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -365,18 +298,7 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
-    private String generateJSsetFallingFill6() {
-        if (!setFallingFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesCandlestick item : setFallingFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesCandlestick> setFallingFill7 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
@@ -417,16 +339,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
-    private String generateJSsetFallingFill7() {
-        if (!setFallingFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesCandlestick item : setFallingFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -436,7 +348,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<ScrollerseriesCandlestick> setFallingFill8 = new ArrayList<>();
 
     /**
      * Radial gradient falling fill.
@@ -487,18 +398,7 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
-    private String generateJSsetFallingFill8() {
-        if (!setFallingFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesCandlestick item : setFallingFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesCandlestick> setFallingFill9 = new ArrayList<>();
 
     /**
      * Radial gradient falling fill.
@@ -548,16 +448,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
         }
         return this;
-    }
-    private String generateJSsetFallingFill9() {
-        if (!setFallingFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesCandlestick item : setFallingFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Fill imageSettings;
@@ -1371,7 +1261,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
     private Double opacity5;
     private Double fx1;
     private Double fy1;
-    private List<ScrollerseriesCandlestick> setRisingFill8 = new ArrayList<>();
 
     /**
      * Radial gradient rising fill.
@@ -1445,18 +1334,7 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         }
         return this;
     }
-    private String generateJSsetRisingFill8() {
-        if (!setRisingFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesCandlestick item : setRisingFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollerseriesCandlestick> setRisingFill9 = new ArrayList<>();
 
     /**
      * Radial gradient rising fill.
@@ -1529,16 +1407,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
             }
         }
         return this;
-    }
-    private String generateJSsetRisingFill9() {
-        if (!setRisingFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollerseriesCandlestick item : setRisingFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Fill imageSettings1;
@@ -1933,16 +1801,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetFallingFill());
-        js.append(generateJSsetFallingFill1());
-        js.append(generateJSsetFallingFill2());
-        js.append(generateJSsetFallingFill3());
-        js.append(generateJSsetFallingFill4());
-        js.append(generateJSsetFallingFill5());
-        js.append(generateJSsetFallingFill6());
-        js.append(generateJSsetFallingFill7());
-        js.append(generateJSsetFallingFill8());
-        js.append(generateJSsetFallingFill9());
         js.append(generateJSsetFallingHatchFill());
         js.append(generateJSsetFallingHatchFill1());
         js.append(generateJSsetFallingHatchFill2());
@@ -1956,8 +1814,6 @@ public class ScrollerseriesCandlestick extends ScrollerseriesOHLC {
         js.append(generateJSsetRisingFill5());
         js.append(generateJSsetRisingFill6());
         js.append(generateJSsetRisingFill7());
-        js.append(generateJSsetRisingFill8());
-        js.append(generateJSsetRisingFill9());
         js.append(generateJSsetRisingHatchFill());
         js.append(generateJSsetRisingHatchFill1());
         js.append(generateJSsetRisingHatchFill2());

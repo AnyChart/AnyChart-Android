@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class MapSeriesMarker extends MapSeriesBase {
 
     
     private Double size;
-    private List<MapSeriesMarker> setSize = new ArrayList<>();
 
     /**
      * Setter for the marker size setting.
@@ -57,20 +54,9 @@ public class MapSeriesMarker extends MapSeriesBase {
         }
         return this;
     }
-    private String generateJSsetSize() {
-        if (!setSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesMarker item : setSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private MarkerType type;
     private String type1;
-    private List<MapSeriesMarker> setType = new ArrayList<>();
 
     /**
      * Setter for the marker type settings.
@@ -97,18 +83,7 @@ public class MapSeriesMarker extends MapSeriesBase {
         }
         return this;
     }
-    private String generateJSsetType() {
-        if (!setType.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesMarker item : setType) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<MapSeriesMarker> setType1 = new ArrayList<>();
 
     /**
      * Setter for the marker type settings.
@@ -135,16 +110,6 @@ public class MapSeriesMarker extends MapSeriesBase {
         }
         return this;
     }
-    private String generateJSsetType1() {
-        if (!setType1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesMarker item : setType1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -166,9 +131,6 @@ public class MapSeriesMarker extends MapSeriesBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetSize());
-        js.append(generateJSsetType());
-        js.append(generateJSsetType1());
         
 
         String result = js.toString();

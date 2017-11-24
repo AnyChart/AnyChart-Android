@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class OrdinalZoom extends JsObject {
 
     
     private Boolean continuous;
-    private List<OrdinalZoom> setContinuous = new ArrayList<>();
 
     /**
      * Whether to zoom on moving of the scroller or only on mouseUp.
@@ -57,20 +54,9 @@ public class OrdinalZoom extends JsObject {
         }
         return this;
     }
-    private String generateJSsetContinuous() {
-        if (!setContinuous.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (OrdinalZoom item : setContinuous) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double startRatio;
     private Double endRatio;
-    private List<OrdinalZoom> setSetTo = new ArrayList<>();
 
     /**
      * Sets zoom to passed start and end ratios.
@@ -96,21 +82,10 @@ public class OrdinalZoom extends JsObject {
         }
         return this;
     }
-    private String generateJSsetSetTo() {
-        if (!setSetTo.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (OrdinalZoom item : setSetTo) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double pointsCount;
     private Boolean fromEnd;
     private ScalesBase scale;
-    private List<OrdinalZoom> setSetToPointsCount = new ArrayList<>();
 
     /**
      * Setups zoom by passed values.
@@ -138,19 +113,8 @@ public class OrdinalZoom extends JsObject {
         }
         return this;
     }
-    private String generateJSsetSetToPointsCount() {
-        if (!setSetToPointsCount.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (OrdinalZoom item : setSetToPointsCount) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private ScalesBase scale1;
-    private List<OrdinalZoom> setSetToValues = new ArrayList<>();
 
     /**
      * Setups zoom by passed values.
@@ -174,16 +138,6 @@ public class OrdinalZoom extends JsObject {
         }
         return this;
     }
-    private String generateJSsetSetToValues() {
-        if (!setSetToValues.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (OrdinalZoom item : setSetToValues) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -205,10 +159,6 @@ public class OrdinalZoom extends JsObject {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetContinuous());
-        js.append(generateJSsetSetTo());
-        js.append(generateJSsetSetToPointsCount());
-        js.append(generateJSsetSetToValues());
         
 
         String result = js.toString();

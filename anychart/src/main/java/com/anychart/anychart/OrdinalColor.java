@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -59,7 +57,6 @@ public class OrdinalColor extends ScalesBase {
     }
 
     private String[] colors;
-    private List<OrdinalColor> setColors = new ArrayList<>();
 
     /**
      * Sets linear gradient for linear color scale.
@@ -82,16 +79,6 @@ public class OrdinalColor extends ScalesBase {
             }
         }
         return this;
-    }
-    private String generateJSsetColors() {
-        if (!setColors.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (OrdinalColor item : setColors) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double getIndexByValue;
@@ -170,7 +157,6 @@ public class OrdinalColor extends ScalesBase {
     }
 
     private String names;
-    private List<OrdinalColor> setNames = new ArrayList<>();
 
     /**
      * Sets scale names for data set.
@@ -194,19 +180,8 @@ public class OrdinalColor extends ScalesBase {
         }
         return this;
     }
-    private String generateJSsetNames() {
-        if (!setNames.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (OrdinalColor item : setNames) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String ranges;
-    private List<OrdinalColor> setRanges = new ArrayList<>();
 
     /**
      * Sets a set ranges.
@@ -230,16 +205,6 @@ public class OrdinalColor extends ScalesBase {
         }
         return this;
     }
-    private String generateJSsetRanges() {
-        if (!setRanges.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (OrdinalColor item : setRanges) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private OrdinalTicks getTicks;
 
@@ -255,7 +220,6 @@ public class OrdinalColor extends ScalesBase {
 
     private String ticks;
     private String[] ticks1;
-    private List<OrdinalColor> setTicks = new ArrayList<>();
 
     /**
      * Sets a set of scale ticks in terms of data values.
@@ -282,18 +246,7 @@ public class OrdinalColor extends ScalesBase {
         }
         return this;
     }
-    private String generateJSsetTicks() {
-        if (!setTicks.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (OrdinalColor item : setTicks) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<OrdinalColor> setTicks1 = new ArrayList<>();
 
     /**
      * Sets a set of scale ticks in terms of data values.
@@ -319,16 +272,6 @@ public class OrdinalColor extends ScalesBase {
             }
         }
         return this;
-    }
-    private String generateJSsetTicks1() {
-        if (!setTicks1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (OrdinalColor item : setTicks1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double subRangeRatio;
@@ -409,11 +352,6 @@ public class OrdinalColor extends ScalesBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetColors());
-        js.append(generateJSsetNames());
-        js.append(generateJSsetRanges());
-        js.append(generateJSsetTicks());
-        js.append(generateJSsetTicks1());
         
 
         String result = js.toString();

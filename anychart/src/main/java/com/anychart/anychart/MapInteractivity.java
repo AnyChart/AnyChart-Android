@@ -34,7 +34,6 @@ public class MapInteractivity extends Interactivity {
 
     
     private Boolean drag;
-    private List<MapInteractivity> setDrag = new ArrayList<>();
 
     /**
      * Allows to use drag for map.
@@ -58,16 +57,6 @@ public class MapInteractivity extends Interactivity {
             }
         }
         return this;
-    }
-    private String generateJSsetDrag() {
-        if (!setDrag.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (MapInteractivity item : setDrag) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Boolean keyboardZoomAndMove;
@@ -207,7 +196,6 @@ public class MapInteractivity extends Interactivity {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetDrag());
         js.append(generateJSsetKeyboardZoomAndMove());
         js.append(generateJSsetZoomOnDoubleClick());
         js.append(generateJSsetZoomOnMouseWheel());

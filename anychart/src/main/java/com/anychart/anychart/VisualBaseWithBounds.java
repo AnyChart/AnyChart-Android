@@ -34,7 +34,6 @@ public class VisualBaseWithBounds extends VisualBase {
     
     private Double bottom;
     private String bottom1;
-    private List<VisualBaseWithBounds> setBottom = new ArrayList<>();
 
     /**
      * Sets element bottom bound setting.
@@ -61,18 +60,7 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetBottom() {
-        if (!setBottom.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VisualBaseWithBounds item : setBottom) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<VisualBaseWithBounds> setBottom1 = new ArrayList<>();
 
     /**
      * Sets element bottom bound setting.
@@ -98,16 +86,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetBottom1() {
-        if (!setBottom1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VisualBaseWithBounds item : setBottom1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Bounds getBounds;
@@ -365,7 +343,6 @@ public class VisualBaseWithBounds extends VisualBase {
 
     private Double height2;
     private String height3;
-    private List<VisualBaseWithBounds> setHeight = new ArrayList<>();
 
     /**
      * Sets element height setting.
@@ -394,18 +371,7 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetHeight() {
-        if (!setHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VisualBaseWithBounds item : setHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<VisualBaseWithBounds> setHeight1 = new ArrayList<>();
 
     /**
      * Sets element height setting.
@@ -434,20 +400,9 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetHeight1() {
-        if (!setHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VisualBaseWithBounds item : setHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double left;
     private String left1;
-    private List<VisualBaseWithBounds> setLeft = new ArrayList<>();
 
     /**
      * Sets element left bound setting.
@@ -474,18 +429,7 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetLeft() {
-        if (!setLeft.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VisualBaseWithBounds item : setLeft) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<VisualBaseWithBounds> setLeft1 = new ArrayList<>();
 
     /**
      * Sets element left bound setting.
@@ -511,16 +455,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetLeft1() {
-        if (!setLeft1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VisualBaseWithBounds item : setLeft1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private Double maxHeight;
@@ -861,7 +795,6 @@ public class VisualBaseWithBounds extends VisualBase {
 
     private Double right;
     private String right1;
-    private List<VisualBaseWithBounds> setRight = new ArrayList<>();
 
     /**
      * Sets element right bound setting.
@@ -888,18 +821,7 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetRight() {
-        if (!setRight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VisualBaseWithBounds item : setRight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<VisualBaseWithBounds> setRight1 = new ArrayList<>();
 
     /**
      * Sets element right bound setting.
@@ -926,20 +848,9 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetRight1() {
-        if (!setRight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VisualBaseWithBounds item : setRight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double top;
     private String top1;
-    private List<VisualBaseWithBounds> setTop = new ArrayList<>();
 
     /**
      * Sets element top bound setting.
@@ -966,18 +877,7 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTop() {
-        if (!setTop.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VisualBaseWithBounds item : setTop) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<VisualBaseWithBounds> setTop1 = new ArrayList<>();
 
     /**
      * Sets element top bound setting.
@@ -1004,20 +904,9 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetTop1() {
-        if (!setTop1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VisualBaseWithBounds item : setTop1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double width2;
     private String width3;
-    private List<VisualBaseWithBounds> setWidth = new ArrayList<>();
 
     /**
      * Sets element width setting.
@@ -1046,18 +935,7 @@ public class VisualBaseWithBounds extends VisualBase {
         }
         return this;
     }
-    private String generateJSsetWidth() {
-        if (!setWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VisualBaseWithBounds item : setWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<VisualBaseWithBounds> setWidth1 = new ArrayList<>();
 
     /**
      * Sets element width setting.
@@ -1085,16 +963,6 @@ public class VisualBaseWithBounds extends VisualBase {
             }
         }
         return this;
-    }
-    private String generateJSsetWidth1() {
-        if (!setWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (VisualBaseWithBounds item : setWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetBounds() {
@@ -1125,17 +993,11 @@ public class VisualBaseWithBounds extends VisualBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetBottom());
-        js.append(generateJSsetBottom1());
         js.append(generateJSsetBounds());
         js.append(generateJSsetBounds1());
         js.append(generateJSsetBounds2());
         js.append(generateJSsetBounds3());
         js.append(generateJSsetBounds4());
-        js.append(generateJSsetHeight());
-        js.append(generateJSsetHeight1());
-        js.append(generateJSsetLeft());
-        js.append(generateJSsetLeft1());
         js.append(generateJSsetMaxHeight());
         js.append(generateJSsetMaxHeight1());
         js.append(generateJSsetMaxWidth());
@@ -1144,12 +1006,6 @@ public class VisualBaseWithBounds extends VisualBase {
         js.append(generateJSsetMinHeight1());
         js.append(generateJSsetMinWidth());
         js.append(generateJSsetMinWidth1());
-        js.append(generateJSsetRight());
-        js.append(generateJSsetRight1());
-        js.append(generateJSsetTop());
-        js.append(generateJSsetTop1());
-        js.append(generateJSsetWidth());
-        js.append(generateJSsetWidth1());
         
 
         String result = js.toString();

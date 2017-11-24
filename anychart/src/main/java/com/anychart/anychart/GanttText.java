@@ -34,7 +34,6 @@ public class GanttText extends CoreText {
     
     private EnumsAlign align;
     private String align1;
-    private List<GanttText> setAlign = new ArrayList<>();
 
     /**
      * Setter for the gantt text marker align.
@@ -61,18 +60,7 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetAlign() {
-        if (!setAlign.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setAlign) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GanttText> setAlign1 = new ArrayList<>();
 
     /**
      * Setter for the gantt text marker align.
@@ -99,20 +87,9 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetAlign1() {
-        if (!setAlign1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setAlign1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private EnumsAnchor anchor;
     private String anchor1;
-    private List<GanttText> setAnchor = new ArrayList<>();
 
     /**
      * Setter for the text marker anchor settings.
@@ -139,18 +116,7 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetAnchor() {
-        if (!setAnchor.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setAnchor) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GanttText> setAnchor1 = new ArrayList<>();
 
     /**
      * Setter for the text marker anchor settings.
@@ -177,20 +143,9 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetAnchor1() {
-        if (!setAnchor1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setAnchor1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double height;
     private String height1;
-    private List<GanttText> setHeight = new ArrayList<>();
 
     /**
      * Setter for the text marker height.
@@ -217,18 +172,7 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetHeight() {
-        if (!setHeight.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setHeight) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GanttText> setHeight1 = new ArrayList<>();
 
     /**
      * Setter for the text marker height.
@@ -255,20 +199,9 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetHeight1() {
-        if (!setHeight1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setHeight1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Layout layout;
     private String layout1;
-    private List<GanttText> setLayout = new ArrayList<>();
 
     /**
      * Setter for the text marker layout.<br/>
@@ -296,18 +229,7 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetLayout() {
-        if (!setLayout.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setLayout) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GanttText> setLayout1 = new ArrayList<>();
 
     /**
      * Setter for the text marker layout.<br/>
@@ -335,20 +257,9 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetLayout1() {
-        if (!setLayout1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setLayout1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double offsetX;
     private String offsetX1;
-    private List<GanttText> setOffsetX = new ArrayList<>();
 
     /**
      * Setter for the text marker offset by x.
@@ -375,18 +286,7 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetOffsetX() {
-        if (!setOffsetX.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setOffsetX) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GanttText> setOffsetX1 = new ArrayList<>();
 
     /**
      * Setter for the text marker offset by x.
@@ -413,20 +313,9 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetOffsetX1() {
-        if (!setOffsetX1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setOffsetX1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double offsetY;
     private String offsetY1;
-    private List<GanttText> setOffsetY = new ArrayList<>();
 
     /**
      * Setter for the text marker offset by y.
@@ -453,18 +342,7 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetOffsetY() {
-        if (!setOffsetY.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setOffsetY) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GanttText> setOffsetY1 = new ArrayList<>();
 
     /**
      * Setter for the text marker offset by y.
@@ -491,19 +369,8 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetOffsetY1() {
-        if (!setOffsetY1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setOffsetY1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double rotation;
-    private List<GanttText> setRotation = new ArrayList<>();
 
     /**
      * Setter for the gantt text marker rotation.
@@ -526,16 +393,6 @@ public class GanttText extends CoreText {
             }
         }
         return this;
-    }
-    private String generateJSsetRotation() {
-        if (!setRotation.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setRotation) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private GanttDateTime getScale;
@@ -564,7 +421,6 @@ public class GanttText extends CoreText {
     }
 
     private String text;
-    private List<GanttText> setText = new ArrayList<>();
 
     /**
      * Setter for the gantt text marker text setting.
@@ -588,21 +444,10 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetText() {
-        if (!setText.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setText) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double value;
     private GanttDateTimeMarkers value1;
     private String value2;
-    private List<GanttText> setValue = new ArrayList<>();
 
     /**
      * Setter for the gantt text marker value.
@@ -630,18 +475,7 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetValue() {
-        if (!setValue.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setValue) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GanttText> setValue1 = new ArrayList<>();
 
     /**
      * Setter for the gantt text marker value.
@@ -669,18 +503,7 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetValue1() {
-        if (!setValue1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setValue1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GanttText> setValue2 = new ArrayList<>();
 
     /**
      * Setter for the gantt text marker value.
@@ -708,20 +531,9 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetValue2() {
-        if (!setValue2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setValue2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double width;
     private String width1;
-    private List<GanttText> setWidth = new ArrayList<>();
 
     /**
      * Setter for the text marker width.
@@ -748,18 +560,7 @@ public class GanttText extends CoreText {
         }
         return this;
     }
-    private String generateJSsetWidth() {
-        if (!setWidth.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setWidth) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<GanttText> setWidth1 = new ArrayList<>();
 
     /**
      * Setter for the text marker width.
@@ -785,16 +586,6 @@ public class GanttText extends CoreText {
             }
         }
         return this;
-    }
-    private String generateJSsetWidth1() {
-        if (!setWidth1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (GanttText item : setWidth1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
     }
 
     private String generateJSgetScale() {
@@ -838,25 +629,6 @@ public class GanttText extends CoreText {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetAlign());
-        js.append(generateJSsetAlign1());
-        js.append(generateJSsetAnchor());
-        js.append(generateJSsetAnchor1());
-        js.append(generateJSsetHeight());
-        js.append(generateJSsetHeight1());
-        js.append(generateJSsetLayout());
-        js.append(generateJSsetLayout1());
-        js.append(generateJSsetOffsetX());
-        js.append(generateJSsetOffsetX1());
-        js.append(generateJSsetOffsetY());
-        js.append(generateJSsetOffsetY1());
-        js.append(generateJSsetRotation());
-        js.append(generateJSsetText());
-        js.append(generateJSsetValue());
-        js.append(generateJSsetValue1());
-        js.append(generateJSsetValue2());
-        js.append(generateJSsetWidth());
-        js.append(generateJSsetWidth1());
         
 
         String result = js.toString();

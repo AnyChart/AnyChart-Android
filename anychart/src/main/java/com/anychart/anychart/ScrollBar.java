@@ -1,7 +1,5 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -33,7 +31,6 @@ public class ScrollBar extends VisualBaseWithBounds {
 
     
     private Fill backgroundFill;
-    private List<ScrollBar> setBackgroundFill = new ArrayList<>();
 
     /**
      * Setter for background fill settings using an array or a string.
@@ -58,20 +55,9 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill() {
-        if (!setBackgroundFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setBackgroundFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color;
     private Double opacity;
-    private List<ScrollBar> setBackgroundFill1 = new ArrayList<>();
 
     /**
      * Background fill color with opacity.
@@ -97,16 +83,6 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill1() {
-        if (!setBackgroundFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setBackgroundFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys;
     private String[] keys1;
@@ -115,7 +91,6 @@ public class ScrollBar extends VisualBaseWithBounds {
     private VectorRect mode1;
     private String mode2;
     private Double opacity1;
-    private List<ScrollBar> setBackgroundFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill for background.
@@ -156,18 +131,7 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill2() {
-        if (!setBackgroundFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setBackgroundFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollBar> setBackgroundFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill for background.
@@ -208,18 +172,7 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill3() {
-        if (!setBackgroundFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setBackgroundFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollBar> setBackgroundFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill for background.
@@ -260,18 +213,7 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill4() {
-        if (!setBackgroundFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setBackgroundFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollBar> setBackgroundFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill for background.
@@ -312,18 +254,7 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill5() {
-        if (!setBackgroundFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setBackgroundFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollBar> setBackgroundFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill for background.
@@ -364,18 +295,7 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill6() {
-        if (!setBackgroundFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setBackgroundFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollBar> setBackgroundFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill for background.
@@ -416,16 +336,6 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill7() {
-        if (!setBackgroundFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setBackgroundFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys2;
     private String[] keys3;
@@ -435,7 +345,6 @@ public class ScrollBar extends VisualBaseWithBounds {
     private Double opacity2;
     private Double fx;
     private Double fy;
-    private List<ScrollBar> setBackgroundFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill for background.
@@ -486,18 +395,7 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill8() {
-        if (!setBackgroundFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setBackgroundFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollBar> setBackgroundFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill for background.
@@ -548,16 +446,6 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundFill9() {
-        if (!setBackgroundFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setBackgroundFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings;
     private Stroke stroke;
@@ -567,7 +455,6 @@ public class ScrollBar extends VisualBaseWithBounds {
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
-    private List<ScrollBar> setBackgroundStroke = new ArrayList<>();
 
     /**
      * Setter for the background stroke.
@@ -603,18 +490,7 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundStroke() {
-        if (!setBackgroundStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setBackgroundStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollBar> setBackgroundStroke1 = new ArrayList<>();
 
     /**
      * Setter for the background stroke.
@@ -650,18 +526,7 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundStroke1() {
-        if (!setBackgroundStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setBackgroundStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollBar> setBackgroundStroke2 = new ArrayList<>();
 
     /**
      * Setter for the background stroke.
@@ -697,19 +562,8 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBackgroundStroke2() {
-        if (!setBackgroundStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setBackgroundStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double barSize;
-    private List<ScrollBar> setBarSize = new ArrayList<>();
 
     /**
      * Setter for the bar size.
@@ -733,19 +587,8 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetBarSize() {
-        if (!setBarSize.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setBarSize) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Boolean buttonsVisible;
-    private List<ScrollBar> setButtonsVisible = new ArrayList<>();
 
     /**
      * Setter for the adding/removing the scroll button from the scroll bar.
@@ -769,19 +612,8 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetButtonsVisible() {
-        if (!setButtonsVisible.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setButtonsVisible) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double mouseOutOpacity;
-    private List<ScrollBar> setMouseOutOpacity = new ArrayList<>();
 
     /**
      * Setter for the mouse out opacity.
@@ -805,19 +637,8 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetMouseOutOpacity() {
-        if (!setMouseOutOpacity.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setMouseOutOpacity) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Double mouseOverOpacity;
-    private List<ScrollBar> setMouseOverOpacity = new ArrayList<>();
 
     /**
      * Setter for the mouse over opacity.
@@ -841,19 +662,8 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetMouseOverOpacity() {
-        if (!setMouseOverOpacity.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setMouseOverOpacity) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill sliderFill;
-    private List<ScrollBar> setSliderFill = new ArrayList<>();
 
     /**
      * Setter for slider fill settings using an array or a string.
@@ -878,20 +688,9 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSliderFill() {
-        if (!setSliderFill.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setSliderFill) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String color1;
     private Double opacity3;
-    private List<ScrollBar> setSliderFill1 = new ArrayList<>();
 
     /**
      * Slider fill color with opacity.
@@ -925,16 +724,6 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSliderFill1() {
-        if (!setSliderFill1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setSliderFill1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys4;
     private String[] keys5;
@@ -943,7 +732,6 @@ public class ScrollBar extends VisualBaseWithBounds {
     private VectorRect mode5;
     private String mode6;
     private Double opacity4;
-    private List<ScrollBar> setSliderFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill for slider.
@@ -998,18 +786,7 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSliderFill2() {
-        if (!setSliderFill2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setSliderFill2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollBar> setSliderFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill for slider.
@@ -1064,18 +841,7 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSliderFill3() {
-        if (!setSliderFill3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setSliderFill3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollBar> setSliderFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill for slider.
@@ -1130,18 +896,7 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSliderFill4() {
-        if (!setSliderFill4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setSliderFill4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollBar> setSliderFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill for slider.
@@ -1196,18 +951,7 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSliderFill5() {
-        if (!setSliderFill5.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setSliderFill5) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollBar> setSliderFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill for slider.
@@ -1262,18 +1006,7 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSliderFill6() {
-        if (!setSliderFill6.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setSliderFill6) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollBar> setSliderFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill for slider.
@@ -1328,16 +1061,6 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSliderFill7() {
-        if (!setSliderFill7.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setSliderFill7) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private GradientKey[] keys6;
     private String[] keys7;
@@ -1347,7 +1070,6 @@ public class ScrollBar extends VisualBaseWithBounds {
     private Double opacity5;
     private Double fx1;
     private Double fy1;
-    private List<ScrollBar> setSliderFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill for slider.
@@ -1421,18 +1143,7 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSliderFill8() {
-        if (!setSliderFill8.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setSliderFill8) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollBar> setSliderFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill for slider.
@@ -1506,16 +1217,6 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSliderFill9() {
-        if (!setSliderFill9.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setSliderFill9) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private Fill imageSettings1;
     private Stroke stroke3;
@@ -1525,7 +1226,6 @@ public class ScrollBar extends VisualBaseWithBounds {
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
-    private List<ScrollBar> setSliderStroke = new ArrayList<>();
 
     /**
      * Setter for the slider stroke.
@@ -1576,18 +1276,7 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSliderStroke() {
-        if (!setSliderStroke.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setSliderStroke) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollBar> setSliderStroke1 = new ArrayList<>();
 
     /**
      * Setter for the slider stroke.
@@ -1638,18 +1327,7 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSliderStroke1() {
-        if (!setSliderStroke1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setSliderStroke1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<ScrollBar> setSliderStroke2 = new ArrayList<>();
 
     /**
      * Setter for the slider stroke.
@@ -1700,16 +1378,6 @@ public class ScrollBar extends VisualBaseWithBounds {
         }
         return this;
     }
-    private String generateJSsetSliderStroke2() {
-        if (!setSliderStroke2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (ScrollBar item : setSliderStroke2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
 
     protected String generateJsGetters() {
@@ -1731,36 +1399,6 @@ public class ScrollBar extends VisualBaseWithBounds {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetBackgroundFill());
-        js.append(generateJSsetBackgroundFill1());
-        js.append(generateJSsetBackgroundFill2());
-        js.append(generateJSsetBackgroundFill3());
-        js.append(generateJSsetBackgroundFill4());
-        js.append(generateJSsetBackgroundFill5());
-        js.append(generateJSsetBackgroundFill6());
-        js.append(generateJSsetBackgroundFill7());
-        js.append(generateJSsetBackgroundFill8());
-        js.append(generateJSsetBackgroundFill9());
-        js.append(generateJSsetBackgroundStroke());
-        js.append(generateJSsetBackgroundStroke1());
-        js.append(generateJSsetBackgroundStroke2());
-        js.append(generateJSsetBarSize());
-        js.append(generateJSsetButtonsVisible());
-        js.append(generateJSsetMouseOutOpacity());
-        js.append(generateJSsetMouseOverOpacity());
-        js.append(generateJSsetSliderFill());
-        js.append(generateJSsetSliderFill1());
-        js.append(generateJSsetSliderFill2());
-        js.append(generateJSsetSliderFill3());
-        js.append(generateJSsetSliderFill4());
-        js.append(generateJSsetSliderFill5());
-        js.append(generateJSsetSliderFill6());
-        js.append(generateJSsetSliderFill7());
-        js.append(generateJSsetSliderFill8());
-        js.append(generateJSsetSliderFill9());
-        js.append(generateJSsetSliderStroke());
-        js.append(generateJSsetSliderStroke1());
-        js.append(generateJSsetSliderStroke2());
         
 
         String result = js.toString();

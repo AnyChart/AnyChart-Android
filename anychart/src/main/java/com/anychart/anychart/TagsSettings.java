@@ -1,8 +1,6 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 // class
@@ -48,7 +46,6 @@ public class TagsSettings extends TextSettings {
     private String background;
     private String background1;
     private Boolean background2;
-    private List<TagsSettings> setBackground = new ArrayList<>();
 
     /**
      * Setter for tags background.
@@ -76,18 +73,7 @@ public class TagsSettings extends TextSettings {
         }
         return this;
     }
-    private String generateJSsetBackground() {
-        if (!setBackground.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagsSettings item : setBackground) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TagsSettings> setBackground1 = new ArrayList<>();
 
     /**
      * Setter for tags background.
@@ -115,16 +101,6 @@ public class TagsSettings extends TextSettings {
         }
         return this;
     }
-    private String generateJSsetBackground1() {
-        if (!setBackground1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagsSettings item : setBackground1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private UtilsPadding getPadding;
 
@@ -141,7 +117,6 @@ public class TagsSettings extends TextSettings {
     private Double[] padding;
     private String[] padding1;
     private String padding2;
-    private List<TagsSettings> setPadding = new ArrayList<>();
 
     /**
      * Setter for padding in pixels by one value.
@@ -169,18 +144,7 @@ public class TagsSettings extends TextSettings {
         }
         return this;
     }
-    private String generateJSsetPadding() {
-        if (!setPadding.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagsSettings item : setPadding) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TagsSettings> setPadding1 = new ArrayList<>();
 
     /**
      * Setter for padding in pixels by one value.
@@ -208,18 +172,7 @@ public class TagsSettings extends TextSettings {
         }
         return this;
     }
-    private String generateJSsetPadding1() {
-        if (!setPadding1.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagsSettings item : setPadding1) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TagsSettings> setPadding2 = new ArrayList<>();
 
     /**
      * Setter for padding in pixels by one value.
@@ -247,16 +200,6 @@ public class TagsSettings extends TextSettings {
         }
         return this;
     }
-    private String generateJSsetPadding2() {
-        if (!setPadding2.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagsSettings item : setPadding2) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String value;
     private Double value1;
@@ -266,7 +209,6 @@ public class TagsSettings extends TextSettings {
     private Double value5;
     private String value6;
     private Double value7;
-    private List<TagsSettings> setPadding3 = new ArrayList<>();
 
     /**
      * Setter for tags padding in pixels.
@@ -332,18 +274,7 @@ public class TagsSettings extends TextSettings {
         }
         return this;
     }
-    private String generateJSsetPadding3() {
-        if (!setPadding3.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagsSettings item : setPadding3) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
-    private List<TagsSettings> setPadding4 = new ArrayList<>();
 
     /**
      * Setter for tags padding in pixels.
@@ -409,16 +340,6 @@ public class TagsSettings extends TextSettings {
         }
         return this;
     }
-    private String generateJSsetPadding4() {
-        if (!setPadding4.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TagsSettings item : setPadding4) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
 
     private String generateJSgetBackground() {
         if (getBackground != null) {
@@ -456,13 +377,6 @@ public class TagsSettings extends TextSettings {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetBackground());
-        js.append(generateJSsetBackground1());
-        js.append(generateJSsetPadding());
-        js.append(generateJSsetPadding1());
-        js.append(generateJSsetPadding2());
-        js.append(generateJSsetPadding3());
-        js.append(generateJSsetPadding4());
         
 
         String result = js.toString();
