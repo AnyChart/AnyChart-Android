@@ -14,7 +14,7 @@ Add this to the project.clj file, at the end of repositories:
 ```
 Add the dependency:
 ```clojure
-:dependencies [[com.github.AnyChart/AnyChart-Android "0.0.4"]]	
+:dependencies [[com.github.AnyChart/AnyChart-Android "0.0.5"]]	
 ```
 
 ### SBT
@@ -24,7 +24,7 @@ resolvers += "jitpack" at "https://jitpack.io"
 ```
 Add the dependency:
 ```sbt
-libraryDependencies += "com.github.AnyChart" % "AnyChart-Android" % "0.0.4"	
+libraryDependencies += "com.github.AnyChart" % "AnyChart-Android" % "0.0.5"	
 ```
 
 ### Maven
@@ -42,7 +42,7 @@ Add the dependency:
 <dependency>
     <groupId>com.github.AnyChart</groupId>
     <artifactId>AnyChart-Android</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
 </dependency>
 ```
 
@@ -60,7 +60,7 @@ allprojects {
 Add the dependency to the project build.gradle:
 ```Groovy
 dependencies {
-        compile 'com.github.AnyChart:AnyChart-Android:0.0.4'
+        compile 'com.github.AnyChart:AnyChart-Android:0.0.5'
 }
 ```
 
@@ -123,7 +123,7 @@ allprojects {
 Then add the dependency to the **module build.gradle** and synchronize project with Gradle.
 ```Groovy
 dependencies {
-        compile 'com.github.AnyChart:AnyChart-Android:0.0.4'
+        compile 'com.github.AnyChart:AnyChart-Android:0.0.5'
 }
 ```
 
@@ -523,6 +523,38 @@ AnyChart product family includes scores of chart types and we're constantly addi
             <sup>
               <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
               <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/CombinedChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+        <td>
+            <h3 align="center">Quadrant Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/quadrantchart.png" width="320px" height="400px" alt="Quadrant Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/QuadrantChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3 align="center">Hilo Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/hilochart.png" width="320px" height="400px" alt="Hilo Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/HiloChartActivity.java">Code Snippet</a> /
+              <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
+            </sup>            
+        </td>
+        <td>
+            <h3 align="center">OHLC Chart</h3>
+            <hr>          
+            <img src="https://github.com/AnyChart/AnyChart-Android/blob/master/img/ohlcchart.png" width="320px" height="400px" alt="OHLC Chart - AnyChart">
+            <sup>
+              <a href="https://github.com/AnyChart/AnyChart-Android/raw/master/builds/sample.apk">Sample (APK)</a> /
+              <a href="https://github.com/AnyChart/AnyChart-Android/blob/master/sample/src/main/java/com/anychart/sample/charts/OHLCChartActivity.java">Code Snippet</a> /
               <a href="https://static.anychart.com/cdn/integrations/android-basic-sample.apk">Documentation</a>
             </sup>            
         </td>
