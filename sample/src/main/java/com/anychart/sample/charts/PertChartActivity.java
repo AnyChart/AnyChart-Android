@@ -11,6 +11,7 @@ import com.anychart.anychart.Pert;
 import com.anychart.anychart.PertDataEntry;
 import com.anychart.anychart.Tasks;
 import com.anychart.anychart.Tooltip;
+import com.anychart.anychart.TreeFillingMethod;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class PertChartActivity extends AppCompatActivity {
         data.add(new CustomPertDataEntry("12", 45, "12", new String[]{"10"}, "Revise & Review"));
         data.add(new CustomPertDataEntry("13", 25, "13", new String[]{"5"}, "Finalize"));
 
-        pert.setData(data);
+        pert.setData(data, TreeFillingMethod.AS_TABLE);
 
         pert.setPadding(50d, 0d, 0d, 50d);
 

@@ -23,8 +23,6 @@ public class ResourceChartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart_common);
 
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
 
         Resource resource = AnyChart.resource();
@@ -180,6 +178,12 @@ public class ResourceChartActivity extends AppCompatActivity {
         resource.setData(data);
 
         anyChartView.setChart(resource);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
 
     @Override
