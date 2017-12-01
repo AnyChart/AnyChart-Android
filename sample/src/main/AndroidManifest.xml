@@ -38,7 +38,9 @@
         </activity>
         <activity android:name=".charts.ScatterChartActivity">
         </activity>
-        <activity android:name=".charts.ResourceChartActivity">
+        <activity
+            android:name=".charts.ResourceChartActivity"
+            android:configChanges="keyboardHidden|orientation">
         </activity>
         <activity android:name=".charts.RadarChartActivity">
         </activity>
