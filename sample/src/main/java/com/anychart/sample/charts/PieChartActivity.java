@@ -2,6 +2,7 @@ package com.anychart.sample.charts;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.anychart.anychart.AnyChart;
 import com.anychart.anychart.AnyChartView;
@@ -10,6 +11,8 @@ import com.anychart.anychart.EnumsAlign;
 import com.anychart.anychart.LegendLayout;
 import com.anychart.anychart.Pie;
 import com.anychart.anychart.ValueDataEntry;
+import com.anychart.anychart.chart.common.Event;
+import com.anychart.anychart.chart.common.ListenersInterface;
 import com.anychart.sample.R;
 
 import java.util.ArrayList;
@@ -25,6 +28,13 @@ public class PieChartActivity extends AppCompatActivity {
         AnyChartView anyChartView = findViewById(R.id.any_chart_view);
 
         Pie pie = AnyChart.pie();
+
+        pie.setOnClickListener(new ListenersInterface.OnClickListener(new String[]{"x", "value"}) {
+            @Override
+            public void onClick(Event event) {
+                Toast.makeText(PieChartActivity.this, event.getData().get("x") + ":" + event.getData().get("value"), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         List<DataEntry> data = new ArrayList<>();
         data.add(new ValueDataEntry("Apples", 6371664));
