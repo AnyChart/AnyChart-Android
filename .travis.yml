@@ -8,6 +8,7 @@ env:
     - ANDROID_EMU_API_LEVEL=21
     - ANDROID_ABI=armeabi-v7a
     - ANDROID_TAG=google_apis
+    - QEMU_AUDIO_DRV=none
     - ADB_INSTALL_TIMEOUT=20
 android:
   components: 
