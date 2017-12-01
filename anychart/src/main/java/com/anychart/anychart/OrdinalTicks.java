@@ -48,7 +48,7 @@ public class OrdinalTicks extends CoreBase {
             js.append(String.format(Locale.US, ".interval(%f)", interval));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".interval(%f)", interval));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%f);", interval));
                 js.setLength(0);
             }
         }
@@ -73,7 +73,7 @@ public class OrdinalTicks extends CoreBase {
             js.append(String.format(Locale.US, ".names(%s)", arrayToStringWrapQuotes(values)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".names(%s)", arrayToStringWrapQuotes(values)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".names(%s);", arrayToStringWrapQuotes(values)));
                 js.setLength(0);
             }
         }
@@ -98,7 +98,7 @@ public class OrdinalTicks extends CoreBase {
             js.append(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s);", arrayToStringWrapQuotes(ticks)));
                 js.setLength(0);
             }
         }

@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -50,7 +53,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".drawFirstLine(%b)", drawFirstLine));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".drawFirstLine(%b)", drawFirstLine));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawFirstLine(%b);", drawFirstLine));
                 js.setLength(0);
             }
         }
@@ -75,7 +78,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".drawLastLine(%b)", drawLastLine));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".drawLastLine(%b)", drawLastLine));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawLastLine(%b);", drawLastLine));
                 js.setLength(0);
             }
         }
@@ -100,7 +103,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
                 js.setLength(0);
             }
         }
@@ -126,7 +129,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -154,7 +157,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f);", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -202,7 +205,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -243,7 +246,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -284,7 +287,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -325,7 +328,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -366,7 +369,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -407,7 +410,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -466,7 +469,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -517,7 +520,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -559,7 +562,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".horizontal(%b)", horizontal));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".horizontal(%b)", horizontal));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontal(%b);", horizontal));
                 js.setLength(0);
             }
         }
@@ -586,7 +589,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".horizontal(%s)", wrapQuotes(horizontal1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".horizontal(%s)", wrapQuotes(horizontal1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontal(%s);", wrapQuotes(horizontal1)));
                 js.setLength(0);
             }
         }
@@ -631,7 +634,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorStroke(%s, %f, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -669,7 +672,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorStroke(%s, %f, %s, %s, %s);", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -707,7 +710,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorStroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorStroke(%s, %f, %s, %s, %s);", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -753,6 +756,10 @@ public class GridsMapSettings extends CoreBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s);", ((palette != null) ? palette.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         GridsMap item = new GridsMap("setPalette" + variableIndex);
         setPalette.add(item);
@@ -792,6 +799,10 @@ public class GridsMapSettings extends CoreBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s);", ((palette1 != null) ? palette1.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         GridsMap item = new GridsMap("setPalette1" + variableIndex);
         setPalette1.add(item);
@@ -832,7 +843,7 @@ public class GridsMapSettings extends CoreBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", wrapQuotes(palette2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s);", wrapQuotes(palette2)));
                 js.setLength(0);
             }
         }
@@ -875,7 +886,7 @@ public class GridsMapSettings extends CoreBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s)", arrayToStringWrapQuotes(palette3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s);", arrayToStringWrapQuotes(palette3)));
                 js.setLength(0);
             }
         }
@@ -947,7 +958,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", ((color4 != null) ? color4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1000,7 +1011,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color5 != null) ? color5.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color5 != null) ? color5.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", ((color5 != null) ? color5.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1053,7 +1064,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color6), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color6), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", wrapQuotes(color6), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1094,7 +1105,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".vertical(%b)", vertical));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".vertical(%b)", vertical));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vertical(%b);", vertical));
                 js.setLength(0);
             }
         }
@@ -1121,7 +1132,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".vertical(%s)", wrapQuotes(vertical1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".vertical(%s)", wrapQuotes(vertical1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vertical(%s);", wrapQuotes(vertical1)));
                 js.setLength(0);
             }
         }
@@ -1150,7 +1161,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".zIndex(%f)", zIndex));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".zIndex(%f)", zIndex));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
                 js.setLength(0);
             }
         }
@@ -1177,7 +1188,7 @@ public class GridsMapSettings extends CoreBase {
             js.append(String.format(Locale.US, ".zIndex(%s)", wrapQuotes(zIndex1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".zIndex(%s)", wrapQuotes(zIndex1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%s);", wrapQuotes(zIndex1)));
                 js.setLength(0);
             }
         }

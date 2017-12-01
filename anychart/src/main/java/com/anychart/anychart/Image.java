@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -53,7 +58,7 @@ public class Image extends Element {
             js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".align(%s);", ((align != null) ? align.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -82,7 +87,7 @@ public class Image extends Element {
             js.append(String.format(Locale.US, ".fittingMode(%s)", ((fittingMode != null) ? fittingMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fittingMode(%s)", ((fittingMode != null) ? fittingMode.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fittingMode(%s);", ((fittingMode != null) ? fittingMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -109,7 +114,7 @@ public class Image extends Element {
             js.append(String.format(Locale.US, ".fittingMode(%s)", wrapQuotes(fittingMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fittingMode(%s)", wrapQuotes(fittingMode1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fittingMode(%s);", wrapQuotes(fittingMode1)));
                 js.setLength(0);
             }
         }
@@ -134,7 +139,7 @@ public class Image extends Element {
             js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
                 js.setLength(0);
             }
         }
@@ -160,7 +165,7 @@ Set null value for non-display image.
             js.append(String.format(Locale.US, ".src(%s)", wrapQuotes(src)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".src(%s)", wrapQuotes(src)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".src(%s);", wrapQuotes(src)));
                 js.setLength(0);
             }
         }
@@ -185,7 +190,7 @@ Set null value for non-display image.
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
                 js.setLength(0);
             }
         }
@@ -210,7 +215,7 @@ Set null value for non-display image.
             js.append(String.format(Locale.US, ".x(%f)", x));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".x(%f)", x));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".x(%f);", x));
                 js.setLength(0);
             }
         }
@@ -235,7 +240,7 @@ Set null value for non-display image.
             js.append(String.format(Locale.US, ".y(%f)", y));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".y(%f)", y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".y(%f);", y));
                 js.setLength(0);
             }
         }

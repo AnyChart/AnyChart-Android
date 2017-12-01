@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -64,7 +69,7 @@ public class Logo extends UiBackground {
             js.append(String.format(Locale.US, ".overlay(%s)", wrapQuotes(overlay)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlay(%s)", wrapQuotes(overlay)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlay(%s);", wrapQuotes(overlay)));
                 js.setLength(0);
             }
         }
@@ -91,7 +96,7 @@ public class Logo extends UiBackground {
             js.append(String.format(Locale.US, ".overlay(%b)", overlay1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlay(%b)", overlay1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlay(%b);", overlay1));
                 js.setLength(0);
             }
         }

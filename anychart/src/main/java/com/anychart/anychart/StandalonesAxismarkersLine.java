@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -68,6 +73,10 @@ public class StandalonesAxismarkersLine extends CoreAxismarkersLine {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".container(%s);",  ((container != null) ? container.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".container(%s);", ((container != null) ? container.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -94,6 +103,10 @@ public class StandalonesAxismarkersLine extends CoreAxismarkersLine {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".container(%s);",  ((container1 != null) ? container1.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".container(%s);", ((container1 != null) ? container1.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -120,7 +133,7 @@ public class StandalonesAxismarkersLine extends CoreAxismarkersLine {
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", wrapQuotes(container2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(container2)));
                 js.setLength(0);
             }
         }
@@ -149,6 +162,10 @@ public class StandalonesAxismarkersLine extends CoreAxismarkersLine {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".container(%s);",  ((container3 != null) ? container3.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".container(%s);", ((container3 != null) ? container3.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -187,6 +204,10 @@ public class StandalonesAxismarkersLine extends CoreAxismarkersLine {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".parentBounds(%s);",  ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBounds(%s);", ((parentBounds != null) ? parentBounds.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -211,7 +232,7 @@ public class StandalonesAxismarkersLine extends CoreAxismarkersLine {
             js.append(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%s)", wrapQuotes(parentBounds1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBounds(%s);", wrapQuotes(parentBounds1)));
                 js.setLength(0);
             }
         }
@@ -245,7 +266,7 @@ public class StandalonesAxismarkersLine extends CoreAxismarkersLine {
             js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBounds(%f, %f, %f, %f);", left, top, width, height));
                 js.setLength(0);
             }
         }

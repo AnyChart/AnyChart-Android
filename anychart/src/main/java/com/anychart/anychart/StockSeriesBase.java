@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -74,7 +79,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.getJsBase() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data != null) ? data.getJsBase() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s, %s);", ((data != null) ? data.getJsBase() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -107,7 +112,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.getJsBase() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", ((data1 != null) ? data1.getJsBase() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s, %s);", ((data1 != null) ? data1.getJsBase() : "null"), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -140,7 +145,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".data(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s, %s)", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s, %s);", wrapQuotes(data2), wrapQuotes(mappingSettings), wrapQuotes(csvSettings)));
                 js.setLength(0);
             }
         }
@@ -177,7 +182,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hovered(%s)", wrapQuotes(hovered)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hovered(%s);", wrapQuotes(hovered)));
                 js.setLength(0);
             }
         }
@@ -214,7 +219,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".legendItem(%s)", wrapQuotes(legendItem)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".legendItem(%s)", wrapQuotes(legendItem)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".legendItem(%s);", wrapQuotes(legendItem)));
                 js.setLength(0);
             }
         }
@@ -257,7 +262,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".markers(%s);", wrapQuotes(markers)));
                 js.setLength(0);
             }
         }
@@ -285,7 +290,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".markers(%b)", markers1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markers(%b)", markers1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".markers(%b);", markers1));
                 js.setLength(0);
             }
         }
@@ -314,7 +319,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxPointWidth(%f);", maxPointWidth));
                 js.setLength(0);
             }
         }
@@ -341,7 +346,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxPointWidth(%s);", wrapQuotes(maxPointWidth1)));
                 js.setLength(0);
             }
         }
@@ -370,7 +375,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minPointLength(%f);", minPointLength));
                 js.setLength(0);
             }
         }
@@ -397,7 +402,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minPointLength(%s);", wrapQuotes(minPointLength1)));
                 js.setLength(0);
             }
         }
@@ -422,7 +427,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".name(%s)", wrapQuotes(name)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".name(%s)", wrapQuotes(name)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".name(%s);", wrapQuotes(name)));
                 js.setLength(0);
             }
         }
@@ -459,7 +464,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".normal(%s)", wrapQuotes(normal)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".normal(%s);", wrapQuotes(normal)));
                 js.setLength(0);
             }
         }
@@ -488,7 +493,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pointWidth(%f);", pointWidth));
                 js.setLength(0);
             }
         }
@@ -515,7 +520,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pointWidth(%s);", wrapQuotes(pointWidth1)));
                 js.setLength(0);
             }
         }
@@ -552,7 +557,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".rendering(%s)", wrapQuotes(rendering)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rendering(%s)", wrapQuotes(rendering)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rendering(%s);", wrapQuotes(rendering)));
                 js.setLength(0);
             }
         }
@@ -577,7 +582,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".seriesType(%s)", wrapQuotes(seriesType)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".seriesType(%s)", wrapQuotes(seriesType)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".seriesType(%s);", wrapQuotes(seriesType)));
                 js.setLength(0);
             }
         }
@@ -618,7 +623,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".tooltip(%s)", wrapQuotes(tooltip)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".tooltip(%s);", wrapQuotes(tooltip)));
                 js.setLength(0);
             }
         }
@@ -645,7 +650,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".tooltip(%b)", tooltip1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".tooltip(%b)", tooltip1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".tooltip(%b);", tooltip1));
                 js.setLength(0);
             }
         }
@@ -690,6 +695,10 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale != null) ? yScale.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yScale(%s);", ((yScale != null) ? yScale.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -716,7 +725,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(yScale1)));
                 js.setLength(0);
             }
         }
@@ -745,7 +754,7 @@ public class StockSeriesBase extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yScale(%s);", ((yScale2 != null) ? yScale2.generateJs() : "null")));
                 js.setLength(0);
             }
         }

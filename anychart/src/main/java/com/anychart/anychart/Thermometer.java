@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -52,7 +57,7 @@ public class Thermometer extends LineargaugePointersBase {
             js.append(String.format(Locale.US, ".bulbPadding(%s)", wrapQuotes(bulbPadding)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bulbPadding(%s)", wrapQuotes(bulbPadding)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bulbPadding(%s);", wrapQuotes(bulbPadding)));
                 js.setLength(0);
             }
         }
@@ -79,7 +84,7 @@ public class Thermometer extends LineargaugePointersBase {
             js.append(String.format(Locale.US, ".bulbPadding(%f)", bulbPadding1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bulbPadding(%f)", bulbPadding1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bulbPadding(%f);", bulbPadding1));
                 js.setLength(0);
             }
         }
@@ -104,7 +109,7 @@ public class Thermometer extends LineargaugePointersBase {
             js.append(String.format(Locale.US, ".bulbRadius(%s)", wrapQuotes(bulbRadius)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bulbRadius(%s)", wrapQuotes(bulbRadius)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bulbRadius(%s);", wrapQuotes(bulbRadius)));
                 js.setLength(0);
             }
         }

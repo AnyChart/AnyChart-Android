@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -52,7 +57,7 @@ public class Crosshair extends VisualBase {
             js.append(String.format(Locale.US, ".displayMode(%s)", ((displayMode != null) ? displayMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".displayMode(%s)", ((displayMode != null) ? displayMode.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".displayMode(%s);", ((displayMode != null) ? displayMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -79,7 +84,7 @@ public class Crosshair extends VisualBase {
             js.append(String.format(Locale.US, ".displayMode(%s)", wrapQuotes(displayMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".displayMode(%s)", wrapQuotes(displayMode1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".displayMode(%s);", wrapQuotes(displayMode1)));
                 js.setLength(0);
             }
         }
@@ -120,7 +125,7 @@ public class Crosshair extends VisualBase {
             js.append(String.format(Locale.US, ".xLabel(%s)", wrapQuotes(xLabel)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xLabel(%s)", wrapQuotes(xLabel)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xLabel(%s);", wrapQuotes(xLabel)));
                 js.setLength(0);
             }
         }
@@ -147,7 +152,7 @@ public class Crosshair extends VisualBase {
             js.append(String.format(Locale.US, ".xLabel(%b)", xLabel1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xLabel(%b)", xLabel1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xLabel(%b);", xLabel1));
                 js.setLength(0);
             }
         }
@@ -188,7 +193,7 @@ public class Crosshair extends VisualBase {
             js.append(String.format(Locale.US, ".xStroke(%s, %f, %s, %s, %s)", ((xStroke != null) ? xStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xStroke(%s, %f, %s, %s, %s)", ((xStroke != null) ? xStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xStroke(%s, %f, %s, %s, %s);", ((xStroke != null) ? xStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -223,7 +228,7 @@ public class Crosshair extends VisualBase {
             js.append(String.format(Locale.US, ".xStroke(%s, %f, %s, %s, %s)", wrapQuotes(xStroke1), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xStroke(%s, %f, %s, %s, %s)", wrapQuotes(xStroke1), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xStroke(%s, %f, %s, %s, %s);", wrapQuotes(xStroke1), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -264,7 +269,7 @@ public class Crosshair extends VisualBase {
             js.append(String.format(Locale.US, ".yLabel(%s)", wrapQuotes(yLabel)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yLabel(%s)", wrapQuotes(yLabel)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yLabel(%s);", wrapQuotes(yLabel)));
                 js.setLength(0);
             }
         }
@@ -291,7 +296,7 @@ public class Crosshair extends VisualBase {
             js.append(String.format(Locale.US, ".yLabel(%b)", yLabel1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yLabel(%b)", yLabel1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yLabel(%b);", yLabel1));
                 js.setLength(0);
             }
         }
@@ -344,7 +349,7 @@ public class Crosshair extends VisualBase {
             js.append(String.format(Locale.US, ".yStroke(%s, %f, %s, %s, %s)", ((yStroke != null) ? yStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yStroke(%s, %f, %s, %s, %s)", ((yStroke != null) ? yStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yStroke(%s, %f, %s, %s, %s);", ((yStroke != null) ? yStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -391,7 +396,7 @@ public class Crosshair extends VisualBase {
             js.append(String.format(Locale.US, ".yStroke(%s, %f, %s, %s, %s)", wrapQuotes(yStroke1), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yStroke(%s, %f, %s, %s, %s)", wrapQuotes(yStroke1), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yStroke(%s, %f, %s, %s, %s);", wrapQuotes(yStroke1), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }

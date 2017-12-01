@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -51,7 +56,7 @@ public class Iterator extends JsObject {
             js.append(String.format(Locale.US, ".meta(%s)", wrapQuotes(name)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".meta(%s)", wrapQuotes(name)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s);", wrapQuotes(name)));
                 js.setLength(0);
             }
         }
@@ -77,7 +82,7 @@ public class Iterator extends JsObject {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%f)", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%f);", index));
                 js.setLength(0);
             }
         }

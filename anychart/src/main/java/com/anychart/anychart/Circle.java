@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -55,7 +60,7 @@ public class Circle extends VectorEllipse {
             js.append(String.format(Locale.US, ".radius(%f)", radius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".radius(%f)", radius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radius(%f);", radius));
                 js.setLength(0);
             }
         }

@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -78,7 +81,7 @@ public class DataTable extends CoreBase {
             js.append(String.format(Locale.US, ".addData(%s, %s, %b)", arrayToStringWrapQuotes(rawData), wrapQuotes(csvSettings), removeFromStart));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %b)", arrayToStringWrapQuotes(rawData), wrapQuotes(csvSettings), removeFromStart));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addData(%s, %s, %b);", arrayToStringWrapQuotes(rawData), wrapQuotes(csvSettings), removeFromStart));
                 js.setLength(0);
             }
         }
@@ -112,7 +115,7 @@ public class DataTable extends CoreBase {
             js.append(String.format(Locale.US, ".addData(%s, %s, %f)", arrayToStringWrapQuotes(rawData), wrapQuotes(csvSettings), removeFromStart1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %f)", arrayToStringWrapQuotes(rawData), wrapQuotes(csvSettings), removeFromStart1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addData(%s, %s, %f);", arrayToStringWrapQuotes(rawData), wrapQuotes(csvSettings), removeFromStart1));
                 js.setLength(0);
             }
         }
@@ -146,7 +149,7 @@ public class DataTable extends CoreBase {
             js.append(String.format(Locale.US, ".addData(%s, %s, %b)", wrapQuotes(rawData1), wrapQuotes(csvSettings), removeFromStart));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %b)", wrapQuotes(rawData1), wrapQuotes(csvSettings), removeFromStart));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addData(%s, %s, %b);", wrapQuotes(rawData1), wrapQuotes(csvSettings), removeFromStart));
                 js.setLength(0);
             }
         }
@@ -180,7 +183,7 @@ public class DataTable extends CoreBase {
             js.append(String.format(Locale.US, ".addData(%s, %s, %f)", wrapQuotes(rawData1), wrapQuotes(csvSettings), removeFromStart1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addData(%s, %s, %f)", wrapQuotes(rawData1), wrapQuotes(csvSettings), removeFromStart1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addData(%s, %s, %f);", wrapQuotes(rawData1), wrapQuotes(csvSettings), removeFromStart1));
                 js.setLength(0);
             }
         }
@@ -210,6 +213,10 @@ public class DataTable extends CoreBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".createComputer(%s);",  ((mappingSettingsOrMapping != null) ? mappingSettingsOrMapping.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createComputer(%s);", ((mappingSettingsOrMapping != null) ? mappingSettingsOrMapping.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         TableComputer item = new TableComputer("setCreateComputer" + variableIndex);
         setCreateComputer.add(item);
@@ -248,7 +255,7 @@ public class DataTable extends CoreBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createComputer(%s)", wrapQuotes(mappingSettingsOrMapping1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createComputer(%s);", wrapQuotes(mappingSettingsOrMapping1)));
                 js.setLength(0);
             }
         }
@@ -286,7 +293,7 @@ You can add fields to table mappings after the mapping is created using it's add
             js.append(String.format(Locale.US, "var setMapAs" + ++variableIndex + " = " + jsBase + ".mapAs(%s);", wrapQuotes(fields)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", wrapQuotes(fields)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s);", wrapQuotes(fields)));
                 js.setLength(0);
             }
         }
@@ -332,7 +339,7 @@ You can add fields to table mappings after the mapping is created using it's add
             js.append(String.format(Locale.US, ".remove(%f, %f)", startKey, endKey));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".remove(%f, %f)", startKey, endKey));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%f, %f);", startKey, endKey));
                 js.setLength(0);
             }
         }
@@ -364,7 +371,7 @@ You can add fields to table mappings after the mapping is created using it's add
             js.append(String.format(Locale.US, ".remove(%f, %s)", startKey, wrapQuotes(endKey1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".remove(%f, %s)", startKey, wrapQuotes(endKey1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%f, %s);", startKey, wrapQuotes(endKey1)));
                 js.setLength(0);
             }
         }
@@ -396,7 +403,7 @@ You can add fields to table mappings after the mapping is created using it's add
             js.append(String.format(Locale.US, ".remove(%s, %f)", wrapQuotes(startKey1), endKey));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".remove(%s, %f)", wrapQuotes(startKey1), endKey));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%s, %f);", wrapQuotes(startKey1), endKey));
                 js.setLength(0);
             }
         }
@@ -428,7 +435,7 @@ You can add fields to table mappings after the mapping is created using it's add
             js.append(String.format(Locale.US, ".remove(%s, %s)", wrapQuotes(startKey1), wrapQuotes(endKey1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".remove(%s, %s)", wrapQuotes(startKey1), wrapQuotes(endKey1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%s, %s);", wrapQuotes(startKey1), wrapQuotes(endKey1)));
                 js.setLength(0);
             }
         }
@@ -453,7 +460,7 @@ You can add fields to table mappings after the mapping is created using it's add
             js.append(String.format(Locale.US, ".removeFirst(%f)", count));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeFirst(%f)", count));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeFirst(%f);", count));
                 js.setLength(0);
             }
         }

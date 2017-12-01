@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -48,7 +53,7 @@ public class BBands extends JsObject {
             js.append(String.format(Locale.US, ".deviation(%f)", deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".deviation(%f)", deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".deviation(%f);", deviation));
                 js.setLength(0);
             }
         }
@@ -89,7 +94,7 @@ public class BBands extends JsObject {
             js.append(String.format(Locale.US, ".lowerSeries(%s)", ((type != null) ? type.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lowerSeries(%s)", ((type != null) ? type.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lowerSeries(%s);", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -116,7 +121,7 @@ public class BBands extends JsObject {
             js.append(String.format(Locale.US, ".lowerSeries(%s)", wrapQuotes(type1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lowerSeries(%s)", wrapQuotes(type1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lowerSeries(%s);", wrapQuotes(type1)));
                 js.setLength(0);
             }
         }
@@ -159,7 +164,7 @@ public class BBands extends JsObject {
             js.append(String.format(Locale.US, ".middleSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".middleSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".middleSeries(%s);", ((type2 != null) ? type2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -188,7 +193,7 @@ public class BBands extends JsObject {
             js.append(String.format(Locale.US, ".middleSeries(%s)", wrapQuotes(type3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".middleSeries(%s)", wrapQuotes(type3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".middleSeries(%s);", wrapQuotes(type3)));
                 js.setLength(0);
             }
         }
@@ -213,7 +218,7 @@ public class BBands extends JsObject {
             js.append(String.format(Locale.US, ".period(%f)", period));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".period(%f)", period));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%f);", period));
                 js.setLength(0);
             }
         }
@@ -258,7 +263,7 @@ public class BBands extends JsObject {
             js.append(String.format(Locale.US, ".upperSeries(%s)", ((type4 != null) ? type4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".upperSeries(%s)", ((type4 != null) ? type4.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".upperSeries(%s);", ((type4 != null) ? type4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -289,7 +294,7 @@ public class BBands extends JsObject {
             js.append(String.format(Locale.US, ".upperSeries(%s)", wrapQuotes(type5)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".upperSeries(%s)", wrapQuotes(type5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".upperSeries(%s);", wrapQuotes(type5)));
                 js.setLength(0);
             }
         }

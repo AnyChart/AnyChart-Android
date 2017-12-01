@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -50,7 +55,7 @@ public class CycledQueue extends JsObject {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".clear(%f)", newLengthLimit));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".clear(%f);", newLengthLimit));
                 js.setLength(0);
             }
         }
@@ -76,7 +81,7 @@ The index can be negative - that will interpreted as the index from the end of t
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%f)", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%f);", index));
                 js.setLength(0);
             }
         }

@@ -1,9 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -82,7 +84,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".border(%s, %f, %s, %s, %s);", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -118,7 +120,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".border(%s, %f, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -154,7 +156,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".border(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".border(%s, %f, %s, %s, %s);", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -210,7 +212,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellBorder(%s, %f, %s, %s, %s)", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellBorder(%s, %f, %s, %s, %s)", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -259,7 +261,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellBorder(%s, %f, %s, %s, %s)", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellBorder(%s, %f, %s, %s, %s)", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -308,7 +310,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellBorder(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellBorder(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", wrapQuotes(strokeOrFill2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -334,7 +336,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellFill(%s)", ((cellFill != null) ? cellFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s)", ((cellFill != null) ? cellFill.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s);", ((cellFill != null) ? cellFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -367,7 +369,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellFill(%s, %f)", wrapQuotes(color3), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f)", wrapQuotes(color3), opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f);", wrapQuotes(color3), opacity));
                 js.setLength(0);
             }
         }
@@ -415,7 +417,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -456,7 +458,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -497,7 +499,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -538,7 +540,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -579,7 +581,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -620,7 +622,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -679,7 +681,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -730,7 +732,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -774,7 +776,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellPadding(%s)", Arrays.toString(cellPadding)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s)", Arrays.toString(cellPadding)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s);", Arrays.toString(cellPadding)));
                 js.setLength(0);
             }
         }
@@ -802,7 +804,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellPadding(%s)", arrayToStringWrapQuotes(cellPadding1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s)", arrayToStringWrapQuotes(cellPadding1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s);", arrayToStringWrapQuotes(cellPadding1)));
                 js.setLength(0);
             }
         }
@@ -830,7 +832,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellPadding(%s)", wrapQuotes(cellPadding2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s)", wrapQuotes(cellPadding2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s);", wrapQuotes(cellPadding2)));
                 js.setLength(0);
             }
         }
@@ -904,7 +906,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellPadding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %s, %s);", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
             }
         }
@@ -970,7 +972,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".cellPadding(%f, %f, %f, %f)", value1, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %f, %f, %f)", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %f, %f);", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
@@ -995,7 +997,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".colsCount(%f)", colsCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colsCount(%f)", colsCount));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colsCount(%f);", colsCount));
                 js.setLength(0);
             }
         }
@@ -1024,7 +1026,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".colsMaxWidth(%s)", wrapQuotes(colsMaxWidth)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colsMaxWidth(%s)", wrapQuotes(colsMaxWidth)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colsMaxWidth(%s);", wrapQuotes(colsMaxWidth)));
                 js.setLength(0);
             }
         }
@@ -1051,7 +1053,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".colsMaxWidth(%f)", colsMaxWidth1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colsMaxWidth(%f)", colsMaxWidth1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colsMaxWidth(%f);", colsMaxWidth1));
                 js.setLength(0);
             }
         }
@@ -1080,7 +1082,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".colsMinWidth(%s)", wrapQuotes(colsMinWidth)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colsMinWidth(%s)", wrapQuotes(colsMinWidth)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colsMinWidth(%s);", wrapQuotes(colsMinWidth)));
                 js.setLength(0);
             }
         }
@@ -1107,7 +1109,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".colsMinWidth(%f)", colsMinWidth1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colsMinWidth(%f)", colsMinWidth1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colsMinWidth(%f);", colsMinWidth1));
                 js.setLength(0);
             }
         }
@@ -1136,7 +1138,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".colsWidth(%s)", wrapQuotes(colsWidth)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colsWidth(%s)", wrapQuotes(colsWidth)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colsWidth(%s);", wrapQuotes(colsWidth)));
                 js.setLength(0);
             }
         }
@@ -1163,7 +1165,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".colsWidth(%f)", colsWidth1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colsWidth(%f)", colsWidth1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colsWidth(%f);", colsWidth1));
                 js.setLength(0);
             }
         }
@@ -1191,7 +1193,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".contents(%s, %b)", wrapQuotes(tableValues), demergeCells));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".contents(%s, %b)", wrapQuotes(tableValues), demergeCells));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".contents(%s, %b);", wrapQuotes(tableValues), demergeCells));
                 js.setLength(0);
             }
         }
@@ -1216,7 +1218,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
                 js.setLength(0);
             }
         }
@@ -1242,7 +1244,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(fontColor)));
                 js.setLength(0);
             }
         }
@@ -1271,7 +1273,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".fontDecoration(%s)", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1298,7 +1300,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".fontDecoration(%s)", wrapQuotes(fontDecoration1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontDecoration(%s)", wrapQuotes(fontDecoration1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", wrapQuotes(fontDecoration1)));
                 js.setLength(0);
             }
         }
@@ -1323,7 +1325,7 @@ public class UiTable extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(fontFamily)));
                 js.setLength(0);
             }
         }
@@ -1349,7 +1351,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
                 js.setLength(0);
             }
         }
@@ -1378,7 +1380,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(fontSize)));
                 js.setLength(0);
             }
         }
@@ -1405,7 +1407,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".fontSize(%f)", fontSize1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontSize(%f)", fontSize1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize1));
                 js.setLength(0);
             }
         }
@@ -1434,7 +1436,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1461,7 +1463,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(fontStyle1)));
                 js.setLength(0);
             }
         }
@@ -1490,7 +1492,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1517,7 +1519,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", wrapQuotes(fontVariant1)));
                 js.setLength(0);
             }
         }
@@ -1547,7 +1549,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(fontWeight)));
                 js.setLength(0);
             }
         }
@@ -1575,7 +1577,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
                 js.setLength(0);
             }
         }
@@ -1605,7 +1607,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getCell(%f, %f)", row, col));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getCell(%f, %f);", row, col));
                 js.setLength(0);
             }
         }
@@ -1647,7 +1649,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getCol(%f)", col1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getCol(%f);", col1));
                 js.setLength(0);
             }
         }
@@ -1694,7 +1696,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getJpgBase64String(%f, %f, %f, %b)", width, height, quality, forceTransparentWhite));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getJpgBase64String(%f, %f, %f, %b);", width, height, quality, forceTransparentWhite));
                 js.setLength(0);
             }
         }
@@ -1736,7 +1738,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %f, %f)", paperSizeOrWidth, x, landscapeOrWidth, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %f, %f);", paperSizeOrWidth, x, landscapeOrWidth, y));
                 js.setLength(0);
             }
         }
@@ -1772,7 +1774,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %b, %f)", paperSizeOrWidth, x, landscapeOrWidth1, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %b, %f);", paperSizeOrWidth, x, landscapeOrWidth1, y));
                 js.setLength(0);
             }
         }
@@ -1808,7 +1810,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %f)", wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %f);", wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth, y));
                 js.setLength(0);
             }
         }
@@ -1844,7 +1846,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %b, %f)", wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth1, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %b, %f);", wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth1, y));
                 js.setLength(0);
             }
         }
@@ -1884,7 +1886,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPngBase64String(%f, %f, %f)", width1, height1, quality1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPngBase64String(%f, %f, %f);", width1, height1, quality1));
                 js.setLength(0);
             }
         }
@@ -1913,7 +1915,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getRow(%f)", row1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getRow(%f);", row1));
                 js.setLength(0);
             }
         }
@@ -1964,7 +1966,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b)", wrapQuotes(paperSizeOrWidth2), landscapeOrHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b);", wrapQuotes(paperSizeOrWidth2), landscapeOrHeight));
                 js.setLength(0);
             }
         }
@@ -1998,7 +2000,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s)", wrapQuotes(paperSizeOrWidth2), wrapQuotes(landscapeOrHeight1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s);", wrapQuotes(paperSizeOrWidth2), wrapQuotes(landscapeOrHeight1)));
                 js.setLength(0);
             }
         }
@@ -2032,7 +2034,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b)", paperSizeOrWidth3, landscapeOrHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b);", paperSizeOrWidth3, landscapeOrHeight));
                 js.setLength(0);
             }
         }
@@ -2066,7 +2068,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s)", paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s);", paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1)));
                 js.setLength(0);
             }
         }
@@ -2094,7 +2096,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".hAlign(%s)", ((hAlign != null) ? hAlign.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", ((hAlign != null) ? hAlign.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", ((hAlign != null) ? hAlign.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2121,7 +2123,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(hAlign1)));
                 js.setLength(0);
             }
         }
@@ -2151,7 +2153,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(letterSpacing)));
                 js.setLength(0);
             }
         }
@@ -2179,7 +2181,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing1));
                 js.setLength(0);
             }
         }
@@ -2208,7 +2210,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(lineHeight)));
                 js.setLength(0);
             }
         }
@@ -2235,7 +2237,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight1));
                 js.setLength(0);
             }
         }
@@ -2261,7 +2263,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowEvenFill(%s)", ((rowEvenFill != null) ? rowEvenFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s)", ((rowEvenFill != null) ? rowEvenFill.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s);", ((rowEvenFill != null) ? rowEvenFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2300,7 +2302,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f)", wrapQuotes(color4), opacity3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f)", wrapQuotes(color4), opacity3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f);", wrapQuotes(color4), opacity3));
                 js.setLength(0);
             }
         }
@@ -2362,7 +2364,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %b);", arrayToString(keys4), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -2417,7 +2419,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2472,7 +2474,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -2527,7 +2529,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -2582,7 +2584,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2637,7 +2639,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -2719,7 +2721,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -2793,7 +2795,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -2820,7 +2822,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowOddFill(%s)", ((rowOddFill != null) ? rowOddFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s)", ((rowOddFill != null) ? rowOddFill.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s);", ((rowOddFill != null) ? rowOddFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2863,7 +2865,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f)", wrapQuotes(color5), opacity6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f)", wrapQuotes(color5), opacity6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f);", wrapQuotes(color5), opacity6));
                 js.setLength(0);
             }
         }
@@ -2937,7 +2939,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToString(keys8), angle2, opacity7, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToString(keys8), angle2, opacity7, mode8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %b);", arrayToString(keys8), angle2, opacity7, mode8));
                 js.setLength(0);
             }
         }
@@ -3004,7 +3006,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s);", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3071,7 +3073,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s);", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -3138,7 +3140,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
                 js.setLength(0);
             }
         }
@@ -3205,7 +3207,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3272,7 +3274,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -3369,7 +3371,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -3458,7 +3460,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -3484,7 +3486,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowsCount(%f)", rowsCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowsCount(%f)", rowsCount));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowsCount(%f);", rowsCount));
                 js.setLength(0);
             }
         }
@@ -3513,7 +3515,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowsHeight(%s)", wrapQuotes(rowsHeight)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowsHeight(%s)", wrapQuotes(rowsHeight)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowsHeight(%s);", wrapQuotes(rowsHeight)));
                 js.setLength(0);
             }
         }
@@ -3540,7 +3542,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowsHeight(%f)", rowsHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowsHeight(%f)", rowsHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowsHeight(%f);", rowsHeight1));
                 js.setLength(0);
             }
         }
@@ -3569,7 +3571,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowsMaxHeight(%s)", wrapQuotes(rowsMaxHeight)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowsMaxHeight(%s)", wrapQuotes(rowsMaxHeight)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowsMaxHeight(%s);", wrapQuotes(rowsMaxHeight)));
                 js.setLength(0);
             }
         }
@@ -3596,7 +3598,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowsMaxHeight(%f)", rowsMaxHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowsMaxHeight(%f)", rowsMaxHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowsMaxHeight(%f);", rowsMaxHeight1));
                 js.setLength(0);
             }
         }
@@ -3625,7 +3627,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowsMinHeight(%s)", wrapQuotes(rowsMinHeight)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowsMinHeight(%s)", wrapQuotes(rowsMinHeight)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowsMinHeight(%s);", wrapQuotes(rowsMinHeight)));
                 js.setLength(0);
             }
         }
@@ -3652,7 +3654,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".rowsMinHeight(%f)", rowsMinHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rowsMinHeight(%f)", rowsMinHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowsMinHeight(%f);", rowsMinHeight1));
                 js.setLength(0);
             }
         }
@@ -3702,7 +3704,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b)", width2, height2, quality2, forceTransparentWhite1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b);", width2, height2, quality2, forceTransparentWhite1));
                 js.setLength(0);
             }
         }
@@ -3742,7 +3744,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f)", wrapQuotes(paperSize), landscape, x1, y1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f);", wrapQuotes(paperSize), landscape, x1, y1));
                 js.setLength(0);
             }
         }
@@ -3788,7 +3790,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f)", width3, height3, quality3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f);", width3, height3, quality3));
                 js.setLength(0);
             }
         }
@@ -3822,7 +3824,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b)", wrapQuotes(paperSize1), landscape1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b);", wrapQuotes(paperSize1), landscape1));
                 js.setLength(0);
             }
         }
@@ -3862,7 +3864,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%f, %f)", width4, height4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%f, %f);", width4, height4));
                 js.setLength(0);
             }
         }
@@ -3886,7 +3888,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".selectable(%b)", selectable));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectable(%b)", selectable));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectable(%b);", selectable));
                 js.setLength(0);
             }
         }
@@ -3951,7 +3953,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsJpg(%b, %f, %f, %f, %b, %s)", asBase, width5, height5, quality4, forceTransparentWhite2, wrapQuotes(filename)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsJpg(%b, %f, %f, %f, %b, %s);", asBase, width5, height5, quality4, forceTransparentWhite2, wrapQuotes(filename)));
                 js.setLength(0);
             }
         }
@@ -4019,7 +4021,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %f, %f, %f, %f, %s)", asBase1, paperSizeOrWidth4, x2, landscapeOrWidth2, y2, wrapQuotes(filename1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %f, %f, %f, %f, %s);", asBase1, paperSizeOrWidth4, x2, landscapeOrWidth2, y2, wrapQuotes(filename1)));
                 js.setLength(0);
             }
         }
@@ -4079,7 +4081,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %f, %f, %b, %f, %s)", asBase1, paperSizeOrWidth4, x2, landscapeOrWidth3, y2, wrapQuotes(filename1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %f, %f, %b, %f, %s);", asBase1, paperSizeOrWidth4, x2, landscapeOrWidth3, y2, wrapQuotes(filename1)));
                 js.setLength(0);
             }
         }
@@ -4139,7 +4141,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %s, %f, %f, %f, %s)", asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth2, y2, wrapQuotes(filename1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %s, %f, %f, %f, %s);", asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth2, y2, wrapQuotes(filename1)));
                 js.setLength(0);
             }
         }
@@ -4199,7 +4201,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %s, %f, %b, %f, %s)", asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth3, y2, wrapQuotes(filename1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %s, %f, %b, %f, %s);", asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth3, y2, wrapQuotes(filename1)));
                 js.setLength(0);
             }
         }
@@ -4267,7 +4269,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPng(%b, %f, %f, %f, %s)", asBase2, width6, height6, quality5, wrapQuotes(filename2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPng(%b, %f, %f, %f, %s);", asBase2, width6, height6, quality5, wrapQuotes(filename2)));
                 js.setLength(0);
             }
         }
@@ -4327,7 +4329,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %s, %s, %b)", asBase3, wrapQuotes(paperSizeOrWidth6), wrapQuotes(filename3), landscapeOrHeight2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %s, %s, %b);", asBase3, wrapQuotes(paperSizeOrWidth6), wrapQuotes(filename3), landscapeOrHeight2));
                 js.setLength(0);
             }
         }
@@ -4381,7 +4383,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %s, %s, %s)", asBase3, wrapQuotes(paperSizeOrWidth6), wrapQuotes(filename3), wrapQuotes(landscapeOrHeight3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %s, %s, %s);", asBase3, wrapQuotes(paperSizeOrWidth6), wrapQuotes(filename3), wrapQuotes(landscapeOrHeight3)));
                 js.setLength(0);
             }
         }
@@ -4435,7 +4437,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %f, %s, %b)", asBase3, paperSizeOrWidth7, wrapQuotes(filename3), landscapeOrHeight2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %f, %s, %b);", asBase3, paperSizeOrWidth7, wrapQuotes(filename3), landscapeOrHeight2));
                 js.setLength(0);
             }
         }
@@ -4489,7 +4491,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %f, %s, %s)", asBase3, paperSizeOrWidth7, wrapQuotes(filename3), wrapQuotes(landscapeOrHeight3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %f, %s, %s);", asBase3, paperSizeOrWidth7, wrapQuotes(filename3), wrapQuotes(landscapeOrHeight3)));
                 js.setLength(0);
             }
         }
@@ -4517,7 +4519,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".textDirection(%s)", ((textDirection != null) ? textDirection.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", ((textDirection != null) ? textDirection.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", ((textDirection != null) ? textDirection.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4544,7 +4546,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textDirection(%s)", wrapQuotes(textDirection1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textDirection(%s);", wrapQuotes(textDirection1)));
                 js.setLength(0);
             }
         }
@@ -4569,7 +4571,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textIndent(%f)", textIndent));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
                 js.setLength(0);
             }
         }
@@ -4598,7 +4600,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4625,7 +4627,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", wrapQuotes(textOverflow1)));
                 js.setLength(0);
             }
         }
@@ -4662,7 +4664,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%s, %b)", wrapQuotes(paperSize2), landscape2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%s, %b);", wrapQuotes(paperSize2), landscape2));
                 js.setLength(0);
             }
         }
@@ -4708,7 +4710,7 @@ Double value from 0 to 1.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%f, %f)", width7, height7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%f, %f);", width7, height7));
                 js.setLength(0);
             }
         }
@@ -4732,7 +4734,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".useHtml(%b)", useHtml));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".useHtml(%b)", useHtml));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".useHtml(%b);", useHtml));
                 js.setLength(0);
             }
         }
@@ -4761,7 +4763,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".vAlign(%s)", ((vAlign != null) ? vAlign.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", ((vAlign != null) ? vAlign.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", ((vAlign != null) ? vAlign.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4788,7 +4790,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(vAlign1)));
                 js.setLength(0);
             }
         }
@@ -4817,7 +4819,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak != null) ? wordBreak.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak != null) ? wordBreak.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".wordBreak(%s);", ((wordBreak != null) ? wordBreak.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4844,7 +4846,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(wordBreak1)));
                 js.setLength(0);
             }
         }
@@ -4873,7 +4875,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap != null) ? wordWrap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap != null) ? wordWrap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".wordWrap(%s);", ((wordWrap != null) ? wordWrap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4900,7 +4902,7 @@ Double value from 0 to 1.
             js.append(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(wordWrap1)));
                 js.setLength(0);
             }
         }

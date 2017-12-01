@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -55,7 +60,7 @@ public class VectorEllipse extends Shape {
             js.append(String.format(Locale.US, ".center(%s)", ((center != null) ? center.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".center(%s)", ((center != null) ? center.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".center(%s);", ((center != null) ? center.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -80,7 +85,7 @@ public class VectorEllipse extends Shape {
             js.append(String.format(Locale.US, ".centerX(%f)", centerX));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".centerX(%f)", centerX));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".centerX(%f);", centerX));
                 js.setLength(0);
             }
         }
@@ -105,7 +110,7 @@ public class VectorEllipse extends Shape {
             js.append(String.format(Locale.US, ".centerY(%f)", centerY));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".centerY(%f)", centerY));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".centerY(%f);", centerY));
                 js.setLength(0);
             }
         }
@@ -130,7 +135,7 @@ public class VectorEllipse extends Shape {
             js.append(String.format(Locale.US, ".radiusX(%f)", radiusX));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".radiusX(%f)", radiusX));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radiusX(%f);", radiusX));
                 js.setLength(0);
             }
         }
@@ -155,7 +160,7 @@ public class VectorEllipse extends Shape {
             js.append(String.format(Locale.US, ".radiusY(%f)", radiusY));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".radiusY(%f)", radiusY));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radiusY(%f);", radiusY));
                 js.setLength(0);
             }
         }
@@ -183,7 +188,7 @@ public class VectorEllipse extends Shape {
             js.append(String.format(Locale.US, ".setRadius(%f, %f)", rx, ry));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setRadius(%f, %f)", rx, ry));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setRadius(%f, %f);", rx, ry));
                 js.setLength(0);
             }
         }

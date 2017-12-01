@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -52,7 +57,7 @@ public class TablePadding extends JsObject {
             js.append(String.format(Locale.US, ".bottom(%f)", bottom));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottom(%f)", bottom));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
                 js.setLength(0);
             }
         }
@@ -79,7 +84,7 @@ public class TablePadding extends JsObject {
             js.append(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom1)));
                 js.setLength(0);
             }
         }
@@ -108,7 +113,7 @@ public class TablePadding extends JsObject {
             js.append(String.format(Locale.US, ".left(%f)", left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".left(%f)", left));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%f);", left));
                 js.setLength(0);
             }
         }
@@ -135,7 +140,7 @@ public class TablePadding extends JsObject {
             js.append(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left1)));
                 js.setLength(0);
             }
         }
@@ -164,7 +169,7 @@ public class TablePadding extends JsObject {
             js.append(String.format(Locale.US, ".right(%f)", right));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".right(%f)", right));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%f);", right));
                 js.setLength(0);
             }
         }
@@ -191,7 +196,7 @@ public class TablePadding extends JsObject {
             js.append(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right1)));
                 js.setLength(0);
             }
         }
@@ -220,7 +225,7 @@ public class TablePadding extends JsObject {
             js.append(String.format(Locale.US, ".top(%f)", top));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".top(%f)", top));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%f);", top));
                 js.setLength(0);
             }
         }
@@ -247,7 +252,7 @@ public class TablePadding extends JsObject {
             js.append(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top1)));
                 js.setLength(0);
             }
         }

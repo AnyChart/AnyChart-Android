@@ -1,9 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -64,6 +66,10 @@ Similar to {@link anychart.graphics.vector.Layer#addChild}
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".addChild(%s);",  ((element != null) ? element.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s);", ((element != null) ? element.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -93,7 +99,7 @@ Similar to {@link anychart.graphics.vector.Layer#addChildAt}
             js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((element1 != null) ? element1.getJsBase() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((element1 != null) ? element1.getJsBase() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((element1 != null) ? element1.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -177,7 +183,7 @@ Read more at: {@link anychart.graphics.vector.Element#appendTransformationMatrix
             js.append(String.format(Locale.US, ".appendTransformationMatrix(%f, %f, %f, %f, %f, %f)", m, m1, m2, m3, m4, m5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".appendTransformationMatrix(%f, %f, %f, %f, %f, %f)", m, m1, m2, m3, m4, m5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".appendTransformationMatrix(%f, %f, %f, %f, %f, %f);", m, m1, m2, m3, m4, m5));
                 js.setLength(0);
             }
         }
@@ -202,7 +208,7 @@ Read more at: {@link anychart.graphics.vector.Element#appendTransformationMatrix
             js.append(String.format(Locale.US, ".asyncMode(%b)", asyncMode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".asyncMode(%b)", asyncMode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".asyncMode(%b);", asyncMode));
                 js.setLength(0);
             }
         }
@@ -238,7 +244,7 @@ Read more at: {@link anychart.graphics.vector.Circle}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".circle(%f, %f, %f)", cx, cy, radius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".circle(%f, %f, %f);", cx, cy, radius));
                 js.setLength(0);
             }
         }
@@ -291,6 +297,10 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".clip(%s);",  ((clip != null) ? clip.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".clip(%s);", ((clip != null) ? clip.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -313,6 +323,10 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".container(%s);",  ((container != null) ? container.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".container(%s);", ((container != null) ? container.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -343,7 +357,7 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createClip(%s)", Arrays.toString(rect)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createClip(%s);", Arrays.toString(rect)));
                 js.setLength(0);
             }
         }
@@ -384,6 +398,10 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".createClip(%s);",  ((rect1 != null) ? rect1.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createClip(%s);", ((rect1 != null) ? rect1.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         Clip item = new Clip("setCreateClip1" + variableIndex);
         setCreateClip1.add(item);
@@ -423,7 +441,7 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createClip(%s)", wrapQuotes(rect2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createClip(%s);", wrapQuotes(rect2)));
                 js.setLength(0);
             }
         }
@@ -471,7 +489,7 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createClip(%f, %f, %f, %f)", left, top, width, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".createClip(%f, %f, %f, %f);", left, top, width, height));
                 js.setLength(0);
             }
         }
@@ -525,7 +543,7 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
             js.append(String.format(Locale.US, ".credits(%s)", wrapQuotes(credits)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".credits(%s)", wrapQuotes(credits)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%s);", wrapQuotes(credits)));
                 js.setLength(0);
             }
         }
@@ -553,7 +571,7 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
             js.append(String.format(Locale.US, ".credits(%b)", credits1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".credits(%b)", credits1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%b);", credits1));
                 js.setLength(0);
             }
         }
@@ -583,7 +601,7 @@ when we deserialize - JSON schema does this. JSON schema is created in
             js.append(String.format(Locale.US, ".data(%s)", wrapQuotes(data)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s)", wrapQuotes(data)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", wrapQuotes(data)));
                 js.setLength(0);
             }
         }
@@ -608,7 +626,7 @@ when we deserialize - JSON schema does this. JSON schema is created in
             js.append(String.format(Locale.US, ".desc(%s)", wrapQuotes(desc)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".desc(%s)", wrapQuotes(desc)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".desc(%s);", wrapQuotes(desc)));
                 js.setLength(0);
             }
         }
@@ -653,7 +671,7 @@ Read more at: {@link anychart.graphics.vector.Ellipse}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ellipse(%f, %f, %f, %f)", cx1, cy1, rx, ry));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ellipse(%f, %f, %f, %f);", cx1, cy1, rx, ry));
                 js.setLength(0);
             }
         }
@@ -696,7 +714,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getChildAt(%f)", index1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getChildAt(%f);", index1));
                 js.setLength(0);
             }
         }
@@ -749,7 +767,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getJpgBase64String(%f, %f, %f, %b)", width1, height1, quality, forceTransparentWhite));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getJpgBase64String(%f, %f, %f, %b);", width1, height1, quality, forceTransparentWhite));
                 js.setLength(0);
             }
         }
@@ -791,7 +809,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %f, %f)", paperSizeOrWidth, x, landscapeOrWidth, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %f, %f);", paperSizeOrWidth, x, landscapeOrWidth, y));
                 js.setLength(0);
             }
         }
@@ -827,7 +845,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %b, %f)", paperSizeOrWidth, x, landscapeOrWidth1, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%f, %f, %b, %f);", paperSizeOrWidth, x, landscapeOrWidth1, y));
                 js.setLength(0);
             }
         }
@@ -863,7 +881,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %f)", wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %f);", wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth, y));
                 js.setLength(0);
             }
         }
@@ -899,7 +917,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %b, %f)", wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth1, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %b, %f);", wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth1, y));
                 js.setLength(0);
             }
         }
@@ -941,7 +959,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPngBase64String(%f, %f, %f)", width2, height2, quality1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPngBase64String(%f, %f, %f);", width2, height2, quality1));
                 js.setLength(0);
             }
         }
@@ -979,7 +997,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b)", wrapQuotes(paperSizeOrWidth2), landscapeOrHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %b);", wrapQuotes(paperSizeOrWidth2), landscapeOrHeight));
                 js.setLength(0);
             }
         }
@@ -1013,7 +1031,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s)", wrapQuotes(paperSizeOrWidth2), wrapQuotes(landscapeOrHeight1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s);", wrapQuotes(paperSizeOrWidth2), wrapQuotes(landscapeOrHeight1)));
                 js.setLength(0);
             }
         }
@@ -1047,7 +1065,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b)", paperSizeOrWidth3, landscapeOrHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %b);", paperSizeOrWidth3, landscapeOrHeight));
                 js.setLength(0);
             }
         }
@@ -1081,7 +1099,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s)", paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%f, %s);", paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1)));
                 js.setLength(0);
             }
         }
@@ -1110,6 +1128,10 @@ Similar to {@link anychart.graphics.vector.Layer#hasChild}
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".hasChild(%s);",  ((element2 != null) ? element2.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hasChild(%s);", ((element2 != null) ? element2.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
     }
 
@@ -1145,7 +1167,7 @@ Read more at: {@link anychart.graphics.vector.HatchFill}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %f, %f)", ((type != null) ? type.generateJs() : "null"), wrapQuotes(color), thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFill(%s, %s, %f, %f);", ((type != null) ? type.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
@@ -1189,7 +1211,7 @@ Read more at: {@link anychart.graphics.vector.HatchFill}
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height3)));
                 js.setLength(0);
             }
         }
@@ -1219,7 +1241,7 @@ Read more at: {@link anychart.graphics.vector.HatchFill}
             js.append(String.format(Locale.US, ".height(%f)", height4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height4));
                 js.setLength(0);
             }
         }
@@ -1261,7 +1283,7 @@ You must delete them yourself after you finish using them.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".html(%f, %f, %s)", x1, y1, wrapQuotes(text)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".html(%f, %f, %s);", x1, y1, wrapQuotes(text)));
                 js.setLength(0);
             }
         }
@@ -1298,7 +1320,7 @@ You must delete them yourself after you finish using them.
             js.append(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
                 js.setLength(0);
             }
         }
@@ -1359,7 +1381,7 @@ You must delete them yourself after you finish using them.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".image(%s, %f, %f, %f, %f)", wrapQuotes(src), x2, y2, width3, height5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".image(%s, %f, %f, %f, %f);", wrapQuotes(src), x2, y2, width3, height5));
                 js.setLength(0);
             }
         }
@@ -1402,6 +1424,10 @@ Similar to {@link anychart.graphics.vector.Layer#indexOfChild}
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".indexOfChild(%s);",  ((element3 != null) ? element3.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".indexOfChild(%s);", ((element3 != null) ? element3.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
     }
 
@@ -1423,7 +1449,7 @@ Similar to {@link anychart.graphics.vector.Layer#indexOfChild}
             js.append(String.format(Locale.US, ".maxResizeDelay(%f)", maxResizeDelay));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxResizeDelay(%f)", maxResizeDelay));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxResizeDelay(%f);", maxResizeDelay));
                 js.setLength(0);
             }
         }
@@ -1452,6 +1478,10 @@ Read more at: {@link anychart.graphics.vector.PatternFill}
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".pattern(%s);",  ((bounds != null) ? bounds.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pattern(%s);", ((bounds != null) ? bounds.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         PatternFill item = new PatternFill("setPattern" + variableIndex);
         setPattern.add(item);
@@ -1504,7 +1534,7 @@ Read more at: {@link anychart.graphics.vector.PatternFill}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b)", wrapQuotes(paperSizeOrWidth4), landscapeOrHeight2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", wrapQuotes(paperSizeOrWidth4), landscapeOrHeight2));
                 js.setLength(0);
             }
         }
@@ -1542,7 +1572,7 @@ Read more at: {@link anychart.graphics.vector.PatternFill}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %s)", wrapQuotes(paperSizeOrWidth4), wrapQuotes(landscapeOrHeight3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %s);", wrapQuotes(paperSizeOrWidth4), wrapQuotes(landscapeOrHeight3)));
                 js.setLength(0);
             }
         }
@@ -1580,7 +1610,7 @@ Read more at: {@link anychart.graphics.vector.PatternFill}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%f, %b)", paperSizeOrWidth5, landscapeOrHeight2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%f, %b);", paperSizeOrWidth5, landscapeOrHeight2));
                 js.setLength(0);
             }
         }
@@ -1618,7 +1648,7 @@ Read more at: {@link anychart.graphics.vector.PatternFill}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%f, %s)", paperSizeOrWidth5, wrapQuotes(landscapeOrHeight3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%f, %s);", paperSizeOrWidth5, wrapQuotes(landscapeOrHeight3)));
                 js.setLength(0);
             }
         }
@@ -1679,7 +1709,7 @@ You must delete them yourself after you finish using them.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rect(%f, %f, %f, %f)", x3, y3, width4, height6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rect(%f, %f, %f, %f);", x3, y3, width4, height6));
                 js.setLength(0);
             }
         }
@@ -1724,6 +1754,10 @@ Similar to {@link anychart.graphics.vector.Layer#removeChild}
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".removeChild(%s);",  ((element4 != null) ? element4.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s);", ((element4 != null) ? element4.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         Element item = new Element("setRemoveChild" + variableIndex);
         setRemoveChild.add(item);
@@ -1765,7 +1799,7 @@ Similar to {@link anychart.graphics.vector.Layer#removeChildAt}
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f)", index2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f);", index2));
                 js.setLength(0);
             }
         }
@@ -1827,7 +1861,7 @@ So any part that doesn't fit will be clipped.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".resize(%f, %f)", width5, height7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".resize(%f, %f);", width5, height7));
                 js.setLength(0);
             }
         }
@@ -1872,7 +1906,7 @@ So any part that doesn't fit will be clipped.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".resize(%f, %s)", width5, wrapQuotes(height8)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".resize(%f, %s);", width5, wrapQuotes(height8)));
                 js.setLength(0);
             }
         }
@@ -1917,7 +1951,7 @@ So any part that doesn't fit will be clipped.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".resize(%s, %f)", wrapQuotes(width6), height7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".resize(%s, %f);", wrapQuotes(width6), height7));
                 js.setLength(0);
             }
         }
@@ -1962,7 +1996,7 @@ So any part that doesn't fit will be clipped.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".resize(%s, %s)", wrapQuotes(width6), wrapQuotes(height8)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".resize(%s, %s);", wrapQuotes(width6), wrapQuotes(height8)));
                 js.setLength(0);
             }
         }
@@ -1987,7 +2021,7 @@ Read more at {@link anychart.graphics.vector.Stage#suspend}.
             js.append(String.format(Locale.US, ".resume(%b)", force));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".resume(%b)", force));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".resume(%b);", force));
                 js.setLength(0);
             }
         }
@@ -2027,7 +2061,7 @@ Read more at: {@link anychart.graphics.vector.Element#rotate}.
             js.append(String.format(Locale.US, ".rotate(%f, %f, %f)", degrees, cx2, cy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rotate(%f, %f, %f)", degrees, cx2, cy2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotate(%f, %f, %f);", degrees, cx2, cy2));
                 js.setLength(0);
             }
         }
@@ -2063,7 +2097,7 @@ Read more at: {@link anychart.graphics.vector.Element#rotateByAnchor}.
             js.append(String.format(Locale.US, ".rotateByAnchor(%f, %s)", degrees1, ((anchor != null) ? anchor.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%f, %s)", degrees1, ((anchor != null) ? anchor.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotateByAnchor(%f, %s);", degrees1, ((anchor != null) ? anchor.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2096,7 +2130,7 @@ Read more at: {@link anychart.graphics.vector.Element#rotateByAnchor}.
             js.append(String.format(Locale.US, ".rotateByAnchor(%f, %s)", degrees1, wrapQuotes(anchor1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%f, %s)", degrees1, wrapQuotes(anchor1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotateByAnchor(%f, %s);", degrees1, wrapQuotes(anchor1)));
                 js.setLength(0);
             }
         }
@@ -2162,7 +2196,7 @@ For export to image JPG use {@link anychart#server}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b, %s)", width7, height9, quality2, forceTransparentWhite1, wrapQuotes(filename)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b, %s);", width7, height9, quality2, forceTransparentWhite1, wrapQuotes(filename)));
                 js.setLength(0);
             }
         }
@@ -2215,7 +2249,7 @@ For export to PDF file use {@link anychart#server}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f, %s)", wrapQuotes(paperSize), landscape, x4, y4, wrapQuotes(filename1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f, %s);", wrapQuotes(paperSize), landscape, x4, y4, wrapQuotes(filename1)));
                 js.setLength(0);
             }
         }
@@ -2281,7 +2315,7 @@ For export to image PNG use {@link anychart#server}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f, %s)", width8, height10, quality3, wrapQuotes(filename2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f, %s);", width8, height10, quality3, wrapQuotes(filename2)));
                 js.setLength(0);
             }
         }
@@ -2324,7 +2358,7 @@ For export to SVG use {@link anychart#server}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b, %s)", wrapQuotes(paperSize1), landscape1, wrapQuotes(filename3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %b, %s);", wrapQuotes(paperSize1), landscape1, wrapQuotes(filename3)));
                 js.setLength(0);
             }
         }
@@ -2377,7 +2411,7 @@ For export to SVG use {@link anychart#server}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%f, %f)", width9, height11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%f, %f);", width9, height11));
                 js.setLength(0);
             }
         }
@@ -2421,7 +2455,7 @@ Read more at: {@link anychart.graphics.vector.Element#scale}.
             js.append(String.format(Locale.US, ".scale(%f, %f, %f, %f)", sx, sy, cx3, cy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%f, %f, %f, %f)", sx, sy, cx3, cy3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%f, %f, %f, %f);", sx, sy, cx3, cy3));
                 js.setLength(0);
             }
         }
@@ -2465,7 +2499,7 @@ Read more at: {@link anychart.graphics.vector.Element#scaleByAnchor}.
             js.append(String.format(Locale.US, ".scaleByAnchor(%f, %f, %s)", sx1, sy1, ((anchor2 != null) ? anchor2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%f, %f, %s)", sx1, sy1, ((anchor2 != null) ? anchor2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scaleByAnchor(%f, %f, %s);", sx1, sy1, ((anchor2 != null) ? anchor2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2505,7 +2539,7 @@ Read more at: {@link anychart.graphics.vector.Element#scaleByAnchor}.
             js.append(String.format(Locale.US, ".scaleByAnchor(%f, %f, %s)", sx1, sy1, wrapQuotes(anchor3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%f, %f, %s)", sx1, sy1, wrapQuotes(anchor3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scaleByAnchor(%f, %f, %s);", sx1, sy1, wrapQuotes(anchor3)));
                 js.setLength(0);
             }
         }
@@ -2548,7 +2582,7 @@ Read more at: {@link anychart.graphics.vector.Element#setPosition}.
             js.append(String.format(Locale.US, ".setPosition(%f, %f)", x5, y5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setPosition(%f, %f)", x5, y5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setPosition(%f, %f);", x5, y5));
                 js.setLength(0);
             }
         }
@@ -2596,7 +2630,7 @@ Read more at: {@link anychart.graphics.vector.Element#setRotation}.
             js.append(String.format(Locale.US, ".setRotation(%f, %f, %f)", degrees2, cx4, cy4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setRotation(%f, %f, %f)", degrees2, cx4, cy4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setRotation(%f, %f, %f);", degrees2, cx4, cy4));
                 js.setLength(0);
             }
         }
@@ -2638,7 +2672,7 @@ Read more at: {@link anychart.graphics.vector.Element#setRotationByAnchor}.
             js.append(String.format(Locale.US, ".setRotationByAnchor(%f, %s)", degrees3, ((anchor4 != null) ? anchor4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%f, %s)", degrees3, ((anchor4 != null) ? anchor4.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setRotationByAnchor(%f, %s);", degrees3, ((anchor4 != null) ? anchor4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2677,7 +2711,7 @@ Read more at: {@link anychart.graphics.vector.Element#setRotationByAnchor}.
             js.append(String.format(Locale.US, ".setRotationByAnchor(%f, %s)", degrees3, wrapQuotes(anchor5)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%f, %s)", degrees3, wrapQuotes(anchor5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setRotationByAnchor(%f, %s);", degrees3, wrapQuotes(anchor5)));
                 js.setLength(0);
             }
         }
@@ -2796,7 +2830,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             js.append(String.format(Locale.US, ".setTransformationMatrix(%f, %f, %f, %f, %f, %f)", m6, m7, m8, m9, m10, m11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setTransformationMatrix(%f, %f, %f, %f, %f, %f)", m6, m7, m8, m9, m10, m11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setTransformationMatrix(%f, %f, %f, %f, %f, %f);", m6, m7, m8, m9, m10, m11));
                 js.setLength(0);
             }
         }
@@ -2879,7 +2913,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsJpg(%b, %f, %f, %f, %b, %s)", asBase, width10, height12, quality4, forceTransparentWhite2, wrapQuotes(filename4)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsJpg(%b, %f, %f, %f, %b, %s);", asBase, width10, height12, quality4, forceTransparentWhite2, wrapQuotes(filename4)));
                 js.setLength(0);
             }
         }
@@ -2961,7 +2995,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %f, %f, %f, %f, %s)", asBase1, paperSizeOrWidth6, x6, landscapeOrWidth2, y6, wrapQuotes(filename5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %f, %f, %f, %f, %s);", asBase1, paperSizeOrWidth6, x6, landscapeOrWidth2, y6, wrapQuotes(filename5)));
                 js.setLength(0);
             }
         }
@@ -3035,7 +3069,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %f, %f, %b, %f, %s)", asBase1, paperSizeOrWidth6, x6, landscapeOrWidth3, y6, wrapQuotes(filename5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %f, %f, %b, %f, %s);", asBase1, paperSizeOrWidth6, x6, landscapeOrWidth3, y6, wrapQuotes(filename5)));
                 js.setLength(0);
             }
         }
@@ -3109,7 +3143,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %s, %f, %f, %f, %s)", asBase1, wrapQuotes(paperSizeOrWidth7), x6, landscapeOrWidth2, y6, wrapQuotes(filename5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %s, %f, %f, %f, %s);", asBase1, wrapQuotes(paperSizeOrWidth7), x6, landscapeOrWidth2, y6, wrapQuotes(filename5)));
                 js.setLength(0);
             }
         }
@@ -3183,7 +3217,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %s, %f, %b, %f, %s)", asBase1, wrapQuotes(paperSizeOrWidth7), x6, landscapeOrWidth3, y6, wrapQuotes(filename5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%b, %s, %f, %b, %f, %s);", asBase1, wrapQuotes(paperSizeOrWidth7), x6, landscapeOrWidth3, y6, wrapQuotes(filename5)));
                 js.setLength(0);
             }
         }
@@ -3267,7 +3301,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPng(%b, %f, %f, %f, %s)", asBase2, width11, height13, quality5, wrapQuotes(filename6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPng(%b, %f, %f, %f, %s);", asBase2, width11, height13, quality5, wrapQuotes(filename6)));
                 js.setLength(0);
             }
         }
@@ -3335,7 +3369,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %s, %s, %b)", asBase3, wrapQuotes(paperSizeOrWidth8), wrapQuotes(filename7), landscapeOrHeight4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %s, %s, %b);", asBase3, wrapQuotes(paperSizeOrWidth8), wrapQuotes(filename7), landscapeOrHeight4));
                 js.setLength(0);
             }
         }
@@ -3397,7 +3431,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %s, %s, %s)", asBase3, wrapQuotes(paperSizeOrWidth8), wrapQuotes(filename7), wrapQuotes(landscapeOrHeight5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %s, %s, %s);", asBase3, wrapQuotes(paperSizeOrWidth8), wrapQuotes(filename7), wrapQuotes(landscapeOrHeight5)));
                 js.setLength(0);
             }
         }
@@ -3459,7 +3493,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %f, %s, %b)", asBase3, paperSizeOrWidth9, wrapQuotes(filename7), landscapeOrHeight4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %f, %s, %b);", asBase3, paperSizeOrWidth9, wrapQuotes(filename7), landscapeOrHeight4));
                 js.setLength(0);
             }
         }
@@ -3521,7 +3555,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %f, %s, %s)", asBase3, paperSizeOrWidth9, wrapQuotes(filename7), wrapQuotes(landscapeOrHeight5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%b, %f, %s, %s);", asBase3, paperSizeOrWidth9, wrapQuotes(filename7), wrapQuotes(landscapeOrHeight5)));
                 js.setLength(0);
             }
         }
@@ -3565,6 +3599,10 @@ Similar to {@link anychart.graphics.vector.Layer#swapChildren}
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".swapChildren(%s, %s);",  ((element5 != null) ? element5.getJsBase() : "null"), ((element6 != null) ? element6.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".swapChildren(%s, %s);", ((element5 != null) ? element5.getJsBase() : "null"), ((element6 != null) ? element6.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -3603,7 +3641,7 @@ Similar to {@link anychart.graphics.vector.Layer#swapChildrenAt}
             js.append(String.format(Locale.US, ".swapChildrenAt(%f, %f)", index3, index4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".swapChildrenAt(%f, %f)", index3, index4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".swapChildrenAt(%f, %f);", index3, index4));
                 js.setLength(0);
             }
         }
@@ -3659,7 +3697,7 @@ You must delete them yourself after you finish using them.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".text(%f, %f, %s)", x7, y7, wrapQuotes(text1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".text(%f, %f, %s);", x7, y7, wrapQuotes(text1)));
                 js.setLength(0);
             }
         }
@@ -3696,7 +3734,7 @@ You must delete them yourself after you finish using them.
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(title)));
                 js.setLength(0);
             }
         }
@@ -3733,7 +3771,7 @@ You must delete them yourself after you finish using them.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%s, %b)", wrapQuotes(paperSize2), landscape2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%s, %b);", wrapQuotes(paperSize2), landscape2));
                 js.setLength(0);
             }
         }
@@ -3791,7 +3829,7 @@ You must delete them yourself after you finish using them.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%f, %f)", width12, height14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%f, %f);", width12, height14));
                 js.setLength(0);
             }
         }
@@ -3820,7 +3858,7 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
             js.append(String.format(Locale.US, ".translate(%f, %f)", tx, ty));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".translate(%f, %f)", tx, ty));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".translate(%f, %f);", tx, ty));
                 js.setLength(0);
             }
         }
@@ -3845,7 +3883,7 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
             js.append(String.format(Locale.US, ".visible(%b)", isVisible));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".visible(%b)", isVisible));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".visible(%b);", isVisible));
                 js.setLength(0);
             }
         }
@@ -3887,7 +3925,7 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width13)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width13)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width13)));
                 js.setLength(0);
             }
         }
@@ -3927,7 +3965,7 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
             js.append(String.format(Locale.US, ".width(%f)", width14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width14));
                 js.setLength(0);
             }
         }

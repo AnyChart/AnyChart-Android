@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -48,7 +53,7 @@ public class MapSeriesMarker extends MapSeriesBase {
             js.append(String.format(Locale.US, ".size(%f)", size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".size(%f)", size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".size(%f);", size));
                 js.setLength(0);
             }
         }
@@ -77,7 +82,7 @@ public class MapSeriesMarker extends MapSeriesBase {
             js.append(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", ((type != null) ? type.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".type(%s);", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -104,7 +109,7 @@ public class MapSeriesMarker extends MapSeriesBase {
             js.append(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".type(%s)", wrapQuotes(type1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".type(%s);", wrapQuotes(type1)));
                 js.setLength(0);
             }
         }

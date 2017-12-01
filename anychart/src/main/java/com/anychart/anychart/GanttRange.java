@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -49,7 +54,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -77,7 +82,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f);", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -125,7 +130,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -166,7 +171,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -207,7 +212,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -248,7 +253,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -289,7 +294,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -330,7 +335,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -389,7 +394,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -440,7 +445,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -472,7 +477,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".from(%f)", from));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".from(%f)", from));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".from(%f);", from));
                 js.setLength(0);
             }
         }
@@ -500,7 +505,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".from(%s)", ((from1 != null) ? from1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".from(%s)", ((from1 != null) ? from1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".from(%s);", ((from1 != null) ? from1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -528,7 +533,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".from(%s)", wrapQuotes(from2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".from(%s)", wrapQuotes(from2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".from(%s);", wrapQuotes(from2)));
                 js.setLength(0);
             }
         }
@@ -558,7 +563,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".layout(%s);", ((layout != null) ? layout.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -586,7 +591,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".layout(%s);", wrapQuotes(layout1)));
                 js.setLength(0);
             }
         }
@@ -625,6 +630,10 @@ public class GanttRange extends VisualBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s);", ((scale != null) ? scale.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -653,7 +662,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".to(%f)", to));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".to(%f)", to));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".to(%f);", to));
                 js.setLength(0);
             }
         }
@@ -681,7 +690,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".to(%s)", ((to1 != null) ? to1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".to(%s)", ((to1 != null) ? to1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".to(%s);", ((to1 != null) ? to1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -709,7 +718,7 @@ public class GanttRange extends VisualBase {
             js.append(String.format(Locale.US, ".to(%s)", wrapQuotes(to2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".to(%s)", wrapQuotes(to2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".to(%s);", wrapQuotes(to2)));
                 js.setLength(0);
             }
         }

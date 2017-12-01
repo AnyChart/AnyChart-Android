@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -48,7 +53,7 @@ public class SeriesA11y extends A11y {
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
                 js.setLength(0);
             }
         }
@@ -74,7 +79,7 @@ public class SeriesA11y extends A11y {
             js.append(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".titleFormat(%s);", wrapQuotes(titleFormat)));
                 js.setLength(0);
             }
         }

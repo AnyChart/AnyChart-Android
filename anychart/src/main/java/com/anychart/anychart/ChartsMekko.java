@@ -3,9 +3,10 @@ package com.anychart.anychart;
 import com.anychart.anychart.application.MyApplication;
 import com.anychart.anychart.chart.common.ListenersInterface;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 // chart class
 /**
@@ -25,75 +26,6 @@ public class ChartsMekko extends SeparateChart {
         js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
-    }
-
-    public ChartsMekko setData(SingleValueDataSet data) {
-        if (!data.isEmpty()) {
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(jsBase).append(".data([");
-
-            js.append(data.generateJs());
-
-            js.append("]);");
-        }
-
-        return this;
-    }
-
-    public ChartsMekko setData(List<DataEntry> data) {
-        if (!data.isEmpty()) {
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(jsBase).append(".data([");
-
-            for (DataEntry dataEntry : data) {
-                js.append(dataEntry.generateJs()).append(",");
-            }
-            js.setLength(js.length() - 1);
-
-            js.append("]);");
-        }
-
-        return this;
-    }
-
-    public ChartsMekko setData(List<DataEntry> data, TreeFillingMethod mode) {
-        if (!data.isEmpty()) {
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(jsBase).append(".data([");
-
-            for (DataEntry dataEntry : data) {
-                js.append(dataEntry.generateJs()).append(",");
-            }
-            js.setLength(js.length() - 1);
-
-            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
-        }
-
-        return this;
-    }
-
-    public ChartsMekko setData(Mapping mapping) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(mapping.generateJs());
-
-        js.append(jsBase).append(".data(").append(mapping.getJsBase()).append(");");
-
-        return this;
     }
 
     public void setOnClickListener(ListenersInterface.OnClickListener listener) {
@@ -140,6 +72,11 @@ public class ChartsMekko extends SeparateChart {
             resultData.append("]");
 
             js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", resultData.toString()));
+                js.setLength(0);
+            }
         }
     }
 
@@ -147,14 +84,18 @@ public class ChartsMekko extends SeparateChart {
     /**
      * 
      */
-    public void addSeries(View mapping) {
+    public void addSeries(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
 
-        js.append(mapping.generateJs());
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
     }
 
 
@@ -254,7 +195,7 @@ public class ChartsMekko extends SeparateChart {
     /**
      * Setter for the data.
      */
-    public ChartsMekko data(List<DataEntry> data) {
+    public ChartsMekko setData(List<DataEntry> data) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -270,6 +211,11 @@ public class ChartsMekko extends SeparateChart {
             resultData.append("]");
 
             js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -278,14 +224,18 @@ public class ChartsMekko extends SeparateChart {
     /**
      * 
      */
-    public ChartsMekko data(View mapping) {
+    public ChartsMekko setData(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
 
-        js.append(mapping.generateJs());
-        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var setData1" + ++variableIndex + " = " + jsBase + ".data(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -499,6 +449,11 @@ public class ChartsMekko extends SeparateChart {
             resultData.append("]");
 
             js.append(String.format(Locale.US, "var setMekko" + ++variableIndex + " = " + jsBase + ".mekko(%s);", resultData.toString()));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mekko(%s);", resultData.toString()));
+                js.setLength(0);
+            }
         }
         SeriesMekko item = new SeriesMekko("setMekko" + variableIndex);
         setMekko.add(item);
@@ -520,14 +475,18 @@ public class ChartsMekko extends SeparateChart {
     /**
      * 
      */
-    public SeriesMekko mekko(View mapping) {
+    public SeriesMekko mekko(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
 
-        js.append(mapping.generateJs());
-        js.append(String.format(Locale.US, "var setMekko1" + ++variableIndex + " = " + jsBase + ".mekko(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var setMekko1" + ++variableIndex + " = " + jsBase + ".mekko(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".mekko(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
         SeriesMekko item = new SeriesMekko("setMekko1" + variableIndex);
         setMekko1.add(item);
         return item;

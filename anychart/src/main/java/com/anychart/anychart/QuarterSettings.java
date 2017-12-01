@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -60,7 +65,7 @@ public class QuarterSettings extends CoreBase {
             js.append(String.format(Locale.US, ".leftBottom(%s)", wrapQuotes(leftBottom)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".leftBottom(%s)", wrapQuotes(leftBottom)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".leftBottom(%s);", wrapQuotes(leftBottom)));
                 js.setLength(0);
             }
         }
@@ -97,7 +102,7 @@ public class QuarterSettings extends CoreBase {
             js.append(String.format(Locale.US, ".leftTop(%s)", wrapQuotes(leftTop)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".leftTop(%s)", wrapQuotes(leftTop)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".leftTop(%s);", wrapQuotes(leftTop)));
                 js.setLength(0);
             }
         }
@@ -134,7 +139,7 @@ public class QuarterSettings extends CoreBase {
             js.append(String.format(Locale.US, ".rightBottom(%s)", wrapQuotes(rightBottom)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rightBottom(%s)", wrapQuotes(rightBottom)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rightBottom(%s);", wrapQuotes(rightBottom)));
                 js.setLength(0);
             }
         }
@@ -171,7 +176,7 @@ public class QuarterSettings extends CoreBase {
             js.append(String.format(Locale.US, ".rightTop(%s)", wrapQuotes(rightTop)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rightTop(%s)", wrapQuotes(rightTop)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rightTop(%s);", wrapQuotes(rightTop)));
                 js.setLength(0);
             }
         }

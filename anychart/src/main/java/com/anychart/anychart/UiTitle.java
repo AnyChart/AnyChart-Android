@@ -1,7 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.Arrays;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -58,7 +62,7 @@ public class UiTitle extends CoreText {
             js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".align(%s);", ((align != null) ? align.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -85,7 +89,7 @@ public class UiTitle extends CoreText {
             js.append(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".align(%s);", wrapQuotes(align1)));
                 js.setLength(0);
             }
         }
@@ -128,7 +132,7 @@ public class UiTitle extends CoreText {
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(background)));
                 js.setLength(0);
             }
         }
@@ -156,7 +160,7 @@ public class UiTitle extends CoreText {
             js.append(String.format(Locale.US, ".background(%b)", background2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%b);", background2));
                 js.setLength(0);
             }
         }
@@ -185,7 +189,7 @@ public class UiTitle extends CoreText {
             js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
                 js.setLength(0);
             }
         }
@@ -212,7 +216,7 @@ public class UiTitle extends CoreText {
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height1)));
                 js.setLength(0);
             }
         }
@@ -260,7 +264,7 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
             js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(allValues2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(allValues2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(allValues2)));
                 js.setLength(0);
             }
         }
@@ -290,7 +294,7 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
             js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(allValues3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(allValues3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(allValues3)));
                 js.setLength(0);
             }
         }
@@ -364,7 +368,7 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
             js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %s);", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
             }
         }
@@ -430,7 +434,7 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
             js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %f);", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
@@ -459,7 +463,7 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
             js.append(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".orientation(%s);", ((orientation != null) ? orientation.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -486,7 +490,7 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
             js.append(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".orientation(%s);", wrapQuotes(orientation1)));
                 js.setLength(0);
             }
         }
@@ -534,7 +538,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding2)));
                 js.setLength(0);
             }
         }
@@ -564,7 +568,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding3)));
                 js.setLength(0);
             }
         }
@@ -670,7 +674,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
                 js.setLength(0);
             }
         }
@@ -768,7 +772,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value9, value11, value13, value15));
                 js.setLength(0);
             }
         }
@@ -793,7 +797,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
             js.append(String.format(Locale.US, ".rotation(%f)", rotation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rotation(%f)", rotation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotation(%f);", rotation));
                 js.setLength(0);
             }
         }
@@ -818,7 +822,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
             js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".text(%s);", wrapQuotes(text)));
                 js.setLength(0);
             }
         }
@@ -847,7 +851,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
                 js.setLength(0);
             }
         }
@@ -874,7 +878,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width1)));
                 js.setLength(0);
             }
         }

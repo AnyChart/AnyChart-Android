@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -61,7 +66,7 @@ public class Traverser extends JsObject {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", wrapQuotes(key)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s);", wrapQuotes(key)));
                 js.setLength(0);
             }
         }
@@ -88,7 +93,7 @@ public class Traverser extends JsObject {
             js.append(String.format(Locale.US, ".set(%s)", wrapQuotes(key1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", wrapQuotes(key1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s);", wrapQuotes(key1)));
                 js.setLength(0);
             }
         }

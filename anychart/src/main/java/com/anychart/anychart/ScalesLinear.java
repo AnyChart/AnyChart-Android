@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -56,7 +61,7 @@ public class ScalesLinear extends ScatterBase {
             js.append(String.format(Locale.US, ".compareWith(%s)", ((compareWith != null) ? compareWith.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".compareWith(%s)", ((compareWith != null) ? compareWith.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".compareWith(%s);", ((compareWith != null) ? compareWith.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -84,7 +89,7 @@ public class ScalesLinear extends ScatterBase {
             js.append(String.format(Locale.US, ".compareWith(%s)", wrapQuotes(compareWith1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".compareWith(%s)", wrapQuotes(compareWith1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".compareWith(%s);", wrapQuotes(compareWith1)));
                 js.setLength(0);
             }
         }
@@ -112,7 +117,7 @@ public class ScalesLinear extends ScatterBase {
             js.append(String.format(Locale.US, ".compareWith(%f)", compareWith2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".compareWith(%f)", compareWith2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".compareWith(%f);", compareWith2));
                 js.setLength(0);
             }
         }
@@ -141,7 +146,7 @@ public class ScalesLinear extends ScatterBase {
             js.append(String.format(Locale.US, ".comparisonMode(%s)", ((comparisonMode != null) ? comparisonMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".comparisonMode(%s)", ((comparisonMode != null) ? comparisonMode.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".comparisonMode(%s);", ((comparisonMode != null) ? comparisonMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -168,7 +173,7 @@ public class ScalesLinear extends ScatterBase {
             js.append(String.format(Locale.US, ".comparisonMode(%s)", wrapQuotes(comparisonMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".comparisonMode(%s)", wrapQuotes(comparisonMode1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".comparisonMode(%s);", wrapQuotes(comparisonMode1)));
                 js.setLength(0);
             }
         }
@@ -193,7 +198,7 @@ public class ScalesLinear extends ScatterBase {
             js.append(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumGap(%f);", maximumGap));
                 js.setLength(0);
             }
         }
@@ -218,7 +223,7 @@ public class ScalesLinear extends ScatterBase {
             js.append(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumGap(%f);", minimumGap));
                 js.setLength(0);
             }
         }
@@ -259,7 +264,7 @@ public class ScalesLinear extends ScatterBase {
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(minorTicks)));
                 js.setLength(0);
             }
         }
@@ -286,7 +291,7 @@ public class ScalesLinear extends ScatterBase {
             js.append(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorTicks(%s);", arrayToStringWrapQuotes(minorTicks1)));
                 js.setLength(0);
             }
         }
@@ -311,7 +316,7 @@ public class ScalesLinear extends ScatterBase {
             js.append(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMaximum(%f);", softMaximum));
                 js.setLength(0);
             }
         }
@@ -336,7 +341,7 @@ public class ScalesLinear extends ScatterBase {
             js.append(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMinimum(%f);", softMinimum));
                 js.setLength(0);
             }
         }
@@ -365,7 +370,7 @@ public class ScalesLinear extends ScatterBase {
             js.append(String.format(Locale.US, ".stackDirection(%s)", ((stackDirection != null) ? stackDirection.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stackDirection(%s)", ((stackDirection != null) ? stackDirection.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stackDirection(%s);", ((stackDirection != null) ? stackDirection.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -392,7 +397,7 @@ public class ScalesLinear extends ScatterBase {
             js.append(String.format(Locale.US, ".stackDirection(%s)", wrapQuotes(stackDirection1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stackDirection(%s)", wrapQuotes(stackDirection1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stackDirection(%s);", wrapQuotes(stackDirection1)));
                 js.setLength(0);
             }
         }
@@ -421,7 +426,7 @@ public class ScalesLinear extends ScatterBase {
             js.append(String.format(Locale.US, ".stackMode(%s)", ((stackMode != null) ? stackMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stackMode(%s)", ((stackMode != null) ? stackMode.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stackMode(%s);", ((stackMode != null) ? stackMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -448,7 +453,7 @@ public class ScalesLinear extends ScatterBase {
             js.append(String.format(Locale.US, ".stackMode(%s)", wrapQuotes(stackMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stackMode(%s)", wrapQuotes(stackMode1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stackMode(%s);", wrapQuotes(stackMode1)));
                 js.setLength(0);
             }
         }
@@ -474,7 +479,7 @@ Flag to stick to zero value on auto calc if gaps lead to zero crossing.
             js.append(String.format(Locale.US, ".stickToZero(%b)", stickToZero));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stickToZero(%b)", stickToZero));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stickToZero(%b);", stickToZero));
                 js.setLength(0);
             }
         }
@@ -515,7 +520,7 @@ Flag to stick to zero value on auto calc if gaps lead to zero crossing.
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(ticks)));
                 js.setLength(0);
             }
         }
@@ -542,7 +547,7 @@ Flag to stick to zero value on auto calc if gaps lead to zero crossing.
             js.append(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%s);", arrayToStringWrapQuotes(ticks1)));
                 js.setLength(0);
             }
         }

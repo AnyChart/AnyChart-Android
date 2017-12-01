@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -49,7 +54,7 @@ See sample at {@link anychart.core.Chart#animation}.
             js.append(String.format(Locale.US, ".duration(%f)", duration));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".duration(%f)", duration));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".duration(%f);", duration));
                 js.setLength(0);
             }
         }
@@ -75,7 +80,7 @@ See sample at {@link anychart.core.Chart#animation}.
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
                 js.setLength(0);
             }
         }

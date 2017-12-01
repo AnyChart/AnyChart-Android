@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -48,7 +53,7 @@ public class Overlay extends CoreBase {
             js.append(String.format(Locale.US, ".className(%s)", wrapQuotes(className)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".className(%s)", wrapQuotes(className)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".className(%s);", wrapQuotes(className)));
                 js.setLength(0);
             }
         }
@@ -73,7 +78,7 @@ public class Overlay extends CoreBase {
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
                 js.setLength(0);
             }
         }
@@ -110,7 +115,7 @@ public class Overlay extends CoreBase {
             js.append(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
                 js.setLength(0);
             }
         }

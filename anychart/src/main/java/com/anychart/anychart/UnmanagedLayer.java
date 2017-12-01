@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -64,7 +69,7 @@ public class UnmanagedLayer extends Element {
             js.append(String.format(Locale.US, ".content(%s)", wrapQuotes(content)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".content(%s)", wrapQuotes(content)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".content(%s);", wrapQuotes(content)));
                 js.setLength(0);
             }
         }
@@ -91,6 +96,10 @@ public class UnmanagedLayer extends Element {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".content(%s);",  ((content1 != null) ? content1.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".content(%s);", ((content1 != null) ? content1.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }

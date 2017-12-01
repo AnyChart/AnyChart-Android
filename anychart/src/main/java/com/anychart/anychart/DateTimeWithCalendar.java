@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -62,7 +65,7 @@ public class DateTimeWithCalendar extends ScatterBase {
             js.append(String.format(Locale.US, ".count(%f)", count));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".count(%f)", count));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%f);", count));
                 js.setLength(0);
             }
         }
@@ -88,7 +91,7 @@ public class DateTimeWithCalendar extends ScatterBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dateToPix(%f)", date));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dateToPix(%f);", date));
                 js.setLength(0);
             }
         }
@@ -130,7 +133,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%f, %f, %s, %f)", fromPix, toPix, ((unit != null) ? unit.generateJs() : "null"), count1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%f, %f, %s, %f);", fromPix, toPix, ((unit != null) ? unit.generateJs() : "null"), count1));
                 js.setLength(0);
             }
         }
@@ -167,7 +170,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%f, %f, %s, %f)", fromPix, toPix, wrapQuotes(unit1), count1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%f, %f, %s, %f);", fromPix, toPix, wrapQuotes(unit1), count1));
                 js.setLength(0);
             }
         }
@@ -193,7 +196,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumGap(%f)", maximumGap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumGap(%f);", maximumGap));
                 js.setLength(0);
             }
         }
@@ -232,7 +235,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumGap(%f)", minimumGap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumGap(%f);", minimumGap));
                 js.setLength(0);
             }
         }
@@ -270,7 +273,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pixToDate(%f)", pix));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pixToDate(%f);", pix));
                 js.setLength(0);
             }
         }
@@ -294,7 +297,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
             js.append(String.format(Locale.US, ".skipHolidays(%b)", skipHolidays));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".skipHolidays(%b)", skipHolidays));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".skipHolidays(%b);", skipHolidays));
                 js.setLength(0);
             }
         }
@@ -321,7 +324,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMaximum(%f)", softMaximum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMaximum(%f);", softMaximum));
                 js.setLength(0);
             }
         }
@@ -360,7 +363,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMinimum(%f)", softMinimum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMinimum(%f);", softMinimum));
                 js.setLength(0);
             }
         }
@@ -403,7 +406,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
             js.append(String.format(Locale.US, ".unit(%s)", ((unit2 != null) ? unit2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".unit(%s)", ((unit2 != null) ? unit2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unit(%s);", ((unit2 != null) ? unit2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -432,7 +435,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
             js.append(String.format(Locale.US, ".unit(%s)", wrapQuotes(unit3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".unit(%s)", wrapQuotes(unit3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unit(%s);", wrapQuotes(unit3)));
                 js.setLength(0);
             }
         }
@@ -461,7 +464,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
             js.append(String.format(Locale.US, ".unitPixSize(%f)", unitPixSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".unitPixSize(%f)", unitPixSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unitPixSize(%f);", unitPixSize));
                 js.setLength(0);
             }
         }
@@ -488,7 +491,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
             js.append(String.format(Locale.US, ".unitPixSize(%s)", wrapQuotes(unitPixSize1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".unitPixSize(%s)", wrapQuotes(unitPixSize1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unitPixSize(%s);", wrapQuotes(unitPixSize1)));
                 js.setLength(0);
             }
         }

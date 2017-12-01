@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -48,7 +53,7 @@ public class Grouping extends CoreBase {
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
                 js.setLength(0);
             }
         }
@@ -73,7 +78,7 @@ public class Grouping extends CoreBase {
             js.append(String.format(Locale.US, ".forced(%b)", forced));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".forced(%b)", forced));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".forced(%b);", forced));
                 js.setLength(0);
             }
         }
@@ -98,7 +103,7 @@ public class Grouping extends CoreBase {
             js.append(String.format(Locale.US, ".levels(%s)", arrayToStringWrapQuotes(levels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".levels(%s)", arrayToStringWrapQuotes(levels)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".levels(%s);", arrayToStringWrapQuotes(levels)));
                 js.setLength(0);
             }
         }
@@ -123,7 +128,7 @@ public class Grouping extends CoreBase {
             js.append(String.format(Locale.US, ".maxVisiblePoints(%f)", maxVisiblePoints));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxVisiblePoints(%f)", maxVisiblePoints));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxVisiblePoints(%f);", maxVisiblePoints));
                 js.setLength(0);
             }
         }
@@ -148,7 +153,7 @@ public class Grouping extends CoreBase {
             js.append(String.format(Locale.US, ".minPixPerPoint(%f)", minPixPerPoint));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minPixPerPoint(%f)", minPixPerPoint));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minPixPerPoint(%f);", minPixPerPoint));
                 js.setLength(0);
             }
         }

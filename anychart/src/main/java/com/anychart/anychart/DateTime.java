@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -49,7 +54,7 @@ public class DateTime extends ScatterBase {
             js.append(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumGap(%f);", maximumGap));
                 js.setLength(0);
             }
         }
@@ -74,7 +79,7 @@ public class DateTime extends ScatterBase {
             js.append(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumGap(%f);", minimumGap));
                 js.setLength(0);
             }
         }
@@ -115,7 +120,7 @@ public class DateTime extends ScatterBase {
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(minorTicks)));
                 js.setLength(0);
             }
         }
@@ -142,7 +147,7 @@ public class DateTime extends ScatterBase {
             js.append(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorTicks(%s);", arrayToStringWrapQuotes(minorTicks1)));
                 js.setLength(0);
             }
         }
@@ -167,7 +172,7 @@ public class DateTime extends ScatterBase {
             js.append(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMaximum(%f);", softMaximum));
                 js.setLength(0);
             }
         }
@@ -192,7 +197,7 @@ public class DateTime extends ScatterBase {
             js.append(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMinimum(%f);", softMinimum));
                 js.setLength(0);
             }
         }
@@ -233,7 +238,7 @@ public class DateTime extends ScatterBase {
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(ticks)));
                 js.setLength(0);
             }
         }
@@ -260,7 +265,7 @@ public class DateTime extends ScatterBase {
             js.append(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%s);", arrayToStringWrapQuotes(ticks1)));
                 js.setLength(0);
             }
         }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class SingleValueDataSet {
+public class SingleValueDataSet extends View {
 
     private StringBuilder js = new StringBuilder();
 
@@ -31,10 +31,12 @@ public class SingleValueDataSet {
     }
 
     protected String generateJs() {
+        js.append("var ").append(jsBase).append(" = [");
         for (Object singleValue : values) {
             js.append(singleValue).append(",");
         }
         js.setLength(js.length() - 1);
+        js.append("];");
 
         return js.toString();
     }

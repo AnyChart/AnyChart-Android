@@ -1,7 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.Arrays;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -70,7 +74,7 @@ public class Clip extends JsObject {
             js.append(String.format(Locale.US, ".shape(%s)", Arrays.toString(shape)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", Arrays.toString(shape)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shape(%s);", Arrays.toString(shape)));
                 js.setLength(0);
             }
         }
@@ -99,6 +103,10 @@ public class Clip extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".shape(%s);",  ((shape1 != null) ? shape1.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shape(%s);", ((shape1 != null) ? shape1.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -125,6 +133,10 @@ public class Clip extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".shape(%s);",  ((shape2 != null) ? shape2.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shape(%s);", ((shape2 != null) ? shape2.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -151,7 +163,7 @@ public class Clip extends JsObject {
             js.append(String.format(Locale.US, ".shape(%s)", wrapQuotes(shape3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".shape(%s)", wrapQuotes(shape3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shape(%s);", wrapQuotes(shape3)));
                 js.setLength(0);
             }
         }
@@ -185,7 +197,7 @@ public class Clip extends JsObject {
             js.append(String.format(Locale.US, ".shape(%f, %f, %f, %f)", left, top, width, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".shape(%f, %f, %f, %f)", left, top, width, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shape(%f, %f, %f, %f);", left, top, width, height));
                 js.setLength(0);
             }
         }

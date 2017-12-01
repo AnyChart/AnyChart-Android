@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -52,7 +57,7 @@ public class Needle extends GaugePointersBase {
             js.append(String.format(Locale.US, ".endRadius(%f)", endRadius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".endRadius(%f)", endRadius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".endRadius(%f);", endRadius));
                 js.setLength(0);
             }
         }
@@ -79,7 +84,7 @@ public class Needle extends GaugePointersBase {
             js.append(String.format(Locale.US, ".endRadius(%s)", wrapQuotes(endRadius1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".endRadius(%s)", wrapQuotes(endRadius1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".endRadius(%s);", wrapQuotes(endRadius1)));
                 js.setLength(0);
             }
         }
@@ -108,7 +113,7 @@ public class Needle extends GaugePointersBase {
             js.append(String.format(Locale.US, ".endWidth(%f)", endWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".endWidth(%f)", endWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".endWidth(%f);", endWidth));
                 js.setLength(0);
             }
         }
@@ -135,7 +140,7 @@ public class Needle extends GaugePointersBase {
             js.append(String.format(Locale.US, ".endWidth(%s)", wrapQuotes(endWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".endWidth(%s)", wrapQuotes(endWidth1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".endWidth(%s);", wrapQuotes(endWidth1)));
                 js.setLength(0);
             }
         }
@@ -164,7 +169,7 @@ public class Needle extends GaugePointersBase {
             js.append(String.format(Locale.US, ".middleRadius(%f)", middleRadius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".middleRadius(%f)", middleRadius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".middleRadius(%f);", middleRadius));
                 js.setLength(0);
             }
         }
@@ -191,7 +196,7 @@ public class Needle extends GaugePointersBase {
             js.append(String.format(Locale.US, ".middleRadius(%s)", wrapQuotes(middleRadius1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".middleRadius(%s)", wrapQuotes(middleRadius1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".middleRadius(%s);", wrapQuotes(middleRadius1)));
                 js.setLength(0);
             }
         }
@@ -220,7 +225,7 @@ public class Needle extends GaugePointersBase {
             js.append(String.format(Locale.US, ".middleWidth(%f)", middleWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".middleWidth(%f)", middleWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".middleWidth(%f);", middleWidth));
                 js.setLength(0);
             }
         }
@@ -247,7 +252,7 @@ public class Needle extends GaugePointersBase {
             js.append(String.format(Locale.US, ".middleWidth(%s)", wrapQuotes(middleWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".middleWidth(%s)", wrapQuotes(middleWidth1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".middleWidth(%s);", wrapQuotes(middleWidth1)));
                 js.setLength(0);
             }
         }
@@ -276,7 +281,7 @@ public class Needle extends GaugePointersBase {
             js.append(String.format(Locale.US, ".startRadius(%f)", startRadius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".startRadius(%f)", startRadius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startRadius(%f);", startRadius));
                 js.setLength(0);
             }
         }
@@ -303,7 +308,7 @@ public class Needle extends GaugePointersBase {
             js.append(String.format(Locale.US, ".startRadius(%s)", wrapQuotes(startRadius1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".startRadius(%s)", wrapQuotes(startRadius1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startRadius(%s);", wrapQuotes(startRadius1)));
                 js.setLength(0);
             }
         }
@@ -332,7 +337,7 @@ public class Needle extends GaugePointersBase {
             js.append(String.format(Locale.US, ".startWidth(%f)", startWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".startWidth(%f)", startWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startWidth(%f);", startWidth));
                 js.setLength(0);
             }
         }
@@ -359,7 +364,7 @@ public class Needle extends GaugePointersBase {
             js.append(String.format(Locale.US, ".startWidth(%s)", wrapQuotes(startWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".startWidth(%s)", wrapQuotes(startWidth1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startWidth(%s);", wrapQuotes(startWidth1)));
                 js.setLength(0);
             }
         }

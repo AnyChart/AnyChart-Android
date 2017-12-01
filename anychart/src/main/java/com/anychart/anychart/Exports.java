@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -71,7 +76,7 @@ public class Exports extends JsObject {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".facebook(%s, %s, %s, %s, %s, %s, %s)", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description), wrapQuotes(width), wrapQuotes(height), wrapQuotes(appId)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".facebook(%s, %s, %s, %s, %s, %s, %s);", wrapQuotes(captionOrOptions), wrapQuotes(link), wrapQuotes(name), wrapQuotes(description), wrapQuotes(width), wrapQuotes(height), wrapQuotes(appId)));
                 js.setLength(0);
             }
         }
@@ -96,7 +101,7 @@ public class Exports extends JsObject {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".filename(%s)", wrapQuotes(filename)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".filename(%s);", wrapQuotes(filename)));
                 js.setLength(0);
             }
         }
@@ -131,7 +136,7 @@ public class Exports extends JsObject {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".image(%s, %s)", wrapQuotes(widthOrOptions), wrapQuotes(height1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".image(%s, %s);", wrapQuotes(widthOrOptions), wrapQuotes(height1)));
                 js.setLength(0);
             }
         }
@@ -181,7 +186,7 @@ public class Exports extends JsObject {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".linkedin(%s, %s, %s, %s)", wrapQuotes(captionOrOptions2), wrapQuotes(description1), wrapQuotes(width1), wrapQuotes(height2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".linkedin(%s, %s, %s, %s);", wrapQuotes(captionOrOptions2), wrapQuotes(description1), wrapQuotes(width1), wrapQuotes(height2)));
                 js.setLength(0);
             }
         }
@@ -232,7 +237,7 @@ public class Exports extends JsObject {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pinterest(%s, %s, %s, %s)", wrapQuotes(linkOrOptions), wrapQuotes(description2), wrapQuotes(width2), wrapQuotes(height3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pinterest(%s, %s, %s, %s);", wrapQuotes(linkOrOptions), wrapQuotes(description2), wrapQuotes(width2), wrapQuotes(height3)));
                 js.setLength(0);
             }
         }
@@ -278,7 +283,7 @@ public class Exports extends JsObject {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".twitter(%s, %s, %s)", wrapQuotes(urlOrOptions), wrapQuotes(width3), wrapQuotes(height4)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".twitter(%s, %s, %s);", wrapQuotes(urlOrOptions), wrapQuotes(width3), wrapQuotes(height4)));
                 js.setLength(0);
             }
         }

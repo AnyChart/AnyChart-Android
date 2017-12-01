@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -66,7 +71,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(background)));
                 js.setLength(0);
             }
         }
@@ -94,7 +99,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".background(%b)", background2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%b);", background2));
                 js.setLength(0);
             }
         }
@@ -131,7 +136,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".descriptions(%s)", wrapQuotes(descriptions)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".descriptions(%s)", wrapQuotes(descriptions)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".descriptions(%s);", wrapQuotes(descriptions)));
                 js.setLength(0);
             }
         }
@@ -156,7 +161,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".drawBottomLine(%b)", drawBottomLine));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".drawBottomLine(%b)", drawBottomLine));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawBottomLine(%b);", drawBottomLine));
                 js.setLength(0);
             }
         }
@@ -181,7 +186,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".drawLeftLine(%b)", drawLeftLine));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".drawLeftLine(%b)", drawLeftLine));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawLeftLine(%b);", drawLeftLine));
                 js.setLength(0);
             }
         }
@@ -206,7 +211,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".drawRightLine(%b)", drawRightLine));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".drawRightLine(%b)", drawRightLine));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawRightLine(%b);", drawRightLine));
                 js.setLength(0);
             }
         }
@@ -231,7 +236,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".drawTopLine(%b)", drawTopLine));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".drawTopLine(%b)", drawTopLine));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawTopLine(%b);", drawTopLine));
                 js.setLength(0);
             }
         }
@@ -257,7 +262,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".evenFill(%s)", ((evenFill != null) ? evenFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s)", ((evenFill != null) ? evenFill.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s);", ((evenFill != null) ? evenFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -285,7 +290,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".evenFill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %f)", wrapQuotes(color), opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f);", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -333,7 +338,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -374,7 +379,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -415,7 +420,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -456,7 +461,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -497,7 +502,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -538,7 +543,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -597,7 +602,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -648,7 +653,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".evenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -686,7 +691,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".images(%s)", wrapQuotes(images)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".images(%s)", wrapQuotes(images)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".images(%s);", wrapQuotes(images)));
                 js.setLength(0);
             }
         }
@@ -723,7 +728,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".names(%s)", wrapQuotes(names)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".names(%s)", wrapQuotes(names)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".names(%s);", wrapQuotes(names)));
                 js.setLength(0);
             }
         }
@@ -749,7 +754,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".oddFill(%s)", ((oddFill != null) ? oddFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s)", ((oddFill != null) ? oddFill.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s);", ((oddFill != null) ? oddFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -785,7 +790,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".oddFill(%s, %f)", wrapQuotes(color1), opacity3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %f)", wrapQuotes(color1), opacity3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f);", wrapQuotes(color1), opacity3));
                 js.setLength(0);
             }
         }
@@ -847,7 +852,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %b);", arrayToString(keys4), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -902,7 +907,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -957,7 +962,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1012,7 +1017,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -1067,7 +1072,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1122,7 +1127,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1204,7 +1209,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1278,7 +1283,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".oddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1322,7 +1327,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".overlay(%s)", wrapQuotes(overlay)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlay(%s)", wrapQuotes(overlay)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlay(%s);", wrapQuotes(overlay)));
                 js.setLength(0);
             }
         }
@@ -1350,7 +1355,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".overlay(%b)", overlay2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlay(%b)", overlay2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlay(%b);", overlay2));
                 js.setLength(0);
             }
         }
@@ -1396,7 +1401,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1435,7 +1440,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color3 != null) ? color3.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", ((color3 != null) ? color3.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1474,7 +1479,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color4), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", wrapQuotes(color4), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1511,7 +1516,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".tags(%s)", wrapQuotes(tags)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".tags(%s)", wrapQuotes(tags)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".tags(%s);", wrapQuotes(tags)));
                 js.setLength(0);
             }
         }
@@ -1548,7 +1553,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".types(%s)", wrapQuotes(types)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".types(%s)", wrapQuotes(types)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".types(%s);", wrapQuotes(types)));
                 js.setLength(0);
             }
         }

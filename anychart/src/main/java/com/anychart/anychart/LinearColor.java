@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -50,7 +55,7 @@ public class LinearColor extends ScatterBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorToValue(%s)", wrapQuotes(colorToValue)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorToValue(%s);", wrapQuotes(colorToValue)));
                 js.setLength(0);
             }
         }
@@ -90,7 +95,7 @@ public class LinearColor extends ScatterBase {
             js.append(String.format(Locale.US, ".colors(%s)", wrapQuotes(var_args)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", wrapQuotes(var_args)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colors(%s);", wrapQuotes(var_args)));
                 js.setLength(0);
             }
         }
@@ -123,7 +128,7 @@ public class LinearColor extends ScatterBase {
             js.append(String.format(Locale.US, ".colors(%s)", ((var_args1 != null) ? var_args1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", ((var_args1 != null) ? var_args1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colors(%s);", ((var_args1 != null) ? var_args1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -156,7 +161,7 @@ public class LinearColor extends ScatterBase {
             js.append(String.format(Locale.US, ".colors(%s)", ((var_args2 != null) ? var_args2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", ((var_args2 != null) ? var_args2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colors(%s);", ((var_args2 != null) ? var_args2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -189,7 +194,7 @@ public class LinearColor extends ScatterBase {
             js.append(String.format(Locale.US, ".colors(%s)", ((var_args3 != null) ? var_args3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", ((var_args3 != null) ? var_args3.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colors(%s);", ((var_args3 != null) ? var_args3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -222,7 +227,7 @@ public class LinearColor extends ScatterBase {
             js.append(String.format(Locale.US, ".colors(%s)", arrayToStringWrapQuotes(var_args4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", arrayToStringWrapQuotes(var_args4)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colors(%s);", arrayToStringWrapQuotes(var_args4)));
                 js.setLength(0);
             }
         }
@@ -255,7 +260,7 @@ public class LinearColor extends ScatterBase {
             js.append(String.format(Locale.US, ".colors(%s)", arrayToString(var_args5)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", arrayToString(var_args5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colors(%s);", arrayToString(var_args5)));
                 js.setLength(0);
             }
         }
@@ -288,7 +293,7 @@ public class LinearColor extends ScatterBase {
             js.append(String.format(Locale.US, ".colors(%s)", arrayToString(var_args6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", arrayToString(var_args6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colors(%s);", arrayToString(var_args6)));
                 js.setLength(0);
             }
         }
@@ -321,7 +326,7 @@ public class LinearColor extends ScatterBase {
             js.append(String.format(Locale.US, ".colors(%s)", arrayToString(var_args7)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".colors(%s)", arrayToString(var_args7)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colors(%s);", arrayToString(var_args7)));
                 js.setLength(0);
             }
         }
@@ -362,7 +367,7 @@ public class LinearColor extends ScatterBase {
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(minorTicks)));
                 js.setLength(0);
             }
         }
@@ -389,7 +394,7 @@ public class LinearColor extends ScatterBase {
             js.append(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", arrayToStringWrapQuotes(minorTicks1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorTicks(%s);", arrayToStringWrapQuotes(minorTicks1)));
                 js.setLength(0);
             }
         }
@@ -430,7 +435,7 @@ public class LinearColor extends ScatterBase {
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(ticks)));
                 js.setLength(0);
             }
         }
@@ -457,7 +462,7 @@ public class LinearColor extends ScatterBase {
             js.append(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%s);", arrayToStringWrapQuotes(ticks1)));
                 js.setLength(0);
             }
         }
@@ -483,7 +488,7 @@ public class LinearColor extends ScatterBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueToColor(%f)", valueToColor));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueToColor(%f);", valueToColor));
                 js.setLength(0);
             }
         }

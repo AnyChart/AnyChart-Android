@@ -65,7 +65,7 @@ public class GanttToolbar extends JsObject {
             js.append(String.format(Locale.US, ".container(%s)", wrapQuotes(element)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".container(%s)", wrapQuotes(element)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".container(%s);", wrapQuotes(element)));
                 js.setLength(0);
             }
         }
@@ -92,6 +92,10 @@ public class GanttToolbar extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".container(%s);",  ((element1 != null) ? element1.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".container(%s);", ((element1 != null) ? element1.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -114,7 +118,7 @@ public class GanttToolbar extends JsObject {
             js.append(String.format(Locale.US, ".printPaperSizes(%s)", arrayToString(printPaperSizes)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".printPaperSizes(%s)", arrayToString(printPaperSizes)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".printPaperSizes(%s);", arrayToString(printPaperSizes)));
                 js.setLength(0);
             }
         }
@@ -151,6 +155,10 @@ public class GanttToolbar extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".target(%s);",  ((target != null) ? target.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".target(%s);", ((target != null) ? target.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }

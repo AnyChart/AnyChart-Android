@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -60,7 +65,7 @@ public class CriticalPath extends CoreBase {
             js.append(String.format(Locale.US, ".milestones(%s)", wrapQuotes(milestones)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".milestones(%s)", wrapQuotes(milestones)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestones(%s);", wrapQuotes(milestones)));
                 js.setLength(0);
             }
         }
@@ -97,7 +102,7 @@ public class CriticalPath extends CoreBase {
             js.append(String.format(Locale.US, ".tasks(%s)", wrapQuotes(tasks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".tasks(%s)", wrapQuotes(tasks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".tasks(%s);", wrapQuotes(tasks)));
                 js.setLength(0);
             }
         }

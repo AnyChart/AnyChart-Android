@@ -79,7 +79,7 @@ public class Set extends CoreBase {
             js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), ((settings != null) ? settings.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), ((settings != null) ? settings.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", arrayToStringWrapQuotes(data), ((settings != null) ? settings.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -112,7 +112,7 @@ public class Set extends CoreBase {
             js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), wrapQuotes(settings1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), wrapQuotes(settings1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", arrayToStringWrapQuotes(data), wrapQuotes(settings1)));
                 js.setLength(0);
             }
         }
@@ -145,7 +145,7 @@ public class Set extends CoreBase {
             js.append(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), ((settings2 != null) ? settings2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", arrayToStringWrapQuotes(data), ((settings2 != null) ? settings2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", arrayToStringWrapQuotes(data), ((settings2 != null) ? settings2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -178,7 +178,7 @@ public class Set extends CoreBase {
             js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), ((settings != null) ? settings.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), ((settings != null) ? settings.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", wrapQuotes(data1), ((settings != null) ? settings.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -211,7 +211,7 @@ public class Set extends CoreBase {
             js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), wrapQuotes(settings1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), wrapQuotes(settings1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", wrapQuotes(data1), wrapQuotes(settings1)));
                 js.setLength(0);
             }
         }
@@ -244,7 +244,7 @@ public class Set extends CoreBase {
             js.append(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), ((settings2 != null) ? settings2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".data(%s, %s)", wrapQuotes(data1), ((settings2 != null) ? settings2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", wrapQuotes(data1), ((settings2 != null) ? settings2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -269,7 +269,7 @@ public class Set extends CoreBase {
             js.append(String.format(Locale.US, ".insert(%f)", index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".insert(%f)", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".insert(%f);", index));
                 js.setLength(0);
             }
         }
@@ -296,7 +296,7 @@ Default mapping is shown in {@link anychart.data.Set} constructor samples.
             js.append(String.format(Locale.US, "var setMapAs" + ++variableIndex + " = " + jsBase + ".mapAs(%s);", wrapQuotes(mapping)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s)", wrapQuotes(mapping)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mapAs(%s);", wrapQuotes(mapping)));
                 js.setLength(0);
             }
         }
@@ -334,7 +334,7 @@ Default mapping is shown in {@link anychart.data.Set} constructor samples.
             js.append(String.format(Locale.US, ".remove(%f)", index1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".remove(%f)", index1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%f);", index1));
                 js.setLength(0);
             }
         }
@@ -360,7 +360,7 @@ Default mapping is shown in {@link anychart.data.Set} constructor samples.
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".row(%f)", rowIndex));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".row(%f);", rowIndex));
                 js.setLength(0);
             }
         }

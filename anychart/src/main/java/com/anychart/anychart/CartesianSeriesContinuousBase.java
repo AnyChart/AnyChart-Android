@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -52,7 +55,7 @@ public class CartesianSeriesContinuousBase extends CartesianSeriesBaseWithMarker
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectMissingPoints(%b)", connectMissingPoints));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectMissingPoints(%b);", connectMissingPoints));
                 js.setLength(0);
             }
         }

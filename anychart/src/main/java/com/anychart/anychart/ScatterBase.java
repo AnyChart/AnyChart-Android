@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -51,7 +56,7 @@ public class ScatterBase extends ScalesBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f)", ratio));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f);", ratio));
                 js.setLength(0);
             }
         }
@@ -75,7 +80,7 @@ public class ScatterBase extends ScalesBase {
             js.append(String.format(Locale.US, ".maxTicksCount(%f)", maxTicksCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxTicksCount(%f)", maxTicksCount));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxTicksCount(%f);", maxTicksCount));
                 js.setLength(0);
             }
         }
@@ -100,7 +105,7 @@ public class ScatterBase extends ScalesBase {
             js.append(String.format(Locale.US, ".maximum(%f)", maximum));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maximum(%f)", maximum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximum(%f);", maximum));
                 js.setLength(0);
             }
         }
@@ -125,7 +130,7 @@ public class ScatterBase extends ScalesBase {
             js.append(String.format(Locale.US, ".minimum(%f)", minimum));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minimum(%f)", minimum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimum(%f);", minimum));
                 js.setLength(0);
             }
         }

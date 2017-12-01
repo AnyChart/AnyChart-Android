@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -54,7 +57,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", ((align != null) ? align.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".align(%s);", ((align != null) ? align.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -81,7 +84,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".align(%s)", wrapQuotes(align1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".align(%s);", wrapQuotes(align1)));
                 js.setLength(0);
             }
         }
@@ -110,7 +113,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".anchor(%s);", ((anchor != null) ? anchor.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -137,7 +140,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".anchor(%s);", wrapQuotes(anchor1)));
                 js.setLength(0);
             }
         }
@@ -166,7 +169,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
                 js.setLength(0);
             }
         }
@@ -193,7 +196,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height1)));
                 js.setLength(0);
             }
         }
@@ -223,7 +226,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", ((layout != null) ? layout.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".layout(%s);", ((layout != null) ? layout.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -251,7 +254,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".layout(%s)", wrapQuotes(layout1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".layout(%s);", wrapQuotes(layout1)));
                 js.setLength(0);
             }
         }
@@ -280,7 +283,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".offsetX(%f)", offsetX));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".offsetX(%f)", offsetX));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetX(%f);", offsetX));
                 js.setLength(0);
             }
         }
@@ -307,7 +310,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".offsetX(%s)", wrapQuotes(offsetX1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".offsetX(%s)", wrapQuotes(offsetX1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetX(%s);", wrapQuotes(offsetX1)));
                 js.setLength(0);
             }
         }
@@ -336,7 +339,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".offsetY(%f)", offsetY));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".offsetY(%f)", offsetY));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetY(%f);", offsetY));
                 js.setLength(0);
             }
         }
@@ -363,7 +366,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".offsetY(%s)", wrapQuotes(offsetY1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".offsetY(%s)", wrapQuotes(offsetY1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetY(%s);", wrapQuotes(offsetY1)));
                 js.setLength(0);
             }
         }
@@ -388,7 +391,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".rotation(%f)", rotation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rotation(%f)", rotation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotation(%f);", rotation));
                 js.setLength(0);
             }
         }
@@ -438,7 +441,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".text(%s);", wrapQuotes(text)));
                 js.setLength(0);
             }
         }
@@ -469,7 +472,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".value(%f)", value));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".value(%f)", value));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".value(%f);", value));
                 js.setLength(0);
             }
         }
@@ -497,7 +500,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".value(%s)", ((value1 != null) ? value1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".value(%s)", ((value1 != null) ? value1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".value(%s);", ((value1 != null) ? value1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -525,7 +528,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".value(%s)", wrapQuotes(value2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".value(%s)", wrapQuotes(value2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".value(%s);", wrapQuotes(value2)));
                 js.setLength(0);
             }
         }
@@ -554,7 +557,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
                 js.setLength(0);
             }
         }
@@ -581,7 +584,7 @@ public class GanttText extends CoreText {
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width1)));
                 js.setLength(0);
             }
         }

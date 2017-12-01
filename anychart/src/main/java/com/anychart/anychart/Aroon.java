@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -65,7 +70,7 @@ public class Aroon extends JsObject {
             js.append(String.format(Locale.US, ".downSeries(%s)", ((type != null) ? type.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".downSeries(%s)", ((type != null) ? type.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".downSeries(%s);", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -92,7 +97,7 @@ public class Aroon extends JsObject {
             js.append(String.format(Locale.US, ".downSeries(%s)", wrapQuotes(type1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".downSeries(%s)", wrapQuotes(type1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".downSeries(%s);", wrapQuotes(type1)));
                 js.setLength(0);
             }
         }
@@ -117,7 +122,7 @@ public class Aroon extends JsObject {
             js.append(String.format(Locale.US, ".period(%f)", period));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".period(%f)", period));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%f);", period));
                 js.setLength(0);
             }
         }
@@ -160,7 +165,7 @@ public class Aroon extends JsObject {
             js.append(String.format(Locale.US, ".upSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".upSeries(%s)", ((type2 != null) ? type2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".upSeries(%s);", ((type2 != null) ? type2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -189,7 +194,7 @@ public class Aroon extends JsObject {
             js.append(String.format(Locale.US, ".upSeries(%s)", wrapQuotes(type3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".upSeries(%s)", wrapQuotes(type3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".upSeries(%s);", wrapQuotes(type3)));
                 js.setLength(0);
             }
         }

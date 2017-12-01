@@ -3,9 +3,10 @@ package com.anychart.anychart;
 import com.anychart.anychart.application.MyApplication;
 import com.anychart.anychart.chart.common.ListenersInterface;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 // chart class
 /**
@@ -22,75 +23,6 @@ public class ChartsPolar extends SeparateChart {
         js.setLength(0);
         js.append(String.format(Locale.US, "chart = %s();", name));
         jsBase = "chart";
-    }
-
-    public ChartsPolar setData(SingleValueDataSet data) {
-        if (!data.isEmpty()) {
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(jsBase).append(".data([");
-
-            js.append(data.generateJs());
-
-            js.append("]);");
-        }
-
-        return this;
-    }
-
-    public ChartsPolar setData(List<DataEntry> data) {
-        if (!data.isEmpty()) {
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(jsBase).append(".data([");
-
-            for (DataEntry dataEntry : data) {
-                js.append(dataEntry.generateJs()).append(",");
-            }
-            js.setLength(js.length() - 1);
-
-            js.append("]);");
-        }
-
-        return this;
-    }
-
-    public ChartsPolar setData(List<DataEntry> data, TreeFillingMethod mode) {
-        if (!data.isEmpty()) {
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(jsBase).append(".data([");
-
-            for (DataEntry dataEntry : data) {
-                js.append(dataEntry.generateJs()).append(",");
-            }
-            js.setLength(js.length() - 1);
-
-            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
-        }
-
-        return this;
-    }
-
-    public ChartsPolar setData(Mapping mapping) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(mapping.generateJs());
-
-        js.append(jsBase).append(".data(").append(mapping.getJsBase()).append(");");
-
-        return this;
     }
 
     public void setOnClickListener(ListenersInterface.OnClickListener listener) {
@@ -137,6 +69,11 @@ public class ChartsPolar extends SeparateChart {
             resultData.append("]");
 
             js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", resultData.toString()));
+                js.setLength(0);
+            }
         }
     }
 
@@ -144,14 +81,18 @@ public class ChartsPolar extends SeparateChart {
     /**
      * 
      */
-    public void addSeries(View mapping) {
+    public void addSeries(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
 
-        js.append(mapping.generateJs());
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
     }
 
     private List<PolarSeriesArea> setArea = new ArrayList<>();
@@ -175,6 +116,11 @@ public class ChartsPolar extends SeparateChart {
             resultData.append("]");
 
             js.append(String.format(Locale.US, "var setArea" + ++variableIndex + " = " + jsBase + ".area(%s);", resultData.toString()));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s);", resultData.toString()));
+                js.setLength(0);
+            }
         }
         PolarSeriesArea item = new PolarSeriesArea("setArea" + variableIndex);
         setArea.add(item);
@@ -196,14 +142,18 @@ public class ChartsPolar extends SeparateChart {
     /**
      * 
      */
-    public PolarSeriesArea area(View mapping) {
+    public PolarSeriesArea area(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
 
-        js.append(mapping.generateJs());
-        js.append(String.format(Locale.US, "var setArea1" + ++variableIndex + " = " + jsBase + ".area(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var setArea1" + ++variableIndex + " = " + jsBase + ".area(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
         PolarSeriesArea item = new PolarSeriesArea("setArea1" + variableIndex);
         setArea1.add(item);
         return item;
@@ -278,6 +228,11 @@ public class ChartsPolar extends SeparateChart {
             resultData.append("]");
 
             js.append(String.format(Locale.US, "var setColumn" + ++variableIndex + " = " + jsBase + ".column(%s);", resultData.toString()));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s);", resultData.toString()));
+                js.setLength(0);
+            }
         }
         PolarSeriesColumn item = new PolarSeriesColumn("setColumn" + variableIndex);
         setColumn.add(item);
@@ -299,14 +254,18 @@ public class ChartsPolar extends SeparateChart {
     /**
      * 
      */
-    public PolarSeriesColumn column(View mapping) {
+    public PolarSeriesColumn column(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
 
-        js.append(mapping.generateJs());
-        js.append(String.format(Locale.US, "var setColumn1" + ++variableIndex + " = " + jsBase + ".column(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var setColumn1" + ++variableIndex + " = " + jsBase + ".column(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
         PolarSeriesColumn item = new PolarSeriesColumn("setColumn1" + variableIndex);
         setColumn1.add(item);
         return item;
@@ -613,6 +572,11 @@ public class ChartsPolar extends SeparateChart {
             resultData.append("]");
 
             js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s);", resultData.toString()));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s);", resultData.toString()));
+                js.setLength(0);
+            }
         }
         PolarSeriesLine item = new PolarSeriesLine("setLine" + variableIndex);
         setLine.add(item);
@@ -634,14 +598,18 @@ public class ChartsPolar extends SeparateChart {
     /**
      * 
      */
-    public PolarSeriesLine line(View mapping) {
+    public PolarSeriesLine line(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
 
-        js.append(mapping.generateJs());
-        js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var setLine1" + ++variableIndex + " = " + jsBase + ".line(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
         PolarSeriesLine item = new PolarSeriesLine("setLine1" + variableIndex);
         setLine1.add(item);
         return item;
@@ -678,6 +646,11 @@ public class ChartsPolar extends SeparateChart {
             resultData.append("]");
 
             js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", resultData.toString()));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s);", resultData.toString()));
+                js.setLength(0);
+            }
         }
         PolarSeriesMarker item = new PolarSeriesMarker("setMarker" + variableIndex);
         setMarker.add(item);
@@ -699,14 +672,18 @@ public class ChartsPolar extends SeparateChart {
     /**
      * 
      */
-    public PolarSeriesMarker marker(View mapping) {
+    public PolarSeriesMarker marker(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
 
-        js.append(mapping.generateJs());
-        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
         PolarSeriesMarker item = new PolarSeriesMarker("setMarker1" + variableIndex);
         setMarker1.add(item);
         return item;
@@ -1024,6 +1001,11 @@ public class ChartsPolar extends SeparateChart {
             resultData.append("]");
 
             js.append(String.format(Locale.US, "var setPolygon" + ++variableIndex + " = " + jsBase + ".polygon(%s);", resultData.toString()));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s);", resultData.toString()));
+                js.setLength(0);
+            }
         }
         Polygon item = new Polygon("setPolygon" + variableIndex);
         setPolygon.add(item);
@@ -1045,14 +1027,18 @@ public class ChartsPolar extends SeparateChart {
     /**
      * 
      */
-    public Polygon polygon(View mapping) {
+    public Polygon polygon(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
 
-        js.append(mapping.generateJs());
-        js.append(String.format(Locale.US, "var setPolygon1" + ++variableIndex + " = " + jsBase + ".polygon(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var setPolygon1" + ++variableIndex + " = " + jsBase + ".polygon(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
         Polygon item = new Polygon("setPolygon1" + variableIndex);
         setPolygon1.add(item);
         return item;
@@ -1089,6 +1075,11 @@ public class ChartsPolar extends SeparateChart {
             resultData.append("]");
 
             js.append(String.format(Locale.US, "var setPolyline" + ++variableIndex + " = " + jsBase + ".polyline(%s);", resultData.toString()));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s);", resultData.toString()));
+                js.setLength(0);
+            }
         }
         Polyline item = new Polyline("setPolyline" + variableIndex);
         setPolyline.add(item);
@@ -1110,14 +1101,18 @@ public class ChartsPolar extends SeparateChart {
     /**
      * 
      */
-    public Polyline polyline(View mapping) {
+    public Polyline polyline(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
 
-        js.append(mapping.generateJs());
-        js.append(String.format(Locale.US, "var setPolyline1" + ++variableIndex + " = " + jsBase + ".polyline(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var setPolyline1" + ++variableIndex + " = " + jsBase + ".polyline(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
         Polyline item = new Polyline("setPolyline1" + variableIndex);
         setPolyline1.add(item);
         return item;
@@ -1154,6 +1149,11 @@ public class ChartsPolar extends SeparateChart {
             resultData.append("]");
 
             js.append(String.format(Locale.US, "var setRangeColumn" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s);", resultData.toString()));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s);", resultData.toString()));
+                js.setLength(0);
+            }
         }
         PolarSeriesRangeColumn item = new PolarSeriesRangeColumn("setRangeColumn" + variableIndex);
         setRangeColumn.add(item);
@@ -1175,14 +1175,18 @@ public class ChartsPolar extends SeparateChart {
     /**
      * 
      */
-    public PolarSeriesRangeColumn rangeColumn(View mapping) {
+    public PolarSeriesRangeColumn rangeColumn(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
 
-        js.append(mapping.generateJs());
-        js.append(String.format(Locale.US, "var setRangeColumn1" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var setRangeColumn1" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
         PolarSeriesRangeColumn item = new PolarSeriesRangeColumn("setRangeColumn1" + variableIndex);
         setRangeColumn1.add(item);
         return item;

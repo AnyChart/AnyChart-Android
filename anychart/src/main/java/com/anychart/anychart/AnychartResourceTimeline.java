@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -48,7 +53,7 @@ public class AnychartResourceTimeline extends UiTimeline {
             js.append(String.format(Locale.US, ".defaultRowHeight(%f)", defaultRowHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".defaultRowHeight(%f)", defaultRowHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".defaultRowHeight(%f);", defaultRowHeight));
                 js.setLength(0);
             }
         }

@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -61,7 +66,7 @@ public class TableMapping extends CoreBase {
             js.append(String.format(Locale.US, ".addField(%s, %f, %s, %f)", wrapQuotes(name), column, ((type != null) ? type.generateJs() : "null"), weightsColumn));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %f, %s, %f)", wrapQuotes(name), column, ((type != null) ? type.generateJs() : "null"), weightsColumn));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addField(%s, %f, %s, %f);", wrapQuotes(name), column, ((type != null) ? type.generateJs() : "null"), weightsColumn));
                 js.setLength(0);
             }
         }
@@ -94,7 +99,7 @@ public class TableMapping extends CoreBase {
             js.append(String.format(Locale.US, ".addField(%s, %f, %s, %f)", wrapQuotes(name), column, wrapQuotes(type1), weightsColumn));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addField(%s, %f, %s, %f)", wrapQuotes(name), column, wrapQuotes(type1), weightsColumn));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addField(%s, %f, %s, %f);", wrapQuotes(name), column, wrapQuotes(type1), weightsColumn));
                 js.setLength(0);
             }
         }

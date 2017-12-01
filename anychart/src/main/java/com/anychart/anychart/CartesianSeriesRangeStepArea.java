@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -54,7 +59,7 @@ public class CartesianSeriesRangeStepArea extends ContinuousRangeBase {
             js.append(String.format(Locale.US, ".stepDirection(%s)", ((stepDirection != null) ? stepDirection.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stepDirection(%s)", ((stepDirection != null) ? stepDirection.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepDirection(%s);", ((stepDirection != null) ? stepDirection.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -81,7 +86,7 @@ public class CartesianSeriesRangeStepArea extends ContinuousRangeBase {
             js.append(String.format(Locale.US, ".stepDirection(%s)", wrapQuotes(stepDirection1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stepDirection(%s)", wrapQuotes(stepDirection1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepDirection(%s);", wrapQuotes(stepDirection1)));
                 js.setLength(0);
             }
         }

@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -50,7 +55,7 @@ public class Logarithmic extends ScalesLinear {
             js.append(String.format(Locale.US, ".logBase(%f)", logBase));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".logBase(%f)", logBase));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".logBase(%f);", logBase));
                 js.setLength(0);
             }
         }

@@ -1,5 +1,12 @@
 package com.anychart.anychart;
 
+import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
+
 // class
 /**
  * HatchFill is a special pattern fill with predefined set of a primitives. Sets of a primitives does numbered and

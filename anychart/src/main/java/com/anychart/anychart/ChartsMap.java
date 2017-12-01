@@ -21,75 +21,6 @@ public class ChartsMap extends SeparateChart {
         jsBase = "chart";
     }
 
-    public ChartsMap setData(SingleValueDataSet data) {
-        if (!data.isEmpty()) {
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(jsBase).append(".data([");
-
-            js.append(data.generateJs());
-
-            js.append("]);");
-        }
-
-        return this;
-    }
-
-    public ChartsMap setData(List<DataEntry> data) {
-        if (!data.isEmpty()) {
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(jsBase).append(".data([");
-
-            for (DataEntry dataEntry : data) {
-                js.append(dataEntry.generateJs()).append(",");
-            }
-            js.setLength(js.length() - 1);
-
-            js.append("]);");
-        }
-
-        return this;
-    }
-
-    public ChartsMap setData(List<DataEntry> data, TreeFillingMethod mode) {
-        if (!data.isEmpty()) {
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-
-            js.append(jsBase).append(".data([");
-
-            for (DataEntry dataEntry : data) {
-                js.append(dataEntry.generateJs()).append(",");
-            }
-            js.setLength(js.length() - 1);
-
-            js.append("], ").append((mode != null) ? mode.generateJs() : "null").append(");");
-        }
-
-        return this;
-    }
-
-    public ChartsMap setData(Mapping mapping) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
-        }
-        js.append(mapping.generateJs());
-
-        js.append(jsBase).append(".data(").append(mapping.getJsBase()).append(");");
-
-        return this;
-    }
-
     public void setOnClickListener(ListenersInterface.OnClickListener listener) {
         if (isChain) {
             js.append(";");
@@ -134,6 +65,11 @@ public class ChartsMap extends SeparateChart {
             resultData.append("]");
 
             js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", resultData.toString()));
+                js.setLength(0);
+            }
         }
     }
 
@@ -141,14 +77,18 @@ public class ChartsMap extends SeparateChart {
     /**
      * 
      */
-    public void addSeries(View mapping) {
+    public void addSeries(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
 
-        js.append(mapping.generateJs());
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
     }
 
 
@@ -222,6 +162,11 @@ public class ChartsMap extends SeparateChart {
             resultData.append("]");
 
             js.append(String.format(Locale.US, "var setBubble" + ++variableIndex + " = " + jsBase + ".bubble(%s);", resultData.toString()));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s);", resultData.toString()));
+                js.setLength(0);
+            }
         }
         MapSeriesBubble item = new MapSeriesBubble("setBubble" + variableIndex);
         setBubble.add(item);
@@ -243,14 +188,18 @@ public class ChartsMap extends SeparateChart {
     /**
      * 
      */
-    public MapSeriesBubble bubble(View mapping) {
+    public MapSeriesBubble bubble(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
 
-        js.append(mapping.generateJs());
-        js.append(String.format(Locale.US, "var setBubble1" + ++variableIndex + " = " + jsBase + ".bubble(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var setBubble1" + ++variableIndex + " = " + jsBase + ".bubble(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
         MapSeriesBubble item = new MapSeriesBubble("setBubble1" + variableIndex);
         setBubble1.add(item);
         return item;
@@ -387,6 +336,11 @@ public class ChartsMap extends SeparateChart {
             resultData.append("]");
 
             js.append(String.format(Locale.US, "var setChoropleth" + ++variableIndex + " = " + jsBase + ".choropleth(%s);", resultData.toString()));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s);", resultData.toString()));
+                js.setLength(0);
+            }
         }
         Choropleth item = new Choropleth("setChoropleth" + variableIndex);
         setChoropleth.add(item);
@@ -408,14 +362,18 @@ public class ChartsMap extends SeparateChart {
     /**
      * 
      */
-    public Choropleth choropleth(View mapping) {
+    public Choropleth choropleth(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
 
-        js.append(mapping.generateJs());
-        js.append(String.format(Locale.US, "var setChoropleth1" + ++variableIndex + " = " + jsBase + ".choropleth(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var setChoropleth1" + ++variableIndex + " = " + jsBase + ".choropleth(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
         Choropleth item = new Choropleth("setChoropleth1" + variableIndex);
         setChoropleth1.add(item);
         return item;
@@ -483,6 +441,11 @@ public class ChartsMap extends SeparateChart {
             resultData.append("]");
 
             js.append(String.format(Locale.US, "var setConnector" + ++variableIndex + " = " + jsBase + ".connector(%s);", resultData.toString()));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s);", resultData.toString()));
+                js.setLength(0);
+            }
         }
         Connector item = new Connector("setConnector" + variableIndex);
         setConnector.add(item);
@@ -504,14 +467,18 @@ public class ChartsMap extends SeparateChart {
     /**
      * 
      */
-    public Connector connector(View mapping) {
+    public Connector connector(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
 
-        js.append(mapping.generateJs());
-        js.append(String.format(Locale.US, "var setConnector1" + ++variableIndex + " = " + jsBase + ".connector(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var setConnector1" + ++variableIndex + " = " + jsBase + ".connector(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
         Connector item = new Connector("setConnector1" + variableIndex);
         setConnector1.add(item);
         return item;
@@ -1128,6 +1095,11 @@ Set the transitions to drill down.
             resultData.append("]");
 
             js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", resultData.toString()));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s);", resultData.toString()));
+                js.setLength(0);
+            }
         }
         MapSeriesMarker item = new MapSeriesMarker("setMarker" + variableIndex);
         setMarker.add(item);
@@ -1149,14 +1121,18 @@ Set the transitions to drill down.
     /**
      * 
      */
-    public MapSeriesMarker marker(View mapping) {
+    public MapSeriesMarker marker(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
 
-        js.append(mapping.generateJs());
-        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s);",  ((mapping != null) ? mapping.getJsBase() : "null")));
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var setMarker1" + ++variableIndex + " = " + jsBase + ".marker(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
         MapSeriesMarker item = new MapSeriesMarker("setMarker1" + variableIndex);
         setMarker1.add(item);
         return item;

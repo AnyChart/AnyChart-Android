@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -52,7 +57,7 @@ public class Knob extends GaugePointersBase {
             js.append(String.format(Locale.US, ".bottomRadius(%f)", bottomRadius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottomRadius(%f)", bottomRadius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottomRadius(%f);", bottomRadius));
                 js.setLength(0);
             }
         }
@@ -79,7 +84,7 @@ public class Knob extends GaugePointersBase {
             js.append(String.format(Locale.US, ".bottomRadius(%s)", wrapQuotes(bottomRadius1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottomRadius(%s)", wrapQuotes(bottomRadius1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottomRadius(%s);", wrapQuotes(bottomRadius1)));
                 js.setLength(0);
             }
         }
@@ -104,7 +109,7 @@ public class Knob extends GaugePointersBase {
             js.append(String.format(Locale.US, ".bottomRatio(%f)", bottomRatio));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottomRatio(%f)", bottomRatio));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottomRatio(%f);", bottomRatio));
                 js.setLength(0);
             }
         }
@@ -133,7 +138,7 @@ public class Knob extends GaugePointersBase {
             js.append(String.format(Locale.US, ".topRadius(%f)", topRadius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".topRadius(%f)", topRadius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".topRadius(%f);", topRadius));
                 js.setLength(0);
             }
         }
@@ -160,7 +165,7 @@ public class Knob extends GaugePointersBase {
             js.append(String.format(Locale.US, ".topRadius(%s)", wrapQuotes(topRadius1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".topRadius(%s)", wrapQuotes(topRadius1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".topRadius(%s);", wrapQuotes(topRadius1)));
                 js.setLength(0);
             }
         }
@@ -185,7 +190,7 @@ public class Knob extends GaugePointersBase {
             js.append(String.format(Locale.US, ".topRatio(%f)", topRatio));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".topRatio(%f)", topRatio));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".topRatio(%f);", topRatio));
                 js.setLength(0);
             }
         }
@@ -210,7 +215,7 @@ public class Knob extends GaugePointersBase {
             js.append(String.format(Locale.US, ".verticesCount(%f)", verticesCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".verticesCount(%f)", verticesCount));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticesCount(%f);", verticesCount));
                 js.setLength(0);
             }
         }
@@ -235,7 +240,7 @@ public class Knob extends GaugePointersBase {
             js.append(String.format(Locale.US, ".verticesCurvature(%f)", verticesCurvature));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".verticesCurvature(%f)", verticesCurvature));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticesCurvature(%f);", verticesCurvature));
                 js.setLength(0);
             }
         }

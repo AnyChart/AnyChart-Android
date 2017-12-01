@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -49,7 +54,7 @@ public class ScalesBase extends CoreBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".finishAutoCalc(%b)", silently));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".finishAutoCalc(%b);", silently));
                 js.setLength(0);
             }
         }
@@ -74,7 +79,7 @@ instead of bottom-to-top and left-to-right.
             js.append(String.format(Locale.US, ".inverted(%b)", inverted));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".inverted(%b)", inverted));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverted(%b);", inverted));
                 js.setLength(0);
             }
         }

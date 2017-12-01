@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -69,7 +72,7 @@ public class ChartWithCredits extends Chart {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%s)", wrapQuotes(credits)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%s);", wrapQuotes(credits)));
                 js.setLength(0);
             }
         }
@@ -111,7 +114,7 @@ public class ChartWithCredits extends Chart {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%b)", credits1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%b);", credits1));
                 js.setLength(0);
             }
         }

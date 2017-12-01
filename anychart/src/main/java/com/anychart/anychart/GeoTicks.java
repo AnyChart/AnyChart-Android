@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -49,7 +54,7 @@ public class GeoTicks extends CoreBase {
             js.append(String.format(Locale.US, ".count(%f)", count));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".count(%f)", count));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%f);", count));
                 js.setLength(0);
             }
         }
@@ -78,7 +83,7 @@ public class GeoTicks extends CoreBase {
             js.append(String.format(Locale.US, ".count(%f, %f)", minimumCount, maximumCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".count(%f, %f)", minimumCount, maximumCount));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%f, %f);", minimumCount, maximumCount));
                 js.setLength(0);
             }
         }
@@ -103,7 +108,7 @@ public class GeoTicks extends CoreBase {
             js.append(String.format(Locale.US, ".interval(%f)", interval));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".interval(%f)", interval));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%f);", interval));
                 js.setLength(0);
             }
         }
@@ -128,7 +133,7 @@ public class GeoTicks extends CoreBase {
             js.append(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s);", arrayToStringWrapQuotes(ticks)));
                 js.setLength(0);
             }
         }

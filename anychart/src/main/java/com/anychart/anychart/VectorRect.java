@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -59,7 +64,7 @@ public class VectorRect extends Shape {
             js.append(String.format(Locale.US, ".cut(%s)", wrapQuotes(radiusAll)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cut(%s)", wrapQuotes(radiusAll)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cut(%s);", wrapQuotes(radiusAll)));
                 js.setLength(0);
             }
         }
@@ -86,7 +91,7 @@ public class VectorRect extends Shape {
             js.append(String.format(Locale.US, ".cut(%f)", radiusAll1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cut(%f)", radiusAll1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cut(%f);", radiusAll1));
                 js.setLength(0);
             }
         }
@@ -120,7 +125,7 @@ public class VectorRect extends Shape {
             js.append(String.format(Locale.US, ".cut(%f, %f, %f, %f)", radiusLeftTop, radiusRightTop, radiusRightBottom, radiusLeftBottom));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cut(%f, %f, %f, %f)", radiusLeftTop, radiusRightTop, radiusRightBottom, radiusLeftBottom));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cut(%f, %f, %f, %f);", radiusLeftTop, radiusRightTop, radiusRightBottom, radiusLeftBottom));
                 js.setLength(0);
             }
         }
@@ -151,7 +156,7 @@ public class VectorRect extends Shape {
             js.append(String.format(Locale.US, ".round(%s)", wrapQuotes(radiusAll2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".round(%s)", wrapQuotes(radiusAll2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".round(%s);", wrapQuotes(radiusAll2)));
                 js.setLength(0);
             }
         }
@@ -180,7 +185,7 @@ public class VectorRect extends Shape {
             js.append(String.format(Locale.US, ".round(%f)", radiusAll3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".round(%f)", radiusAll3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".round(%f);", radiusAll3));
                 js.setLength(0);
             }
         }
@@ -226,7 +231,7 @@ public class VectorRect extends Shape {
             js.append(String.format(Locale.US, ".round(%f, %f, %f, %f)", radiusLeftTop1, radiusRightTop1, radiusRightBottom1, radiusLeftBottom1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".round(%f, %f, %f, %f)", radiusLeftTop1, radiusRightTop1, radiusRightBottom1, radiusLeftBottom1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".round(%f, %f, %f, %f);", radiusLeftTop1, radiusRightTop1, radiusRightBottom1, radiusLeftBottom1));
                 js.setLength(0);
             }
         }
@@ -259,7 +264,7 @@ public class VectorRect extends Shape {
             js.append(String.format(Locale.US, ".roundInner(%s)", wrapQuotes(radiusAll4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".roundInner(%s)", wrapQuotes(radiusAll4)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roundInner(%s);", wrapQuotes(radiusAll4)));
                 js.setLength(0);
             }
         }
@@ -290,7 +295,7 @@ public class VectorRect extends Shape {
             js.append(String.format(Locale.US, ".roundInner(%f)", radiusAll5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".roundInner(%f)", radiusAll5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roundInner(%f);", radiusAll5));
                 js.setLength(0);
             }
         }
@@ -340,7 +345,7 @@ public class VectorRect extends Shape {
             js.append(String.format(Locale.US, ".roundInner(%f, %f, %f, %f)", radiusLeftTop2, radiusRightTop2, radiusRightBottom2, radiusLeftBottom2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".roundInner(%f, %f, %f, %f)", radiusLeftTop2, radiusRightTop2, radiusRightBottom2, radiusLeftBottom2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roundInner(%f, %f, %f, %f);", radiusLeftTop2, radiusRightTop2, radiusRightBottom2, radiusLeftBottom2));
                 js.setLength(0);
             }
         }
@@ -365,6 +370,10 @@ public class VectorRect extends Shape {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".setBounds(%s);",  ((setBounds != null) ? setBounds.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setBounds(%s);", ((setBounds != null) ? setBounds.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -387,7 +396,7 @@ public class VectorRect extends Shape {
             js.append(String.format(Locale.US, ".setHeight(%f)", setHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setHeight(%f)", setHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setHeight(%f);", setHeight));
                 js.setLength(0);
             }
         }
@@ -412,7 +421,7 @@ public class VectorRect extends Shape {
             js.append(String.format(Locale.US, ".setWidth(%f)", setWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setWidth(%f)", setWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setWidth(%f);", setWidth));
                 js.setLength(0);
             }
         }
@@ -437,7 +446,7 @@ public class VectorRect extends Shape {
             js.append(String.format(Locale.US, ".setX(%f)", setX));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setX(%f)", setX));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setX(%f);", setX));
                 js.setLength(0);
             }
         }
@@ -462,7 +471,7 @@ public class VectorRect extends Shape {
             js.append(String.format(Locale.US, ".setY(%f)", setY));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setY(%f)", setY));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setY(%f);", setY));
                 js.setLength(0);
             }
         }

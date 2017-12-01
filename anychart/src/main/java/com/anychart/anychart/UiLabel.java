@@ -1,7 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.Arrays;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -67,7 +71,7 @@ public class UiLabel extends CoreText {
             js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", wrapQuotes(bothOrByWidth), byHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", wrapQuotes(bothOrByWidth), byHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", wrapQuotes(bothOrByWidth), byHeight));
                 js.setLength(0);
             }
         }
@@ -97,7 +101,7 @@ public class UiLabel extends CoreText {
             js.append(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(bothOrByWidth1), byHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%s, %b)", Arrays.toString(bothOrByWidth1), byHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%s, %b);", Arrays.toString(bothOrByWidth1), byHeight));
                 js.setLength(0);
             }
         }
@@ -127,7 +131,7 @@ public class UiLabel extends CoreText {
             js.append(String.format(Locale.US, ".adjustFontSize(%b, %b)", bothOrByWidth2, byHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".adjustFontSize(%b, %b)", bothOrByWidth2, byHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adjustFontSize(%b, %b);", bothOrByWidth2, byHeight));
                 js.setLength(0);
             }
         }
@@ -156,7 +160,7 @@ public class UiLabel extends CoreText {
             js.append(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", ((anchor != null) ? anchor.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".anchor(%s);", ((anchor != null) ? anchor.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -183,7 +187,7 @@ public class UiLabel extends CoreText {
             js.append(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".anchor(%s)", wrapQuotes(anchor1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".anchor(%s);", wrapQuotes(anchor1)));
                 js.setLength(0);
             }
         }
@@ -226,7 +230,7 @@ public class UiLabel extends CoreText {
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(background)));
                 js.setLength(0);
             }
         }
@@ -254,7 +258,7 @@ public class UiLabel extends CoreText {
             js.append(String.format(Locale.US, ".background(%b)", background2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%b);", background2));
                 js.setLength(0);
             }
         }
@@ -283,7 +287,7 @@ public class UiLabel extends CoreText {
             js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
                 js.setLength(0);
             }
         }
@@ -310,7 +314,7 @@ public class UiLabel extends CoreText {
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height1)));
                 js.setLength(0);
             }
         }
@@ -339,7 +343,7 @@ public class UiLabel extends CoreText {
             js.append(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxFontSize(%f);", maxFontSize));
                 js.setLength(0);
             }
         }
@@ -366,7 +370,7 @@ public class UiLabel extends CoreText {
             js.append(String.format(Locale.US, ".maxFontSize(%s)", wrapQuotes(maxFontSize1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxFontSize(%s)", wrapQuotes(maxFontSize1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxFontSize(%s);", wrapQuotes(maxFontSize1)));
                 js.setLength(0);
             }
         }
@@ -395,7 +399,7 @@ public class UiLabel extends CoreText {
             js.append(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minFontSize(%f);", minFontSize));
                 js.setLength(0);
             }
         }
@@ -422,7 +426,7 @@ public class UiLabel extends CoreText {
             js.append(String.format(Locale.US, ".minFontSize(%s)", wrapQuotes(minFontSize1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minFontSize(%s)", wrapQuotes(minFontSize1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minFontSize(%s);", wrapQuotes(minFontSize1)));
                 js.setLength(0);
             }
         }
@@ -453,7 +457,7 @@ Arrows show offsets layout.
             js.append(String.format(Locale.US, ".offsetX(%f)", offsetX));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".offsetX(%f)", offsetX));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetX(%f);", offsetX));
                 js.setLength(0);
             }
         }
@@ -482,7 +486,7 @@ Arrows show offsets layout.
             js.append(String.format(Locale.US, ".offsetX(%s)", wrapQuotes(offsetX1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".offsetX(%s)", wrapQuotes(offsetX1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetX(%s);", wrapQuotes(offsetX1)));
                 js.setLength(0);
             }
         }
@@ -513,7 +517,7 @@ Arrows show offsets layout.
             js.append(String.format(Locale.US, ".offsetY(%f)", offsetY));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".offsetY(%f)", offsetY));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetY(%f);", offsetY));
                 js.setLength(0);
             }
         }
@@ -542,7 +546,7 @@ Arrows show offsets layout.
             js.append(String.format(Locale.US, ".offsetY(%s)", wrapQuotes(offsetY1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".offsetY(%s)", wrapQuotes(offsetY1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetY(%s);", wrapQuotes(offsetY1)));
                 js.setLength(0);
             }
         }
@@ -585,7 +589,7 @@ Arrows show offsets layout.
             js.append(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", Arrays.toString(padding)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
                 js.setLength(0);
             }
         }
@@ -613,7 +617,7 @@ Arrows show offsets layout.
             js.append(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", arrayToStringWrapQuotes(padding1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
             }
         }
@@ -641,7 +645,7 @@ Arrows show offsets layout.
             js.append(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s)", wrapQuotes(padding2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding2)));
                 js.setLength(0);
             }
         }
@@ -715,7 +719,7 @@ Arrows show offsets layout.
             js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
             }
         }
@@ -781,7 +785,7 @@ Arrows show offsets layout.
             js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
@@ -810,7 +814,7 @@ Arrows show offsets layout.
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".position(%s);", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -837,7 +841,7 @@ Arrows show offsets layout.
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(position1)));
                 js.setLength(0);
             }
         }
@@ -862,7 +866,7 @@ Arrows show offsets layout.
             js.append(String.format(Locale.US, ".rotation(%f)", rotation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rotation(%f)", rotation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotation(%f);", rotation));
                 js.setLength(0);
             }
         }
@@ -887,7 +891,7 @@ Arrows show offsets layout.
             js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".text(%s);", wrapQuotes(text)));
                 js.setLength(0);
             }
         }
@@ -916,7 +920,7 @@ Arrows show offsets layout.
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
                 js.setLength(0);
             }
         }
@@ -943,7 +947,7 @@ Arrows show offsets layout.
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width1)));
                 js.setLength(0);
             }
         }

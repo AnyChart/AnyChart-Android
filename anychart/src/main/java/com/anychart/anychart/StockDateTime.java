@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -68,7 +71,7 @@ public class StockDateTime extends VisualBase {
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(background)));
                 js.setLength(0);
             }
         }
@@ -96,7 +99,7 @@ public class StockDateTime extends VisualBase {
             js.append(String.format(Locale.US, ".background(%b)", background1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%b);", background1));
                 js.setLength(0);
             }
         }
@@ -121,7 +124,7 @@ public class StockDateTime extends VisualBase {
             js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
                 js.setLength(0);
             }
         }
@@ -162,7 +165,7 @@ public class StockDateTime extends VisualBase {
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(labels)));
                 js.setLength(0);
             }
         }
@@ -189,7 +192,7 @@ public class StockDateTime extends VisualBase {
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%b);", labels1));
                 js.setLength(0);
             }
         }
@@ -230,7 +233,7 @@ public class StockDateTime extends VisualBase {
             js.append(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorLabels(%s);", wrapQuotes(minorLabels)));
                 js.setLength(0);
             }
         }
@@ -257,7 +260,7 @@ public class StockDateTime extends VisualBase {
             js.append(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorLabels(%b);", minorLabels1));
                 js.setLength(0);
             }
         }
@@ -298,7 +301,7 @@ public class StockDateTime extends VisualBase {
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(minorTicks)));
                 js.setLength(0);
             }
         }
@@ -325,7 +328,7 @@ public class StockDateTime extends VisualBase {
             js.append(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorTicks(%b);", minorTicks1));
                 js.setLength(0);
             }
         }
@@ -355,7 +358,7 @@ Whether to allow labels to overlap.
             js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlapMode(%s);", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -383,7 +386,7 @@ Whether to allow labels to overlap.
             js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlapMode(%s);", wrapQuotes(overlapMode1)));
                 js.setLength(0);
             }
         }
@@ -409,7 +412,7 @@ Whether to draw helper label (leftmost hanging label).
             js.append(String.format(Locale.US, ".showHelperLabel(%b)", showHelperLabel));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".showHelperLabel(%b)", showHelperLabel));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".showHelperLabel(%b);", showHelperLabel));
                 js.setLength(0);
             }
         }

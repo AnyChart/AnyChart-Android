@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -50,7 +55,7 @@ public class StageCredits extends JsObject {
             js.append(String.format(Locale.US, ".alt(%s)", wrapQuotes(alt)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".alt(%s)", wrapQuotes(alt)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".alt(%s);", wrapQuotes(alt)));
                 js.setLength(0);
             }
         }
@@ -75,7 +80,7 @@ public class StageCredits extends JsObject {
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
                 js.setLength(0);
             }
         }
@@ -100,7 +105,7 @@ public class StageCredits extends JsObject {
             js.append(String.format(Locale.US, ".imgAlt(%s)", wrapQuotes(imgAlt)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".imgAlt(%s)", wrapQuotes(imgAlt)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".imgAlt(%s);", wrapQuotes(imgAlt)));
                 js.setLength(0);
             }
         }
@@ -126,7 +131,7 @@ public class StageCredits extends JsObject {
             js.append(String.format(Locale.US, ".logoSrc(%s)", wrapQuotes(logoSrc)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".logoSrc(%s)", wrapQuotes(logoSrc)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".logoSrc(%s);", wrapQuotes(logoSrc)));
                 js.setLength(0);
             }
         }
@@ -151,7 +156,7 @@ public class StageCredits extends JsObject {
             js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".text(%s);", wrapQuotes(text)));
                 js.setLength(0);
             }
         }
@@ -176,7 +181,7 @@ public class StageCredits extends JsObject {
             js.append(String.format(Locale.US, ".url(%s)", wrapQuotes(url)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".url(%s)", wrapQuotes(url)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".url(%s);", wrapQuotes(url)));
                 js.setLength(0);
             }
         }

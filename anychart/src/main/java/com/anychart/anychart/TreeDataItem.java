@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -54,7 +57,7 @@ public class TreeDataItem extends JsObject {
             js.append(String.format(Locale.US, ".addChild(%s)", wrapQuotes(child)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", wrapQuotes(child)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s);", wrapQuotes(child)));
                 js.setLength(0);
             }
         }
@@ -81,6 +84,10 @@ public class TreeDataItem extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".addChild(%s);",  ((child1 != null) ? child1.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s);", ((child1 != null) ? child1.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -115,7 +122,7 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
             js.append(String.format(Locale.US, ".addChildAt(%s, %f)", wrapQuotes(child2), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", wrapQuotes(child2), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", wrapQuotes(child2), index));
                 js.setLength(0);
             }
         }
@@ -148,7 +155,7 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
             js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child3 != null) ? child3.getJsBase() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child3 != null) ? child3.getJsBase() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((child3 != null) ? child3.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -181,7 +188,7 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
             js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.getJsBase() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.getJsBase() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((child4 != null) ? child4.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -230,7 +237,7 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", wrapQuotes(key)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s);", wrapQuotes(key)));
                 js.setLength(0);
             }
         }
@@ -261,6 +268,10 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".removeChild(%s);",  ((child5 != null) ? child5.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s);", ((child5 != null) ? child5.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -286,7 +297,7 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
             js.append(String.format(Locale.US, ".removeChildAt(%f)", index1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeChildAt(%f)", index1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f);", index1));
                 js.setLength(0);
             }
         }

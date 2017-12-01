@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -48,7 +53,7 @@ public class RadarSeriesContinuousBase extends RadarSeriesBase {
             js.append(String.format(Locale.US, ".connectMissingPoints(%b)", connectMissingPoints));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".connectMissingPoints(%b)", connectMissingPoints));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectMissingPoints(%b);", connectMissingPoints));
                 js.setLength(0);
             }
         }
@@ -91,7 +96,7 @@ public class RadarSeriesContinuousBase extends RadarSeriesBase {
             js.append(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markers(%s)", wrapQuotes(markers)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".markers(%s);", wrapQuotes(markers)));
                 js.setLength(0);
             }
         }
@@ -119,7 +124,7 @@ public class RadarSeriesContinuousBase extends RadarSeriesBase {
             js.append(String.format(Locale.US, ".markers(%b)", markers1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markers(%b)", markers1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".markers(%b);", markers1));
                 js.setLength(0);
             }
         }

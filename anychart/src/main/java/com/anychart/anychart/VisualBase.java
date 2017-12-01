@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -48,7 +53,7 @@ public class VisualBase extends CoreBase {
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
                 js.setLength(0);
             }
         }
@@ -81,7 +86,7 @@ public class VisualBase extends CoreBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b)", ((paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null"), landscape));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", ((paperSizeOrOptions != null) ? paperSizeOrOptions.generateJs() : "null"), landscape));
                 js.setLength(0);
             }
         }
@@ -110,7 +115,7 @@ public class VisualBase extends CoreBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b)", wrapQuotes(paperSizeOrOptions1), landscape));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".print(%s, %b);", wrapQuotes(paperSizeOrOptions1), landscape));
                 js.setLength(0);
             }
         }
@@ -134,7 +139,7 @@ public class VisualBase extends CoreBase {
             js.append(String.format(Locale.US, ".zIndex(%f)", zIndex));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".zIndex(%f)", zIndex));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
                 js.setLength(0);
             }
         }

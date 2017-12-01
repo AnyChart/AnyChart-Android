@@ -49,7 +49,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s)", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s);", ((backgroundFill != null) ? backgroundFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -77,7 +77,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f);", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -125,7 +125,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -166,7 +166,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -207,7 +207,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -248,7 +248,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -289,7 +289,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -330,7 +330,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -389,7 +389,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -440,7 +440,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -484,7 +484,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".backgroundStroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundStroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundStroke(%s, %f, %s, %s, %s);", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -520,7 +520,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".backgroundStroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundStroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundStroke(%s, %f, %s, %s, %s);", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -556,7 +556,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".backgroundStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".backgroundStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundStroke(%s, %f, %s, %s, %s);", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -581,7 +581,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".barSize(%f)", barSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".barSize(%f)", barSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".barSize(%f);", barSize));
                 js.setLength(0);
             }
         }
@@ -606,7 +606,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".buttonsVisible(%b)", buttonsVisible));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".buttonsVisible(%b)", buttonsVisible));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".buttonsVisible(%b);", buttonsVisible));
                 js.setLength(0);
             }
         }
@@ -631,7 +631,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".mouseOutOpacity(%f)", mouseOutOpacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".mouseOutOpacity(%f)", mouseOutOpacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mouseOutOpacity(%f);", mouseOutOpacity));
                 js.setLength(0);
             }
         }
@@ -656,7 +656,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".mouseOverOpacity(%f)", mouseOverOpacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".mouseOverOpacity(%f)", mouseOverOpacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mouseOverOpacity(%f);", mouseOverOpacity));
                 js.setLength(0);
             }
         }
@@ -682,7 +682,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".sliderFill(%s)", ((sliderFill != null) ? sliderFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s)", ((sliderFill != null) ? sliderFill.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sliderFill(%s);", ((sliderFill != null) ? sliderFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -718,7 +718,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".sliderFill(%s, %f)", wrapQuotes(color1), opacity3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %f)", wrapQuotes(color1), opacity3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sliderFill(%s, %f);", wrapQuotes(color1), opacity3));
                 js.setLength(0);
             }
         }
@@ -780,7 +780,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".sliderFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sliderFill(%s, %f, %f, %b);", arrayToString(keys4), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -835,7 +835,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".sliderFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sliderFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -890,7 +890,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".sliderFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sliderFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -945,7 +945,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".sliderFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sliderFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -1000,7 +1000,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".sliderFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sliderFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1055,7 +1055,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".sliderFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sliderFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1137,7 +1137,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".sliderFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sliderFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1211,7 +1211,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".sliderFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sliderFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sliderFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1270,7 +1270,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".sliderStroke(%s, %f, %s, %s, %s)", ((stroke3 != null) ? stroke3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sliderStroke(%s, %f, %s, %s, %s)", ((stroke3 != null) ? stroke3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sliderStroke(%s, %f, %s, %s, %s);", ((stroke3 != null) ? stroke3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1321,7 +1321,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".sliderStroke(%s, %f, %s, %s, %s)", ((stroke4 != null) ? stroke4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sliderStroke(%s, %f, %s, %s, %s)", ((stroke4 != null) ? stroke4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sliderStroke(%s, %f, %s, %s, %s);", ((stroke4 != null) ? stroke4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1372,7 +1372,7 @@ public class ScrollBar extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".sliderStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sliderStroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sliderStroke(%s, %f, %s, %s, %s);", wrapQuotes(stroke5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }

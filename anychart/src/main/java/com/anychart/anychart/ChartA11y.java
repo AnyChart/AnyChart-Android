@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -48,7 +53,7 @@ public class ChartA11y extends A11y {
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
                 js.setLength(0);
             }
         }
@@ -77,7 +82,7 @@ public class ChartA11y extends A11y {
             js.append(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mode(%s);", ((mode != null) ? mode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -104,7 +109,7 @@ public class ChartA11y extends A11y {
             js.append(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mode(%s);", wrapQuotes(mode1)));
                 js.setLength(0);
             }
         }
@@ -130,7 +135,7 @@ public class ChartA11y extends A11y {
             js.append(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".titleFormat(%s)", wrapQuotes(titleFormat)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".titleFormat(%s);", wrapQuotes(titleFormat)));
                 js.setLength(0);
             }
         }

@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -56,7 +59,7 @@ public class TreeviewDataItem extends JsObject {
             js.append(String.format(Locale.US, ".addChild(%s)", wrapQuotes(child)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChild(%s)", wrapQuotes(child)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s);", wrapQuotes(child)));
                 js.setLength(0);
             }
         }
@@ -84,6 +87,10 @@ public class TreeviewDataItem extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".addChild(%s);",  ((child1 != null) ? child1.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s);", ((child1 != null) ? child1.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -109,6 +116,10 @@ public class TreeviewDataItem extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".addChild(%s);",  ((child2 != null) ? child2.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChild(%s);", ((child2 != null) ? child2.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -143,7 +154,7 @@ public class TreeviewDataItem extends JsObject {
             js.append(String.format(Locale.US, ".addChildAt(%s, %f)", wrapQuotes(child3), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", wrapQuotes(child3), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", wrapQuotes(child3), index));
                 js.setLength(0);
             }
         }
@@ -176,7 +187,7 @@ public class TreeviewDataItem extends JsObject {
             js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.getJsBase() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.getJsBase() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((child4 != null) ? child4.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -209,7 +220,7 @@ public class TreeviewDataItem extends JsObject {
             js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child5 != null) ? child5.getJsBase() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".addChildAt(%s, %f)", ((child5 != null) ? child5.getJsBase() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((child5 != null) ? child5.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -258,7 +269,7 @@ public class TreeviewDataItem extends JsObject {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s)", wrapQuotes(key)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s);", wrapQuotes(key)));
                 js.setLength(0);
             }
         }
@@ -292,6 +303,10 @@ public class TreeviewDataItem extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".removeChild(%s);",  ((child6 != null) ? child6.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s);", ((child6 != null) ? child6.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -322,6 +337,10 @@ public class TreeviewDataItem extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".removeChild(%s);",  ((child7 != null) ? child7.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChild(%s);", ((child7 != null) ? child7.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -347,7 +366,7 @@ public class TreeviewDataItem extends JsObject {
             js.append(String.format(Locale.US, ".removeChildAt(%f)", index1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeChildAt(%f)", index1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f);", index1));
                 js.setLength(0);
             }
         }

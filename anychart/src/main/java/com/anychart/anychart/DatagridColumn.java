@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -52,7 +57,7 @@ public class DatagridColumn extends VisualBase {
             js.append(String.format(Locale.US, ".buttonCursor(%s)", ((valueCursor != null) ? valueCursor.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".buttonCursor(%s)", ((valueCursor != null) ? valueCursor.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".buttonCursor(%s);", ((valueCursor != null) ? valueCursor.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -79,7 +84,7 @@ public class DatagridColumn extends VisualBase {
             js.append(String.format(Locale.US, ".buttonCursor(%s)", wrapQuotes(valueCursor1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".buttonCursor(%s)", wrapQuotes(valueCursor1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".buttonCursor(%s);", wrapQuotes(valueCursor1)));
                 js.setLength(0);
             }
         }
@@ -116,7 +121,7 @@ public class DatagridColumn extends VisualBase {
             js.append(String.format(Locale.US, ".cellTextSettings(%s)", wrapQuotes(cellTextSettings)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cellTextSettings(%s)", wrapQuotes(cellTextSettings)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellTextSettings(%s);", wrapQuotes(cellTextSettings)));
                 js.setLength(0);
             }
         }
@@ -141,7 +146,7 @@ public class DatagridColumn extends VisualBase {
             js.append(String.format(Locale.US, ".collapseExpandButtons(%b)", collapseExpandButtons));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".collapseExpandButtons(%b)", collapseExpandButtons));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".collapseExpandButtons(%b);", collapseExpandButtons));
                 js.setLength(0);
             }
         }
@@ -166,7 +171,7 @@ public class DatagridColumn extends VisualBase {
             js.append(String.format(Locale.US, ".defaultWidth(%f)", defaultWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".defaultWidth(%f)", defaultWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".defaultWidth(%f);", defaultWidth));
                 js.setLength(0);
             }
         }
@@ -191,7 +196,7 @@ public class DatagridColumn extends VisualBase {
             js.append(String.format(Locale.US, ".depthPaddingMultiplier(%f)", depthPaddingMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".depthPaddingMultiplier(%f)", depthPaddingMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".depthPaddingMultiplier(%f);", depthPaddingMultiplier));
                 js.setLength(0);
             }
         }
@@ -223,7 +228,7 @@ public class DatagridColumn extends VisualBase {
             js.append(String.format(Locale.US, ".setColumnFormat(%s, %s)", wrapQuotes(fieldName), ((presetValue != null) ? presetValue.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setColumnFormat(%s, %s)", wrapQuotes(fieldName), ((presetValue != null) ? presetValue.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setColumnFormat(%s, %s);", wrapQuotes(fieldName), ((presetValue != null) ? presetValue.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -252,7 +257,7 @@ public class DatagridColumn extends VisualBase {
             js.append(String.format(Locale.US, ".setColumnFormat(%s, %s)", wrapQuotes(fieldName), wrapQuotes(presetValue1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setColumnFormat(%s, %s)", wrapQuotes(fieldName), wrapQuotes(presetValue1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setColumnFormat(%s, %s);", wrapQuotes(fieldName), wrapQuotes(presetValue1)));
                 js.setLength(0);
             }
         }
@@ -297,7 +302,7 @@ public class DatagridColumn extends VisualBase {
             js.append(String.format(Locale.US, ".title(%b)", title));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".title(%b)", title));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".title(%b);", title));
                 js.setLength(0);
             }
         }
@@ -325,7 +330,7 @@ public class DatagridColumn extends VisualBase {
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(title1)));
                 js.setLength(0);
             }
         }
@@ -354,7 +359,7 @@ public class DatagridColumn extends VisualBase {
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
                 js.setLength(0);
             }
         }
@@ -381,7 +386,7 @@ public class DatagridColumn extends VisualBase {
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width1)));
                 js.setLength(0);
             }
         }

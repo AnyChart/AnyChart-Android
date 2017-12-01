@@ -1,7 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.Arrays;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -52,7 +56,7 @@ public class Ordinal extends ScalesBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f)", ratio));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f);", ratio));
                 js.setLength(0);
             }
         }
@@ -76,7 +80,7 @@ public class Ordinal extends ScalesBase {
             js.append(String.format(Locale.US, ".names(%s)", wrapQuotes(names)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".names(%s)", wrapQuotes(names)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".names(%s);", wrapQuotes(names)));
                 js.setLength(0);
             }
         }
@@ -117,7 +121,7 @@ public class Ordinal extends ScalesBase {
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(ticks)));
                 js.setLength(0);
             }
         }
@@ -144,7 +148,7 @@ public class Ordinal extends ScalesBase {
             js.append(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", arrayToStringWrapQuotes(ticks1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%s);", arrayToStringWrapQuotes(ticks1)));
                 js.setLength(0);
             }
         }
@@ -171,7 +175,7 @@ public class Ordinal extends ScalesBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%f)", subRangeRatio));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%f);", subRangeRatio));
                 js.setLength(0);
             }
         }
@@ -195,7 +199,7 @@ public class Ordinal extends ScalesBase {
             js.append(String.format(Locale.US, ".weights(%s)", Arrays.toString(weights)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".weights(%s)", Arrays.toString(weights)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".weights(%s);", Arrays.toString(weights)));
                 js.setLength(0);
             }
         }

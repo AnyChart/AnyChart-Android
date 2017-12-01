@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -54,7 +57,7 @@ public class Connector extends MapSeriesBaseWithMarkers {
             js.append(String.format(Locale.US, ".curvature(%f)", curvature));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".curvature(%f)", curvature));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".curvature(%f);", curvature));
                 js.setLength(0);
             }
         }
@@ -81,7 +84,7 @@ public class Connector extends MapSeriesBaseWithMarkers {
             js.append(String.format(Locale.US, ".curvature(%s)", wrapQuotes(curvature1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".curvature(%s)", wrapQuotes(curvature1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".curvature(%s);", wrapQuotes(curvature1)));
                 js.setLength(0);
             }
         }
@@ -132,7 +135,7 @@ public class Connector extends MapSeriesBaseWithMarkers {
             js.append(String.format(Locale.US, ".startSize(%f)", startSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".startSize(%f)", startSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startSize(%f);", startSize));
                 js.setLength(0);
             }
         }
@@ -159,7 +162,7 @@ public class Connector extends MapSeriesBaseWithMarkers {
             js.append(String.format(Locale.US, ".startSize(%s)", wrapQuotes(startSize1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".startSize(%s)", wrapQuotes(startSize1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startSize(%s);", wrapQuotes(startSize1)));
                 js.setLength(0);
             }
         }

@@ -32,9 +32,9 @@ abstract class JsObject {
 
     protected boolean isChain = false;
 
-    protected OnChange onChangeListener;
+    protected static OnChange onChangeListener;
 
-    protected boolean isRendered = false;
+    protected static boolean isRendered = false;
 
     protected JsObject() {
 
@@ -51,7 +51,7 @@ abstract class JsObject {
     protected void setOnChangeListener(OnChange listener) {
         onChangeListener = listener;
 
-        isRendered = true;
+//        isRendered = true;
     }
 
     protected String generateJsGetters() {

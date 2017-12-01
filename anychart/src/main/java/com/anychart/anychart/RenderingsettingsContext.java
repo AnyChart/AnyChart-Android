@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -59,7 +64,7 @@ public class RenderingsettingsContext extends JsObject {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s)", ((state != null) ? state.generateJs() : "null"), baseZIndex, wrapQuotes(restrictShapes)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s);", ((state != null) ? state.generateJs() : "null"), baseZIndex, wrapQuotes(restrictShapes)));
                 js.setLength(0);
             }
         }
@@ -90,7 +95,7 @@ public class RenderingsettingsContext extends JsObject {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s)", wrapQuotes(state1), baseZIndex, wrapQuotes(restrictShapes)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s);", wrapQuotes(state1), baseZIndex, wrapQuotes(restrictShapes)));
                 js.setLength(0);
             }
         }
@@ -115,7 +120,7 @@ public class RenderingsettingsContext extends JsObject {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s)", wrapQuotes(key)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getStat(%s);", wrapQuotes(key)));
                 js.setLength(0);
             }
         }

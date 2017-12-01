@@ -49,7 +49,7 @@ public class ContextMenu extends JsObject {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addClassName(%s)", wrapQuotes(className)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addClassName(%s);", wrapQuotes(className)));
                 js.setLength(0);
             }
         }
@@ -80,7 +80,7 @@ public class ContextMenu extends JsObject {
             js.append(String.format(Locale.US, ".attach(%s, %b)", ((target != null) ? target.getJsBase() : "null"), capture));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".attach(%s, %b)", ((target != null) ? target.getJsBase() : "null"), capture));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".attach(%s, %b);", ((target != null) ? target.getJsBase() : "null"), capture));
                 js.setLength(0);
             }
         }
@@ -109,7 +109,7 @@ public class ContextMenu extends JsObject {
             js.append(String.format(Locale.US, ".attach(%s, %b)", ((target1 != null) ? target1.getJsBase() : "null"), capture));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".attach(%s, %b)", ((target1 != null) ? target1.getJsBase() : "null"), capture));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".attach(%s, %b);", ((target1 != null) ? target1.getJsBase() : "null"), capture));
                 js.setLength(0);
             }
         }
@@ -144,7 +144,7 @@ public class ContextMenu extends JsObject {
             js.append(String.format(Locale.US, ".detach(%s, %b)", ((target2 != null) ? target2.getJsBase() : "null"), capture1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".detach(%s, %b)", ((target2 != null) ? target2.getJsBase() : "null"), capture1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".detach(%s, %b);", ((target2 != null) ? target2.getJsBase() : "null"), capture1));
                 js.setLength(0);
             }
         }
@@ -169,7 +169,7 @@ public class ContextMenu extends JsObject {
             js.append(String.format(Locale.US, ".enabled(%b)", enabled));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".enabled(%b)", enabled));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".enabled(%b);", enabled));
                 js.setLength(0);
             }
         }
@@ -194,7 +194,7 @@ public class ContextMenu extends JsObject {
             js.append(String.format(Locale.US, ".items(%s)", arrayToString(items)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".items(%s)", arrayToString(items)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".items(%s);", arrayToString(items)));
                 js.setLength(0);
             }
         }
@@ -223,7 +223,7 @@ public class ContextMenu extends JsObject {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeClassName(%s)", wrapQuotes(className1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeClassName(%s);", wrapQuotes(className1)));
                 js.setLength(0);
             }
         }
@@ -257,7 +257,7 @@ public class ContextMenu extends JsObject {
             js.append(String.format(Locale.US, ".setup(%s)", wrapQuotes(var_args)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setup(%s)", wrapQuotes(var_args)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setup(%s);", wrapQuotes(var_args)));
                 js.setLength(0);
             }
         }
@@ -287,7 +287,7 @@ public class ContextMenu extends JsObject {
             js.append(String.format(Locale.US, ".setup(%s)", arrayToStringWrapQuotes(var_args1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setup(%s)", arrayToStringWrapQuotes(var_args1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setup(%s);", arrayToStringWrapQuotes(var_args1)));
                 js.setLength(0);
             }
         }
@@ -317,7 +317,7 @@ public class ContextMenu extends JsObject {
             js.append(String.format(Locale.US, ".setup(%f)", var_args2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setup(%f)", var_args2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setup(%f);", var_args2));
                 js.setLength(0);
             }
         }
@@ -347,7 +347,7 @@ public class ContextMenu extends JsObject {
             js.append(String.format(Locale.US, ".setup(%b)", var_args4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setup(%b)", var_args4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setup(%b);", var_args4));
                 js.setLength(0);
             }
         }
@@ -376,7 +376,7 @@ public class ContextMenu extends JsObject {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".show(%f, %f)", x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".show(%f, %f);", x, y));
                 js.setLength(0);
             }
         }

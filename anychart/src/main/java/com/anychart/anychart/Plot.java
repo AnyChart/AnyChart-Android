@@ -50,6 +50,10 @@ public class Plot extends VisualBaseWithBounds {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".addSeries(%s);",  ((var_args != null) ? var_args.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", ((var_args != null) ? var_args.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
     }
 
@@ -80,7 +84,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", ((mapping != null) ? mapping.getJsBase() : "null"), ((seriesType != null) ? seriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s);", ((mapping != null) ? mapping.getJsBase() : "null"), ((seriesType != null) ? seriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -123,7 +127,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s)", ((mapping != null) ? mapping.getJsBase() : "null"), wrapQuotes(seriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adl(%s, %s);", ((mapping != null) ? mapping.getJsBase() : "null"), wrapQuotes(seriesType1)));
                 js.setLength(0);
             }
         }
@@ -183,7 +187,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %f, %f, %f, %s)", ((mapping1 != null) ? mapping1.getJsBase() : "null"), period, fastPeriod, slowPeriod, ((seriesType2 != null) ? seriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %f, %f, %f, %s);", ((mapping1 != null) ? mapping1.getJsBase() : "null"), period, fastPeriod, slowPeriod, ((seriesType2 != null) ? seriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -237,7 +241,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %f, %f, %f, %s)", ((mapping1 != null) ? mapping1.getJsBase() : "null"), period, fastPeriod, slowPeriod, wrapQuotes(seriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ama(%s, %f, %f, %f, %s);", ((mapping1 != null) ? mapping1.getJsBase() : "null"), period, fastPeriod, slowPeriod, wrapQuotes(seriesType3)));
                 js.setLength(0);
             }
         }
@@ -286,7 +290,7 @@ public class Plot extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".annotations(%s)", arrayToStringWrapQuotes(annotationsList)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".annotations(%s)", arrayToStringWrapQuotes(annotationsList)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".annotations(%s);", arrayToStringWrapQuotes(annotationsList)));
                 js.setLength(0);
             }
         }
@@ -308,6 +312,10 @@ public class Plot extends VisualBaseWithBounds {
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setArea" + ++variableIndex + " = " + jsBase + ".area(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesArea item = new StockSeriesArea("setArea" + variableIndex);
         setArea.add(item);
@@ -368,7 +376,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s)", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s);", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), ((downSeriesType != null) ? downSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -425,7 +433,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s)", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s);", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, ((upSeriesType != null) ? upSeriesType.generateJs() : "null"), wrapQuotes(downSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -482,7 +490,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s)", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s);", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, wrapQuotes(upSeriesType1), ((downSeriesType != null) ? downSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -539,7 +547,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s)", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".aroon(%s, %f, %s, %s);", ((mapping2 != null) ? mapping2.getJsBase() : "null"), period1, wrapQuotes(upSeriesType1), wrapQuotes(downSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -601,7 +609,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %f, %s)", ((mapping3 != null) ? mapping3.getJsBase() : "null"), period2, ((seriesType4 != null) ? seriesType4.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %f, %s);", ((mapping3 != null) ? mapping3.getJsBase() : "null"), period2, ((seriesType4 != null) ? seriesType4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -659,7 +667,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %f, %s)", ((mapping3 != null) ? mapping3.getJsBase() : "null"), period2, wrapQuotes(seriesType5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".atr(%s, %f, %s);", ((mapping3 != null) ? mapping3.getJsBase() : "null"), period2, wrapQuotes(seriesType5)));
                 js.setLength(0);
             }
         }
@@ -714,7 +722,7 @@ public class Plot extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".background(%s)", wrapQuotes(background)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%s);", wrapQuotes(background)));
                 js.setLength(0);
             }
         }
@@ -742,7 +750,7 @@ public class Plot extends VisualBaseWithBounds {
             js.append(String.format(Locale.US, ".background(%b)", background2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".background(%b)", background2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".background(%b);", background2));
                 js.setLength(0);
             }
         }
@@ -807,7 +815,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -875,7 +883,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -943,7 +951,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1011,7 +1019,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, ((upperSeriesType != null) ? upperSeriesType.generateJs() : "null"), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -1079,7 +1087,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1147,7 +1155,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), ((lowerSeriesType != null) ? lowerSeriesType.generateJs() : "null"), wrapQuotes(middleSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -1215,7 +1223,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), ((middleSeriesType != null) ? middleSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1283,7 +1291,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s)", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbands(%s, %f, %f, %s, %s, %s);", ((mapping4 != null) ? mapping4.getJsBase() : "null"), period3, deviation, wrapQuotes(upperSeriesType1), wrapQuotes(lowerSeriesType1), wrapQuotes(middleSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -1357,7 +1365,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %f, %f, %s)", ((mapping5 != null) ? mapping5.getJsBase() : "null"), period4, deviation1, ((seriesType6 != null) ? seriesType6.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %f, %f, %s);", ((mapping5 != null) ? mapping5.getJsBase() : "null"), period4, deviation1, ((seriesType6 != null) ? seriesType6.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1426,7 +1434,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %f, %f, %s)", ((mapping5 != null) ? mapping5.getJsBase() : "null"), period4, deviation1, wrapQuotes(seriesType7)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsB(%s, %f, %f, %s);", ((mapping5 != null) ? mapping5.getJsBase() : "null"), period4, deviation1, wrapQuotes(seriesType7)));
                 js.setLength(0);
             }
         }
@@ -1505,7 +1513,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %f, %f, %s)", ((mapping6 != null) ? mapping6.getJsBase() : "null"), period5, deviation2, ((seriesType8 != null) ? seriesType8.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %f, %f, %s);", ((mapping6 != null) ? mapping6.getJsBase() : "null"), period5, deviation2, ((seriesType8 != null) ? seriesType8.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1579,7 +1587,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %f, %f, %s)", ((mapping6 != null) ? mapping6.getJsBase() : "null"), period5, deviation2, wrapQuotes(seriesType9)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bbandsWidth(%s, %f, %f, %s);", ((mapping6 != null) ? mapping6.getJsBase() : "null"), period5, deviation2, wrapQuotes(seriesType9)));
                 js.setLength(0);
             }
         }
@@ -1613,6 +1621,10 @@ public class Plot extends VisualBaseWithBounds {
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setCandlestick" + ++variableIndex + " = " + jsBase + ".candlestick(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".candlestick(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesCandlestick item = new StockSeriesCandlestick("setCandlestick" + variableIndex);
         setCandlestick.add(item);
@@ -1686,7 +1698,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %f, %s)", ((mapping7 != null) ? mapping7.getJsBase() : "null"), period6, ((seriesType10 != null) ? seriesType10.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %f, %s);", ((mapping7 != null) ? mapping7.getJsBase() : "null"), period6, ((seriesType10 != null) ? seriesType10.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1758,7 +1770,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %f, %s)", ((mapping7 != null) ? mapping7.getJsBase() : "null"), period6, wrapQuotes(seriesType11)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cci(%s, %f, %s);", ((mapping7 != null) ? mapping7.getJsBase() : "null"), period6, wrapQuotes(seriesType11)));
                 js.setLength(0);
             }
         }
@@ -1845,7 +1857,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %f, %f, %s, %s)", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, ((maType != null) ? maType.generateJs() : "null"), ((seriesType12 != null) ? seriesType12.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %f, %f, %s, %s);", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, ((maType != null) ? maType.generateJs() : "null"), ((seriesType12 != null) ? seriesType12.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1925,7 +1937,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %f, %f, %s, %s)", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, ((maType != null) ? maType.generateJs() : "null"), wrapQuotes(seriesType13)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %f, %f, %s, %s);", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, ((maType != null) ? maType.generateJs() : "null"), wrapQuotes(seriesType13)));
                 js.setLength(0);
             }
         }
@@ -2005,7 +2017,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %f, %f, %s, %s)", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType1), ((seriesType12 != null) ? seriesType12.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %f, %f, %s, %s);", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType1), ((seriesType12 != null) ? seriesType12.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2085,7 +2097,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %f, %f, %s, %s)", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType1), wrapQuotes(seriesType13)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cho(%s, %f, %f, %s, %s);", ((mapping8 != null) ? mapping8.getJsBase() : "null"), fastPeriod1, slowPeriod1, wrapQuotes(maType1), wrapQuotes(seriesType13)));
                 js.setLength(0);
             }
         }
@@ -2168,7 +2180,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %f, %s)", ((mapping9 != null) ? mapping9.getJsBase() : "null"), period7, ((seriesType14 != null) ? seriesType14.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %f, %s);", ((mapping9 != null) ? mapping9.getJsBase() : "null"), period7, ((seriesType14 != null) ? seriesType14.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2247,7 +2259,7 @@ public class Plot extends VisualBaseWithBounds {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %f, %s)", ((mapping9 != null) ? mapping9.getJsBase() : "null"), period7, wrapQuotes(seriesType15)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cmf(%s, %f, %s);", ((mapping9 != null) ? mapping9.getJsBase() : "null"), period7, wrapQuotes(seriesType15)));
                 js.setLength(0);
             }
         }
@@ -2281,6 +2293,10 @@ public class Plot extends VisualBaseWithBounds {
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setColumn" + ++variableIndex + " = " + jsBase + ".column(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesColumn item = new StockSeriesColumn("setColumn" + variableIndex);
         setColumn.add(item);
@@ -2332,7 +2348,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".crosshair(%s)", wrapQuotes(crosshair)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".crosshair(%s)", wrapQuotes(crosshair)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".crosshair(%s);", wrapQuotes(crosshair)));
                 js.setLength(0);
             }
         }
@@ -2360,7 +2376,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".crosshair(%b)", crosshair1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".crosshair(%b)", crosshair1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".crosshair(%b);", crosshair1));
                 js.setLength(0);
             }
         }
@@ -2389,7 +2405,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".defaultSeriesType(%s)", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", ((defaultSeriesType != null) ? defaultSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2416,7 +2432,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".defaultSeriesType(%s)", wrapQuotes(defaultSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".defaultSeriesType(%s);", wrapQuotes(defaultSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -2495,7 +2511,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2576,7 +2592,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -2657,7 +2673,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2738,7 +2754,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, ((pdiSeriesType != null) ? pdiSeriesType.generateJs() : "null"), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -2819,7 +2835,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2900,7 +2916,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), ((ndiSeriesType != null) ? ndiSeriesType.generateJs() : "null"), wrapQuotes(adxSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -2981,7 +2997,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), ((adxSeriesType != null) ? adxSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3062,7 +3078,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s)", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dmi(%s, %f, %f, %b, %s, %s, %s);", ((mapping10 != null) ? mapping10.getJsBase() : "null"), period8, adxPeriod, useWildersSmoothing, wrapQuotes(pdiSeriesType1), wrapQuotes(ndiSeriesType1), wrapQuotes(adxSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -3151,7 +3167,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %f, %s)", ((mapping11 != null) ? mapping11.getJsBase() : "null"), period9, ((seriesType16 != null) ? seriesType16.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %f, %s);", ((mapping11 != null) ? mapping11.getJsBase() : "null"), period9, ((seriesType16 != null) ? seriesType16.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3236,7 +3252,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %f, %s)", ((mapping11 != null) ? mapping11.getJsBase() : "null"), period9, wrapQuotes(seriesType17)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ema(%s, %f, %s);", ((mapping11 != null) ? mapping11.getJsBase() : "null"), period9, wrapQuotes(seriesType17)));
                 js.setLength(0);
             }
         }
@@ -3326,7 +3342,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", arrayToString(hatchFillPalette)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", arrayToString(hatchFillPalette)));
                 js.setLength(0);
             }
         }
@@ -3368,7 +3384,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s)", wrapQuotes(hatchFillPalette1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", wrapQuotes(hatchFillPalette1)));
                 js.setLength(0);
             }
         }
@@ -3409,6 +3425,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hatchFillPalette(%s);", ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         HatchFills item = new HatchFills("setHatchFillPalette2" + variableIndex);
         setHatchFillPalette2.add(item);
@@ -3440,6 +3460,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setHilo" + ++variableIndex + " = " + jsBase + ".hilo(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hilo(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesHilo item = new StockSeriesHilo("setHilo" + variableIndex);
         setHilo.add(item);
@@ -3471,6 +3495,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setJumpLine" + ++variableIndex + " = " + jsBase + ".jumpLine(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".jumpLine(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesJumpLine item = new StockSeriesJumpLine("setJumpLine" + variableIndex);
         setJumpLine.add(item);
@@ -3571,7 +3599,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3658,7 +3686,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -3745,7 +3773,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3832,7 +3860,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -3919,7 +3947,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4006,7 +4034,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4093,7 +4121,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4180,7 +4208,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4267,7 +4295,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4354,7 +4382,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4441,7 +4469,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4528,7 +4556,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4615,7 +4643,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4702,7 +4730,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4789,7 +4817,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4876,7 +4904,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, ((kMAType != null) ? kMAType.generateJs() : "null"), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -4963,7 +4991,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5050,7 +5078,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5137,7 +5165,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5224,7 +5252,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5311,7 +5339,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5398,7 +5426,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5485,7 +5513,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5572,7 +5600,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, ((dMAType != null) ? dMAType.generateJs() : "null"), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5659,7 +5687,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5746,7 +5774,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -5833,7 +5861,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5920,7 +5948,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, ((kSeriesType != null) ? kSeriesType.generateJs() : "null"), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -6007,7 +6035,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6094,7 +6122,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), ((dSeriesType != null) ? dSeriesType.generateJs() : "null"), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -6181,7 +6209,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), ((jSeriesType != null) ? jSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6268,7 +6296,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s)", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kdj(%s, %f, %f, %f, %s, %f, %s, %f, %s, %s, %s);", ((mapping12 != null) ? mapping12.getJsBase() : "null"), kPeriod, kMAPeriod, dPeriod, wrapQuotes(kMAType1), kMultiplier, wrapQuotes(dMAType1), dMultiplier, wrapQuotes(kSeriesType1), wrapQuotes(dSeriesType1), wrapQuotes(jSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -6321,7 +6349,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".legend(%s)", wrapQuotes(legend)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".legend(%s)", wrapQuotes(legend)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".legend(%s);", wrapQuotes(legend)));
                 js.setLength(0);
             }
         }
@@ -6348,7 +6376,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".legend(%b)", legend1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".legend(%b)", legend1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".legend(%b);", legend1));
                 js.setLength(0);
             }
         }
@@ -6370,6 +6398,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesLine item = new StockSeriesLine("setLine" + variableIndex);
         setLine.add(item);
@@ -6459,7 +6491,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6541,7 +6573,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -6623,7 +6655,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6705,7 +6737,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, ((macdSeriesType != null) ? macdSeriesType.generateJs() : "null"), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -6787,7 +6819,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6869,7 +6901,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), ((signalSeriesType != null) ? signalSeriesType.generateJs() : "null"), wrapQuotes(histogramSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -6951,7 +6983,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), ((histogramSeriesType != null) ? histogramSeriesType.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7033,7 +7065,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s)", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".macd(%s, %f, %f, %f, %s, %s, %s);", ((mapping13 != null) ? mapping13.getJsBase() : "null"), fastPeriod2, slowPeriod2, signalPeriod, wrapQuotes(macdSeriesType1), wrapQuotes(signalSeriesType1), wrapQuotes(histogramSeriesType1)));
                 js.setLength(0);
             }
         }
@@ -7067,6 +7099,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesMarker item = new StockSeriesMarker("setMarker" + variableIndex);
         setMarker.add(item);
@@ -7121,6 +7157,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s);", ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -7147,7 +7187,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", wrapQuotes(markerPalette1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s);", wrapQuotes(markerPalette1)));
                 js.setLength(0);
             }
         }
@@ -7176,7 +7216,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToString(markerPalette2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s);", arrayToString(markerPalette2)));
                 js.setLength(0);
             }
         }
@@ -7205,7 +7245,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", arrayToStringWrapQuotes(markerPalette3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".markerPalette(%s);", arrayToStringWrapQuotes(markerPalette3)));
                 js.setLength(0);
             }
         }
@@ -7234,7 +7274,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxPointWidth(%f);", maxPointWidth));
                 js.setLength(0);
             }
         }
@@ -7261,7 +7301,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", wrapQuotes(maxPointWidth1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxPointWidth(%s);", wrapQuotes(maxPointWidth1)));
                 js.setLength(0);
             }
         }
@@ -7290,7 +7330,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minPointLength(%f);", minPointLength));
                 js.setLength(0);
             }
         }
@@ -7317,7 +7357,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", wrapQuotes(minPointLength1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minPointLength(%s);", wrapQuotes(minPointLength1)));
                 js.setLength(0);
             }
         }
@@ -7400,7 +7440,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %f, %s)", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, ((seriesType18 != null) ? seriesType18.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %f, %s);", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, ((seriesType18 != null) ? seriesType18.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7491,7 +7531,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %f, %s)", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, wrapQuotes(seriesType19)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mma(%s, %f, %s);", ((mapping14 != null) ? mapping14.getJsBase() : "null"), period10, wrapQuotes(seriesType19)));
                 js.setLength(0);
             }
         }
@@ -7541,7 +7581,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".noData(%s)", wrapQuotes(noData)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".noData(%s)", wrapQuotes(noData)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".noData(%s);", wrapQuotes(noData)));
                 js.setLength(0);
             }
         }
@@ -7563,6 +7603,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setOhlc" + ++variableIndex + " = " + jsBase + ".ohlc(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ohlc(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesOHLC item = new StockSeriesOHLC("setOhlc" + variableIndex);
         setOhlc.add(item);
@@ -7617,6 +7661,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s);", ((palette != null) ? palette.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -7643,6 +7691,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s);", ((palette1 != null) ? palette1.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -7669,7 +7721,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", wrapQuotes(palette2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s);", wrapQuotes(palette2)));
                 js.setLength(0);
             }
         }
@@ -7698,7 +7750,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(palette3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".palette(%s);", arrayToStringWrapQuotes(palette3)));
                 js.setLength(0);
             }
         }
@@ -7727,7 +7779,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pointWidth(%f);", pointWidth));
                 js.setLength(0);
             }
         }
@@ -7754,7 +7806,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", wrapQuotes(pointWidth1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pointWidth(%s);", wrapQuotes(pointWidth1)));
                 js.setLength(0);
             }
         }
@@ -7794,7 +7846,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".priceIndicator(%s)", wrapQuotes(priceIndicator)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%s)", wrapQuotes(priceIndicator)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".priceIndicator(%s);", wrapQuotes(priceIndicator)));
                 js.setLength(0);
             }
         }
@@ -7821,7 +7873,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".priceIndicator(%b)", priceIndicator1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%b)", priceIndicator1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".priceIndicator(%b);", priceIndicator1));
                 js.setLength(0);
             }
         }
@@ -7855,7 +7907,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".priceIndicator(%f, %s)", index, wrapQuotes(priceIndicator2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%f, %s)", index, wrapQuotes(priceIndicator2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".priceIndicator(%f, %s);", index, wrapQuotes(priceIndicator2)));
                 js.setLength(0);
             }
         }
@@ -7886,7 +7938,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".priceIndicator(%f, %b)", index, priceIndicator3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".priceIndicator(%f, %b)", index, priceIndicator3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".priceIndicator(%f, %b);", index, priceIndicator3));
                 js.setLength(0);
             }
         }
@@ -7908,6 +7960,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setRangeArea" + ++variableIndex + " = " + jsBase + ".rangeArea(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeArea(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesRangeArea item = new StockSeriesRangeArea("setRangeArea" + variableIndex);
         setRangeArea.add(item);
@@ -7939,6 +7995,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setRangeColumn" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesRangeColumn item = new StockSeriesRangeColumn("setRangeColumn" + variableIndex);
         setRangeColumn.add(item);
@@ -7970,6 +8030,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setRangeSplineArea" + ++variableIndex + " = " + jsBase + ".rangeSplineArea(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeSplineArea(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesRangeSplineArea item = new StockSeriesRangeSplineArea("setRangeSplineArea" + variableIndex);
         setRangeSplineArea.add(item);
@@ -8001,6 +8065,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setRangeStepArea" + ++variableIndex + " = " + jsBase + ".rangeStepArea(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeStepArea(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesRangeStepArea item = new StockSeriesRangeStepArea("setRangeStepArea" + variableIndex);
         setRangeStepArea.add(item);
@@ -8039,7 +8107,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".removeSeries(%f)", id));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeSeries(%f);", id));
                 js.setLength(0);
             }
         }
@@ -8066,7 +8134,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", wrapQuotes(id1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeSeries(%s);", wrapQuotes(id1)));
                 js.setLength(0);
             }
         }
@@ -8094,7 +8162,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeSeriesAt(%f);", index1));
                 js.setLength(0);
             }
         }
@@ -8181,7 +8249,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %f, %s)", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, ((seriesType20 != null) ? seriesType20.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %f, %s);", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, ((seriesType20 != null) ? seriesType20.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -8276,7 +8344,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %f, %s)", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, wrapQuotes(seriesType21)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roc(%s, %f, %s);", ((mapping15 != null) ? mapping15.getJsBase() : "null"), period11, wrapQuotes(seriesType21)));
                 js.setLength(0);
             }
         }
@@ -8379,7 +8447,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %f, %s)", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, ((seriesType22 != null) ? seriesType22.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %f, %s);", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, ((seriesType22 != null) ? seriesType22.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -8478,7 +8546,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %f, %s)", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, wrapQuotes(seriesType23)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rsi(%s, %f, %s);", ((mapping16 != null) ? mapping16.getJsBase() : "null"), period12, wrapQuotes(seriesType23)));
                 js.setLength(0);
             }
         }
@@ -8585,7 +8653,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %f, %s)", ((mapping17 != null) ? mapping17.getJsBase() : "null"), period13, ((seriesType24 != null) ? seriesType24.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %f, %s);", ((mapping17 != null) ? mapping17.getJsBase() : "null"), period13, ((seriesType24 != null) ? seriesType24.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -8688,7 +8756,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %f, %s)", ((mapping17 != null) ? mapping17.getJsBase() : "null"), period13, wrapQuotes(seriesType25)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sma(%s, %f, %s);", ((mapping17 != null) ? mapping17.getJsBase() : "null"), period13, wrapQuotes(seriesType25)));
                 js.setLength(0);
             }
         }
@@ -8722,6 +8790,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setSpline" + ++variableIndex + " = " + jsBase + ".spline(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spline(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesSpline item = new StockSeriesSpline("setSpline" + variableIndex);
         setSpline.add(item);
@@ -8753,6 +8825,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setSplineArea" + ++variableIndex + " = " + jsBase + ".splineArea(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".splineArea(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesSplineArea item = new StockSeriesSplineArea("setSplineArea" + variableIndex);
         setSplineArea.add(item);
@@ -8784,6 +8860,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setStepArea" + ++variableIndex + " = " + jsBase + ".stepArea(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepArea(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesStepArea item = new StockSeriesStepArea("setStepArea" + variableIndex);
         setStepArea.add(item);
@@ -8815,6 +8895,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setStepLine" + ++variableIndex + " = " + jsBase + ".stepLine(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stepLine(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesStepLine item = new StockSeriesStepLine("setStepLine" + variableIndex);
         setStepLine.add(item);
@@ -8846,6 +8930,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
             js.append(mapping.generateJs());
             js.append(String.format(Locale.US, "var setStick" + ++variableIndex + " = " + jsBase + ".stick(%s);", mapping.getJsBase()));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stick(%s);", mapping.getJsBase()));
+                js.setLength(0);
+            }
         }
         StockSeriesStick item = new StockSeriesStick("setStick" + variableIndex);
         setStick.add(item);
@@ -8956,7 +9044,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -9057,7 +9145,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -9158,7 +9246,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -9259,7 +9347,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -9360,7 +9448,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -9461,7 +9549,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -9562,7 +9650,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -9663,7 +9751,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, ((kMAType2 != null) ? kMAType2.generateJs() : "null"), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -9764,7 +9852,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -9865,7 +9953,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -9966,7 +10054,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10067,7 +10155,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), ((dMAType2 != null) ? dMAType2.generateJs() : "null"), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -10168,7 +10256,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10269,7 +10357,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), ((kSeriesType2 != null) ? kSeriesType2.generateJs() : "null"), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -10370,7 +10458,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), ((dSeriesType2 != null) ? dSeriesType2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10471,7 +10559,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s)", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stochastic(%s, %f, %f, %f, %s, %s, %s, %s);", ((mapping18 != null) ? mapping18.getJsBase() : "null"), kPeriod1, kMAPeriod1, dPeriod1, wrapQuotes(kMAType3), wrapQuotes(dMAType3), wrapQuotes(kSeriesType3), wrapQuotes(dSeriesType3)));
                 js.setLength(0);
             }
         }
@@ -10524,7 +10612,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s)", wrapQuotes(xAxis)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xAxis(%s);", wrapQuotes(xAxis)));
                 js.setLength(0);
             }
         }
@@ -10551,7 +10639,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".xAxis(%b)", xAxis1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b)", xAxis1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xAxis(%b);", xAxis1));
                 js.setLength(0);
             }
         }
@@ -10591,7 +10679,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".xGrid(%s)", wrapQuotes(xGrid)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s)", wrapQuotes(xGrid)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xGrid(%s);", wrapQuotes(xGrid)));
                 js.setLength(0);
             }
         }
@@ -10618,7 +10706,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".xGrid(%b)", xGrid1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b)", xGrid1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xGrid(%b);", xGrid1));
                 js.setLength(0);
             }
         }
@@ -10656,7 +10744,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".xGrid(%f, %s)", index2, wrapQuotes(xGrid2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%f, %s)", index2, wrapQuotes(xGrid2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xGrid(%f, %s);", index2, wrapQuotes(xGrid2)));
                 js.setLength(0);
             }
         }
@@ -10691,7 +10779,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".xGrid(%f, %b)", index2, xGrid3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xGrid(%f, %b)", index2, xGrid3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xGrid(%f, %b);", index2, xGrid3));
                 js.setLength(0);
             }
         }
@@ -10731,7 +10819,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".xMinorGrid(%s)", wrapQuotes(xMinorGrid)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s)", wrapQuotes(xMinorGrid)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xMinorGrid(%s);", wrapQuotes(xMinorGrid)));
                 js.setLength(0);
             }
         }
@@ -10758,7 +10846,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b)", xMinorGrid1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xMinorGrid(%b);", xMinorGrid1));
                 js.setLength(0);
             }
         }
@@ -10792,7 +10880,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".xMinorGrid(%f, %s)", indexOrValue, wrapQuotes(xMinorGrid2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%f, %s)", indexOrValue, wrapQuotes(xMinorGrid2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xMinorGrid(%f, %s);", indexOrValue, wrapQuotes(xMinorGrid2)));
                 js.setLength(0);
             }
         }
@@ -10823,7 +10911,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".xMinorGrid(%f, %b)", indexOrValue, xMinorGrid3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%f, %b)", indexOrValue, xMinorGrid3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xMinorGrid(%f, %b);", indexOrValue, xMinorGrid3));
                 js.setLength(0);
             }
         }
@@ -10863,7 +10951,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".yAxis(%s)", wrapQuotes(yAxis)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s)", wrapQuotes(yAxis)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yAxis(%s);", wrapQuotes(yAxis)));
                 js.setLength(0);
             }
         }
@@ -10890,7 +10978,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".yAxis(%b)", yAxis1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b)", yAxis1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yAxis(%b);", yAxis1));
                 js.setLength(0);
             }
         }
@@ -10929,7 +11017,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".yAxis(%f, %s)", index3, wrapQuotes(yAxis2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%f, %s)", index3, wrapQuotes(yAxis2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yAxis(%f, %s);", index3, wrapQuotes(yAxis2)));
                 js.setLength(0);
             }
         }
@@ -10965,7 +11053,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".yAxis(%f, %b)", index3, yAxis3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yAxis(%f, %b)", index3, yAxis3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yAxis(%f, %b);", index3, yAxis3));
                 js.setLength(0);
             }
         }
@@ -11005,7 +11093,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".yGrid(%s)", wrapQuotes(yGrid)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s)", wrapQuotes(yGrid)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yGrid(%s);", wrapQuotes(yGrid)));
                 js.setLength(0);
             }
         }
@@ -11032,7 +11120,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".yGrid(%b)", yGrid1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b)", yGrid1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yGrid(%b);", yGrid1));
                 js.setLength(0);
             }
         }
@@ -11072,7 +11160,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".yGrid(%f, %s)", index4, wrapQuotes(yGrid2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%f, %s)", index4, wrapQuotes(yGrid2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yGrid(%f, %s);", index4, wrapQuotes(yGrid2)));
                 js.setLength(0);
             }
         }
@@ -11109,7 +11197,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".yGrid(%f, %b)", index4, yGrid3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yGrid(%f, %b)", index4, yGrid3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yGrid(%f, %b);", index4, yGrid3));
                 js.setLength(0);
             }
         }
@@ -11149,7 +11237,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".yMinorGrid(%s)", wrapQuotes(yMinorGrid)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s)", wrapQuotes(yMinorGrid)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yMinorGrid(%s);", wrapQuotes(yMinorGrid)));
                 js.setLength(0);
             }
         }
@@ -11176,7 +11264,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b)", yMinorGrid1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yMinorGrid(%b);", yMinorGrid1));
                 js.setLength(0);
             }
         }
@@ -11213,7 +11301,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".yMinorGrid(%f, %s)", indexOrValue1, wrapQuotes(yMinorGrid2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%f, %s)", indexOrValue1, wrapQuotes(yMinorGrid2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yMinorGrid(%f, %s);", indexOrValue1, wrapQuotes(yMinorGrid2)));
                 js.setLength(0);
             }
         }
@@ -11247,7 +11335,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".yMinorGrid(%f, %b)", indexOrValue1, yMinorGrid3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%f, %b)", indexOrValue1, yMinorGrid3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yMinorGrid(%f, %b);", indexOrValue1, yMinorGrid3));
                 js.setLength(0);
             }
         }
@@ -11292,7 +11380,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale != null) ? yScale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yScale(%s);", ((yScale != null) ? yScale.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -11321,7 +11409,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(yScale1)));
                 js.setLength(0);
             }
         }
@@ -11350,6 +11438,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yScale(%s);", ((yScale2 != null) ? yScale2.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }

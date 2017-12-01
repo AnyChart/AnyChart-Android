@@ -48,7 +48,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".allowRangeChange(%b)", allowRangeChange));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".allowRangeChange(%b)", allowRangeChange));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".allowRangeChange(%b);", allowRangeChange));
                 js.setLength(0);
             }
         }
@@ -73,7 +73,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".autoHide(%b)", autoHide));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".autoHide(%b)", autoHide));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".autoHide(%b);", autoHide));
                 js.setLength(0);
             }
         }
@@ -99,7 +99,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -127,7 +127,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f);", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -175,7 +175,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -216,7 +216,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -257,7 +257,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -298,7 +298,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -339,7 +339,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -380,7 +380,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -439,7 +439,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -490,7 +490,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -520,7 +520,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
                 js.setLength(0);
             }
         }
@@ -547,7 +547,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height1)));
                 js.setLength(0);
             }
         }
@@ -576,7 +576,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".maxHeight(%f)", maxHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%f)", maxHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
                 js.setLength(0);
             }
         }
@@ -603,7 +603,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(maxHeight1)));
                 js.setLength(0);
             }
         }
@@ -632,7 +632,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".minHeight(%f)", minHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minHeight(%f)", minHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
                 js.setLength(0);
             }
         }
@@ -659,7 +659,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".minHeight(%s)", wrapQuotes(minHeight1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minHeight(%s)", wrapQuotes(minHeight1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(minHeight1)));
                 js.setLength(0);
             }
         }
@@ -688,7 +688,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".orientation(%s);", ((orientation != null) ? orientation.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -715,7 +715,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".orientation(%s);", wrapQuotes(orientation1)));
                 js.setLength(0);
             }
         }
@@ -759,7 +759,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".outlineStroke(%s, %f, %s, %s, %s)", ((outlineStroke != null) ? outlineStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".outlineStroke(%s, %f, %s, %s, %s)", ((outlineStroke != null) ? outlineStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".outlineStroke(%s, %f, %s, %s, %s);", ((outlineStroke != null) ? outlineStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -796,7 +796,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".outlineStroke(%s, %f, %s, %s, %s)", ((outlineStroke1 != null) ? outlineStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".outlineStroke(%s, %f, %s, %s, %s)", ((outlineStroke1 != null) ? outlineStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".outlineStroke(%s, %f, %s, %s, %s);", ((outlineStroke1 != null) ? outlineStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -833,7 +833,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".outlineStroke(%s, %f, %s, %s, %s)", wrapQuotes(outlineStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".outlineStroke(%s, %f, %s, %s, %s)", wrapQuotes(outlineStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".outlineStroke(%s, %f, %s, %s, %s);", wrapQuotes(outlineStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -859,7 +859,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".selectedFill(%s)", ((selectedFill != null) ? selectedFill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedFill(%s)", ((selectedFill != null) ? selectedFill.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedFill(%s);", ((selectedFill != null) ? selectedFill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -895,7 +895,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".selectedFill(%s, %f)", wrapQuotes(color1), opacity3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedFill(%s, %f)", wrapQuotes(color1), opacity3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedFill(%s, %f);", wrapQuotes(color1), opacity3));
                 js.setLength(0);
             }
         }
@@ -957,7 +957,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".selectedFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedFill(%s, %f, %f, %b);", arrayToString(keys4), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -1012,7 +1012,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".selectedFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1067,7 +1067,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".selectedFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1122,7 +1122,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".selectedFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -1177,7 +1177,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".selectedFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1232,7 +1232,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".selectedFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1314,7 +1314,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".selectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1388,7 +1388,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".selectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1430,7 +1430,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".thumbs(%b)", thumbs));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".thumbs(%b)", thumbs));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".thumbs(%b);", thumbs));
                 js.setLength(0);
             }
         }
@@ -1457,7 +1457,7 @@ public class UiScroller extends VisualBase {
             js.append(String.format(Locale.US, ".thumbs(%s)", wrapQuotes(thumbs1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".thumbs(%s)", wrapQuotes(thumbs1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".thumbs(%s);", wrapQuotes(thumbs1)));
                 js.setLength(0);
             }
         }

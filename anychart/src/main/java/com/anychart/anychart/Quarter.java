@@ -1,9 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -82,7 +84,7 @@ public class Quarter extends UiBackground {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%b)", label));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%b);", label));
                 js.setLength(0);
             }
         }
@@ -124,7 +126,7 @@ public class Quarter extends UiBackground {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s)", wrapQuotes(label1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s);", wrapQuotes(label1)));
                 js.setLength(0);
             }
         }
@@ -179,7 +181,7 @@ public class Quarter extends UiBackground {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %b)", wrapQuotes(index), label3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %b);", wrapQuotes(index), label3));
                 js.setLength(0);
             }
         }
@@ -229,7 +231,7 @@ public class Quarter extends UiBackground {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %s)", wrapQuotes(index), wrapQuotes(label4)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %s);", wrapQuotes(index), wrapQuotes(label4)));
                 js.setLength(0);
             }
         }
@@ -279,7 +281,7 @@ public class Quarter extends UiBackground {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f, %b)", index1, label3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f, %b);", index1, label3));
                 js.setLength(0);
             }
         }
@@ -329,7 +331,7 @@ public class Quarter extends UiBackground {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f, %s)", index1, wrapQuotes(label4)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f, %s);", index1, wrapQuotes(label4)));
                 js.setLength(0);
             }
         }
@@ -385,7 +387,7 @@ public class Quarter extends UiBackground {
             js.append(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", Arrays.toString(margin)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s);", Arrays.toString(margin)));
                 js.setLength(0);
             }
         }
@@ -413,7 +415,7 @@ public class Quarter extends UiBackground {
             js.append(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", arrayToStringWrapQuotes(margin1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s);", arrayToStringWrapQuotes(margin1)));
                 js.setLength(0);
             }
         }
@@ -441,7 +443,7 @@ public class Quarter extends UiBackground {
             js.append(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s)", wrapQuotes(margin2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s);", wrapQuotes(margin2)));
                 js.setLength(0);
             }
         }
@@ -515,7 +517,7 @@ public class Quarter extends UiBackground {
             js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%s, %s, %s, %s)", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %s);", wrapQuotes(value), wrapQuotes(value2), wrapQuotes(value4), wrapQuotes(value6)));
                 js.setLength(0);
             }
         }
@@ -581,7 +583,7 @@ public class Quarter extends UiBackground {
             js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %f);", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
@@ -627,7 +629,7 @@ public class Quarter extends UiBackground {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", Arrays.toString(padding)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", Arrays.toString(padding)));
                 js.setLength(0);
             }
         }
@@ -669,7 +671,7 @@ public class Quarter extends UiBackground {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", arrayToStringWrapQuotes(padding1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", arrayToStringWrapQuotes(padding1)));
                 js.setLength(0);
             }
         }
@@ -711,7 +713,7 @@ public class Quarter extends UiBackground {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s)", wrapQuotes(padding2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s);", wrapQuotes(padding2)));
                 js.setLength(0);
             }
         }
@@ -831,7 +833,7 @@ public class Quarter extends UiBackground {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s)", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", wrapQuotes(value8), wrapQuotes(value10), wrapQuotes(value12), wrapQuotes(value14)));
                 js.setLength(0);
             }
         }
@@ -943,7 +945,7 @@ public class Quarter extends UiBackground {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value9, value11, value13, value15));
                 js.setLength(0);
             }
         }
@@ -998,7 +1000,7 @@ public class Quarter extends UiBackground {
             js.append(String.format(Locale.US, ".title(%b)", title));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".title(%b)", title));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".title(%b);", title));
                 js.setLength(0);
             }
         }
@@ -1026,7 +1028,7 @@ public class Quarter extends UiBackground {
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(title1)));
                 js.setLength(0);
             }
         }

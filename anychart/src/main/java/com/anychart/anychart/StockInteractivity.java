@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -49,7 +54,7 @@ Allows use mouse wheel for scrolling. Press "ctrl" or "shift" and scroll mouse w
             js.append(String.format(Locale.US, ".scrollOnMouseWheel(%b)", scrollOnMouseWheel));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scrollOnMouseWheel(%b)", scrollOnMouseWheel));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scrollOnMouseWheel(%b);", scrollOnMouseWheel));
                 js.setLength(0);
             }
         }
@@ -75,7 +80,7 @@ Allows use mouse wheel for zooming. Press "ctrl" or "shift" and zoom mouse wheel
             js.append(String.format(Locale.US, ".zoomOnMouseWheel(%b)", zoomOnMouseWheel));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".zoomOnMouseWheel(%b)", zoomOnMouseWheel));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomOnMouseWheel(%b);", zoomOnMouseWheel));
                 js.setLength(0);
             }
         }

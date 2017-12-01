@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -53,6 +58,10 @@ public class View extends CoreBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".concat(%s);",  ((otherView != null) ? otherView.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".concat(%s);", ((otherView != null) ? otherView.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -77,7 +86,7 @@ public class View extends CoreBase {
             js.append(String.format(Locale.US, ".concat(%s)", arrayToStringWrapQuotes(otherView1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".concat(%s)", arrayToStringWrapQuotes(otherView1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".concat(%s);", arrayToStringWrapQuotes(otherView1)));
                 js.setLength(0);
             }
         }
@@ -102,7 +111,7 @@ public class View extends CoreBase {
             js.append(String.format(Locale.US, ".filter(%s)", wrapQuotes(fieldName)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".filter(%s)", wrapQuotes(fieldName)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".filter(%s);", wrapQuotes(fieldName)));
                 js.setLength(0);
             }
         }
@@ -131,7 +140,7 @@ public class View extends CoreBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".find(%s)", wrapQuotes(fieldName1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".find(%s);", wrapQuotes(fieldName1)));
                 js.setLength(0);
             }
         }
@@ -158,7 +167,7 @@ public class View extends CoreBase {
             js.append(String.format(Locale.US, ".meta(%f, %s)", index, wrapQuotes(name)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".meta(%f, %s)", index, wrapQuotes(name)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%f, %s);", index, wrapQuotes(name)));
                 js.setLength(0);
             }
         }
@@ -184,7 +193,7 @@ public class View extends CoreBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".row(%f)", rowIndex));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".row(%f);", rowIndex));
                 js.setLength(0);
             }
         }
@@ -218,7 +227,7 @@ public class View extends CoreBase {
             js.append(String.format(Locale.US, ".set(%f, %s)", rowIndex1, wrapQuotes(fieldName2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%f, %s)", rowIndex1, wrapQuotes(fieldName2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%f, %s);", rowIndex1, wrapQuotes(fieldName2)));
                 js.setLength(0);
             }
         }
@@ -248,7 +257,7 @@ public class View extends CoreBase {
             js.append(String.format(Locale.US, ".sort(%s)", wrapQuotes(fieldName3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sort(%s)", wrapQuotes(fieldName3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sort(%s);", wrapQuotes(fieldName3)));
                 js.setLength(0);
             }
         }
@@ -286,7 +295,7 @@ public class View extends CoreBase {
             js.append(String.format(Locale.US, ".sort(%s, %s)", wrapQuotes(fieldName4), ((order != null) ? order.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", wrapQuotes(fieldName4), ((order != null) ? order.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sort(%s, %s);", wrapQuotes(fieldName4), ((order != null) ? order.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -321,7 +330,7 @@ public class View extends CoreBase {
             js.append(String.format(Locale.US, ".sort(%s, %s)", wrapQuotes(fieldName4), wrapQuotes(order1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sort(%s, %s)", wrapQuotes(fieldName4), wrapQuotes(order1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sort(%s, %s);", wrapQuotes(fieldName4), wrapQuotes(order1)));
                 js.setLength(0);
             }
         }

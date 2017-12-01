@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -53,7 +58,7 @@ public class Interactivity extends CoreBase {
             js.append(String.format(Locale.US, ".hoverMode(%s)", ((hoverMode != null) ? hoverMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hoverMode(%s)", ((hoverMode != null) ? hoverMode.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverMode(%s);", ((hoverMode != null) ? hoverMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -80,7 +85,7 @@ public class Interactivity extends CoreBase {
             js.append(String.format(Locale.US, ".hoverMode(%s)", wrapQuotes(hoverMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hoverMode(%s)", wrapQuotes(hoverMode1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hoverMode(%s);", wrapQuotes(hoverMode1)));
                 js.setLength(0);
             }
         }
@@ -109,7 +114,7 @@ public class Interactivity extends CoreBase {
             js.append(String.format(Locale.US, ".selectionMode(%s)", ((selectionMode != null) ? selectionMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectionMode(%s)", ((selectionMode != null) ? selectionMode.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectionMode(%s);", ((selectionMode != null) ? selectionMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -136,7 +141,7 @@ public class Interactivity extends CoreBase {
             js.append(String.format(Locale.US, ".selectionMode(%s)", wrapQuotes(selectionMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectionMode(%s)", wrapQuotes(selectionMode1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectionMode(%s);", wrapQuotes(selectionMode1)));
                 js.setLength(0);
             }
         }
@@ -163,7 +168,7 @@ Size of the area under cursor in pixels for radius hovering.
             js.append(String.format(Locale.US, ".spotRadius(%f)", spotRadius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".spotRadius(%f)", spotRadius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spotRadius(%f);", spotRadius));
                 js.setLength(0);
             }
         }

@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -50,7 +55,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawFirstLabel(%b);", drawFirstLabel));
                 js.setLength(0);
             }
         }
@@ -75,7 +80,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawLastLabel(%b);", drawLastLabel));
                 js.setLength(0);
             }
         }
@@ -116,7 +121,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(labels)));
                 js.setLength(0);
             }
         }
@@ -143,7 +148,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%b);", labels1));
                 js.setLength(0);
             }
         }
@@ -184,7 +189,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorLabels(%s);", wrapQuotes(minorLabels)));
                 js.setLength(0);
             }
         }
@@ -211,7 +216,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorLabels(%b);", minorLabels1));
                 js.setLength(0);
             }
         }
@@ -252,7 +257,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(minorTicks)));
                 js.setLength(0);
             }
         }
@@ -279,7 +284,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorTicks(%b);", minorTicks1));
                 js.setLength(0);
             }
         }
@@ -308,7 +313,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", ((orientation != null) ? orientation.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".orientation(%s);", ((orientation != null) ? orientation.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -335,7 +340,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".orientation(%s)", wrapQuotes(orientation1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".orientation(%s);", wrapQuotes(orientation1)));
                 js.setLength(0);
             }
         }
@@ -364,7 +369,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlapMode(%s);", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -391,7 +396,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlapMode(%s);", wrapQuotes(overlapMode1)));
                 js.setLength(0);
             }
         }
@@ -436,6 +441,10 @@ public class CoreAxesLinear extends VisualBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s);", ((scale != null) ? scale.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -462,7 +471,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s);", wrapQuotes(scale1)));
                 js.setLength(0);
             }
         }
@@ -491,7 +500,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s);", ((scale2 != null) ? scale2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -517,7 +526,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".staggerLines(%f)", staggerLines));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".staggerLines(%f)", staggerLines));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".staggerLines(%f);", staggerLines));
                 js.setLength(0);
             }
         }
@@ -542,7 +551,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".staggerMaxLines(%f)", staggerMaxLines));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".staggerMaxLines(%f)", staggerMaxLines));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".staggerMaxLines(%f);", staggerMaxLines));
                 js.setLength(0);
             }
         }
@@ -567,7 +576,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".staggerMode(%b)", staggerMode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".staggerMode(%b)", staggerMode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".staggerMode(%b);", staggerMode));
                 js.setLength(0);
             }
         }
@@ -611,7 +620,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -648,7 +657,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -685,7 +694,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -726,7 +735,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(ticks)));
                 js.setLength(0);
             }
         }
@@ -753,7 +762,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".ticks(%b)", ticks1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%b)", ticks1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%b);", ticks1));
                 js.setLength(0);
             }
         }
@@ -796,7 +805,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".title(%b)", title));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".title(%b)", title));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".title(%b);", title));
                 js.setLength(0);
             }
         }
@@ -824,7 +833,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(title1)));
                 js.setLength(0);
             }
         }
@@ -853,7 +862,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
                 js.setLength(0);
             }
         }
@@ -880,7 +889,7 @@ public class CoreAxesLinear extends VisualBase {
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width1)));
                 js.setLength(0);
             }
         }

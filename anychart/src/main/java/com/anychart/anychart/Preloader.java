@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -48,6 +53,10 @@ public class Preloader extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".decorate(%s);",  ((element != null) ? element.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decorate(%s);", ((element != null) ? element.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
     }
 
@@ -69,6 +78,10 @@ public class Preloader extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".render(%s);",  ((parentElement != null) ? parentElement.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".render(%s);", ((parentElement != null) ? parentElement.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
     }
 
@@ -90,7 +103,7 @@ public class Preloader extends JsObject {
             js.append(String.format(Locale.US, ".visible(%b)", visible));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".visible(%b)", visible));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".visible(%b);", visible));
                 js.setLength(0);
             }
         }

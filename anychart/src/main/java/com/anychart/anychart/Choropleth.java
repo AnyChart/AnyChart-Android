@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -67,6 +70,10 @@ public class Choropleth extends MapSeriesBaseWithMarkers {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale != null) ? colorScale.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s);", ((colorScale != null) ? colorScale.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         MapSeriesBase item = new MapSeriesBase("setColorScale" + variableIndex);
         setColorScale.add(item);
@@ -104,6 +111,10 @@ public class Choropleth extends MapSeriesBaseWithMarkers {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s);", ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         MapSeriesBase item = new MapSeriesBase("setColorScale1" + variableIndex);
         setColorScale1.add(item);

@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -55,7 +60,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".color(%s)", wrapQuotes(color)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".color(%s);", wrapQuotes(color)));
                 js.setLength(0);
             }
         }
@@ -84,7 +89,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".decoration(%s)", ((decoration != null) ? decoration.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".decoration(%s)", ((decoration != null) ? decoration.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decoration(%s);", ((decoration != null) ? decoration.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -111,7 +116,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".decoration(%s)", wrapQuotes(decoration1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".decoration(%s)", wrapQuotes(decoration1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".decoration(%s);", wrapQuotes(decoration1)));
                 js.setLength(0);
             }
         }
@@ -140,7 +145,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".direction(%s)", ((direction != null) ? direction.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".direction(%s)", ((direction != null) ? direction.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".direction(%s);", ((direction != null) ? direction.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -167,7 +172,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".direction(%s)", wrapQuotes(direction1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".direction(%s)", wrapQuotes(direction1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".direction(%s);", wrapQuotes(direction1)));
                 js.setLength(0);
             }
         }
@@ -192,7 +197,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontFamily(%s)", wrapQuotes(fontFamily)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontFamily(%s);", wrapQuotes(fontFamily)));
                 js.setLength(0);
             }
         }
@@ -221,7 +226,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontSize(%s)", wrapQuotes(fontSize)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", wrapQuotes(fontSize)));
                 js.setLength(0);
             }
         }
@@ -248,7 +253,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".fontSize(%f)", fontSize1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontSize(%f)", fontSize1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize1));
                 js.setLength(0);
             }
         }
@@ -277,7 +282,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", ((fontStyle != null) ? fontStyle.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -304,7 +309,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontStyle(%s)", wrapQuotes(fontStyle1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontStyle(%s);", wrapQuotes(fontStyle1)));
                 js.setLength(0);
             }
         }
@@ -333,7 +338,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", ((fontVariant != null) ? fontVariant.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -360,7 +365,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontVariant(%s)", wrapQuotes(fontVariant1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontVariant(%s);", wrapQuotes(fontVariant1)));
                 js.setLength(0);
             }
         }
@@ -389,7 +394,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%s)", wrapQuotes(fontWeight)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", wrapQuotes(fontWeight)));
                 js.setLength(0);
             }
         }
@@ -416,7 +421,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
                 js.setLength(0);
             }
         }
@@ -445,7 +450,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".hAlign(%s)", ((hAlign != null) ? hAlign.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", ((hAlign != null) ? hAlign.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", ((hAlign != null) ? hAlign.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -472,7 +477,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".hAlign(%s)", wrapQuotes(hAlign1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hAlign(%s);", wrapQuotes(hAlign1)));
                 js.setLength(0);
             }
         }
@@ -501,7 +506,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
                 js.setLength(0);
             }
         }
@@ -528,7 +533,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height1)));
                 js.setLength(0);
             }
         }
@@ -553,7 +558,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".htmlText(%s)", wrapQuotes(htmlText)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".htmlText(%s)", wrapQuotes(htmlText)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".htmlText(%s);", wrapQuotes(htmlText)));
                 js.setLength(0);
             }
         }
@@ -582,7 +587,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%s)", wrapQuotes(letterSpacing)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%s);", wrapQuotes(letterSpacing)));
                 js.setLength(0);
             }
         }
@@ -609,7 +614,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing1));
                 js.setLength(0);
             }
         }
@@ -638,7 +643,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%s)", wrapQuotes(lineHeight)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", wrapQuotes(lineHeight)));
                 js.setLength(0);
             }
         }
@@ -665,7 +670,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight1));
                 js.setLength(0);
             }
         }
@@ -690,7 +695,7 @@ public class VectorText extends Element {
             js.append(String.format(Locale.US, ".opacity(%f)", opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".opacity(%f)", opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".opacity(%f);", opacity));
                 js.setLength(0);
             }
         }
@@ -727,6 +732,10 @@ public class VectorText extends Element {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".path(%s);",  ((path != null) ? path.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".path(%s);", ((path != null) ? path.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -750,7 +759,7 @@ Defines whether text can be selected. If <b>false</b> - no selection.
             js.append(String.format(Locale.US, ".selectable(%b)", selectable));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".selectable(%b)", selectable));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectable(%b);", selectable));
                 js.setLength(0);
             }
         }
@@ -775,7 +784,7 @@ Defines whether text can be selected. If <b>false</b> - no selection.
             js.append(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".text(%s)", wrapQuotes(text)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".text(%s);", wrapQuotes(text)));
                 js.setLength(0);
             }
         }
@@ -801,7 +810,7 @@ The text-indent property specifies the indentation of the first line in a text-b
             js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textIndent(%f)", textIndent));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
                 js.setLength(0);
             }
         }
@@ -830,7 +839,7 @@ The text-indent property specifies the indentation of the first line in a text-b
             js.append(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", ((textOverflow != null) ? textOverflow.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -857,7 +866,7 @@ The text-indent property specifies the indentation of the first line in a text-b
             js.append(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".textOverflow(%s)", wrapQuotes(textOverflow1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textOverflow(%s);", wrapQuotes(textOverflow1)));
                 js.setLength(0);
             }
         }
@@ -886,7 +895,7 @@ The text-indent property specifies the indentation of the first line in a text-b
             js.append(String.format(Locale.US, ".vAlign(%s)", ((vAlign != null) ? vAlign.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", ((vAlign != null) ? vAlign.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", ((vAlign != null) ? vAlign.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -913,7 +922,7 @@ The text-indent property specifies the indentation of the first line in a text-b
             js.append(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".vAlign(%s)", wrapQuotes(vAlign1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".vAlign(%s);", wrapQuotes(vAlign1)));
                 js.setLength(0);
             }
         }
@@ -942,7 +951,7 @@ The text-indent property specifies the indentation of the first line in a text-b
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
                 js.setLength(0);
             }
         }
@@ -969,7 +978,7 @@ The text-indent property specifies the indentation of the first line in a text-b
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width1)));
                 js.setLength(0);
             }
         }
@@ -998,7 +1007,7 @@ The text-indent property specifies the indentation of the first line in a text-b
             js.append(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", wrapQuotes(wordBreak)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".wordBreak(%s);", wrapQuotes(wordBreak)));
                 js.setLength(0);
             }
         }
@@ -1025,7 +1034,7 @@ The text-indent property specifies the indentation of the first line in a text-b
             js.append(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak1 != null) ? wordBreak1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordBreak(%s)", ((wordBreak1 != null) ? wordBreak1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".wordBreak(%s);", ((wordBreak1 != null) ? wordBreak1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1055,7 +1064,7 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
             js.append(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", wrapQuotes(wordWrap)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".wordWrap(%s);", wrapQuotes(wordWrap)));
                 js.setLength(0);
             }
         }
@@ -1083,7 +1092,7 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
             js.append(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap1 != null) ? wordWrap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".wordWrap(%s)", ((wordWrap1 != null) ? wordWrap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".wordWrap(%s);", ((wordWrap1 != null) ? wordWrap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1108,7 +1117,7 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
             js.append(String.format(Locale.US, ".x(%f)", x));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".x(%f)", x));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".x(%f);", x));
                 js.setLength(0);
             }
         }
@@ -1133,7 +1142,7 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
             js.append(String.format(Locale.US, ".y(%f)", y));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".y(%f)", y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".y(%f);", y));
                 js.setLength(0);
             }
         }

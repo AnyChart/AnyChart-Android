@@ -50,7 +50,7 @@ public class BBandsB extends JsObject {
             js.append(String.format(Locale.US, ".deviation(%f)", deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".deviation(%f)", deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".deviation(%f);", deviation));
                 js.setLength(0);
             }
         }
@@ -102,7 +102,7 @@ public class BBandsB extends JsObject {
             js.append(String.format(Locale.US, ".series(%s)", ((type != null) ? type.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", ((type != null) ? type.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".series(%s);", ((type != null) ? type.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -129,7 +129,7 @@ public class BBandsB extends JsObject {
             js.append(String.format(Locale.US, ".series(%s)", wrapQuotes(type1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".series(%s)", wrapQuotes(type1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".series(%s);", wrapQuotes(type1)));
                 js.setLength(0);
             }
         }

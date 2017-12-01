@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -48,7 +53,7 @@ public class OrdinalZoom extends JsObject {
             js.append(String.format(Locale.US, ".continuous(%b)", continuous));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".continuous(%b)", continuous));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".continuous(%b);", continuous));
                 js.setLength(0);
             }
         }
@@ -76,7 +81,7 @@ public class OrdinalZoom extends JsObject {
             js.append(String.format(Locale.US, ".setTo(%f, %f)", startRatio, endRatio));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setTo(%f, %f)", startRatio, endRatio));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setTo(%f, %f);", startRatio, endRatio));
                 js.setLength(0);
             }
         }
@@ -107,7 +112,7 @@ public class OrdinalZoom extends JsObject {
             js.append(String.format(Locale.US, ".setToPointsCount(%f, %b, %s)", pointsCount, fromEnd, ((scale != null) ? scale.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setToPointsCount(%f, %b, %s)", pointsCount, fromEnd, ((scale != null) ? scale.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setToPointsCount(%f, %b, %s);", pointsCount, fromEnd, ((scale != null) ? scale.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -135,6 +140,10 @@ public class OrdinalZoom extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".setToValues(%s);",  ((scale1 != null) ? scale1.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setToValues(%s);", ((scale1 != null) ? scale1.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }

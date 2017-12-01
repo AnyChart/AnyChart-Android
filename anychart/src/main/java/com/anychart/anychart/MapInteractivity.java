@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -52,7 +55,7 @@ public class MapInteractivity extends Interactivity {
             js.append(String.format(Locale.US, ".drag(%b)", drag));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".drag(%b)", drag));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drag(%b);", drag));
                 js.setLength(0);
             }
         }
@@ -79,7 +82,7 @@ public class MapInteractivity extends Interactivity {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".keyboardZoomAndMove(%b)", keyboardZoomAndMove));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".keyboardZoomAndMove(%b);", keyboardZoomAndMove));
                 js.setLength(0);
             }
         }
@@ -118,7 +121,7 @@ public class MapInteractivity extends Interactivity {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomOnDoubleClick(%b)", zoomOnDoubleClick));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomOnDoubleClick(%b);", zoomOnDoubleClick));
                 js.setLength(0);
             }
         }
@@ -157,7 +160,7 @@ public class MapInteractivity extends Interactivity {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomOnMouseWheel(%b)", zoomOnMouseWheel));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomOnMouseWheel(%b);", zoomOnMouseWheel));
                 js.setLength(0);
             }
         }

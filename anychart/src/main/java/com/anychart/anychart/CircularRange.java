@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -48,7 +53,7 @@ public class CircularRange extends VisualBase {
             js.append(String.format(Locale.US, ".axisIndex(%f)", index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".axisIndex(%f)", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".axisIndex(%f);", index));
                 js.setLength(0);
             }
         }
@@ -78,7 +83,7 @@ Round off the ends of circular ranges to the specified radius.
             js.append(String.format(Locale.US, ".cornersRounding(%f)", cornersRounding));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cornersRounding(%f)", cornersRounding));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cornersRounding(%f);", cornersRounding));
                 js.setLength(0);
             }
         }
@@ -106,7 +111,7 @@ Round off the ends of circular ranges to the specified radius.
             js.append(String.format(Locale.US, ".cornersRounding(%s)", wrapQuotes(cornersRounding1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cornersRounding(%s)", wrapQuotes(cornersRounding1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cornersRounding(%s);", wrapQuotes(cornersRounding1)));
                 js.setLength(0);
             }
         }
@@ -135,7 +140,7 @@ Round off the ends of circular ranges to the specified radius.
             js.append(String.format(Locale.US, ".endSize(%f)", endSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".endSize(%f)", endSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".endSize(%f);", endSize));
                 js.setLength(0);
             }
         }
@@ -162,7 +167,7 @@ Round off the ends of circular ranges to the specified radius.
             js.append(String.format(Locale.US, ".endSize(%s)", wrapQuotes(endSize1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".endSize(%s)", wrapQuotes(endSize1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".endSize(%s);", wrapQuotes(endSize1)));
                 js.setLength(0);
             }
         }
@@ -187,7 +192,7 @@ Round off the ends of circular ranges to the specified radius.
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -212,7 +217,7 @@ Round off the ends of circular ranges to the specified radius.
             js.append(String.format(Locale.US, ".from(%f)", from));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".from(%f)", from));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".from(%f);", from));
                 js.setLength(0);
             }
         }
@@ -241,7 +246,7 @@ Round off the ends of circular ranges to the specified radius.
             js.append(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".position(%s)", ((position != null) ? position.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".position(%s);", ((position != null) ? position.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -268,7 +273,7 @@ Round off the ends of circular ranges to the specified radius.
             js.append(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".position(%s)", wrapQuotes(position1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".position(%s);", wrapQuotes(position1)));
                 js.setLength(0);
             }
         }
@@ -297,7 +302,7 @@ Round off the ends of circular ranges to the specified radius.
             js.append(String.format(Locale.US, ".radius(%f)", radius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".radius(%f)", radius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radius(%f);", radius));
                 js.setLength(0);
             }
         }
@@ -324,7 +329,7 @@ Round off the ends of circular ranges to the specified radius.
             js.append(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radius(%s);", wrapQuotes(radius1)));
                 js.setLength(0);
             }
         }
@@ -353,7 +358,7 @@ Round off the ends of circular ranges to the specified radius.
             js.append(String.format(Locale.US, ".startSize(%f)", startSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".startSize(%f)", startSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startSize(%f);", startSize));
                 js.setLength(0);
             }
         }
@@ -380,7 +385,7 @@ Round off the ends of circular ranges to the specified radius.
             js.append(String.format(Locale.US, ".startSize(%s)", wrapQuotes(startSize1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".startSize(%s)", wrapQuotes(startSize1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startSize(%s);", wrapQuotes(startSize1)));
                 js.setLength(0);
             }
         }
@@ -405,7 +410,7 @@ Round off the ends of circular ranges to the specified radius.
             js.append(String.format(Locale.US, ".to(%f)", to));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".to(%f)", to));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".to(%f);", to));
                 js.setLength(0);
             }
         }

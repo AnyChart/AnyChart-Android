@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -49,7 +54,7 @@ public class ScatterTicks extends CoreBase {
             js.append(String.format(Locale.US, ".base(%f)", base));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".base(%f)", base));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".base(%f);", base));
                 js.setLength(0);
             }
         }
@@ -75,7 +80,7 @@ public class ScatterTicks extends CoreBase {
             js.append(String.format(Locale.US, ".count(%f)", count));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".count(%f)", count));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%f);", count));
                 js.setLength(0);
             }
         }
@@ -104,7 +109,7 @@ public class ScatterTicks extends CoreBase {
             js.append(String.format(Locale.US, ".count(%f, %f)", minimumCount, maximumCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".count(%f, %f)", minimumCount, maximumCount));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%f, %f);", minimumCount, maximumCount));
                 js.setLength(0);
             }
         }
@@ -129,7 +134,7 @@ public class ScatterTicks extends CoreBase {
             js.append(String.format(Locale.US, ".interval(%f)", interval));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".interval(%f)", interval));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%f);", interval));
                 js.setLength(0);
             }
         }
@@ -159,7 +164,7 @@ public class ScatterTicks extends CoreBase {
             js.append(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", ((mode != null) ? mode.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mode(%s);", ((mode != null) ? mode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -187,7 +192,7 @@ public class ScatterTicks extends CoreBase {
             js.append(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".mode(%s)", wrapQuotes(mode1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".mode(%s);", wrapQuotes(mode1)));
                 js.setLength(0);
             }
         }
@@ -212,7 +217,7 @@ public class ScatterTicks extends CoreBase {
             js.append(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s);", arrayToStringWrapQuotes(ticks)));
                 js.setLength(0);
             }
         }

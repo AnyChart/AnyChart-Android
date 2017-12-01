@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -54,7 +59,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".cornersRounding(%f)", cornersRounding));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cornersRounding(%f)", cornersRounding));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cornersRounding(%f);", cornersRounding));
                 js.setLength(0);
             }
         }
@@ -82,7 +87,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".cornersRounding(%s)", wrapQuotes(cornersRounding1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cornersRounding(%s)", wrapQuotes(cornersRounding1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cornersRounding(%s);", wrapQuotes(cornersRounding1)));
                 js.setLength(0);
             }
         }
@@ -107,7 +112,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".drawFirstLabel(%b)", drawFirstLabel));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawFirstLabel(%b);", drawFirstLabel));
                 js.setLength(0);
             }
         }
@@ -132,7 +137,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".drawLastLabel(%b)", drawLastLabel));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drawLastLabel(%b);", drawLastLabel));
                 js.setLength(0);
             }
         }
@@ -162,7 +167,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", ((fill != null) ? fill.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", ((fill != null) ? fill.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -190,7 +195,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".fill(%s)", wrapQuotes(fill1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", wrapQuotes(fill1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(fill1)));
                 js.setLength(0);
             }
         }
@@ -218,7 +223,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f);", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -266,7 +271,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -307,7 +312,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -348,7 +353,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -389,7 +394,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -430,7 +435,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -471,7 +476,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -530,7 +535,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -581,7 +586,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -623,7 +628,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".labels(%s)", wrapQuotes(labels)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%s);", wrapQuotes(labels)));
                 js.setLength(0);
             }
         }
@@ -650,7 +655,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".labels(%b)", labels1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".labels(%b)", labels1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".labels(%b);", labels1));
                 js.setLength(0);
             }
         }
@@ -691,7 +696,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%s)", wrapQuotes(minorLabels)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorLabels(%s);", wrapQuotes(minorLabels)));
                 js.setLength(0);
             }
         }
@@ -718,7 +723,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorLabels(%b)", minorLabels1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorLabels(%b);", minorLabels1));
                 js.setLength(0);
             }
         }
@@ -759,7 +764,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%s)", wrapQuotes(minorTicks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorTicks(%s);", wrapQuotes(minorTicks)));
                 js.setLength(0);
             }
         }
@@ -786,7 +791,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minorTicks(%b)", minorTicks1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minorTicks(%b);", minorTicks1));
                 js.setLength(0);
             }
         }
@@ -817,7 +822,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlapMode(%s);", ((overlapMode != null) ? overlapMode.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -845,7 +850,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%s)", wrapQuotes(overlapMode1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlapMode(%s);", wrapQuotes(overlapMode1)));
                 js.setLength(0);
             }
         }
@@ -873,7 +878,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".overlapMode(%b)", overlapMode2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".overlapMode(%b);", overlapMode2));
                 js.setLength(0);
             }
         }
@@ -902,7 +907,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".radius(%f)", radius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".radius(%f)", radius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radius(%f);", radius));
                 js.setLength(0);
             }
         }
@@ -929,7 +934,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", wrapQuotes(radius1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radius(%s);", wrapQuotes(radius1)));
                 js.setLength(0);
             }
         }
@@ -974,7 +979,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s);", ((scale != null) ? scale.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1003,7 +1008,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", wrapQuotes(scale1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s);", wrapQuotes(scale1)));
                 js.setLength(0);
             }
         }
@@ -1032,6 +1037,10 @@ Round off the ends of axes to the specified radius.
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".scale(%s);",  ((scale2 != null) ? scale2.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s);", ((scale2 != null) ? scale2.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -1058,7 +1067,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".startAngle(%s)", wrapQuotes(startAngle)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".startAngle(%s)", wrapQuotes(startAngle)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startAngle(%s);", wrapQuotes(startAngle)));
                 js.setLength(0);
             }
         }
@@ -1085,7 +1094,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".startAngle(%f)", startAngle1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".startAngle(%f)", startAngle1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startAngle(%f);", startAngle1));
                 js.setLength(0);
             }
         }
@@ -1114,7 +1123,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".sweepAngle(%s)", wrapQuotes(sweepAngle)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sweepAngle(%s)", wrapQuotes(sweepAngle)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sweepAngle(%s);", wrapQuotes(sweepAngle)));
                 js.setLength(0);
             }
         }
@@ -1141,7 +1150,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".sweepAngle(%f)", sweepAngle1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".sweepAngle(%f)", sweepAngle1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".sweepAngle(%f);", sweepAngle1));
                 js.setLength(0);
             }
         }
@@ -1182,7 +1191,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%s)", wrapQuotes(ticks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%s);", wrapQuotes(ticks)));
                 js.setLength(0);
             }
         }
@@ -1209,7 +1218,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".ticks(%b)", ticks1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".ticks(%b)", ticks1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ticks(%b);", ticks1));
                 js.setLength(0);
             }
         }
@@ -1238,7 +1247,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".width(%f)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
                 js.setLength(0);
             }
         }
@@ -1265,7 +1274,7 @@ Round off the ends of axes to the specified radius.
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width1)));
                 js.setLength(0);
             }
         }

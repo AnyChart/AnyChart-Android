@@ -1,7 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.Arrays;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -50,7 +54,7 @@ public class Calendar extends CoreBase {
             js.append(String.format(Locale.US, ".availabilities(%s)", arrayToString(availabilities)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".availabilities(%s)", arrayToString(availabilities)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".availabilities(%s);", arrayToString(availabilities)));
                 js.setLength(0);
             }
         }
@@ -75,7 +79,7 @@ public class Calendar extends CoreBase {
             js.append(String.format(Locale.US, ".timezoneOffset(%f)", var_value));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".timezoneOffset(%f)", var_value));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".timezoneOffset(%f);", var_value));
                 js.setLength(0);
             }
         }
@@ -103,7 +107,7 @@ public class Calendar extends CoreBase {
             js.append(String.format(Locale.US, ".weekendRange(%s)", Arrays.toString(var_value1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".weekendRange(%s)", Arrays.toString(var_value1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".weekendRange(%s);", Arrays.toString(var_value1)));
                 js.setLength(0);
             }
         }

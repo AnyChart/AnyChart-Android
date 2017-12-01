@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -64,6 +69,10 @@ public class Led extends LineargaugePointersBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale != null) ? colorScale.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s);", ((colorScale != null) ? colorScale.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -88,6 +97,10 @@ public class Led extends LineargaugePointersBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorScale(%s);", ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -110,7 +123,7 @@ public class Led extends LineargaugePointersBase {
             js.append(String.format(Locale.US, ".count(%f)", count));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".count(%f)", count));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%f);", count));
                 js.setLength(0);
             }
         }
@@ -139,7 +152,7 @@ public class Led extends LineargaugePointersBase {
             js.append(String.format(Locale.US, ".gap(%f)", gap));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".gap(%f)", gap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".gap(%f);", gap));
                 js.setLength(0);
             }
         }
@@ -166,7 +179,7 @@ public class Led extends LineargaugePointersBase {
             js.append(String.format(Locale.US, ".gap(%s)", wrapQuotes(gap1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".gap(%s)", wrapQuotes(gap1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".gap(%s);", wrapQuotes(gap1)));
                 js.setLength(0);
             }
         }
@@ -195,7 +208,7 @@ public class Led extends LineargaugePointersBase {
             js.append(String.format(Locale.US, ".size(%f)", size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".size(%f)", size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".size(%f);", size));
                 js.setLength(0);
             }
         }
@@ -222,7 +235,7 @@ public class Led extends LineargaugePointersBase {
             js.append(String.format(Locale.US, ".size(%s)", wrapQuotes(size1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".size(%s)", wrapQuotes(size1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".size(%s);", wrapQuotes(size1)));
                 js.setLength(0);
             }
         }

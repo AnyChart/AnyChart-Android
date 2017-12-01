@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -68,7 +71,7 @@ public class SeparateChart extends ChartWithCredits {
             js.append(String.format(Locale.US, ".interactivity(%s)", wrapQuotes(interactivity)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".interactivity(%s)", wrapQuotes(interactivity)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interactivity(%s);", wrapQuotes(interactivity)));
                 js.setLength(0);
             }
         }
@@ -96,7 +99,7 @@ public class SeparateChart extends ChartWithCredits {
             js.append(String.format(Locale.US, ".interactivity(%s)", ((interactivity1 != null) ? interactivity1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".interactivity(%s)", ((interactivity1 != null) ? interactivity1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interactivity(%s);", ((interactivity1 != null) ? interactivity1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -139,7 +142,7 @@ public class SeparateChart extends ChartWithCredits {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".legend(%s)", wrapQuotes(legend)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".legend(%s);", wrapQuotes(legend)));
                 js.setLength(0);
             }
         }
@@ -180,7 +183,7 @@ public class SeparateChart extends ChartWithCredits {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".legend(%b)", legend1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".legend(%b);", legend1));
                 js.setLength(0);
             }
         }

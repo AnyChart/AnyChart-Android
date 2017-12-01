@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -16,10 +19,14 @@ import android.widget.FrameLayout;
 
 import com.anychart.anychart.application.MyApplication;
 
+import static com.anychart.anychart.JsObject.isRendered;
+
 public final class AnyChartView extends FrameLayout {
 
     private WebView webView;
     private Chart chart;
+
+    private boolean isRestored;
 
     protected StringBuilder js = new StringBuilder();
 
@@ -40,7 +47,28 @@ public final class AnyChartView extends FrameLayout {
         init();
     }
 
-    @SuppressLint("SetJavaScriptEnabled")
+    @Override
+    public Parcelable onSaveInstanceState() {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("superState", super.onSaveInstanceState());
+        bundle.putString("js", this.js.toString());
+
+        return bundle;
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        if (state instanceof Bundle) {
+            Bundle bundle = (Bundle) state;
+            this.js.append(bundle.getString("js"));
+            state = bundle.getParcelable("superState");
+        }
+        isRestored = true;
+
+        super.onRestoreInstanceState(state);
+    }
+
+    @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface"})
     private void init() {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.view_anychart, this, true);
@@ -59,29 +87,29 @@ public final class AnyChartView extends FrameLayout {
             }
         });
 
+        isRendered = false;
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 return true;
             }
 
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return true;
-            }
-
             public void onPageFinished(WebView view, String url) {
                 if (chart != null) {
-                    js.append(chart.generateJs());
+                    if (!isRendered && !isRestored) {
+                        js.append(chart.generateJs());
+                    }
                 } else {
                     throw new NullPointerException();
                 }
 
-                String resultJs = js.append("chart.container(\"container\");" +
-                        "chart.draw();")
-                        .toString();
+                String resultJs = (isRestored)
+                        ? js.toString()
+                        : js.append("chart.container(\"container\");")
+                            .append("chart.draw();")
+                            .toString();
 
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     webView.evaluateJavascript("anychart.onDocumentReady(function () {\n" +
                             resultJs +
                             "});", null);
@@ -91,14 +119,22 @@ public final class AnyChartView extends FrameLayout {
                             "});");
                 }
 
+                isRendered = true;
+                
                 chart.setOnChangeListener(new Chart.OnChange() {
                     @Override
-                    public void onChange(String jsChange) {
-                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-                            webView.evaluateJavascript(jsChange, null);
-                        } else {
-                            webView.loadUrl("javascript:" + jsChange);
-                        }
+                    public void onChange(final String jsChange) {
+                        js.append(jsChange);
+                        webView.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                                    webView.evaluateJavascript(jsChange, null);
+                                } else {
+                                    webView.loadUrl("javascript:" + jsChange);
+                                }
+                            }
+                        });
                     }
                 });
             }

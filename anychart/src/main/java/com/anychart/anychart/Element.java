@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -108,7 +113,7 @@ public class Element extends JsObject {
             js.append(String.format(Locale.US, ".appendTransformationMatrix(%f, %f, %f, %f, %f, %f)", m, m1, m2, m3, m4, m5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".appendTransformationMatrix(%f, %f, %f, %f, %f, %f)", m, m1, m2, m3, m4, m5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".appendTransformationMatrix(%f, %f, %f, %f, %f, %f);", m, m1, m2, m3, m4, m5));
                 js.setLength(0);
             }
         }
@@ -133,7 +138,7 @@ public class Element extends JsObject {
             js.append(String.format(Locale.US, ".attr(%s)", wrapQuotes(key)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".attr(%s)", wrapQuotes(key)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".attr(%s);", wrapQuotes(key)));
                 js.setLength(0);
             }
         }
@@ -174,6 +179,10 @@ public class Element extends JsObject {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".clip(%s);",  ((clip != null) ? clip.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".clip(%s);", ((clip != null) ? clip.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -198,7 +207,7 @@ public class Element extends JsObject {
             js.append(String.format(Locale.US, ".clip(%s)", wrapQuotes(clip1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", wrapQuotes(clip1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".clip(%s);", wrapQuotes(clip1)));
                 js.setLength(0);
             }
         }
@@ -223,7 +232,7 @@ public class Element extends JsObject {
             js.append(String.format(Locale.US, ".cursor(%s)", ((cursor != null) ? cursor.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".cursor(%s)", ((cursor != null) ? cursor.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cursor(%s);", ((cursor != null) ? cursor.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -248,7 +257,7 @@ public class Element extends JsObject {
             js.append(String.format(Locale.US, ".desc(%s)", wrapQuotes(desc)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".desc(%s)", wrapQuotes(desc)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".desc(%s);", wrapQuotes(desc)));
                 js.setLength(0);
             }
         }
@@ -273,7 +282,7 @@ public class Element extends JsObject {
             js.append(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".disablePointerEvents(%b)", disablePointerEvents));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".disablePointerEvents(%b);", disablePointerEvents));
                 js.setLength(0);
             }
         }
@@ -299,7 +308,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".disableStrokeScaling(%b)", disableStrokeScaling));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".disableStrokeScaling(%b)", disableStrokeScaling));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".disableStrokeScaling(%b);", disableStrokeScaling));
                 js.setLength(0);
             }
         }
@@ -328,7 +337,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".drag(%b)", drag));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".drag(%b)", drag));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drag(%b);", drag));
                 js.setLength(0);
             }
         }
@@ -355,6 +364,10 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".drag(%s);",  ((drag1 != null) ? drag1.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".drag(%s);", ((drag1 != null) ? drag1.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -389,7 +402,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".id(%s)", wrapQuotes(id)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".id(%s);", wrapQuotes(id)));
                 js.setLength(0);
             }
         }
@@ -418,6 +431,10 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".parent(%s);",  ((parent != null) ? parent.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parent(%s);", ((parent != null) ? parent.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -442,6 +459,10 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".parent(%s);",  ((parent1 != null) ? parent1.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parent(%s);", ((parent1 != null) ? parent1.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -470,7 +491,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".rotate(%f, %f, %f)", degrees, cx, cy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rotate(%f, %f, %f)", degrees, cx, cy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotate(%f, %f, %f);", degrees, cx, cy));
                 js.setLength(0);
             }
         }
@@ -505,7 +526,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".rotateByAnchor(%f, %s)", degrees1, ((anchor != null) ? anchor.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%f, %s)", degrees1, ((anchor != null) ? anchor.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotateByAnchor(%f, %s);", degrees1, ((anchor != null) ? anchor.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -537,7 +558,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".rotateByAnchor(%f, %s)", degrees1, wrapQuotes(anchor1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".rotateByAnchor(%f, %s)", degrees1, wrapQuotes(anchor1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotateByAnchor(%f, %s);", degrees1, wrapQuotes(anchor1)));
                 js.setLength(0);
             }
         }
@@ -577,7 +598,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".scale(%f, %f, %f, %f)", sx, sy, cx1, cy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scale(%f, %f, %f, %f)", sx, sy, cx1, cy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%f, %f, %f, %f);", sx, sy, cx1, cy1));
                 js.setLength(0);
             }
         }
@@ -620,7 +641,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".scaleByAnchor(%f, %f, %s)", sx1, sy1, ((anchor2 != null) ? anchor2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%f, %f, %s)", sx1, sy1, ((anchor2 != null) ? anchor2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scaleByAnchor(%f, %f, %s);", sx1, sy1, ((anchor2 != null) ? anchor2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -659,7 +680,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".scaleByAnchor(%f, %f, %s)", sx1, sy1, wrapQuotes(anchor3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".scaleByAnchor(%f, %f, %s)", sx1, sy1, wrapQuotes(anchor3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scaleByAnchor(%f, %f, %s);", sx1, sy1, wrapQuotes(anchor3)));
                 js.setLength(0);
             }
         }
@@ -687,7 +708,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".setPosition(%f, %f)", x, y));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setPosition(%f, %f)", x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setPosition(%f, %f);", x, y));
                 js.setLength(0);
             }
         }
@@ -730,7 +751,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".setRotation(%f, %f, %f)", degrees2, cx2, cy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setRotation(%f, %f, %f)", degrees2, cx2, cy2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setRotation(%f, %f, %f);", degrees2, cx2, cy2));
                 js.setLength(0);
             }
         }
@@ -771,7 +792,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".setRotationByAnchor(%f, %s)", degrees3, ((anchor4 != null) ? anchor4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%f, %s)", degrees3, ((anchor4 != null) ? anchor4.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setRotationByAnchor(%f, %s);", degrees3, ((anchor4 != null) ? anchor4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -809,7 +830,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".setRotationByAnchor(%f, %s)", degrees3, wrapQuotes(anchor5)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setRotationByAnchor(%f, %s)", degrees3, wrapQuotes(anchor5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setRotationByAnchor(%f, %s);", degrees3, wrapQuotes(anchor5)));
                 js.setLength(0);
             }
         }
@@ -927,7 +948,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".setTransformationMatrix(%f, %f, %f, %f, %f, %f)", m6, m7, m8, m9, m10, m11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".setTransformationMatrix(%f, %f, %f, %f, %f, %f)", m6, m7, m8, m9, m10, m11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setTransformationMatrix(%f, %f, %f, %f, %f, %f);", m6, m7, m8, m9, m10, m11));
                 js.setLength(0);
             }
         }
@@ -952,7 +973,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".title(%s)", wrapQuotes(title)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".title(%s)", wrapQuotes(title)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".title(%s);", wrapQuotes(title)));
                 js.setLength(0);
             }
         }
@@ -980,7 +1001,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".translate(%f, %f)", tx, ty));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".translate(%f, %f)", tx, ty));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".translate(%f, %f);", tx, ty));
                 js.setLength(0);
             }
         }
@@ -1005,7 +1026,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".visible(%b)", isVisible));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".visible(%b)", isVisible));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".visible(%b);", isVisible));
                 js.setLength(0);
             }
         }
@@ -1030,7 +1051,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
             js.append(String.format(Locale.US, ".zIndex(%f)", zIndex));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".zIndex(%f)", zIndex));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
                 js.setLength(0);
             }
         }

@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -50,7 +55,7 @@ Auto rotates a labels around an anchor.
             js.append(String.format(Locale.US, ".autoRotate(%b)", autoRotate));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".autoRotate(%b)", autoRotate));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".autoRotate(%b);", autoRotate));
                 js.setLength(0);
             }
         }

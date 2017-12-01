@@ -1,7 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.Arrays;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -66,7 +70,7 @@ Clips visible part of a series by a rectangle (or chart).
             js.append(String.format(Locale.US, ".clip(%b)", clip));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".clip(%b)", clip));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".clip(%b);", clip));
                 js.setLength(0);
             }
         }
@@ -94,6 +98,10 @@ Clips visible part of a series by a rectangle (or chart).
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".clip(%s);",  ((clip1 != null) ? clip1.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".clip(%s);", ((clip1 != null) ? clip1.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -136,7 +144,7 @@ Clips visible part of a series by a rectangle (or chart).
             js.append(String.format(Locale.US, ".error(%s)", wrapQuotes(error)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".error(%s)", wrapQuotes(error)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".error(%s);", wrapQuotes(error)));
                 js.setLength(0);
             }
         }
@@ -165,7 +173,7 @@ Clips visible part of a series by a rectangle (or chart).
             js.append(String.format(Locale.US, ".error(%b)", error1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".error(%b)", error1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".error(%b);", error1));
                 js.setLength(0);
             }
         }
@@ -194,7 +202,7 @@ Clips visible part of a series by a rectangle (or chart).
             js.append(String.format(Locale.US, ".error(%f)", error3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".error(%f)", error3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".error(%f);", error3));
                 js.setLength(0);
             }
         }
@@ -224,7 +232,7 @@ Clips visible part of a series by a rectangle (or chart).
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%f)", indexes));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%f);", indexes));
                 js.setLength(0);
             }
         }
@@ -251,7 +259,7 @@ Clips visible part of a series by a rectangle (or chart).
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%s)", Arrays.toString(indexes1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%s);", Arrays.toString(indexes1)));
                 js.setLength(0);
             }
         }
@@ -282,7 +290,7 @@ Clips visible part of a series by a rectangle (or chart).
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%f)", indexes2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%f);", indexes2));
                 js.setLength(0);
             }
         }
@@ -311,7 +319,7 @@ Clips visible part of a series by a rectangle (or chart).
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%s)", Arrays.toString(indexes3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%s);", Arrays.toString(indexes3)));
                 js.setLength(0);
             }
         }
@@ -344,7 +352,7 @@ Clips visible part of a series by a rectangle (or chart).
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f)", indexes4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f);", indexes4));
                 js.setLength(0);
             }
         }
@@ -375,7 +383,7 @@ Clips visible part of a series by a rectangle (or chart).
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s)", Arrays.toString(indexes5)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s);", Arrays.toString(indexes5)));
                 js.setLength(0);
             }
         }
@@ -411,6 +419,10 @@ Clips visible part of a series by a rectangle (or chart).
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale != null) ? xScale.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xScale(%s);", ((xScale != null) ? xScale.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -453,6 +465,10 @@ Clips visible part of a series by a rectangle (or chart).
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale != null) ? yScale.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yScale(%s);", ((yScale != null) ? yScale.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -479,7 +495,7 @@ Clips visible part of a series by a rectangle (or chart).
             js.append(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", wrapQuotes(yScale1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yScale(%s);", wrapQuotes(yScale1)));
                 js.setLength(0);
             }
         }
@@ -508,7 +524,7 @@ Clips visible part of a series by a rectangle (or chart).
             js.append(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".yScale(%s);", ((yScale2 != null) ? yScale2.generateJs() : "null")));
                 js.setLength(0);
             }
         }

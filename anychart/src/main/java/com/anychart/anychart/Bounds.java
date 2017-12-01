@@ -1,9 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -57,7 +59,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".bottom(%f)", bottom));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottom(%f)", bottom));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
                 js.setLength(0);
             }
         }
@@ -84,7 +86,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".bottom(%s)", wrapQuotes(bottom1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s);", wrapQuotes(bottom1)));
                 js.setLength(0);
             }
         }
@@ -113,7 +115,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".height(%f)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%f)", height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
                 js.setLength(0);
             }
         }
@@ -140,7 +142,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".height(%s)", wrapQuotes(height1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", wrapQuotes(height1)));
                 js.setLength(0);
             }
         }
@@ -169,7 +171,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".left(%f)", left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".left(%f)", left));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%f);", left));
                 js.setLength(0);
             }
         }
@@ -196,7 +198,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".left(%s)", wrapQuotes(left1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s);", wrapQuotes(left1)));
                 js.setLength(0);
             }
         }
@@ -225,7 +227,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".maxHeight(%f)", maxHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%f)", maxHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
                 js.setLength(0);
             }
         }
@@ -252,7 +254,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxHeight(%s)", wrapQuotes(maxHeight1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%s);", wrapQuotes(maxHeight1)));
                 js.setLength(0);
             }
         }
@@ -281,7 +283,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".maxWidth(%f)", maxWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxWidth(%f)", maxWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
                 js.setLength(0);
             }
         }
@@ -308,7 +310,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".maxWidth(%s)", wrapQuotes(maxWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".maxWidth(%s)", wrapQuotes(maxWidth1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%s);", wrapQuotes(maxWidth1)));
                 js.setLength(0);
             }
         }
@@ -337,7 +339,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".minHeight(%f)", minHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minHeight(%f)", minHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
                 js.setLength(0);
             }
         }
@@ -364,7 +366,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".minHeight(%s)", wrapQuotes(minHeight1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minHeight(%s)", wrapQuotes(minHeight1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%s);", wrapQuotes(minHeight1)));
                 js.setLength(0);
             }
         }
@@ -393,7 +395,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".minWidth(%f)", minWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minWidth(%f)", minWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
                 js.setLength(0);
             }
         }
@@ -420,7 +422,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".minWidth(%s)", wrapQuotes(minWidth1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".minWidth(%s)", wrapQuotes(minWidth1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%s);", wrapQuotes(minWidth1)));
                 js.setLength(0);
             }
         }
@@ -449,7 +451,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".right(%f)", right));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".right(%f)", right));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%f);", right));
                 js.setLength(0);
             }
         }
@@ -476,7 +478,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".right(%s)", wrapQuotes(right1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s);", wrapQuotes(right1)));
                 js.setLength(0);
             }
         }
@@ -520,7 +522,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".set(%s)", Arrays.toString(xOrRect2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", Arrays.toString(xOrRect2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s);", Arrays.toString(xOrRect2)));
                 js.setLength(0);
             }
         }
@@ -552,7 +554,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".set(%s)", ((xOrRect3 != null) ? xOrRect3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", ((xOrRect3 != null) ? xOrRect3.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s);", ((xOrRect3 != null) ? xOrRect3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -584,6 +586,10 @@ public class Bounds extends CoreBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".set(%s);",  ((xOrRect4 != null) ? xOrRect4.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s);", ((xOrRect4 != null) ? xOrRect4.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -613,6 +619,10 @@ public class Bounds extends CoreBase {
             js.append(jsBase);
 
             js.append(String.format(Locale.US, ".set(%s);",  ((xOrRect5 != null) ? xOrRect5.getJsBase() : "null")));
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s);", ((xOrRect5 != null) ? xOrRect5.getJsBase() : "null")));
+                js.setLength(0);
+            }
         }
         return this;
     }
@@ -652,7 +662,7 @@ public class Bounds extends CoreBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%f, %f, %f, %f)", parentLeftOrRect, parentTop, parentWidth, parentHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%f, %f, %f, %f);", parentLeftOrRect, parentTop, parentWidth, parentHeight));
                 js.setLength(0);
             }
         }
@@ -700,7 +710,7 @@ public class Bounds extends CoreBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f)", ((parentLeftOrRect1 != null) ? parentLeftOrRect1.getJsBase() : "null"), parentTop, parentWidth, parentHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f);", ((parentLeftOrRect1 != null) ? parentLeftOrRect1.getJsBase() : "null"), parentTop, parentWidth, parentHeight));
                 js.setLength(0);
             }
         }
@@ -748,7 +758,7 @@ public class Bounds extends CoreBase {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f)", wrapQuotes(parentLeftOrRect2), parentTop, parentWidth, parentHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f);", wrapQuotes(parentLeftOrRect2), parentTop, parentWidth, parentHeight));
                 js.setLength(0);
             }
         }
@@ -789,7 +799,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".top(%f)", top));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".top(%f)", top));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%f);", top));
                 js.setLength(0);
             }
         }
@@ -816,7 +826,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".top(%s)", wrapQuotes(top1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s);", wrapQuotes(top1)));
                 js.setLength(0);
             }
         }
@@ -847,7 +857,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".width(%f)", width2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%f)", width2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width2));
                 js.setLength(0);
             }
         }
@@ -876,7 +886,7 @@ public class Bounds extends CoreBase {
             js.append(String.format(Locale.US, ".width(%s)", wrapQuotes(width3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".width(%s)", wrapQuotes(width3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", wrapQuotes(width3)));
                 js.setLength(0);
             }
         }

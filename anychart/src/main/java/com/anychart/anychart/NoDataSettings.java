@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -67,7 +72,7 @@ public class NoDataSettings extends CoreBase {
             js.append(String.format(Locale.US, ".label(%s)", wrapQuotes(label)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%s)", wrapQuotes(label)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s);", wrapQuotes(label)));
                 js.setLength(0);
             }
         }
@@ -95,7 +100,7 @@ public class NoDataSettings extends CoreBase {
             js.append(String.format(Locale.US, ".label(%b)", label2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".label(%b)", label2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%b);", label2));
                 js.setLength(0);
             }
         }

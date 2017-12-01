@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -49,7 +54,7 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s)", wrapQuotes(name)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s);", wrapQuotes(name)));
                 js.setLength(0);
             }
         }
@@ -74,7 +79,7 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setColumn(%f)", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setColumn(%f);", index));
                 js.setLength(0);
             }
         }

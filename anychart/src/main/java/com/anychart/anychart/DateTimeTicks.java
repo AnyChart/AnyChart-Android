@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -48,7 +53,7 @@ public class DateTimeTicks extends CoreBase {
             js.append(String.format(Locale.US, ".count(%f)", count));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".count(%f)", count));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%f);", count));
                 js.setLength(0);
             }
         }
@@ -73,7 +78,7 @@ public class DateTimeTicks extends CoreBase {
             js.append(String.format(Locale.US, ".interval(%s)", wrapQuotes(isodate)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".interval(%s)", wrapQuotes(isodate)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%s);", wrapQuotes(isodate)));
                 js.setLength(0);
             }
         }
@@ -108,7 +113,7 @@ public class DateTimeTicks extends CoreBase {
             js.append(String.format(Locale.US, ".interval(%s, %f)", ((unit != null) ? unit.generateJs() : "null"), count1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".interval(%s, %f)", ((unit != null) ? unit.generateJs() : "null"), count1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%s, %f);", ((unit != null) ? unit.generateJs() : "null"), count1));
                 js.setLength(0);
             }
         }
@@ -140,7 +145,7 @@ public class DateTimeTicks extends CoreBase {
             js.append(String.format(Locale.US, ".interval(%s, %f)", wrapQuotes(unit1), count1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".interval(%s, %f)", wrapQuotes(unit1), count1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%s, %f);", wrapQuotes(unit1), count1));
                 js.setLength(0);
             }
         }
@@ -181,7 +186,7 @@ public class DateTimeTicks extends CoreBase {
             js.append(String.format(Locale.US, ".interval(%f, %f, %f, %f, %f, %f)", years, months, days, hours, minutes, seconds));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".interval(%f, %f, %f, %f, %f, %f)", years, months, days, hours, minutes, seconds));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%f, %f, %f, %f, %f, %f);", years, months, days, hours, minutes, seconds));
                 js.setLength(0);
             }
         }
@@ -206,7 +211,7 @@ public class DateTimeTicks extends CoreBase {
             js.append(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, ".set(%s)", arrayToStringWrapQuotes(ticks)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s);", arrayToStringWrapQuotes(ticks)));
                 js.setLength(0);
             }
         }
