@@ -1,6 +1,6 @@
 language: android
 jdk: oraclejdk8
-sudo: required
+sudo: false
 env:
   global:
     - ANDROID_API_LEVEL=26
@@ -8,7 +8,6 @@ env:
     - ANDROID_EMU_API_LEVEL=21
     - ANDROID_ABI=armeabi-v7a
     - ANDROID_TAG=google_apis
-    - QEMU_AUDIO_DRV=none
     - ADB_INSTALL_TIMEOUT=20
 android:
   components: 
@@ -32,7 +31,7 @@ licenses:
     
 before_script:
     - echo no | android create avd --force -n test -t android-$ANDROID_EMU_API_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
-    - emulator -avd test -engine classic -no-window &
+    - emulator -avd test -no-window &
     - android-wait-for-emulator
     - adb shell input keyevent 82 &
 
