@@ -1,0 +1,29 @@
+language: android
+jdk: oraclejdk8
+sudo: false
+env:
+  global:
+    - ANDROID_TARGET=android-26
+    - ANDROID_ABI=armeabi-v7a
+android:
+  components:
+    - tools
+    - platform-tools
+
+    - build-tools-26.0.2
+    - android-26
+    
+    - extra-android-support
+    - extra-google-google_play_services
+    - extra-android-m2repository
+    - extra-google-m2repository
+    - sys-img-${ANDROID_ABI}-${ANDROID_TARGET}
+
+before_script:
+    - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
+    - emulator -avd test -no-skin -no-audio -no-window &
+    - android-wait-for-emulator
+    - adb shell input keyevent 82 &
+
+script:
+    - ./gradlew connectedAndroidTest MainActivityTest
