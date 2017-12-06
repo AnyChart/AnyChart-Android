@@ -5,7 +5,7 @@ env:
   global:
     - ANDROID_API_LEVEL=26
     - ANDROID_BUILD_TOOLS_VERSION=26.0.2
-    - ANDROID_EMU_API_LEVEL=21
+    - ANDROID_EMU_API_LEVEL=22
     - ANDROID_ABI=armeabi-v7a
     - ANDROID_TAG=google_apis
     - QEMU_AUDIO_DRV=none
@@ -31,8 +31,8 @@ licenses:
   - google-gdk-license-.+
     
 before_script:
-    - echo no | android create avd --force -n test -t android-$ANDROID_EMU_API_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
-    - emulator -avd test -no-window &
+    - echo no | android create avd --force -n test -t android-$ANDROID_EMU_API_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG --device 'Nexus 4'
+    - emulator -avd test -skin 768x1280 -no-audio -no-window &
     - android-wait-for-emulator
     - adb shell input keyevent 82 &
 
