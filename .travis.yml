@@ -32,7 +32,7 @@ licenses:
     
 before_script:
     - echo no | android create avd --force -n test -t android-$ANDROID_EMU_API_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG --device 'Nexus 4'
-    - emulator -avd test -skin 768x1280 -no-audio -no-window &
+    - emulator -avd test -skin 768x1280 -no-window &
     - android-wait-for-emulator
     - adb shell input keyevent 82 &
 
