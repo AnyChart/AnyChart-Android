@@ -22,19 +22,22 @@ import static android.support.test.espresso.Espresso.pressBack;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
+import static android.support.test.espresso.matcher.RootMatchers.withDecorView;
 import static android.support.test.espresso.matcher.ViewMatchers.isEnabled;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.web.sugar.Web.onWebView;
 import static android.support.test.espresso.web.webdriver.DriverAtoms.findElement;
 import static android.support.test.espresso.web.webdriver.DriverAtoms.webClick;
 import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(
+    public ActivityTestRule<MainActivity> activityRule = new ActivityTestRule<>(
             MainActivity.class, false, true);
 
     @Test
@@ -43,7 +46,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));
         recyclerView.perform(actionOnItemAtPosition(0, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -58,7 +62,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));
         recyclerView.perform(actionOnItemAtPosition(1, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -73,7 +78,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(2, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -88,7 +94,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(3, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -103,7 +110,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(4, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -118,7 +126,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(5, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -133,7 +142,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(6, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -148,7 +158,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(7, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -163,7 +174,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(8, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -178,7 +190,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(9, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -193,7 +206,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(10, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -208,7 +222,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(11, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -223,7 +238,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(12, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -238,7 +254,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(13, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -253,7 +270,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(14, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -268,7 +286,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(15, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -283,7 +302,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(16, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -298,7 +318,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(17, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -313,7 +334,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(18, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -328,7 +350,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(19, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -343,7 +366,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(20, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -358,7 +382,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(21, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -373,7 +398,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(22, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -388,7 +414,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(23, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -403,7 +430,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(24, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -418,7 +446,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(25, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -433,7 +462,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(26, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -448,7 +478,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(27, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -463,7 +494,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(28, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -478,7 +510,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(29, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -493,7 +526,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(30, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
@@ -508,7 +542,8 @@ public class MainActivityTest {
                 allOf(withId(R.id.recycler_view),
                         childAtPosition(
                                 withId(android.R.id.content),
-                                0)));
+                                0)))
+                .inRoot(withDecorView(not(is(activityRule.getActivity().getWindow().getDecorView()))));;
         recyclerView.perform(actionOnItemAtPosition(31, click()));
 
         onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
