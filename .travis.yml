@@ -57,7 +57,7 @@ install:
   - echo yes | sdkmanager "extras;google;m2repository"
   - echo yes | sdkmanager "${ANDROID_EMU_IMG}" # Install emulator system image
   - echo no | avdmanager create avd --force -n test -k ${ANDROID_EMU_IMG} --abi ${ANDROID_ABI} --tag ${ANDROID_TAG}
-  - emulator -avd test -no-window &
+  - $ANDROID_HOME/emulator/emulator -avd test -no-window &
   
 before_script:
   - android-wait-for-emulator
