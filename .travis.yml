@@ -10,6 +10,10 @@ env:
     - ANDROID_ABI=armeabi-v7a
     - ANDROID_TAG=google_apis
     - ANDROID_EMU_IMG="system-images;android-${ANDROID_EMU_API_LEVEL};${ANDROID_TAG};${ANDROID_ABI}"
+    - GRADLE_USER_HOME="${TRAVIS_BUILD_DIR}/gradle"
+    - ANDROID_HOME=/usr/local/android-sdk-26.0.2
+    - TOOLS=${ANDROID_HOME}/tools
+    - PATH=${ANDROID_HOME}:${ANDROID_HOME}/emulator:${TOOLS}:${TOOLS}/bin:${ANDROID_HOME}/platform-tools:${PATH}
     - QEMU_AUDIO_DRV=none
     - ADB_INSTALL_TIMEOUT=20
 
@@ -46,7 +50,13 @@ notifications:
   email: false
 
 install:
-  - echo no | avdmanager create avd --force -n test -k $ANDROID_EMU_IMG --abi $ANDROID_ABI --tag $ANDROID_TAG
+  - echo yes | sdkmanager "tools"
+  - echo yes | sdkmanager "platforms;android-${ANDROID_API_LEVEL}" # Latest platform required by SDK tools
+  - echo yes | sdkmanager "platforms;android-${ANDROID_EMU_API_LEVEL}" # Android platform required by emulator
+  - echo yes | sdkmanager "extras;android;m2repository"
+  - echo yes | sdkmanager "extras;google;m2repository"
+  - echo yes | sdkmanager "${ANDROID_EMU_IMG}" # Install emulator system image
+  - echo no | avdmanager create avd --force -n test -k ${ANDROID_EMU_IMG} --abi ${ANDROID_ABI} --tag ${ANDROID_TAG}
   - emulator -avd test -no-window &
   
 before_script:
