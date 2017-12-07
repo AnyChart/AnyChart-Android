@@ -5,13 +5,13 @@ sudo: required
 env:
   global:
     - ANDROID_API_LEVEL=26
-    - ANDROID_BUILD_TOOLS_VERSION=26.0.2
+    - ANDROID_BUILD_TOOLS_VERSION=26.0.3
     - ANDROID_EMU_API_LEVEL=26
-    - ANDROID_ABI=armeabi-v7a
+    - ANDROID_ABI=x86
     - ANDROID_TAG=google_apis
     - ANDROID_EMU_IMG="system-images;android-${ANDROID_EMU_API_LEVEL};${ANDROID_TAG};${ANDROID_ABI}"
     - GRADLE_USER_HOME="${TRAVIS_BUILD_DIR}/gradle"
-    - ANDROID_HOME=/usr/local/android-sdk-26.0.2
+    - ANDROID_HOME=/usr/local/android-sdk-26.1.1
     - TOOLS=${ANDROID_HOME}/tools
     - PATH=${ANDROID_HOME}:${ANDROID_HOME}/emulator:${TOOLS}:${TOOLS}/bin:${ANDROID_HOME}/platform-tools:${PATH}
     - QEMU_AUDIO_DRV=none
