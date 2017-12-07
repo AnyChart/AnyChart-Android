@@ -1,59 +1,62 @@
 language: android
-sudo: required
 jdk: oraclejdk8
-
-before_cache:
- - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
- - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-
-cache:
- directories:
- - $HOME/.gradle/caches/
- - $HOME/.gradle/wrapper/
+sudo: required
 
 env:
- global:
- - ANDROID_API=26
- - EMULATOR_API=24
- - ANDROID_BUILD_TOOLS=26.0.2
- - ADB_INSTALL_TIMEOUT=20
+  global:
+    - ANDROID_API_LEVEL=26
+    - ANDROID_BUILD_TOOLS_VERSION=26.0.2
+    - ANDROID_EMU_API_LEVEL=26
+    - ANDROID_ABI=armeabi-v7a
+    - ANDROID_TAG=google_apis
+    - ANDROID_EMU_IMG="system-images;android-${ANDROID_EMU_API_LEVEL};${ANDROID_TAG};${ANDROID_ABI}"
+    - QEMU_AUDIO_DRV=none
+    - ADB_INSTALL_TIMEOUT=20
 
 android:
- components:
- - tools
- - platform-tools
- - build-tools-$ANDROID_BUILD_TOOLS
- - android-$ANDROID_API
- - android-$EMULATOR_API_LEVEL
- - extra-google-m2repository
- - extra-android-m2repository
- - addon-google_apis-google-26
- - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
- - sys-img-armeabi-v7a-android-$EMULATOR_API_LEVEL
+  components: 
+    - tools
+    - platform-tools
+    - tools
+    - build-tools-$ANDROID_BUILD_TOOLS_VERSION
+    - android-$ANDROID_API_LEVEL
+    - android-$ANDROID_EMU_API_LEVEL
+    - extra-android-support
+    - sys-img-$ANDROID_ABI-google_apis-$ANDROID_EMU_API_LEVEL
+    - extra-google-m2repository
+    - addon-google_apis-google-$ANDROID_API_LEVEL
+    - sys-img-armeabi-v7a-android-$EMULATOR_API_LEVEL
+    
+licenses:
+  - android-sdk-preview-license-.+
+  - android-sdk-license-.+
+  - google-gdk-license-.+
+    
+before_cache:
+  - rm -f ${TRAVIS_BUILD_DIR}/gradle/caches/modules-2/modules-2.lock # Avoid to repack it due locks
+  - rm -f ${TRAVIS_BUILD_DIR}/gradle/caches/3.3/classAnalysis/classAnalysis.lock
+  - rm -f ${TRAVIS_BUILD_DIR}/gradle/caches/3.3/jarSnapshots/jarSnapshots.lock
 
- licenses:
- - android-sdk-preview-license-.+
- - android-sdk-license-.+
- - google-gdk-license-.+
+cache:
+  directories:
+    - ${TRAVIS_BUILD_DIR}/gradle/caches/
+    - ${TRAVIS_BUILD_DIR}/gradle/wrapper/dists/
 
-before_install:
-- mkdir "$ANDROID_HOME/licenses" || true
-- echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
-- echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
-- chmod +x gradlew
-- echo y | android update sdk --no-ui --all --filter "tool,extra-android-m2repository,extra-android-support,extra-google-google_play_services,extra-google-m2repository"
-- echo y | $ANDROID_HOME/tools/bin/sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2"
-- ./gradlew dependencies || true # DON'T ADD unless you are getting "Install missing components using SDK manager"
-#Source: https://medium.com/@oldergod/constraint-layout-and-circleci-travis-d50342696d2
+notifications:
+  email: false
 
+install:
+  - echo no | avdmanager create avd --force -n test -k $ANDROID_EMU_IMG --abi $ANDROID_ABI --tag $ANDROID_TAG
+  - emulator -avd test -no-window &
+  
 before_script:
-- echo "y" | android update sdk -a --no-ui --filter android-24
-- echo "y" | android update sdk -a --no-ui --filter sys-img-armeabi-v7a-android-24
-- android list targets | grep -E '^id:' | awk -F '"' '{$1=""; print $2}' # list all targets
-- echo no | android create avd --force -n test -t android-24 --abi armeabi-v7a
-- emulator -avd test -no-window &
-- android-wait-for-emulator
-- adb shell input keyevent 82 &
+  - android-wait-for-emulator
+  - adb shell settings put global window_animation_scale 0 &
+  - adb shell settings put global transition_animation_scale 0 &
+  - adb shell settings put global animator_duration_scale 0 &
+  - sleep 30
+  - adb shell input keyevent 82 &
+  - sleep 15
 
 script:
-- "./gradlew clean build connectedAndroidTest -PdisablePreDex --stacktrace"
+  - ./gradlew connectedAndroidTest -PdisablePreDex
