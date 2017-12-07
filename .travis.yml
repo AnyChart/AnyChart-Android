@@ -23,6 +23,12 @@ android:
     - platform-tools
     - tools
     - build-tools-$ANDROID_BUILD_TOOLS_VERSION
+    - android-$ANDROID_API_LEVEL
+    - android-$ANDROID_EMU_API_LEVEL
+    - extra-android-support
+    - sys-img-$ANDROID_ABI-$ANDROID_TAG-$ANDROID_EMU_API_LEVEL
+    - extra-google-m2repository
+    - addon-google_apis-google-$ANDROID_API_LEVEL
     
 licenses:
   - android-sdk-preview-license-.+
@@ -48,7 +54,6 @@ install:
   - echo yes | sdkmanager "platforms;android-${ANDROID_EMU_API_LEVEL}" # Android platform required by emulator
   - echo yes | sdkmanager "extras;android;m2repository"
   - echo yes | sdkmanager "extras;google;m2repository"
-  - echo yes | sdkmanager "${ANDROID_EMU_IMG}" # Install emulator system image
   - echo no | avdmanager create avd --force -n test -k ${ANDROID_EMU_IMG} --abi ${ANDROID_ABI} --tag ${ANDROID_TAG}
   - $ANDROID_HOME/emulator/emulator -avd test -no-window &
   
