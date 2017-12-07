@@ -11,7 +11,7 @@ env:
     - ANDROID_TAG=google_apis
     - ANDROID_EMU_IMG="system-images;android-${ANDROID_EMU_API_LEVEL};${ANDROID_TAG};${ANDROID_ABI}"
     - GRADLE_USER_HOME="${TRAVIS_BUILD_DIR}/gradle"
-    - ANDROID_HOME=/usr/local/android-sdk-24.0.2
+    - ANDROID_HOME=/usr/local/android-sdk
     - TOOLS=${ANDROID_HOME}/tools
     - PATH=${ANDROID_HOME}:${ANDROID_HOME}/emulator:${TOOLS}:${TOOLS}/bin:${ANDROID_HOME}/platform-tools:${PATH}
     - QEMU_AUDIO_DRV=none
@@ -27,9 +27,8 @@ android:
     - android-$ANDROID_EMU_API_LEVEL
     - extra-android-support
     - sys-img-$ANDROID_ABI-$ANDROID_TAG-$ANDROID_EMU_API_LEVEL
-    - extra-google-m2repository
-    - addon-google_apis-google-$ANDROID_API_LEVEL
-    
+    - extra-google-m2repository  
+
 licenses:
   - android-sdk-preview-license-.+
   - android-sdk-license-.+
@@ -50,12 +49,10 @@ notifications:
 
 install:
   - echo yes | sdkmanager "tools"
-  - echo yes | sdkmanager "platforms;android-${ANDROID_API_LEVEL}" # Latest platform required by SDK tools
-  - echo yes | sdkmanager "platforms;android-${ANDROID_EMU_API_LEVEL}" # Android platform required by emulator
   - echo yes | sdkmanager "extras;android;m2repository"
   - echo yes | sdkmanager "extras;google;m2repository"
   - echo no | avdmanager create avd --force -n test -k ${ANDROID_EMU_IMG} --abi ${ANDROID_ABI} --tag ${ANDROID_TAG}
-  - $ANDROID_HOME/emulator/emulator -avd test -no-window &
+  - emulator -avd test -no-window &
   
 before_script:
   - android-wait-for-emulator
