@@ -22,6 +22,16 @@ android {
         timeOutInMs 10 * 60 * 1000  // 10 minutes
         installOptions "-d","-t"
     }
+    testOptions {
+        unitTests.all {
+            testLogging {
+                outputs.upToDateWhen {false}
+                events "passed", "failed", "standardError"
+                showCauses true
+                showExceptions true
+            }
+        }
+    }
 }
 
 dependencies {
