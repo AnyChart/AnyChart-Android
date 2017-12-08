@@ -6,7 +6,7 @@ env:
   global:
     - ANDROID_API_LEVEL=26
     - ANDROID_BUILD_TOOLS_VERSION=26.0.3
-    - ANDROID_EMU_API_LEVEL=21
+    - ANDROID_EMU_API_LEVEL=19
     - ANDROID_ABI=armeabi-v7a
     - ANDROID_TAG=google_apis
     - ANDROID_EMU_IMG="system-images;android-${ANDROID_EMU_API_LEVEL};${ANDROID_TAG};${ANDROID_ABI}"
@@ -33,7 +33,10 @@ licenses:
   - android-sdk-preview-license-.+
   - android-sdk-license-.+
   - google-gdk-license-.+
-    
+
+notifications:
+  email: false
+  
 before_cache:
   - rm -f ${TRAVIS_BUILD_DIR}/gradle/caches/modules-2/modules-2.lock # Avoid to repack it due locks
   - rm -f ${TRAVIS_BUILD_DIR}/gradle/caches/3.3/classAnalysis/classAnalysis.lock
@@ -43,9 +46,6 @@ cache:
   directories:
     - ${TRAVIS_BUILD_DIR}/gradle/caches/
     - ${TRAVIS_BUILD_DIR}/gradle/wrapper/dists/
-
-notifications:
-  email: false
   
 before_install:
   - chmod +x gradlew
@@ -56,7 +56,7 @@ install:
   - echo yes | sdkmanager "extras;android;m2repository"
   - echo yes | sdkmanager "extras;google;m2repository"
   - echo no | avdmanager create avd --force -n test -k ${ANDROID_EMU_IMG} --abi ${ANDROID_ABI} --tag ${ANDROID_TAG}
-  - emulator -avd test -no-window -camera-back none -camera-front none -verbose -memory 2048 &
+  - emulator -avd test -no-window -camera-back none -camera-front none &
   
 before_script:
   - android-wait-for-emulator
