@@ -29,8 +29,8 @@ import static android.support.test.espresso.web.webdriver.DriverAtoms.findElemen
 import static android.support.test.espresso.web.webdriver.DriverAtoms.webClick;
 import static org.hamcrest.Matchers.allOf;
 
-@LargeTest
 @RunWith(AndroidJUnit4.class)
+@LargeTest
 public class MainActivityTest {
 
     @Rule
