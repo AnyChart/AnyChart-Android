@@ -6,7 +6,7 @@ env:
   global:
     - ANDROID_API_LEVEL=26
     - ANDROID_BUILD_TOOLS_VERSION=26.0.3
-    - ANDROID_EMU_API_LEVEL=19
+    - ANDROID_EMU_API_LEVEL=23
     - ANDROID_ABI=armeabi-v7a
     - ANDROID_TAG=google_apis
     - ANDROID_EMU_IMG="system-images;android-${ANDROID_EMU_API_LEVEL};${ANDROID_TAG};${ANDROID_ABI}"
@@ -68,4 +68,4 @@ before_script:
   - sleep 15
 
 script:
-  - travis_wait 30 ./gradlew connectedAndroidTest -PdisablePreDex
+  - ./gradlew :sample:connectedAndroidTest -PdisablePreDex --info
