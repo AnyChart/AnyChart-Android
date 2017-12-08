@@ -68,4 +68,6 @@ before_script:
   - sleep 15
 
 script:
+  - echo $ADB_INSTALL_TIMEOUT
+  - android list target
   - ./gradlew connectedAndroidTest -PdisablePreDex
