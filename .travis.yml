@@ -68,4 +68,4 @@ before_script:
   - sleep 15
 
 script:
-  - ./gradlew :sample:connectedAndroidTest -PdisablePreDex --info
+  - travis_wait 40 ./gradlew :sample:connectedAndroidTest -PdisablePreDex --info
