@@ -55,6 +55,9 @@ install:
   - echo yes | sdkmanager "tools"
   - echo yes | sdkmanager "extras;android;m2repository"
   - echo yes | sdkmanager "extras;google;m2repository"
+  - echo "y" | android update sdk -a --no-ui --filter android-${ANDROID_API_LEVEL}
+  - echo "y" | android update sdk -a --no-ui --filter android-${ANDROID_EMU_API_LEVEL}
+  - echo "y" | android update sdk -a --no-ui --filter sys-img-armeabi-v7a-android-${ANDROID_EMU_API_LEVEL}
   - echo no | avdmanager create avd --force -n test -k ${ANDROID_EMU_IMG} --abi ${ANDROID_ABI} --tag ${ANDROID_TAG}
   - emulator -avd test -no-window -camera-back none -camera-front none &
   
