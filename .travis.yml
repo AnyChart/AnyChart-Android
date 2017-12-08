@@ -70,4 +70,4 @@ before_script:
 script:
   - echo $ADB_INSTALL_TIMEOUT
   - android list target
-  - ./gradlew connectedAndroidTest -PdisablePreDex
+  - ./gradlew connectedAndroidTest -PdisablePreDex --info
