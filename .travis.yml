@@ -56,7 +56,7 @@ install:
   - echo yes | sdkmanager "extras;android;m2repository"
   - echo yes | sdkmanager "extras;google;m2repository"
   - echo no | avdmanager create avd --force -n test -k ${ANDROID_EMU_IMG} --abi ${ANDROID_ABI} --tag ${ANDROID_TAG}
-  - emulator -avd test -no-window -camera-back none -camera-front none -gpu off &
+  - emulator -avd test -engine classic -no-window -camera-back none -camera-front none -verbose -qemu -m 512 &
   
 before_script:
   - android-wait-for-emulator
