@@ -19,6 +19,7 @@ android:
   components: # Cookbooks version: https://github.com/travis-ci/travis-cookbooks/tree/9c6cd11
     - tools # Update preinstalled tools from revision 24.0.2 to 24.4.1
     - build-tools-26.0.3 # Match build-tools version used in build.gradle
+    - build-tools-26.0.1 # Match build-tools version used in build.gradle
     - platform-tools # Update platform-tools to revision 25.0.3+
     - tools # Update tools from revision 24.4.1 to 25.2.5
 
@@ -40,6 +41,7 @@ matrix:
     - env: API=24
     - env: API=23
     - env: API=22
+    - env: API=19
   allow_failures:
     - env: API=23
     - env: API=22
@@ -56,7 +58,6 @@ install:
   - sdkmanager --uninstall "system-images;android-16;default;armeabi-v7a"
   - sdkmanager --uninstall "system-images;android-17;default;armeabi-v7a"
   - sdkmanager --uninstall "system-images;android-18;default;armeabi-v7a"
-  - sdkmanager --uninstall "system-images;android-19;default;armeabi-v7a"
   - sdkmanager --uninstall "system-images;android-21;default;armeabi-v7a"
   - sdkmanager --uninstall "extras;google;google_play_services"
   - sdkmanager --uninstall "extras;android;support"
@@ -65,13 +66,14 @@ install:
   - sdkmanager --uninstall "platforms;android-16"
   - sdkmanager --uninstall "platforms;android-17"
   - sdkmanager --uninstall "platforms;android-18"
-  - sdkmanager --uninstall "platforms;android-19"
   - sdkmanager --uninstall "platforms;android-20"
   - sdkmanager --uninstall "platforms;android-21"
-  - sdkmanager --uninstall "build-tools;21.1.2"
   # Update sdk tools to latest version and install/update components
   - echo yes | sdkmanager "tools" > /dev/null
   - echo "tools done"
+  - echo yes | sdkmanager "build-tools;26.0.3" > /dev/null # Latest platform required by SDK tools
+  - echo yes | sdkmanager "build-tools;26.0.1" > /dev/null # Latest platform required by SDK tools
+  - echo "build-tools done"
   - echo yes | sdkmanager "platforms;android-26" > /dev/null # Latest platform required by SDK tools
   - echo "platform done"
   - echo yes | sdkmanager "platforms;android-${API}" > /dev/null # Android platform required by emulator
