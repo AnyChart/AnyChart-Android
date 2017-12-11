@@ -22,6 +22,7 @@ android:
     - build-tools-26.0.1 # Match build-tools version used in build.gradle
     - platform-tools # Update platform-tools to revision 25.0.3+
     - tools # Update tools from revision 24.4.1 to 25.2.5
+    - tools
 
 env:
   global:
