@@ -15,19 +15,7 @@ env:
     - TOOLS=${ANDROID_HOME}/tools
     - PATH=${ANDROID_HOME}:${ANDROID_HOME}/emulator:${TOOLS}:${TOOLS}/bin:${ANDROID_HOME}/platform-tools:${PATH}
     - QEMU_AUDIO_DRV=none
-    - ADB_INSTALL_TIMEOUT=20
-
-android:
-  components: 
-    - tools
-    - platform-tools
-    - tools
-    - build-tools-$ANDROID_BUILD_TOOLS_VERSION
-    - android-$ANDROID_API_LEVEL
-    - android-$ANDROID_EMU_API_LEVEL
-    - extra-android-support
-    - sys-img-$ANDROID_ABI-$ANDROID_TAG-$ANDROID_EMU_API_LEVEL
-    - extra-google-m2repository  
+    - ADB_INSTALL_TIMEOUT=8
 
 licenses:
   - android-sdk-preview-license-.+
@@ -52,9 +40,22 @@ before_install:
   - echo 'count=0' > /home/travis/.android/repositories.cfg
 
 install:
-  - echo yes | sdkmanager "tools"
-  - echo yes | sdkmanager "extras;android;m2repository"
-  - echo yes | sdkmanager "extras;google;m2repository"
+  - echo yes | sdkmanager "tools" > /dev/null
+  - echo "tools done"
+  - echo yes | sdkmanager "platforms;android-26" > /dev/null # Latest platform required by SDK tools
+  - echo "platform done"
+  - echo yes | sdkmanager "platforms;android-21" > /dev/null # Android platform required by emulator
+  - echo "android platform done"
+  - echo yes | sdkmanager "extras;android;m2repository" > /dev/null
+  - echo "android m2repository done"
+  - echo yes | sdkmanager "extras;google;m2repository" > /dev/null
+  - echo "google m2repository done"
+  - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2" > /dev/null
+  - echo "constraint-layout done"
+  - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2" > /dev/null
+  - echo "constraint-layout-solver done"
+  - echo yes | sdkmanager "$ANDROID_EMU_IMG" > /dev/null
+  - echo "images done"
   - echo no | avdmanager create avd --force -n test -k ${ANDROID_EMU_IMG} --abi ${ANDROID_ABI} --tag ${ANDROID_TAG}
   - emulator -avd test -no-window -camera-back none -camera-front none &
   
@@ -63,10 +64,11 @@ before_script:
   - adb shell settings put global window_animation_scale 0 &
   - adb shell settings put global transition_animation_scale 0 &
   - adb shell settings put global animator_duration_scale 0 &
+  - adb uninstall com.anychart.anychart
+  - adb uninstall com.anychart.anychart.test
   - sleep 30
   - adb shell input keyevent 82 &
   - sleep 15
 
 script:
-  - $ANDROID_HOME/platform-tools/adb start-server
   - travis_wait 40 ./gradlew :sample:connectedAndroidTest -PdisablePreDex --info
