@@ -111,4 +111,4 @@ before_script:
 
 script:
   # Run all device checks
-- ./gradlew :sample:connectedCheck
+- travis_wait 30 ./gradlew :sample:connectedCheck
