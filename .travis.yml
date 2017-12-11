@@ -24,7 +24,7 @@ android:
 
 env:
   global:
-    - DIR=constraint-layout-start # Project directory
+    - DIR=sample # Project directory
     - API=26 # Android API level 25 by default
     - TAG=google_apis # Google APIs by default, alternatively use default
     - ABI=armeabi-v7a # ARM ABI v7a by default
