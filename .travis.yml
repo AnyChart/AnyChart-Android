@@ -111,4 +111,4 @@ before_script:
 
 script:
   # Run all device checks
-- ./gradlew connectedCheck
+- ./gradlew :sample:connectedCheck
