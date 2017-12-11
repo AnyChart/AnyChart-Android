@@ -89,6 +89,8 @@ install:
   - echo "constraint-layout-solver done"
   - echo yes | sdkmanager "$EMULATOR" > /dev/null # Install emulator system image
   - echo "images done"
+  - echo yes | sdkmanager --uninstall "extras;google;google_play_services"
+  - echo "play services done"
   # Create and start emulator
   - echo no | avdmanager create avd -n acib -k "$EMULATOR" -f --abi "$ABI" --tag "$TAG"
   - emulator -avd acib -engine classic -no-window -camera-back none -camera-front none -verbose -qemu -m 512 &
