@@ -92,9 +92,9 @@ install:
   # Start adbd, wait for device connected and show android serial
   - adb wait-for-device get-serialno
   # Show version and download Gradle Wrapper if it's not already cached
-  - cd ${TRAVIS_BUILD_DIR}/${DIR} && ./gradlew --version
+  - ./gradlew --version
   # Clean project and download missing dependencies and components
-  - cd ${TRAVIS_BUILD_DIR}/${DIR} && ./gradlew clean build
+  - ./gradlew clean build
   # Check components status
   - sdkmanager --list || true
 
@@ -109,4 +109,4 @@ before_script:
 
 script:
   # Run all device checks
-- cd ${TRAVIS_BUILD_DIR}/${DIR} && ./gradlew connectedCheck
+- ./gradlew connectedCheck
