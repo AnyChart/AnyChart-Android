@@ -1,0 +1,11 @@
+#!/bin/bash
+
+$1/platform-tools/adb wait-for-device
+
+A=$($1/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r')
+
+while [ "$A" != "1" ]; do
+        sleep 2
+        A=$($1/platform-tools/adb shell getprop sys.boot_completed | tr -d '\r')
+        echo "Waiting for emulator to start"
+done
