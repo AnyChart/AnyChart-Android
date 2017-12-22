@@ -95,13 +95,13 @@ public class TreeDataItem extends JsObject {
     private String child2;
     private TreeDataItem child3;
     private TreeviewDataItem child4;
-    private Double index;
+    private Number index;
 
     /**
      * Inserts a child into a specified position.</br>
 Please make sure that child has not inner cycles to avoid stack overflow exception.
      */
-    public TreeDataItem addChildAt(String child2, Double index) {
+    public TreeDataItem addChildAt(String child2, Number index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -134,7 +134,7 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
      * Inserts a child into a specified position.</br>
 Please make sure that child has not inner cycles to avoid stack overflow exception.
      */
-    public TreeDataItem addChildAt(TreeDataItem child3, Double index) {
+    public TreeDataItem addChildAt(TreeDataItem child3, Number index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -167,7 +167,7 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
      * Inserts a child into a specified position.</br>
 Please make sure that child has not inner cycles to avoid stack overflow exception.
      */
-    public TreeDataItem addChildAt(TreeviewDataItem child4, Double index) {
+    public TreeDataItem addChildAt(TreeviewDataItem child4, Number index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -200,7 +200,7 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
     /**
      * Gets the child by index.
      */
-    public TreeDataItem getGetChildAt(Double index) {
+    public TreeDataItem getGetChildAt(Number index) {
         TreeDataItem item = new TreeDataItem(jsBase + ".getChildAt(" + index + ")");
         getGetChildAt.add(item);
         return item;
@@ -276,12 +276,12 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
         return this;
     }
 
-    private Double index1;
+    private Number index1;
 
     /**
      * Removes child at specified position.
      */
-    public TreeDataItem removeChildAt(Double index1) {
+    public TreeDataItem removeChildAt(Number index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;

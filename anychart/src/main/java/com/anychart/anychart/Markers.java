@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Marker palette.
+ * Marker palette class.
  */
 public class Markers extends CoreBase {
 
@@ -35,13 +35,13 @@ public class Markers extends CoreBase {
     }
 
     
-    private Double index;
+    private Number index;
     private String type;
 
     /**
      * Setter for type palette markers from list by index.
      */
-    public Markers setItemAt(Double index, String type) {
+    public Markers setItemAt(Number index, String type) {
         if (jsBase == null) {
             this.index = index;
             this.type = type;

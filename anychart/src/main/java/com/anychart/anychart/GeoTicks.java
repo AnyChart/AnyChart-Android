@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Map geo scale ticks.
+ * The GeoTicks class contains methods for configuring ticks on the Geo scale.
  */
 public class GeoTicks extends CoreBase {
 
@@ -35,13 +35,13 @@ public class GeoTicks extends CoreBase {
     }
 
     
-    private Double count;
+    private Number count;
 
     /**
      * Setter for ticks count value.
 <b>Note:</b> Final number of ticks can be greater (one more tick can be added).
      */
-    public GeoTicks setCount(Double count) {
+    public GeoTicks setCount(Number count) {
         if (jsBase == null) {
             this.count = count;
         } else {
@@ -61,14 +61,14 @@ public class GeoTicks extends CoreBase {
         return this;
     }
 
-    private Double minimumCount;
-    private Double maximumCount;
+    private Number minimumCount;
+    private Number maximumCount;
 
     /**
      * Setter for ticks count value using two parameters.
 <b>Note:</b> Final number of ticks can be greater than maximum (one more tick can be added).
      */
-    public GeoTicks setCount(Double minimumCount, Double maximumCount) {
+    public GeoTicks setCount(Number minimumCount, Number maximumCount) {
         if (jsBase == null) {
             this.minimumCount = minimumCount;
             this.maximumCount = maximumCount;
@@ -90,12 +90,12 @@ public class GeoTicks extends CoreBase {
         return this;
     }
 
-    private Double interval;
+    private Number interval;
 
     /**
      * Setter for ticks interval value.
      */
-    public GeoTicks setInterval(Double interval) {
+    public GeoTicks setInterval(Number interval) {
         if (jsBase == null) {
             this.interval = interval;
         } else {

@@ -67,12 +67,12 @@ public class VectorEllipse extends Shape {
         return this;
     }
 
-    private Double centerX;
+    private Number centerX;
 
     /**
      * Sets a center X.
      */
-    public VectorEllipse setCenterX(Double centerX) {
+    public VectorEllipse setCenterX(Number centerX) {
         if (jsBase == null) {
             this.centerX = centerX;
         } else {
@@ -92,12 +92,12 @@ public class VectorEllipse extends Shape {
         return this;
     }
 
-    private Double centerY;
+    private Number centerY;
 
     /**
      * Sets a center Y.
      */
-    public VectorEllipse setCenterY(Double centerY) {
+    public VectorEllipse setCenterY(Number centerY) {
         if (jsBase == null) {
             this.centerY = centerY;
         } else {
@@ -117,12 +117,12 @@ public class VectorEllipse extends Shape {
         return this;
     }
 
-    private Double radiusX;
+    private Number radiusX;
 
     /**
      * Sets a X radius.
      */
-    public VectorEllipse setRadiusX(Double radiusX) {
+    public VectorEllipse setRadiusX(Number radiusX) {
         if (jsBase == null) {
             this.radiusX = radiusX;
         } else {
@@ -142,12 +142,12 @@ public class VectorEllipse extends Shape {
         return this;
     }
 
-    private Double radiusY;
+    private Number radiusY;
 
     /**
      * Sets a Y radius.
      */
-    public VectorEllipse setRadiusY(Double radiusY) {
+    public VectorEllipse setRadiusY(Number radiusY) {
         if (jsBase == null) {
             this.radiusY = radiusY;
         } else {
@@ -167,13 +167,13 @@ public class VectorEllipse extends Shape {
         return this;
     }
 
-    private Double rx;
-    private Double ry;
+    private Number rx;
+    private Number ry;
 
     /**
      * Sets radius.
      */
-    public VectorEllipse setSetRadius(Double rx, Double ry) {
+    public VectorEllipse setSetRadius(Number rx, Number ry) {
         if (jsBase == null) {
             this.rx = rx;
             this.ry = ry;

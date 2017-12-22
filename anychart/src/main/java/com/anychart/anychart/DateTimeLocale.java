@@ -15,8 +15,8 @@ public class DateTimeLocale extends JsObject  {
     private String dateTimeFormats;
     private String[] eras;
     private String[] erasNames;
-    private Double firstDayOfWeek;
-    private Double firstWeekCutOfDay;
+    private Number firstDayOfWeek;
+    private Number firstWeekCutOfDay;
     private String formats;
     private String[] months;
     private String[] narrowMonths;
@@ -33,10 +33,10 @@ public class DateTimeLocale extends JsObject  {
     private String[] standaloneWeekdays;
     private String timeFormats;
     private String[] weekdays;
-    private Double[] weekendRange;
+    private Number[] weekendRange;
 
     
-    public DateTimeLocale(String[] ampms, String dateFormats, String dateTimeFormats, String[] eras, String[] erasNames, Double firstDayOfWeek, Double firstWeekCutOfDay, String formats, String[] months, String[] narrowMonths, String[] narrowWeekdays, String[] quarters, String[] shortMonths, String[] shortQuarters, String[] shortWeekdays, String[] standaloneMonths, String[] standaloneNarrowMonths, String[] standaloneNarrowWeekdays, String[] standaloneShortMonths, String[] standaloneShortWeekdays, String[] standaloneWeekdays, String timeFormats, String[] weekdays, Double[] weekendRange) {
+    public DateTimeLocale(String[] ampms, String dateFormats, String dateTimeFormats, String[] eras, String[] erasNames, Number firstDayOfWeek, Number firstWeekCutOfDay, String formats, String[] months, String[] narrowMonths, String[] narrowWeekdays, String[] quarters, String[] shortMonths, String[] shortQuarters, String[] shortWeekdays, String[] standaloneMonths, String[] standaloneNarrowMonths, String[] standaloneNarrowWeekdays, String[] standaloneShortMonths, String[] standaloneShortWeekdays, String[] standaloneWeekdays, String timeFormats, String[] weekdays, Number[] weekendRange) {
         this.ampms = ampms;
         this.dateFormats = dateFormats;
         this.dateTimeFormats = dateTimeFormats;

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Define Logarithmic scale.<br/>
+ * The Logarithmic class contains methods for configuring Logarithmic scale.<br/>
 <b>Note:</b> To create instance use {@link anychart.scales#log} method.
  */
 public class Logarithmic extends ScalesLinear {
@@ -36,13 +36,13 @@ public class Logarithmic extends ScalesLinear {
     }
 
     
-    private Double logBase;
+    private Number logBase;
 
     /**
-     * Setter for Log base value.<br/>
+     * Setter for the logarithmic base value.<br/>
 <b>Note:</b> Affects tick values auto calculation.
      */
-    public Logarithmic setLogBase(Double logBase) {
+    public Logarithmic setLogBase(Number logBase) {
         if (jsBase == null) {
             this.logBase = logBase;
         } else {

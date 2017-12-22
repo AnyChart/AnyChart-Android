@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -91,12 +88,12 @@ public class UiColorRange extends CoreAxesLinear {
         return this;
     }
 
-    private Double colorLineSize;
+    private Number colorLineSize;
 
     /**
      * Setter for the color line size.
      */
-    public UiColorRange setColorLineSize(Double colorLineSize) {
+    public UiColorRange setColorLineSize(Number colorLineSize) {
         if (jsBase == null) {
             this.colorLineSize = colorLineSize;
         } else {
@@ -117,7 +114,7 @@ public class UiColorRange extends CoreAxesLinear {
     }
 
     private String length;
-    private Double length1;
+    private Number length1;
 
     /**
      * Setter for the current color range line length.
@@ -149,7 +146,7 @@ public class UiColorRange extends CoreAxesLinear {
     /**
      * Setter for the current color range line length.
      */
-    public UiColorRange setLength(Double length1) {
+    public UiColorRange setLength(Number length1) {
         if (jsBase == null) {
             this.length = null;
             this.length1 = null;

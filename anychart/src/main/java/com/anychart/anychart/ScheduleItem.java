@@ -9,12 +9,12 @@ import java.util.Arrays;
 public class ScheduleItem extends JsObject  {
 
     
-    private Double end;
-    private Double start;
+    private Number end;
+    private Number start;
     private String workingTime;
 
     
-    public ScheduleItem(Double end, Double start, String workingTime) {
+    public ScheduleItem(Number end, Number start, String workingTime) {
         this.end = end;
         this.start = start;
         this.workingTime = workingTime;

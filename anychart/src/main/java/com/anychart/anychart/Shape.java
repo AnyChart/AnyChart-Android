@@ -62,12 +62,12 @@ public class Shape extends Element {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Sets a fill with opacity.<br/>
      */
-    public Shape setFill(String color, Double opacity) {
+    public Shape setFill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -91,16 +91,16 @@ public class Shape extends Element {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
      */
-    public Shape fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public Shape fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -140,7 +140,7 @@ public class Shape extends Element {
     /**
      * Linear gradient fill.
      */
-    public Shape fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public Shape fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -180,7 +180,7 @@ public class Shape extends Element {
     /**
      * Linear gradient fill.
      */
-    public Shape fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public Shape fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -220,7 +220,7 @@ public class Shape extends Element {
     /**
      * Linear gradient fill.
      */
-    public Shape fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public Shape fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -260,7 +260,7 @@ public class Shape extends Element {
     /**
      * Linear gradient fill.
      */
-    public Shape fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public Shape fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -300,7 +300,7 @@ public class Shape extends Element {
     /**
      * Linear gradient fill.
      */
-    public Shape fill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public Shape fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -338,17 +338,17 @@ public class Shape extends Element {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
      */
-    public Shape fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Shape fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -398,7 +398,7 @@ public class Shape extends Element {
     /**
      * Radial gradient fill.
      */
-    public Shape fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Shape fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -534,7 +534,7 @@ public class Shape extends Element {
     private Stroke stroke3;
     private ColoredFill stroke4;
     private String stroke5;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -542,7 +542,7 @@ public class Shape extends Element {
     /**
      * Sets stroke settings using several parameter.
      */
-    public Shape setStroke(Stroke stroke3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Shape setStroke(Stroke stroke3, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -581,7 +581,7 @@ public class Shape extends Element {
     /**
      * Sets stroke settings using several parameter.
      */
-    public Shape setStroke(ColoredFill stroke4, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Shape setStroke(ColoredFill stroke4, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -620,7 +620,7 @@ public class Shape extends Element {
     /**
      * Sets stroke settings using several parameter.
      */
-    public Shape setStroke(String stroke5, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Shape setStroke(String stroke5, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -655,12 +655,12 @@ public class Shape extends Element {
         return this;
     }
 
-    private Double strokeThickness;
+    private Number strokeThickness;
 
     /**
      * Sets a stroke thickness.
      */
-    public Shape setStrokeThickness(Double strokeThickness) {
+    public Shape setStrokeThickness(Number strokeThickness) {
         if (jsBase == null) {
             this.strokeThickness = strokeThickness;
         } else {

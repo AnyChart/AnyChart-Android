@@ -36,12 +36,12 @@ public class EMA extends JsObject {
     }
 
     
-    private Double period;
+    private Number period;
 
     /**
      * Setter for the period.
      */
-    public EMA setPeriod(Double period) {
+    public EMA setPeriod(Number period) {
         if (jsBase == null) {
             this.period = period;
         } else {

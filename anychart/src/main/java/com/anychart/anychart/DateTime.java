@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Define Datetime scale.<br/>
+ * The DateTime class contains methods for configuring DateTime scale.<br/>
 <b>Note:</b> To create instance use {@link anychart.scales#dateTime} method.
  */
 public class DateTime extends ScatterBase {
@@ -36,12 +36,12 @@ public class DateTime extends ScatterBase {
     }
 
     
-    private Double maximumGap;
+    private Number maximumGap;
 
     /**
      * Setter for the scale maximum gap.
      */
-    public DateTime setMaximumGap(Double maximumGap) {
+    public DateTime setMaximumGap(Number maximumGap) {
         if (jsBase == null) {
             this.maximumGap = maximumGap;
         } else {
@@ -61,12 +61,12 @@ public class DateTime extends ScatterBase {
         return this;
     }
 
-    private Double minimumGap;
+    private Number minimumGap;
 
     /**
      * Setter for the scale minimum gap.
      */
-    public DateTime setMinimumGap(Double minimumGap) {
+    public DateTime setMinimumGap(Number minimumGap) {
         if (jsBase == null) {
             this.minimumGap = minimumGap;
         } else {
@@ -89,7 +89,7 @@ public class DateTime extends ScatterBase {
     private DateTimeTicks getMinorTicks;
 
     /**
-     * Getter for set of scale ticks in terms of data values.
+     * Getter for the set of scale ticks in terms of data values.
      */
     public DateTimeTicks getMinorTicks() {
         if (getMinorTicks == null)
@@ -102,7 +102,7 @@ public class DateTime extends ScatterBase {
     private String[] minorTicks1;
 
     /**
-     * Setter for set of scale ticks in terms of data values.
+     * Setter for the set of scale ticks in terms of data values.
      */
     public DateTime setMinorTicks(String minorTicks) {
         if (jsBase == null) {
@@ -129,7 +129,7 @@ public class DateTime extends ScatterBase {
 
 
     /**
-     * Setter for set of scale ticks in terms of data values.
+     * Setter for the set of scale ticks in terms of data values.
      */
     public DateTime setMinorTicks(String[] minorTicks1) {
         if (jsBase == null) {
@@ -154,12 +154,12 @@ public class DateTime extends ScatterBase {
         return this;
     }
 
-    private Double softMaximum;
+    private Number softMaximum;
 
     /**
-     * Setter for soft maximum.
+     * Setter for the soft maximum.
      */
-    public DateTime setSoftMaximum(Double softMaximum) {
+    public DateTime setSoftMaximum(Number softMaximum) {
         if (jsBase == null) {
             this.softMaximum = softMaximum;
         } else {
@@ -179,12 +179,12 @@ public class DateTime extends ScatterBase {
         return this;
     }
 
-    private Double softMinimum;
+    private Number softMinimum;
 
     /**
      * Setter for soft minimum.
      */
-    public DateTime setSoftMinimum(Double softMinimum) {
+    public DateTime setSoftMinimum(Number softMinimum) {
         if (jsBase == null) {
             this.softMinimum = softMinimum;
         } else {
@@ -220,7 +220,7 @@ public class DateTime extends ScatterBase {
     private String[] ticks1;
 
     /**
-     * Setter for set of scale ticks in terms of data values.
+     * Setter for the set of scale ticks in terms of data values.
      */
     public DateTime setTicks(String ticks) {
         if (jsBase == null) {
@@ -247,7 +247,7 @@ public class DateTime extends ScatterBase {
 
 
     /**
-     * Setter for set of scale ticks in terms of data values.
+     * Setter for the set of scale ticks in terms of data values.
      */
     public DateTime setTicks(String[] ticks1) {
         if (jsBase == null) {

@@ -40,7 +40,7 @@ public class CartesianSeriesLine extends CartesianSeriesContinuousBase {
     private Stroke color;
     private ColoredFill color1;
     private String color2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -49,7 +49,7 @@ public class CartesianSeriesLine extends CartesianSeriesContinuousBase {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CartesianSeriesLine setStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CartesianSeriesLine setStroke(Stroke color, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -86,7 +86,7 @@ public class CartesianSeriesLine extends CartesianSeriesContinuousBase {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CartesianSeriesLine setStroke(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CartesianSeriesLine setStroke(ColoredFill color1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -123,7 +123,7 @@ public class CartesianSeriesLine extends CartesianSeriesContinuousBase {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CartesianSeriesLine setStroke(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CartesianSeriesLine setStroke(String color2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;

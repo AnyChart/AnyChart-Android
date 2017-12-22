@@ -36,12 +36,12 @@ public class CycledQueue extends JsObject {
     }
 
     
-    private Double newLengthLimit;
+    private Number newLengthLimit;
 
     /**
      * Clears the queue. You can optionally reset the queue length limit.
      */
-    public void clear(Double newLengthLimit) {
+    public void clear(Number newLengthLimit) {
         if (jsBase == null) {
             this.newLengthLimit = newLengthLimit;
         } else {
@@ -61,13 +61,13 @@ public class CycledQueue extends JsObject {
         }
     }
 
-    private Double index;
+    private Number index;
 
     /**
      * Returns the queue item at the specified index.
-The index can be negative - that will interpreted as the index from the end of the queue.
+The index can be negative - that is interpreted as the index from the end of the queue.
      */
-    public void get(Double index) {
+    public void get(Number index) {
         if (jsBase == null) {
             this.index = index;
         } else {

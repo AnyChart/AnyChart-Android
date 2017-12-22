@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -107,12 +112,12 @@ public class UiScroller extends VisualBase {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Scroller fill color with opacity.
      */
-    public UiScroller fill(String color, Double opacity) {
+    public UiScroller fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -136,17 +141,17 @@ public class UiScroller extends VisualBase {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiScroller fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public UiScroller fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -187,7 +192,7 @@ public class UiScroller extends VisualBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiScroller fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public UiScroller fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -228,7 +233,7 @@ public class UiScroller extends VisualBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiScroller fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public UiScroller fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -269,7 +274,7 @@ public class UiScroller extends VisualBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiScroller fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public UiScroller fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -310,7 +315,7 @@ public class UiScroller extends VisualBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiScroller fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public UiScroller fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -351,7 +356,7 @@ public class UiScroller extends VisualBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiScroller fill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public UiScroller fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -389,18 +394,18 @@ public class UiScroller extends VisualBase {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiScroller fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiScroller fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -451,7 +456,7 @@ public class UiScroller extends VisualBase {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiScroller fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiScroller fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -498,13 +503,13 @@ public class UiScroller extends VisualBase {
     }
 
     private Fill imageSettings;
-    private Double height;
+    private Number height;
     private String height1;
 
     /**
      * Setter for the scroller height.
      */
-    public UiScroller setHeight(Double height) {
+    public UiScroller setHeight(Number height) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -554,13 +559,13 @@ public class UiScroller extends VisualBase {
         return this;
     }
 
-    private Double maxHeight;
+    private Number maxHeight;
     private String maxHeight1;
 
     /**
      * Setter for the scroller maximum height.
      */
-    public UiScroller setMaxHeight(Double maxHeight) {
+    public UiScroller setMaxHeight(Number maxHeight) {
         if (jsBase == null) {
             this.maxHeight = null;
             this.maxHeight1 = null;
@@ -610,13 +615,13 @@ public class UiScroller extends VisualBase {
         return this;
     }
 
-    private Double minHeight;
+    private Number minHeight;
     private String minHeight1;
 
     /**
      * Setter for the scroller minimum height.
      */
-    public UiScroller setMinHeight(Double minHeight) {
+    public UiScroller setMinHeight(Number minHeight) {
         if (jsBase == null) {
             this.minHeight = null;
             this.minHeight1 = null;
@@ -725,7 +730,7 @@ public class UiScroller extends VisualBase {
     private Stroke outlineStroke;
     private ColoredFill outlineStroke1;
     private String outlineStroke2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -734,7 +739,7 @@ public class UiScroller extends VisualBase {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiScroller setOutlineStroke(Stroke outlineStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public UiScroller setOutlineStroke(Stroke outlineStroke, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.outlineStroke = null;
             this.outlineStroke1 = null;
@@ -771,7 +776,7 @@ public class UiScroller extends VisualBase {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiScroller setOutlineStroke(ColoredFill outlineStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public UiScroller setOutlineStroke(ColoredFill outlineStroke1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.outlineStroke = null;
             this.outlineStroke1 = null;
@@ -808,7 +813,7 @@ public class UiScroller extends VisualBase {
      * Setter for outline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiScroller setOutlineStroke(String outlineStroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public UiScroller setOutlineStroke(String outlineStroke2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.outlineStroke = null;
             this.outlineStroke1 = null;
@@ -867,12 +872,12 @@ public class UiScroller extends VisualBase {
     }
 
     private String color1;
-    private Double opacity3;
+    private Number opacity3;
 
     /**
      * Scroller fill color in selected mode with opacity.
      */
-    public UiScroller selectedFill(String color1, Double opacity3) {
+    public UiScroller selectedFill(String color1, Number opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -904,17 +909,17 @@ public class UiScroller extends VisualBase {
 
     private GradientKey[] keys4;
     private String[] keys5;
-    private Double angle1;
+    private Number angle1;
     private Boolean mode4;
     private VectorRect mode5;
     private String mode6;
-    private Double opacity4;
+    private Number opacity4;
 
     /**
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiScroller selectedFill(GradientKey[] keys4, Double angle1, Double opacity4, Boolean mode4) {
+    public UiScroller selectedFill(GradientKey[] keys4, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -969,7 +974,7 @@ public class UiScroller extends VisualBase {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiScroller selectedFill(GradientKey[] keys4, Double angle1, Double opacity4, VectorRect mode5) {
+    public UiScroller selectedFill(GradientKey[] keys4, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1024,7 +1029,7 @@ public class UiScroller extends VisualBase {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiScroller selectedFill(GradientKey[] keys4, Double angle1, Double opacity4, String mode6) {
+    public UiScroller selectedFill(GradientKey[] keys4, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1079,7 +1084,7 @@ public class UiScroller extends VisualBase {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiScroller selectedFill(String[] keys5, Double angle1, Double opacity4, Boolean mode4) {
+    public UiScroller selectedFill(String[] keys5, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1134,7 +1139,7 @@ public class UiScroller extends VisualBase {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiScroller selectedFill(String[] keys5, Double angle1, Double opacity4, VectorRect mode5) {
+    public UiScroller selectedFill(String[] keys5, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1189,7 +1194,7 @@ public class UiScroller extends VisualBase {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiScroller selectedFill(String[] keys5, Double angle1, Double opacity4, String mode6) {
+    public UiScroller selectedFill(String[] keys5, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1241,18 +1246,18 @@ public class UiScroller extends VisualBase {
 
     private GradientKey[] keys6;
     private String[] keys7;
-    private Double cx1;
-    private Double cy1;
+    private Number cx1;
+    private Number cy1;
     private GraphicsMathRect mode7;
-    private Double opacity5;
-    private Double fx1;
-    private Double fy1;
+    private Number opacity5;
+    private Number fx1;
+    private Number fy1;
 
     /**
      * Radial gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiScroller selectedFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public UiScroller selectedFill(GradientKey[] keys6, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1326,7 +1331,7 @@ public class UiScroller extends VisualBase {
      * Radial gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiScroller selectedFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public UiScroller selectedFill(String[] keys7, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

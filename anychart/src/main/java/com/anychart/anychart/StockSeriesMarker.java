@@ -79,14 +79,14 @@ public class StockSeriesMarker extends StockSeriesBase {
     private HatchFillType patternFillOrType2;
     private String patternFillOrType3;
     private String color;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
 
     /**
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesMarker setHatchFill(PatternFill patternFillOrType, String color, Double thickness, Double size) {
+    public StockSeriesMarker setHatchFill(PatternFill patternFillOrType, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -122,7 +122,7 @@ public class StockSeriesMarker extends StockSeriesBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesMarker setHatchFill(HatchFill patternFillOrType1, String color, Double thickness, Double size) {
+    public StockSeriesMarker setHatchFill(HatchFill patternFillOrType1, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -158,7 +158,7 @@ public class StockSeriesMarker extends StockSeriesBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesMarker setHatchFill(HatchFillType patternFillOrType2, String color, Double thickness, Double size) {
+    public StockSeriesMarker setHatchFill(HatchFillType patternFillOrType2, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -194,7 +194,7 @@ public class StockSeriesMarker extends StockSeriesBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesMarker setHatchFill(String patternFillOrType3, String color, Double thickness, Double size) {
+    public StockSeriesMarker setHatchFill(String patternFillOrType3, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -225,12 +225,12 @@ public class StockSeriesMarker extends StockSeriesBase {
         return this;
     }
 
-    private Double size1;
+    private Number size1;
 
     /**
      * Setter for marker size.
      */
-    public StockSeriesMarker setSize(Double size1) {
+    public StockSeriesMarker setSize(Number size1) {
         if (jsBase == null) {
             this.size = null;
             this.size1 = null;
@@ -256,7 +256,7 @@ public class StockSeriesMarker extends StockSeriesBase {
     private Stroke color1;
     private ColoredFill color2;
     private String color3;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -265,7 +265,7 @@ public class StockSeriesMarker extends StockSeriesBase {
      * Setter for the stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StockSeriesMarker setStroke(Stroke color1, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public StockSeriesMarker setStroke(Stroke color1, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -306,7 +306,7 @@ public class StockSeriesMarker extends StockSeriesBase {
      * Setter for the stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StockSeriesMarker setStroke(ColoredFill color2, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public StockSeriesMarker setStroke(ColoredFill color2, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -347,7 +347,7 @@ public class StockSeriesMarker extends StockSeriesBase {
      * Setter for the stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StockSeriesMarker setStroke(String color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public StockSeriesMarker setStroke(String color3, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;

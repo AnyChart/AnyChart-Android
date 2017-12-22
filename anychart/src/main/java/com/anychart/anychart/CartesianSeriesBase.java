@@ -125,7 +125,7 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     private String error;
     private Boolean error1;
     private String error2;
-    private Double error3;
+    private Number error3;
 
     /**
      * Setter for the series error.
@@ -188,7 +188,7 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     /**
      * Setter for the series error.
      */
-    public CartesianSeriesBase setError(Double error3) {
+    public CartesianSeriesBase setError(Number error3) {
         if (jsBase == null) {
             this.error = null;
             this.error1 = null;
@@ -213,13 +213,13 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
         return this;
     }
 
-    private Double indexes;
-    private Double[] indexes1;
+    private Number indexes;
+    private Number[] indexes1;
 
     /**
      * Excludes points at the specified index.
      */
-    public void excludePoint(Double indexes) {
+    public void excludePoint(Number indexes) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -246,7 +246,7 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     /**
      * Excludes points at the specified index.
      */
-    public void excludePoint(Double[] indexes1) {
+    public void excludePoint(Number[] indexes1) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -269,13 +269,13 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
         }
     }
 
-    private Double indexes2;
-    private Double[] indexes3;
+    private Number indexes2;
+    private Number[] indexes3;
 
     /**
      * Includes excluded points with the specified indexes.
      */
-    public void includePoint(Double indexes2) {
+    public void includePoint(Number indexes2) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -304,7 +304,7 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
     /**
      * Includes excluded points with the specified indexes.
      */
-    public void includePoint(Double[] indexes3) {
+    public void includePoint(Number[] indexes3) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -355,13 +355,13 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
         return this;
     }
 
-    private Double indexes4;
-    private Double[] indexes5;
+    private Number indexes4;
+    private Number[] indexes5;
 
     /**
      * Keep only the specified points.
      */
-    public void keepOnlyPoints(Double indexes4) {
+    public void keepOnlyPoints(Number indexes4) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -392,7 +392,7 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
     /**
      * Keep only the specified points.
      */
-    public void keepOnlyPoints(Double[] indexes5) {
+    public void keepOnlyPoints(Number[] indexes5) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -481,13 +481,13 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
         return this;
     }
 
-    private Double subRangeRatio;
+    private Number subRangeRatio;
 
     /**
      * Transforms X value to pixel coordinates.
 <b>Note:</b> Works only after {@link anychart.charts.Cartesian#draw} is called.
      */
-    public void transformX(Double subRangeRatio) {
+    public void transformX(Number subRangeRatio) {
         if (jsBase == null) {
             this.subRangeRatio = subRangeRatio;
         } else {
@@ -507,13 +507,13 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
         }
     }
 
-    private Double subRangeRatio1;
+    private Number subRangeRatio1;
 
     /**
      * Transforms Y value to pixel coordinates.
 <b>Note:</b> Works only after {@link anychart.charts.Cartesian#draw} is called.
      */
-    public void transformY(Double subRangeRatio1) {
+    public void transformY(Number subRangeRatio1) {
         if (jsBase == null) {
             this.subRangeRatio = null;
             this.subRangeRatio1 = null;
@@ -536,12 +536,12 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
         }
     }
 
-    private Double position;
+    private Number position;
 
     /**
      * Setter for the position of the point on an ordinal scale.
      */
-    public CartesianSeriesBase setXPointPosition(Double position) {
+    public CartesianSeriesBase setXPointPosition(Number position) {
         if (jsBase == null) {
             this.position = position;
         } else {

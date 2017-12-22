@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Define Ordinal scale.<br/>
+ * The OrdinalColor class contains methods for configuring Ordinal color scale.<br/>
 <b>Note:</b> To create instance use {@link anychart.scales#ordinalColor} method.
  */
 public class OrdinalColor extends ScalesBase {
@@ -64,7 +64,7 @@ public class OrdinalColor extends ScalesBase {
     private String[] colors;
 
     /**
-     * Sets linear gradient for linear color scale.
+     * Setter for the linear gradient for linear color scale.
      */
     public OrdinalColor setColors(String[] colors) {
         if (jsBase == null) {
@@ -86,12 +86,12 @@ public class OrdinalColor extends ScalesBase {
         return this;
     }
 
-    private Double getIndexByValue;
+    private Number getIndexByValue;
 
     /**
      * Returns range index relative passed value.
      */
-    public void getIndexByValue(Double getIndexByValue) {
+    public void getIndexByValue(Number getIndexByValue) {
         if (jsBase == null) {
             this.getIndexByValue = getIndexByValue;
         } else {
@@ -111,12 +111,12 @@ public class OrdinalColor extends ScalesBase {
         }
     }
 
-    private Double getRangeByValue;
+    private Number getRangeByValue;
 
     /**
      * Returns range for passed value.
      */
-    public void getRangeByValue(Double getRangeByValue) {
+    public void getRangeByValue(Number getRangeByValue) {
         if (jsBase == null) {
             this.getRangeByValue = getRangeByValue;
         } else {
@@ -136,12 +136,12 @@ public class OrdinalColor extends ScalesBase {
         }
     }
 
-    private Double ratio;
+    private Number ratio;
 
     /**
      * Returns tick value by its ratio position.
      */
-    public void inverseTransform(Double ratio) {
+    public void inverseTransform(Number ratio) {
         if (jsBase == null) {
             this.ratio = ratio;
         } else {
@@ -164,7 +164,7 @@ public class OrdinalColor extends ScalesBase {
     private String names;
 
     /**
-     * Sets scale names for data set.
+     * Setter for scale names for data set.
      */
     public OrdinalColor setNames(String names) {
         if (jsBase == null) {
@@ -189,7 +189,7 @@ public class OrdinalColor extends ScalesBase {
     private String ranges;
 
     /**
-     * Sets a set ranges.
+     * Setter for the scale ranges.
      */
     public OrdinalColor setRanges(String ranges) {
         if (jsBase == null) {
@@ -214,7 +214,7 @@ public class OrdinalColor extends ScalesBase {
     private OrdinalTicks getTicks;
 
     /**
-     * Gets the current set of scale ticks in terms of data values.
+     * Getter for the set of scale ticks in terms of data values.
      */
     public OrdinalTicks getTicks() {
         if (getTicks == null)
@@ -227,7 +227,7 @@ public class OrdinalColor extends ScalesBase {
     private String[] ticks1;
 
     /**
-     * Sets a set of scale ticks in terms of data values.
+     * Setter for the set of scale ticks in terms of data values.
      */
     public OrdinalColor setTicks(String ticks) {
         if (jsBase == null) {
@@ -254,7 +254,7 @@ public class OrdinalColor extends ScalesBase {
 
 
     /**
-     * Sets a set of scale ticks in terms of data values.
+     * Setter for the set of scale ticks in terms of data values.
      */
     public OrdinalColor setTicks(String[] ticks1) {
         if (jsBase == null) {
@@ -279,12 +279,12 @@ public class OrdinalColor extends ScalesBase {
         return this;
     }
 
-    private Double subRangeRatio;
+    private Number subRangeRatio;
 
     /**
      * Returns tick position ratio by its value.
      */
-    public void transform(Double subRangeRatio) {
+    public void transform(Number subRangeRatio) {
         if (jsBase == null) {
             this.subRangeRatio = subRangeRatio;
         } else {
@@ -304,12 +304,12 @@ public class OrdinalColor extends ScalesBase {
         }
     }
 
-    private Double valueToColor;
+    private Number valueToColor;
 
     /**
      * Converts value to color. Returns color relative to passed value.
      */
-    public void valueToColor(Double valueToColor) {
+    public void valueToColor(Number valueToColor) {
         if (jsBase == null) {
             this.valueToColor = valueToColor;
         } else {

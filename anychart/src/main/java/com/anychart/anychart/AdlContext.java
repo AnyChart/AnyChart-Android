@@ -10,15 +10,15 @@ public class AdlContext extends JsObject  {
 
     
     private CycledQueue closeQueue;
-    private Double dispose;
+    private Number dispose;
     private CycledQueue highQueue;
     private CycledQueue lowQueue;
-    private Double period;
-    private Double prevResult;
+    private Number period;
+    private Number prevResult;
     private CycledQueue volumeQueue;
 
     
-    public AdlContext(CycledQueue closeQueue, Double dispose, CycledQueue highQueue, CycledQueue lowQueue, Double period, Double prevResult, CycledQueue volumeQueue) {
+    public AdlContext(CycledQueue closeQueue, Number dispose, CycledQueue highQueue, CycledQueue lowQueue, Number period, Number prevResult, CycledQueue volumeQueue) {
         this.closeQueue = closeQueue;
         this.dispose = dispose;
         this.highQueue = highQueue;

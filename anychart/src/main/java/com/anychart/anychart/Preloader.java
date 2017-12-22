@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Preloader.
+ * The Preloader class contains methods for configuring preloader.
  */
 public class Preloader extends JsObject {
 

@@ -153,12 +153,12 @@ public class DatagridColumn extends VisualBase {
         return this;
     }
 
-    private Double defaultWidth;
+    private Number defaultWidth;
 
     /**
      * Setter for the column default width.
      */
-    public DatagridColumn setDefaultWidth(Double defaultWidth) {
+    public DatagridColumn setDefaultWidth(Number defaultWidth) {
         if (jsBase == null) {
             this.defaultWidth = defaultWidth;
         } else {
@@ -178,12 +178,12 @@ public class DatagridColumn extends VisualBase {
         return this;
     }
 
-    private Double depthPaddingMultiplier;
+    private Number depthPaddingMultiplier;
 
     /**
      * Setter for the multiplier to choose a left padding.
      */
-    public DatagridColumn setDepthPaddingMultiplier(Double depthPaddingMultiplier) {
+    public DatagridColumn setDepthPaddingMultiplier(Number depthPaddingMultiplier) {
         if (jsBase == null) {
             this.depthPaddingMultiplier = depthPaddingMultiplier;
         } else {
@@ -337,13 +337,13 @@ public class DatagridColumn extends VisualBase {
         return this;
     }
 
-    private Double width;
+    private Number width;
     private String width1;
 
     /**
      * Setter for the column width.
      */
-    public DatagridColumn setWidth(Double width) {
+    public DatagridColumn setWidth(Number width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

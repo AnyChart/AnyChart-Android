@@ -77,13 +77,13 @@ public class Tree extends CoreBase {
     private String child1;
     private TreeDataItem child2;
     private TreeviewDataItem child3;
-    private Double index;
+    private Number index;
     private List<TreeDataItem> setAddChildAt = new ArrayList<>();
 
     /**
      * Inserts a new root element into a specified position by index and return it.
      */
-    public TreeDataItem addChildAt(String child1, Double index) {
+    public TreeDataItem addChildAt(String child1, Number index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -128,7 +128,7 @@ public class Tree extends CoreBase {
     /**
      * Inserts a new root element into a specified position by index and return it.
      */
-    public TreeDataItem addChildAt(TreeDataItem child2, Double index) {
+    public TreeDataItem addChildAt(TreeDataItem child2, Number index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -173,7 +173,7 @@ public class Tree extends CoreBase {
     /**
      * Inserts a new root element into a specified position by index and return it.
      */
-    public TreeDataItem addChildAt(TreeviewDataItem child3, Double index) {
+    public TreeDataItem addChildAt(TreeviewDataItem child3, Number index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -426,7 +426,7 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
     /**
      * Gets the child by index.
      */
-    public TreeDataItem getGetChildAt(Double index) {
+    public TreeDataItem getGetChildAt(Number index) {
         TreeDataItem item = new TreeDataItem(jsBase + ".getChildAt(" + index + ")");
         getGetChildAt.add(item);
         return item;
@@ -516,13 +516,13 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
         return "";
     }
 
-    private Double index1;
+    private Number index1;
     private List<TreeDataItem> setRemoveChildAt = new ArrayList<>();
 
     /**
-     * Removes child at specified position.
+     * Removes the child at specified position.
      */
-    public TreeDataItem removeChildAt(Double index1) {
+    public TreeDataItem removeChildAt(Number index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -588,7 +588,7 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
 
     private String soughtField;
     private String search;
-    private Double search1;
+    private Number search1;
     private Boolean search2;
     private List<TreeDataItem> setSearch = new ArrayList<>();
 
@@ -639,7 +639,7 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
     /**
      * Performs a data search.
      */
-    public TreeDataItem search(String soughtField, Double search1) {
+    public TreeDataItem search(String soughtField, Number search1) {
         if (jsBase == null) {
             this.soughtField = soughtField;
             this.search = null;
@@ -724,7 +724,7 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
 
     private String soughtField1;
     private String searchItems;
-    private Double searchItems1;
+    private Number searchItems1;
     private Boolean searchItems2;
 
     /**
@@ -763,7 +763,7 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
     /**
      * Performs a data search. Actually does the same as ({@link anychart.data.Tree#search}) but result is always an array.
      */
-    public void searchItems(String soughtField1, Double searchItems1) {
+    public void searchItems(String soughtField1, Number searchItems1) {
         if (jsBase == null) {
             this.soughtField = null;
             this.soughtField1 = null;

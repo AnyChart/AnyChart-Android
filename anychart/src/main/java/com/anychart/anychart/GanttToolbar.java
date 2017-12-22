@@ -1,10 +1,16 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
- * Toolbar is a part of Gantt chart. Toolbar contains menu Print with options print A4 - A0, buttons ZoomIn, ZoomOut,
+ * The GanttToolbar class contains methods for configuring toolbar.<br/>
+Toolbar is a part of Gantt chart. Toolbar contains menu Print with options print A4 - A0, buttons ZoomIn, ZoomOut,
 FitAll, ExpandAll/CollapseAll and menu with option Save As (SVG, PNG, JPG, PDF).
  */
 public class GanttToolbar extends JsObject {
@@ -128,7 +134,7 @@ public class GanttToolbar extends JsObject {
     private Chart getTarget;
 
     /**
-     * Getter for the current toolbar target.
+     * Getter for the toolbar target.
      */
     public Chart getTarget() {
         if (getTarget == null)
@@ -140,7 +146,7 @@ public class GanttToolbar extends JsObject {
     private Chart target;
 
     /**
-     * Setter for the current toolbar target.
+     * Setter for the toolbar target.
      */
     public GanttToolbar setTarget(Chart target) {
         if (jsBase == null) {

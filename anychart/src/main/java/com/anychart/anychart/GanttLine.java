@@ -136,7 +136,7 @@ public class GanttLine extends VisualBase {
     private Stroke stroke;
     private ColoredFill stroke1;
     private String stroke2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -144,7 +144,7 @@ public class GanttLine extends VisualBase {
     /**
      * Setter for the Gantt chart line marker stroke.
      */
-    public GanttLine setStroke(Stroke stroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public GanttLine setStroke(Stroke stroke, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -180,7 +180,7 @@ public class GanttLine extends VisualBase {
     /**
      * Setter for the Gantt chart line marker stroke.
      */
-    public GanttLine setStroke(ColoredFill stroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public GanttLine setStroke(ColoredFill stroke1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -216,7 +216,7 @@ public class GanttLine extends VisualBase {
     /**
      * Setter for the Gantt chart line marker stroke.
      */
-    public GanttLine setStroke(String stroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public GanttLine setStroke(String stroke2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -248,14 +248,14 @@ public class GanttLine extends VisualBase {
         return this;
     }
 
-    private Double value;
+    private Number value;
     private GanttDateTimeMarkers value1;
     private String value2;
 
     /**
      * Setter for the Gantt chart line marker value.
      */
-    public GanttLine setValue(Double value) {
+    public GanttLine setValue(Number value) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;

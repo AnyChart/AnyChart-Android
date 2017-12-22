@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Basic methods for scales.
+ * The Base class contains methods for all types scales.
  */
 public class ScalesBase extends CoreBase {
 
@@ -38,7 +38,7 @@ public class ScalesBase extends CoreBase {
     private Boolean silently;
 
     /**
-     * Informs the scale that an auto range calculation started for the chart in past was ended.
+     * Informs the scale that an auto-range calculation started for the chart in past was ended.
      */
     public void finishAutoCalc(Boolean silently) {
         if (jsBase == null) {
@@ -63,7 +63,7 @@ public class ScalesBase extends CoreBase {
     private Boolean inverted;
 
     /**
-     * Setter for scale inversion. If the scale is <b>inverted</b>, axes and series go upside-down or right-to-left
+     * Setter for scale inversion.<br/> If the scale is <b>inverted</b>, axes and series go upside-down or right-to-left
 instead of bottom-to-top and left-to-right.
      */
     public ScalesBase setInverted(Boolean inverted) {

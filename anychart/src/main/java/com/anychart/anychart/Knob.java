@@ -35,13 +35,13 @@ public class Knob extends GaugePointersBase {
     }
 
     
-    private Double bottomRadius;
+    private Number bottomRadius;
     private String bottomRadius1;
 
     /**
      * Setter for the bottom radius.
      */
-    public Knob setBottomRadius(Double bottomRadius) {
+    public Knob setBottomRadius(Number bottomRadius) {
         if (jsBase == null) {
             this.bottomRadius = null;
             this.bottomRadius1 = null;
@@ -91,12 +91,12 @@ public class Knob extends GaugePointersBase {
         return this;
     }
 
-    private Double bottomRatio;
+    private Number bottomRatio;
 
     /**
      * Setter for the bottom ratio.
      */
-    public Knob setBottomRatio(Double bottomRatio) {
+    public Knob setBottomRatio(Number bottomRatio) {
         if (jsBase == null) {
             this.bottomRatio = bottomRatio;
         } else {
@@ -116,13 +116,13 @@ public class Knob extends GaugePointersBase {
         return this;
     }
 
-    private Double topRadius;
+    private Number topRadius;
     private String topRadius1;
 
     /**
      * Setter for the top radius.
      */
-    public Knob setTopRadius(Double topRadius) {
+    public Knob setTopRadius(Number topRadius) {
         if (jsBase == null) {
             this.topRadius = null;
             this.topRadius1 = null;
@@ -172,12 +172,12 @@ public class Knob extends GaugePointersBase {
         return this;
     }
 
-    private Double topRatio;
+    private Number topRatio;
 
     /**
      * Setter for the top ratio.
      */
-    public Knob setTopRatio(Double topRatio) {
+    public Knob setTopRatio(Number topRatio) {
         if (jsBase == null) {
             this.topRatio = topRatio;
         } else {
@@ -197,12 +197,12 @@ public class Knob extends GaugePointersBase {
         return this;
     }
 
-    private Double verticesCount;
+    private Number verticesCount;
 
     /**
      * Setter for vertices count.
      */
-    public Knob setVerticesCount(Double verticesCount) {
+    public Knob setVerticesCount(Number verticesCount) {
         if (jsBase == null) {
             this.verticesCount = verticesCount;
         } else {
@@ -222,12 +222,12 @@ public class Knob extends GaugePointersBase {
         return this;
     }
 
-    private Double verticesCurvature;
+    private Number verticesCurvature;
 
     /**
      * Setter for vertices curvature.
      */
-    public Knob setVerticesCurvature(Double verticesCurvature) {
+    public Knob setVerticesCurvature(Number verticesCurvature) {
         if (jsBase == null) {
             this.verticesCurvature = verticesCurvature;
         } else {

@@ -3,9 +3,10 @@ package com.anychart.anychart;
 import com.anychart.anychart.application.MyApplication;
 import com.anychart.anychart.chart.common.ListenersInterface;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 // chart class
 /**
@@ -50,27 +51,27 @@ public class ChartsMap extends SeparateChart {
      * Add series to the chart.
      */
     public void addSeries(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
     }
 
 
@@ -147,27 +148,27 @@ public class ChartsMap extends SeparateChart {
      * Creates a Bubble series.
      */
     public MapSeriesBubble bubble(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setBubble" + ++variableIndex + " = " + jsBase + ".bubble(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setBubble" + ++variableIndex + " = " + jsBase + ".bubble(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         MapSeriesBubble item = new MapSeriesBubble("setBubble" + variableIndex);
         setBubble.add(item);
         return item;
@@ -233,7 +234,7 @@ public class ChartsMap extends SeparateChart {
     /**
      * Getter for callout elements.
      */
-    public Callout getCallout(Double index) {
+    public Callout getCallout(Number index) {
         Callout item = new Callout(jsBase + ".callout("+ index+")");
         getCallout1.add(item);
         return item;
@@ -276,14 +277,14 @@ public class ChartsMap extends SeparateChart {
         return this;
     }
 
-    private Double index1;
+    private Number index1;
     private String callout2;
     private Boolean callout3;
 
     /**
      * Setter for callout elements by index.
      */
-    public ChartsMap setCallout(String callout2, Double index1) {
+    public ChartsMap setCallout(String callout2, Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -301,7 +302,7 @@ public class ChartsMap extends SeparateChart {
     /**
      * Setter for callout elements by index.
      */
-    public ChartsMap setCallout(Boolean callout3, Double index1) {
+    public ChartsMap setCallout(Boolean callout3, Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -321,27 +322,27 @@ public class ChartsMap extends SeparateChart {
      * Creates a Choropleth series.
      */
     public Choropleth choropleth(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setChoropleth" + ++variableIndex + " = " + jsBase + ".choropleth(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setChoropleth" + ++variableIndex + " = " + jsBase + ".choropleth(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".choropleth(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         Choropleth item = new Choropleth("setChoropleth" + variableIndex);
         setChoropleth.add(item);
         return item;
@@ -420,41 +421,41 @@ public class ChartsMap extends SeparateChart {
         return this;
     }
 
-    private List<Connector> setConnector = new ArrayList<>();
+    private List<SeriesConnector> setConnector = new ArrayList<>();
 
     /**
      * Creates connector series.
      */
-    public Connector connector(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    public SeriesConnector connector(List<DataEntry> data) {
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setConnector" + ++variableIndex + " = " + jsBase + ".connector(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setConnector" + ++variableIndex + " = " + jsBase + ".connector(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s);", resultData.toString()));
+            js.setLength(0);
         }
-        Connector item = new Connector("setConnector" + variableIndex);
+    }
+        SeriesConnector item = new SeriesConnector("setConnector" + variableIndex);
         setConnector.add(item);
         return item;
     }
     private String generateJSsetConnector() {
         if (!setConnector.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Connector item : setConnector) {
+            for (SeriesConnector item : setConnector) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -462,12 +463,12 @@ public class ChartsMap extends SeparateChart {
         return "";
     }
 
-    private List<Connector> setConnector1 = new ArrayList<>();
+    private List<SeriesConnector> setConnector1 = new ArrayList<>();
 
     /**
      * 
      */
-    public Connector connector(View view) {
+    public SeriesConnector connector(View view) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -479,14 +480,14 @@ public class ChartsMap extends SeparateChart {
             onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s);", view.getJsBase()));
             js.setLength(0);
         }
-        Connector item = new Connector("setConnector1" + variableIndex);
+        SeriesConnector item = new SeriesConnector("setConnector1" + variableIndex);
         setConnector1.add(item);
         return item;
     }
     private String generateJSsetConnector1() {
         if (!setConnector1.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Connector item : setConnector1) {
+            for (SeriesConnector item : setConnector1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -595,12 +596,12 @@ public class ChartsMap extends SeparateChart {
     }
     private Boolean crsAnimation;
     private String crsAnimation1;
-    private Double duration;
+    private Number duration;
 
     /**
      * Setter for animation settings.
      */
-    public ChartsMap setCrsAnimation(Boolean crsAnimation, Double duration) {
+    public ChartsMap setCrsAnimation(Boolean crsAnimation, Number duration) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -618,7 +619,7 @@ public class ChartsMap extends SeparateChart {
     /**
      * Setter for animation settings.
      */
-    public ChartsMap setCrsAnimation(String crsAnimation1, Double duration) {
+    public ChartsMap setCrsAnimation(String crsAnimation1, Number duration) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -731,13 +732,13 @@ Set the transitions to drill down.
     }
 
     private String id4;
-    private Double ratio;
+    private Number ratio;
 
     /**
      * Setter for the feature scale factor.<br/>
 <b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
      */
-    public ChartsMap setFeatureScaleFactor(String id4, Double ratio) {
+    public ChartsMap setFeatureScaleFactor(String id4, Number ratio) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -752,14 +753,14 @@ Set the transitions to drill down.
     }
 
     private String id6;
-    private Double dx;
-    private Double dy;
+    private Number dx;
+    private Number dy;
 
     /**
      * Setter for the translation feature.<br/>
 <b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
      */
-    public ChartsMap setFeatureTranslation(String id6, Double dx, Double dy) {
+    public ChartsMap setFeatureTranslation(String id6, Number dx, Number dy) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -830,7 +831,7 @@ Set the transitions to drill down.
     /**
      * Getter for the series by its id.
      */
-    public MapSeriesBase getGetSeries(Double id7) {
+    public MapSeriesBase getGetSeries(Number id7) {
         MapSeriesBase item = new MapSeriesBase(jsBase + ".getSeries("+ id7+")");
         getGetSeries.add(item);
         return item;
@@ -852,7 +853,7 @@ Set the transitions to drill down.
     /**
      * Getter for the series by its index.
      */
-    public MapSeriesBase getGetSeriesAt(Double index2) {
+    public MapSeriesBase getGetSeriesAt(Number index2) {
         MapSeriesBase item = new MapSeriesBase(jsBase + ".getSeriesAt("+ index2+")");
         getGetSeriesAt.add(item);
         return item;
@@ -971,6 +972,11 @@ Set the transitions to drill down.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -1005,13 +1011,13 @@ Set the transitions to drill down.
         return this;
     }
 
-    private Double x;
-    private Double y;
+    private Number x;
+    private Number y;
 
     /**
      * Transforms local pixel coordinates to latitude/longitude values.
      */
-    public void inverseTransform(Double x, Double y) {
+    public void inverseTransform(Number x, Number y) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -1080,27 +1086,27 @@ Set the transitions to drill down.
      * Creates a Marker series.
      */
     public MapSeriesMarker marker(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         MapSeriesMarker item = new MapSeriesMarker("setMarker" + variableIndex);
         setMarker.add(item);
         return item;
@@ -1177,6 +1183,11 @@ Set the transitions to drill down.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -1234,13 +1245,13 @@ Set the transitions to drill down.
         return this;
     }
 
-    private Double maxBubbleSize;
+    private Number maxBubbleSize;
     private String maxBubbleSize1;
 
     /**
      * Setter for the maximum size for all bubbles on the charts.
      */
-    public ChartsMap setMaxBubbleSize(Double maxBubbleSize) {
+    public ChartsMap setMaxBubbleSize(Number maxBubbleSize) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1272,12 +1283,12 @@ Set the transitions to drill down.
         return this;
     }
 
-    private Double maxZoomLevel;
+    private Number maxZoomLevel;
 
     /**
      * Setter for the maximum zoom level.
      */
-    public ChartsMap setMaxZoomLevel(Double maxZoomLevel) {
+    public ChartsMap setMaxZoomLevel(Number maxZoomLevel) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1291,13 +1302,13 @@ Set the transitions to drill down.
         return this;
     }
 
-    private Double minBubbleSize;
+    private Number minBubbleSize;
     private String minBubbleSize1;
 
     /**
      * Setter for the minimum size for all bubbles on the charts.
      */
-    public ChartsMap setMinBubbleSize(Double minBubbleSize) {
+    public ChartsMap setMinBubbleSize(Number minBubbleSize) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1329,14 +1340,14 @@ Set the transitions to drill down.
         return this;
     }
 
-    private Double dx1;
-    private Double dy1;
+    private Number dx1;
+    private Number dy1;
 
     /**
      * Moves focus point for the map.<br/>
 <b>Note:</b> Works only with {@link anychart.charts.Map#zoom}
      */
-    public ChartsMap move(Double dx1, Double dy1) {
+    public ChartsMap move(Number dx1, Number dy1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1467,6 +1478,11 @@ Set the transitions to drill down.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -1483,6 +1499,11 @@ Set the transitions to drill down.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -1522,13 +1543,13 @@ Set the transitions to drill down.
         return this;
     }
 
-    private Double id9;
+    private Number id9;
     private String id10;
 
     /**
      * Removes one of series from chart by its id.
      */
-    public ChartsMap removeSeries(Double id9) {
+    public ChartsMap removeSeries(Number id9) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1560,12 +1581,12 @@ Set the transitions to drill down.
         return this;
     }
 
-    private Double index3;
+    private Number index3;
 
     /**
      * Removes one of series from chart by its index.
      */
-    public ChartsMap removeSeriesAt(Double index3) {
+    public ChartsMap removeSeriesAt(Number index3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1607,6 +1628,11 @@ Set the transitions to drill down.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".scale(%s)", ((scale != null) ? scale.getJsBase() : "null")));
+            js.setLength(0);
+        }
         Geo item = new Geo("setScale" + variableIndex);
         setScale.add(item);
         return item;
@@ -1684,14 +1710,14 @@ Set the transitions to drill down.
         return this;
     }
 
-    private Double xLong;
-    private Double yLat;
+    private Number xLong;
+    private Number yLat;
 
     /**
      * Returns coordinate at given latitude and longitude as pixel values relative to a map bounds.<br/>
 <b>Note:</b> Returns correct values only after {@link anychart.charts.Map#draw} is called.
      */
-    public void transform(Double xLong, Double yLat) {
+    public void transform(Number xLong, Number yLat) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -1705,14 +1731,14 @@ Set the transitions to drill down.
     }
 
     private String id11;
-    private Double dx2;
-    private Double dy2;
+    private Number dx2;
+    private Number dy2;
 
     /**
      * Translates feature on passed dx and dy.<br/>
 <b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
      */
-    public ChartsMap translateFeature(String id11, Double dx2, Double dy2) {
+    public ChartsMap translateFeature(String id11, Number dx2, Number dy2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1796,15 +1822,15 @@ Set the transitions to drill down.
         return this;
     }
 
-    private Double zoom;
-    private Double cx;
-    private Double cy;
-    private Double duration1;
+    private Number zoom;
+    private Number cx;
+    private Number cy;
+    private Number duration1;
 
     /**
      * Zooms a map.
      */
-    public ChartsMap zoom(Double zoom, Double cx, Double cy, Double duration1) {
+    public ChartsMap zoom(Number zoom, Number cx, Number cy, Number duration1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1818,14 +1844,14 @@ Set the transitions to drill down.
         return this;
     }
 
-    private Double zoomTo;
-    private Double cx1;
-    private Double cy1;
+    private Number zoomTo;
+    private Number cx1;
+    private Number cy1;
 
     /**
      * Zooms the map to passed zoom level and coordinates.
      */
-    public ChartsMap zoomTo(Double zoomTo, Double cx1, Double cy1) {
+    public ChartsMap zoomTo(Number zoomTo, Number cx1, Number cy1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;

@@ -92,12 +92,12 @@ public class Stochastic extends JsObject {
         return this;
     }
 
-    private Double dPeriod;
+    private Number dPeriod;
 
     /**
      * Setter for the %D Period.
      */
-    public Stochastic setDPeriod(Double dPeriod) {
+    public Stochastic setDPeriod(Number dPeriod) {
         if (jsBase == null) {
             this.dPeriod = dPeriod;
         } else {
@@ -185,12 +185,12 @@ public class Stochastic extends JsObject {
         return this;
     }
 
-    private Double kMAPeriod;
+    private Number kMAPeriod;
 
     /**
      * Setter for the %K smoothing period.
      */
-    public Stochastic setKMAPeriod(Double kMAPeriod) {
+    public Stochastic setKMAPeriod(Number kMAPeriod) {
         if (jsBase == null) {
             this.kMAPeriod = kMAPeriod;
         } else {
@@ -266,12 +266,12 @@ public class Stochastic extends JsObject {
         return this;
     }
 
-    private Double kPeriod;
+    private Number kPeriod;
 
     /**
      * Setter for the %K Period.
      */
-    public Stochastic setKPeriod(Double kPeriod) {
+    public Stochastic setKPeriod(Number kPeriod) {
         if (jsBase == null) {
             this.kPeriod = kPeriod;
         } else {

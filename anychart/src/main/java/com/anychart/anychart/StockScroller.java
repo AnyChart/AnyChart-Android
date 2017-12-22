@@ -215,9 +215,9 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping1;
-    private Double period;
-    private Double fastPeriod;
-    private Double slowPeriod;
+    private Number period;
+    private Number fastPeriod;
+    private Number slowPeriod;
     private StockSeriesType seriesType2;
     private String seriesType3;
     private List<AMA> setAma = new ArrayList<>();
@@ -225,7 +225,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates AMA (Adaptive Moving Average) indicator on the scroller.
      */
-    public AMA ama(TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod, StockSeriesType seriesType2) {
+    public AMA ama(TableMapping mapping1, Number period, Number fastPeriod, Number slowPeriod, StockSeriesType seriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -279,7 +279,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates AMA (Adaptive Moving Average) indicator on the scroller.
      */
-    public AMA ama(TableMapping mapping1, Double period, Double fastPeriod, Double slowPeriod, String seriesType3) {
+    public AMA ama(TableMapping mapping1, Number period, Number fastPeriod, Number slowPeriod, String seriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -476,7 +476,7 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping2;
-    private Double period1;
+    private Number period1;
     private StockSeriesType upSeriesType;
     private String upSeriesType1;
     private StockSeriesType downSeriesType;
@@ -486,7 +486,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Aroon indicator on the scroller.
      */
-    public Aroon aroon(TableMapping mapping2, Double period1, StockSeriesType upSeriesType, StockSeriesType downSeriesType) {
+    public Aroon aroon(TableMapping mapping2, Number period1, StockSeriesType upSeriesType, StockSeriesType downSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -543,7 +543,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Aroon indicator on the scroller.
      */
-    public Aroon aroon(TableMapping mapping2, Double period1, StockSeriesType upSeriesType, String downSeriesType1) {
+    public Aroon aroon(TableMapping mapping2, Number period1, StockSeriesType upSeriesType, String downSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -600,7 +600,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Aroon indicator on the scroller.
      */
-    public Aroon aroon(TableMapping mapping2, Double period1, String upSeriesType1, StockSeriesType downSeriesType) {
+    public Aroon aroon(TableMapping mapping2, Number period1, String upSeriesType1, StockSeriesType downSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -657,7 +657,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Aroon indicator on the scroller.
      */
-    public Aroon aroon(TableMapping mapping2, Double period1, String upSeriesType1, String downSeriesType1) {
+    public Aroon aroon(TableMapping mapping2, Number period1, String upSeriesType1, String downSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -710,7 +710,7 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping3;
-    private Double period2;
+    private Number period2;
     private StockSeriesType seriesType4;
     private String seriesType5;
     private List<ATR> setAtr = new ArrayList<>();
@@ -718,7 +718,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates an Average True Range indicator on the chart.
      */
-    public ATR atr(TableMapping mapping3, Double period2, StockSeriesType seriesType4) {
+    public ATR atr(TableMapping mapping3, Number period2, StockSeriesType seriesType4) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -776,7 +776,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates an Average True Range indicator on the chart.
      */
-    public ATR atr(TableMapping mapping3, Double period2, String seriesType5) {
+    public ATR atr(TableMapping mapping3, Number period2, String seriesType5) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -830,8 +830,8 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping4;
-    private Double period3;
-    private Double deviation;
+    private Number period3;
+    private Number deviation;
     private StockSeriesType upperSeriesType;
     private String upperSeriesType1;
     private StockSeriesType lowerSeriesType;
@@ -843,7 +843,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType) {
+    public BBands bbands(TableMapping mapping4, Number period3, Number deviation, StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -911,7 +911,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, String middleSeriesType1) {
+    public BBands bbands(TableMapping mapping4, Number period3, Number deviation, StockSeriesType upperSeriesType, StockSeriesType lowerSeriesType, String middleSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -979,7 +979,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, StockSeriesType upperSeriesType, String lowerSeriesType1, StockSeriesType middleSeriesType) {
+    public BBands bbands(TableMapping mapping4, Number period3, Number deviation, StockSeriesType upperSeriesType, String lowerSeriesType1, StockSeriesType middleSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1047,7 +1047,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, StockSeriesType upperSeriesType, String lowerSeriesType1, String middleSeriesType1) {
+    public BBands bbands(TableMapping mapping4, Number period3, Number deviation, StockSeriesType upperSeriesType, String lowerSeriesType1, String middleSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1115,7 +1115,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, String upperSeriesType1, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType) {
+    public BBands bbands(TableMapping mapping4, Number period3, Number deviation, String upperSeriesType1, StockSeriesType lowerSeriesType, StockSeriesType middleSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1183,7 +1183,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, String upperSeriesType1, StockSeriesType lowerSeriesType, String middleSeriesType1) {
+    public BBands bbands(TableMapping mapping4, Number period3, Number deviation, String upperSeriesType1, StockSeriesType lowerSeriesType, String middleSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1251,7 +1251,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, String upperSeriesType1, String lowerSeriesType1, StockSeriesType middleSeriesType) {
+    public BBands bbands(TableMapping mapping4, Number period3, Number deviation, String upperSeriesType1, String lowerSeriesType1, StockSeriesType middleSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1319,7 +1319,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands indicator on the scroller.
      */
-    public BBands bbands(TableMapping mapping4, Double period3, Double deviation, String upperSeriesType1, String lowerSeriesType1, String middleSeriesType1) {
+    public BBands bbands(TableMapping mapping4, Number period3, Number deviation, String upperSeriesType1, String lowerSeriesType1, String middleSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1383,8 +1383,8 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping5;
-    private Double period4;
-    private Double deviation1;
+    private Number period4;
+    private Number deviation1;
     private StockSeriesType seriesType6;
     private String seriesType7;
     private List<BBandsB> setBbandsB = new ArrayList<>();
@@ -1392,7 +1392,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates %B indicator on the scroller.
      */
-    public BBandsB bbandsB(TableMapping mapping5, Double period4, Double deviation1, StockSeriesType seriesType6) {
+    public BBandsB bbandsB(TableMapping mapping5, Number period4, Number deviation1, StockSeriesType seriesType6) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1461,7 +1461,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates %B indicator on the scroller.
      */
-    public BBandsB bbandsB(TableMapping mapping5, Double period4, Double deviation1, String seriesType7) {
+    public BBandsB bbandsB(TableMapping mapping5, Number period4, Number deviation1, String seriesType7) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1526,8 +1526,8 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping6;
-    private Double period5;
-    private Double deviation2;
+    private Number period5;
+    private Number deviation2;
     private StockSeriesType seriesType8;
     private String seriesType9;
     private List<BBandsWidth> setBbandsWidth = new ArrayList<>();
@@ -1535,7 +1535,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands Width indicator on the scroller.
      */
-    public BBandsWidth bbandsWidth(TableMapping mapping6, Double period5, Double deviation2, StockSeriesType seriesType8) {
+    public BBandsWidth bbandsWidth(TableMapping mapping6, Number period5, Number deviation2, StockSeriesType seriesType8) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1609,7 +1609,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates Bollinger Bands Width indicator on the scroller.
      */
-    public BBandsWidth bbandsWidth(TableMapping mapping6, Double period5, Double deviation2, String seriesType9) {
+    public BBandsWidth bbandsWidth(TableMapping mapping6, Number period5, Number deviation2, String seriesType9) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1856,7 +1856,7 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping7;
-    private Double period6;
+    private Number period6;
     private StockSeriesType seriesType10;
     private String seriesType11;
     private List<CCI> setCci = new ArrayList<>();
@@ -1864,7 +1864,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Commodity Channel Index indicator on the scroller.
      */
-    public CCI cci(TableMapping mapping7, Double period6, StockSeriesType seriesType10) {
+    public CCI cci(TableMapping mapping7, Number period6, StockSeriesType seriesType10) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -1936,7 +1936,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Commodity Channel Index indicator on the scroller.
      */
-    public CCI cci(TableMapping mapping7, Double period6, String seriesType11) {
+    public CCI cci(TableMapping mapping7, Number period6, String seriesType11) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -2004,8 +2004,8 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping8;
-    private Double fastPeriod1;
-    private Double slowPeriod1;
+    private Number fastPeriod1;
+    private Number slowPeriod1;
     private String maType;
     private StockSeriesType seriesType12;
     private String seriesType13;
@@ -2014,7 +2014,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Chaikin Oscillator indicator on the chart.
      */
-    public CHO cho(TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, String maType, StockSeriesType seriesType12) {
+    public CHO cho(TableMapping mapping8, Number fastPeriod1, Number slowPeriod1, String maType, StockSeriesType seriesType12) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -2091,7 +2091,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Chaikin Oscillator indicator on the chart.
      */
-    public CHO cho(TableMapping mapping8, Double fastPeriod1, Double slowPeriod1, String maType, String seriesType13) {
+    public CHO cho(TableMapping mapping8, Number fastPeriod1, Number slowPeriod1, String maType, String seriesType13) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -2164,7 +2164,7 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping9;
-    private Double period7;
+    private Number period7;
     private StockSeriesType seriesType14;
     private String seriesType15;
     private List<CMF> setCmf = new ArrayList<>();
@@ -2172,7 +2172,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Chaikin Money Flow indicator on the chart.
      */
-    public CMF cmf(TableMapping mapping9, Double period7, StockSeriesType seriesType14) {
+    public CMF cmf(TableMapping mapping9, Number period7, StockSeriesType seriesType14) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -2251,7 +2251,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Chaikin Money Flow indicator on the chart.
      */
-    public CMF cmf(TableMapping mapping9, Double period7, String seriesType15) {
+    public CMF cmf(TableMapping mapping9, Number period7, String seriesType15) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -2579,8 +2579,8 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping10;
-    private Double period8;
-    private Double adxPeriod;
+    private Number period8;
+    private Number adxPeriod;
     private Boolean useWildersSmoothing;
     private StockSeriesType pdiSeriesType;
     private String pdiSeriesType1;
@@ -2593,7 +2593,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
+    public DMI dmi(TableMapping mapping10, Number period8, Number adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -2674,7 +2674,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, String adxSeriesType1) {
+    public DMI dmi(TableMapping mapping10, Number period8, Number adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, StockSeriesType ndiSeriesType, String adxSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -2755,7 +2755,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, String ndiSeriesType1, StockSeriesType adxSeriesType) {
+    public DMI dmi(TableMapping mapping10, Number period8, Number adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, String ndiSeriesType1, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -2836,7 +2836,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, String ndiSeriesType1, String adxSeriesType1) {
+    public DMI dmi(TableMapping mapping10, Number period8, Number adxPeriod, Boolean useWildersSmoothing, StockSeriesType pdiSeriesType, String ndiSeriesType1, String adxSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -2917,7 +2917,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
+    public DMI dmi(TableMapping mapping10, Number period8, Number adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, StockSeriesType ndiSeriesType, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -2998,7 +2998,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, StockSeriesType ndiSeriesType, String adxSeriesType1) {
+    public DMI dmi(TableMapping mapping10, Number period8, Number adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, StockSeriesType ndiSeriesType, String adxSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -3079,7 +3079,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, String ndiSeriesType1, StockSeriesType adxSeriesType) {
+    public DMI dmi(TableMapping mapping10, Number period8, Number adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, String ndiSeriesType1, StockSeriesType adxSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -3160,7 +3160,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Directional Movement Index indicator on the chart.
      */
-    public DMI dmi(TableMapping mapping10, Double period8, Double adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, String ndiSeriesType1, String adxSeriesType1) {
+    public DMI dmi(TableMapping mapping10, Number period8, Number adxPeriod, Boolean useWildersSmoothing, String pdiSeriesType1, String ndiSeriesType1, String adxSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -3237,7 +3237,7 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping11;
-    private Double period9;
+    private Number period9;
     private StockSeriesType seriesType16;
     private String seriesType17;
     private List<EMA> setEma = new ArrayList<>();
@@ -3245,7 +3245,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates EMA (Exponential Moving Average) indicator on the scroller.
      */
-    public EMA ema(TableMapping mapping11, Double period9, StockSeriesType seriesType16) {
+    public EMA ema(TableMapping mapping11, Number period9, StockSeriesType seriesType16) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -3330,7 +3330,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates EMA (Exponential Moving Average) indicator on the scroller.
      */
-    public EMA ema(TableMapping mapping11, Double period9, String seriesType17) {
+    public EMA ema(TableMapping mapping11, Number period9, String seriesType17) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -3415,7 +3415,7 @@ public class StockScroller extends UiScroller {
     /**
      * Gets series by its id.
      */
-    public ScrollerseriesBase getGetSeries(Double id) {
+    public ScrollerseriesBase getGetSeries(Number id) {
         ScrollerseriesBase item = new ScrollerseriesBase(jsBase + ".getSeries(" + id + ")");
         getGetSeries.add(item);
         return item;
@@ -3437,7 +3437,7 @@ public class StockScroller extends UiScroller {
     /**
      * Gets the series by its index.
      */
-    public ScrollerseriesBase getGetSeriesAt(Double index) {
+    public ScrollerseriesBase getGetSeriesAt(Number index) {
         ScrollerseriesBase item = new ScrollerseriesBase(jsBase + ".getSeriesAt(" + index + ")");
         getGetSeriesAt.add(item);
         return item;
@@ -3988,15 +3988,15 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping12;
-    private Double kPeriod;
-    private Double kMAPeriod;
-    private Double dPeriod;
+    private Number kPeriod;
+    private Number kMAPeriod;
+    private Number dPeriod;
     private MovingAverageType kMAType;
     private String kMAType1;
     private MovingAverageType dMAType;
     private String dMAType1;
-    private Double kMultiplier;
-    private Double dMultiplier;
+    private Number kMultiplier;
+    private Number dMultiplier;
     private StockSeriesType kSeriesType;
     private String kSeriesType1;
     private StockSeriesType dSeriesType;
@@ -4008,7 +4008,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, MovingAverageType kMAType, Number kMultiplier, MovingAverageType dMAType, Number dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -4095,7 +4095,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, MovingAverageType kMAType, Number kMultiplier, MovingAverageType dMAType, Number dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -4182,7 +4182,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, MovingAverageType kMAType, Number kMultiplier, MovingAverageType dMAType, Number dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -4269,7 +4269,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, MovingAverageType kMAType, Number kMultiplier, MovingAverageType dMAType, Number dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -4356,7 +4356,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, MovingAverageType kMAType, Number kMultiplier, MovingAverageType dMAType, Number dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -4443,7 +4443,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, MovingAverageType kMAType, Number kMultiplier, MovingAverageType dMAType, Number dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -4530,7 +4530,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, MovingAverageType kMAType, Number kMultiplier, MovingAverageType dMAType, Number dMultiplier, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -4617,7 +4617,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, String dSeriesType1, String jSeriesType1) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, MovingAverageType kMAType, Number kMultiplier, MovingAverageType dMAType, Number dMultiplier, String kSeriesType1, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -4704,7 +4704,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, MovingAverageType kMAType, Number kMultiplier, String dMAType1, Number dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -4791,7 +4791,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, MovingAverageType kMAType, Number kMultiplier, String dMAType1, Number dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -4878,7 +4878,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, MovingAverageType kMAType, Number kMultiplier, String dMAType1, Number dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -4965,7 +4965,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, MovingAverageType kMAType, Number kMultiplier, String dMAType1, Number dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -5052,7 +5052,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, MovingAverageType kMAType, Number kMultiplier, String dMAType1, Number dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -5139,7 +5139,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, MovingAverageType kMAType, Number kMultiplier, String dMAType1, Number dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -5226,7 +5226,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, MovingAverageType kMAType, Number kMultiplier, String dMAType1, Number dMultiplier, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -5313,7 +5313,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, MovingAverageType kMAType, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, String dSeriesType1, String jSeriesType1) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, MovingAverageType kMAType, Number kMultiplier, String dMAType1, Number dMultiplier, String kSeriesType1, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -5400,7 +5400,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, String kMAType1, Number kMultiplier, MovingAverageType dMAType, Number dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -5487,7 +5487,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, String kMAType1, Number kMultiplier, MovingAverageType dMAType, Number dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -5574,7 +5574,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, String kMAType1, Number kMultiplier, MovingAverageType dMAType, Number dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -5661,7 +5661,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, String kMAType1, Number kMultiplier, MovingAverageType dMAType, Number dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -5748,7 +5748,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, String kMAType1, Number kMultiplier, MovingAverageType dMAType, Number dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -5835,7 +5835,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, String kMAType1, Number kMultiplier, MovingAverageType dMAType, Number dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -5922,7 +5922,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, String kMAType1, Number kMultiplier, MovingAverageType dMAType, Number dMultiplier, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -6009,7 +6009,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, MovingAverageType dMAType, Double dMultiplier, String kSeriesType1, String dSeriesType1, String jSeriesType1) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, String kMAType1, Number kMultiplier, MovingAverageType dMAType, Number dMultiplier, String kSeriesType1, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -6096,7 +6096,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, String kMAType1, Number kMultiplier, String dMAType1, Number dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -6183,7 +6183,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, String kMAType1, Number kMultiplier, String dMAType1, Number dMultiplier, StockSeriesType kSeriesType, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -6270,7 +6270,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, String kMAType1, Number kMultiplier, String dMAType1, Number dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -6357,7 +6357,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, String kMAType1, Number kMultiplier, String dMAType1, Number dMultiplier, StockSeriesType kSeriesType, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -6444,7 +6444,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, String kMAType1, Number kMultiplier, String dMAType1, Number dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -6531,7 +6531,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, String kMAType1, Number kMultiplier, String dMAType1, Number dMultiplier, String kSeriesType1, StockSeriesType dSeriesType, String jSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -6618,7 +6618,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, String kMAType1, Number kMultiplier, String dMAType1, Number dMultiplier, String kSeriesType1, String dSeriesType1, StockSeriesType jSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -6705,7 +6705,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a KDJ indicator on the scroller.
      */
-    public KDJ kdj(TableMapping mapping12, Double kPeriod, Double kMAPeriod, Double dPeriod, String kMAType1, Double kMultiplier, String dMAType1, Double dMultiplier, String kSeriesType1, String dSeriesType1, String jSeriesType1) {
+    public KDJ kdj(TableMapping mapping12, Number kPeriod, Number kMAPeriod, Number dPeriod, String kMAType1, Number kMultiplier, String dMAType1, Number dMultiplier, String kSeriesType1, String dSeriesType1, String jSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -7037,9 +7037,9 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping13;
-    private Double fastPeriod2;
-    private Double slowPeriod2;
-    private Double signalPeriod;
+    private Number fastPeriod2;
+    private Number slowPeriod2;
+    private Number signalPeriod;
     private StockSeriesType macdSeriesType;
     private String macdSeriesType1;
     private StockSeriesType signalSeriesType;
@@ -7051,7 +7051,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
-    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType) {
+    public MACD macd(TableMapping mapping13, Number fastPeriod2, Number slowPeriod2, Number signalPeriod, StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -7133,7 +7133,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
-    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, String histogramSeriesType1) {
+    public MACD macd(TableMapping mapping13, Number fastPeriod2, Number slowPeriod2, Number signalPeriod, StockSeriesType macdSeriesType, StockSeriesType signalSeriesType, String histogramSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -7215,7 +7215,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
-    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, StockSeriesType macdSeriesType, String signalSeriesType1, StockSeriesType histogramSeriesType) {
+    public MACD macd(TableMapping mapping13, Number fastPeriod2, Number slowPeriod2, Number signalPeriod, StockSeriesType macdSeriesType, String signalSeriesType1, StockSeriesType histogramSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -7297,7 +7297,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
-    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, StockSeriesType macdSeriesType, String signalSeriesType1, String histogramSeriesType1) {
+    public MACD macd(TableMapping mapping13, Number fastPeriod2, Number slowPeriod2, Number signalPeriod, StockSeriesType macdSeriesType, String signalSeriesType1, String histogramSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -7379,7 +7379,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
-    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, String macdSeriesType1, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType) {
+    public MACD macd(TableMapping mapping13, Number fastPeriod2, Number slowPeriod2, Number signalPeriod, String macdSeriesType1, StockSeriesType signalSeriesType, StockSeriesType histogramSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -7461,7 +7461,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
-    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, String macdSeriesType1, StockSeriesType signalSeriesType, String histogramSeriesType1) {
+    public MACD macd(TableMapping mapping13, Number fastPeriod2, Number slowPeriod2, Number signalPeriod, String macdSeriesType1, StockSeriesType signalSeriesType, String histogramSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -7543,7 +7543,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
-    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, String macdSeriesType1, String signalSeriesType1, StockSeriesType histogramSeriesType) {
+    public MACD macd(TableMapping mapping13, Number fastPeriod2, Number slowPeriod2, Number signalPeriod, String macdSeriesType1, String signalSeriesType1, StockSeriesType histogramSeriesType) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -7625,7 +7625,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MACD (Moving Average Convergence Divergence) indicator on the scroller.
      */
-    public MACD macd(TableMapping mapping13, Double fastPeriod2, Double slowPeriod2, Double signalPeriod, String macdSeriesType1, String signalSeriesType1, String histogramSeriesType1) {
+    public MACD macd(TableMapping mapping13, Number fastPeriod2, Number slowPeriod2, Number signalPeriod, String macdSeriesType1, String signalSeriesType1, String histogramSeriesType1) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -7970,7 +7970,7 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping14;
-    private Double period10;
+    private Number period10;
     private StockSeriesType seriesType18;
     private String seriesType19;
     private List<MMA> setMma = new ArrayList<>();
@@ -7978,7 +7978,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MMA (Modified Moving Average) indicator on the scroller.
      */
-    public MMA mma(TableMapping mapping14, Double period10, StockSeriesType seriesType18) {
+    public MMA mma(TableMapping mapping14, Number period10, StockSeriesType seriesType18) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -8069,7 +8069,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates MMA (Modified Moving Average) indicator on the scroller.
      */
-    public MMA mma(TableMapping mapping14, Double period10, String seriesType19) {
+    public MMA mma(TableMapping mapping14, Number period10, String seriesType19) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -9894,13 +9894,13 @@ public class StockScroller extends UiScroller {
         return "";
     }
 
-    private Double id;
+    private Number id;
     private String id1;
 
     /**
      * Removes one of series from chart by its id.
      */
-    public StockScroller removeSeries(Double id) {
+    public StockScroller removeSeries(Number id) {
         if (jsBase == null) {
             this.id = null;
             this.id1 = null;
@@ -9950,12 +9950,12 @@ public class StockScroller extends UiScroller {
         return this;
     }
 
-    private Double index;
+    private Number index;
 
     /**
      * Removes one of series from chart by its index.
      */
-    public StockScroller removeSeriesAt(Double index) {
+    public StockScroller removeSeriesAt(Number index) {
         if (jsBase == null) {
             this.index = index;
         } else {
@@ -9976,7 +9976,7 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping15;
-    private Double period11;
+    private Number period11;
     private StockSeriesType seriesType20;
     private String seriesType21;
     private List<RoC> setRoc = new ArrayList<>();
@@ -9984,7 +9984,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates RoC (Rate of Change) indicator on the scroller.
      */
-    public RoC roc(TableMapping mapping15, Double period11, StockSeriesType seriesType20) {
+    public RoC roc(TableMapping mapping15, Number period11, StockSeriesType seriesType20) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -10079,7 +10079,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates RoC (Rate of Change) indicator on the scroller.
      */
-    public RoC roc(TableMapping mapping15, Double period11, String seriesType21) {
+    public RoC roc(TableMapping mapping15, Number period11, String seriesType21) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -10170,7 +10170,7 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping16;
-    private Double period12;
+    private Number period12;
     private StockSeriesType seriesType22;
     private String seriesType23;
     private List<RSI> setRsi = new ArrayList<>();
@@ -10178,7 +10178,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates RSI (Relative Strength Index) indicator on the scroller.
      */
-    public RSI rsi(TableMapping mapping16, Double period12, StockSeriesType seriesType22) {
+    public RSI rsi(TableMapping mapping16, Number period12, StockSeriesType seriesType22) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -10277,7 +10277,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates RSI (Relative Strength Index) indicator on the scroller.
      */
-    public RSI rsi(TableMapping mapping16, Double period12, String seriesType23) {
+    public RSI rsi(TableMapping mapping16, Number period12, String seriesType23) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -10372,7 +10372,7 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping17;
-    private Double period13;
+    private Number period13;
     private StockSeriesType seriesType24;
     private String seriesType25;
     private List<SMA> setSma = new ArrayList<>();
@@ -10380,7 +10380,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates SMA (Simple Moving Average) indicator on the scroller.
      */
-    public SMA sma(TableMapping mapping17, Double period13, StockSeriesType seriesType24) {
+    public SMA sma(TableMapping mapping17, Number period13, StockSeriesType seriesType24) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -10483,7 +10483,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates SMA (Simple Moving Average) indicator on the scroller.
      */
-    public SMA sma(TableMapping mapping17, Double period13, String seriesType25) {
+    public SMA sma(TableMapping mapping17, Number period13, String seriesType25) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -12637,9 +12637,9 @@ public class StockScroller extends UiScroller {
     }
 
     private TableMapping mapping18;
-    private Double kPeriod1;
-    private Double kMAPeriod1;
-    private Double dPeriod1;
+    private Number kPeriod1;
+    private Number kMAPeriod1;
+    private Number dPeriod1;
     private MovingAverageType kMAType2;
     private String kMAType3;
     private MovingAverageType dMAType2;
@@ -12653,7 +12653,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
+    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -12754,7 +12754,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3) {
+    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -12855,7 +12855,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2) {
+    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -12956,7 +12956,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3) {
+    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13057,7 +13057,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
+    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13158,7 +13158,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3) {
+    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13259,7 +13259,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2) {
+    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13360,7 +13360,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, MovingAverageType kMAType2, String dMAType3, String kSeriesType3, String dSeriesType3) {
+    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, MovingAverageType kMAType2, String dMAType3, String kSeriesType3, String dSeriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13461,7 +13461,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
+    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13562,7 +13562,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3) {
+    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, MovingAverageType dMAType2, StockSeriesType kSeriesType2, String dSeriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13663,7 +13663,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2) {
+    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, MovingAverageType dMAType2, String kSeriesType3, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13764,7 +13764,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3) {
+    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, MovingAverageType dMAType2, String kSeriesType3, String dSeriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13865,7 +13865,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
+    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, String dMAType3, StockSeriesType kSeriesType2, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -13966,7 +13966,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3) {
+    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, String dMAType3, StockSeriesType kSeriesType2, String dSeriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -14067,7 +14067,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2) {
+    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, String dMAType3, String kSeriesType3, StockSeriesType dSeriesType2) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;
@@ -14168,7 +14168,7 @@ public class StockScroller extends UiScroller {
     /**
      * Creates a Stochastic indicator on the scroller.
      */
-    public Stochastic stochastic(TableMapping mapping18, Double kPeriod1, Double kMAPeriod1, Double dPeriod1, String kMAType3, String dMAType3, String kSeriesType3, String dSeriesType3) {
+    public Stochastic stochastic(TableMapping mapping18, Number kPeriod1, Number kMAPeriod1, Number dPeriod1, String kMAType3, String dMAType3, String kSeriesType3, String dSeriesType3) {
         if (jsBase == null) {
             this.mapping = null;
             this.mapping1 = null;

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * 
+ * The Linear class contains methods for configuring standalones Linear grids.
  */
 public class StandalonesGridsLinear extends CoreGridsLinear {
 

@@ -94,13 +94,13 @@ public class Paginator extends CoreText {
         return this;
     }
 
-    private Double currentPage;
+    private Number currentPage;
     private String currentPage1;
 
     /**
      * Setter for active page.
      */
-    public Paginator setCurrentPage(Double currentPage) {
+    public Paginator setCurrentPage(Number currentPage) {
         if (jsBase == null) {
             this.currentPage = null;
             this.currentPage1 = null;
@@ -219,21 +219,21 @@ public class Paginator extends CoreText {
     }
 
     private String spaceOrTopOrTopAndBottom;
-    private Double spaceOrTopOrTopAndBottom1;
-    private Double[] spaceOrTopOrTopAndBottom2;
+    private Number spaceOrTopOrTopAndBottom1;
+    private Number[] spaceOrTopOrTopAndBottom2;
     private String[] spaceOrTopOrTopAndBottom3;
     private String spaceOrTopOrTopAndBottom4;
     private String rightOrRightAndLeft;
-    private Double rightOrRightAndLeft1;
+    private Number rightOrRightAndLeft1;
     private String bottom;
-    private Double bottom1;
+    private Number bottom1;
     private String left;
-    private Double left1;
+    private Number left1;
 
     /**
      * Setter for the paginator margin.
      */
-    public Paginator setMargin(Double[] spaceOrTopOrTopAndBottom2) {
+    public Paginator setMargin(Number[] spaceOrTopOrTopAndBottom2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -293,7 +293,7 @@ public class Paginator extends CoreText {
     /**
      * Setter for the paginator margin.
      */
-    public Paginator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
+    public Paginator setMargin(Number spaceOrTopOrTopAndBottom1, Number rightOrRightAndLeft1, Number bottom1, Number left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -403,21 +403,21 @@ public class Paginator extends CoreText {
     }
 
     private String spaceOrTopOrTopAndBottom5;
-    private Double spaceOrTopOrTopAndBottom6;
-    private Double[] spaceOrTopOrTopAndBottom7;
+    private Number spaceOrTopOrTopAndBottom6;
+    private Number[] spaceOrTopOrTopAndBottom7;
     private String[] spaceOrTopOrTopAndBottom8;
     private String spaceOrTopOrTopAndBottom9;
     private String rightOrRightAndLeft2;
-    private Double rightOrRightAndLeft3;
+    private Number rightOrRightAndLeft3;
     private String bottom2;
-    private Double bottom3;
+    private Number bottom3;
     private String left2;
-    private Double left3;
+    private Number left3;
 
     /**
      * Setter for the paginator padding.
      */
-    public Paginator setPadding(Double[] spaceOrTopOrTopAndBottom7) {
+    public Paginator setPadding(Number[] spaceOrTopOrTopAndBottom7) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -487,7 +487,7 @@ public class Paginator extends CoreText {
     /**
      * Setter for the paginator padding.
      */
-    public Paginator setPadding(Double spaceOrTopOrTopAndBottom6, Double rightOrRightAndLeft3, Double bottom3, Double left3) {
+    public Paginator setPadding(Number spaceOrTopOrTopAndBottom6, Number rightOrRightAndLeft3, Number bottom3, Number left3) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;

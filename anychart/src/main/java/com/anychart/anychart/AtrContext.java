@@ -9,14 +9,14 @@ import java.util.Arrays;
 public class AtrContext extends JsObject  {
 
     
-    private Double dequeuedValue;
-    private Double period;
-    private Double prevClose;
-    private Double prevResult;
+    private Number dequeuedValue;
+    private Number period;
+    private Number prevClose;
+    private Number prevResult;
     private CycledQueue queue;
 
     
-    public AtrContext(Double dequeuedValue, Double period, Double prevClose, Double prevResult, CycledQueue queue) {
+    public AtrContext(Number dequeuedValue, Number period, Number prevClose, Number prevResult, CycledQueue queue) {
         this.dequeuedValue = dequeuedValue;
         this.period = period;
         this.prevClose = prevClose;

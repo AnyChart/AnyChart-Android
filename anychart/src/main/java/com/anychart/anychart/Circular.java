@@ -36,14 +36,14 @@ public class Circular extends VisualBase {
     }
 
     
-    private Double cornersRounding;
+    private Number cornersRounding;
     private String cornersRounding1;
 
     /**
      * Setter for the rounding of corners.
 Round off the ends of axes to the specified radius.
      */
-    public Circular setCornersRounding(Double cornersRounding) {
+    public Circular setCornersRounding(Number cornersRounding) {
         if (jsBase == null) {
             this.cornersRounding = null;
             this.cornersRounding1 = null;
@@ -203,12 +203,12 @@ Round off the ends of axes to the specified radius.
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Axis fill color with opacity. Fill as a string or an object.
      */
-    public Circular fill(String color, Double opacity) {
+    public Circular fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -232,17 +232,17 @@ Round off the ends of axes to the specified radius.
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient axis fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Circular fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public Circular fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -283,7 +283,7 @@ Round off the ends of axes to the specified radius.
      * Linear gradient axis fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Circular fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public Circular fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -324,7 +324,7 @@ Round off the ends of axes to the specified radius.
      * Linear gradient axis fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Circular fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public Circular fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -365,7 +365,7 @@ Round off the ends of axes to the specified radius.
      * Linear gradient axis fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Circular fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public Circular fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -406,7 +406,7 @@ Round off the ends of axes to the specified radius.
      * Linear gradient axis fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Circular fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public Circular fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -447,7 +447,7 @@ Round off the ends of axes to the specified radius.
      * Linear gradient axis fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Circular fill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public Circular fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -485,18 +485,18 @@ Round off the ends of axes to the specified radius.
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial axis fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Circular fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Circular fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -547,7 +547,7 @@ Round off the ends of axes to the specified radius.
      * Radial axis fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Circular fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Circular fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -885,13 +885,13 @@ Round off the ends of axes to the specified radius.
         return this;
     }
 
-    private Double radius;
+    private Number radius;
     private String radius1;
 
     /**
      * Setter for the axis radius.
      */
-    public Circular setRadius(Double radius) {
+    public Circular setRadius(Number radius) {
         if (jsBase == null) {
             this.radius = null;
             this.radius1 = null;
@@ -1046,7 +1046,7 @@ Round off the ends of axes to the specified radius.
     }
 
     private String startAngle;
-    private Double startAngle1;
+    private Number startAngle1;
 
     /**
      * Setter for the start angle.
@@ -1078,7 +1078,7 @@ Round off the ends of axes to the specified radius.
     /**
      * Setter for the start angle.
      */
-    public Circular setStartAngle(Double startAngle1) {
+    public Circular setStartAngle(Number startAngle1) {
         if (jsBase == null) {
             this.startAngle = null;
             this.startAngle1 = null;
@@ -1102,7 +1102,7 @@ Round off the ends of axes to the specified radius.
     }
 
     private String sweepAngle;
-    private Double sweepAngle1;
+    private Number sweepAngle1;
 
     /**
      * Setter for the sweep angle.
@@ -1134,7 +1134,7 @@ Round off the ends of axes to the specified radius.
     /**
      * Setter for the sweep angle.
      */
-    public Circular setSweepAngle(Double sweepAngle1) {
+    public Circular setSweepAngle(Number sweepAngle1) {
         if (jsBase == null) {
             this.sweepAngle = null;
             this.sweepAngle1 = null;
@@ -1225,13 +1225,13 @@ Round off the ends of axes to the specified radius.
         return this;
     }
 
-    private Double width;
+    private Number width;
     private String width1;
 
     /**
      * Setter for the axis width.
      */
-    public Circular setWidth(Double width) {
+    public Circular setWidth(Number width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

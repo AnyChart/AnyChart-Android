@@ -54,14 +54,14 @@ public class Area3d extends CartesianSeriesContinuousBase {
     private HatchFillType patternFillOrType2;
     private String patternFillOrType3;
     private String color;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
 
     /**
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Area3d setHatchFill(PatternFill patternFillOrType, String color, Double thickness, Double size) {
+    public Area3d setHatchFill(PatternFill patternFillOrType, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -97,7 +97,7 @@ public class Area3d extends CartesianSeriesContinuousBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Area3d setHatchFill(HatchFill patternFillOrType1, String color, Double thickness, Double size) {
+    public Area3d setHatchFill(HatchFill patternFillOrType1, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -133,7 +133,7 @@ public class Area3d extends CartesianSeriesContinuousBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Area3d setHatchFill(HatchFillType patternFillOrType2, String color, Double thickness, Double size) {
+    public Area3d setHatchFill(HatchFillType patternFillOrType2, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -169,7 +169,7 @@ public class Area3d extends CartesianSeriesContinuousBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Area3d setHatchFill(String patternFillOrType3, String color, Double thickness, Double size) {
+    public Area3d setHatchFill(String patternFillOrType3, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;

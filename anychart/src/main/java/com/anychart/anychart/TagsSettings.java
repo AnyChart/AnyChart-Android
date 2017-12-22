@@ -118,14 +118,14 @@ public class TagsSettings extends TextSettings {
         return getPadding;
     }
 
-    private Double[] padding;
+    private Number[] padding;
     private String[] padding1;
     private String padding2;
 
     /**
      * Setter for padding in pixels by one value.
      */
-    public TagsSettings setPadding(Double[] padding) {
+    public TagsSettings setPadding(Number[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -206,13 +206,13 @@ public class TagsSettings extends TextSettings {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for tags padding in pixels.
@@ -283,7 +283,7 @@ public class TagsSettings extends TextSettings {
     /**
      * Setter for tags padding in pixels.
      */
-    public TagsSettings setPadding(Double value1, Double value3, Double value5, Double value7) {
+    public TagsSettings setPadding(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * 
+ * The LabelsFactory class contains methods for configuring standalones labels factory.
  */
 public class StandalonesLabelsFactory extends UiLabelsFactory {
 

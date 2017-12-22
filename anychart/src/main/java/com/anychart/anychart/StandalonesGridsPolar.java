@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * 
+ * The Polar class contains methods for configuring standalones Polar grids.
  */
 public class StandalonesGridsPolar extends CoreGridsPolar {
 
@@ -36,7 +36,7 @@ public class StandalonesGridsPolar extends CoreGridsPolar {
 
     
     private String innerRadius;
-    private Double innerRadius1;
+    private Number innerRadius1;
     private List<CoreGridsPolar> setInnerRadius = new ArrayList<>();
 
     /**
@@ -83,7 +83,7 @@ public class StandalonesGridsPolar extends CoreGridsPolar {
     /**
      * Setter for the inner radius.
      */
-    public CoreGridsPolar setInnerRadius(Double innerRadius1) {
+    public CoreGridsPolar setInnerRadius(Number innerRadius1) {
         if (jsBase == null) {
             this.innerRadius = null;
             this.innerRadius1 = null;

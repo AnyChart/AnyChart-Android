@@ -283,7 +283,7 @@ public class UiLabelsFactory extends CoreText {
     /**
      * Getter for connector stroke settings.
      */
-    public UiLabelsFactory getConnectorStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public UiLabelsFactory getConnectorStroke(Stroke color, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         UiLabelsFactory item = new UiLabelsFactory(jsBase + ".connectorStroke(" + ((color != null) ? color.generateJs() : "null") + thickness + wrapQuotes(dashpattern) + ((lineJoin != null) ? lineJoin.generateJs() : "null") + ((lineCap != null) ? lineCap.generateJs() : "null") + ")");
         getConnectorStroke.add(item);
         return item;
@@ -294,7 +294,7 @@ public class UiLabelsFactory extends CoreText {
     /**
      * Getter for connector stroke settings.
      */
-    public UiLabelsFactory getConnectorStroke(String color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public UiLabelsFactory getConnectorStroke(String color, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         UiLabelsFactory item = new UiLabelsFactory(jsBase + ".connectorStroke(" + wrapQuotes(color) + thickness + wrapQuotes(dashpattern) + ((lineJoin != null) ? lineJoin.generateJs() : "null") + ((lineCap != null) ? lineCap.generateJs() : "null") + ")");
         getConnectorStroke1.add(item);
         return item;
@@ -326,13 +326,13 @@ public class UiLabelsFactory extends CoreText {
         return this;
     }
 
-    private Double index;
+    private Number index;
     private List<LabelsfactoryLabel> setGetLabel = new ArrayList<>();
 
     /**
      * Returns label by index.
      */
-    public LabelsfactoryLabel getLabel(Double index) {
+    public LabelsfactoryLabel getLabel(Number index) {
         if (jsBase == null) {
             this.index = index;
         } else {
@@ -365,13 +365,13 @@ public class UiLabelsFactory extends CoreText {
         return "";
     }
 
-    private Double height;
+    private Number height;
     private String height1;
 
     /**
      * Setter for labels height settings.
      */
-    public UiLabelsFactory setHeight(Double height) {
+    public UiLabelsFactory setHeight(Number height) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -421,13 +421,13 @@ public class UiLabelsFactory extends CoreText {
         return this;
     }
 
-    private Double maxFontSize;
+    private Number maxFontSize;
     private String maxFontSize1;
 
     /**
      * Setter for maximum font size settings for adjust text to.
      */
-    public UiLabelsFactory setMaxFontSize(Double maxFontSize) {
+    public UiLabelsFactory setMaxFontSize(Number maxFontSize) {
         if (jsBase == null) {
             this.maxFontSize = null;
             this.maxFontSize1 = null;
@@ -477,13 +477,13 @@ public class UiLabelsFactory extends CoreText {
         return this;
     }
 
-    private Double minFontSize;
+    private Number minFontSize;
     private String minFontSize1;
 
     /**
      * Setter for the minimum font size settings for adjust text from.
      */
-    public UiLabelsFactory setMinFontSize(Double minFontSize) {
+    public UiLabelsFactory setMinFontSize(Number minFontSize) {
         if (jsBase == null) {
             this.minFontSize = null;
             this.minFontSize1 = null;
@@ -533,13 +533,13 @@ public class UiLabelsFactory extends CoreText {
         return this;
     }
 
-    private Double offsetX;
+    private Number offsetX;
     private String offsetX1;
 
     /**
      * Setter for the labels offsetX settings.
      */
-    public UiLabelsFactory setOffsetX(Double offsetX) {
+    public UiLabelsFactory setOffsetX(Number offsetX) {
         if (jsBase == null) {
             this.offsetX = null;
             this.offsetX1 = null;
@@ -589,13 +589,13 @@ public class UiLabelsFactory extends CoreText {
         return this;
     }
 
-    private Double offsetY;
+    private Number offsetY;
     private String offsetY1;
 
     /**
      * Setter for the labels offsetY settings.
      */
-    public UiLabelsFactory setOffsetY(Double offsetY) {
+    public UiLabelsFactory setOffsetY(Number offsetY) {
         if (jsBase == null) {
             this.offsetY = null;
             this.offsetY1 = null;
@@ -657,16 +657,16 @@ public class UiLabelsFactory extends CoreText {
         return getPadding;
     }
 
-    private Double[] padding;
+    private Number[] padding;
     private String[] padding1;
     private String padding2;
-    private Double padding3;
+    private Number padding3;
     private String padding4;
 
     /**
      * Setter for labels padding in pixels using a single value.
      */
-    public UiLabelsFactory setPadding(Double[] padding) {
+    public UiLabelsFactory setPadding(Number[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -723,13 +723,13 @@ public class UiLabelsFactory extends CoreText {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for labels padding settings in pixels using several value.
@@ -800,7 +800,7 @@ public class UiLabelsFactory extends CoreText {
     /**
      * Setter for labels padding settings in pixels using several value.
      */
-    public UiLabelsFactory setPadding(Double value1, Double value3, Double value5, Double value7) {
+    public UiLabelsFactory setPadding(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -889,12 +889,12 @@ Find more information in the detailed description.
         return this;
     }
 
-    private Double rotation;
+    private Number rotation;
 
     /**
      * Setter for the rotation angle around an anchor.
      */
-    public UiLabelsFactory setRotation(Double rotation) {
+    public UiLabelsFactory setRotation(Number rotation) {
         if (jsBase == null) {
             this.rotation = rotation;
         } else {
@@ -914,13 +914,13 @@ Find more information in the detailed description.
         return this;
     }
 
-    private Double width;
+    private Number width;
     private String width1;
 
     /**
      * Setter for labels width settings.
      */
-    public UiLabelsFactory setWidth(Double width) {
+    public UiLabelsFactory setWidth(Number width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

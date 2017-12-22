@@ -36,12 +36,12 @@ public class SMA extends JsObject {
     }
 
     
-    private Double period;
+    private Number period;
 
     /**
      * Setter for the period.
      */
-    public SMA setPeriod(Double period) {
+    public SMA setPeriod(Number period) {
         if (jsBase == null) {
             this.period = period;
         } else {

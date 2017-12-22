@@ -9,13 +9,13 @@ import java.util.Arrays;
 public class RsiContext extends JsObject  {
 
     
-    private Double downwardChange;
-    private Double period;
+    private Number downwardChange;
+    private Number period;
     private CycledQueue queue;
-    private Double upwardChange;
+    private Number upwardChange;
 
     
-    public RsiContext(Double downwardChange, Double period, CycledQueue queue, Double upwardChange) {
+    public RsiContext(Number downwardChange, Number period, CycledQueue queue, Number upwardChange) {
         this.downwardChange = downwardChange;
         this.period = period;
         this.queue = queue;

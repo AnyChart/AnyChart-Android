@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Calendar scale.
+ * The Calendar class contains methods for configuring calendar in the Resource chart.
 <b>Note:</b> To create instance use {@link anychart.scales#calendar} method.
  */
 public class Calendar extends CoreBase {
@@ -61,12 +61,12 @@ public class Calendar extends CoreBase {
         return this;
     }
 
-    private Double var_value;
+    private Number var_value;
 
     /**
      * Setter for the timezone offset for the output availabilities.
      */
-    public Calendar setTimezoneOffset(Double var_value) {
+    public Calendar setTimezoneOffset(Number var_value) {
         if (jsBase == null) {
             this.var_value = var_value;
         } else {
@@ -86,12 +86,12 @@ public class Calendar extends CoreBase {
         return this;
     }
 
-    private Double[] var_value1;
+    private Number[] var_value1;
 
     /**
      * Setter for the regular weekend days.
      */
-    public Calendar setWeekendRange(Double[] var_value1) {
+    public Calendar setWeekendRange(Number[] var_value1) {
         if (jsBase == null) {
             this.var_value = null;
             this.var_value1 = null;

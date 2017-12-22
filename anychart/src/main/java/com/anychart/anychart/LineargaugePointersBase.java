@@ -60,12 +60,12 @@ public class LineargaugePointersBase extends VisualBase {
         return this;
     }
 
-    private Double index;
+    private Number index;
 
     /**
      * Setter for the data index.
      */
-    public LineargaugePointersBase setDataIndex(Double index) {
+    public LineargaugePointersBase setDataIndex(Number index) {
         if (jsBase == null) {
             this.index = index;
         } else {
@@ -112,12 +112,12 @@ public class LineargaugePointersBase extends VisualBase {
     }
 
     private String color1;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public LineargaugePointersBase fill(String color1, Double opacity) {
+    public LineargaugePointersBase fill(String color1, Number opacity) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -144,17 +144,17 @@ public class LineargaugePointersBase extends VisualBase {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LineargaugePointersBase fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public LineargaugePointersBase fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -195,7 +195,7 @@ public class LineargaugePointersBase extends VisualBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LineargaugePointersBase fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public LineargaugePointersBase fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -236,7 +236,7 @@ public class LineargaugePointersBase extends VisualBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LineargaugePointersBase fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public LineargaugePointersBase fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -277,7 +277,7 @@ public class LineargaugePointersBase extends VisualBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LineargaugePointersBase fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public LineargaugePointersBase fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -318,7 +318,7 @@ public class LineargaugePointersBase extends VisualBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LineargaugePointersBase fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public LineargaugePointersBase fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -359,7 +359,7 @@ public class LineargaugePointersBase extends VisualBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LineargaugePointersBase fill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public LineargaugePointersBase fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -397,18 +397,18 @@ public class LineargaugePointersBase extends VisualBase {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LineargaugePointersBase fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public LineargaugePointersBase fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -459,7 +459,7 @@ public class LineargaugePointersBase extends VisualBase {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LineargaugePointersBase fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public LineargaugePointersBase fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -536,13 +536,13 @@ public class LineargaugePointersBase extends VisualBase {
     private String patternFillOrType3;
     private Boolean patternFillOrType4;
     private String color2;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
 
     /**
      * Setter for hatch fill settings.
      */
-    public LineargaugePointersBase setHatchFill(PatternFill patternFillOrType, String color2, Double thickness, Double size) {
+    public LineargaugePointersBase setHatchFill(PatternFill patternFillOrType, String color2, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -582,7 +582,7 @@ public class LineargaugePointersBase extends VisualBase {
     /**
      * Setter for hatch fill settings.
      */
-    public LineargaugePointersBase setHatchFill(HatchFill patternFillOrType1, String color2, Double thickness, Double size) {
+    public LineargaugePointersBase setHatchFill(HatchFill patternFillOrType1, String color2, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -622,7 +622,7 @@ public class LineargaugePointersBase extends VisualBase {
     /**
      * Setter for hatch fill settings.
      */
-    public LineargaugePointersBase setHatchFill(HatchFillType patternFillOrType2, String color2, Double thickness, Double size) {
+    public LineargaugePointersBase setHatchFill(HatchFillType patternFillOrType2, String color2, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -662,7 +662,7 @@ public class LineargaugePointersBase extends VisualBase {
     /**
      * Setter for hatch fill settings.
      */
-    public LineargaugePointersBase setHatchFill(String patternFillOrType3, String color2, Double thickness, Double size) {
+    public LineargaugePointersBase setHatchFill(String patternFillOrType3, String color2, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -702,7 +702,7 @@ public class LineargaugePointersBase extends VisualBase {
     /**
      * Setter for hatch fill settings.
      */
-    public LineargaugePointersBase setHatchFill(Boolean patternFillOrType4, String color2, Double thickness, Double size) {
+    public LineargaugePointersBase setHatchFill(Boolean patternFillOrType4, String color2, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -1103,7 +1103,7 @@ public class LineargaugePointersBase extends VisualBase {
     private Stroke color3;
     private ColoredFill color4;
     private String color5;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -1112,7 +1112,7 @@ public class LineargaugePointersBase extends VisualBase {
      * Setter for the  pointer stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public LineargaugePointersBase setStroke(Stroke color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public LineargaugePointersBase setStroke(Stroke color3, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1155,7 +1155,7 @@ public class LineargaugePointersBase extends VisualBase {
      * Setter for the  pointer stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public LineargaugePointersBase setStroke(ColoredFill color4, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public LineargaugePointersBase setStroke(ColoredFill color4, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1198,7 +1198,7 @@ public class LineargaugePointersBase extends VisualBase {
      * Setter for the  pointer stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public LineargaugePointersBase setStroke(String color5, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public LineargaugePointersBase setStroke(String color5, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;

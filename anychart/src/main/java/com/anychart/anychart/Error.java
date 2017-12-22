@@ -95,7 +95,7 @@ Error mode defines the rule to parse values for series with error.
     }
 
     private String valueError;
-    private Double valueError1;
+    private Number valueError1;
 
     /**
      * Setter for value error.
@@ -127,7 +127,7 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for value error.
      */
-    public Error setValueError(Double valueError1) {
+    public Error setValueError(Number valueError1) {
         if (jsBase == null) {
             this.valueError = null;
             this.valueError1 = null;
@@ -153,7 +153,7 @@ Error mode defines the rule to parse values for series with error.
     private Stroke strokeOrFill;
     private ColoredFill strokeOrFill1;
     private String strokeOrFill2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -161,7 +161,7 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for value error stroke settings.
      */
-    public Error setValueErrorStroke(Stroke strokeOrFill, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Error setValueErrorStroke(Stroke strokeOrFill, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -197,7 +197,7 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for value error stroke settings.
      */
-    public Error setValueErrorStroke(ColoredFill strokeOrFill1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Error setValueErrorStroke(ColoredFill strokeOrFill1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -233,7 +233,7 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for value error stroke settings.
      */
-    public Error setValueErrorStroke(String strokeOrFill2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Error setValueErrorStroke(String strokeOrFill2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -265,12 +265,12 @@ Error mode defines the rule to parse values for series with error.
         return this;
     }
 
-    private Double valueErrorWidth;
+    private Number valueErrorWidth;
 
     /**
      * Setter for value error width settings. Length pins for value axis in pixels.
      */
-    public Error setValueErrorWidth(Double valueErrorWidth) {
+    public Error setValueErrorWidth(Number valueErrorWidth) {
         if (jsBase == null) {
             this.valueErrorWidth = valueErrorWidth;
         } else {
@@ -291,7 +291,7 @@ Error mode defines the rule to parse values for series with error.
     }
 
     private String valueLowerError;
-    private Double valueLowerError1;
+    private Number valueLowerError1;
 
     /**
      * Setter for value lower error.
@@ -323,7 +323,7 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for value lower error.
      */
-    public Error setValueLowerError(Double valueLowerError1) {
+    public Error setValueLowerError(Number valueLowerError1) {
         if (jsBase == null) {
             this.valueLowerError = null;
             this.valueLowerError1 = null;
@@ -347,7 +347,7 @@ Error mode defines the rule to parse values for series with error.
     }
 
     private String valueUpperError;
-    private Double valueUpperError1;
+    private Number valueUpperError1;
 
     /**
      * Setter for value upper error.
@@ -379,7 +379,7 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for value upper error.
      */
-    public Error setValueUpperError(Double valueUpperError1) {
+    public Error setValueUpperError(Number valueUpperError1) {
         if (jsBase == null) {
             this.valueUpperError = null;
             this.valueUpperError1 = null;
@@ -403,7 +403,7 @@ Error mode defines the rule to parse values for series with error.
     }
 
     private String xError;
-    private Double xError1;
+    private Number xError1;
 
     /**
      * Setter for X error.
@@ -435,7 +435,7 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for X error.
      */
-    public Error setXError(Double xError1) {
+    public Error setXError(Number xError1) {
         if (jsBase == null) {
             this.xError = null;
             this.xError1 = null;
@@ -461,7 +461,7 @@ Error mode defines the rule to parse values for series with error.
     private Stroke strokeOrFill3;
     private ColoredFill strokeOrFill4;
     private String strokeOrFill5;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -470,7 +470,7 @@ Error mode defines the rule to parse values for series with error.
      * Setter for X error stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Error setXErrorStroke(Stroke strokeOrFill3, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Error setXErrorStroke(Stroke strokeOrFill3, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -522,7 +522,7 @@ Error mode defines the rule to parse values for series with error.
      * Setter for X error stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Error setXErrorStroke(ColoredFill strokeOrFill4, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Error setXErrorStroke(ColoredFill strokeOrFill4, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -574,7 +574,7 @@ Error mode defines the rule to parse values for series with error.
      * Setter for X error stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Error setXErrorStroke(String strokeOrFill5, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Error setXErrorStroke(String strokeOrFill5, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -621,12 +621,12 @@ Error mode defines the rule to parse values for series with error.
         return this;
     }
 
-    private Double xErrorWidth;
+    private Number xErrorWidth;
 
     /**
      * Setter for X error width settings. Length pins for X axis in pixels.
      */
-    public Error setXErrorWidth(Double xErrorWidth) {
+    public Error setXErrorWidth(Number xErrorWidth) {
         if (jsBase == null) {
             this.xErrorWidth = xErrorWidth;
         } else {
@@ -647,7 +647,7 @@ Error mode defines the rule to parse values for series with error.
     }
 
     private String xLowerError;
-    private Double xLowerError1;
+    private Number xLowerError1;
 
     /**
      * Setter for X lower error.
@@ -679,7 +679,7 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for X lower error.
      */
-    public Error setXLowerError(Double xLowerError1) {
+    public Error setXLowerError(Number xLowerError1) {
         if (jsBase == null) {
             this.xLowerError = null;
             this.xLowerError1 = null;
@@ -703,7 +703,7 @@ Error mode defines the rule to parse values for series with error.
     }
 
     private String xUpperError;
-    private Double xUpperError1;
+    private Number xUpperError1;
 
     /**
      * Setter for X upper error.
@@ -735,7 +735,7 @@ Error mode defines the rule to parse values for series with error.
     /**
      * Setter for X upper error.
      */
-    public Error setXUpperError(Double xUpperError1) {
+    public Error setXUpperError(Number xUpperError1) {
         if (jsBase == null) {
             this.xUpperError = null;
             this.xUpperError1 = null;

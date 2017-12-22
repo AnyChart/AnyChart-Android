@@ -75,13 +75,13 @@ Similar to {@link anychart.graphics.vector.Layer#addChild}
     }
 
     private Element element1;
-    private Double index;
+    private Number index;
 
     /**
      * Adds an element by index.<br/>
 Similar to {@link anychart.graphics.vector.Layer#addChildAt}
      */
-    public Stage addChildAt(Element element1, Double index) {
+    public Stage addChildAt(Element element1, Number index) {
         if (jsBase == null) {
             this.element = null;
             this.element1 = null;
@@ -106,19 +106,19 @@ Similar to {@link anychart.graphics.vector.Layer#addChildAt}
         return this;
     }
 
-    private Double m;
-    private Double m1;
-    private Double m2;
-    private Double m3;
-    private Double m4;
-    private Double m5;
+    private Number m;
+    private Number m1;
+    private Number m2;
+    private Number m3;
+    private Number m4;
+    private Number m5;
 
     /**
      * Combines current transformation with another.<br/>
 Combination is done by multiplying matrix to the right.<br/>
 Read more at: {@link anychart.graphics.vector.Element#appendTransformationMatrix}.
      */
-    public Stage appendTransformationMatrix(Double m, Double m1, Double m2, Double m3, Double m4, Double m5) {
+    public Stage appendTransformationMatrix(Number m, Number m1, Number m2, Number m3, Number m4, Number m5) {
         if (jsBase == null) {
             this.m = null;
             this.m1 = null;
@@ -215,9 +215,9 @@ Read more at: {@link anychart.graphics.vector.Element#appendTransformationMatrix
         return this;
     }
 
-    private Double cx;
-    private Double cy;
-    private Double radius;
+    private Number cx;
+    private Number cy;
+    private Number radius;
     private List<Circle> setCircle = new ArrayList<>();
 
     /**
@@ -226,7 +226,7 @@ Read more at: {@link anychart.graphics.vector.Element#appendTransformationMatrix
 You must delete them yourself after you finish using them.<br/>
 Read more at: {@link anychart.graphics.vector.Circle}
      */
-    public Circle circle(Double cx, Double cy, Double radius) {
+    public Circle circle(Number cx, Number cy, Number radius) {
         if (jsBase == null) {
             this.cx = cx;
             this.cy = cy;
@@ -331,7 +331,7 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
         return this;
     }
 
-    private Double[] rect;
+    private Number[] rect;
     private GraphicsMathRect rect1;
     private String rect2;
     private List<Clip> setCreateClip = new ArrayList<>();
@@ -339,7 +339,7 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
     /**
      * Creates a clip element using single value.
      */
-    public Clip createClip(Double[] rect) {
+    public Clip createClip(Number[] rect) {
         if (jsBase == null) {
             this.rect = null;
             this.rect1 = null;
@@ -460,16 +460,16 @@ Read more at: {@link anychart.graphics.vector.Element#clip}.
         return "";
     }
 
-    private Double left;
-    private Double top;
-    private Double width;
-    private Double height;
+    private Number left;
+    private Number top;
+    private Number width;
+    private Number height;
     private List<Clip> setCreateClip3 = new ArrayList<>();
 
     /**
      * Creates a clip element using several value.
      */
-    public Clip createClip(Double left, Double top, Double width, Double height) {
+    public Clip createClip(Number left, Number top, Number width, Number height) {
         if (jsBase == null) {
             this.left = left;
             this.top = top;
@@ -633,10 +633,10 @@ when we deserialize - JSON schema does this. JSON schema is created in
         return this;
     }
 
-    private Double cx1;
-    private Double cy1;
-    private Double rx;
-    private Double ry;
+    private Number cx1;
+    private Number cy1;
+    private Number rx;
+    private Number ry;
     private List<VectorEllipse> setEllipse = new ArrayList<>();
 
     /**
@@ -645,7 +645,7 @@ when we deserialize - JSON schema does this. JSON schema is created in
 You must delete them yourself after you finish using them.<br/>
 Read more at: {@link anychart.graphics.vector.Ellipse}
      */
-    public VectorEllipse ellipse(Double cx1, Double cy1, Double rx, Double ry) {
+    public VectorEllipse ellipse(Number cx1, Number cy1, Number rx, Number ry) {
         if (jsBase == null) {
             this.cx = null;
             this.cx1 = null;
@@ -690,14 +690,14 @@ Read more at: {@link anychart.graphics.vector.Ellipse}
         return "";
     }
 
-    private Double index1;
+    private Number index1;
     private List<Element> setGetChildAt = new ArrayList<>();
 
     /**
      * Returns an element by index.<br/>
 Similar to {@link anychart.graphics.vector.Layer#getChildAt}
      */
-    public Element getChildAt(Double index1) {
+    public Element getChildAt(Number index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -733,15 +733,15 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
         return "";
     }
 
-    private Double width1;
-    private Double height1;
-    private Double quality;
+    private Number width1;
+    private Number height1;
+    private Number quality;
     private Boolean forceTransparentWhite;
 
     /**
      * Returns JPG as base64 string.
      */
-    public void getJpgBase64String(Double width1, Double height1, Double quality, Boolean forceTransparentWhite) {
+    public void getJpgBase64String(Number width1, Number height1, Number quality, Boolean forceTransparentWhite) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -773,17 +773,17 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
         }
     }
 
-    private Double paperSizeOrWidth;
+    private Number paperSizeOrWidth;
     private String paperSizeOrWidth1;
-    private Double landscapeOrWidth;
+    private Number landscapeOrWidth;
     private Boolean landscapeOrWidth1;
-    private Double x;
-    private Double y;
+    private Number x;
+    private Number y;
 
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(Double paperSizeOrWidth, Double x, Double landscapeOrWidth, Double y) {
+    public void getPdfBase64String(Number paperSizeOrWidth, Number x, Number landscapeOrWidth, Number y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -819,7 +819,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(Double paperSizeOrWidth, Double x, Boolean landscapeOrWidth1, Double y) {
+    public void getPdfBase64String(Number paperSizeOrWidth, Number x, Boolean landscapeOrWidth1, Number y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -855,7 +855,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(String paperSizeOrWidth1, Double x, Double landscapeOrWidth, Double y) {
+    public void getPdfBase64String(String paperSizeOrWidth1, Number x, Number landscapeOrWidth, Number y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -891,7 +891,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(String paperSizeOrWidth1, Double x, Boolean landscapeOrWidth1, Double y) {
+    public void getPdfBase64String(String paperSizeOrWidth1, Number x, Boolean landscapeOrWidth1, Number y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -923,14 +923,14 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
         }
     }
 
-    private Double width2;
-    private Double height2;
-    private Double quality1;
+    private Number width2;
+    private Number height2;
+    private Number quality1;
 
     /**
      * Returns PNG as base64 string.
      */
-    public void getPngBase64String(Double width2, Double height2, Double quality1) {
+    public void getPngBase64String(Number width2, Number height2, Number quality1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -966,7 +966,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
     }
 
     private String paperSizeOrWidth2;
-    private Double paperSizeOrWidth3;
+    private Number paperSizeOrWidth3;
     private Boolean landscapeOrHeight;
     private String landscapeOrHeight1;
 
@@ -1041,7 +1041,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
     /**
      * Returns SVG as base64 string.
      */
-    public void getSvgBase64String(Double paperSizeOrWidth3, Boolean landscapeOrHeight) {
+    public void getSvgBase64String(Number paperSizeOrWidth3, Boolean landscapeOrHeight) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -1075,7 +1075,7 @@ Similar to {@link anychart.graphics.vector.Layer#getChildAt}
     /**
      * Returns SVG as base64 string.
      */
-    public void getSvgBase64String(Double paperSizeOrWidth3, String landscapeOrHeight1) {
+    public void getSvgBase64String(Number paperSizeOrWidth3, String landscapeOrHeight1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -1137,8 +1137,8 @@ Similar to {@link anychart.graphics.vector.Layer#hasChild}
 
     private HatchFillType type;
     private String color;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
     private List<HatchFill> setHatchFill = new ArrayList<>();
 
     /**
@@ -1147,7 +1147,7 @@ Similar to {@link anychart.graphics.vector.Layer#hasChild}
 You have to delete them yourself after you finish using them.<br/>
 Read more at: {@link anychart.graphics.vector.HatchFill}
      */
-    public HatchFill hatchFill(HatchFillType type, String color, Double thickness, Double size) {
+    public HatchFill hatchFill(HatchFillType type, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.type = type;
             this.color = color;
@@ -1187,7 +1187,7 @@ Read more at: {@link anychart.graphics.vector.HatchFill}
     }
 
     private String height3;
-    private Double height4;
+    private Number height4;
 
     /**
      * Sets a stage height.
@@ -1222,7 +1222,7 @@ Read more at: {@link anychart.graphics.vector.HatchFill}
     /**
      * Sets a stage height.
      */
-    public Stage setHeight(Double height4) {
+    public Stage setHeight(Number height4) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -1248,8 +1248,8 @@ Read more at: {@link anychart.graphics.vector.HatchFill}
         return this;
     }
 
-    private Double x1;
-    private Double y1;
+    private Number x1;
+    private Number y1;
     private String text;
     private List<VectorText> setHtml = new ArrayList<>();
 
@@ -1259,7 +1259,7 @@ to parse HTML.<br/>
 <strong>Note:</strong><br>anychart.graphics.vector.Stage doesn't delete objects you create.
 You must delete them yourself after you finish using them.
      */
-    public VectorText html(Double x1, Double y1, String text) {
+    public VectorText html(Number x1, Number y1, String text) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -1328,10 +1328,10 @@ You must delete them yourself after you finish using them.
     }
 
     private String src;
-    private Double x2;
-    private Double y2;
-    private Double width3;
-    private Double height5;
+    private Number x2;
+    private Number y2;
+    private Number width3;
+    private Number height5;
     private List<Image> setImage = new ArrayList<>();
 
     /**
@@ -1339,7 +1339,7 @@ You must delete them yourself after you finish using them.
 <strong>Note:</strong><br>anychart.graphics.vector.Stage doesn't delete objects you create.
 You must delete them yourself after you finish using them.
      */
-    public Image image(String src, Double x2, Double y2, Double width3, Double height5) {
+    public Image image(String src, Number x2, Number y2, Number width3, Number height5) {
         if (jsBase == null) {
             this.src = src;
             this.x = null;
@@ -1431,12 +1431,12 @@ Similar to {@link anychart.graphics.vector.Layer#indexOfChild}
         }
     }
 
-    private Double maxResizeDelay;
+    private Number maxResizeDelay;
 
     /**
      * Setter for max delay.
      */
-    public Stage setMaxResizeDelay(Double maxResizeDelay) {
+    public Stage setMaxResizeDelay(Number maxResizeDelay) {
         if (jsBase == null) {
             this.maxResizeDelay = maxResizeDelay;
         } else {
@@ -1499,7 +1499,7 @@ Read more at: {@link anychart.graphics.vector.PatternFill}
     }
 
     private String paperSizeOrWidth4;
-    private Double paperSizeOrWidth5;
+    private Number paperSizeOrWidth5;
     private Boolean landscapeOrHeight2;
     private String landscapeOrHeight3;
 
@@ -1582,7 +1582,7 @@ Read more at: {@link anychart.graphics.vector.PatternFill}
     /**
      * Print stage.
      */
-    public void print(Double paperSizeOrWidth5, Boolean landscapeOrHeight2) {
+    public void print(Number paperSizeOrWidth5, Boolean landscapeOrHeight2) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -1620,7 +1620,7 @@ Read more at: {@link anychart.graphics.vector.PatternFill}
     /**
      * Print stage.
      */
-    public void print(Double paperSizeOrWidth5, String landscapeOrHeight3) {
+    public void print(Number paperSizeOrWidth5, String landscapeOrHeight3) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -1654,10 +1654,10 @@ Read more at: {@link anychart.graphics.vector.PatternFill}
         }
     }
 
-    private Double x3;
-    private Double y3;
-    private Double width4;
-    private Double height6;
+    private Number x3;
+    private Number y3;
+    private Number width4;
+    private Number height6;
     private List<VectorRect> setRect = new ArrayList<>();
 
     /**
@@ -1665,7 +1665,7 @@ Read more at: {@link anychart.graphics.vector.PatternFill}
 <strong>Note:</strong><br>anychart.graphics.vector.Stage doesn't delete objects you create.
 You must delete them yourself after you finish using them.
      */
-    public VectorRect rect(Double x3, Double y3, Double width4, Double height6) {
+    public VectorRect rect(Number x3, Number y3, Number width4, Number height6) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -1774,14 +1774,14 @@ Similar to {@link anychart.graphics.vector.Layer#removeChild}
         return "";
     }
 
-    private Double index2;
+    private Number index2;
     private List<Element> setRemoveChildAt = new ArrayList<>();
 
     /**
      * Removes an element by index.<br/>
 Similar to {@link anychart.graphics.vector.Layer#removeChildAt}
      */
-    public Element removeChildAt(Double index2) {
+    public Element removeChildAt(Number index2) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -1818,16 +1818,16 @@ Similar to {@link anychart.graphics.vector.Layer#removeChildAt}
         return "";
     }
 
-    private Double width5;
+    private Number width5;
     private String width6;
-    private Double height7;
+    private Number height7;
     private String height8;
 
     /**
      * Stage resize. Anything drawn on stage must fit in it.
 So any part that doesn't fit will be clipped.
      */
-    public void resize(Double width5, Double height7) {
+    public void resize(Number width5, Number height7) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -1872,7 +1872,7 @@ So any part that doesn't fit will be clipped.
      * Stage resize. Anything drawn on stage must fit in it.
 So any part that doesn't fit will be clipped.
      */
-    public void resize(Double width5, String height8) {
+    public void resize(Number width5, String height8) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -1917,7 +1917,7 @@ So any part that doesn't fit will be clipped.
      * Stage resize. Anything drawn on stage must fit in it.
 So any part that doesn't fit will be clipped.
      */
-    public void resize(String width6, Double height7) {
+    public void resize(String width6, Number height7) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -2028,15 +2028,15 @@ Read more at {@link anychart.graphics.vector.Stage#suspend}.
         return this;
     }
 
-    private Double degrees;
-    private Double cx2;
-    private Double cy2;
+    private Number degrees;
+    private Number cx2;
+    private Number cy2;
 
     /**
      * Rotates root layer.<br/>
 Read more at: {@link anychart.graphics.vector.Element#rotate}.
      */
-    public Stage rotate(Double degrees, Double cx2, Double cy2) {
+    public Stage rotate(Number degrees, Number cx2, Number cy2) {
         if (jsBase == null) {
             this.degrees = degrees;
             this.cx = null;
@@ -2068,7 +2068,7 @@ Read more at: {@link anychart.graphics.vector.Element#rotate}.
         return this;
     }
 
-    private Double degrees1;
+    private Number degrees1;
     private VectorAnchor anchor;
     private String anchor1;
 
@@ -2076,7 +2076,7 @@ Read more at: {@link anychart.graphics.vector.Element#rotate}.
      * Rotates root layer around an anchor.<br/>
 Read more at: {@link anychart.graphics.vector.Element#rotateByAnchor}.
      */
-    public Stage rotateByAnchor(Double degrees1, VectorAnchor anchor) {
+    public Stage rotateByAnchor(Number degrees1, VectorAnchor anchor) {
         if (jsBase == null) {
             this.degrees = null;
             this.degrees1 = null;
@@ -2109,7 +2109,7 @@ Read more at: {@link anychart.graphics.vector.Element#rotateByAnchor}.
      * Rotates root layer around an anchor.<br/>
 Read more at: {@link anychart.graphics.vector.Element#rotateByAnchor}.
      */
-    public Stage rotateByAnchor(Double degrees1, String anchor1) {
+    public Stage rotateByAnchor(Number degrees1, String anchor1) {
         if (jsBase == null) {
             this.degrees = null;
             this.degrees1 = null;
@@ -2137,9 +2137,9 @@ Read more at: {@link anychart.graphics.vector.Element#rotateByAnchor}.
         return this;
     }
 
-    private Double width7;
-    private Double height9;
-    private Double quality2;
+    private Number width7;
+    private Number height9;
+    private Number quality2;
     private Boolean forceTransparentWhite1;
     private String filename;
 
@@ -2147,7 +2147,7 @@ Read more at: {@link anychart.graphics.vector.Element#rotateByAnchor}.
      * Saves the current stage as JPG Image.<br/>
 For export to image JPG use {@link anychart#server}.
      */
-    public void saveAsJpg(Double width7, Double height9, Double quality2, Boolean forceTransparentWhite1, String filename) {
+    public void saveAsJpg(Number width7, Number height9, Number quality2, Boolean forceTransparentWhite1, String filename) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -2204,15 +2204,15 @@ For export to image JPG use {@link anychart#server}.
 
     private String paperSize;
     private Boolean landscape;
-    private Double x4;
-    private Double y4;
+    private Number x4;
+    private Number y4;
     private String filename1;
 
     /**
      * Saves the current stage as PDF Document.<br/>
 For export to PDF file use {@link anychart#server}.
      */
-    public void saveAsPdf(String paperSize, Boolean landscape, Double x4, Double y4, String filename1) {
+    public void saveAsPdf(String paperSize, Boolean landscape, Number x4, Number y4, String filename1) {
         if (jsBase == null) {
             this.paperSize = paperSize;
             this.landscape = landscape;
@@ -2255,16 +2255,16 @@ For export to PDF file use {@link anychart#server}.
         }
     }
 
-    private Double width8;
-    private Double height10;
-    private Double quality3;
+    private Number width8;
+    private Number height10;
+    private Number quality3;
     private String filename2;
 
     /**
      * Saves the current stage as PNG Image.<br/>
 For export to image PNG use {@link anychart#server}.
      */
-    public void saveAsPng(Double width8, Double height10, Double quality3, String filename2) {
+    public void saveAsPng(Number width8, Number height10, Number quality3, String filename2) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -2364,14 +2364,14 @@ For export to SVG use {@link anychart#server}.
         }
     }
 
-    private Double width9;
-    private Double height11;
+    private Number width9;
+    private Number height11;
 
     /**
      * Saves the stage as SVG Image using width and height.<br/>
 For export to SVG use {@link anychart#server}.
      */
-    public void saveAsSvg(Double width9, Double height11) {
+    public void saveAsSvg(Number width9, Number height11) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -2417,16 +2417,16 @@ For export to SVG use {@link anychart#server}.
         }
     }
 
-    private Double sx;
-    private Double sy;
-    private Double cx3;
-    private Double cy3;
+    private Number sx;
+    private Number sy;
+    private Number cx3;
+    private Number cy3;
 
     /**
      * Scales root layer in parent coordinates system. Scaling center is set in the parent system too.<br/>
 Read more at: {@link anychart.graphics.vector.Element#scale}.
      */
-    public Stage scale(Double sx, Double sy, Double cx3, Double cy3) {
+    public Stage scale(Number sx, Number sy, Number cx3, Number cy3) {
         if (jsBase == null) {
             this.sx = sx;
             this.sy = sy;
@@ -2462,8 +2462,8 @@ Read more at: {@link anychart.graphics.vector.Element#scale}.
         return this;
     }
 
-    private Double sx1;
-    private Double sy1;
+    private Number sx1;
+    private Number sy1;
     private VectorAnchor anchor2;
     private String anchor3;
 
@@ -2471,7 +2471,7 @@ Read more at: {@link anychart.graphics.vector.Element#scale}.
      * Scales root layer in parent coordinates system. Scaling center is set by root layer anchor.<br/>
 Read more at: {@link anychart.graphics.vector.Element#scaleByAnchor}.
      */
-    public Stage scaleByAnchor(Double sx1, Double sy1, VectorAnchor anchor2) {
+    public Stage scaleByAnchor(Number sx1, Number sy1, VectorAnchor anchor2) {
         if (jsBase == null) {
             this.sx = null;
             this.sx1 = null;
@@ -2511,7 +2511,7 @@ Read more at: {@link anychart.graphics.vector.Element#scaleByAnchor}.
      * Scales root layer in parent coordinates system. Scaling center is set by root layer anchor.<br/>
 Read more at: {@link anychart.graphics.vector.Element#scaleByAnchor}.
      */
-    public Stage scaleByAnchor(Double sx1, Double sy1, String anchor3) {
+    public Stage scaleByAnchor(Number sx1, Number sy1, String anchor3) {
         if (jsBase == null) {
             this.sx = null;
             this.sx1 = null;
@@ -2546,14 +2546,14 @@ Read more at: {@link anychart.graphics.vector.Element#scaleByAnchor}.
         return this;
     }
 
-    private Double x5;
-    private Double y5;
+    private Number x5;
+    private Number y5;
 
     /**
      * Sets top left corner coordinates of root layer (with transformation,in parent coordinate system).<br/>
 Read more at: {@link anychart.graphics.vector.Element#setPosition}.
      */
-    public Stage setSetPosition(Double x5, Double y5) {
+    public Stage setSetPosition(Number x5, Number y5) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -2589,15 +2589,15 @@ Read more at: {@link anychart.graphics.vector.Element#setPosition}.
         return this;
     }
 
-    private Double degrees2;
-    private Double cx4;
-    private Double cy4;
+    private Number degrees2;
+    private Number cx4;
+    private Number cy4;
 
     /**
      * Rotates root layer around a point.<br/>
 Read more at: {@link anychart.graphics.vector.Element#setRotation}.
      */
-    public Stage setRotation(Double degrees2, Double cx4, Double cy4) {
+    public Stage setRotation(Number degrees2, Number cx4, Number cy4) {
         if (jsBase == null) {
             this.degrees = null;
             this.degrees1 = null;
@@ -2637,7 +2637,7 @@ Read more at: {@link anychart.graphics.vector.Element#setRotation}.
         return this;
     }
 
-    private Double degrees3;
+    private Number degrees3;
     private VectorAnchor anchor4;
     private String anchor5;
 
@@ -2645,7 +2645,7 @@ Read more at: {@link anychart.graphics.vector.Element#setRotation}.
      * Rotates root layer around an anchor.<br/>
 Read more at: {@link anychart.graphics.vector.Element#setRotationByAnchor}.
      */
-    public Stage setRotationByAnchor(Double degrees3, VectorAnchor anchor4) {
+    public Stage setRotationByAnchor(Number degrees3, VectorAnchor anchor4) {
         if (jsBase == null) {
             this.degrees = null;
             this.degrees1 = null;
@@ -2684,7 +2684,7 @@ Read more at: {@link anychart.graphics.vector.Element#setRotationByAnchor}.
      * Rotates root layer around an anchor.<br/>
 Read more at: {@link anychart.graphics.vector.Element#setRotationByAnchor}.
      */
-    public Stage setRotationByAnchor(Double degrees3, String anchor5) {
+    public Stage setRotationByAnchor(Number degrees3, String anchor5) {
         if (jsBase == null) {
             this.degrees = null;
             this.degrees1 = null;
@@ -2718,18 +2718,18 @@ Read more at: {@link anychart.graphics.vector.Element#setRotationByAnchor}.
         return this;
     }
 
-    private Double m6;
-    private Double m7;
-    private Double m8;
-    private Double m9;
-    private Double m10;
-    private Double m11;
+    private Number m6;
+    private Number m7;
+    private Number m8;
+    private Number m9;
+    private Number m10;
+    private Number m11;
 
     /**
      * Sets transformation matrix.<br/>
 Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
      */
-    public Stage setSetTransformationMatrix(Double m6, Double m7, Double m8, Double m9, Double m10, Double m11) {
+    public Stage setSetTransformationMatrix(Number m6, Number m7, Number m8, Number m9, Number m10, Number m11) {
         if (jsBase == null) {
             this.m = null;
             this.m1 = null;
@@ -2838,16 +2838,16 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
     }
 
     private Boolean asBase;
-    private Double width10;
-    private Double height12;
-    private Double quality4;
+    private Number width10;
+    private Number height12;
+    private Number quality4;
     private Boolean forceTransparentWhite2;
     private String filename4;
 
     /**
      * Share a stage as a JPG and return link to shared image.
      */
-    public void shareAsJpg(Boolean asBase, Double width10, Double height12, Double quality4, Boolean forceTransparentWhite2, String filename4) {
+    public void shareAsJpg(Boolean asBase, Number width10, Number height12, Number quality4, Boolean forceTransparentWhite2, String filename4) {
         if (jsBase == null) {
             this.asBase = asBase;
             this.width = null;
@@ -2920,18 +2920,18 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
     }
 
     private Boolean asBase1;
-    private Double paperSizeOrWidth6;
+    private Number paperSizeOrWidth6;
     private String paperSizeOrWidth7;
-    private Double landscapeOrWidth2;
+    private Number landscapeOrWidth2;
     private Boolean landscapeOrWidth3;
-    private Double x6;
-    private Double y6;
+    private Number x6;
+    private Number y6;
     private String filename5;
 
     /**
      * Share a stage as a PDF and return link to shared image.
      */
-    public void shareAsPdf(Boolean asBase1, Double paperSizeOrWidth6, Double x6, Double landscapeOrWidth2, Double y6, String filename5) {
+    public void shareAsPdf(Boolean asBase1, Number paperSizeOrWidth6, Number x6, Number landscapeOrWidth2, Number y6, String filename5) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -3005,7 +3005,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
     /**
      * Share a stage as a PDF and return link to shared image.
      */
-    public void shareAsPdf(Boolean asBase1, Double paperSizeOrWidth6, Double x6, Boolean landscapeOrWidth3, Double y6, String filename5) {
+    public void shareAsPdf(Boolean asBase1, Number paperSizeOrWidth6, Number x6, Boolean landscapeOrWidth3, Number y6, String filename5) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -3079,7 +3079,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
     /**
      * Share a stage as a PDF and return link to shared image.
      */
-    public void shareAsPdf(Boolean asBase1, String paperSizeOrWidth7, Double x6, Double landscapeOrWidth2, Double y6, String filename5) {
+    public void shareAsPdf(Boolean asBase1, String paperSizeOrWidth7, Number x6, Number landscapeOrWidth2, Number y6, String filename5) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -3153,7 +3153,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
     /**
      * Share a stage as a PDF and return link to shared image.
      */
-    public void shareAsPdf(Boolean asBase1, String paperSizeOrWidth7, Double x6, Boolean landscapeOrWidth3, Double y6, String filename5) {
+    public void shareAsPdf(Boolean asBase1, String paperSizeOrWidth7, Number x6, Boolean landscapeOrWidth3, Number y6, String filename5) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -3224,15 +3224,15 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
     }
 
     private Boolean asBase2;
-    private Double width11;
-    private Double height13;
-    private Double quality5;
+    private Number width11;
+    private Number height13;
+    private Number quality5;
     private String filename6;
 
     /**
      * Shares a stage as a PNG file and returns a link to the shared image.
      */
-    public void shareAsPng(Boolean asBase2, Double width11, Double height13, Double quality5, String filename6) {
+    public void shareAsPng(Boolean asBase2, Number width11, Number height13, Number quality5, String filename6) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -3309,7 +3309,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
 
     private Boolean asBase3;
     private String paperSizeOrWidth8;
-    private Double paperSizeOrWidth9;
+    private Number paperSizeOrWidth9;
     private Boolean landscapeOrHeight4;
     private String landscapeOrHeight5;
     private String filename7;
@@ -3441,7 +3441,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
     /**
      * Share a stage as a SVG and return link to shared image.
      */
-    public void shareAsSvg(Boolean asBase3, Double paperSizeOrWidth9, String filename7, Boolean landscapeOrHeight4) {
+    public void shareAsSvg(Boolean asBase3, Number paperSizeOrWidth9, String filename7, Boolean landscapeOrHeight4) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -3503,7 +3503,7 @@ Read more at: {@link anychart.graphics.vector.Element#setTransformationMatrix}.
     /**
      * Share a stage as a SVG and return link to shared image.
      */
-    public void shareAsSvg(Boolean asBase3, Double paperSizeOrWidth9, String filename7, String landscapeOrHeight5) {
+    public void shareAsSvg(Boolean asBase3, Number paperSizeOrWidth9, String filename7, String landscapeOrHeight5) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -3607,14 +3607,14 @@ Similar to {@link anychart.graphics.vector.Layer#swapChildren}
         return this;
     }
 
-    private Double index3;
-    private Double index4;
+    private Number index3;
+    private Number index4;
 
     /**
      * Swaps two children by id.<br/>
 Similar to {@link anychart.graphics.vector.Layer#swapChildrenAt}
      */
-    public Stage swapChildrenAt(Double index3, Double index4) {
+    public Stage swapChildrenAt(Number index3, Number index4) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -3648,8 +3648,8 @@ Similar to {@link anychart.graphics.vector.Layer#swapChildrenAt}
         return this;
     }
 
-    private Double x7;
-    private Double y7;
+    private Number x7;
+    private Number y7;
     private String text1;
     private List<VectorText> setText = new ArrayList<>();
 
@@ -3658,7 +3658,7 @@ Similar to {@link anychart.graphics.vector.Layer#swapChildrenAt}
 <strong>Note:</strong><br>anychart.graphics.vector.Stage doesn't delete objects you create.
 You must delete them yourself after you finish using them.
      */
-    public VectorText text(Double x7, Double y7, String text1) {
+    public VectorText text(Number x7, Number y7, String text1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -3777,13 +3777,13 @@ You must delete them yourself after you finish using them.
         }
     }
 
-    private Double width12;
-    private Double height14;
+    private Number width12;
+    private Number height14;
 
     /**
      * Returns SVG string if type of content is SVG with determined the width and height otherwise returns empty string.
      */
-    public void toSvg(Double width12, Double height14) {
+    public void toSvg(Number width12, Number height14) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -3835,15 +3835,15 @@ You must delete them yourself after you finish using them.
         }
     }
 
-    private Double tx;
-    private Double ty;
+    private Number tx;
+    private Number ty;
 
     /**
      * Moves root layer taking transformation into account.<br/>
 Movement happens in root layer coordinates.<br/>
 Read more at: {@link anychart.graphics.vector.Element#translate}.
      */
-    public Stage translate(Double tx, Double ty) {
+    public Stage translate(Number tx, Number ty) {
         if (jsBase == null) {
             this.tx = tx;
             this.ty = ty;
@@ -3891,7 +3891,7 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
     }
 
     private String width13;
-    private Double width14;
+    private Number width14;
 
     /**
      * Sets a stage width.
@@ -3936,7 +3936,7 @@ Read more at: {@link anychart.graphics.vector.Element#translate}.
     /**
      * Sets a stage width.
      */
-    public Stage setWidth(Double width14) {
+    public Stage setWidth(Number width14) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

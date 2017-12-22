@@ -9,13 +9,13 @@ import java.util.Arrays;
 public class SmaContext extends JsObject  {
 
     
-    private Double dequeuedValue;
-    private Double period;
-    private Double prevResult;
+    private Number dequeuedValue;
+    private Number period;
+    private Number prevResult;
     private CycledQueue queue;
 
     
-    public SmaContext(Double dequeuedValue, Double period, Double prevResult, CycledQueue queue) {
+    public SmaContext(Number dequeuedValue, Number period, Number prevResult, CycledQueue queue) {
         this.dequeuedValue = dequeuedValue;
         this.period = period;
         this.prevResult = prevResult;

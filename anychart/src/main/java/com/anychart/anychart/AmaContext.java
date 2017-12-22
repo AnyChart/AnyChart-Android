@@ -9,15 +9,15 @@ import java.util.Arrays;
 public class AmaContext extends JsObject  {
 
     
-    private Double fastPeriod;
-    private Double period;
-    private Double prevNoise;
-    private Double prevResult;
+    private Number fastPeriod;
+    private Number period;
+    private Number prevNoise;
+    private Number prevResult;
     private CycledQueue queue;
-    private Double slowPeriod;
+    private Number slowPeriod;
 
     
-    public AmaContext(Double fastPeriod, Double period, Double prevNoise, Double prevResult, CycledQueue queue, Double slowPeriod) {
+    public AmaContext(Number fastPeriod, Number period, Number prevNoise, Number prevResult, CycledQueue queue, Number slowPeriod) {
         this.fastPeriod = fastPeriod;
         this.period = period;
         this.prevNoise = prevNoise;

@@ -55,27 +55,27 @@ public class ChartsWaterfall extends SeparateChart {
      * Adds series to the chart.
      */
     public void addSeries(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
     }
 
 
@@ -130,7 +130,7 @@ public class ChartsWaterfall extends SeparateChart {
     private Stroke color;
     private ColoredFill color1;
     private String color2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -138,7 +138,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Setter for the connector stroke.
      */
-    public ChartsWaterfall setConnectorStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public ChartsWaterfall setConnectorStroke(Stroke color, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -156,7 +156,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Setter for the connector stroke.
      */
-    public ChartsWaterfall setConnectorStroke(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public ChartsWaterfall setConnectorStroke(ColoredFill color1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -174,7 +174,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Setter for the connector stroke.
      */
-    public ChartsWaterfall setConnectorStroke(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public ChartsWaterfall setConnectorStroke(String color2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -255,27 +255,27 @@ public class ChartsWaterfall extends SeparateChart {
      * Setter for the data.
      */
     public ChartsWaterfall setData(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         return this;
     }
 
@@ -355,7 +355,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Gets the series by its id.
      */
-    public SeriesWaterfall getGetSeries(Double id) {
+    public SeriesWaterfall getGetSeries(Number id) {
         SeriesWaterfall item = new SeriesWaterfall(jsBase + ".getSeries("+ id+")");
         getGetSeries.add(item);
         return item;
@@ -377,7 +377,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Getter for the series by its index.
      */
-    public CartesianSeriesBase getGetSeriesAt(Double index) {
+    public CartesianSeriesBase getGetSeriesAt(Number index) {
         CartesianSeriesBase item = new CartesianSeriesBase(jsBase + ".getSeriesAt("+ index+")");
         getGetSeriesAt.add(item);
         return item;
@@ -446,6 +446,11 @@ public class ChartsWaterfall extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -517,7 +522,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Getter for the line marker.
      */
-    public CoreAxismarkersLine getLineMarker(Double index1) {
+    public CoreAxismarkersLine getLineMarker(Number index1) {
         CoreAxismarkersLine item = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index1+")");
         getLineMarker1.add(item);
         return item;
@@ -560,14 +565,14 @@ public class ChartsWaterfall extends SeparateChart {
         return this;
     }
 
-    private Double index2;
+    private Number index2;
     private String lineMarker2;
     private Boolean lineMarker3;
 
     /**
      * Setter for the line marker settings by index.
      */
-    public ChartsWaterfall setLineMarker(String lineMarker2, Double index2) {
+    public ChartsWaterfall setLineMarker(String lineMarker2, Number index2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -585,7 +590,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Setter for the line marker settings by index.
      */
-    public ChartsWaterfall setLineMarker(Boolean lineMarker3, Double index2) {
+    public ChartsWaterfall setLineMarker(Boolean lineMarker3, Number index2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -628,6 +633,11 @@ public class ChartsWaterfall extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -685,13 +695,13 @@ public class ChartsWaterfall extends SeparateChart {
         return this;
     }
 
-    private Double maxPointWidth;
+    private Number maxPointWidth;
     private String maxPointWidth1;
 
     /**
      * Setter for the maximum point width.
      */
-    public ChartsWaterfall setMaxPointWidth(Double maxPointWidth) {
+    public ChartsWaterfall setMaxPointWidth(Number maxPointWidth) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -723,13 +733,13 @@ public class ChartsWaterfall extends SeparateChart {
         return this;
     }
 
-    private Double minPointLength;
+    private Number minPointLength;
     private String minPointLength1;
 
     /**
      * Setter for the minimum point length.
      */
-    public ChartsWaterfall setMinPointLength(Double minPointLength) {
+    public ChartsWaterfall setMinPointLength(Number minPointLength) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -790,6 +800,11 @@ public class ChartsWaterfall extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -806,6 +821,11 @@ public class ChartsWaterfall extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -845,13 +865,13 @@ public class ChartsWaterfall extends SeparateChart {
         return this;
     }
 
-    private Double pointWidth;
+    private Number pointWidth;
     private String pointWidth1;
 
     /**
      * Setter for the point width settings.
      */
-    public ChartsWaterfall setPointWidth(Double pointWidth) {
+    public ChartsWaterfall setPointWidth(Number pointWidth) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -901,7 +921,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Getter for the current range marker.
      */
-    public CoreAxismarkersRange getRangeMarker(Double index3) {
+    public CoreAxismarkersRange getRangeMarker(Number index3) {
         CoreAxismarkersRange item = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index3+")");
         getRangeMarker1.add(item);
         return item;
@@ -944,14 +964,14 @@ public class ChartsWaterfall extends SeparateChart {
         return this;
     }
 
-    private Double index4;
+    private Number index4;
     private String rangeMarker2;
     private Boolean rangeMarker3;
 
     /**
      * Setter for the range marker by index.
      */
-    public ChartsWaterfall setRangeMarker(String rangeMarker2, Double index4) {
+    public ChartsWaterfall setRangeMarker(String rangeMarker2, Number index4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -969,7 +989,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Setter for the range marker by index.
      */
-    public ChartsWaterfall setRangeMarker(Boolean rangeMarker3, Double index4) {
+    public ChartsWaterfall setRangeMarker(Boolean rangeMarker3, Number index4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -983,13 +1003,13 @@ public class ChartsWaterfall extends SeparateChart {
         return this;
     }
 
-    private Double id2;
+    private Number id2;
     private String id3;
 
     /**
      * Removes one of series from chart by its id.
      */
-    public ChartsWaterfall removeSeries(Double id2) {
+    public ChartsWaterfall removeSeries(Number id2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1021,12 +1041,12 @@ public class ChartsWaterfall extends SeparateChart {
         return this;
     }
 
-    private Double index5;
+    private Number index5;
 
     /**
      * Removes one of series from chart by its index.
      */
-    public ChartsWaterfall removeSeriesAt(Double index5) {
+    public ChartsWaterfall removeSeriesAt(Number index5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1058,7 +1078,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Getter for the text marker.
      */
-    public CoreAxismarkersText getTextMarker(Double index6) {
+    public CoreAxismarkersText getTextMarker(Number index6) {
         CoreAxismarkersText item = new CoreAxismarkersText(jsBase + ".textMarker("+ index6+")");
         getTextMarker1.add(item);
         return item;
@@ -1101,14 +1121,14 @@ public class ChartsWaterfall extends SeparateChart {
         return this;
     }
 
-    private Double index7;
+    private Number index7;
     private String textMarker2;
     private Boolean textMarker3;
 
     /**
      * Setter for the text marker by index.
      */
-    public ChartsWaterfall setTextMarker(String textMarker2, Double index7) {
+    public ChartsWaterfall setTextMarker(String textMarker2, Number index7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1126,7 +1146,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Setter for the text marker by index.
      */
-    public ChartsWaterfall setTextMarker(Boolean textMarker3, Double index7) {
+    public ChartsWaterfall setTextMarker(Boolean textMarker3, Number index7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1138,6 +1158,80 @@ public class ChartsWaterfall extends SeparateChart {
             js.setLength(0);
         }
         return this;
+    }
+
+    private List<SeriesWaterfall> setWaterfall = new ArrayList<>();
+
+    /**
+     * Adds Waterfall series.
+     */
+    public SeriesWaterfall waterfall(List<DataEntry> data) {
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
+        }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
+
+        js.append(String.format(Locale.US, "var setWaterfall" + ++variableIndex + " = " + jsBase + ".waterfall(%s);", resultData.toString()));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".waterfall(%s);", resultData.toString()));
+            js.setLength(0);
+        }
+    }
+        SeriesWaterfall item = new SeriesWaterfall("setWaterfall" + variableIndex);
+        setWaterfall.add(item);
+        return item;
+    }
+    private String generateJSsetWaterfall() {
+        if (!setWaterfall.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setWaterfall) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<SeriesWaterfall> setWaterfall1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public SeriesWaterfall waterfall(View view) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+
+        js.append(view.generateJs());
+        js.append(String.format(Locale.US, "var setWaterfall1" + ++variableIndex + " = " + jsBase + ".waterfall(%s);",  view.getJsBase()));
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".waterfall(%s);", view.getJsBase()));
+            js.setLength(0);
+        }
+        SeriesWaterfall item = new SeriesWaterfall("setWaterfall1" + variableIndex);
+        setWaterfall1.add(item);
+        return item;
+    }
+    private String generateJSsetWaterfall1() {
+        if (!setWaterfall1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (SeriesWaterfall item : setWaterfall1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
     }
 
 
@@ -1158,7 +1252,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Getter for the chart X-axis.
      */
-    public CoreAxesLinear getXAxis(Double index8) {
+    public CoreAxesLinear getXAxis(Number index8) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".xAxis("+ index8+")");
         getXAxis1.add(item);
         return item;
@@ -1201,14 +1295,14 @@ public class ChartsWaterfall extends SeparateChart {
         return this;
     }
 
-    private Double index9;
+    private Number index9;
     private String xAxis2;
     private Boolean xAxis3;
 
     /**
      * Setter for the chart X-axis by index.
      */
-    public ChartsWaterfall setXAxis(String xAxis2, Double index9) {
+    public ChartsWaterfall setXAxis(String xAxis2, Number index9) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1226,7 +1320,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Setter for the chart X-axis by index.
      */
-    public ChartsWaterfall setXAxis(Boolean xAxis3, Double index9) {
+    public ChartsWaterfall setXAxis(Boolean xAxis3, Number index9) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1258,7 +1352,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Getter for the chart grid by X-scale.
      */
-    public CoreGridsLinear getXGrid(Double index10) {
+    public CoreGridsLinear getXGrid(Number index10) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xGrid("+ index10+")");
         getXGrid1.add(item);
         return item;
@@ -1301,14 +1395,14 @@ public class ChartsWaterfall extends SeparateChart {
         return this;
     }
 
-    private Double index11;
+    private Number index11;
     private String xGrid2;
     private Boolean xGrid3;
 
     /**
      * Setter for chart grid by index.
      */
-    public ChartsWaterfall setXGrid(String xGrid2, Double index11) {
+    public ChartsWaterfall setXGrid(String xGrid2, Number index11) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1326,7 +1420,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Setter for chart grid by index.
      */
-    public ChartsWaterfall setXGrid(Boolean xGrid3, Double index11) {
+    public ChartsWaterfall setXGrid(Boolean xGrid3, Number index11) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1358,7 +1452,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Getter for the current chart minor grid by X-scale.
      */
-    public CoreGridsLinear getXMinorGrid(Double index12) {
+    public CoreGridsLinear getXMinorGrid(Number index12) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xMinorGrid("+ index12+")");
         getXMinorGrid1.add(item);
         return item;
@@ -1401,14 +1495,14 @@ public class ChartsWaterfall extends SeparateChart {
         return this;
     }
 
-    private Double index13;
+    private Number index13;
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
 
     /**
      * Setter for the chart minor grid by index.
      */
-    public ChartsWaterfall setXMinorGrid(String xMinorGrid2, Double index13) {
+    public ChartsWaterfall setXMinorGrid(String xMinorGrid2, Number index13) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1426,7 +1520,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Setter for the chart minor grid by index.
      */
-    public ChartsWaterfall setXMinorGrid(Boolean xMinorGrid3, Double index13) {
+    public ChartsWaterfall setXMinorGrid(Boolean xMinorGrid3, Number index13) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1505,6 +1599,11 @@ public class ChartsWaterfall extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale3 != null) ? xScale3.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -1570,14 +1669,14 @@ public class ChartsWaterfall extends SeparateChart {
 
         return getXZoom;
     }
-    private Double xZoom;
+    private Number xZoom;
     private Boolean xZoom1;
     private String xZoom2;
 
     /**
      * Setter for the zoom settings.
      */
-    public ChartsWaterfall setXZoom(Double xZoom) {
+    public ChartsWaterfall setXZoom(Number xZoom) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1645,7 +1744,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Getter for the chart Y-axis.
      */
-    public CoreAxesLinear getYAxis(Double index14) {
+    public CoreAxesLinear getYAxis(Number index14) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".yAxis("+ index14+")");
         getYAxis1.add(item);
         return item;
@@ -1688,14 +1787,14 @@ public class ChartsWaterfall extends SeparateChart {
         return this;
     }
 
-    private Double index15;
+    private Number index15;
     private String yAxis2;
     private Boolean yAxis3;
 
     /**
      * Setter for the chart Y-axis by index.
      */
-    public ChartsWaterfall setYAxis(String yAxis2, Double index15) {
+    public ChartsWaterfall setYAxis(String yAxis2, Number index15) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1713,7 +1812,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Setter for the chart Y-axis by index.
      */
-    public ChartsWaterfall setYAxis(Boolean yAxis3, Double index15) {
+    public ChartsWaterfall setYAxis(Boolean yAxis3, Number index15) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1745,7 +1844,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Getter for the chart grid by Y-scale.
      */
-    public CoreGridsLinear getYGrid(Double index16) {
+    public CoreGridsLinear getYGrid(Number index16) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yGrid("+ index16+")");
         getYGrid1.add(item);
         return item;
@@ -1788,14 +1887,14 @@ public class ChartsWaterfall extends SeparateChart {
         return this;
     }
 
-    private Double index17;
+    private Number index17;
     private String yGrid2;
     private Boolean yGrid3;
 
     /**
      * Setter for chart grid by index.
      */
-    public ChartsWaterfall setYGrid(String yGrid2, Double index17) {
+    public ChartsWaterfall setYGrid(String yGrid2, Number index17) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1813,7 +1912,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Setter for chart grid by index.
      */
-    public ChartsWaterfall setYGrid(Boolean yGrid3, Double index17) {
+    public ChartsWaterfall setYGrid(Boolean yGrid3, Number index17) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1845,7 +1944,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Getter for the current chart minor grid by Y-scale.
      */
-    public CoreGridsLinear getYMinorGrid(Double index18) {
+    public CoreGridsLinear getYMinorGrid(Number index18) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yMinorGrid("+ index18+")");
         getYMinorGrid1.add(item);
         return item;
@@ -1888,14 +1987,14 @@ public class ChartsWaterfall extends SeparateChart {
         return this;
     }
 
-    private Double index19;
+    private Number index19;
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
 
     /**
      * Setter for the chart minor grid by index.
      */
-    public ChartsWaterfall setYMinorGrid(String yMinorGrid2, Double index19) {
+    public ChartsWaterfall setYMinorGrid(String yMinorGrid2, Number index19) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1913,7 +2012,7 @@ public class ChartsWaterfall extends SeparateChart {
     /**
      * Setter for the chart minor grid by index.
      */
-    public ChartsWaterfall setYMinorGrid(Boolean yMinorGrid3, Double index19) {
+    public ChartsWaterfall setYMinorGrid(Boolean yMinorGrid3, Number index19) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1992,6 +2091,11 @@ public class ChartsWaterfall extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale3 != null) ? yScale3.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -2326,6 +2430,8 @@ public class ChartsWaterfall extends SeparateChart {
         js.append(generateJSgetYMinorGrid());
         js.append(generateJSgetYMinorGrid1());
         js.append(generateJSgetYScale());
+        js.append(generateJSsetWaterfall());
+        js.append(generateJSsetWaterfall1());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

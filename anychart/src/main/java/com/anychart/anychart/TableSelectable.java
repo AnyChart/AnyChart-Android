@@ -35,15 +35,15 @@ public class TableSelectable extends JsObject {
     }
 
     
-    private Double key;
+    private Number key;
     private TableSearchMode mode;
     private String mode1;
     private List<TableselectableRowProxy> setSearch = new ArrayList<>();
 
     /**
-     * Searches asked key with asked mode and returns an object that allows values fetching.
+     * Searches asked key with asked mode and return an object that allows values fetching.
      */
-    public TableselectableRowProxy search(Double key, TableSearchMode mode) {
+    public TableselectableRowProxy search(Number key, TableSearchMode mode) {
         if (jsBase == null) {
             this.key = key;
             this.mode = null;
@@ -84,9 +84,9 @@ public class TableSelectable extends JsObject {
     private List<TableselectableRowProxy> setSearch1 = new ArrayList<>();
 
     /**
-     * Searches asked key with asked mode and returns an object that allows values fetching.
+     * Searches asked key with asked mode and return an object that allows values fetching.
      */
-    public TableselectableRowProxy search(Double key, String mode1) {
+    public TableselectableRowProxy search(Number key, String mode1) {
         if (jsBase == null) {
             this.key = key;
             this.mode = null;
@@ -124,18 +124,18 @@ public class TableSelectable extends JsObject {
         return "";
     }
 
-    private Double startDate;
+    private Number startDate;
     private String startDate1;
-    private Double endDate;
+    private Number endDate;
     private String endDate1;
     private Interval intervalUnit;
     private String intervalUnit1;
-    private Double intervalCount;
+    private Number intervalCount;
 
     /**
      * Selects asked range.
      */
-    public TableSelectable select(Double startDate, Double intervalCount, Double endDate, Interval intervalUnit) {
+    public TableSelectable select(Number startDate, Number intervalCount, Number endDate, Interval intervalUnit) {
         if (jsBase == null) {
             this.startDate = null;
             this.startDate1 = null;
@@ -174,7 +174,7 @@ public class TableSelectable extends JsObject {
     /**
      * Selects asked range.
      */
-    public TableSelectable select(Double startDate, Double intervalCount, Double endDate, String intervalUnit1) {
+    public TableSelectable select(Number startDate, Number intervalCount, Number endDate, String intervalUnit1) {
         if (jsBase == null) {
             this.startDate = null;
             this.startDate1 = null;
@@ -213,7 +213,7 @@ public class TableSelectable extends JsObject {
     /**
      * Selects asked range.
      */
-    public TableSelectable select(Double startDate, Double intervalCount, String endDate1, Interval intervalUnit) {
+    public TableSelectable select(Number startDate, Number intervalCount, String endDate1, Interval intervalUnit) {
         if (jsBase == null) {
             this.startDate = null;
             this.startDate1 = null;
@@ -252,7 +252,7 @@ public class TableSelectable extends JsObject {
     /**
      * Selects asked range.
      */
-    public TableSelectable select(Double startDate, Double intervalCount, String endDate1, String intervalUnit1) {
+    public TableSelectable select(Number startDate, Number intervalCount, String endDate1, String intervalUnit1) {
         if (jsBase == null) {
             this.startDate = null;
             this.startDate1 = null;
@@ -291,7 +291,7 @@ public class TableSelectable extends JsObject {
     /**
      * Selects asked range.
      */
-    public TableSelectable select(String startDate1, Double intervalCount, Double endDate, Interval intervalUnit) {
+    public TableSelectable select(String startDate1, Number intervalCount, Number endDate, Interval intervalUnit) {
         if (jsBase == null) {
             this.startDate = null;
             this.startDate1 = null;
@@ -330,7 +330,7 @@ public class TableSelectable extends JsObject {
     /**
      * Selects asked range.
      */
-    public TableSelectable select(String startDate1, Double intervalCount, Double endDate, String intervalUnit1) {
+    public TableSelectable select(String startDate1, Number intervalCount, Number endDate, String intervalUnit1) {
         if (jsBase == null) {
             this.startDate = null;
             this.startDate1 = null;
@@ -369,7 +369,7 @@ public class TableSelectable extends JsObject {
     /**
      * Selects asked range.
      */
-    public TableSelectable select(String startDate1, Double intervalCount, String endDate1, Interval intervalUnit) {
+    public TableSelectable select(String startDate1, Number intervalCount, String endDate1, Interval intervalUnit) {
         if (jsBase == null) {
             this.startDate = null;
             this.startDate1 = null;
@@ -408,7 +408,7 @@ public class TableSelectable extends JsObject {
     /**
      * Selects asked range.
      */
-    public TableSelectable select(String startDate1, Double intervalCount, String endDate1, String intervalUnit1) {
+    public TableSelectable select(String startDate1, Number intervalCount, String endDate1, String intervalUnit1) {
         if (jsBase == null) {
             this.startDate = null;
             this.startDate1 = null;
@@ -445,12 +445,12 @@ public class TableSelectable extends JsObject {
 
     private Interval intervalUnit2;
     private String intervalUnit3;
-    private Double intervalCount1;
+    private Number intervalCount1;
 
     /**
      * Selects the full range of the storage.
      */
-    public TableSelectable selectAll(Interval intervalUnit2, Double intervalCount1) {
+    public TableSelectable selectAll(Interval intervalUnit2, Number intervalCount1) {
         if (jsBase == null) {
             this.intervalUnit = null;
             this.intervalUnit1 = null;
@@ -484,7 +484,7 @@ public class TableSelectable extends JsObject {
     /**
      * Selects the full range of the storage.
      */
-    public TableSelectable selectAll(String intervalUnit3, Double intervalCount1) {
+    public TableSelectable selectAll(String intervalUnit3, Number intervalCount1) {
         if (jsBase == null) {
             this.intervalUnit = null;
             this.intervalUnit1 = null;

@@ -13,7 +13,7 @@ import android.text.TextUtils;
 Title can be a part of an other complex element, such as a chart, a legend or an axis,
 as well a self-sufficient element.<br/>
 A title have a orientation, text alignment and a background.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.ui.Title.png' height='287' width='444'/><br/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.Title.png' height='287' width='444'/><br/>
 Title occupies the whole part of a container (depending on the orientation by the width or the height).
  */
 public class UiTitle extends CoreText {
@@ -167,13 +167,13 @@ public class UiTitle extends CoreText {
         return this;
     }
 
-    private Double height;
+    private Number height;
     private String height1;
 
     /**
      * Setter for the title height.
      */
-    public UiTitle setHeight(Double height) {
+    public UiTitle setHeight(Number height) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -237,15 +237,15 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
     }
 
     private String allValues;
-    private Double allValues1;
-    private Double[] allValues2;
+    private Number allValues1;
+    private Number[] allValues2;
     private String[] allValues3;
     private String allValues4;
 
     /**
      * Setter for the title margin in pixels using one complex value.
      */
-    public UiTitle setMargin(Double[] allValues2) {
+    public UiTitle setMargin(Number[] allValues2) {
         if (jsBase == null) {
             this.allValues = null;
             this.allValues1 = null;
@@ -302,13 +302,13 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for the title margin in pixels using several numbers.
@@ -379,7 +379,7 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
     /**
      * Setter for the title margin in pixels using several numbers.
      */
-    public UiTitle setMargin(Double value1, Double value3, Double value5, Double value7) {
+    public UiTitle setMargin(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -511,15 +511,15 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
     }
 
     private String padding;
-    private Double padding1;
-    private Double[] padding2;
+    private Number padding1;
+    private Number[] padding2;
     private String[] padding3;
     private String padding4;
 
     /**
      * Setter for the title padding in pixels using single value.
      */
-    public UiTitle setPadding(Double[] padding2) {
+    public UiTitle setPadding(Number[] padding2) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -576,13 +576,13 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
     }
 
     private String value8;
-    private Double value9;
+    private Number value9;
     private String value10;
-    private Double value11;
+    private Number value11;
     private String value12;
-    private Double value13;
+    private Number value13;
     private String value14;
-    private Double value15;
+    private Number value15;
 
     /**
      * Setter for the title padding in pixels using several numbers.
@@ -685,7 +685,7 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
     /**
      * Setter for the title padding in pixels using several numbers.
      */
-    public UiTitle setPadding(Double value9, Double value11, Double value13, Double value15) {
+    public UiTitle setPadding(Number value9, Number value11, Number value13, Number value15) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -779,12 +779,12 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
         return this;
     }
 
-    private Double rotation;
+    private Number rotation;
 
     /**
      * Setter for the title rotation.
      */
-    public UiTitle setRotation(Double rotation) {
+    public UiTitle setRotation(Number rotation) {
         if (jsBase == null) {
             this.rotation = rotation;
         } else {
@@ -829,13 +829,13 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
         return this;
     }
 
-    private Double width;
+    private Number width;
     private String width1;
 
     /**
      * Setter for the title width.
      */
-    public UiTitle setWidth(Double width) {
+    public UiTitle setWidth(Number width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

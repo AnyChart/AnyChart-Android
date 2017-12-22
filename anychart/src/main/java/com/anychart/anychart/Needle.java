@@ -35,13 +35,13 @@ public class Needle extends GaugePointersBase {
     }
 
     
-    private Double endRadius;
+    private Number endRadius;
     private String endRadius1;
 
     /**
      * Setter for the end radius.
      */
-    public Needle setEndRadius(Double endRadius) {
+    public Needle setEndRadius(Number endRadius) {
         if (jsBase == null) {
             this.endRadius = null;
             this.endRadius1 = null;
@@ -91,13 +91,13 @@ public class Needle extends GaugePointersBase {
         return this;
     }
 
-    private Double endWidth;
+    private Number endWidth;
     private String endWidth1;
 
     /**
      * Setter for the end width.
      */
-    public Needle setEndWidth(Double endWidth) {
+    public Needle setEndWidth(Number endWidth) {
         if (jsBase == null) {
             this.endWidth = null;
             this.endWidth1 = null;
@@ -147,13 +147,13 @@ public class Needle extends GaugePointersBase {
         return this;
     }
 
-    private Double middleRadius;
+    private Number middleRadius;
     private String middleRadius1;
 
     /**
      * Setter for the middle radius.
      */
-    public Needle setMiddleRadius(Double middleRadius) {
+    public Needle setMiddleRadius(Number middleRadius) {
         if (jsBase == null) {
             this.middleRadius = null;
             this.middleRadius1 = null;
@@ -203,13 +203,13 @@ public class Needle extends GaugePointersBase {
         return this;
     }
 
-    private Double middleWidth;
+    private Number middleWidth;
     private String middleWidth1;
 
     /**
      * Setter for the middle width
      */
-    public Needle setMiddleWidth(Double middleWidth) {
+    public Needle setMiddleWidth(Number middleWidth) {
         if (jsBase == null) {
             this.middleWidth = null;
             this.middleWidth1 = null;
@@ -259,13 +259,13 @@ public class Needle extends GaugePointersBase {
         return this;
     }
 
-    private Double startRadius;
+    private Number startRadius;
     private String startRadius1;
 
     /**
      * Setter for the start radius.
      */
-    public Needle setStartRadius(Double startRadius) {
+    public Needle setStartRadius(Number startRadius) {
         if (jsBase == null) {
             this.startRadius = null;
             this.startRadius1 = null;
@@ -315,13 +315,13 @@ public class Needle extends GaugePointersBase {
         return this;
     }
 
-    private Double startWidth;
+    private Number startWidth;
     private String startWidth1;
 
     /**
      * Setter for the start width
      */
-    public Needle setStartWidth(Double startWidth) {
+    public Needle setStartWidth(Number startWidth) {
         if (jsBase == null) {
             this.startWidth = null;
             this.startWidth1 = null;

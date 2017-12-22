@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Range Selector (only for stock chart).
+ * The RangeSelector class contains methods for configuring range selector in a stock chart.
  */
 public class RangeSelector extends JsObject {
 
@@ -144,9 +144,9 @@ public class RangeSelector extends JsObject {
     private ChartsStock chart;
 
     /**
-     * Set stock chart for range selector.
+     * Sets stock chart for range selector.
      */
-    public void target(ChartsStock chart) {
+    public void setTarget(ChartsStock chart) {
         if (jsBase == null) {
             this.chart = chart;
         } else {

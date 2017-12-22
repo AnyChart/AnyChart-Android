@@ -39,7 +39,7 @@ public class StockSeriesOHLC extends StockSeriesDiscreteBase {
     private Stroke fallingStroke;
     private ColoredFill fallingStroke1;
     private String fallingStroke2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -48,7 +48,7 @@ public class StockSeriesOHLC extends StockSeriesDiscreteBase {
      * Setter for falling stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StockSeriesOHLC setFallingStroke(Stroke fallingStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public StockSeriesOHLC setFallingStroke(Stroke fallingStroke, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.fallingStroke = null;
             this.fallingStroke1 = null;
@@ -85,7 +85,7 @@ public class StockSeriesOHLC extends StockSeriesDiscreteBase {
      * Setter for falling stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StockSeriesOHLC setFallingStroke(ColoredFill fallingStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public StockSeriesOHLC setFallingStroke(ColoredFill fallingStroke1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.fallingStroke = null;
             this.fallingStroke1 = null;
@@ -122,7 +122,7 @@ public class StockSeriesOHLC extends StockSeriesDiscreteBase {
      * Setter for falling stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StockSeriesOHLC setFallingStroke(String fallingStroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public StockSeriesOHLC setFallingStroke(String fallingStroke2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.fallingStroke = null;
             this.fallingStroke1 = null;
@@ -157,7 +157,7 @@ public class StockSeriesOHLC extends StockSeriesDiscreteBase {
     private Stroke risingStroke;
     private ColoredFill risingStroke1;
     private String risingStroke2;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -166,7 +166,7 @@ public class StockSeriesOHLC extends StockSeriesDiscreteBase {
      * Setter for rising stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StockSeriesOHLC setRisingStroke(Stroke risingStroke, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public StockSeriesOHLC setRisingStroke(Stroke risingStroke, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.risingStroke = null;
             this.risingStroke1 = null;
@@ -215,7 +215,7 @@ public class StockSeriesOHLC extends StockSeriesDiscreteBase {
      * Setter for rising stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StockSeriesOHLC setRisingStroke(ColoredFill risingStroke1, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public StockSeriesOHLC setRisingStroke(ColoredFill risingStroke1, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.risingStroke = null;
             this.risingStroke1 = null;
@@ -264,7 +264,7 @@ public class StockSeriesOHLC extends StockSeriesDiscreteBase {
      * Setter for rising stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StockSeriesOHLC setRisingStroke(String risingStroke2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public StockSeriesOHLC setRisingStroke(String risingStroke2, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.risingStroke = null;
             this.risingStroke1 = null;

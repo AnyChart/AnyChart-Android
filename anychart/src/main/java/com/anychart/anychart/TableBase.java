@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -46,7 +51,7 @@ public class TableBase extends JsObject {
     private Stroke color;
     private ColoredFill color1;
     private String color2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -55,7 +60,7 @@ public class TableBase extends JsObject {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public TableBase setBorder(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public TableBase setBorder(Stroke color, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -92,7 +97,7 @@ public class TableBase extends JsObject {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public TableBase setBorder(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public TableBase setBorder(ColoredFill color1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -129,7 +134,7 @@ public class TableBase extends JsObject {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public TableBase setBorder(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public TableBase setBorder(String color2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -292,12 +297,12 @@ public class TableBase extends JsObject {
         return this;
     }
 
-    private Double fontOpacity;
+    private Number fontOpacity;
 
     /**
      * Setter for the text font opacity. Double value from 0 to 1.
      */
-    public TableBase setFontOpacity(Double fontOpacity) {
+    public TableBase setFontOpacity(Number fontOpacity) {
         if (jsBase == null) {
             this.fontOpacity = fontOpacity;
         } else {
@@ -318,7 +323,7 @@ public class TableBase extends JsObject {
     }
 
     private String fontSize;
-    private Double fontSize1;
+    private Number fontSize1;
 
     /**
      * Setter for text font size.
@@ -350,7 +355,7 @@ public class TableBase extends JsObject {
     /**
      * Setter for text font size.
      */
-    public TableBase setFontSize(Double fontSize1) {
+    public TableBase setFontSize(Number fontSize1) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -486,7 +491,7 @@ public class TableBase extends JsObject {
     }
 
     private String fontWeight;
-    private Double fontWeight1;
+    private Number fontWeight1;
 
     /**
      * Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
@@ -518,7 +523,7 @@ public class TableBase extends JsObject {
     /**
      * Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public TableBase setFontWeight(Double fontWeight1) {
+    public TableBase setFontWeight(Number fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -598,7 +603,7 @@ public class TableBase extends JsObject {
     }
 
     private String letterSpacing;
-    private Double letterSpacing1;
+    private Number letterSpacing1;
 
     /**
      * Setter for the text letter spacing. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
@@ -630,7 +635,7 @@ public class TableBase extends JsObject {
     /**
      * Setter for the text letter spacing. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public TableBase setLetterSpacing(Double letterSpacing1) {
+    public TableBase setLetterSpacing(Number letterSpacing1) {
         if (jsBase == null) {
             this.letterSpacing = null;
             this.letterSpacing1 = null;
@@ -654,7 +659,7 @@ public class TableBase extends JsObject {
     }
 
     private String lineHeight;
-    private Double lineHeight1;
+    private Number lineHeight1;
 
     /**
      * Setter for the text line height. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
@@ -686,7 +691,7 @@ public class TableBase extends JsObject {
     /**
      * Setter for the text line height. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public TableBase setLineHeight(Double lineHeight1) {
+    public TableBase setLineHeight(Number lineHeight1) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -790,12 +795,12 @@ public class TableBase extends JsObject {
         return this;
     }
 
-    private Double textIndent;
+    private Number textIndent;
 
     /**
      * Setter for the text indent.
      */
-    public TableBase setTextIndent(Double textIndent) {
+    public TableBase setTextIndent(Number textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
         } else {

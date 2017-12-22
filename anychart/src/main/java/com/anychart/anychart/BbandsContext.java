@@ -9,15 +9,15 @@ import java.util.Arrays;
 public class BbandsContext extends JsObject  {
 
     
-    private Double dequeuedValue;
-    private Double deviation;
+    private Number dequeuedValue;
+    private Number deviation;
     private CycledQueue highQueue;
-    private Double period;
-    private Double prevDeviation;
-    private Double prevResult;
+    private Number period;
+    private Number prevDeviation;
+    private Number prevResult;
 
     
-    public BbandsContext(Double dequeuedValue, Double deviation, CycledQueue highQueue, Double period, Double prevDeviation, Double prevResult) {
+    public BbandsContext(Number dequeuedValue, Number deviation, CycledQueue highQueue, Number period, Number prevDeviation, Number prevResult) {
         this.dequeuedValue = dequeuedValue;
         this.deviation = deviation;
         this.highQueue = highQueue;

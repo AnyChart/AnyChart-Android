@@ -94,15 +94,15 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
     private String patternFillOrTypeOrState3;
     private Boolean patternFillOrTypeOrState4;
     private String color;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
     private List<StockSeriesBase> setFallingHatchFill = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesBase setFallingHatchFill(PatternFill patternFillOrTypeOrState, String color, Double thickness, Double size) {
+    public StockSeriesBase setFallingHatchFill(PatternFill patternFillOrTypeOrState, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -153,7 +153,7 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesBase setFallingHatchFill(HatchFill patternFillOrTypeOrState1, String color, Double thickness, Double size) {
+    public StockSeriesBase setFallingHatchFill(HatchFill patternFillOrTypeOrState1, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -204,7 +204,7 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesBase setFallingHatchFill(HatchFillType patternFillOrTypeOrState2, String color, Double thickness, Double size) {
+    public StockSeriesBase setFallingHatchFill(HatchFillType patternFillOrTypeOrState2, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -255,7 +255,7 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesBase setFallingHatchFill(String patternFillOrTypeOrState3, String color, Double thickness, Double size) {
+    public StockSeriesBase setFallingHatchFill(String patternFillOrTypeOrState3, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -306,7 +306,7 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesBase setFallingHatchFill(Boolean patternFillOrTypeOrState4, String color, Double thickness, Double size) {
+    public StockSeriesBase setFallingHatchFill(Boolean patternFillOrTypeOrState4, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -409,15 +409,15 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
     private String patternFillOrTypeOrState8;
     private Boolean patternFillOrTypeOrState9;
     private String color1;
-    private Double thickness1;
-    private Double size1;
+    private Number thickness1;
+    private Number size1;
     private List<StockSeriesBase> setRisingHatchFill = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesBase setRisingHatchFill(PatternFill patternFillOrTypeOrState5, String color1, Double thickness1, Double size1) {
+    public StockSeriesBase setRisingHatchFill(PatternFill patternFillOrTypeOrState5, String color1, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -482,7 +482,7 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesBase setRisingHatchFill(HatchFill patternFillOrTypeOrState6, String color1, Double thickness1, Double size1) {
+    public StockSeriesBase setRisingHatchFill(HatchFill patternFillOrTypeOrState6, String color1, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -547,7 +547,7 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesBase setRisingHatchFill(HatchFillType patternFillOrTypeOrState7, String color1, Double thickness1, Double size1) {
+    public StockSeriesBase setRisingHatchFill(HatchFillType patternFillOrTypeOrState7, String color1, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -612,7 +612,7 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesBase setRisingHatchFill(String patternFillOrTypeOrState8, String color1, Double thickness1, Double size1) {
+    public StockSeriesBase setRisingHatchFill(String patternFillOrTypeOrState8, String color1, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -677,7 +677,7 @@ public class StockSeriesCandlestick extends StockSeriesOHLC {
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesBase setRisingHatchFill(Boolean patternFillOrTypeOrState9, String color1, Double thickness1, Double size1) {
+    public StockSeriesBase setRisingHatchFill(Boolean patternFillOrTypeOrState9, String color1, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;

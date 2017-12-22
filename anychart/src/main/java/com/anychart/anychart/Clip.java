@@ -48,7 +48,7 @@ public class Clip extends JsObject {
         return getShape;
     }
 
-    private Double[] shape;
+    private Number[] shape;
     private Shape shape1;
     private GraphicsMathRect shape2;
     private String shape3;
@@ -56,7 +56,7 @@ public class Clip extends JsObject {
     /**
      * Setter for the shape of the clip.
      */
-    public Clip setShape(Double[] shape) {
+    public Clip setShape(Number[] shape) {
         if (jsBase == null) {
             this.shape = null;
             this.shape1 = null;
@@ -170,15 +170,15 @@ public class Clip extends JsObject {
         return this;
     }
 
-    private Double left;
-    private Double top;
-    private Double width;
-    private Double height;
+    private Number left;
+    private Number top;
+    private Number width;
+    private Number height;
 
     /**
      * Setter for the shape of the clip with coordinates.
      */
-    public Clip setShape(Double left, Double top, Double width, Double height) {
+    public Clip setShape(Number left, Number top, Number width, Number height) {
         if (jsBase == null) {
             this.left = left;
             this.top = top;

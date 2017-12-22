@@ -37,13 +37,13 @@ public class Bounds extends CoreBase {
     }
 
     
-    private Double bottom;
+    private Number bottom;
     private String bottom1;
 
     /**
      * Setter for the bottom edge position.
      */
-    public Bounds setBottom(Double bottom) {
+    public Bounds setBottom(Number bottom) {
         if (jsBase == null) {
             this.bottom = null;
             this.bottom1 = null;
@@ -93,13 +93,13 @@ public class Bounds extends CoreBase {
         return this;
     }
 
-    private Double height;
+    private Number height;
     private String height1;
 
     /**
      * Setter for the height value.
      */
-    public Bounds setHeight(Double height) {
+    public Bounds setHeight(Number height) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -149,13 +149,13 @@ public class Bounds extends CoreBase {
         return this;
     }
 
-    private Double left;
+    private Number left;
     private String left1;
 
     /**
      * Setter for the left edge position.
      */
-    public Bounds setLeft(Double left) {
+    public Bounds setLeft(Number left) {
         if (jsBase == null) {
             this.left = null;
             this.left1 = null;
@@ -205,13 +205,13 @@ public class Bounds extends CoreBase {
         return this;
     }
 
-    private Double maxHeight;
+    private Number maxHeight;
     private String maxHeight1;
 
     /**
      * Setter for the maximum height value.
      */
-    public Bounds setMaxHeight(Double maxHeight) {
+    public Bounds setMaxHeight(Number maxHeight) {
         if (jsBase == null) {
             this.maxHeight = null;
             this.maxHeight1 = null;
@@ -261,13 +261,13 @@ public class Bounds extends CoreBase {
         return this;
     }
 
-    private Double maxWidth;
+    private Number maxWidth;
     private String maxWidth1;
 
     /**
      * Setter for the maximum width value.
      */
-    public Bounds setMaxWidth(Double maxWidth) {
+    public Bounds setMaxWidth(Number maxWidth) {
         if (jsBase == null) {
             this.maxWidth = null;
             this.maxWidth1 = null;
@@ -317,13 +317,13 @@ public class Bounds extends CoreBase {
         return this;
     }
 
-    private Double minHeight;
+    private Number minHeight;
     private String minHeight1;
 
     /**
      * Setter for the minimum height value.
      */
-    public Bounds setMinHeight(Double minHeight) {
+    public Bounds setMinHeight(Number minHeight) {
         if (jsBase == null) {
             this.minHeight = null;
             this.minHeight1 = null;
@@ -373,13 +373,13 @@ public class Bounds extends CoreBase {
         return this;
     }
 
-    private Double minWidth;
+    private Number minWidth;
     private String minWidth1;
 
     /**
      * Setter for the minimum width value.
      */
-    public Bounds setMinWidth(Double minWidth) {
+    public Bounds setMinWidth(Number minWidth) {
         if (jsBase == null) {
             this.minWidth = null;
             this.minWidth1 = null;
@@ -429,13 +429,13 @@ public class Bounds extends CoreBase {
         return this;
     }
 
-    private Double right;
+    private Number right;
     private String right1;
 
     /**
      * Setter for the right edge position.
      */
-    public Bounds setRight(Double right) {
+    public Bounds setRight(Number right) {
         if (jsBase == null) {
             this.right = null;
             this.right1 = null;
@@ -485,24 +485,24 @@ public class Bounds extends CoreBase {
         return this;
     }
 
-    private Double xOrRect;
+    private Number xOrRect;
     private String xOrRect1;
-    private Double[] xOrRect2;
+    private Number[] xOrRect2;
     private RectObj xOrRect3;
     private AnychartMathRect xOrRect4;
     private Bounds xOrRect5;
-    private Double y;
+    private Number y;
     private String y1;
-    private Double width;
+    private Number width;
     private String width1;
-    private Double height2;
+    private Number height2;
     private String height3;
 
     /**
      * Resets all values of the object by passed values.<br/>
 <b>Note</b>: "right" and "bottom" have priority over "width" and "height".
      */
-    public Bounds set(Double[] xOrRect2) {
+    public Bounds set(Number[] xOrRect2) {
         if (jsBase == null) {
             this.xOrRect = null;
             this.xOrRect1 = null;
@@ -627,18 +627,18 @@ public class Bounds extends CoreBase {
         return this;
     }
 
-    private Double parentLeftOrRect;
+    private Number parentLeftOrRect;
     private AnychartMathRect parentLeftOrRect1;
     private String parentLeftOrRect2;
-    private Double parentTop;
-    private Double parentWidth;
-    private Double parentHeight;
+    private Number parentTop;
+    private Number parentWidth;
+    private Number parentHeight;
     private List<AnychartMathRect> setToRect = new ArrayList<>();
 
     /**
      * Normalizes all info stored in this object.
      */
-    public AnychartMathRect toRect(Double parentLeftOrRect, Double parentTop, Double parentWidth, Double parentHeight) {
+    public AnychartMathRect toRect(Number parentLeftOrRect, Number parentTop, Number parentWidth, Number parentHeight) {
         if (jsBase == null) {
             this.parentLeftOrRect = null;
             this.parentLeftOrRect1 = null;
@@ -686,7 +686,7 @@ public class Bounds extends CoreBase {
     /**
      * Normalizes all info stored in this object.
      */
-    public AnychartMathRect toRect(AnychartMathRect parentLeftOrRect1, Double parentTop, Double parentWidth, Double parentHeight) {
+    public AnychartMathRect toRect(AnychartMathRect parentLeftOrRect1, Number parentTop, Number parentWidth, Number parentHeight) {
         if (jsBase == null) {
             this.parentLeftOrRect = null;
             this.parentLeftOrRect1 = null;
@@ -734,7 +734,7 @@ public class Bounds extends CoreBase {
     /**
      * Normalizes all info stored in this object.
      */
-    public AnychartMathRect toRect(String parentLeftOrRect2, Double parentTop, Double parentWidth, Double parentHeight) {
+    public AnychartMathRect toRect(String parentLeftOrRect2, Number parentTop, Number parentWidth, Number parentHeight) {
         if (jsBase == null) {
             this.parentLeftOrRect = null;
             this.parentLeftOrRect1 = null;
@@ -777,13 +777,13 @@ public class Bounds extends CoreBase {
         return "";
     }
 
-    private Double top;
+    private Number top;
     private String top1;
 
     /**
      * Setter for the top edge position.
      */
-    public Bounds setTop(Double top) {
+    public Bounds setTop(Number top) {
         if (jsBase == null) {
             this.top = null;
             this.top1 = null;
@@ -833,13 +833,13 @@ public class Bounds extends CoreBase {
         return this;
     }
 
-    private Double width2;
+    private Number width2;
     private String width3;
 
     /**
      * Setter for the width value.
      */
-    public Bounds setWidth(Double width2) {
+    public Bounds setWidth(Number width2) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

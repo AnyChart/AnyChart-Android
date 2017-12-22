@@ -91,13 +91,13 @@ public class GaugePointersMarker extends GaugePointersBase {
         return this;
     }
 
-    private Double radius;
+    private Number radius;
     private String radius1;
 
     /**
      * Setter for the marker radius.
      */
-    public GaugePointersMarker setRadius(Double radius) {
+    public GaugePointersMarker setRadius(Number radius) {
         if (jsBase == null) {
             this.radius = null;
             this.radius1 = null;
@@ -147,13 +147,13 @@ public class GaugePointersMarker extends GaugePointersBase {
         return this;
     }
 
-    private Double size;
+    private Number size;
     private String size1;
 
     /**
      * Setter for the marker size.
      */
-    public GaugePointersMarker setSize(Double size) {
+    public GaugePointersMarker setSize(Number size) {
         if (jsBase == null) {
             this.size = null;
             this.size1 = null;

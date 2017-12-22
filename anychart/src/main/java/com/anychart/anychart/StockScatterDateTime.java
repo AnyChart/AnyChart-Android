@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Stock scatter datetime scale class.
+ * The StockScatterDateTime class contains methods for configuring scatter datetime scale on the Stock.
  */
 public class StockScatterDateTime extends CoreBase {
 
@@ -35,12 +35,12 @@ public class StockScatterDateTime extends CoreBase {
     }
 
     
-    private Double ratio;
+    private Number ratio;
 
     /**
      * Processes reverse transformation of the ratio backward to value.
      */
-    public void inverseTransform(Double ratio) {
+    public void inverseTransform(Number ratio) {
         if (jsBase == null) {
             this.ratio = ratio;
         } else {
@@ -60,13 +60,13 @@ public class StockScatterDateTime extends CoreBase {
         }
     }
 
-    private Double transform;
+    private Number transform;
     private String transform1;
 
     /**
      * Transforms values to ratio.
      */
-    public void transform(Double transform) {
+    public void transform(Number transform) {
         if (jsBase == null) {
             this.transform = null;
             this.transform1 = null;

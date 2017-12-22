@@ -106,12 +106,12 @@ public class StockDateTime extends VisualBase {
         return this;
     }
 
-    private Double height;
+    private Number height;
 
     /**
      * Setter for the axis height.
      */
-    public StockDateTime setHeight(Double height) {
+    public StockDateTime setHeight(Number height) {
         if (jsBase == null) {
             this.height = height;
         } else {

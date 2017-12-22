@@ -46,10 +46,10 @@ public class Path extends JsObject {
     }
 
     
-    private Double rx;
-    private Double ry;
-    private Double fromAngle;
-    private Double extent;
+    private Number rx;
+    private Number ry;
+    private Number fromAngle;
+    private Number extent;
 
     /**
      * Adds a command to the path that draws an arc of an ellipse.<br/>
@@ -57,7 +57,7 @@ An ellipse with radius <b>rx, ry</b>, starting from an angle <b>fromAngle</b>, w
 The positive direction is considered the direction from a positive direction of the X-axis to a positive direction
 of the Y-axis, that is clockwise.
      */
-    public Path arcTo(Double rx, Double ry, Double fromAngle, Double extent) {
+    public Path arcTo(Number rx, Number ry, Number fromAngle, Number extent) {
         if (jsBase == null) {
             this.rx = rx;
             this.ry = ry;
@@ -83,15 +83,15 @@ of the Y-axis, that is clockwise.
         return this;
     }
 
-    private Double rx1;
-    private Double ry1;
-    private Double fromAngle1;
-    private Double extent1;
+    private Number rx1;
+    private Number ry1;
+    private Number fromAngle1;
+    private Number extent1;
 
     /**
      * This method is similar to {@link anychart.graphics.vector.Path#arcTo}, but in this case the arc is approximated by Bezier curves.
      */
-    public Path arcToAsCurves(Double rx1, Double ry1, Double fromAngle1, Double extent1) {
+    public Path arcToAsCurves(Number rx1, Number ry1, Number fromAngle1, Number extent1) {
         if (jsBase == null) {
             this.rx = null;
             this.rx1 = null;
@@ -129,10 +129,10 @@ of the Y-axis, that is clockwise.
         return this;
     }
 
-    private Double x;
-    private Double y;
-    private Double rx2;
-    private Double ry2;
+    private Number x;
+    private Number y;
+    private Number rx2;
+    private Number ry2;
     private Boolean largeArc;
     private Boolean clockwiseArc;
 
@@ -142,7 +142,7 @@ An arc of an ellipse with radius <b>rx, ry</b> <b>rx, ry</b> from the current po
 The <b>largeArc</b> and <b>clockwiseArc</b> flags define which of the 4 possible arcs is drawn.<br/>
 Read more at {@link https://www.w3.org/TR/SVG/implnote.html#ArcImplementationNotes}
      */
-    public Path arcToByEndPoint(Double x, Double y, Double rx2, Double ry2, Boolean largeArc, Boolean clockwiseArc) {
+    public Path arcToByEndPoint(Number x, Number y, Number rx2, Number ry2, Boolean largeArc, Boolean clockwiseArc) {
         if (jsBase == null) {
             this.x = x;
             this.y = y;
@@ -180,12 +180,12 @@ Read more at {@link https://www.w3.org/TR/SVG/implnote.html#ArcImplementationNot
         return this;
     }
 
-    private Double cx;
-    private Double cy;
-    private Double rx3;
-    private Double ry3;
-    private Double fromAngle2;
-    private Double sweep;
+    private Number cx;
+    private Number cy;
+    private Number rx3;
+    private Number ry3;
+    private Number fromAngle2;
+    private Number sweep;
     private Boolean lineTo;
 
     /**
@@ -193,7 +193,7 @@ Read more at {@link https://www.w3.org/TR/SVG/implnote.html#ArcImplementationNot
 An arc with a center in (cx, cy) start angle (from) and end angle (from + sweep),
 with clockwise and counterclock drawing option.
      */
-    public Path circularArc(Double cx, Double cy, Double rx3, Double ry3, Double fromAngle2, Double sweep, Boolean lineTo) {
+    public Path circularArc(Number cx, Number cy, Number rx3, Number ry3, Number fromAngle2, Number sweep, Boolean lineTo) {
         if (jsBase == null) {
             this.cx = cx;
             this.cy = cy;
@@ -239,19 +239,19 @@ with clockwise and counterclock drawing option.
         return this;
     }
 
-    private Double controlX;
-    private Double controlY;
-    private Double controlX1;
-    private Double controlY1;
-    private Double endX;
-    private Double endY;
-    private Double var_args;
+    private Number controlX;
+    private Number controlY;
+    private Number controlX1;
+    private Number controlY1;
+    private Number endX;
+    private Number endY;
+    private Number var_args;
 
     /**
      * Adds specified points to the path, drawing sequentially a cubic Bezier curve from the current point to the next.<br/>
 Each curve is defined by 3 points (6 coordinates) – two control points and an endpoint.
      */
-    public Path curveTo(Double controlX, Double controlY, Double controlX1, Double controlY1, Double endX, Double endY, Double var_args) {
+    public Path curveTo(Number controlX, Number controlY, Number controlX1, Number controlY1, Number endX, Number endY, Number var_args) {
         if (jsBase == null) {
             this.controlX = null;
             this.controlX1 = null;
@@ -295,14 +295,14 @@ Each curve is defined by 3 points (6 coordinates) – two control points and an 
         return this;
     }
 
-    private Double x1;
-    private Double y1;
-    private Double var_args1;
+    private Number x1;
+    private Number y1;
+    private Number var_args1;
 
     /**
      * Adds specified points to the current path, drawing sequentially a straight line through the specified coordinates.
      */
-    public Path lineTo(Double x1, Double y1, Double var_args1) {
+    public Path lineTo(Number x1, Number y1, Number var_args1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -335,14 +335,14 @@ Each curve is defined by 3 points (6 coordinates) – two control points and an 
         return this;
     }
 
-    private Double x2;
-    private Double y2;
+    private Number x2;
+    private Number y2;
 
     /**
      * Moves path cursor position to a specified coordinate.</br>
 Remember that if you call the <b>moveTo</b> method a few times in a row, only the last call will be applied.
      */
-    public Path moveTo(Double x2, Double y2) {
+    public Path moveTo(Number x2, Number y2) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -372,17 +372,17 @@ Remember that if you call the <b>moveTo</b> method a few times in a row, only th
         return this;
     }
 
-    private Double controlX2;
-    private Double controlY2;
-    private Double endX1;
-    private Double endY1;
-    private Double var_args2;
+    private Number controlX2;
+    private Number controlY2;
+    private Number endX1;
+    private Number endY1;
+    private Number var_args2;
 
     /**
      * Adds specified points to the path, drawing sequentially a quadratic Bezier curve from the current point to the next.
 Each curve is defined by 2 points (4 coordinates) – a control point and an endpoint.
      */
-    public Path quadraticCurveTo(Double controlX2, Double controlY2, Double endX1, Double endY1, Double var_args2) {
+    public Path quadraticCurveTo(Number controlX2, Number controlY2, Number endX1, Number endY1, Number var_args2) {
         if (jsBase == null) {
             this.controlX = null;
             this.controlX1 = null;

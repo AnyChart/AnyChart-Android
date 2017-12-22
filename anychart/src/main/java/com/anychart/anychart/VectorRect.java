@@ -43,7 +43,7 @@ public class VectorRect extends Shape {
 
     
     private String radiusAll;
-    private Double radiusAll1;
+    private Number radiusAll1;
 
     /**
      * Sets cut corners.
@@ -75,7 +75,7 @@ public class VectorRect extends Shape {
     /**
      * Sets cut corners.
      */
-    public VectorRect setCut(Double radiusAll1) {
+    public VectorRect setCut(Number radiusAll1) {
         if (jsBase == null) {
             this.radiusAll = null;
             this.radiusAll1 = null;
@@ -98,15 +98,15 @@ public class VectorRect extends Shape {
         return this;
     }
 
-    private Double radiusLeftTop;
-    private Double radiusRightTop;
-    private Double radiusRightBottom;
-    private Double radiusLeftBottom;
+    private Number radiusLeftTop;
+    private Number radiusRightTop;
+    private Number radiusRightBottom;
+    private Number radiusLeftBottom;
 
     /**
      * Sets cut corners.
      */
-    public VectorRect setCut(Double radiusLeftTop, Double radiusRightTop, Double radiusRightBottom, Double radiusLeftBottom) {
+    public VectorRect setCut(Number radiusLeftTop, Number radiusRightTop, Number radiusRightBottom, Number radiusLeftBottom) {
         if (jsBase == null) {
             this.radiusLeftTop = radiusLeftTop;
             this.radiusRightTop = radiusRightTop;
@@ -133,7 +133,7 @@ public class VectorRect extends Shape {
     }
 
     private String radiusAll2;
-    private Double radiusAll3;
+    private Number radiusAll3;
 
     /**
      * Sets corners rounding using single value.
@@ -167,7 +167,7 @@ public class VectorRect extends Shape {
     /**
      * Sets corners rounding using single value.
      */
-    public VectorRect setRound(Double radiusAll3) {
+    public VectorRect setRound(Number radiusAll3) {
         if (jsBase == null) {
             this.radiusAll = null;
             this.radiusAll1 = null;
@@ -192,15 +192,15 @@ public class VectorRect extends Shape {
         return this;
     }
 
-    private Double radiusLeftTop1;
-    private Double radiusRightTop1;
-    private Double radiusRightBottom1;
-    private Double radiusLeftBottom1;
+    private Number radiusLeftTop1;
+    private Number radiusRightTop1;
+    private Number radiusRightBottom1;
+    private Number radiusLeftBottom1;
 
     /**
      * Sets corners rounding using several value.
      */
-    public VectorRect setRound(Double radiusLeftTop1, Double radiusRightTop1, Double radiusRightBottom1, Double radiusLeftBottom1) {
+    public VectorRect setRound(Number radiusLeftTop1, Number radiusRightTop1, Number radiusRightBottom1, Number radiusLeftBottom1) {
         if (jsBase == null) {
             this.radiusLeftTop = null;
             this.radiusLeftTop1 = null;
@@ -239,7 +239,7 @@ public class VectorRect extends Shape {
     }
 
     private String radiusAll4;
-    private Double radiusAll5;
+    private Number radiusAll5;
 
     /**
      * Sets corners inner rounding.
@@ -275,7 +275,7 @@ public class VectorRect extends Shape {
     /**
      * Sets corners inner rounding.
      */
-    public VectorRect setRoundInner(Double radiusAll5) {
+    public VectorRect setRoundInner(Number radiusAll5) {
         if (jsBase == null) {
             this.radiusAll = null;
             this.radiusAll1 = null;
@@ -302,15 +302,15 @@ public class VectorRect extends Shape {
         return this;
     }
 
-    private Double radiusLeftTop2;
-    private Double radiusRightTop2;
-    private Double radiusRightBottom2;
-    private Double radiusLeftBottom2;
+    private Number radiusLeftTop2;
+    private Number radiusRightTop2;
+    private Number radiusRightBottom2;
+    private Number radiusLeftBottom2;
 
     /**
      * Sets corners inner rounding.
      */
-    public VectorRect setRoundInner(Double radiusLeftTop2, Double radiusRightTop2, Double radiusRightBottom2, Double radiusLeftBottom2) {
+    public VectorRect setRoundInner(Number radiusLeftTop2, Number radiusRightTop2, Number radiusRightBottom2, Number radiusLeftBottom2) {
         if (jsBase == null) {
             this.radiusLeftTop = null;
             this.radiusLeftTop1 = null;
@@ -378,12 +378,12 @@ public class VectorRect extends Shape {
         return this;
     }
 
-    private Double setHeight;
+    private Number setHeight;
 
     /**
      * Sets a height.
      */
-    public VectorRect setSetHeight(Double setHeight) {
+    public VectorRect setSetHeight(Number setHeight) {
         if (jsBase == null) {
             this.setHeight = setHeight;
         } else {
@@ -403,12 +403,12 @@ public class VectorRect extends Shape {
         return this;
     }
 
-    private Double setWidth;
+    private Number setWidth;
 
     /**
      * Sets a width.
      */
-    public VectorRect setSetWidth(Double setWidth) {
+    public VectorRect setSetWidth(Number setWidth) {
         if (jsBase == null) {
             this.setWidth = setWidth;
         } else {
@@ -428,12 +428,12 @@ public class VectorRect extends Shape {
         return this;
     }
 
-    private Double setX;
+    private Number setX;
 
     /**
      * Sets X in parent container.
      */
-    public VectorRect setSetX(Double setX) {
+    public VectorRect setSetX(Number setX) {
         if (jsBase == null) {
             this.setX = setX;
         } else {
@@ -453,12 +453,12 @@ public class VectorRect extends Shape {
         return this;
     }
 
-    private Double setY;
+    private Number setY;
 
     /**
      * Sets Y in parent container.
      */
-    public VectorRect setSetY(Double setY) {
+    public VectorRect setSetY(Number setY) {
         if (jsBase == null) {
             this.setY = setY;
         } else {

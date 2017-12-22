@@ -62,12 +62,12 @@ public class Separator extends VisualBase {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity.
      */
-    public Separator fill(String color, Double opacity) {
+    public Separator fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -91,17 +91,17 @@ public class Separator extends VisualBase {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill for the separator.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Separator fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public Separator fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -142,7 +142,7 @@ public class Separator extends VisualBase {
      * Linear gradient fill for the separator.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Separator fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public Separator fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -183,7 +183,7 @@ public class Separator extends VisualBase {
      * Linear gradient fill for the separator.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Separator fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public Separator fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -224,7 +224,7 @@ public class Separator extends VisualBase {
      * Linear gradient fill for the separator.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Separator fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public Separator fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -265,7 +265,7 @@ public class Separator extends VisualBase {
      * Linear gradient fill for the separator.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Separator fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public Separator fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -306,7 +306,7 @@ public class Separator extends VisualBase {
      * Linear gradient fill for the separator.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Separator fill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public Separator fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -344,18 +344,18 @@ public class Separator extends VisualBase {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill for the separator.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Separator fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Separator fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -406,7 +406,7 @@ public class Separator extends VisualBase {
      * Radial gradient fill for the separator.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Separator fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Separator fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -453,13 +453,13 @@ public class Separator extends VisualBase {
     }
 
     private Fill imageSettings;
-    private Double height;
+    private Number height;
     private String height1;
 
     /**
      * Setter for separator height.
      */
-    public Separator setHeight(Double height) {
+    public Separator setHeight(Number height) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -522,21 +522,21 @@ public class Separator extends VisualBase {
     }
 
     private String spaceOrTopOrTopAndBottom;
-    private Double spaceOrTopOrTopAndBottom1;
-    private Double[] spaceOrTopOrTopAndBottom2;
+    private Number spaceOrTopOrTopAndBottom1;
+    private Number[] spaceOrTopOrTopAndBottom2;
     private String[] spaceOrTopOrTopAndBottom3;
     private String spaceOrTopOrTopAndBottom4;
     private String rightOrRightAndLeft;
-    private Double rightOrRightAndLeft1;
+    private Number rightOrRightAndLeft1;
     private String bottom;
-    private Double bottom1;
+    private Number bottom1;
     private String left;
-    private Double left1;
+    private Number left1;
 
     /**
      * Setter for the margin of the separator.
      */
-    public Separator setMargin(Double[] spaceOrTopOrTopAndBottom2) {
+    public Separator setMargin(Number[] spaceOrTopOrTopAndBottom2) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -596,7 +596,7 @@ public class Separator extends VisualBase {
     /**
      * Setter for the margin of the separator.
      */
-    public Separator setMargin(Double spaceOrTopOrTopAndBottom1, Double rightOrRightAndLeft1, Double bottom1, Double left1) {
+    public Separator setMargin(Number spaceOrTopOrTopAndBottom1, Number rightOrRightAndLeft1, Number bottom1, Number left1) {
         if (jsBase == null) {
             this.spaceOrTopOrTopAndBottom = null;
             this.spaceOrTopOrTopAndBottom1 = null;
@@ -662,7 +662,7 @@ public class Separator extends VisualBase {
     private Stroke strokeOrFill;
     private ColoredFill strokeOrFill1;
     private String strokeOrFill2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -670,7 +670,7 @@ public class Separator extends VisualBase {
     /**
      * Separator stroke.
      */
-    public Separator stroke(Stroke strokeOrFill, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Separator stroke(Stroke strokeOrFill, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -706,7 +706,7 @@ public class Separator extends VisualBase {
     /**
      * Separator stroke.
      */
-    public Separator stroke(ColoredFill strokeOrFill1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Separator stroke(ColoredFill strokeOrFill1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -742,7 +742,7 @@ public class Separator extends VisualBase {
     /**
      * Separator stroke.
      */
-    public Separator stroke(String strokeOrFill2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Separator stroke(String strokeOrFill2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -774,13 +774,13 @@ public class Separator extends VisualBase {
         return this;
     }
 
-    private Double width;
+    private Number width;
     private String width1;
 
     /**
      * Setter for separator width.
      */
-    public Separator setWidth(Double width) {
+    public Separator setWidth(Number width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

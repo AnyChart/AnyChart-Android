@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -59,12 +62,12 @@ public class TimelineHeader extends VisualBaseWithBounds {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity.
      */
-    public TimelineHeader backgroundFill(String color, Double opacity) {
+    public TimelineHeader backgroundFill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -88,17 +91,17 @@ public class TimelineHeader extends VisualBaseWithBounds {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader backgroundFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public TimelineHeader backgroundFill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -139,7 +142,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader backgroundFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public TimelineHeader backgroundFill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -180,7 +183,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader backgroundFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public TimelineHeader backgroundFill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -221,7 +224,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader backgroundFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public TimelineHeader backgroundFill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -262,7 +265,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader backgroundFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public TimelineHeader backgroundFill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -303,7 +306,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader backgroundFill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public TimelineHeader backgroundFill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -341,18 +344,18 @@ public class TimelineHeader extends VisualBaseWithBounds {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader backgroundFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public TimelineHeader backgroundFill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -403,7 +406,7 @@ public class TimelineHeader extends VisualBaseWithBounds {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TimelineHeader backgroundFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public TimelineHeader backgroundFill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

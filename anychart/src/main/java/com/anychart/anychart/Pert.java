@@ -95,27 +95,27 @@ public class Pert extends SeparateChart {
      * Setter for the chart data.
      */
     public Pert setData(List<DataEntry> data, TreeFillingMethod fillMethod) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s, %s);", resultData.toString(), fillMethod.generateJs()));
 
-            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s, %s);", resultData.toString(), fillMethod.generateJs()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", resultData.toString(), fillMethod.generateJs()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", resultData.toString(), fillMethod.generateJs()));
+            js.setLength(0);
         }
+    }
         return this;
     }
 
@@ -138,13 +138,13 @@ public class Pert extends SeparateChart {
         return this;
     }
 
-    private Double horizontalSpacing;
+    private Number horizontalSpacing;
     private String horizontalSpacing1;
 
     /**
      * Setter for milestones horizontal spacing.
      */
-    public Pert setHorizontalSpacing(Double horizontalSpacing) {
+    public Pert setHorizontalSpacing(Number horizontalSpacing) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -238,13 +238,13 @@ public class Pert extends SeparateChart {
         return this;
     }
 
-    private Double verticalSpacing;
+    private Number verticalSpacing;
     private String verticalSpacing1;
 
     /**
      * Setter for milestones vertical spacing.
      */
-    public Pert setVerticalSpacing(Double verticalSpacing) {
+    public Pert setVerticalSpacing(Number verticalSpacing) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;

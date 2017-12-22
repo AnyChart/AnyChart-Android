@@ -35,13 +35,13 @@ public class DistinctColors extends CoreBase {
     }
 
     
-    private Double index;
+    private Number index;
     private Fill color;
 
     /**
      * Setter for color palette colors from list by index.
      */
-    public DistinctColors setItemAt(Double index, Fill color) {
+    public DistinctColors setItemAt(Number index, Fill color) {
         if (jsBase == null) {
             this.index = index;
             this.color = color;

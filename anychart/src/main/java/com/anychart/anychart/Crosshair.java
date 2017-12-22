@@ -161,7 +161,7 @@ public class Crosshair extends VisualBase {
 
     private Stroke xStroke;
     private String xStroke1;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -169,7 +169,7 @@ public class Crosshair extends VisualBase {
     /**
      * Setter for the X-line stroke.
      */
-    public Crosshair setXStroke(Stroke xStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Crosshair setXStroke(Stroke xStroke, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.xStroke = null;
             this.xStroke1 = null;
@@ -204,7 +204,7 @@ public class Crosshair extends VisualBase {
     /**
      * Setter for the X-line stroke.
      */
-    public Crosshair setXStroke(String xStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Crosshair setXStroke(String xStroke1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.xStroke = null;
             this.xStroke1 = null;
@@ -305,7 +305,7 @@ public class Crosshair extends VisualBase {
 
     private Stroke yStroke;
     private String yStroke1;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -313,7 +313,7 @@ public class Crosshair extends VisualBase {
     /**
      * Setter for the Y-line stroke.
      */
-    public Crosshair setYStroke(Stroke yStroke, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Crosshair setYStroke(Stroke yStroke, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.yStroke = null;
             this.yStroke1 = null;
@@ -360,7 +360,7 @@ public class Crosshair extends VisualBase {
     /**
      * Setter for the Y-line stroke.
      */
-    public Crosshair setYStroke(String yStroke1, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Crosshair setYStroke(String yStroke1, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.yStroke = null;
             this.yStroke1 = null;

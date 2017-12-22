@@ -62,12 +62,12 @@ public class SeriesWaterfall extends WidthBased {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Falling fill color with opacity.
      */
-    public SeriesWaterfall fallingFill(String color, Double opacity) {
+    public SeriesWaterfall fallingFill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -91,17 +91,17 @@ public class SeriesWaterfall extends WidthBased {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fallingFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public SeriesWaterfall fallingFill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -142,7 +142,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fallingFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public SeriesWaterfall fallingFill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -183,7 +183,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fallingFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public SeriesWaterfall fallingFill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -224,7 +224,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fallingFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public SeriesWaterfall fallingFill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -265,7 +265,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fallingFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public SeriesWaterfall fallingFill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -306,7 +306,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fallingFill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public SeriesWaterfall fallingFill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -344,18 +344,18 @@ public class SeriesWaterfall extends WidthBased {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fallingFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public SeriesWaterfall fallingFill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -406,7 +406,7 @@ public class SeriesWaterfall extends WidthBased {
      * Radial gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fallingFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public SeriesWaterfall fallingFill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -480,12 +480,12 @@ public class SeriesWaterfall extends WidthBased {
     }
 
     private String color1;
-    private Double opacity3;
+    private Number opacity3;
 
     /**
      * Fill color with opacity.
      */
-    public SeriesWaterfall fill(String color1, Double opacity3) {
+    public SeriesWaterfall fill(String color1, Number opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -517,17 +517,17 @@ public class SeriesWaterfall extends WidthBased {
 
     private GradientKey[] keys4;
     private String[] keys5;
-    private Double angle1;
+    private Number angle1;
     private Boolean mode4;
     private VectorRect mode5;
     private String mode6;
-    private Double opacity4;
+    private Number opacity4;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fill(GradientKey[] keys4, Double angle1, Double opacity4, Boolean mode4) {
+    public SeriesWaterfall fill(GradientKey[] keys4, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -582,7 +582,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fill(GradientKey[] keys4, Double angle1, Double opacity4, VectorRect mode5) {
+    public SeriesWaterfall fill(GradientKey[] keys4, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -637,7 +637,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fill(GradientKey[] keys4, Double angle1, Double opacity4, String mode6) {
+    public SeriesWaterfall fill(GradientKey[] keys4, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -692,7 +692,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fill(String[] keys5, Double angle1, Double opacity4, Boolean mode4) {
+    public SeriesWaterfall fill(String[] keys5, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -747,7 +747,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fill(String[] keys5, Double angle1, Double opacity4, VectorRect mode5) {
+    public SeriesWaterfall fill(String[] keys5, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -802,7 +802,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fill(String[] keys5, Double angle1, Double opacity4, String mode6) {
+    public SeriesWaterfall fill(String[] keys5, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -854,18 +854,18 @@ public class SeriesWaterfall extends WidthBased {
 
     private GradientKey[] keys6;
     private String[] keys7;
-    private Double cx1;
-    private Double cy1;
+    private Number cx1;
+    private Number cy1;
     private GraphicsMathRect mode7;
-    private Double opacity5;
-    private Double fx1;
-    private Double fy1;
+    private Number opacity5;
+    private Number fx1;
+    private Number fy1;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public SeriesWaterfall fill(GradientKey[] keys6, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -939,7 +939,7 @@ public class SeriesWaterfall extends WidthBased {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall fill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public SeriesWaterfall fill(String[] keys7, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1036,12 +1036,12 @@ public class SeriesWaterfall extends WidthBased {
     }
 
     private String color2;
-    private Double opacity6;
+    private Number opacity6;
 
     /**
      * Rising fill color with opacity.
      */
-    public SeriesWaterfall risingFill(String color2, Double opacity6) {
+    public SeriesWaterfall risingFill(String color2, Number opacity6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1077,17 +1077,17 @@ public class SeriesWaterfall extends WidthBased {
 
     private GradientKey[] keys8;
     private String[] keys9;
-    private Double angle2;
+    private Number angle2;
     private Boolean mode8;
     private VectorRect mode9;
     private String mode10;
-    private Double opacity7;
+    private Number opacity7;
 
     /**
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall risingFill(GradientKey[] keys8, Double angle2, Double opacity7, Boolean mode8) {
+    public SeriesWaterfall risingFill(GradientKey[] keys8, Number angle2, Number opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1154,7 +1154,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall risingFill(GradientKey[] keys8, Double angle2, Double opacity7, VectorRect mode9) {
+    public SeriesWaterfall risingFill(GradientKey[] keys8, Number angle2, Number opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1221,7 +1221,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall risingFill(GradientKey[] keys8, Double angle2, Double opacity7, String mode10) {
+    public SeriesWaterfall risingFill(GradientKey[] keys8, Number angle2, Number opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1288,7 +1288,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall risingFill(String[] keys9, Double angle2, Double opacity7, Boolean mode8) {
+    public SeriesWaterfall risingFill(String[] keys9, Number angle2, Number opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1355,7 +1355,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall risingFill(String[] keys9, Double angle2, Double opacity7, VectorRect mode9) {
+    public SeriesWaterfall risingFill(String[] keys9, Number angle2, Number opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1422,7 +1422,7 @@ public class SeriesWaterfall extends WidthBased {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall risingFill(String[] keys9, Double angle2, Double opacity7, String mode10) {
+    public SeriesWaterfall risingFill(String[] keys9, Number angle2, Number opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1486,18 +1486,18 @@ public class SeriesWaterfall extends WidthBased {
 
     private GradientKey[] keys10;
     private String[] keys11;
-    private Double cx2;
-    private Double cy2;
+    private Number cx2;
+    private Number cy2;
     private GraphicsMathRect mode11;
-    private Double opacity8;
-    private Double fx2;
-    private Double fy2;
+    private Number opacity8;
+    private Number fx2;
+    private Number fy2;
 
     /**
      * Radial gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall risingFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public SeriesWaterfall risingFill(GradientKey[] keys10, Number cx2, Number cy2, GraphicsMathRect mode11, Number opacity8, Number fx2, Number fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1586,7 +1586,7 @@ public class SeriesWaterfall extends WidthBased {
      * Radial gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public SeriesWaterfall risingFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public SeriesWaterfall risingFill(String[] keys11, Number cx2, Number cy2, GraphicsMathRect mode11, Number opacity8, Number fx2, Number fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;

@@ -10,13 +10,13 @@ public class CmfContext extends JsObject  {
 
     
     private CycledQueue mfvQueue;
-    private Double period;
-    private Double prevMFVSum;
-    private Double prevVolumeSum;
+    private Number period;
+    private Number prevMFVSum;
+    private Number prevVolumeSum;
     private CycledQueue volumeQueue;
 
     
-    public CmfContext(CycledQueue mfvQueue, Double period, Double prevMFVSum, Double prevVolumeSum, CycledQueue volumeQueue) {
+    public CmfContext(CycledQueue mfvQueue, Number period, Number prevMFVSum, Number prevVolumeSum, CycledQueue volumeQueue) {
         this.mfvQueue = mfvQueue;
         this.period = period;
         this.prevMFVSum = prevMFVSum;

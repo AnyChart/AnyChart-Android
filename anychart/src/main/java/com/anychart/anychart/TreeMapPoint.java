@@ -1,5 +1,12 @@
 package com.anychart.anychart;
 
+import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
+
 // class
 /**
  * Class that wraps point of series or chart.

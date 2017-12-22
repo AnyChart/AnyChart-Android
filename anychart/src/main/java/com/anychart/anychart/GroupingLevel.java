@@ -9,18 +9,18 @@ import java.util.Arrays;
 public class GroupingLevel extends JsObject  {
 
     
-    private Double count;
+    private Number count;
     private Interval unit;
     private String unit1;
 
     
-    public GroupingLevel(Interval unit, Double count) {
+    public GroupingLevel(Interval unit, Number count) {
         this.unit = unit;
         this.count = count;
 
         js.append(String.format(Locale.US, "{unit: %s,count: %f}",  ((unit != null) ? unit.generateJs() : "null"), count));
     }
-    public GroupingLevel(String unit1, Double count) {
+    public GroupingLevel(String unit1, Number count) {
         this.unit1 = unit1;
         this.count = count;
 

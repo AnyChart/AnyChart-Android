@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * 
+ * The Label class contains methods for configuring standalones label.
  */
 public class StandalonesLabel extends UiLabel {
 
@@ -38,7 +38,7 @@ public class StandalonesLabel extends UiLabel {
     private Element getContainer;
 
     /**
-     * Getter for the label current container.
+     * Getter for the label container.
      */
     public Element getContainer() {
         if (getContainer == null)
@@ -107,7 +107,8 @@ public class StandalonesLabel extends UiLabel {
     private AnychartMathRect getParentBounds;
 
     /**
-     * Getter for bounds. As a getter falls back to stage bounds.
+     * Getter for parent bounds.<br/>
+As a getter falls back to stage bounds.
      */
     public AnychartMathRect getParentBounds() {
         if (getParentBounds == null)
@@ -173,15 +174,15 @@ public class StandalonesLabel extends UiLabel {
         return this;
     }
 
-    private Double left;
-    private Double top;
-    private Double width;
-    private Double height;
+    private Number left;
+    private Number top;
+    private Number width;
+    private Number height;
 
     /**
-     * Setter for bounds using several value.
+     * Setter for bounds using several values.
      */
-    public StandalonesLabel setParentBounds(Double left, Double top, Double width, Double height) {
+    public StandalonesLabel setParentBounds(Number left, Number top, Number width, Number height) {
         if (jsBase == null) {
             this.left = left;
             this.top = top;

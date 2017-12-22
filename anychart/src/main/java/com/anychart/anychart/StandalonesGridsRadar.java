@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * 
+ * The Radar class contains methods for configuring standalones Radar grids.
  */
 public class StandalonesGridsRadar extends CoreGridsRadar {
 
@@ -36,7 +36,7 @@ public class StandalonesGridsRadar extends CoreGridsRadar {
 
     
     private String innerRadius;
-    private Double innerRadius1;
+    private Number innerRadius1;
     private List<CoreGridsRadar> setInnerRadius = new ArrayList<>();
 
     /**
@@ -83,7 +83,7 @@ public class StandalonesGridsRadar extends CoreGridsRadar {
     /**
      * Setter for the inner radius.
      */
-    public CoreGridsRadar setInnerRadius(Double innerRadius1) {
+    public CoreGridsRadar setInnerRadius(Number innerRadius1) {
         if (jsBase == null) {
             this.innerRadius = null;
             this.innerRadius1 = null;

@@ -121,7 +121,7 @@ public class View extends CoreBase {
     private String fieldName1;
 
     /**
-     * Searches fieldName by fieldValue and returns it index (or the first match).
+     * Searches fieldName by fieldValue and returns its index (or the first match).
      */
     public void find(String fieldName1) {
         if (jsBase == null) {
@@ -146,13 +146,13 @@ public class View extends CoreBase {
         }
     }
 
-    private Double index;
+    private Number index;
     private String name;
 
     /**
      * Setter for a metadata value. Learn how it works at {@link anychart.data.Iterator#meta}.
      */
-    public View setMeta(Double index, String name) {
+    public View setMeta(Number index, String name) {
         if (jsBase == null) {
             this.index = index;
             this.name = name;
@@ -174,12 +174,12 @@ public class View extends CoreBase {
         return this;
     }
 
-    private Double rowIndex;
+    private Number rowIndex;
 
     /**
      * Sets a row of the set by an index.
      */
-    public void setRow(Double rowIndex) {
+    public void setRow(Number rowIndex) {
         if (jsBase == null) {
             this.rowIndex = rowIndex;
         } else {
@@ -199,13 +199,13 @@ public class View extends CoreBase {
         }
     }
 
-    private Double rowIndex1;
+    private Number rowIndex1;
     private String fieldName2;
 
     /**
      * Sets the value to the row field by row index and field name.
      */
-    public View setSet(Double rowIndex1, String fieldName2) {
+    public View setSet(Number rowIndex1, String fieldName2) {
         if (jsBase == null) {
             this.rowIndex = null;
             this.rowIndex1 = null;

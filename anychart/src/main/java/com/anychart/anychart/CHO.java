@@ -35,12 +35,12 @@ public class CHO extends JsObject {
     }
 
     
-    private Double fastPeriod;
+    private Number fastPeriod;
 
     /**
      * Setter for the fast period.
      */
-    public CHO setFastPeriod(Double fastPeriod) {
+    public CHO setFastPeriod(Number fastPeriod) {
         if (jsBase == null) {
             this.fastPeriod = fastPeriod;
         } else {
@@ -184,12 +184,12 @@ public class CHO extends JsObject {
         return this;
     }
 
-    private Double slowPeriod;
+    private Number slowPeriod;
 
     /**
      * Setter for the slow period.
      */
-    public CHO setSlowPeriod(Double slowPeriod) {
+    public CHO setSlowPeriod(Number slowPeriod) {
         if (jsBase == null) {
             this.slowPeriod = slowPeriod;
         } else {

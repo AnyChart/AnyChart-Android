@@ -63,12 +63,12 @@ public class UiDataGrid extends VisualBaseWithBounds {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Background fill color with opacity.
      */
-    public UiDataGrid backgroundFill(String color, Double opacity) {
+    public UiDataGrid backgroundFill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -92,17 +92,17 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient background fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid backgroundFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public UiDataGrid backgroundFill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -143,7 +143,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
      * Linear gradient background fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid backgroundFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public UiDataGrid backgroundFill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -184,7 +184,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
      * Linear gradient background fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid backgroundFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public UiDataGrid backgroundFill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -225,7 +225,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
      * Linear gradient background fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid backgroundFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public UiDataGrid backgroundFill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -266,7 +266,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
      * Linear gradient background fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid backgroundFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public UiDataGrid backgroundFill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -307,7 +307,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
      * Linear gradient background fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid backgroundFill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public UiDataGrid backgroundFill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -345,18 +345,18 @@ public class UiDataGrid extends VisualBaseWithBounds {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient background fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid backgroundFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiDataGrid backgroundFill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -407,7 +407,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
      * Radial gradient background fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid backgroundFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiDataGrid backgroundFill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -460,7 +460,7 @@ public class UiDataGrid extends VisualBaseWithBounds {
      * Getter for column by index.<br/>
 Gets column by index or creates a new one if column doesn't exist yet.
      */
-    public DatagridColumn getColumn(Double index) {
+    public DatagridColumn getColumn(Number index) {
         DatagridColumn item = new DatagridColumn(jsBase + ".column(" + index + ")");
         getColumn.add(item);
         return item;
@@ -492,13 +492,13 @@ Gets column by index or creates a new one if column doesn't exist yet.
         return this;
     }
 
-    private Double index;
+    private Number index;
     private DatagridColumn column1;
 
     /**
      * Setter for the column by index.
      */
-    public UiDataGrid setColumn(Double index, DatagridColumn column1) {
+    public UiDataGrid setColumn(Number index, DatagridColumn column1) {
         if (jsBase == null) {
             this.index = index;
             this.column = null;
@@ -700,12 +700,12 @@ Gets column by index or creates a new one if column doesn't exist yet.
     }
 
     private String color1;
-    private Double opacity3;
+    private Number opacity3;
 
     /**
      * Structure preview fill color in edit mode with opacity.
      */
-    public UiDataGrid editStructurePreviewFill(String color1, Double opacity3) {
+    public UiDataGrid editStructurePreviewFill(String color1, Number opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -737,17 +737,17 @@ Gets column by index or creates a new one if column doesn't exist yet.
 
     private GradientKey[] keys4;
     private String[] keys5;
-    private Double angle1;
+    private Number angle1;
     private Boolean mode4;
     private VectorRect mode5;
     private String mode6;
-    private Double opacity4;
+    private Number opacity4;
 
     /**
      * Linear gradient structure preview fill in edit mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, Double angle1, Double opacity4, Boolean mode4) {
+    public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -802,7 +802,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient structure preview fill in edit mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, Double angle1, Double opacity4, VectorRect mode5) {
+    public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -857,7 +857,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient structure preview fill in edit mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, Double angle1, Double opacity4, String mode6) {
+    public UiDataGrid editStructurePreviewFill(GradientKey[] keys4, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -912,7 +912,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient structure preview fill in edit mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid editStructurePreviewFill(String[] keys5, Double angle1, Double opacity4, Boolean mode4) {
+    public UiDataGrid editStructurePreviewFill(String[] keys5, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -967,7 +967,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient structure preview fill in edit mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid editStructurePreviewFill(String[] keys5, Double angle1, Double opacity4, VectorRect mode5) {
+    public UiDataGrid editStructurePreviewFill(String[] keys5, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1022,7 +1022,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient structure preview fill in edit mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid editStructurePreviewFill(String[] keys5, Double angle1, Double opacity4, String mode6) {
+    public UiDataGrid editStructurePreviewFill(String[] keys5, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1074,18 +1074,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
 
     private GradientKey[] keys6;
     private String[] keys7;
-    private Double cx1;
-    private Double cy1;
+    private Number cx1;
+    private Number cy1;
     private GraphicsMathRect mode7;
-    private Double opacity5;
-    private Double fx1;
-    private Double fy1;
+    private Number opacity5;
+    private Number fx1;
+    private Number fy1;
 
     /**
      * Radial gradient structure preview fill in edit mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid editStructurePreviewFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public UiDataGrid editStructurePreviewFill(GradientKey[] keys6, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1159,7 +1159,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Radial gradient structure preview fill in edit mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid editStructurePreviewFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public UiDataGrid editStructurePreviewFill(String[] keys7, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1324,12 +1324,12 @@ Gets column by index or creates a new one if column doesn't exist yet.
         return "";
     }
 
-    private Double endIndex;
+    private Number endIndex;
 
     /**
      * Setter for the end index.
      */
-    public UiDataGrid setEndIndex(Double endIndex) {
+    public UiDataGrid setEndIndex(Number endIndex) {
         if (jsBase == null) {
             this.endIndex = endIndex;
         } else {
@@ -1349,12 +1349,12 @@ Gets column by index or creates a new one if column doesn't exist yet.
         return this;
     }
 
-    private Double horizontalOffset;
+    private Number horizontalOffset;
 
     /**
      * Setter for the horizontal offset.
      */
-    public UiDataGrid setHorizontalOffset(Double horizontalOffset) {
+    public UiDataGrid setHorizontalOffset(Number horizontalOffset) {
         if (jsBase == null) {
             this.horizontalOffset = horizontalOffset;
         } else {
@@ -1438,12 +1438,12 @@ Gets column by index or creates a new one if column doesn't exist yet.
     }
 
     private String color2;
-    private Double opacity6;
+    private Number opacity6;
 
     /**
      * Fill color with opacity.
      */
-    public UiDataGrid rowEvenFill(String color2, Double opacity6) {
+    public UiDataGrid rowEvenFill(String color2, Number opacity6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1479,17 +1479,17 @@ Gets column by index or creates a new one if column doesn't exist yet.
 
     private GradientKey[] keys8;
     private String[] keys9;
-    private Double angle2;
+    private Number angle2;
     private Boolean mode8;
     private VectorRect mode9;
     private String mode10;
-    private Double opacity7;
+    private Number opacity7;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowEvenFill(GradientKey[] keys8, Double angle2, Double opacity7, Boolean mode8) {
+    public UiDataGrid rowEvenFill(GradientKey[] keys8, Number angle2, Number opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1556,7 +1556,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowEvenFill(GradientKey[] keys8, Double angle2, Double opacity7, VectorRect mode9) {
+    public UiDataGrid rowEvenFill(GradientKey[] keys8, Number angle2, Number opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1623,7 +1623,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowEvenFill(GradientKey[] keys8, Double angle2, Double opacity7, String mode10) {
+    public UiDataGrid rowEvenFill(GradientKey[] keys8, Number angle2, Number opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1690,7 +1690,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowEvenFill(String[] keys9, Double angle2, Double opacity7, Boolean mode8) {
+    public UiDataGrid rowEvenFill(String[] keys9, Number angle2, Number opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1757,7 +1757,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowEvenFill(String[] keys9, Double angle2, Double opacity7, VectorRect mode9) {
+    public UiDataGrid rowEvenFill(String[] keys9, Number angle2, Number opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1824,7 +1824,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowEvenFill(String[] keys9, Double angle2, Double opacity7, String mode10) {
+    public UiDataGrid rowEvenFill(String[] keys9, Number angle2, Number opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1888,18 +1888,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
 
     private GradientKey[] keys10;
     private String[] keys11;
-    private Double cx2;
-    private Double cy2;
+    private Number cx2;
+    private Number cy2;
     private GraphicsMathRect mode11;
-    private Double opacity8;
-    private Double fx2;
-    private Double fy2;
+    private Number opacity8;
+    private Number fx2;
+    private Number fy2;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowEvenFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public UiDataGrid rowEvenFill(GradientKey[] keys10, Number cx2, Number cy2, GraphicsMathRect mode11, Number opacity8, Number fx2, Number fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1988,7 +1988,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowEvenFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public UiDataGrid rowEvenFill(String[] keys11, Number cx2, Number cy2, GraphicsMathRect mode11, Number opacity8, Number fx2, Number fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2100,12 +2100,12 @@ Gets column by index or creates a new one if column doesn't exist yet.
     }
 
     private String color3;
-    private Double opacity9;
+    private Number opacity9;
 
     /**
      * Fill color with opacity.
      */
-    public UiDataGrid rowFill(String color3, Double opacity9) {
+    public UiDataGrid rowFill(String color3, Number opacity9) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -2145,17 +2145,17 @@ Gets column by index or creates a new one if column doesn't exist yet.
 
     private GradientKey[] keys12;
     private String[] keys13;
-    private Double angle3;
+    private Number angle3;
     private Boolean mode12;
     private VectorRect mode13;
     private String mode14;
-    private Double opacity10;
+    private Number opacity10;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowFill(GradientKey[] keys12, Double angle3, Double opacity10, Boolean mode12) {
+    public UiDataGrid rowFill(GradientKey[] keys12, Number angle3, Number opacity10, Boolean mode12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2234,7 +2234,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowFill(GradientKey[] keys12, Double angle3, Double opacity10, VectorRect mode13) {
+    public UiDataGrid rowFill(GradientKey[] keys12, Number angle3, Number opacity10, VectorRect mode13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2313,7 +2313,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowFill(GradientKey[] keys12, Double angle3, Double opacity10, String mode14) {
+    public UiDataGrid rowFill(GradientKey[] keys12, Number angle3, Number opacity10, String mode14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2392,7 +2392,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowFill(String[] keys13, Double angle3, Double opacity10, Boolean mode12) {
+    public UiDataGrid rowFill(String[] keys13, Number angle3, Number opacity10, Boolean mode12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2471,7 +2471,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowFill(String[] keys13, Double angle3, Double opacity10, VectorRect mode13) {
+    public UiDataGrid rowFill(String[] keys13, Number angle3, Number opacity10, VectorRect mode13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2550,7 +2550,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowFill(String[] keys13, Double angle3, Double opacity10, String mode14) {
+    public UiDataGrid rowFill(String[] keys13, Number angle3, Number opacity10, String mode14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2626,18 +2626,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
 
     private GradientKey[] keys14;
     private String[] keys15;
-    private Double cx3;
-    private Double cy3;
+    private Number cx3;
+    private Number cy3;
     private GraphicsMathRect mode15;
-    private Double opacity11;
-    private Double fx3;
-    private Double fy3;
+    private Number opacity11;
+    private Number fx3;
+    private Number fy3;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowFill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
+    public UiDataGrid rowFill(GradientKey[] keys14, Number cx3, Number cy3, GraphicsMathRect mode15, Number opacity11, Number fx3, Number fy3) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2741,7 +2741,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowFill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
+    public UiDataGrid rowFill(String[] keys15, Number cx3, Number cy3, GraphicsMathRect mode15, Number opacity11, Number fx3, Number fy3) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2868,12 +2868,12 @@ Gets column by index or creates a new one if column doesn't exist yet.
     }
 
     private String color4;
-    private Double opacity12;
+    private Number opacity12;
 
     /**
      * Fill color with opacity.
      */
-    public UiDataGrid rowHoverFill(String color4, Double opacity12) {
+    public UiDataGrid rowHoverFill(String color4, Number opacity12) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -2917,17 +2917,17 @@ Gets column by index or creates a new one if column doesn't exist yet.
 
     private GradientKey[] keys16;
     private String[] keys17;
-    private Double angle4;
+    private Number angle4;
     private Boolean mode16;
     private VectorRect mode17;
     private String mode18;
-    private Double opacity13;
+    private Number opacity13;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowHoverFill(GradientKey[] keys16, Double angle4, Double opacity13, Boolean mode16) {
+    public UiDataGrid rowHoverFill(GradientKey[] keys16, Number angle4, Number opacity13, Boolean mode16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3018,7 +3018,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowHoverFill(GradientKey[] keys16, Double angle4, Double opacity13, VectorRect mode17) {
+    public UiDataGrid rowHoverFill(GradientKey[] keys16, Number angle4, Number opacity13, VectorRect mode17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3109,7 +3109,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowHoverFill(GradientKey[] keys16, Double angle4, Double opacity13, String mode18) {
+    public UiDataGrid rowHoverFill(GradientKey[] keys16, Number angle4, Number opacity13, String mode18) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3200,7 +3200,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowHoverFill(String[] keys17, Double angle4, Double opacity13, Boolean mode16) {
+    public UiDataGrid rowHoverFill(String[] keys17, Number angle4, Number opacity13, Boolean mode16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3291,7 +3291,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowHoverFill(String[] keys17, Double angle4, Double opacity13, VectorRect mode17) {
+    public UiDataGrid rowHoverFill(String[] keys17, Number angle4, Number opacity13, VectorRect mode17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3382,7 +3382,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowHoverFill(String[] keys17, Double angle4, Double opacity13, String mode18) {
+    public UiDataGrid rowHoverFill(String[] keys17, Number angle4, Number opacity13, String mode18) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3470,18 +3470,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
 
     private GradientKey[] keys18;
     private String[] keys19;
-    private Double cx4;
-    private Double cy4;
+    private Number cx4;
+    private Number cy4;
     private GraphicsMathRect mode19;
-    private Double opacity14;
-    private Double fx4;
-    private Double fy4;
+    private Number opacity14;
+    private Number fx4;
+    private Number fy4;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowHoverFill(GradientKey[] keys18, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
+    public UiDataGrid rowHoverFill(GradientKey[] keys18, Number cx4, Number cy4, GraphicsMathRect mode19, Number opacity14, Number fx4, Number fy4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3600,7 +3600,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowHoverFill(String[] keys19, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
+    public UiDataGrid rowHoverFill(String[] keys19, Number cx4, Number cy4, GraphicsMathRect mode19, Number opacity14, Number fx4, Number fy4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3742,12 +3742,12 @@ Gets column by index or creates a new one if column doesn't exist yet.
     }
 
     private String color5;
-    private Double opacity15;
+    private Number opacity15;
 
     /**
      * Fill color with opacity.
      */
-    public UiDataGrid rowOddFill(String color5, Double opacity15) {
+    public UiDataGrid rowOddFill(String color5, Number opacity15) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3795,17 +3795,17 @@ Gets column by index or creates a new one if column doesn't exist yet.
 
     private GradientKey[] keys20;
     private String[] keys21;
-    private Double angle5;
+    private Number angle5;
     private Boolean mode20;
     private VectorRect mode21;
     private String mode22;
-    private Double opacity16;
+    private Number opacity16;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowOddFill(GradientKey[] keys20, Double angle5, Double opacity16, Boolean mode20) {
+    public UiDataGrid rowOddFill(GradientKey[] keys20, Number angle5, Number opacity16, Boolean mode20) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3908,7 +3908,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowOddFill(GradientKey[] keys20, Double angle5, Double opacity16, VectorRect mode21) {
+    public UiDataGrid rowOddFill(GradientKey[] keys20, Number angle5, Number opacity16, VectorRect mode21) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4011,7 +4011,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowOddFill(GradientKey[] keys20, Double angle5, Double opacity16, String mode22) {
+    public UiDataGrid rowOddFill(GradientKey[] keys20, Number angle5, Number opacity16, String mode22) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4114,7 +4114,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowOddFill(String[] keys21, Double angle5, Double opacity16, Boolean mode20) {
+    public UiDataGrid rowOddFill(String[] keys21, Number angle5, Number opacity16, Boolean mode20) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4217,7 +4217,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowOddFill(String[] keys21, Double angle5, Double opacity16, VectorRect mode21) {
+    public UiDataGrid rowOddFill(String[] keys21, Number angle5, Number opacity16, VectorRect mode21) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4320,7 +4320,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowOddFill(String[] keys21, Double angle5, Double opacity16, String mode22) {
+    public UiDataGrid rowOddFill(String[] keys21, Number angle5, Number opacity16, String mode22) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4420,18 +4420,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
 
     private GradientKey[] keys22;
     private String[] keys23;
-    private Double cx5;
-    private Double cy5;
+    private Number cx5;
+    private Number cy5;
     private GraphicsMathRect mode23;
-    private Double opacity17;
-    private Double fx5;
-    private Double fy5;
+    private Number opacity17;
+    private Number fx5;
+    private Number fy5;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowOddFill(GradientKey[] keys22, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
+    public UiDataGrid rowOddFill(GradientKey[] keys22, Number cx5, Number cy5, GraphicsMathRect mode23, Number opacity17, Number fx5, Number fy5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4565,7 +4565,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowOddFill(String[] keys23, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
+    public UiDataGrid rowOddFill(String[] keys23, Number cx5, Number cy5, GraphicsMathRect mode23, Number opacity17, Number fx5, Number fy5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4722,12 +4722,12 @@ Gets column by index or creates a new one if column doesn't exist yet.
     }
 
     private String color6;
-    private Double opacity18;
+    private Number opacity18;
 
     /**
      * Fill color in selected mode with opacity. Fill as a string or an object.
      */
-    public UiDataGrid rowSelectedFill(String color6, Double opacity18) {
+    public UiDataGrid rowSelectedFill(String color6, Number opacity18) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -4779,7 +4779,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
 
     private GradientKey[] keys24;
     private String[] keys25;
-    private Double angle6;
+    private Number angle6;
     private Boolean mode24;
     private VectorRect mode25;
     private String mode26;
@@ -4788,7 +4788,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowSelectedFill(GradientKey[] keys24, Double angle6, Boolean mode24) {
+    public UiDataGrid rowSelectedFill(GradientKey[] keys24, Number angle6, Boolean mode24) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4880,7 +4880,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowSelectedFill(GradientKey[] keys24, Double angle6, VectorRect mode25) {
+    public UiDataGrid rowSelectedFill(GradientKey[] keys24, Number angle6, VectorRect mode25) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4972,7 +4972,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowSelectedFill(GradientKey[] keys24, Double angle6, String mode26) {
+    public UiDataGrid rowSelectedFill(GradientKey[] keys24, Number angle6, String mode26) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5064,7 +5064,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowSelectedFill(String[] keys25, Double angle6, Boolean mode24) {
+    public UiDataGrid rowSelectedFill(String[] keys25, Number angle6, Boolean mode24) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5156,7 +5156,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowSelectedFill(String[] keys25, Double angle6, VectorRect mode25) {
+    public UiDataGrid rowSelectedFill(String[] keys25, Number angle6, VectorRect mode25) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5248,7 +5248,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowSelectedFill(String[] keys25, Double angle6, String mode26) {
+    public UiDataGrid rowSelectedFill(String[] keys25, Number angle6, String mode26) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5337,18 +5337,18 @@ Gets column by index or creates a new one if column doesn't exist yet.
 
     private GradientKey[] keys26;
     private String[] keys27;
-    private Double cx6;
-    private Double cy6;
+    private Number cx6;
+    private Number cy6;
     private GraphicsMathRect mode27;
-    private Double opacity19;
-    private Double fx6;
-    private Double fy6;
+    private Number opacity19;
+    private Number fx6;
+    private Number fy6;
 
     /**
      * Radial gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowSelectedFill(GradientKey[] keys26, Double cx6, Double cy6, GraphicsMathRect mode27, Double opacity19, Double fx6, Double fy6) {
+    public UiDataGrid rowSelectedFill(GradientKey[] keys26, Number cx6, Number cy6, GraphicsMathRect mode27, Number opacity19, Number fx6, Number fy6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5496,7 +5496,7 @@ Gets column by index or creates a new one if column doesn't exist yet.
      * Radial gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiDataGrid rowSelectedFill(String[] keys27, Double cx6, Double cy6, GraphicsMathRect mode27, Double opacity19, Double fx6, Double fy6) {
+    public UiDataGrid rowSelectedFill(String[] keys27, Number cx6, Number cy6, GraphicsMathRect mode27, Number opacity19, Number fx6, Number fy6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5640,12 +5640,12 @@ Gets column by index or creates a new one if column doesn't exist yet.
     }
 
     private Fill imageSettings6;
-    private Double startIndex;
+    private Number startIndex;
 
     /**
      * Setter for the start index.
      */
-    public UiDataGrid setStartIndex(Double startIndex) {
+    public UiDataGrid setStartIndex(Number startIndex) {
         if (jsBase == null) {
             this.startIndex = startIndex;
         } else {
@@ -5699,12 +5699,12 @@ Gets column by index or creates a new one if column doesn't exist yet.
         return item;
     }
 
-    private Double verticalOffset;
+    private Number verticalOffset;
 
     /**
      * Setter for the vertical offset.
      */
-    public UiDataGrid setVerticalOffset(Double verticalOffset) {
+    public UiDataGrid setVerticalOffset(Number verticalOffset) {
         if (jsBase == null) {
             this.verticalOffset = verticalOffset;
         } else {

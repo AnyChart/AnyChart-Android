@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * 
+ * The Background class contains methods for configuring standalones background.
  */
 public class StandalonesBackground extends UiBackground {
 
@@ -38,7 +38,7 @@ public class StandalonesBackground extends UiBackground {
     private Element getContainer;
 
     /**
-     * Getter for the background current container.
+     * Getter for the background container.
      */
     public Element getContainer() {
         if (getContainer == null)
@@ -107,7 +107,8 @@ public class StandalonesBackground extends UiBackground {
     private AnychartMathRect getParentBounds;
 
     /**
-     * Getter for bounds. As a getter falls back to stage bounds.
+     * Getter for parent bounds.<br/>
+As a getter falls back to stage bounds.
      */
     public AnychartMathRect getParentBounds() {
         if (getParentBounds == null)
@@ -120,7 +121,7 @@ public class StandalonesBackground extends UiBackground {
     private String parentBounds1;
 
     /**
-     * Setter for bounds using single value.
+     * Setter for parent bounds using single value.
      */
     public StandalonesBackground setParentBounds(AnychartMathRect parentBounds) {
         if (jsBase == null) {
@@ -148,7 +149,7 @@ public class StandalonesBackground extends UiBackground {
 
 
     /**
-     * Setter for bounds using single value.
+     * Setter for parent bounds using single value.
      */
     public StandalonesBackground setParentBounds(String parentBounds1) {
         if (jsBase == null) {
@@ -173,15 +174,15 @@ public class StandalonesBackground extends UiBackground {
         return this;
     }
 
-    private Double left;
-    private Double top;
-    private Double width;
-    private Double height;
+    private Number left;
+    private Number top;
+    private Number width;
+    private Number height;
 
     /**
-     * Setter for bounds using several value.
+     * Setter for parent bounds using several values.
      */
-    public StandalonesBackground setParentBounds(Double left, Double top, Double width, Double height) {
+    public StandalonesBackground setParentBounds(Number left, Number top, Number width, Number height) {
         if (jsBase == null) {
             this.left = left;
             this.top = top;

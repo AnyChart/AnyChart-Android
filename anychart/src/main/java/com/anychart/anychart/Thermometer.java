@@ -36,7 +36,7 @@ public class Thermometer extends LineargaugePointersBase {
 
     
     private String bulbPadding;
-    private Double bulbPadding1;
+    private Number bulbPadding1;
 
     /**
      * Setter for the bulb padding.
@@ -68,7 +68,7 @@ public class Thermometer extends LineargaugePointersBase {
     /**
      * Setter for the bulb padding.
      */
-    public Thermometer setBulbPadding(Double bulbPadding1) {
+    public Thermometer setBulbPadding(Number bulbPadding1) {
         if (jsBase == null) {
             this.bulbPadding = null;
             this.bulbPadding1 = null;

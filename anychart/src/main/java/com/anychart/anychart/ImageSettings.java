@@ -91,14 +91,14 @@ public class ImageSettings extends SettingsWithMargin {
         return this;
     }
 
-    private Double borderRadius;
-    private Double[] borderRadius1;
+    private Number borderRadius;
+    private Number[] borderRadius1;
 
     /**
      * Setter for the border radius of an image in item.
 Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_border-radius.asp}
      */
-    public ImageSettings setBorderRadius(Double borderRadius) {
+    public ImageSettings setBorderRadius(Number borderRadius) {
         if (jsBase == null) {
             this.borderRadius = null;
             this.borderRadius1 = null;
@@ -126,7 +126,7 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
      * Setter for the border radius of an image in item.
 Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_border-radius.asp}
      */
-    public ImageSettings setBorderRadius(Double[] borderRadius1) {
+    public ImageSettings setBorderRadius(Number[] borderRadius1) {
         if (jsBase == null) {
             this.borderRadius = null;
             this.borderRadius1 = null;
@@ -205,12 +205,12 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
         return this;
     }
 
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Setter for the image opacity.
      */
-    public ImageSettings setOpacity(Double opacity) {
+    public ImageSettings setOpacity(Number opacity) {
         if (jsBase == null) {
             this.opacity = opacity;
         } else {
@@ -231,7 +231,7 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
     }
 
     private String size;
-    private Double size1;
+    private Number size1;
 
     /**
      * Setter for the image size in item.
@@ -263,7 +263,7 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
     /**
      * Setter for the image size in item.
      */
-    public ImageSettings setSize(Double size1) {
+    public ImageSettings setSize(Number size1) {
         if (jsBase == null) {
             this.size = null;
             this.size1 = null;

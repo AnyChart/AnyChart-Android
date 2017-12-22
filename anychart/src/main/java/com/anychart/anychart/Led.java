@@ -105,12 +105,12 @@ public class Led extends LineargaugePointersBase {
         return this;
     }
 
-    private Double count;
+    private Number count;
 
     /**
      * Setter for the led interval.
      */
-    public Led setCount(Double count) {
+    public Led setCount(Number count) {
         if (jsBase == null) {
             this.count = count;
         } else {
@@ -130,13 +130,13 @@ public class Led extends LineargaugePointersBase {
         return this;
     }
 
-    private Double gap;
+    private Number gap;
     private String gap1;
 
     /**
      * Setter for the led gap.
      */
-    public Led setGap(Double gap) {
+    public Led setGap(Number gap) {
         if (jsBase == null) {
             this.gap = null;
             this.gap1 = null;
@@ -186,13 +186,13 @@ public class Led extends LineargaugePointersBase {
         return this;
     }
 
-    private Double size;
+    private Number size;
     private String size1;
 
     /**
      * Setter for the led size.
      */
-    public Led setSize(Double size) {
+    public Led setSize(Number size) {
         if (jsBase == null) {
             this.size = null;
             this.size1 = null;

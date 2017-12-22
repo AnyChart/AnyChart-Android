@@ -578,18 +578,18 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     /**
      * Gets wrapped point by index.
      */
-    public SeriesPoint getGetPoint(Double index) {
+    public SeriesPoint getGetPoint(Number index) {
         SeriesPoint item = new SeriesPoint(jsBase + ".getPoint(" + index + ")");
         getGetPoint.add(item);
         return item;
     }
 
-    private Double index;
+    private Number index;
 
     /**
      * Hovers point by index.
      */
-    public AnychartSeriesBase hover(Double index) {
+    public AnychartSeriesBase hover(Number index) {
         if (jsBase == null) {
             this.index = index;
         } else {
@@ -609,12 +609,12 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double[] indexes;
+    private Number[] indexes;
 
     /**
      * Hovers points by indexes.
      */
-    public AnychartSeriesBase hover(Double[] indexes) {
+    public AnychartSeriesBase hover(Number[] indexes) {
         if (jsBase == null) {
             this.indexes = indexes;
         } else {
@@ -672,7 +672,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     }
 
     private String id;
-    private Double id1;
+    private Number id1;
 
     /**
      * Setter for the series id.
@@ -704,7 +704,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     /**
      * Setter for the series id.
      */
-    public AnychartSeriesBase setId(Double id1) {
+    public AnychartSeriesBase setId(Number id1) {
         if (jsBase == null) {
             this.id = null;
             this.id1 = null;
@@ -798,7 +798,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private LegendItemSettings getLegendItem;
 
     /**
-     * Gets the current legend item setting for series.
+     * Getter for legend item settings for series.
      */
     public LegendItemSettings getLegendItem() {
         if (getLegendItem == null)
@@ -810,7 +810,7 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
     private String legendItem;
 
     /**
-     * Sets the legend item setting for series.
+     * Setter for legend item settings for series.
      */
     public AnychartSeriesBase setLegendItem(String legendItem) {
         if (jsBase == null) {
@@ -965,12 +965,12 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double index1;
+    private Number index1;
 
     /**
      * Selects point by index.
      */
-    public AnychartSeriesBase select(Double index1) {
+    public AnychartSeriesBase select(Number index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -993,13 +993,13 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double indexes1;
-    private Double[] indexes2;
+    private Number indexes1;
+    private Number[] indexes2;
 
     /**
      * Selects point by indexes.
      */
-    public AnychartSeriesBase select(Double[] indexes2) {
+    public AnychartSeriesBase select(Number[] indexes2) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -1121,7 +1121,7 @@ To select multiple points, press "ctrl" and click on them.
     private Tooltip getTooltip;
 
     /**
-     * Gets the current series data tooltip.
+     * Getter for the series data tooltip.
      */
     public Tooltip getTooltip() {
         if (getTooltip == null)
@@ -1134,7 +1134,7 @@ To select multiple points, press "ctrl" and click on them.
     private Boolean tooltip1;
 
     /**
-     * Sets series data tooltip.
+     * Setter for the series data tooltip.
      */
     public AnychartSeriesBase setTooltip(String tooltip) {
         if (jsBase == null) {
@@ -1161,7 +1161,7 @@ To select multiple points, press "ctrl" and click on them.
 
 
     /**
-     * Sets series data tooltip.
+     * Setter for the series data tooltip.
      */
     public AnychartSeriesBase setTooltip(Boolean tooltip1) {
         if (jsBase == null) {
@@ -1186,13 +1186,13 @@ To select multiple points, press "ctrl" and click on them.
         return this;
     }
 
-    private Double indexOrIndexes;
-    private Double[] indexOrIndexes1;
+    private Number indexOrIndexes;
+    private Number[] indexOrIndexes1;
 
     /**
      * Removes hover from the series.
      */
-    public AnychartSeriesBase unhover(Double indexOrIndexes) {
+    public AnychartSeriesBase unhover(Number indexOrIndexes) {
         if (jsBase == null) {
             this.indexOrIndexes = null;
             this.indexOrIndexes1 = null;
@@ -1219,7 +1219,7 @@ To select multiple points, press "ctrl" and click on them.
     /**
      * Removes hover from the series.
      */
-    public AnychartSeriesBase unhover(Double[] indexOrIndexes1) {
+    public AnychartSeriesBase unhover(Number[] indexOrIndexes1) {
         if (jsBase == null) {
             this.indexOrIndexes = null;
             this.indexOrIndexes1 = null;
@@ -1242,12 +1242,12 @@ To select multiple points, press "ctrl" and click on them.
         return this;
     }
 
-    private Double index2;
+    private Number index2;
 
     /**
      * Deselects selected point by index.
      */
-    public AnychartSeriesBase unselect(Double index2) {
+    public AnychartSeriesBase unselect(Number index2) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -1271,12 +1271,12 @@ To select multiple points, press "ctrl" and click on them.
         return this;
     }
 
-    private Double[] indexes3;
+    private Number[] indexes3;
 
     /**
      * Deselects selected points by indexes.
      */
-    public AnychartSeriesBase unselect(Double[] indexes3) {
+    public AnychartSeriesBase unselect(Number[] indexes3) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;

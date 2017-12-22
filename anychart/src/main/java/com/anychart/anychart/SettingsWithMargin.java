@@ -47,14 +47,14 @@ public class SettingsWithMargin extends JsObject {
         return getMargin;
     }
 
-    private Double[] margin;
+    private Number[] margin;
     private String[] margin1;
     private String margin2;
 
     /**
      * Setter for the margin using a single value.
      */
-    public SettingsWithMargin setMargin(Double[] margin) {
+    public SettingsWithMargin setMargin(Number[] margin) {
         if (jsBase == null) {
             this.margin = null;
             this.margin1 = null;
@@ -135,13 +135,13 @@ public class SettingsWithMargin extends JsObject {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for the callout margin using several values.
@@ -212,7 +212,7 @@ public class SettingsWithMargin extends JsObject {
     /**
      * Setter for the callout margin using several values.
      */
-    public SettingsWithMargin setMargin(Double value1, Double value3, Double value5, Double value7) {
+    public SettingsWithMargin setMargin(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;

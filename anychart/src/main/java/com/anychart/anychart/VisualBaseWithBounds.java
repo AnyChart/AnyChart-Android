@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -32,13 +35,13 @@ public class VisualBaseWithBounds extends VisualBase {
     }
 
     
-    private Double bottom;
+    private Number bottom;
     private String bottom1;
 
     /**
-     * Sets element bottom bound setting.
+     * Setter for element bottom bound settings.
      */
-    public VisualBaseWithBounds setBottom(Double bottom) {
+    public VisualBaseWithBounds setBottom(Number bottom) {
         if (jsBase == null) {
             this.bottom = null;
             this.bottom1 = null;
@@ -63,7 +66,7 @@ public class VisualBaseWithBounds extends VisualBase {
 
 
     /**
-     * Sets element bottom bound setting.
+     * Setter for element bottom bound settings.
      */
     public VisualBaseWithBounds setBottom(String bottom1) {
         if (jsBase == null) {
@@ -91,7 +94,7 @@ public class VisualBaseWithBounds extends VisualBase {
     private Bounds getBounds;
 
     /**
-     * Getter for the element bounds settings.
+     * Getter for element bounds settings.
      */
     public Bounds getBounds() {
         if (getBounds == null)
@@ -106,7 +109,7 @@ public class VisualBaseWithBounds extends VisualBase {
     private List<VisualBase> setBounds = new ArrayList<>();
 
     /**
-     * Sets bounds of the element using one parameter.
+     * Setter for bounds of the element using one parameter.
      */
     public VisualBase setBounds(RectObj bounds) {
         if (jsBase == null) {
@@ -148,7 +151,7 @@ public class VisualBaseWithBounds extends VisualBase {
     private List<VisualBase> setBounds1 = new ArrayList<>();
 
     /**
-     * Sets bounds of the element using one parameter.
+     * Setter for bounds of the element using one parameter.
      */
     public VisualBase setBounds(AnychartMathRect bounds1) {
         if (jsBase == null) {
@@ -190,7 +193,7 @@ public class VisualBaseWithBounds extends VisualBase {
     private List<VisualBase> setBounds2 = new ArrayList<>();
 
     /**
-     * Sets bounds of the element using one parameter.
+     * Setter for bounds of the element using one parameter.
      */
     public VisualBase setBounds(Bounds bounds2) {
         if (jsBase == null) {
@@ -229,18 +232,18 @@ public class VisualBaseWithBounds extends VisualBase {
         return "";
     }
 
-    private Double x;
+    private Number x;
     private String x1;
-    private Double y;
+    private Number y;
     private String y1;
-    private Double width;
+    private Number width;
     private String width1;
-    private Double height;
+    private Number height;
     private String height1;
     private List<VisualBase> setBounds3 = new ArrayList<>();
 
     /**
-     * Setter for the element bounds settings.
+     * Setter for element bounds settings.
      */
     public VisualBase setBounds(String x1, String y1, String width1, String height1) {
         if (jsBase == null) {
@@ -296,9 +299,9 @@ public class VisualBaseWithBounds extends VisualBase {
     private List<VisualBase> setBounds4 = new ArrayList<>();
 
     /**
-     * Setter for the element bounds settings.
+     * Setter for element bounds settings.
      */
-    public VisualBase setBounds(Double x, Double y, Double width, Double height) {
+    public VisualBase setBounds(Number x, Number y, Number width, Number height) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -349,13 +352,13 @@ public class VisualBaseWithBounds extends VisualBase {
         return "";
     }
 
-    private Double height2;
+    private Number height2;
     private String height3;
 
     /**
-     * Sets element height setting.
+     * Setter for element height setting.
      */
-    public VisualBaseWithBounds setHeight(Double height2) {
+    public VisualBaseWithBounds setHeight(Number height2) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -382,7 +385,7 @@ public class VisualBaseWithBounds extends VisualBase {
 
 
     /**
-     * Sets element height setting.
+     * Setter for element height setting.
      */
     public VisualBaseWithBounds setHeight(String height3) {
         if (jsBase == null) {
@@ -409,13 +412,13 @@ public class VisualBaseWithBounds extends VisualBase {
         return this;
     }
 
-    private Double left;
+    private Number left;
     private String left1;
 
     /**
-     * Sets element left bound setting.
+     * Setter for element left bound settings.
      */
-    public VisualBaseWithBounds setLeft(Double left) {
+    public VisualBaseWithBounds setLeft(Number left) {
         if (jsBase == null) {
             this.left = null;
             this.left1 = null;
@@ -440,7 +443,7 @@ public class VisualBaseWithBounds extends VisualBase {
 
 
     /**
-     * Sets element left bound setting.
+     * Setter for element left bound settings.
      */
     public VisualBaseWithBounds setLeft(String left1) {
         if (jsBase == null) {
@@ -465,14 +468,14 @@ public class VisualBaseWithBounds extends VisualBase {
         return this;
     }
 
-    private Double maxHeight;
+    private Number maxHeight;
     private String maxHeight1;
     private List<VisualBase> setMaxHeight = new ArrayList<>();
 
     /**
-     * Setter for maximum height.
+     * Setter for the maximum height.
      */
-    public VisualBase setMaxHeight(Double maxHeight) {
+    public VisualBase setMaxHeight(Number maxHeight) {
         if (jsBase == null) {
             this.maxHeight = null;
             this.maxHeight1 = null;
@@ -511,7 +514,7 @@ public class VisualBaseWithBounds extends VisualBase {
     private List<VisualBase> setMaxHeight1 = new ArrayList<>();
 
     /**
-     * Setter for maximum height.
+     * Setter for the maximum height.
      */
     public VisualBase setMaxHeight(String maxHeight1) {
         if (jsBase == null) {
@@ -549,14 +552,14 @@ public class VisualBaseWithBounds extends VisualBase {
         return "";
     }
 
-    private Double maxWidth;
+    private Number maxWidth;
     private String maxWidth1;
     private List<VisualBase> setMaxWidth = new ArrayList<>();
 
     /**
-     * Setter for maximum width.
+     * Setter for the maximum width.
      */
-    public VisualBase setMaxWidth(Double maxWidth) {
+    public VisualBase setMaxWidth(Number maxWidth) {
         if (jsBase == null) {
             this.maxWidth = null;
             this.maxWidth1 = null;
@@ -595,7 +598,7 @@ public class VisualBaseWithBounds extends VisualBase {
     private List<VisualBase> setMaxWidth1 = new ArrayList<>();
 
     /**
-     * Setter for maximum width.
+     * Setter for the maximum width.
      */
     public VisualBase setMaxWidth(String maxWidth1) {
         if (jsBase == null) {
@@ -633,14 +636,14 @@ public class VisualBaseWithBounds extends VisualBase {
         return "";
     }
 
-    private Double minHeight;
+    private Number minHeight;
     private String minHeight1;
     private List<VisualBase> setMinHeight = new ArrayList<>();
 
     /**
-     * Setter for minimum height.
+     * Setter for the minimum height.
      */
-    public VisualBase setMinHeight(Double minHeight) {
+    public VisualBase setMinHeight(Number minHeight) {
         if (jsBase == null) {
             this.minHeight = null;
             this.minHeight1 = null;
@@ -679,7 +682,7 @@ public class VisualBaseWithBounds extends VisualBase {
     private List<VisualBase> setMinHeight1 = new ArrayList<>();
 
     /**
-     * Setter for minimum height.
+     * Setter for the minimum height.
      */
     public VisualBase setMinHeight(String minHeight1) {
         if (jsBase == null) {
@@ -717,14 +720,14 @@ public class VisualBaseWithBounds extends VisualBase {
         return "";
     }
 
-    private Double minWidth;
+    private Number minWidth;
     private String minWidth1;
     private List<VisualBase> setMinWidth = new ArrayList<>();
 
     /**
-     * Setter for minimum width.
+     * Setter for the minimum width.
      */
-    public VisualBase setMinWidth(Double minWidth) {
+    public VisualBase setMinWidth(Number minWidth) {
         if (jsBase == null) {
             this.minWidth = null;
             this.minWidth1 = null;
@@ -763,7 +766,7 @@ public class VisualBaseWithBounds extends VisualBase {
     private List<VisualBase> setMinWidth1 = new ArrayList<>();
 
     /**
-     * Setter for minimum width.
+     * Setter for the minimum width.
      */
     public VisualBase setMinWidth(String minWidth1) {
         if (jsBase == null) {
@@ -801,13 +804,13 @@ public class VisualBaseWithBounds extends VisualBase {
         return "";
     }
 
-    private Double right;
+    private Number right;
     private String right1;
 
     /**
-     * Sets element right bound setting.
+     * Setter for element right bound setting.
      */
-    public VisualBaseWithBounds setRight(Double right) {
+    public VisualBaseWithBounds setRight(Number right) {
         if (jsBase == null) {
             this.right = null;
             this.right1 = null;
@@ -832,7 +835,7 @@ public class VisualBaseWithBounds extends VisualBase {
 
 
     /**
-     * Sets element right bound setting.
+     * Setter for element right bound setting.
      */
     public VisualBaseWithBounds setRight(String right1) {
         if (jsBase == null) {
@@ -857,13 +860,13 @@ public class VisualBaseWithBounds extends VisualBase {
         return this;
     }
 
-    private Double top;
+    private Number top;
     private String top1;
 
     /**
-     * Sets element top bound setting.
+     * Setter for element top bound settings.
      */
-    public VisualBaseWithBounds setTop(Double top) {
+    public VisualBaseWithBounds setTop(Number top) {
         if (jsBase == null) {
             this.top = null;
             this.top1 = null;
@@ -888,7 +891,7 @@ public class VisualBaseWithBounds extends VisualBase {
 
 
     /**
-     * Sets element top bound setting.
+     * Setter for element top bound settings.
      */
     public VisualBaseWithBounds setTop(String top1) {
         if (jsBase == null) {
@@ -913,13 +916,13 @@ public class VisualBaseWithBounds extends VisualBase {
         return this;
     }
 
-    private Double width2;
+    private Number width2;
     private String width3;
 
     /**
-     * Sets element width setting.
+     * Setter for element width setting.
      */
-    public VisualBaseWithBounds setWidth(Double width2) {
+    public VisualBaseWithBounds setWidth(Number width2) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -946,7 +949,7 @@ public class VisualBaseWithBounds extends VisualBase {
 
 
     /**
-     * Sets element width setting.
+     * Setter for element width setting.
      */
     public VisualBaseWithBounds setWidth(String width3) {
         if (jsBase == null) {

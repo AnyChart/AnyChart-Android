@@ -36,13 +36,13 @@ public class Ticks extends VisualBase {
     }
 
     
-    private Double length;
+    private Number length;
 
     /**
      * Setter for ticks length.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.axes.Ticks.length.png' height='77' width='412'/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.axes.Ticks.length.png' height='77' width='412'/>
      */
-    public Ticks setLength(Double length) {
+    public Ticks setLength(Number length) {
         if (jsBase == null) {
             this.length = length;
         } else {
@@ -68,7 +68,7 @@ public class Ticks extends VisualBase {
     /**
      * Setter for ticks position.<br/>
 You can set ticks inside of a chart area or outside its position.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.axes.Ticks.position.png' height='152' width='401'/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.axes.Ticks.position.png' height='152' width='401'/>
      */
     public Ticks setPosition(SidePosition position) {
         if (jsBase == null) {
@@ -97,7 +97,7 @@ You can set ticks inside of a chart area or outside its position.<br/>
     /**
      * Setter for ticks position.<br/>
 You can set ticks inside of a chart area or outside its position.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.axes.Ticks.position.png' height='152' width='401'/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.axes.Ticks.position.png' height='152' width='401'/>
      */
     public Ticks setPosition(String position1) {
         if (jsBase == null) {
@@ -126,7 +126,7 @@ You can set ticks inside of a chart area or outside its position.<br/>
 
     /**
      * Setter for stroke settings via single parameter.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.axes.Ticks.stroke.png' height='66' width='413'/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.axes.Ticks.stroke.png' height='66' width='413'/>
      */
     public Ticks setStroke(Stroke stroke) {
         if (jsBase == null) {
@@ -149,7 +149,7 @@ You can set ticks inside of a chart area or outside its position.<br/>
     }
 
     private String color;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -172,7 +172,7 @@ The following options are acceptable:
 </ul>
 <b>Note:</b> String parts order is significant and '3px red' is not the same as 'red 3px'.
      */
-    public Ticks setStroke(String color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Ticks setStroke(String color, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = color;
             this.thickness = thickness;

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Stock ordinal date time scale.
+ * The StockOrdinalDateTime class contains methods for configuring ordinal date time scale on the Stock.
  */
 public class StockOrdinalDateTime extends StockScatterDateTime {
 

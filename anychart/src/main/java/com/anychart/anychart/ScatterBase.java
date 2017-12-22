@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Base for all scatter scales (Linear, Logarithmic and DateTime).
+ * The ScatterBase class contains methods for configuring all scatter scales (Linear, Logarithmic and DateTime).<br/>
 Doesn't declare any ticks, so different scales can declare their own.
  */
 public class ScatterBase extends ScalesBase {
@@ -36,13 +36,13 @@ public class ScatterBase extends ScalesBase {
     }
 
     
-    private Double ratio;
+    private Number ratio;
 
     /**
      * Returns tick by its position ratio.<br/>
 <b>Note:</b> returns correct values only after {@link anychart.scales.Base#finishAutoCalc} or <b>chart.draw()</b>.
      */
-    public void inverseTransform(Double ratio) {
+    public void inverseTransform(Number ratio) {
         if (jsBase == null) {
             this.ratio = ratio;
         } else {
@@ -62,12 +62,12 @@ public class ScatterBase extends ScalesBase {
         }
     }
 
-    private Double maxTicksCount;
+    private Number maxTicksCount;
 
     /**
-     * Setter for maximum ticks count.<br/>
+     * Setter for the maximum ticks count.<br/>
      */
-    public ScatterBase setMaxTicksCount(Double maxTicksCount) {
+    public ScatterBase setMaxTicksCount(Number maxTicksCount) {
         if (jsBase == null) {
             this.maxTicksCount = maxTicksCount;
         } else {
@@ -87,12 +87,12 @@ public class ScatterBase extends ScalesBase {
         return this;
     }
 
-    private Double maximum;
+    private Number maximum;
 
     /**
-     * Setter for scale maximum.
+     * Setter for the scale maximum.
      */
-    public ScatterBase setMaximum(Double maximum) {
+    public ScatterBase setMaximum(Number maximum) {
         if (jsBase == null) {
             this.maximum = maximum;
         } else {
@@ -112,12 +112,12 @@ public class ScatterBase extends ScalesBase {
         return this;
     }
 
-    private Double minimum;
+    private Number minimum;
 
     /**
-     * Setter for scale minimum.
+     * Setter for the scale minimum.
      */
-    public ScatterBase setMinimum(Double minimum) {
+    public ScatterBase setMinimum(Number minimum) {
         if (jsBase == null) {
             this.minimum = minimum;
         } else {

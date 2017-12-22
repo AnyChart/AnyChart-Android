@@ -36,12 +36,12 @@ public class ATR extends JsObject {
     }
 
     
-    private Double period;
+    private Number period;
 
     /**
      * Setter for the period.
      */
-    public ATR setPeriod(Double period) {
+    public ATR setPeriod(Number period) {
         if (jsBase == null) {
             this.period = period;
         } else {

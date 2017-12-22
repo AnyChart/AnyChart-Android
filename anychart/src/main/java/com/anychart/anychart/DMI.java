@@ -35,12 +35,12 @@ public class DMI extends JsObject {
     }
 
     
-    private Double adxPeriod;
+    private Number adxPeriod;
 
     /**
      * Setter for the ADX period.
      */
-    public DMI setAdxPeriod(Double adxPeriod) {
+    public DMI setAdxPeriod(Number adxPeriod) {
         if (jsBase == null) {
             this.adxPeriod = adxPeriod;
         } else {
@@ -276,12 +276,12 @@ public class DMI extends JsObject {
         return this;
     }
 
-    private Double period;
+    private Number period;
 
     /**
      * Setter for the period.
      */
-    public DMI setPeriod(Double period) {
+    public DMI setPeriod(Number period) {
         if (jsBase == null) {
             this.period = period;
         } else {

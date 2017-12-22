@@ -115,27 +115,27 @@ public class Bullet extends Chart {
 <b>Note:</b> All data is markers values.
      */
     public Bullet setData(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         return this;
     }
 
@@ -283,6 +283,11 @@ public class Bullet extends Chart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette3 != null) ? markerPalette3.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette3 != null) ? markerPalette3.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -304,7 +309,7 @@ public class Bullet extends Chart {
     /**
      * Getter for the current bullet chart ranges settings.
      */
-    public CoreAxismarkersRange getRange(Double index) {
+    public CoreAxismarkersRange getRange(Number index) {
         CoreAxismarkersRange item = new CoreAxismarkersRange(jsBase + ".range("+ index+")");
         getRange1.add(item);
         return item;
@@ -347,14 +352,14 @@ public class Bullet extends Chart {
         return this;
     }
 
-    private Double index1;
+    private Number index1;
     private String range2;
     private Boolean range3;
 
     /**
      * Setter for bullet chart ranges settings.
      */
-    public Bullet setRange(String range2, Double index1) {
+    public Bullet setRange(String range2, Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -372,7 +377,7 @@ public class Bullet extends Chart {
     /**
      * Setter for bullet chart ranges settings.
      */
-    public Bullet setRange(Boolean range3, Double index1) {
+    public Bullet setRange(Boolean range3, Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -414,6 +419,11 @@ public class Bullet extends Chart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".rangePalette(%s);",  ((rangePalette != null) ? rangePalette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".rangePalette(%s)", ((rangePalette != null) ? rangePalette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -482,6 +492,11 @@ public class Bullet extends Chart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".scale(%s);",  ((scale != null) ? scale.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale != null) ? scale.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 

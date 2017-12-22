@@ -1,10 +1,15 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
- * Context Menu class.
+ * The ContextMenu class contains methods for configuring context menu.
  */
 public class ContextMenu extends JsObject {
 
@@ -179,7 +184,7 @@ public class ContextMenu extends JsObject {
     private Item[] items;
 
     /**
-     * Setter for the current context menu items.
+     * Setter for the context menu items.
      */
     public ContextMenu setItems(Item[] items) {
         if (jsBase == null) {
@@ -231,7 +236,7 @@ public class ContextMenu extends JsObject {
 
     private String var_args;
     private String[] var_args1;
-    private Double var_args2;
+    private Number var_args2;
     private String var_args3;
     private Boolean var_args4;
 
@@ -298,7 +303,7 @@ public class ContextMenu extends JsObject {
     /**
      * Setups the element using passed configuration value.
      */
-    public ContextMenu setup(Double var_args2) {
+    public ContextMenu setup(Number var_args2) {
         if (jsBase == null) {
             this.var_args = null;
             this.var_args1 = null;
@@ -354,13 +359,13 @@ public class ContextMenu extends JsObject {
         return this;
     }
 
-    private Double x;
-    private Double y;
+    private Number x;
+    private Number y;
 
     /**
-     * Shows the menu immediately at the given client coordinates.<br/>
+     * Shows the menu immediately at the given client coordinates.
      */
-    public void show(Double x, Double y) {
+    public void show(Number x, Number y) {
         if (jsBase == null) {
             this.x = x;
             this.y = y;

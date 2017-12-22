@@ -35,13 +35,13 @@ public class MapTicks extends VisualBase {
     }
 
     
-    private Double length;
+    private Number length;
     private String length1;
 
     /**
      * Setter for ticks length.
      */
-    public MapTicks setLength(Double length) {
+    public MapTicks setLength(Number length) {
         if (jsBase == null) {
             this.length = null;
             this.length1 = null;
@@ -149,7 +149,7 @@ public class MapTicks extends VisualBase {
 
     private Stroke color;
     private String color1;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -157,7 +157,7 @@ public class MapTicks extends VisualBase {
     /**
      * Setter for ticks stroke settings.
      */
-    public MapTicks setStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public MapTicks setStroke(Stroke color, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -192,7 +192,7 @@ public class MapTicks extends VisualBase {
     /**
      * Setter for ticks stroke settings.
      */
-    public MapTicks setStroke(String color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public MapTicks setStroke(String color1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;

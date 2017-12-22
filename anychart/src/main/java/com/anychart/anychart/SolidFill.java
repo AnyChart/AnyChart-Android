@@ -10,10 +10,10 @@ public class SolidFill extends JsObject implements ColoredFill, Fill {
 
     
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     
-    public SolidFill(String color, Double opacity) {
+    public SolidFill(String color, Number opacity) {
         this.color = color;
         this.opacity = opacity;
 

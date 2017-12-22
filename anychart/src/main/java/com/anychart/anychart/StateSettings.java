@@ -37,6 +37,43 @@ public class StateSettings extends CoreBase {
     }
 
     
+    private UtilsConnector getConnector;
+
+    /**
+     * Getter for connector settings (for stock event markers).
+     */
+    public UtilsConnector getConnector() {
+        if (getConnector == null)
+            getConnector = new UtilsConnector(jsBase + ".connector()");
+
+        return getConnector;
+    }
+
+    private String connector;
+
+    /**
+     * Setter for the connector length (for stock event markers).
+     */
+    public StateSettings setConnector(String connector) {
+        if (jsBase == null) {
+            this.connector = connector;
+        } else {
+            this.connector = connector;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".connector(%s)", wrapQuotes(connector)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connector(%s);", wrapQuotes(connector)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Fill dummyFill;
 
     /**
@@ -64,12 +101,12 @@ public class StateSettings extends CoreBase {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Dummy fill color with opacity.
      */
-    public StateSettings dummyFill(String color, Double opacity) {
+    public StateSettings dummyFill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -93,17 +130,17 @@ public class StateSettings extends CoreBase {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient dummy fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings dummyFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public StateSettings dummyFill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -144,7 +181,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient dummy fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings dummyFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public StateSettings dummyFill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -185,7 +222,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient dummy fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings dummyFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public StateSettings dummyFill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -226,7 +263,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient dummy fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings dummyFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public StateSettings dummyFill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -267,7 +304,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient dummy fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings dummyFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public StateSettings dummyFill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -308,7 +345,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient dummy fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings dummyFill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public StateSettings dummyFill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -346,18 +383,18 @@ public class StateSettings extends CoreBase {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient dummy fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings dummyFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public StateSettings dummyFill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -408,7 +445,7 @@ public class StateSettings extends CoreBase {
      * Radial gradient dummy fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings dummyFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public StateSettings dummyFill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -458,7 +495,7 @@ public class StateSettings extends CoreBase {
     private Stroke color1;
     private ColoredFill color2;
     private String color3;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -467,7 +504,7 @@ public class StateSettings extends CoreBase {
      * Setter for tasks dummy stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setDummyStroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public StateSettings setDummyStroke(Stroke color1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -505,7 +542,7 @@ public class StateSettings extends CoreBase {
      * Setter for tasks dummy stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setDummyStroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public StateSettings setDummyStroke(ColoredFill color2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -543,7 +580,7 @@ public class StateSettings extends CoreBase {
      * Setter for tasks dummy stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setDummyStroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public StateSettings setDummyStroke(String color3, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -635,12 +672,12 @@ public class StateSettings extends CoreBase {
     }
 
     private String color4;
-    private Double opacity3;
+    private Number opacity3;
 
     /**
      * State fill color with opacity for the empty part of a tank. Fill as a string or an object.
      */
-    public StateSettings emptyFill(String color4, Double opacity3) {
+    public StateSettings emptyFill(String color4, Number opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -691,14 +728,14 @@ public class StateSettings extends CoreBase {
     private String patternFillOrType3;
     private Boolean patternFillOrType4;
     private String color5;
-    private Double thickness1;
-    private Double size;
+    private Number thickness1;
+    private Number size;
 
     /**
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StateSettings setEmptyHatchFill(PatternFill patternFillOrType, String color5, Double thickness1, Double size) {
+    public StateSettings setEmptyHatchFill(PatternFill patternFillOrType, String color5, Number thickness1, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -745,7 +782,7 @@ public class StateSettings extends CoreBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StateSettings setEmptyHatchFill(HatchFill patternFillOrType1, String color5, Double thickness1, Double size) {
+    public StateSettings setEmptyHatchFill(HatchFill patternFillOrType1, String color5, Number thickness1, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -792,7 +829,7 @@ public class StateSettings extends CoreBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StateSettings setEmptyHatchFill(HatchFillType patternFillOrType2, String color5, Double thickness1, Double size) {
+    public StateSettings setEmptyHatchFill(HatchFillType patternFillOrType2, String color5, Number thickness1, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -839,7 +876,7 @@ public class StateSettings extends CoreBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StateSettings setEmptyHatchFill(String patternFillOrType3, String color5, Double thickness1, Double size) {
+    public StateSettings setEmptyHatchFill(String patternFillOrType3, String color5, Number thickness1, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -886,7 +923,7 @@ public class StateSettings extends CoreBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StateSettings setEmptyHatchFill(Boolean patternFillOrType4, String color5, Double thickness1, Double size) {
+    public StateSettings setEmptyHatchFill(Boolean patternFillOrType4, String color5, Number thickness1, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -922,6 +959,62 @@ public class StateSettings extends CoreBase {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".emptyHatchFill(%b, %s, %f, %f);", patternFillOrType4, wrapQuotes(color5), thickness1, size));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Number explode;
+    private String explode1;
+
+    /**
+     * Setter for the explode radius (for Pie chart).
+     */
+    public StateSettings setExplode(Number explode) {
+        if (jsBase == null) {
+            this.explode = null;
+            this.explode1 = null;
+            
+            this.explode = explode;
+        } else {
+            this.explode = explode;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".explode(%f)", explode));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".explode(%f);", explode));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the explode radius (for Pie chart).
+     */
+    public StateSettings setExplode(String explode1) {
+        if (jsBase == null) {
+            this.explode = null;
+            this.explode1 = null;
+            
+            this.explode1 = explode1;
+        } else {
+            this.explode1 = explode1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".explode(%s)", wrapQuotes(explode1)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".explode(%s);", wrapQuotes(explode1)));
                 js.setLength(0);
             }
         }
@@ -969,13 +1062,13 @@ public class StateSettings extends CoreBase {
     }
 
     private String color6;
-    private Double opacity4;
+    private Number opacity4;
     private List<CartesianSeriesBase> setFallingFill1 = new ArrayList<>();
 
     /**
      * Falling fill color with opacity.
      */
-    public CartesianSeriesBase fallingFill(String color6, Double opacity4) {
+    public CartesianSeriesBase fallingFill(String color6, Number opacity4) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1026,18 +1119,18 @@ public class StateSettings extends CoreBase {
 
     private GradientKey[] keys4;
     private String[] keys5;
-    private Double angle1;
+    private Number angle1;
     private Boolean mode4;
     private VectorRect mode5;
     private String mode6;
-    private Double opacity5;
+    private Number opacity5;
     private List<CartesianSeriesBase> setFallingFill2 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(GradientKey[] keys4, Double angle1, Double opacity5, Boolean mode4) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys4, Number angle1, Number opacity5, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1107,7 +1200,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(GradientKey[] keys4, Double angle1, Double opacity5, VectorRect mode5) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys4, Number angle1, Number opacity5, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1177,7 +1270,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(GradientKey[] keys4, Double angle1, Double opacity5, String mode6) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys4, Number angle1, Number opacity5, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1247,7 +1340,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(String[] keys5, Double angle1, Double opacity5, Boolean mode4) {
+    public CartesianSeriesBase fallingFill(String[] keys5, Number angle1, Number opacity5, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1317,7 +1410,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(String[] keys5, Double angle1, Double opacity5, VectorRect mode5) {
+    public CartesianSeriesBase fallingFill(String[] keys5, Number angle1, Number opacity5, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1387,7 +1480,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(String[] keys5, Double angle1, Double opacity5, String mode6) {
+    public CartesianSeriesBase fallingFill(String[] keys5, Number angle1, Number opacity5, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1453,19 +1546,19 @@ public class StateSettings extends CoreBase {
 
     private GradientKey[] keys6;
     private String[] keys7;
-    private Double cx1;
-    private Double cy1;
+    private Number cx1;
+    private Number cy1;
     private GraphicsMathRect mode7;
-    private Double opacity6;
-    private Double fx1;
-    private Double fy1;
+    private Number opacity6;
+    private Number fx1;
+    private Number fy1;
     private List<CartesianSeriesBase> setFallingFill8 = new ArrayList<>();
 
     /**
      * Radial gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity6, Double fx1, Double fy1) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys6, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity6, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1554,7 +1647,7 @@ public class StateSettings extends CoreBase {
      * Radial gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity6, Double fx1, Double fy1) {
+    public CartesianSeriesBase fallingFill(String[] keys7, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity6, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1656,15 +1749,15 @@ public class StateSettings extends CoreBase {
     private String patternFillOrTypeOrState3;
     private Boolean patternFillOrTypeOrState4;
     private String color7;
-    private Double thickness2;
-    private Double size1;
+    private Number thickness2;
+    private Number size1;
     private List<CartesianSeriesBase> setFallingHatchFill = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBase setFallingHatchFill(PatternFill patternFillOrTypeOrState, String color7, Double thickness2, Double size1) {
+    public CartesianSeriesBase setFallingHatchFill(PatternFill patternFillOrTypeOrState, String color7, Number thickness2, Number size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -1731,7 +1824,7 @@ public class StateSettings extends CoreBase {
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBase setFallingHatchFill(HatchFill patternFillOrTypeOrState1, String color7, Double thickness2, Double size1) {
+    public CartesianSeriesBase setFallingHatchFill(HatchFill patternFillOrTypeOrState1, String color7, Number thickness2, Number size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -1798,7 +1891,7 @@ public class StateSettings extends CoreBase {
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBase setFallingHatchFill(HatchFillType patternFillOrTypeOrState2, String color7, Double thickness2, Double size1) {
+    public CartesianSeriesBase setFallingHatchFill(HatchFillType patternFillOrTypeOrState2, String color7, Number thickness2, Number size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -1865,7 +1958,7 @@ public class StateSettings extends CoreBase {
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBase setFallingHatchFill(String patternFillOrTypeOrState3, String color7, Double thickness2, Double size1) {
+    public CartesianSeriesBase setFallingHatchFill(String patternFillOrTypeOrState3, String color7, Number thickness2, Number size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -1932,7 +2025,7 @@ public class StateSettings extends CoreBase {
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBase setFallingHatchFill(Boolean patternFillOrTypeOrState4, String color7, Double thickness2, Double size1) {
+    public CartesianSeriesBase setFallingHatchFill(Boolean patternFillOrTypeOrState4, String color7, Number thickness2, Number size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -1996,7 +2089,7 @@ public class StateSettings extends CoreBase {
     private Stroke stroke;
     private ColoredFill stroke1;
     private String stroke2;
-    private Double thickness3;
+    private Number thickness3;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -2005,7 +2098,7 @@ public class StateSettings extends CoreBase {
      * Setter for falling stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setFallingStroke(Stroke stroke, Double thickness3, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public StateSettings setFallingStroke(Stroke stroke, Number thickness3, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -2056,7 +2149,7 @@ public class StateSettings extends CoreBase {
      * Setter for falling stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setFallingStroke(ColoredFill stroke1, Double thickness3, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public StateSettings setFallingStroke(ColoredFill stroke1, Number thickness3, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -2107,7 +2200,7 @@ public class StateSettings extends CoreBase {
      * Setter for falling stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setFallingStroke(String stroke2, Double thickness3, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public StateSettings setFallingStroke(String stroke2, Number thickness3, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -2180,12 +2273,12 @@ public class StateSettings extends CoreBase {
     }
 
     private String color8;
-    private Double opacity7;
+    private Number opacity7;
 
     /**
      * Setter for the fill color with opacity.
      */
-    public StateSettings setFill(String color8, Double opacity7) {
+    public StateSettings setFill(String color8, Number opacity7) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -2228,17 +2321,17 @@ public class StateSettings extends CoreBase {
 
     private GradientKey[] keys8;
     private String[] keys9;
-    private Double angle2;
+    private Number angle2;
     private Boolean mode8;
     private VectorRect mode9;
     private String mode10;
-    private Double opacity8;
+    private Number opacity8;
 
     /**
      * Setter for the linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setFill(GradientKey[] keys8, Double angle2, Double opacity8, Boolean mode8) {
+    public StateSettings setFill(GradientKey[] keys8, Number angle2, Number opacity8, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2306,7 +2399,7 @@ public class StateSettings extends CoreBase {
      * Setter for the linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setFill(GradientKey[] keys8, Double angle2, Double opacity8, VectorRect mode9) {
+    public StateSettings setFill(GradientKey[] keys8, Number angle2, Number opacity8, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2374,7 +2467,7 @@ public class StateSettings extends CoreBase {
      * Setter for the linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setFill(GradientKey[] keys8, Double angle2, Double opacity8, String mode10) {
+    public StateSettings setFill(GradientKey[] keys8, Number angle2, Number opacity8, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2442,7 +2535,7 @@ public class StateSettings extends CoreBase {
      * Setter for the linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setFill(String[] keys9, Double angle2, Double opacity8, Boolean mode8) {
+    public StateSettings setFill(String[] keys9, Number angle2, Number opacity8, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2510,7 +2603,7 @@ public class StateSettings extends CoreBase {
      * Setter for the linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setFill(String[] keys9, Double angle2, Double opacity8, VectorRect mode9) {
+    public StateSettings setFill(String[] keys9, Number angle2, Number opacity8, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2578,7 +2671,7 @@ public class StateSettings extends CoreBase {
      * Setter for the linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setFill(String[] keys9, Double angle2, Double opacity8, String mode10) {
+    public StateSettings setFill(String[] keys9, Number angle2, Number opacity8, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2643,18 +2736,18 @@ public class StateSettings extends CoreBase {
 
     private GradientKey[] keys10;
     private String[] keys11;
-    private Double cx2;
-    private Double cy2;
+    private Number cx2;
+    private Number cy2;
     private GraphicsMathRect mode11;
-    private Double opacity9;
-    private Double fx2;
-    private Double fy2;
+    private Number opacity9;
+    private Number fx2;
+    private Number fy2;
 
     /**
      * Setter for the radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity9, Double fx2, Double fy2) {
+    public StateSettings setFill(GradientKey[] keys10, Number cx2, Number cy2, GraphicsMathRect mode11, Number opacity9, Number fx2, Number fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2744,7 +2837,7 @@ public class StateSettings extends CoreBase {
      * Setter for the radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity9, Double fx2, Double fy2) {
+    public StateSettings setFill(String[] keys11, Number cx2, Number cy2, GraphicsMathRect mode11, Number opacity9, Number fx2, Number fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2830,6 +2923,87 @@ public class StateSettings extends CoreBase {
     }
 
     private Fill imageSettings2;
+    private String fontColor;
+
+    /**
+     * Setter for font color settings.
+     */
+    public StateSettings setFontColor(String fontColor) {
+        if (jsBase == null) {
+            this.fontColor = fontColor;
+        } else {
+            this.fontColor = fontColor;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".fontColor(%s)", wrapQuotes(fontColor)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontColor(%s);", wrapQuotes(fontColor)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Decoration fontDecoration;
+    private String fontDecoration1;
+
+    /**
+     * Setter for the text font decoration.
+     */
+    public StateSettings setFontDecoration(Decoration fontDecoration) {
+        if (jsBase == null) {
+            this.fontDecoration = null;
+            this.fontDecoration1 = null;
+            
+            this.fontDecoration = fontDecoration;
+        } else {
+            this.fontDecoration = fontDecoration;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".fontDecoration(%s)", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", ((fontDecoration != null) ? fontDecoration.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the text font decoration.
+     */
+    public StateSettings setFontDecoration(String fontDecoration1) {
+        if (jsBase == null) {
+            this.fontDecoration = null;
+            this.fontDecoration1 = null;
+            
+            this.fontDecoration1 = fontDecoration1;
+        } else {
+            this.fontDecoration1 = fontDecoration1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".fontDecoration(%s)", wrapQuotes(fontDecoration1)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontDecoration(%s);", wrapQuotes(fontDecoration1)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private String fontFamily;
 
     /**
@@ -2855,13 +3029,95 @@ public class StateSettings extends CoreBase {
         return this;
     }
 
-    private Double fontSize;
+    private Number fontOpacity;
+
+    /**
+     * Setter for the text font opacity.<br/>
+Double value from 0 to 1.
+     */
+    public StateSettings setFontOpacity(Number fontOpacity) {
+        if (jsBase == null) {
+            this.fontOpacity = fontOpacity;
+        } else {
+            this.fontOpacity = fontOpacity;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Number fontPadding;
+    private String fontPadding1;
+
+    /**
+     * Setter for the font padding.
+     */
+    public StateSettings setFontPadding(Number fontPadding) {
+        if (jsBase == null) {
+            this.fontPadding = null;
+            this.fontPadding1 = null;
+            
+            this.fontPadding = fontPadding;
+        } else {
+            this.fontPadding = fontPadding;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".fontPadding(%f)", fontPadding));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontPadding(%f);", fontPadding));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the font padding.
+     */
+    public StateSettings setFontPadding(String fontPadding1) {
+        if (jsBase == null) {
+            this.fontPadding = null;
+            this.fontPadding1 = null;
+            
+            this.fontPadding1 = fontPadding1;
+        } else {
+            this.fontPadding1 = fontPadding1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".fontPadding(%s)", wrapQuotes(fontPadding1)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontPadding(%s);", wrapQuotes(fontPadding1)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Number fontSize;
     private String fontSize1;
 
     /**
      * Setter for font size settings.
      */
-    public StateSettings setFontSize(Double fontSize) {
+    public StateSettings setFontSize(Number fontSize) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -3024,7 +3280,7 @@ public class StateSettings extends CoreBase {
     }
 
     private String fontWeight;
-    private Double fontWeight1;
+    private Number fontWeight1;
 
     /**
      * Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
@@ -3056,7 +3312,7 @@ public class StateSettings extends CoreBase {
     /**
      * Setter for the text font weight. {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public StateSettings setFontWeight(Double fontWeight1) {
+    public StateSettings setFontWeight(Number fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -3082,7 +3338,7 @@ public class StateSettings extends CoreBase {
     private Stroke grid;
     private ColoredFill grid1;
     private String grid2;
-    private Double thickness4;
+    private Number thickness4;
     private String dashpattern2;
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
@@ -3091,7 +3347,7 @@ public class StateSettings extends CoreBase {
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setGrid(Stroke grid, Double thickness4, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public StateSettings setGrid(Stroke grid, Number thickness4, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.grid = null;
             this.grid1 = null;
@@ -3146,7 +3402,7 @@ public class StateSettings extends CoreBase {
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setGrid(ColoredFill grid1, Double thickness4, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public StateSettings setGrid(ColoredFill grid1, Number thickness4, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.grid = null;
             this.grid1 = null;
@@ -3201,7 +3457,7 @@ public class StateSettings extends CoreBase {
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setGrid(String grid2, Double thickness4, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public StateSettings setGrid(String grid2, Number thickness4, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.grid = null;
             this.grid1 = null;
@@ -3268,14 +3524,14 @@ public class StateSettings extends CoreBase {
     private HatchFillType patternFillOrType7;
     private String patternFillOrType8;
     private String color9;
-    private Double thickness5;
-    private Double size2;
+    private Number thickness5;
+    private Number size2;
 
     /**
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StateSettings setHatchFill(PatternFill patternFillOrType5, String color9, Double thickness5, Double size2) {
+    public StateSettings setHatchFill(PatternFill patternFillOrType5, String color9, Number thickness5, Number size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -3338,7 +3594,7 @@ public class StateSettings extends CoreBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StateSettings setHatchFill(HatchFill patternFillOrType6, String color9, Double thickness5, Double size2) {
+    public StateSettings setHatchFill(HatchFill patternFillOrType6, String color9, Number thickness5, Number size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -3401,7 +3657,7 @@ public class StateSettings extends CoreBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StateSettings setHatchFill(HatchFillType patternFillOrType7, String color9, Double thickness5, Double size2) {
+    public StateSettings setHatchFill(HatchFillType patternFillOrType7, String color9, Number thickness5, Number size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -3464,7 +3720,7 @@ public class StateSettings extends CoreBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StateSettings setHatchFill(String patternFillOrType8, String color9, Double thickness5, Double size2) {
+    public StateSettings setHatchFill(String patternFillOrType8, String color9, Number thickness5, Number size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -3593,7 +3849,7 @@ public class StateSettings extends CoreBase {
     private Stroke color10;
     private ColoredFill color11;
     private String color12;
-    private Double thickness6;
+    private Number thickness6;
     private String dashpattern3;
     private StrokeLineJoin lineJoin3;
     private StrokeLineCap lineCap3;
@@ -3602,7 +3858,7 @@ public class StateSettings extends CoreBase {
      * Setter for high stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setHighStroke(Stroke color10, Double thickness6, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
+    public StateSettings setHighStroke(Stroke color10, Number thickness6, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3672,7 +3928,7 @@ public class StateSettings extends CoreBase {
      * Setter for high stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setHighStroke(ColoredFill color11, Double thickness6, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
+    public StateSettings setHighStroke(ColoredFill color11, Number thickness6, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3742,7 +3998,7 @@ public class StateSettings extends CoreBase {
      * Setter for high stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setHighStroke(String color12, Double thickness6, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
+    public StateSettings setHighStroke(String color12, Number thickness6, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3915,7 +4171,7 @@ public class StateSettings extends CoreBase {
     private Stroke color13;
     private ColoredFill color14;
     private String color15;
-    private Double thickness7;
+    private Number thickness7;
     private String dashpattern4;
     private StrokeLineJoin lineJoin4;
     private StrokeLineCap lineCap4;
@@ -3924,7 +4180,7 @@ public class StateSettings extends CoreBase {
      * Setter for low stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setLowStroke(Stroke color13, Double thickness7, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
+    public StateSettings setLowStroke(Stroke color13, Number thickness7, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -4001,7 +4257,7 @@ public class StateSettings extends CoreBase {
      * Setter for low stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setLowStroke(ColoredFill color14, Double thickness7, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
+    public StateSettings setLowStroke(ColoredFill color14, Number thickness7, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -4078,7 +4334,7 @@ public class StateSettings extends CoreBase {
      * Setter for low stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setLowStroke(String color15, Double thickness7, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
+    public StateSettings setLowStroke(String color15, Number thickness7, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -4292,7 +4548,7 @@ public class StateSettings extends CoreBase {
     private Stroke color16;
     private ColoredFill color17;
     private String color18;
-    private Double thickness8;
+    private Number thickness8;
     private String dashpattern5;
     private StrokeLineJoin lineJoin5;
     private StrokeLineCap lineCap5;
@@ -4301,7 +4557,7 @@ public class StateSettings extends CoreBase {
      * Setter for median stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setMedianStroke(Stroke color16, Double thickness8, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
+    public StateSettings setMedianStroke(Stroke color16, Number thickness8, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -4385,7 +4641,7 @@ public class StateSettings extends CoreBase {
      * Setter for median stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setMedianStroke(ColoredFill color17, Double thickness8, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
+    public StateSettings setMedianStroke(ColoredFill color17, Number thickness8, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -4469,7 +4725,7 @@ public class StateSettings extends CoreBase {
      * Setter for median stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setMedianStroke(String color18, Double thickness8, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
+    public StateSettings setMedianStroke(String color18, Number thickness8, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -4575,12 +4831,12 @@ public class StateSettings extends CoreBase {
     }
 
     private String color19;
-    private Double opacity10;
+    private Number opacity10;
 
     /**
      * Negative fill color with opacity.
      */
-    public StateSettings negativeFill(String color19, Double opacity10) {
+    public StateSettings negativeFill(String color19, Number opacity10) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -4637,17 +4893,17 @@ public class StateSettings extends CoreBase {
 
     private GradientKey[] keys12;
     private String[] keys13;
-    private Double angle3;
+    private Number angle3;
     private Boolean mode12;
     private VectorRect mode13;
     private String mode14;
-    private Double opacity11;
+    private Number opacity11;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings negativeFill(GradientKey[] keys12, Double angle3, Double opacity11, Boolean mode12) {
+    public StateSettings negativeFill(GradientKey[] keys12, Number angle3, Number opacity11, Boolean mode12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4727,7 +4983,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings negativeFill(GradientKey[] keys12, Double angle3, Double opacity11, VectorRect mode13) {
+    public StateSettings negativeFill(GradientKey[] keys12, Number angle3, Number opacity11, VectorRect mode13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4807,7 +5063,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings negativeFill(GradientKey[] keys12, Double angle3, Double opacity11, String mode14) {
+    public StateSettings negativeFill(GradientKey[] keys12, Number angle3, Number opacity11, String mode14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4887,7 +5143,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings negativeFill(String[] keys13, Double angle3, Double opacity11, Boolean mode12) {
+    public StateSettings negativeFill(String[] keys13, Number angle3, Number opacity11, Boolean mode12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4967,7 +5223,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings negativeFill(String[] keys13, Double angle3, Double opacity11, VectorRect mode13) {
+    public StateSettings negativeFill(String[] keys13, Number angle3, Number opacity11, VectorRect mode13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5047,7 +5303,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings negativeFill(String[] keys13, Double angle3, Double opacity11, String mode14) {
+    public StateSettings negativeFill(String[] keys13, Number angle3, Number opacity11, String mode14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5124,18 +5380,18 @@ public class StateSettings extends CoreBase {
 
     private GradientKey[] keys14;
     private String[] keys15;
-    private Double cx3;
-    private Double cy3;
+    private Number cx3;
+    private Number cy3;
     private GraphicsMathRect mode15;
-    private Double opacity12;
-    private Double fx3;
-    private Double fy3;
+    private Number opacity12;
+    private Number fx3;
+    private Number fy3;
 
     /**
      * Radial gradient negative fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings negativeFill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity12, Double fx3, Double fy3) {
+    public StateSettings negativeFill(GradientKey[] keys14, Number cx3, Number cy3, GraphicsMathRect mode15, Number opacity12, Number fx3, Number fy3) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5240,7 +5496,7 @@ public class StateSettings extends CoreBase {
      * Radial gradient negative fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings negativeFill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity12, Double fx3, Double fy3) {
+    public StateSettings negativeFill(String[] keys15, Number cx3, Number cy3, GraphicsMathRect mode15, Number opacity12, Number fx3, Number fy3) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5358,14 +5614,14 @@ public class StateSettings extends CoreBase {
     private HatchFillType patternFillOrType11;
     private String patternFillOrType12;
     private String color20;
-    private Double thickness9;
-    private Double size3;
+    private Number thickness9;
+    private Number size3;
 
     /**
      * Setter for negative hatch fill settings.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setNegativeHatchFill(PatternFill patternFillOrType9, String color20, Double thickness9, Double size3) {
+    public StateSettings setNegativeHatchFill(PatternFill patternFillOrType9, String color20, Number thickness9, Number size3) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -5448,7 +5704,7 @@ public class StateSettings extends CoreBase {
      * Setter for negative hatch fill settings.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setNegativeHatchFill(HatchFill patternFillOrType10, String color20, Double thickness9, Double size3) {
+    public StateSettings setNegativeHatchFill(HatchFill patternFillOrType10, String color20, Number thickness9, Number size3) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -5531,7 +5787,7 @@ public class StateSettings extends CoreBase {
      * Setter for negative hatch fill settings.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setNegativeHatchFill(HatchFillType patternFillOrType11, String color20, Double thickness9, Double size3) {
+    public StateSettings setNegativeHatchFill(HatchFillType patternFillOrType11, String color20, Number thickness9, Number size3) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -5614,7 +5870,7 @@ public class StateSettings extends CoreBase {
      * Setter for negative hatch fill settings.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings setNegativeHatchFill(String patternFillOrType12, String color20, Double thickness9, Double size3) {
+    public StateSettings setNegativeHatchFill(String patternFillOrType12, String color20, Number thickness9, Number size3) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -5695,7 +5951,7 @@ public class StateSettings extends CoreBase {
     private Stroke color21;
     private ColoredFill color22;
     private String color23;
-    private Double thickness10;
+    private Number thickness10;
     private String dashpattern6;
     private StrokeLineJoin lineJoin6;
     private StrokeLineCap lineCap6;
@@ -5704,7 +5960,7 @@ public class StateSettings extends CoreBase {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setNegativeStroke(Stroke color21, Double thickness10, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
+    public StateSettings setNegativeStroke(Stroke color21, Number thickness10, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -5798,7 +6054,7 @@ public class StateSettings extends CoreBase {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setNegativeStroke(ColoredFill color22, Double thickness10, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
+    public StateSettings setNegativeStroke(ColoredFill color22, Number thickness10, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -5892,7 +6148,7 @@ public class StateSettings extends CoreBase {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setNegativeStroke(String color23, Double thickness10, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
+    public StateSettings setNegativeStroke(String color23, Number thickness10, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -6089,6 +6345,43 @@ public class StateSettings extends CoreBase {
         return this;
     }
 
+    private Outline getOutline;
+
+    /**
+     * Getter for pie outline settings.
+     */
+    public Outline getOutline() {
+        if (getOutline == null)
+            getOutline = new Outline(jsBase + ".outline()");
+
+        return getOutline;
+    }
+
+    private String outline;
+
+    /**
+     * Setter for pie outline settings.
+     */
+    public StateSettings setOutline(String outline) {
+        if (jsBase == null) {
+            this.outline = outline;
+        } else {
+            this.outline = outline;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".outline(%s)", wrapQuotes(outline)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".outline(%s);", wrapQuotes(outline)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Fill risingFill;
     private List<ScrollerseriesBase> setRisingFill = new ArrayList<>();
 
@@ -6130,13 +6423,13 @@ public class StateSettings extends CoreBase {
     }
 
     private String color24;
-    private Double opacity13;
+    private Number opacity13;
     private List<ScrollerseriesBase> setRisingFill1 = new ArrayList<>();
 
     /**
      * Rising fill color with opacity.
      */
-    public ScrollerseriesBase risingFill(String color24, Double opacity13) {
+    public ScrollerseriesBase risingFill(String color24, Number opacity13) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -6214,18 +6507,18 @@ public class StateSettings extends CoreBase {
 
     private GradientKey[] keys16;
     private String[] keys17;
-    private Double angle4;
+    private Number angle4;
     private Boolean mode16;
     private VectorRect mode17;
     private String mode18;
-    private Double opacity14;
+    private Number opacity14;
     private List<ScrollerseriesBase> setRisingFill2 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScrollerseriesBase risingFill(GradientKey[] keys16, Double angle4, Double opacity14, Boolean mode16) {
+    public ScrollerseriesBase risingFill(GradientKey[] keys16, Number angle4, Number opacity14, Boolean mode16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6331,7 +6624,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScrollerseriesBase risingFill(GradientKey[] keys16, Double angle4, Double opacity14, VectorRect mode17) {
+    public ScrollerseriesBase risingFill(GradientKey[] keys16, Number angle4, Number opacity14, VectorRect mode17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6437,7 +6730,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScrollerseriesBase risingFill(GradientKey[] keys16, Double angle4, Double opacity14, String mode18) {
+    public ScrollerseriesBase risingFill(GradientKey[] keys16, Number angle4, Number opacity14, String mode18) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6543,7 +6836,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScrollerseriesBase risingFill(String[] keys17, Double angle4, Double opacity14, Boolean mode16) {
+    public ScrollerseriesBase risingFill(String[] keys17, Number angle4, Number opacity14, Boolean mode16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6649,7 +6942,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScrollerseriesBase risingFill(String[] keys17, Double angle4, Double opacity14, VectorRect mode17) {
+    public ScrollerseriesBase risingFill(String[] keys17, Number angle4, Number opacity14, VectorRect mode17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6755,7 +7048,7 @@ public class StateSettings extends CoreBase {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScrollerseriesBase risingFill(String[] keys17, Double angle4, Double opacity14, String mode18) {
+    public ScrollerseriesBase risingFill(String[] keys17, Number angle4, Number opacity14, String mode18) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6857,18 +7150,18 @@ public class StateSettings extends CoreBase {
 
     private GradientKey[] keys18;
     private String[] keys19;
-    private Double cx4;
-    private Double cy4;
+    private Number cx4;
+    private Number cy4;
     private GraphicsMathRect mode19;
-    private Double opacity15;
-    private Double fx4;
-    private Double fy4;
+    private Number opacity15;
+    private Number fx4;
+    private Number fy4;
 
     /**
      * Radial gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings risingFill(GradientKey[] keys18, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity15, Double fx4, Double fy4) {
+    public StateSettings risingFill(GradientKey[] keys18, Number cx4, Number cy4, GraphicsMathRect mode19, Number opacity15, Number fx4, Number fy4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6988,7 +7281,7 @@ public class StateSettings extends CoreBase {
      * Radial gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public StateSettings risingFill(String[] keys19, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity15, Double fx4, Double fy4) {
+    public StateSettings risingFill(String[] keys19, Number cx4, Number cy4, GraphicsMathRect mode19, Number opacity15, Number fx4, Number fy4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7122,15 +7415,15 @@ public class StateSettings extends CoreBase {
     private String patternFillOrTypeOrState8;
     private Boolean patternFillOrTypeOrState9;
     private String color25;
-    private Double thickness11;
-    private Double size4;
+    private Number thickness11;
+    private Number size4;
     private List<ScrollerseriesBase> setRisingHatchFill = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public ScrollerseriesBase setRisingHatchFill(PatternFill patternFillOrTypeOrState5, String color25, Double thickness11, Double size4) {
+    public ScrollerseriesBase setRisingHatchFill(PatternFill patternFillOrTypeOrState5, String color25, Number thickness11, Number size4) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -7232,7 +7525,7 @@ public class StateSettings extends CoreBase {
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public ScrollerseriesBase setRisingHatchFill(HatchFill patternFillOrTypeOrState6, String color25, Double thickness11, Double size4) {
+    public ScrollerseriesBase setRisingHatchFill(HatchFill patternFillOrTypeOrState6, String color25, Number thickness11, Number size4) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -7334,7 +7627,7 @@ public class StateSettings extends CoreBase {
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public ScrollerseriesBase setRisingHatchFill(HatchFillType patternFillOrTypeOrState7, String color25, Double thickness11, Double size4) {
+    public ScrollerseriesBase setRisingHatchFill(HatchFillType patternFillOrTypeOrState7, String color25, Number thickness11, Number size4) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -7436,7 +7729,7 @@ public class StateSettings extends CoreBase {
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public ScrollerseriesBase setRisingHatchFill(String patternFillOrTypeOrState8, String color25, Double thickness11, Double size4) {
+    public ScrollerseriesBase setRisingHatchFill(String patternFillOrTypeOrState8, String color25, Number thickness11, Number size4) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -7538,7 +7831,7 @@ public class StateSettings extends CoreBase {
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public ScrollerseriesBase setRisingHatchFill(Boolean patternFillOrTypeOrState9, String color25, Double thickness11, Double size4) {
+    public ScrollerseriesBase setRisingHatchFill(Boolean patternFillOrTypeOrState9, String color25, Number thickness11, Number size4) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -7637,7 +7930,7 @@ public class StateSettings extends CoreBase {
     private Stroke color26;
     private ColoredFill color27;
     private String color28;
-    private Double thickness12;
+    private Number thickness12;
     private String dashpattern7;
     private StrokeLineJoin lineJoin7;
     private StrokeLineCap lineCap7;
@@ -7646,7 +7939,7 @@ public class StateSettings extends CoreBase {
      * Setter for rising stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setRisingStroke(Stroke color26, Double thickness12, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
+    public StateSettings setRisingStroke(Stroke color26, Number thickness12, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -7750,7 +8043,7 @@ public class StateSettings extends CoreBase {
      * Setter for rising stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setRisingStroke(ColoredFill color27, Double thickness12, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
+    public StateSettings setRisingStroke(ColoredFill color27, Number thickness12, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -7854,7 +8147,7 @@ public class StateSettings extends CoreBase {
      * Setter for rising stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setRisingStroke(String color28, Double thickness12, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
+    public StateSettings setRisingStroke(String color28, Number thickness12, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -7990,12 +8283,12 @@ public class StateSettings extends CoreBase {
         }
     }
 
-    private Double size5;
+    private Number size5;
 
     /**
      * Setter for the marker size.
      */
-    public StateSettings setSize(Double size5) {
+    public StateSettings setSize(Number size5) {
         if (jsBase == null) {
             this.size = null;
             this.size1 = null;
@@ -8025,7 +8318,7 @@ public class StateSettings extends CoreBase {
     private Stroke color29;
     private ColoredFill color30;
     private String color31;
-    private Double thickness13;
+    private Number thickness13;
     private String dashpattern8;
     private StrokeLineJoin lineJoin8;
     private StrokeLineCap lineCap8;
@@ -8034,7 +8327,7 @@ public class StateSettings extends CoreBase {
      * Setter for stem stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setStemStroke(Stroke color29, Double thickness13, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
+    public StateSettings setStemStroke(Stroke color29, Number thickness13, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -8145,7 +8438,7 @@ public class StateSettings extends CoreBase {
      * Setter for stem stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setStemStroke(ColoredFill color30, Double thickness13, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
+    public StateSettings setStemStroke(ColoredFill color30, Number thickness13, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -8256,7 +8549,7 @@ public class StateSettings extends CoreBase {
      * Setter for stem stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setStemStroke(String color31, Double thickness13, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
+    public StateSettings setStemStroke(String color31, Number thickness13, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -8365,7 +8658,7 @@ public class StateSettings extends CoreBase {
     private Stroke color32;
     private ColoredFill color33;
     private String color34;
-    private Double thickness14;
+    private Number thickness14;
     private String dashpattern9;
     private StrokeLineJoin lineJoin9;
     private StrokeLineCap lineCap9;
@@ -8374,7 +8667,7 @@ public class StateSettings extends CoreBase {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setStroke(Stroke color32, Double thickness14, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
+    public StateSettings setStroke(Stroke color32, Number thickness14, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -8492,7 +8785,7 @@ public class StateSettings extends CoreBase {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setStroke(ColoredFill color33, Double thickness14, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
+    public StateSettings setStroke(ColoredFill color33, Number thickness14, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -8610,7 +8903,7 @@ public class StateSettings extends CoreBase {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setStroke(String color34, Double thickness14, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
+    public StateSettings setStroke(String color34, Number thickness14, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -8726,7 +9019,7 @@ public class StateSettings extends CoreBase {
     private Stroke trend;
     private ColoredFill trend1;
     private String trend2;
-    private Double thickness15;
+    private Number thickness15;
     private String dashpattern10;
     private StrokeLineJoin lineJoin10;
     private StrokeLineCap lineCap10;
@@ -8735,7 +9028,7 @@ public class StateSettings extends CoreBase {
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setTrend(Stroke trend, Double thickness15, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
+    public StateSettings setTrend(Stroke trend, Number thickness15, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
         if (jsBase == null) {
             this.trend = null;
             this.trend1 = null;
@@ -8825,7 +9118,7 @@ public class StateSettings extends CoreBase {
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setTrend(ColoredFill trend1, Double thickness15, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
+    public StateSettings setTrend(ColoredFill trend1, Number thickness15, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
         if (jsBase == null) {
             this.trend = null;
             this.trend1 = null;
@@ -8915,7 +9208,7 @@ public class StateSettings extends CoreBase {
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setTrend(String trend2, Double thickness15, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
+    public StateSettings setTrend(String trend2, Number thickness15, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
         if (jsBase == null) {
             this.trend = null;
             this.trend1 = null;
@@ -9127,7 +9420,7 @@ public class StateSettings extends CoreBase {
     private Stroke color35;
     private ColoredFill color36;
     private String color37;
-    private Double thickness16;
+    private Number thickness16;
     private String dashpattern11;
     private StrokeLineJoin lineJoin11;
     private StrokeLineCap lineCap11;
@@ -9136,7 +9429,7 @@ public class StateSettings extends CoreBase {
      * Setter for whisker stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setWhiskerStroke(Stroke color35, Double thickness16, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
+    public StateSettings setWhiskerStroke(Stroke color35, Number thickness16, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -9265,7 +9558,7 @@ public class StateSettings extends CoreBase {
      * Setter for whisker stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setWhiskerStroke(ColoredFill color36, Double thickness16, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
+    public StateSettings setWhiskerStroke(ColoredFill color36, Number thickness16, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -9394,7 +9687,7 @@ public class StateSettings extends CoreBase {
      * Setter for whisker stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StateSettings setWhiskerStroke(String color37, Double thickness16, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
+    public StateSettings setWhiskerStroke(String color37, Number thickness16, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -9518,13 +9811,13 @@ public class StateSettings extends CoreBase {
         return this;
     }
 
-    private Double whiskerWidth;
+    private Number whiskerWidth;
     private String whiskerWidth1;
 
     /**
      * Setter for the whisker width.
      */
-    public StateSettings setWhiskerWidth(Double whiskerWidth) {
+    public StateSettings setWhiskerWidth(Number whiskerWidth) {
         if (jsBase == null) {
             this.whiskerWidth = null;
             this.whiskerWidth1 = null;
@@ -9572,6 +9865,13 @@ public class StateSettings extends CoreBase {
             }
         }
         return this;
+    }
+
+    private String generateJSgetConnector() {
+        if (getConnector != null) {
+            return getConnector.generateJs();
+        }
+        return "";
     }
 
     private String generateJSgetEmptyHatchFill() {
@@ -9651,6 +9951,13 @@ public class StateSettings extends CoreBase {
         return "";
     }
 
+    private String generateJSgetOutline() {
+        if (getOutline != null) {
+            return getOutline.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetRisingHatchFill() {
         if (getRisingHatchFill != null) {
             return getRisingHatchFill.generateJs();
@@ -9679,6 +9986,7 @@ public class StateSettings extends CoreBase {
         jsGetters.append(super.generateJsGetters());
 
     
+        jsGetters.append(generateJSgetConnector());
         jsGetters.append(generateJSgetEmptyHatchFill());
         jsGetters.append(generateJSgetFallingHatchFill());
         jsGetters.append(generateJSgetHatchFill());
@@ -9690,6 +9998,7 @@ public class StateSettings extends CoreBase {
         jsGetters.append(generateJSgetNegativeHatchFill());
         jsGetters.append(generateJSgetNormal());
         jsGetters.append(generateJSgetOutlierMarkers());
+        jsGetters.append(generateJSgetOutline());
         jsGetters.append(generateJSgetRisingHatchFill());
         jsGetters.append(generateJSgetSelected());
         jsGetters.append(generateJSgetUpperLabels());

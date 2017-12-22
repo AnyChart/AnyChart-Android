@@ -106,7 +106,7 @@ public class FibonacciBase extends AnnotationsBase {
     private Stroke color;
     private ColoredFill color1;
     private String color2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -115,7 +115,7 @@ public class FibonacciBase extends AnnotationsBase {
      * Setter for annotation stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public FibonacciBase setStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public FibonacciBase setStroke(Stroke color, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -152,7 +152,7 @@ public class FibonacciBase extends AnnotationsBase {
      * Setter for annotation stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public FibonacciBase setStroke(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public FibonacciBase setStroke(ColoredFill color1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -189,7 +189,7 @@ public class FibonacciBase extends AnnotationsBase {
      * Setter for annotation stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public FibonacciBase setStroke(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public FibonacciBase setStroke(String color2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -224,7 +224,7 @@ public class FibonacciBase extends AnnotationsBase {
     private Stroke trend;
     private ColoredFill trend1;
     private String trend2;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -233,7 +233,7 @@ public class FibonacciBase extends AnnotationsBase {
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public FibonacciBase setTrend(Stroke trend, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public FibonacciBase setTrend(Stroke trend, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.trend = null;
             this.trend1 = null;
@@ -282,7 +282,7 @@ public class FibonacciBase extends AnnotationsBase {
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public FibonacciBase setTrend(ColoredFill trend1, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public FibonacciBase setTrend(ColoredFill trend1, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.trend = null;
             this.trend1 = null;
@@ -331,7 +331,7 @@ public class FibonacciBase extends AnnotationsBase {
      * Setter for annotation trend settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public FibonacciBase setTrend(String trend2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public FibonacciBase setTrend(String trend2, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.trend = null;
             this.trend1 = null;

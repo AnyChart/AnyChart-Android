@@ -54,27 +54,27 @@ public class ChartsRadar extends SeparateChart {
      * Add series to the chart.
      */
     public void addSeries(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
     }
 
 
@@ -101,27 +101,27 @@ public class ChartsRadar extends SeparateChart {
      * Adds Area series.
      */
     public RadarSeriesArea area(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setArea" + ++variableIndex + " = " + jsBase + ".area(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setArea" + ++variableIndex + " = " + jsBase + ".area(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         RadarSeriesArea item = new RadarSeriesArea("setArea" + variableIndex);
         setArea.add(item);
         return item;
@@ -226,7 +226,7 @@ public class ChartsRadar extends SeparateChart {
     /**
      * Getter for the series by its id.
      */
-    public RadarSeriesBase getGetSeries(Double id) {
+    public RadarSeriesBase getGetSeries(Number id) {
         RadarSeriesBase item = new RadarSeriesBase(jsBase + ".getSeries("+ id+")");
         getGetSeries.add(item);
         return item;
@@ -248,7 +248,7 @@ public class ChartsRadar extends SeparateChart {
     /**
      * Gets the series by its index.
      */
-    public RadarSeriesBase getGetSeriesAt(Double index) {
+    public RadarSeriesBase getGetSeriesAt(Number index) {
         RadarSeriesBase item = new RadarSeriesBase(jsBase + ".getSeriesAt("+ index+")");
         getGetSeriesAt.add(item);
         return item;
@@ -317,6 +317,11 @@ public class ChartsRadar extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -351,13 +356,13 @@ public class ChartsRadar extends SeparateChart {
         return this;
     }
 
-    private Double innerRadius;
+    private Number innerRadius;
     private String innerRadius1;
 
     /**
      * Setter for the inner radius in pixels or percent of main radius.
      */
-    public ChartsRadar setInnerRadius(Double innerRadius) {
+    public ChartsRadar setInnerRadius(Number innerRadius) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -445,27 +450,27 @@ public class ChartsRadar extends SeparateChart {
      * Adds Line series.
      */
     public RadarSeriesLine line(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         RadarSeriesLine item = new RadarSeriesLine("setLine" + variableIndex);
         setLine.add(item);
         return item;
@@ -519,27 +524,27 @@ public class ChartsRadar extends SeparateChart {
      * Adds Marker series.
      */
     public RadarSeriesMarker marker(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         RadarSeriesMarker item = new RadarSeriesMarker("setMarker" + variableIndex);
         setMarker.add(item);
         return item;
@@ -616,6 +621,11 @@ public class ChartsRadar extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -734,6 +744,11 @@ public class ChartsRadar extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -751,6 +766,11 @@ public class ChartsRadar extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -792,13 +812,13 @@ public class ChartsRadar extends SeparateChart {
         return this;
     }
 
-    private Double id2;
+    private Number id2;
     private String id3;
 
     /**
      * Removes one of series from chart by its id.
      */
-    public ChartsRadar removeSeries(Double id2) {
+    public ChartsRadar removeSeries(Number id2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -830,12 +850,12 @@ public class ChartsRadar extends SeparateChart {
         return this;
     }
 
-    private Double index1;
+    private Number index1;
 
     /**
      * Removes one of series from chart by its index.
      */
-    public ChartsRadar removeSeriesAt(Double index1) {
+    public ChartsRadar removeSeriesAt(Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -881,7 +901,7 @@ public class ChartsRadar extends SeparateChart {
     }
 
     private String startAngle;
-    private Double startAngle1;
+    private Number startAngle1;
 
     /**
      * Setter for the chart start angle.
@@ -904,7 +924,7 @@ public class ChartsRadar extends SeparateChart {
     /**
      * Setter for the chart start angle.
      */
-    public ChartsRadar setStartAngle(Double startAngle1) {
+    public ChartsRadar setStartAngle(Number startAngle1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -986,7 +1006,7 @@ public class ChartsRadar extends SeparateChart {
     /**
      * Getter for the chart grid by X-scale.
      */
-    public CoreGridsRadar getXGrid(Double index2) {
+    public CoreGridsRadar getXGrid(Number index2) {
         CoreGridsRadar item = new CoreGridsRadar(jsBase + ".xGrid("+ index2+")");
         getXGrid1.add(item);
         return item;
@@ -1029,14 +1049,14 @@ public class ChartsRadar extends SeparateChart {
         return this;
     }
 
-    private Double index3;
+    private Number index3;
     private String xGrid2;
     private Boolean xGrid3;
 
     /**
      * Setter for the chart grid by index.
      */
-    public ChartsRadar setXGrid(String xGrid2, Double index3) {
+    public ChartsRadar setXGrid(String xGrid2, Number index3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1054,7 +1074,7 @@ public class ChartsRadar extends SeparateChart {
     /**
      * Setter for the chart grid by index.
      */
-    public ChartsRadar setXGrid(Boolean xGrid3, Double index3) {
+    public ChartsRadar setXGrid(Boolean xGrid3, Number index3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1086,7 +1106,7 @@ public class ChartsRadar extends SeparateChart {
     /**
      * Getter for the chart minor grid by X-scale.
      */
-    public CoreGridsRadar getXMinorGrid(Double index4) {
+    public CoreGridsRadar getXMinorGrid(Number index4) {
         CoreGridsRadar item = new CoreGridsRadar(jsBase + ".xMinorGrid("+ index4+")");
         getXMinorGrid1.add(item);
         return item;
@@ -1129,14 +1149,14 @@ public class ChartsRadar extends SeparateChart {
         return this;
     }
 
-    private Double index5;
+    private Number index5;
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
 
     /**
      * Setter for the chart minor grid by index.
      */
-    public ChartsRadar setXMinorGrid(String xMinorGrid2, Double index5) {
+    public ChartsRadar setXMinorGrid(String xMinorGrid2, Number index5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1154,7 +1174,7 @@ public class ChartsRadar extends SeparateChart {
     /**
      * Setter for the chart minor grid by index.
      */
-    public ChartsRadar setXMinorGrid(Boolean xMinorGrid3, Double index5) {
+    public ChartsRadar setXMinorGrid(Boolean xMinorGrid3, Number index5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1195,6 +1215,11 @@ public class ChartsRadar extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale != null) ? xScale.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale != null) ? xScale.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -1266,7 +1291,7 @@ public class ChartsRadar extends SeparateChart {
     /**
      * Getter for the chart grid by Y-scale.
      */
-    public CoreGridsRadar getYGrid(Double index6) {
+    public CoreGridsRadar getYGrid(Number index6) {
         CoreGridsRadar item = new CoreGridsRadar(jsBase + ".yGrid("+ index6+")");
         getYGrid1.add(item);
         return item;
@@ -1309,14 +1334,14 @@ public class ChartsRadar extends SeparateChart {
         return this;
     }
 
-    private Double index7;
+    private Number index7;
     private String yGrid2;
     private Boolean yGrid3;
 
     /**
      * Setter for the chart grid by index.
      */
-    public ChartsRadar setYGrid(String yGrid2, Double index7) {
+    public ChartsRadar setYGrid(String yGrid2, Number index7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1334,7 +1359,7 @@ public class ChartsRadar extends SeparateChart {
     /**
      * Setter for the chart grid by index.
      */
-    public ChartsRadar setYGrid(Boolean yGrid3, Double index7) {
+    public ChartsRadar setYGrid(Boolean yGrid3, Number index7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1366,7 +1391,7 @@ public class ChartsRadar extends SeparateChart {
     /**
      * Getter for the chart minor grid by X-scale.
      */
-    public CoreGridsRadar getYMinorGrid(Double index8) {
+    public CoreGridsRadar getYMinorGrid(Number index8) {
         CoreGridsRadar item = new CoreGridsRadar(jsBase + ".yMinorGrid("+ index8+")");
         getYMinorGrid1.add(item);
         return item;
@@ -1409,14 +1434,14 @@ public class ChartsRadar extends SeparateChart {
         return this;
     }
 
-    private Double index9;
+    private Number index9;
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
 
     /**
      * Setter for the chart minor grid by index.
      */
-    public ChartsRadar setYMinorGrid(String yMinorGrid2, Double index9) {
+    public ChartsRadar setYMinorGrid(String yMinorGrid2, Number index9) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1434,7 +1459,7 @@ public class ChartsRadar extends SeparateChart {
     /**
      * Setter for the chart minor grid by index.
      */
-    public ChartsRadar setYMinorGrid(Boolean yMinorGrid3, Double index9) {
+    public ChartsRadar setYMinorGrid(Boolean yMinorGrid3, Number index9) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1497,6 +1522,11 @@ public class ChartsRadar extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 

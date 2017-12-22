@@ -37,13 +37,13 @@ public class RenderingsettingsContext extends JsObject {
     
     private PointState state;
     private String state1;
-    private Double baseZIndex;
+    private Number baseZIndex;
     private String restrictShapes;
 
     /**
      * Generates a shapes group.
      */
-    public void getShapesGroup(PointState state, Double baseZIndex, String restrictShapes) {
+    public void getShapesGroup(PointState state, Number baseZIndex, String restrictShapes) {
         if (jsBase == null) {
             this.state = null;
             this.state1 = null;
@@ -74,7 +74,7 @@ public class RenderingsettingsContext extends JsObject {
     /**
      * Generates a shapes group.
      */
-    public void getShapesGroup(String state1, Double baseZIndex, String restrictShapes) {
+    public void getShapesGroup(String state1, Number baseZIndex, String restrictShapes) {
         if (jsBase == null) {
             this.state = null;
             this.state1 = null;

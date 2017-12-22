@@ -35,13 +35,13 @@ public class TablePadding extends JsObject {
     }
 
     
-    private Double bottom;
+    private Number bottom;
     private String bottom1;
 
     /**
      * Setter for bottom padding.
      */
-    public TablePadding setBottom(Double bottom) {
+    public TablePadding setBottom(Number bottom) {
         if (jsBase == null) {
             this.bottom = null;
             this.bottom1 = null;
@@ -91,13 +91,13 @@ public class TablePadding extends JsObject {
         return this;
     }
 
-    private Double left;
+    private Number left;
     private String left1;
 
     /**
      * Setter for left padding.
      */
-    public TablePadding setLeft(Double left) {
+    public TablePadding setLeft(Number left) {
         if (jsBase == null) {
             this.left = null;
             this.left1 = null;
@@ -147,13 +147,13 @@ public class TablePadding extends JsObject {
         return this;
     }
 
-    private Double right;
+    private Number right;
     private String right1;
 
     /**
      * Setter for right padding.
      */
-    public TablePadding setRight(Double right) {
+    public TablePadding setRight(Number right) {
         if (jsBase == null) {
             this.right = null;
             this.right1 = null;
@@ -203,13 +203,13 @@ public class TablePadding extends JsObject {
         return this;
     }
 
-    private Double top;
+    private Number top;
     private String top1;
 
     /**
      * Setter for top padding.
      */
-    public TablePadding setTop(Double top) {
+    public TablePadding setTop(Number top) {
         if (jsBase == null) {
             this.top = null;
             this.top1 = null;

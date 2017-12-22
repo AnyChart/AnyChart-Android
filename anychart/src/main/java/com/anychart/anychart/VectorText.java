@@ -205,7 +205,7 @@ public class VectorText extends Element {
     }
 
     private String fontSize;
-    private Double fontSize1;
+    private Number fontSize1;
 
     /**
      * Setter for font size of text.
@@ -237,7 +237,7 @@ public class VectorText extends Element {
     /**
      * Setter for font size of text.
      */
-    public VectorText setFontSize(Double fontSize1) {
+    public VectorText setFontSize(Number fontSize1) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -373,7 +373,7 @@ public class VectorText extends Element {
     }
 
     private String fontWeight;
-    private Double fontWeight1;
+    private Number fontWeight1;
 
     /**
      * Setter for font weight of text.
@@ -405,7 +405,7 @@ public class VectorText extends Element {
     /**
      * Setter for font weight of text.
      */
-    public VectorText setFontWeight(Double fontWeight1) {
+    public VectorText setFontWeight(Number fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -484,13 +484,13 @@ public class VectorText extends Element {
         return this;
     }
 
-    private Double height;
+    private Number height;
     private String height1;
 
     /**
      * Sets a height.
      */
-    public VectorText setHeight(Double height) {
+    public VectorText setHeight(Number height) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -566,7 +566,7 @@ public class VectorText extends Element {
     }
 
     private String letterSpacing;
-    private Double letterSpacing1;
+    private Number letterSpacing1;
 
     /**
      * Setter for letter spacing of text.
@@ -598,7 +598,7 @@ public class VectorText extends Element {
     /**
      * Setter for letter spacing of text.
      */
-    public VectorText setLetterSpacing(Double letterSpacing1) {
+    public VectorText setLetterSpacing(Number letterSpacing1) {
         if (jsBase == null) {
             this.letterSpacing = null;
             this.letterSpacing1 = null;
@@ -622,7 +622,7 @@ public class VectorText extends Element {
     }
 
     private String lineHeight;
-    private Double lineHeight1;
+    private Number lineHeight1;
 
     /**
      * Sets line height, either as ratio or in pixels.
@@ -654,7 +654,7 @@ public class VectorText extends Element {
     /**
      * Sets line height, either as ratio or in pixels.
      */
-    public VectorText setLineHeight(Double lineHeight1) {
+    public VectorText setLineHeight(Number lineHeight1) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -677,12 +677,12 @@ public class VectorText extends Element {
         return this;
     }
 
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Setter for text opacity.
      */
-    public VectorText setOpacity(Double opacity) {
+    public VectorText setOpacity(Number opacity) {
         if (jsBase == null) {
             this.opacity = opacity;
         } else {
@@ -791,13 +791,13 @@ Defines whether text can be selected. If <b>false</b> - no selection.
         return this;
     }
 
-    private Double textIndent;
+    private Number textIndent;
 
     /**
      * Setter for text indent.<br/>
 The text-indent property specifies the indentation of the first line in a text-block.
      */
-    public VectorText setTextIndent(Double textIndent) {
+    public VectorText setTextIndent(Number textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
         } else {
@@ -929,13 +929,13 @@ The text-indent property specifies the indentation of the first line in a text-b
         return this;
     }
 
-    private Double width;
+    private Number width;
     private String width1;
 
     /**
      * Sets a width.
      */
-    public VectorText setWidth(Double width) {
+    public VectorText setWidth(Number width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -1099,12 +1099,12 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
         return this;
     }
 
-    private Double x;
+    private Number x;
 
     /**
      * Setter for X coordinate of text.
      */
-    public VectorText setX(Double x) {
+    public VectorText setX(Number x) {
         if (jsBase == null) {
             this.x = x;
         } else {
@@ -1124,12 +1124,12 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
         return this;
     }
 
-    private Double y;
+    private Number y;
 
     /**
      * Setter for Y coordinate of text.
      */
-    public VectorText setY(Double y) {
+    public VectorText setY(Number y) {
         if (jsBase == null) {
             this.y = y;
         } else {

@@ -12,6 +12,7 @@ public enum CartesianSeriesType implements JsObject.JsObjectInterface {
     BUBBLE("bubble"),
     CANDLESTICK("candlestick"),
     COLUMN("column"),
+    HILO("hilo"),
     JUMP_LINE("jump-line"),
     LINE("line"),
     MARKER("marker"),

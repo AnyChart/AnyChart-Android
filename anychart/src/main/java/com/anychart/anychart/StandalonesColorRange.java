@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * 
+ * The ColorRange class contains methods for configuring standalones color range.
  */
 public class StandalonesColorRange extends UiColorRange {
 
@@ -116,14 +116,14 @@ public class StandalonesColorRange extends UiColorRange {
         return getPadding;
     }
 
-    private Double[] padding;
+    private Number[] padding;
     private String[] padding1;
     private String padding2;
 
     /**
      * Setter for paddings in pixels using a single value.<br/>
      */
-    public StandalonesColorRange setPadding(Double[] padding) {
+    public StandalonesColorRange setPadding(Number[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -204,13 +204,13 @@ public class StandalonesColorRange extends UiColorRange {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for current cell paddings in pixels using several numbers.
@@ -281,7 +281,7 @@ public class StandalonesColorRange extends UiColorRange {
     /**
      * Setter for current cell paddings in pixels using several numbers.
      */
-    public StandalonesColorRange setPadding(Double value1, Double value3, Double value5, Double value7) {
+    public StandalonesColorRange setPadding(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -346,7 +346,7 @@ public class StandalonesColorRange extends UiColorRange {
     private AnychartMathRect getParentBounds;
 
     /**
-     * Getter for bounds.
+     * Getter for parent bounds.<br/>
 As a getter falls back to stage bounds.
      */
     public AnychartMathRect getParentBounds() {
@@ -413,15 +413,15 @@ As a getter falls back to stage bounds.
         return this;
     }
 
-    private Double left;
-    private Double top;
-    private Double width;
-    private Double height;
+    private Number left;
+    private Number top;
+    private Number width;
+    private Number height;
 
     /**
-     * Setter for bounds using several value.
+     * Setter for bounds using several values.
      */
-    public StandalonesColorRange setParentBounds(Double left, Double top, Double width, Double height) {
+    public StandalonesColorRange setParentBounds(Number left, Number top, Number width, Number height) {
         if (jsBase == null) {
             this.left = left;
             this.top = top;

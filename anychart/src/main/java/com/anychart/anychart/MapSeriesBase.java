@@ -35,13 +35,13 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
     
-    private Double indexes;
-    private Double[] indexes1;
+    private Number indexes;
+    private Number[] indexes1;
 
     /**
      * Excludes points at the specified index.
      */
-    public void excludePoint(Double indexes) {
+    public void excludePoint(Number indexes) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -68,7 +68,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     /**
      * Excludes points at the specified index.
      */
-    public void excludePoint(Double[] indexes1) {
+    public void excludePoint(Number[] indexes1) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -118,12 +118,12 @@ public class MapSeriesBase extends AnychartSeriesBase {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Series fill color with opacity. Fill as a string or an object.
      */
-    public MapSeriesBase fill(String color, Double opacity) {
+    public MapSeriesBase fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -147,17 +147,17 @@ public class MapSeriesBase extends AnychartSeriesBase {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient series fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public MapSeriesBase fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public MapSeriesBase fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -198,7 +198,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
      * Linear gradient series fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public MapSeriesBase fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public MapSeriesBase fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -239,7 +239,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
      * Linear gradient series fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public MapSeriesBase fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public MapSeriesBase fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -280,7 +280,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
      * Linear gradient series fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public MapSeriesBase fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public MapSeriesBase fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -321,7 +321,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
      * Linear gradient series fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public MapSeriesBase fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public MapSeriesBase fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -362,7 +362,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
      * Linear gradient series fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public MapSeriesBase fill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public MapSeriesBase fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -400,18 +400,18 @@ public class MapSeriesBase extends AnychartSeriesBase {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial series fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public MapSeriesBase fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public MapSeriesBase fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -462,7 +462,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
      * Radial series fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public MapSeriesBase fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public MapSeriesBase fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -552,13 +552,13 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private String patternFillOrTypeOrState3;
     private Boolean patternFillOrTypeOrState4;
     private String color1;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
 
     /**
      * Setter for the hatch fill.
      */
-    public MapSeriesBase setHatchFill(PatternFill patternFillOrTypeOrState, String color1, Double thickness, Double size) {
+    public MapSeriesBase setHatchFill(PatternFill patternFillOrTypeOrState, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -597,7 +597,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     /**
      * Setter for the hatch fill.
      */
-    public MapSeriesBase setHatchFill(HatchFill patternFillOrTypeOrState1, String color1, Double thickness, Double size) {
+    public MapSeriesBase setHatchFill(HatchFill patternFillOrTypeOrState1, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -636,7 +636,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     /**
      * Setter for the hatch fill.
      */
-    public MapSeriesBase setHatchFill(HatchFillType patternFillOrTypeOrState2, String color1, Double thickness, Double size) {
+    public MapSeriesBase setHatchFill(HatchFillType patternFillOrTypeOrState2, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -675,7 +675,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     /**
      * Setter for the hatch fill.
      */
-    public MapSeriesBase setHatchFill(String patternFillOrTypeOrState3, String color1, Double thickness, Double size) {
+    public MapSeriesBase setHatchFill(String patternFillOrTypeOrState3, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -714,7 +714,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     /**
      * Setter for the hatch fill.
      */
-    public MapSeriesBase setHatchFill(Boolean patternFillOrTypeOrState4, String color1, Double thickness, Double size) {
+    public MapSeriesBase setHatchFill(Boolean patternFillOrTypeOrState4, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -749,13 +749,13 @@ public class MapSeriesBase extends AnychartSeriesBase {
         return this;
     }
 
-    private Double indexes2;
-    private Double[] indexes3;
+    private Number indexes2;
+    private Number[] indexes3;
 
     /**
      * Includes excluded points with the specified indexes.
      */
-    public void includePoint(Double indexes2) {
+    public void includePoint(Number indexes2) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -784,7 +784,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     /**
      * Includes excluded points with the specified indexes.
      */
-    public void includePoint(Double[] indexes3) {
+    public void includePoint(Number[] indexes3) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -809,13 +809,13 @@ public class MapSeriesBase extends AnychartSeriesBase {
         }
     }
 
-    private Double indexes4;
-    private Double[] indexes5;
+    private Number indexes4;
+    private Number[] indexes5;
 
     /**
      * Keep only the specified points.
      */
-    public void keepOnlyPoints(Double indexes4) {
+    public void keepOnlyPoints(Number indexes4) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -846,7 +846,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     /**
      * Keep only the specified points.
      */
-    public void keepOnlyPoints(Double[] indexes5) {
+    public void keepOnlyPoints(Number[] indexes5) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -963,7 +963,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
     private Stroke stroke;
     private ColoredFill stroke1;
     private String stroke2;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -972,7 +972,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
      * Setter for series stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public MapSeriesBase setStroke(Stroke stroke, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public MapSeriesBase setStroke(Stroke stroke, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -1012,7 +1012,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
      * Setter for series stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public MapSeriesBase setStroke(ColoredFill stroke1, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public MapSeriesBase setStroke(ColoredFill stroke1, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -1052,7 +1052,7 @@ public class MapSeriesBase extends AnychartSeriesBase {
      * Setter for series stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public MapSeriesBase setStroke(String stroke2, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public MapSeriesBase setStroke(String stroke2, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -1087,14 +1087,14 @@ public class MapSeriesBase extends AnychartSeriesBase {
         return this;
     }
 
-    private Double xCoord;
-    private Double yCoord;
+    private Number xCoord;
+    private Number yCoord;
 
     /**
      * Transforms geo coordinates to pixel values.
 <b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
      */
-    public void transformXY(Double xCoord, Double yCoord) {
+    public void transformXY(Number xCoord, Number yCoord) {
         if (jsBase == null) {
             this.xCoord = xCoord;
             this.yCoord = yCoord;

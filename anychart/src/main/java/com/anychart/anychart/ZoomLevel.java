@@ -9,14 +9,14 @@ import java.util.Arrays;
 public class ZoomLevel extends JsObject  {
 
     
-    private Double count;
+    private Number count;
     private String id;
     private Interval unit;
     private String unit1;
-    private Double unitPixSize;
+    private Number unitPixSize;
 
     
-    public ZoomLevel(Interval unit, Double count, String id, Double unitPixSize) {
+    public ZoomLevel(Interval unit, Number count, String id, Number unitPixSize) {
         this.unit = unit;
         this.count = count;
         this.id = id;
@@ -24,7 +24,7 @@ public class ZoomLevel extends JsObject  {
 
         js.append(String.format(Locale.US, "{unit: %s,count: %f,id: %s,unitPixSize: %f}",  ((unit != null) ? unit.generateJs() : "null"), count, wrapQuotes(id), unitPixSize));
     }
-    public ZoomLevel(String unit1, Double count, String id, Double unitPixSize) {
+    public ZoomLevel(String unit1, Number count, String id, Number unitPixSize) {
         this.unit1 = unit1;
         this.count = count;
         this.id = id;

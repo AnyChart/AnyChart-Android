@@ -63,12 +63,12 @@ public class StockSeriesRangeColumn extends StockSeriesBase {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity.
      */
-    public StockSeriesRangeColumn fill(String color, Double opacity) {
+    public StockSeriesRangeColumn fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -107,14 +107,14 @@ public class StockSeriesRangeColumn extends StockSeriesBase {
     private HatchFillType patternFillOrType2;
     private String patternFillOrType3;
     private String color1;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
 
     /**
      * Setter for the hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesRangeColumn setHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
+    public StockSeriesRangeColumn setHatchFill(PatternFill patternFillOrType, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -153,7 +153,7 @@ public class StockSeriesRangeColumn extends StockSeriesBase {
      * Setter for the hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesRangeColumn setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
+    public StockSeriesRangeColumn setHatchFill(HatchFill patternFillOrType1, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -192,7 +192,7 @@ public class StockSeriesRangeColumn extends StockSeriesBase {
      * Setter for the hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesRangeColumn setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
+    public StockSeriesRangeColumn setHatchFill(HatchFillType patternFillOrType2, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -231,7 +231,7 @@ public class StockSeriesRangeColumn extends StockSeriesBase {
      * Setter for the hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public StockSeriesRangeColumn setHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
+    public StockSeriesRangeColumn setHatchFill(String patternFillOrType3, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -268,7 +268,7 @@ public class StockSeriesRangeColumn extends StockSeriesBase {
     private Stroke color2;
     private ColoredFill color3;
     private String color4;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -277,7 +277,7 @@ public class StockSeriesRangeColumn extends StockSeriesBase {
      * Setter for the stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StockSeriesRangeColumn setStroke(Stroke color2, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public StockSeriesRangeColumn setStroke(Stroke color2, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -319,7 +319,7 @@ public class StockSeriesRangeColumn extends StockSeriesBase {
      * Setter for the stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StockSeriesRangeColumn setStroke(ColoredFill color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public StockSeriesRangeColumn setStroke(ColoredFill color3, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -361,7 +361,7 @@ public class StockSeriesRangeColumn extends StockSeriesBase {
      * Setter for the stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public StockSeriesRangeColumn setStroke(String color4, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public StockSeriesRangeColumn setStroke(String color4, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;

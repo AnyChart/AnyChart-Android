@@ -1,7 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
 
 /**
  * Radial gradient stroke.
@@ -9,21 +8,21 @@ import java.util.Arrays;
 public class RadialGradientStroke extends JsObject implements Stroke {
 
     
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private String dash;
-    private Double fx;
-    private Double fy;
+    private Number fx;
+    private Number fy;
     private GradientKey[] keys;
     private String[] keys1;
     private String lineCap;
     private String lineJoin;
     private GraphicsMathRect mode;
-    private Double opacity;
-    private Double thickness;
+    private Number opacity;
+    private Number thickness;
 
     
-    public RadialGradientStroke(GradientKey[] keys, Double cx, Double cy, String dash, Double fx, Double fy, String lineCap, String lineJoin, GraphicsMathRect mode, Double opacity, Double thickness) {
+    public RadialGradientStroke(GradientKey[] keys, Number cx, Number cy, String dash, Number fx, Number fy, String lineCap, String lineJoin, GraphicsMathRect mode, Number opacity, Number thickness) {
         this.keys = keys;
         this.cx = cx;
         this.cy = cy;
@@ -38,7 +37,7 @@ public class RadialGradientStroke extends JsObject implements Stroke {
 
         js.append(String.format(Locale.US, "{keys: %s,cx: %f,cy: %f,dash: %s,fx: %f,fy: %f,lineCap: %s,lineJoin: %s,mode: %s,opacity: %f,thickness: %f}",  arrayToString(keys), cx, cy, wrapQuotes(dash), fx, fy, wrapQuotes(lineCap), wrapQuotes(lineJoin), ((mode != null) ? mode.generateJs() : "null"), opacity, thickness));
     }
-    public RadialGradientStroke(String[] keys1, Double cx, Double cy, String dash, Double fx, Double fy, String lineCap, String lineJoin, GraphicsMathRect mode, Double opacity, Double thickness) {
+    public RadialGradientStroke(String[] keys1, Number cx, Number cy, String dash, Number fx, Number fy, String lineCap, String lineJoin, GraphicsMathRect mode, Number opacity, Number thickness) {
         this.keys1 = keys1;
         this.cx = cx;
         this.cy = cy;

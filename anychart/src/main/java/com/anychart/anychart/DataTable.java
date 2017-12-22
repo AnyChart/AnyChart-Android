@@ -52,7 +52,7 @@ public class DataTable extends CoreBase {
     private String[] rawData;
     private String rawData1;
     private Boolean removeFromStart;
-    private Double removeFromStart1;
+    private Number removeFromStart1;
     private String csvSettings;
 
     /**
@@ -92,7 +92,7 @@ public class DataTable extends CoreBase {
     /**
      * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
      */
-    public DataTable addData(String[] rawData, String csvSettings, Double removeFromStart1) {
+    public DataTable addData(String[] rawData, String csvSettings, Number removeFromStart1) {
         if (jsBase == null) {
             this.rawData = null;
             this.rawData1 = null;
@@ -160,7 +160,7 @@ public class DataTable extends CoreBase {
     /**
      * Adds data to the table. Replaces all rows with duplicating keys by the last seen row with that key.
      */
-    public DataTable addData(String rawData1, String csvSettings, Double removeFromStart1) {
+    public DataTable addData(String rawData1, String csvSettings, Number removeFromStart1) {
         if (jsBase == null) {
             this.rawData = null;
             this.rawData1 = null;
@@ -278,8 +278,8 @@ public class DataTable extends CoreBase {
     private List<TableMapping> setMapAs = new ArrayList<>();
 
     /**
-     * Returns a new mapping for the table.
-You can add fields to table mappings after the mapping is created using it's addField() method.
+     * Returns a new mapping for the table.<br/>
+The fields can be added to table mappings after the mapping is created using its addField() method.
      */
     public TableMapping mapAs(String fields) {
         if (jsBase == null) {
@@ -310,15 +310,15 @@ You can add fields to table mappings after the mapping is created using it's add
         return "";
     }
 
-    private Double startKey;
+    private Number startKey;
     private String startKey1;
-    private Double endKey;
+    private Number endKey;
     private String endKey1;
 
     /**
-     * Removes all items between start and end keys.
+     * Removes all items between a start and end keys.
      */
-    public DataTable remove(Double startKey, Double endKey) {
+    public DataTable remove(Number startKey, Number endKey) {
         if (jsBase == null) {
             this.startKey = null;
             this.startKey1 = null;
@@ -348,9 +348,9 @@ You can add fields to table mappings after the mapping is created using it's add
 
 
     /**
-     * Removes all items between start and end keys.
+     * Removes all items between a start and end keys.
      */
-    public DataTable remove(Double startKey, String endKey1) {
+    public DataTable remove(Number startKey, String endKey1) {
         if (jsBase == null) {
             this.startKey = null;
             this.startKey1 = null;
@@ -380,9 +380,9 @@ You can add fields to table mappings after the mapping is created using it's add
 
 
     /**
-     * Removes all items between start and end keys.
+     * Removes all items between a start and end keys.
      */
-    public DataTable remove(String startKey1, Double endKey) {
+    public DataTable remove(String startKey1, Number endKey) {
         if (jsBase == null) {
             this.startKey = null;
             this.startKey1 = null;
@@ -412,7 +412,7 @@ You can add fields to table mappings after the mapping is created using it's add
 
 
     /**
-     * Removes all items between start and end keys.
+     * Removes all items between a start and end keys.
      */
     public DataTable remove(String startKey1, String endKey1) {
         if (jsBase == null) {
@@ -442,12 +442,12 @@ You can add fields to table mappings after the mapping is created using it's add
         return this;
     }
 
-    private Double count;
+    private Number count;
 
     /**
      * Removes first opt_count rows from the storage also considering appended but not yet committed rows.
      */
-    public DataTable removeFirst(Double count) {
+    public DataTable removeFirst(Number count) {
         if (jsBase == null) {
             this.count = count;
         } else {

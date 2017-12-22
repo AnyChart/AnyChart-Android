@@ -1,11 +1,6 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
-import android.text.TextUtils;
 
 // class
 /**
@@ -121,12 +116,12 @@ public class VisualBase extends CoreBase {
         }
     }
 
-    private Double zIndex;
+    private Number zIndex;
 
     /**
      * Setter for the Z-index of the element.
      */
-    public VisualBase setZIndex(Double zIndex) {
+    public VisualBase setZIndex(Number zIndex) {
         if (jsBase == null) {
             this.zIndex = zIndex;
         } else {

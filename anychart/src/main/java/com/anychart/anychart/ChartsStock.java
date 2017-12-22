@@ -100,6 +100,56 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     }
 
 
+    private Controller getEventMarkers;
+
+    /**
+     * Getter for the event markers controller.
+     */
+    public Controller getEventMarkers() {
+        if (getEventMarkers == null)
+            getEventMarkers = new Controller(jsBase + ".eventMarkers()");
+
+        return getEventMarkers;
+    }
+    private String eventMarkers;
+    private Boolean eventMarkers1;
+
+    /**
+     * Setter for the event markers controller.
+     */
+    public ChartsStock setEventMarkers(String eventMarkers) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".eventMarkers(%s)", wrapQuotes(eventMarkers)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".eventMarkers(%s)", wrapQuotes(eventMarkers)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the event markers controller.
+     */
+    public ChartsStock setEventMarkers(Boolean eventMarkers1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".eventMarkers(%b)", eventMarkers1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".eventMarkers(%b)", eventMarkers1));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
     private Grouping getGrouping;
 
     /**
@@ -263,7 +313,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Getter for the current plots.
      */
-    public Plot getPlot(Double index) {
+    public Plot getPlot(Number index) {
         Plot item = new Plot(jsBase + ".plot("+ index+")");
         getPlot1.add(item);
         return item;
@@ -306,14 +356,14 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         return this;
     }
 
-    private Double index1;
+    private Number index1;
     private String plot2;
     private Boolean plot3;
 
     /**
      * Setter for the plots by index.
      */
-    public ChartsStock setPlot(String plot2, Double index1) {
+    public ChartsStock setPlot(String plot2, Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -331,7 +381,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Setter for the plots by index.
      */
-    public ChartsStock setPlot(Boolean plot3, Double index1) {
+    public ChartsStock setPlot(Boolean plot3, Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -483,12 +533,12 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
         return this;
     }
 
-    private Double typeOrUnitOrStart;
+    private Number typeOrUnitOrStart;
     private String typeOrUnitOrStart1;
     private StockRangeType typeOrUnitOrStart2;
     private String typeOrUnitOrStart3;
     private Interval typeOrUnitOrStart4;
-    private Double endOrCountOrDispatchEvent;
+    private Number endOrCountOrDispatchEvent;
     private String endOrCountOrDispatchEvent1;
     private Boolean endOrCountOrDispatchEvent2;
     private StockRangeAnchor anchorOrDispatchEvent;
@@ -499,7 +549,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(Double typeOrUnitOrStart, Double endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
+    public ChartsStock selectRange(Number typeOrUnitOrStart, Number endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -517,7 +567,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(Double typeOrUnitOrStart, Double endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
+    public ChartsStock selectRange(Number typeOrUnitOrStart, Number endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -535,7 +585,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(Double typeOrUnitOrStart, Double endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+    public ChartsStock selectRange(Number typeOrUnitOrStart, Number endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -553,7 +603,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(Double typeOrUnitOrStart, String endOrCountOrDispatchEvent1, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
+    public ChartsStock selectRange(Number typeOrUnitOrStart, String endOrCountOrDispatchEvent1, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -571,7 +621,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(Double typeOrUnitOrStart, String endOrCountOrDispatchEvent1, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
+    public ChartsStock selectRange(Number typeOrUnitOrStart, String endOrCountOrDispatchEvent1, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -589,7 +639,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(Double typeOrUnitOrStart, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+    public ChartsStock selectRange(Number typeOrUnitOrStart, String endOrCountOrDispatchEvent1, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -607,7 +657,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(Double typeOrUnitOrStart, Boolean endOrCountOrDispatchEvent2, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
+    public ChartsStock selectRange(Number typeOrUnitOrStart, Boolean endOrCountOrDispatchEvent2, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -625,7 +675,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(Double typeOrUnitOrStart, Boolean endOrCountOrDispatchEvent2, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
+    public ChartsStock selectRange(Number typeOrUnitOrStart, Boolean endOrCountOrDispatchEvent2, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -643,7 +693,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(Double typeOrUnitOrStart, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+    public ChartsStock selectRange(Number typeOrUnitOrStart, Boolean endOrCountOrDispatchEvent2, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -661,7 +711,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(String typeOrUnitOrStart1, Double endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
+    public ChartsStock selectRange(String typeOrUnitOrStart1, Number endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -679,7 +729,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(String typeOrUnitOrStart1, Double endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
+    public ChartsStock selectRange(String typeOrUnitOrStart1, Number endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -697,7 +747,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(String typeOrUnitOrStart1, Double endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+    public ChartsStock selectRange(String typeOrUnitOrStart1, Number endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -823,7 +873,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Double endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
+    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Number endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -841,7 +891,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Double endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
+    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Number endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -859,7 +909,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Double endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+    public ChartsStock selectRange(StockRangeType typeOrUnitOrStart2, Number endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -985,7 +1035,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Double endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
+    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Number endOrCountOrDispatchEvent, StockRangeAnchor anchorOrDispatchEvent, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1003,7 +1053,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Double endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
+    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Number endOrCountOrDispatchEvent, String anchorOrDispatchEvent1, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1021,7 +1071,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     /**
      * Selects passed range and initiates data redraw.
      */
-    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Double endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
+    public ChartsStock selectRange(Interval typeOrUnitOrStart4, Number endOrCountOrDispatchEvent, Boolean anchorOrDispatchEvent2, Boolean dispatchEvent) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1216,12 +1266,12 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public ChartsStock zoomMarqueeFill(String color, Double opacity) {
+    public ChartsStock zoomMarqueeFill(String color, Number opacity) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1237,17 +1287,17 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ChartsStock zoomMarqueeFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public ChartsStock zoomMarqueeFill(GradientKey[] keys, Boolean mode, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1266,7 +1316,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ChartsStock zoomMarqueeFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public ChartsStock zoomMarqueeFill(GradientKey[] keys, VectorRect mode1, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1285,7 +1335,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ChartsStock zoomMarqueeFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public ChartsStock zoomMarqueeFill(GradientKey[] keys, String mode2, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1304,7 +1354,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ChartsStock zoomMarqueeFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public ChartsStock zoomMarqueeFill(String[] keys1, Boolean mode, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1323,7 +1373,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ChartsStock zoomMarqueeFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public ChartsStock zoomMarqueeFill(String[] keys1, VectorRect mode1, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1342,7 +1392,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ChartsStock zoomMarqueeFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public ChartsStock zoomMarqueeFill(String[] keys1, String mode2, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1358,18 +1408,18 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ChartsStock zoomMarqueeFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public ChartsStock zoomMarqueeFill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1388,7 +1438,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ChartsStock zoomMarqueeFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public ChartsStock zoomMarqueeFill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1406,7 +1456,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private Stroke color1;
     private ColoredFill color2;
     private String color3;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -1416,7 +1466,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
      * Setter for the zoom marquee stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Chart setZoomMarqueeStroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Chart setZoomMarqueeStroke(Stroke color1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -1448,7 +1498,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
      * Setter for the zoom marquee stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Chart setZoomMarqueeStroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Chart setZoomMarqueeStroke(ColoredFill color2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -1480,7 +1530,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
      * Setter for the zoom marquee stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Chart setZoomMarqueeStroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Chart setZoomMarqueeStroke(String color3, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -1509,6 +1559,13 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
     private String generateJSgetCrosshair() {
         if (getCrosshair != null) {
             return getCrosshair.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetEventMarkers() {
+        if (getEventMarkers != null) {
+            return getEventMarkers.generateJs();
         }
         return "";
     }
@@ -1575,6 +1632,7 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             isChain = false;
         }
         js.append(generateJSgetCrosshair());
+        js.append(generateJSgetEventMarkers());
         js.append(generateJSgetGrouping());
         js.append(generateJSgetInteractivity());
         js.append(generateJSgetPlot());

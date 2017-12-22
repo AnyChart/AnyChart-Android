@@ -40,7 +40,7 @@ public class CartesianSeriesOHLC extends WidthBased {
     private Stroke stroke;
     private ColoredFill stroke1;
     private String stroke2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -49,7 +49,7 @@ public class CartesianSeriesOHLC extends WidthBased {
      * Setter for falling stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CartesianSeriesOHLC setFallingStroke(Stroke stroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CartesianSeriesOHLC setFallingStroke(Stroke stroke, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -86,7 +86,7 @@ public class CartesianSeriesOHLC extends WidthBased {
      * Setter for falling stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CartesianSeriesOHLC setFallingStroke(ColoredFill stroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CartesianSeriesOHLC setFallingStroke(ColoredFill stroke1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -123,7 +123,7 @@ public class CartesianSeriesOHLC extends WidthBased {
      * Setter for falling stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CartesianSeriesOHLC setFallingStroke(String stroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CartesianSeriesOHLC setFallingStroke(String stroke2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -158,7 +158,7 @@ public class CartesianSeriesOHLC extends WidthBased {
     private Stroke color;
     private ColoredFill color1;
     private String color2;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -167,7 +167,7 @@ public class CartesianSeriesOHLC extends WidthBased {
      * Setter for rising stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CartesianSeriesOHLC setRisingStroke(Stroke color, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public CartesianSeriesOHLC setRisingStroke(Stroke color, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -216,7 +216,7 @@ public class CartesianSeriesOHLC extends WidthBased {
      * Setter for rising stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CartesianSeriesOHLC setRisingStroke(ColoredFill color1, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public CartesianSeriesOHLC setRisingStroke(ColoredFill color1, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -265,7 +265,7 @@ public class CartesianSeriesOHLC extends WidthBased {
      * Setter for rising stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CartesianSeriesOHLC setRisingStroke(String color2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public CartesianSeriesOHLC setRisingStroke(String color2, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;

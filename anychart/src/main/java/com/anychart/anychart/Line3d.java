@@ -37,6 +37,35 @@ public class Line3d extends CartesianSeriesContinuousBase {
     }
 
     
+    private String fill;
+    private Number opacity;
+
+    /**
+     * Setter for fill settings.
+{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     */
+    public Line3d setFill(String fill, Number opacity) {
+        if (jsBase == null) {
+            this.fill = fill;
+            this.opacity = opacity;
+        } else {
+            this.fill = fill;
+            this.opacity = opacity;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(fill), opacity));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f);", wrapQuotes(fill), opacity));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
 
     protected String generateJsGetters() {
         StringBuilder jsGetters = new StringBuilder();

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Table iterator class. Assumes iterator (if any) to return not less keys than the table has.
+ * Table iterator class. Assumes iterator (if any) to return not fewer keys than the table has.
  */
 public class TableIterator extends JsObject {
 

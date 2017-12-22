@@ -9,12 +9,12 @@ import java.util.Arrays;
 public class Tick extends JsObject  {
 
     
-    private Double end;
+    private Number end;
     private Boolean holiday;
-    private Double start;
+    private Number start;
 
     
-    public Tick(Double end, Boolean holiday, Double start) {
+    public Tick(Number end, Boolean holiday, Number start) {
         this.end = end;
         this.holiday = holiday;
         this.start = start;

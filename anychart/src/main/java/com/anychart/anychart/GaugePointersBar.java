@@ -91,13 +91,13 @@ public class GaugePointersBar extends GaugePointersBase {
         return this;
     }
 
-    private Double radius;
+    private Number radius;
     private String radius1;
 
     /**
      * Setter for the bar pointer radius.
      */
-    public GaugePointersBar setRadius(Double radius) {
+    public GaugePointersBar setRadius(Number radius) {
         if (jsBase == null) {
             this.radius = null;
             this.radius1 = null;
@@ -147,13 +147,13 @@ public class GaugePointersBar extends GaugePointersBase {
         return this;
     }
 
-    private Double width;
+    private Number width;
     private String width1;
 
     /**
      * Setter for the bar width.
      */
-    public GaugePointersBar setWidth(Double width) {
+    public GaugePointersBar setWidth(Number width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

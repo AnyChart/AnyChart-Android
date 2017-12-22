@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -32,12 +35,12 @@ public class BBandsB extends JsObject {
     }
 
     
-    private Double deviation;
+    private Number deviation;
 
     /**
      * Setter for the deviation.
      */
-    public BBandsB setDeviation(Double deviation) {
+    public BBandsB setDeviation(Number deviation) {
         if (jsBase == null) {
             this.deviation = deviation;
         } else {
@@ -62,7 +65,7 @@ public class BBandsB extends JsObject {
     /**
      * Getter and setter for the period.
      */
-    public BBandsB getPeriod(Double period) {
+    public BBandsB getPeriod(Number period) {
         BBandsB item = new BBandsB(jsBase + ".period(" + period + ")");
         getPeriod.add(item);
         return item;

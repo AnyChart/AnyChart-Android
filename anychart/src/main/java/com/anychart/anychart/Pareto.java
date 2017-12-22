@@ -51,27 +51,27 @@ public class Pareto extends SeparateChart {
      * Adds series to the chart.
      */
     public void addSeries(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
     }
 
 
@@ -123,13 +123,13 @@ public class Pareto extends SeparateChart {
         return this;
     }
 
-    private Double barGroupsPadding;
+    private Number barGroupsPadding;
 
     /**
      * Setter for space between bar groups on the ordinal scale by a ratio of bars width.<br/>
 See illustration at {@link anychart.charts.Pareto#barsPadding}.
      */
-    public Pareto setBarGroupsPadding(Double barGroupsPadding) {
+    public Pareto setBarGroupsPadding(Number barGroupsPadding) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -143,13 +143,13 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double barsPadding;
+    private Number barsPadding;
 
     /**
      * Setter for space between bars on the ordinal scale by ratio of bars width.</br>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.charts.Pareto.barsPadding.png' width='396' height='294'/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.charts.Pareto.barsPadding.png' width='396' height='294'/>
      */
-    public Pareto setBarsPadding(Double barsPadding) {
+    public Pareto setBarsPadding(Number barsPadding) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -230,27 +230,27 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
      * Setter for the data.
      */
     public Pareto setData(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         return this;
     }
 
@@ -330,7 +330,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Getter for the series by its id.
      */
-    public CartesianSeriesBase getGetSeries(Double id) {
+    public CartesianSeriesBase getGetSeries(Number id) {
         CartesianSeriesBase item = new CartesianSeriesBase(jsBase + ".getSeries("+ id+")");
         getGetSeries.add(item);
         return item;
@@ -352,7 +352,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Getter for the series by its index.
      */
-    public CartesianSeriesBase getGetSeriesAt(Double index) {
+    public CartesianSeriesBase getGetSeriesAt(Number index) {
         CartesianSeriesBase item = new CartesianSeriesBase(jsBase + ".getSeriesAt("+ index+")");
         getGetSeriesAt.add(item);
         return item;
@@ -421,6 +421,11 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -523,7 +528,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Getter for the current line marker.
      */
-    public CoreAxismarkersLine getLineMarker(Double index1) {
+    public CoreAxismarkersLine getLineMarker(Number index1) {
         CoreAxismarkersLine item = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index1+")");
         getLineMarker1.add(item);
         return item;
@@ -566,14 +571,14 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double index2;
+    private Number index2;
     private String lineMarker2;
     private Boolean lineMarker3;
 
     /**
      * Setter for the line marker settings by index.
      */
-    public Pareto setLineMarker(String lineMarker2, Double index2) {
+    public Pareto setLineMarker(String lineMarker2, Number index2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -591,7 +596,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Setter for the line marker settings by index.
      */
-    public Pareto setLineMarker(Boolean lineMarker3, Double index2) {
+    public Pareto setLineMarker(Boolean lineMarker3, Number index2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -634,6 +639,11 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -691,13 +701,13 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double maxBubbleSize;
+    private Number maxBubbleSize;
     private String maxBubbleSize1;
 
     /**
      * Setter for the maximum size for all bubbles on the charts.
      */
-    public Pareto setMaxBubbleSize(Double maxBubbleSize) {
+    public Pareto setMaxBubbleSize(Number maxBubbleSize) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -729,13 +739,13 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double maxPointWidth;
+    private Number maxPointWidth;
     private String maxPointWidth1;
 
     /**
      * Setter for the maximum point width.
      */
-    public Pareto setMaxPointWidth(Double maxPointWidth) {
+    public Pareto setMaxPointWidth(Number maxPointWidth) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -767,13 +777,13 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double minBubbleSize;
+    private Number minBubbleSize;
     private String minBubbleSize1;
 
     /**
      * Setter for the minimum size for all bubbles on the charts.
      */
-    public Pareto setMinBubbleSize(Double minBubbleSize) {
+    public Pareto setMinBubbleSize(Number minBubbleSize) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -805,13 +815,13 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double minPointLength;
+    private Number minPointLength;
     private String minPointLength1;
 
     /**
      * Setter for the minimum point length.
      */
-    public Pareto setMinPointLength(Double minPointLength) {
+    public Pareto setMinPointLength(Number minPointLength) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -903,6 +913,11 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -919,6 +934,11 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -958,13 +978,13 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double pointWidth;
+    private Number pointWidth;
     private String pointWidth1;
 
     /**
      * Setter for the point width settings.
      */
-    public Pareto setPointWidth(Double pointWidth) {
+    public Pareto setPointWidth(Number pointWidth) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1014,7 +1034,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Getter for the current range marker.
      */
-    public CoreAxismarkersRange getRangeMarker(Double index3) {
+    public CoreAxismarkersRange getRangeMarker(Number index3) {
         CoreAxismarkersRange item = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index3+")");
         getRangeMarker1.add(item);
         return item;
@@ -1057,14 +1077,14 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double index4;
+    private Number index4;
     private String rangeMarker2;
     private Boolean rangeMarker3;
 
     /**
      * Setter for the range marker by index.
      */
-    public Pareto setRangeMarker(String rangeMarker2, Double index4) {
+    public Pareto setRangeMarker(String rangeMarker2, Number index4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1082,7 +1102,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Setter for the range marker by index.
      */
-    public Pareto setRangeMarker(Boolean rangeMarker3, Double index4) {
+    public Pareto setRangeMarker(Boolean rangeMarker3, Number index4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1096,13 +1116,13 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double id2;
+    private Number id2;
     private String id3;
 
     /**
      * Removes one of series from chart by its id.
      */
-    public Pareto removeSeries(Double id2) {
+    public Pareto removeSeries(Number id2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1134,12 +1154,12 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double index5;
+    private Number index5;
 
     /**
      * Removes one of series from chart by its index.
      */
-    public Pareto removeSeriesAt(Double index5) {
+    public Pareto removeSeriesAt(Number index5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1202,7 +1222,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Getter for the text marker.
      */
-    public CoreAxismarkersText getTextMarker(Double index6) {
+    public CoreAxismarkersText getTextMarker(Number index6) {
         CoreAxismarkersText item = new CoreAxismarkersText(jsBase + ".textMarker("+ index6+")");
         getTextMarker1.add(item);
         return item;
@@ -1245,14 +1265,14 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double index7;
+    private Number index7;
     private String textMarker2;
     private Boolean textMarker3;
 
     /**
      * Setter for the text marker by index.
      */
-    public Pareto setTextMarker(String textMarker2, Double index7) {
+    public Pareto setTextMarker(String textMarker2, Number index7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1270,7 +1290,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Setter for the text marker by index.
      */
-    public Pareto setTextMarker(Boolean textMarker3, Double index7) {
+    public Pareto setTextMarker(Boolean textMarker3, Number index7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1302,7 +1322,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Getter for the chart X-axis.
      */
-    public CoreAxesLinear getXAxis(Double index8) {
+    public CoreAxesLinear getXAxis(Number index8) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".xAxis("+ index8+")");
         getXAxis1.add(item);
         return item;
@@ -1345,14 +1365,14 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double index9;
+    private Number index9;
     private String xAxis2;
     private Boolean xAxis3;
 
     /**
      * Setter for the chart X-axis by index.
      */
-    public Pareto setXAxis(String xAxis2, Double index9) {
+    public Pareto setXAxis(String xAxis2, Number index9) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1370,7 +1390,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Setter for the chart X-axis by index.
      */
-    public Pareto setXAxis(Boolean xAxis3, Double index9) {
+    public Pareto setXAxis(Boolean xAxis3, Number index9) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1402,7 +1422,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Getter for the chart grid by X-scale.
      */
-    public CoreGridsLinear getXGrid(Double index10) {
+    public CoreGridsLinear getXGrid(Number index10) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xGrid("+ index10+")");
         getXGrid1.add(item);
         return item;
@@ -1445,14 +1465,14 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double index11;
+    private Number index11;
     private String xGrid2;
     private Boolean xGrid3;
 
     /**
      * Setter for chart grid by index.
      */
-    public Pareto setXGrid(String xGrid2, Double index11) {
+    public Pareto setXGrid(String xGrid2, Number index11) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1470,7 +1490,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Setter for chart grid by index.
      */
-    public Pareto setXGrid(Boolean xGrid3, Double index11) {
+    public Pareto setXGrid(Boolean xGrid3, Number index11) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1502,7 +1522,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Getter for the chart minor grid by X-scale.
      */
-    public CoreGridsLinear getXMinorGrid(Double index12) {
+    public CoreGridsLinear getXMinorGrid(Number index12) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xMinorGrid("+ index12+")");
         getXMinorGrid1.add(item);
         return item;
@@ -1545,14 +1565,14 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double index13;
+    private Number index13;
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
 
     /**
      * Setter for the chart minor grid by index.
      */
-    public Pareto setXMinorGrid(String xMinorGrid2, Double index13) {
+    public Pareto setXMinorGrid(String xMinorGrid2, Number index13) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1570,7 +1590,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Setter for the chart minor grid by index.
      */
-    public Pareto setXMinorGrid(Boolean xMinorGrid3, Double index13) {
+    public Pareto setXMinorGrid(Boolean xMinorGrid3, Number index13) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1649,6 +1669,11 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale3 != null) ? xScale3.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -1714,14 +1739,14 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
 
         return getXZoom;
     }
-    private Double xZoom;
+    private Number xZoom;
     private Boolean xZoom1;
     private String xZoom2;
 
     /**
      * Setter for the zoom settings.
      */
-    public Pareto setXZoom(Double xZoom) {
+    public Pareto setXZoom(Number xZoom) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1789,7 +1814,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Getter for the chart Y-axis.
      */
-    public CoreAxesLinear getYAxis(Double index14) {
+    public CoreAxesLinear getYAxis(Number index14) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".yAxis("+ index14+")");
         getYAxis1.add(item);
         return item;
@@ -1832,14 +1857,14 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double index15;
+    private Number index15;
     private String yAxis2;
     private Boolean yAxis3;
 
     /**
      * Setter for the chart Y-axis by index.
      */
-    public Pareto setYAxis(String yAxis2, Double index15) {
+    public Pareto setYAxis(String yAxis2, Number index15) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1857,7 +1882,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Setter for the chart Y-axis by index.
      */
-    public Pareto setYAxis(Boolean yAxis3, Double index15) {
+    public Pareto setYAxis(Boolean yAxis3, Number index15) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1889,7 +1914,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Getter for the chart grid by Y-scale.
      */
-    public CoreGridsLinear getYGrid(Double index16) {
+    public CoreGridsLinear getYGrid(Number index16) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yGrid("+ index16+")");
         getYGrid1.add(item);
         return item;
@@ -1932,14 +1957,14 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double index17;
+    private Number index17;
     private String yGrid2;
     private Boolean yGrid3;
 
     /**
      * Setter for chart grid by index.
      */
-    public Pareto setYGrid(String yGrid2, Double index17) {
+    public Pareto setYGrid(String yGrid2, Number index17) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1957,7 +1982,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Setter for chart grid by index.
      */
-    public Pareto setYGrid(Boolean yGrid3, Double index17) {
+    public Pareto setYGrid(Boolean yGrid3, Number index17) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1989,7 +2014,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Getter for the chart minor grid by Y-scale.
      */
-    public CoreGridsLinear getYMinorGrid(Double index18) {
+    public CoreGridsLinear getYMinorGrid(Number index18) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yMinorGrid("+ index18+")");
         getYMinorGrid1.add(item);
         return item;
@@ -2032,14 +2057,14 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         return this;
     }
 
-    private Double index19;
+    private Number index19;
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
 
     /**
      * Setter for the chart minor grid by index.
      */
-    public Pareto setYMinorGrid(String yMinorGrid2, Double index19) {
+    public Pareto setYMinorGrid(String yMinorGrid2, Number index19) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2057,7 +2082,7 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
     /**
      * Setter for the chart minor grid by index.
      */
-    public Pareto setYMinorGrid(Boolean yMinorGrid3, Double index19) {
+    public Pareto setYMinorGrid(Boolean yMinorGrid3, Number index19) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2136,6 +2161,11 @@ See illustration at {@link anychart.charts.Pareto#barsPadding}.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale3 != null) ? yScale3.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 

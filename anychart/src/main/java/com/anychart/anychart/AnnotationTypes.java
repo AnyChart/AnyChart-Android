@@ -14,6 +14,7 @@ public enum AnnotationTypes implements JsObject.JsObjectInterface {
     FIBONACCI_TIMEZONES("fibonacci-timezones"),
     HORIZONTAL_LINE("horizontal-line"),
     INFINITE_LINE("infinite-line"),
+    LABEL("label"),
     LINE("line"),
     MARKER("marker"),
     RAY("ray"),

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * 
+ * The Marker class contains methods for configuring marker.
  */
 public class StandalonesMarkersfactoryMarker extends UiMarkersfactoryMarker {
 

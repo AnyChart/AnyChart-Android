@@ -265,13 +265,13 @@ public class UiLabel extends CoreText {
         return this;
     }
 
-    private Double height;
+    private Number height;
     private String height1;
 
     /**
      * Setter for the label height.
      */
-    public UiLabel setHeight(Double height) {
+    public UiLabel setHeight(Number height) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -321,13 +321,13 @@ public class UiLabel extends CoreText {
         return this;
     }
 
-    private Double maxFontSize;
+    private Number maxFontSize;
     private String maxFontSize1;
 
     /**
      * Setter for maximum font size settings for adjust text to.
      */
-    public UiLabel setMaxFontSize(Double maxFontSize) {
+    public UiLabel setMaxFontSize(Number maxFontSize) {
         if (jsBase == null) {
             this.maxFontSize = null;
             this.maxFontSize1 = null;
@@ -377,13 +377,13 @@ public class UiLabel extends CoreText {
         return this;
     }
 
-    private Double minFontSize;
+    private Number minFontSize;
     private String minFontSize1;
 
     /**
      * Setter for minimum font size settings for adjust text from.
      */
-    public UiLabel setMinFontSize(Double minFontSize) {
+    public UiLabel setMinFontSize(Number minFontSize) {
         if (jsBase == null) {
             this.minFontSize = null;
             this.minFontSize1 = null;
@@ -433,15 +433,15 @@ public class UiLabel extends CoreText {
         return this;
     }
 
-    private Double offsetX;
+    private Number offsetX;
     private String offsetX1;
 
     /**
      * Setter for label offsetX settings.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
-    public UiLabel setOffsetX(Double offsetX) {
+    public UiLabel setOffsetX(Number offsetX) {
         if (jsBase == null) {
             this.offsetX = null;
             this.offsetX1 = null;
@@ -467,7 +467,7 @@ Arrows show offsets layout.
 
     /**
      * Setter for label offsetX settings.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
     public UiLabel setOffsetX(String offsetX1) {
@@ -493,15 +493,15 @@ Arrows show offsets layout.
         return this;
     }
 
-    private Double offsetY;
+    private Number offsetY;
     private String offsetY1;
 
     /**
      * Setter for label offsetY settings.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
-    public UiLabel setOffsetY(Double offsetY) {
+    public UiLabel setOffsetY(Number offsetY) {
         if (jsBase == null) {
             this.offsetY = null;
             this.offsetY1 = null;
@@ -527,7 +527,7 @@ Arrows show offsets layout.
 
     /**
      * Setter for label offsetY settings.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
     public UiLabel setOffsetY(String offsetY1) {
@@ -565,14 +565,14 @@ Arrows show offsets layout.
         return getPadding;
     }
 
-    private Double[] padding;
+    private Number[] padding;
     private String[] padding1;
     private String padding2;
 
     /**
      * Setter for the label padding in pixels by one value.
      */
-    public UiLabel setPadding(Double[] padding) {
+    public UiLabel setPadding(Number[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -653,13 +653,13 @@ Arrows show offsets layout.
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for the label padding in pixels.
@@ -730,7 +730,7 @@ Arrows show offsets layout.
     /**
      * Setter for the label padding in pixels.
      */
-    public UiLabel setPadding(Double value1, Double value3, Double value5, Double value7) {
+    public UiLabel setPadding(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -848,12 +848,12 @@ Arrows show offsets layout.
         return this;
     }
 
-    private Double rotation;
+    private Number rotation;
 
     /**
      * Setter for the label rotation.
      */
-    public UiLabel setRotation(Double rotation) {
+    public UiLabel setRotation(Number rotation) {
         if (jsBase == null) {
             this.rotation = rotation;
         } else {
@@ -898,13 +898,13 @@ Arrows show offsets layout.
         return this;
     }
 
-    private Double width;
+    private Number width;
     private String width1;
 
     /**
      * Setter for the label width.
      */
-    public UiLabel setWidth(Double width) {
+    public UiLabel setWidth(Number width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

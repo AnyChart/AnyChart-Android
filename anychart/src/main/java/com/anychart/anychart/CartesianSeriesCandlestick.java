@@ -78,13 +78,13 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
     private List<CartesianSeriesBase> setFallingFill1 = new ArrayList<>();
 
     /**
      * Falling fill color with opacity.
      */
-    public CartesianSeriesBase fallingFill(String color, Double opacity) {
+    public CartesianSeriesBase fallingFill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -121,18 +121,18 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
     private List<CartesianSeriesBase> setFallingFill2 = new ArrayList<>();
 
     /**
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -187,7 +187,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -242,7 +242,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -297,7 +297,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public CartesianSeriesBase fallingFill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -352,7 +352,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public CartesianSeriesBase fallingFill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -407,7 +407,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public CartesianSeriesBase fallingFill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -458,19 +458,19 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
     private List<CartesianSeriesBase> setFallingFill8 = new ArrayList<>();
 
     /**
      * Radial gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CartesianSeriesBase fallingFill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -535,7 +535,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Radial gradient falling fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase fallingFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CartesianSeriesBase fallingFill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -613,15 +613,15 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     private String patternFillOrTypeOrState3;
     private Boolean patternFillOrTypeOrState4;
     private String color1;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
     private List<CartesianSeriesBase> setFallingHatchFill = new ArrayList<>();
 
     /**
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBase setFallingHatchFill(PatternFill patternFillOrTypeOrState, String color1, Double thickness, Double size) {
+    public CartesianSeriesBase setFallingHatchFill(PatternFill patternFillOrTypeOrState, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -675,7 +675,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBase setFallingHatchFill(HatchFill patternFillOrTypeOrState1, String color1, Double thickness, Double size) {
+    public CartesianSeriesBase setFallingHatchFill(HatchFill patternFillOrTypeOrState1, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -729,7 +729,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBase setFallingHatchFill(HatchFillType patternFillOrTypeOrState2, String color1, Double thickness, Double size) {
+    public CartesianSeriesBase setFallingHatchFill(HatchFillType patternFillOrTypeOrState2, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -783,7 +783,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBase setFallingHatchFill(String patternFillOrTypeOrState3, String color1, Double thickness, Double size) {
+    public CartesianSeriesBase setFallingHatchFill(String patternFillOrTypeOrState3, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -837,7 +837,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Setter for falling hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBase setFallingHatchFill(Boolean patternFillOrTypeOrState4, String color1, Double thickness, Double size) {
+    public CartesianSeriesBase setFallingHatchFill(Boolean patternFillOrTypeOrState4, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -926,13 +926,13 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     }
 
     private String color2;
-    private Double opacity3;
+    private Number opacity3;
     private List<CartesianSeriesBase> setRisingFill1 = new ArrayList<>();
 
     /**
      * Rising fill color with opacity.
      */
-    public CartesianSeriesBase risingFill(String color2, Double opacity3) {
+    public CartesianSeriesBase risingFill(String color2, Number opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -978,18 +978,18 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
 
     private GradientKey[] keys4;
     private String[] keys5;
-    private Double angle1;
+    private Number angle1;
     private Boolean mode4;
     private VectorRect mode5;
     private String mode6;
-    private Double opacity4;
+    private Number opacity4;
     private List<CartesianSeriesBase> setRisingFill2 = new ArrayList<>();
 
     /**
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase risingFill(GradientKey[] keys4, Double angle1, Double opacity4, Boolean mode4) {
+    public CartesianSeriesBase risingFill(GradientKey[] keys4, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1058,7 +1058,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase risingFill(GradientKey[] keys4, Double angle1, Double opacity4, VectorRect mode5) {
+    public CartesianSeriesBase risingFill(GradientKey[] keys4, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1127,7 +1127,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase risingFill(GradientKey[] keys4, Double angle1, Double opacity4, String mode6) {
+    public CartesianSeriesBase risingFill(GradientKey[] keys4, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1196,7 +1196,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase risingFill(String[] keys5, Double angle1, Double opacity4, Boolean mode4) {
+    public CartesianSeriesBase risingFill(String[] keys5, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1265,7 +1265,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase risingFill(String[] keys5, Double angle1, Double opacity4, VectorRect mode5) {
+    public CartesianSeriesBase risingFill(String[] keys5, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1334,7 +1334,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Linear gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase risingFill(String[] keys5, Double angle1, Double opacity4, String mode6) {
+    public CartesianSeriesBase risingFill(String[] keys5, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1399,19 +1399,19 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
 
     private GradientKey[] keys6;
     private String[] keys7;
-    private Double cx1;
-    private Double cy1;
+    private Number cx1;
+    private Number cy1;
     private GraphicsMathRect mode7;
-    private Double opacity5;
-    private Double fx1;
-    private Double fy1;
+    private Number opacity5;
+    private Number fx1;
+    private Number fy1;
     private List<CartesianSeriesBase> setRisingFill8 = new ArrayList<>();
 
     /**
      * Radial gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase risingFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public CartesianSeriesBase risingFill(GradientKey[] keys6, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1499,7 +1499,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Radial gradient rising fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBase risingFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public CartesianSeriesBase risingFill(String[] keys7, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1600,15 +1600,15 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
     private String patternFillOrTypeOrState8;
     private Boolean patternFillOrTypeOrState9;
     private String color3;
-    private Double thickness1;
-    private Double size1;
+    private Number thickness1;
+    private Number size1;
     private List<CartesianSeriesBase> setRisingHatchFill = new ArrayList<>();
 
     /**
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBase setRisingHatchFill(PatternFill patternFillOrTypeOrState5, String color3, Double thickness1, Double size1) {
+    public CartesianSeriesBase setRisingHatchFill(PatternFill patternFillOrTypeOrState5, String color3, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -1675,7 +1675,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBase setRisingHatchFill(HatchFill patternFillOrTypeOrState6, String color3, Double thickness1, Double size1) {
+    public CartesianSeriesBase setRisingHatchFill(HatchFill patternFillOrTypeOrState6, String color3, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -1742,7 +1742,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBase setRisingHatchFill(HatchFillType patternFillOrTypeOrState7, String color3, Double thickness1, Double size1) {
+    public CartesianSeriesBase setRisingHatchFill(HatchFillType patternFillOrTypeOrState7, String color3, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -1809,7 +1809,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBase setRisingHatchFill(String patternFillOrTypeOrState8, String color3, Double thickness1, Double size1) {
+    public CartesianSeriesBase setRisingHatchFill(String patternFillOrTypeOrState8, String color3, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;
@@ -1876,7 +1876,7 @@ public class CartesianSeriesCandlestick extends CartesianSeriesOHLC {
      * Setter for rising hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBase setRisingHatchFill(Boolean patternFillOrTypeOrState9, String color3, Double thickness1, Double size1) {
+    public CartesianSeriesBase setRisingHatchFill(Boolean patternFillOrTypeOrState9, String color3, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrTypeOrState = null;
             this.patternFillOrTypeOrState1 = null;

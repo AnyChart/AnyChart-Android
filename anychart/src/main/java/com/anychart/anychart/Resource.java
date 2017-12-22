@@ -120,14 +120,14 @@ public class Resource extends Chart {
 
         return getCellPadding;
     }
-    private Double[] cellPadding;
+    private Number[] cellPadding;
     private String[] cellPadding1;
     private String cellPadding2;
 
     /**
      * Setter for cell paddings in pixels using a single value.
      */
-    public Resource setCellPadding(Double[] cellPadding) {
+    public Resource setCellPadding(Number[] cellPadding) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -178,13 +178,13 @@ public class Resource extends Chart {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for cell paddings in pixels using several numbers.
@@ -207,7 +207,7 @@ public class Resource extends Chart {
     /**
      * Setter for cell paddings in pixels using several numbers.
      */
-    public Resource setCellPadding(Double value1, Double value3, Double value5, Double value7) {
+    public Resource setCellPadding(Number value1, Number value3, Number value5, Number value7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -252,13 +252,13 @@ public class Resource extends Chart {
         return this;
     }
 
-    private Double currentStartDate;
+    private Number currentStartDate;
     private String currentStartDate1;
 
     /**
      * Setter for the current start date.
      */
-    public Resource setCurrentStartDate(Double currentStartDate) {
+    public Resource setCurrentStartDate(Number currentStartDate) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -308,27 +308,27 @@ public class Resource extends Chart {
 Learn more about mapping at {@link anychart.data.Mapping}.
      */
     public Resource setData(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         return this;
     }
 
@@ -351,13 +351,13 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         return this;
     }
 
-    private Double defaultMinutesPerDay;
+    private Number defaultMinutesPerDay;
 
     /**
      * Setter for default minutes per day.
 <b>Note:</b> Use method when number of minutes per day isn't specified in the data.
      */
-    public Resource setDefaultMinutesPerDay(Double defaultMinutesPerDay) {
+    public Resource setDefaultMinutesPerDay(Number defaultMinutesPerDay) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -471,14 +471,14 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         return this;
     }
 
-    private Double resourceIndex;
-    private Double activityIndex;
+    private Number resourceIndex;
+    private Number activityIndex;
 
     /**
      * Setter for the hover state on an activity.<br/>
 Hovers an activity determined by the resourceIndex and the activityIndex.
      */
-    public Resource setHover(Double resourceIndex, Double activityIndex) {
+    public Resource setHover(Number resourceIndex, Number activityIndex) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -492,12 +492,12 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         return this;
     }
 
-    private Double globalIndex;
+    private Number globalIndex;
 
     /**
      * Hovers an activity by its global index.
      */
-    public Resource hoverPoint(Double globalIndex) {
+    public Resource hoverPoint(Number globalIndex) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -542,12 +542,12 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         return this;
     }
 
-    private Double minRowHeight;
+    private Number minRowHeight;
 
     /**
      * Setter for the minimal row height.
      */
-    public Resource setMinRowHeight(Double minRowHeight) {
+    public Resource setMinRowHeight(Number minRowHeight) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -611,12 +611,12 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         return this;
     }
 
-    private Double pixPerHour;
+    private Number pixPerHour;
 
     /**
      * Setter for hours row height in pixels.
      */
-    public Resource setPixPerHour(Double pixPerHour) {
+    public Resource setPixPerHour(Number pixPerHour) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -630,13 +630,13 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         return this;
     }
 
-    private Double resourceListWidth;
+    private Number resourceListWidth;
     private String resourceListWidth1;
 
     /**
      * Setter for the resource list width.
      */
-    public Resource setResourceListWidth(Double resourceListWidth) {
+    public Resource setResourceListWidth(Number resourceListWidth) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -668,14 +668,14 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
         return this;
     }
 
-    private Double resourceIndex1;
-    private Double activityIndex1;
+    private Number resourceIndex1;
+    private Number activityIndex1;
 
     /**
      * Setter for the select state on an activity.<br/>
 Selects an activity determined by the resourceIndex and the activityIndex.
      */
-    public Resource setSelect(Double resourceIndex1, Double activityIndex1) {
+    public Resource setSelect(Number resourceIndex1, Number activityIndex1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -689,12 +689,12 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         return this;
     }
 
-    private Double globalIndex1;
+    private Number globalIndex1;
 
     /**
      * Selects an activity by its global index.
      */
-    public Resource selectPoint(Double globalIndex1) {
+    public Resource selectPoint(Number globalIndex1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -711,7 +711,7 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     private Stroke color;
     private ColoredFill color1;
     private String color2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -719,7 +719,7 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the splitter stroke.
      */
-    public Resource setSplitterStroke(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Resource setSplitterStroke(Stroke color, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -737,7 +737,7 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the splitter stroke.
      */
-    public Resource setSplitterStroke(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Resource setSplitterStroke(ColoredFill color1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -755,7 +755,7 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     /**
      * Setter for the splitter stroke.
      */
-    public Resource setSplitterStroke(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Resource setSplitterStroke(String color2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -819,13 +819,13 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         return this;
     }
 
-    private Double timeLineHeight;
+    private Number timeLineHeight;
     private String timeLineHeight1;
 
     /**
      * Setter for the time line height.
      */
-    public Resource setTimeLineHeight(Double timeLineHeight) {
+    public Resource setTimeLineHeight(Number timeLineHeight) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -895,14 +895,14 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         return this;
     }
 
-    private Double resourceIndex2;
-    private Double[] resourceIndex3;
-    private Double activityIndex2;
+    private Number resourceIndex2;
+    private Number[] resourceIndex3;
+    private Number activityIndex2;
 
     /**
      * Removes hover from an activity by index.
      */
-    public Resource unhover(Double resourceIndex2, Double activityIndex2) {
+    public Resource unhover(Number resourceIndex2, Number activityIndex2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -920,7 +920,7 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     /**
      * Removes hover from an activity by index.
      */
-    public Resource unhover(Double[] resourceIndex3, Double activityIndex2) {
+    public Resource unhover(Number[] resourceIndex3, Number activityIndex2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -934,14 +934,14 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         return this;
     }
 
-    private Double resourceIndex4;
-    private Double[] resourceIndex5;
-    private Double activityIndex3;
+    private Number resourceIndex4;
+    private Number[] resourceIndex5;
+    private Number activityIndex3;
 
     /**
      * Removes select from an activity by index.
      */
-    public void unselect(Double resourceIndex4, Double activityIndex3) {
+    public void unselect(Number resourceIndex4, Number activityIndex3) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -958,7 +958,7 @@ Selects an activity determined by the resourceIndex and the activityIndex.
     /**
      * Removes select from an activity by index.
      */
-    public void unselect(Double[] resourceIndex5, Double activityIndex3) {
+    public void unselect(Number[] resourceIndex5, Number activityIndex3) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -1052,14 +1052,14 @@ Selects an activity determined by the resourceIndex and the activityIndex.
         return this;
     }
 
-    private Double indexOrId;
+    private Number indexOrId;
     private String indexOrId1;
 
     /**
      * Setter for the zoom level.
 Zooms chart to the level denoted by the passed index or identifier.
      */
-    public Resource setZoomLevel(Double indexOrId) {
+    public Resource setZoomLevel(Number indexOrId) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;

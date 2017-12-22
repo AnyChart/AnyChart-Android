@@ -199,13 +199,13 @@ public class UiLegend extends CoreText {
         return getGetRemainingBounds;
     }
 
-    private Double height;
+    private Number height;
     private String height1;
 
     /**
      * Setter for the legend height.
      */
-    public UiLegend setHeight(Double height) {
+    public UiLegend setHeight(Number height) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -311,13 +311,13 @@ public class UiLegend extends CoreText {
         return this;
     }
 
-    private Double iconSize;
+    private Number iconSize;
     private String iconSize1;
 
     /**
      * Setter for the icon size.
      */
-    public UiLegend setIconSize(Double iconSize) {
+    public UiLegend setIconSize(Number iconSize) {
         if (jsBase == null) {
             this.iconSize = null;
             this.iconSize1 = null;
@@ -368,7 +368,7 @@ public class UiLegend extends CoreText {
     }
 
     private String iconTextSpacing;
-    private Double iconTextSpacing1;
+    private Number iconTextSpacing1;
 
     /**
      * Setter for spacing between icon and text in a legend item.
@@ -400,7 +400,7 @@ public class UiLegend extends CoreText {
     /**
      * Setter for spacing between icon and text in a legend item.
      */
-    public UiLegend setIconTextSpacing(Double iconTextSpacing1) {
+    public UiLegend setIconTextSpacing(Number iconTextSpacing1) {
         if (jsBase == null) {
             this.iconTextSpacing = null;
             this.iconTextSpacing1 = null;
@@ -586,7 +586,7 @@ public class UiLegend extends CoreText {
     }
 
     private String itemsSpacing;
-    private Double itemsSpacing1;
+    private Number itemsSpacing1;
 
     /**
      * Setter for items spacing settings.
@@ -618,7 +618,7 @@ public class UiLegend extends CoreText {
     /**
      * Setter for items spacing settings.
      */
-    public UiLegend setItemsSpacing(Double itemsSpacing1) {
+    public UiLegend setItemsSpacing(Number itemsSpacing1) {
         if (jsBase == null) {
             this.itemsSpacing = null;
             this.itemsSpacing1 = null;
@@ -653,16 +653,16 @@ public class UiLegend extends CoreText {
         return getMargin;
     }
 
-    private Double[] margin;
+    private Number[] margin;
     private String[] margin1;
     private String margin2;
-    private Double margin3;
+    private Number margin3;
     private String margin4;
 
     /**
      * Setter for the legend margin in pixels using a single value.
      */
-    public UiLegend setMargin(Double[] margin) {
+    public UiLegend setMargin(Number[] margin) {
         if (jsBase == null) {
             this.margin = null;
             this.margin1 = null;
@@ -719,13 +719,13 @@ public class UiLegend extends CoreText {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for the legend margin in pixels using a single simple values.
@@ -796,7 +796,7 @@ public class UiLegend extends CoreText {
     /**
      * Setter for the legend margin in pixels using a single simple values.
      */
-    public UiLegend setMargin(Double value1, Double value3, Double value5, Double value7) {
+    public UiLegend setMargin(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -858,13 +858,13 @@ public class UiLegend extends CoreText {
         return this;
     }
 
-    private Double maxHeight;
+    private Number maxHeight;
     private String maxHeight1;
 
     /**
      * Setter for the maximum height.
      */
-    public UiLegend setMaxHeight(Double maxHeight) {
+    public UiLegend setMaxHeight(Number maxHeight) {
         if (jsBase == null) {
             this.maxHeight = null;
             this.maxHeight1 = null;
@@ -914,13 +914,13 @@ public class UiLegend extends CoreText {
         return this;
     }
 
-    private Double maxWidth;
+    private Number maxWidth;
     private String maxWidth1;
 
     /**
      * Setter for the maximum width.
      */
-    public UiLegend setMaxWidth(Double maxWidth) {
+    public UiLegend setMaxWidth(Number maxWidth) {
         if (jsBase == null) {
             this.maxWidth = null;
             this.maxWidth1 = null;
@@ -982,16 +982,16 @@ public class UiLegend extends CoreText {
         return getPadding;
     }
 
-    private Double[] padding;
+    private Number[] padding;
     private String[] padding1;
     private String padding2;
-    private Double padding3;
+    private Number padding3;
     private String padding4;
 
     /**
      * Setter for the legend padding in pixels using a single value.
      */
-    public UiLegend setPadding(Double[] padding) {
+    public UiLegend setPadding(Number[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -1048,13 +1048,13 @@ public class UiLegend extends CoreText {
     }
 
     private String value8;
-    private Double value9;
+    private Number value9;
     private String value10;
-    private Double value11;
+    private Number value11;
     private String value12;
-    private Double value13;
+    private Number value13;
     private String value14;
-    private Double value15;
+    private Number value15;
 
     /**
      * Setter for the legend padding setting in pixels using a several value.
@@ -1157,7 +1157,7 @@ public class UiLegend extends CoreText {
     /**
      * Setter for the legend padding setting in pixels using a several value.
      */
-    public UiLegend setPadding(Double value9, Double value11, Double value13, Double value15) {
+    public UiLegend setPadding(Number value9, Number value11, Number value13, Number value15) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1665,13 +1665,13 @@ If set, formats title. Currently supported in Stock only.
         return this;
     }
 
-    private Double width;
+    private Number width;
     private String width1;
 
     /**
      * Setter for the legend width.
      */
-    public UiLegend setWidth(Double width) {
+    public UiLegend setWidth(Number width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

@@ -60,12 +60,12 @@ public class TablecomputerRowProxy extends TableselectableRowProxy {
         }
     }
 
-    private Double index;
+    private Number index;
 
     /**
      * Sets value by column.
      */
-    public void setSetColumn(Double index) {
+    public void setSetColumn(Number index) {
         if (jsBase == null) {
             this.index = index;
         } else {

@@ -20,7 +20,7 @@ See also:<br/>
 {@link anychart.graphics#layer}<br/>
 Elements indices (and layers indices within a stage) set Z-order.<br/>
 The "higher" an element is, the greater its index.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.graphics.vector.Layer.png' width='229' height='138'/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.graphics.vector.Layer.png' width='229' height='138'/>
  */
 public class Layer extends Element {
 
@@ -75,7 +75,7 @@ All DOM changes will happen instantly, except {@link anychart.graphics.vector.St
     }
 
     private Element element1;
-    private Double index;
+    private Number index;
 
     /**
      * Adds an element to a layer by index. <br/>
@@ -84,9 +84,9 @@ All DOM changes will happen instantly, except {@link anychart.graphics.vector.St
 Left image shows sequential calls of {@link anychart.graphics.vector.Layer#addChild}<br/>
 Right image does the same, but star is added to 0 index.<br/>
 <code>.addChildAt(star5, 0);</code> (see code of this image in samples).<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.graphics.vector.Layer.addChildAt.png' width='276' height='130'/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.graphics.vector.Layer.addChildAt.png' width='276' height='130'/>
      */
-    public Layer addChildAt(Element element1, Double index) {
+    public Layer addChildAt(Element element1, Number index) {
         if (jsBase == null) {
             this.element = null;
             this.element1 = null;
@@ -111,9 +111,9 @@ Right image does the same, but star is added to 0 index.<br/>
         return this;
     }
 
-    private Double cx;
-    private Double cy;
-    private Double radius;
+    private Number cx;
+    private Number cy;
+    private Number radius;
     private List<Circle> setCircle = new ArrayList<>();
 
     /**
@@ -122,7 +122,7 @@ Right image does the same, but star is added to 0 index.<br/>
 You have to take care of used objects yourself.<br/>
 Read more at {@link anychart.graphics.vector.Circle}
      */
-    public Circle circle(Double cx, Double cy, Double radius) {
+    public Circle circle(Number cx, Number cy, Number radius) {
         if (jsBase == null) {
             this.cx = cx;
             this.cy = cy;
@@ -159,10 +159,10 @@ Read more at {@link anychart.graphics.vector.Circle}
         return "";
     }
 
-    private Double cx1;
-    private Double cy1;
-    private Double rx;
-    private Double ry;
+    private Number cx1;
+    private Number cy1;
+    private Number rx;
+    private Number ry;
     private List<VectorEllipse> setEllipse = new ArrayList<>();
 
     /**
@@ -171,7 +171,7 @@ Read more at {@link anychart.graphics.vector.Circle}
 You have to take care of used objects yourself.<br/>
 Read more at {@link anychart.graphics.vector.Ellipse}
      */
-    public VectorEllipse ellipse(Double cx1, Double cy1, Double rx, Double ry) {
+    public VectorEllipse ellipse(Number cx1, Number cy1, Number rx, Number ry) {
         if (jsBase == null) {
             this.cx = null;
             this.cx1 = null;
@@ -216,13 +216,13 @@ Read more at {@link anychart.graphics.vector.Ellipse}
         return "";
     }
 
-    private Double index1;
+    private Number index1;
     private List<Element> setGetChildAt = new ArrayList<>();
 
     /**
      * Returns element by index.
      */
-    public Element getChildAt(Double index1) {
+    public Element getChildAt(Number index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -287,8 +287,8 @@ Read more at {@link anychart.graphics.vector.Ellipse}
         }
     }
 
-    private Double x;
-    private Double y;
+    private Number x;
+    private Number y;
     private String text;
     private List<VectorText> setHtml = new ArrayList<>();
 
@@ -298,7 +298,7 @@ to handle HTML formatting.<br/>
 <strong>Note:</strong><br>{@link anychart.graphics.vector.Layer} does nothing to delete an object after it is used.
 You have to take care of used objects yourself.
      */
-    public VectorText html(Double x, Double y, String text) {
+    public VectorText html(Number x, Number y, String text) {
         if (jsBase == null) {
             this.x = x;
             this.y = y;
@@ -336,10 +336,10 @@ You have to take care of used objects yourself.
     }
 
     private String src;
-    private Double x1;
-    private Double y1;
-    private Double width;
-    private Double height;
+    private Number x1;
+    private Number y1;
+    private Number width;
+    private Number height;
     private List<Image> setImage = new ArrayList<>();
 
     /**
@@ -347,7 +347,7 @@ You have to take care of used objects yourself.
 <strong>Note:</strong><br>{@link anychart.graphics.vector.Layer} does nothing to delete an object after it is used.
 You need to take care of used objects yourself.
      */
-    public Image image(String src, Double x1, Double y1, Double width, Double height) {
+    public Image image(String src, Number x1, Number y1, Number width, Number height) {
         if (jsBase == null) {
             this.src = src;
             this.x = null;
@@ -424,10 +424,10 @@ You need to take care of used objects yourself.
         }
     }
 
-    private Double x2;
-    private Double y2;
-    private Double width1;
-    private Double height1;
+    private Number x2;
+    private Number y2;
+    private Number width1;
+    private Number height1;
     private List<VectorRect> setRect = new ArrayList<>();
 
     /**
@@ -435,7 +435,7 @@ You need to take care of used objects yourself.
 <strong>Note:</strong><br>{@link anychart.graphics.vector.Layer} does nothing to delete an object after it is used.
 You have to take care of used objects yourself.
      */
-    public VectorRect rect(Double x2, Double y2, Double width1, Double height1) {
+    public VectorRect rect(Number x2, Number y2, Number width1, Number height1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;
@@ -536,7 +536,7 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
         return "";
     }
 
-    private Double index2;
+    private Number index2;
     private List<Element> setRemoveChildAt = new ArrayList<>();
 
     /**
@@ -544,7 +544,7 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
 All changes in DOM will happen instantly, except {@link anychart.graphics.vector.Stage#suspend}.<br/>
 <b>Note:</b> this method doesn't remove element, it just breaks the link between the element and the layer.<br/>
      */
-    public Element removeChildAt(Double index2) {
+    public Element removeChildAt(Number index2) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -626,13 +626,13 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
         return this;
     }
 
-    private Double index3;
-    private Double index4;
+    private Number index3;
+    private Number index4;
 
     /**
      * Swaps children by indexes.
      */
-    public Layer swapChildrenAt(Double index3, Double index4) {
+    public Layer swapChildrenAt(Number index3, Number index4) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -666,8 +666,8 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
         return this;
     }
 
-    private Double x3;
-    private Double y3;
+    private Number x3;
+    private Number y3;
     private String text1;
     private List<VectorText> setText = new ArrayList<>();
 
@@ -676,7 +676,7 @@ All changes in DOM will happen instantly, except {@link anychart.graphics.vector
 <strong>Note:</strong><br>{@link anychart.graphics.vector.Layer} does nothing to delete an object after it is used.
 You have to take care of used objects yourself.
      */
-    public VectorText text(Double x3, Double y3, String text1) {
+    public VectorText text(Number x3, Number y3, String text1) {
         if (jsBase == null) {
             this.x = null;
             this.x1 = null;

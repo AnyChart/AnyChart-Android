@@ -507,13 +507,13 @@ public class CoreAxesLinear extends VisualBase {
         return this;
     }
 
-    private Double staggerLines;
+    private Number staggerLines;
 
     /**
      * Setter for stagger lines.<br/>
 <b>Note:</b> pass <b>null</b> to enable autocalculation.
      */
-    public CoreAxesLinear setStaggerLines(Double staggerLines) {
+    public CoreAxesLinear setStaggerLines(Number staggerLines) {
         if (jsBase == null) {
             this.staggerLines = staggerLines;
         } else {
@@ -533,12 +533,12 @@ public class CoreAxesLinear extends VisualBase {
         return this;
     }
 
-    private Double staggerMaxLines;
+    private Number staggerMaxLines;
 
     /**
      * Setter for maximum stagger lines in autocalculation mode (if {@link anychart.core.axes.Linear#staggerLines} passed null).
      */
-    public CoreAxesLinear setStaggerMaxLines(Double staggerMaxLines) {
+    public CoreAxesLinear setStaggerMaxLines(Number staggerMaxLines) {
         if (jsBase == null) {
             this.staggerMaxLines = staggerMaxLines;
         } else {
@@ -586,7 +586,7 @@ public class CoreAxesLinear extends VisualBase {
     private Stroke stroke;
     private ColoredFill stroke1;
     private String stroke2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -595,7 +595,7 @@ public class CoreAxesLinear extends VisualBase {
      * Setter for axis stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CoreAxesLinear setStroke(Stroke stroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CoreAxesLinear setStroke(Stroke stroke, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -632,7 +632,7 @@ public class CoreAxesLinear extends VisualBase {
      * Setter for axis stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CoreAxesLinear setStroke(ColoredFill stroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CoreAxesLinear setStroke(ColoredFill stroke1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -669,7 +669,7 @@ public class CoreAxesLinear extends VisualBase {
      * Setter for axis stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CoreAxesLinear setStroke(String stroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CoreAxesLinear setStroke(String stroke2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -840,13 +840,13 @@ public class CoreAxesLinear extends VisualBase {
         return this;
     }
 
-    private Double width;
+    private Number width;
     private String width1;
 
     /**
      * Setter for the axis width.
      */
-    public CoreAxesLinear setWidth(Double width) {
+    public CoreAxesLinear setWidth(Number width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

@@ -9,24 +9,24 @@ import java.util.Arrays;
 public class DmiContext extends JsObject  {
 
     
-    private Double adxAlpha;
-    private Double adxPeriod;
+    private Number adxAlpha;
+    private Number adxPeriod;
     private CycledQueue adxQueue;
-    private Double adxValue;
-    private Double alpha;
+    private Number adxValue;
+    private Number alpha;
     private CycledQueue closeQueue;
     private CycledQueue highQueue;
     private CycledQueue lowQueue;
-    private Double ndiSumValue;
-    private Double ndiValue;
-    private Double pdiSumValue;
-    private Double pdiValue;
-    private Double period;
-    private Double trSumValue;
+    private Number ndiSumValue;
+    private Number ndiValue;
+    private Number pdiSumValue;
+    private Number pdiValue;
+    private Number period;
+    private Number trSumValue;
     private Boolean useWildersSmoothing;
 
     
-    public DmiContext(Double adxAlpha, Double adxPeriod, CycledQueue adxQueue, Double adxValue, Double alpha, CycledQueue closeQueue, CycledQueue highQueue, CycledQueue lowQueue, Double ndiSumValue, Double ndiValue, Double pdiSumValue, Double pdiValue, Double period, Double trSumValue, Boolean useWildersSmoothing) {
+    public DmiContext(Number adxAlpha, Number adxPeriod, CycledQueue adxQueue, Number adxValue, Number alpha, CycledQueue closeQueue, CycledQueue highQueue, CycledQueue lowQueue, Number ndiSumValue, Number ndiValue, Number pdiSumValue, Number pdiValue, Number period, Number trSumValue, Boolean useWildersSmoothing) {
         this.adxAlpha = adxAlpha;
         this.adxPeriod = adxPeriod;
         this.adxQueue = adxQueue;

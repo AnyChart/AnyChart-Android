@@ -278,13 +278,13 @@ public class LabelsfactoryLabel extends CoreText {
         return this;
     }
 
-    private Double height;
+    private Number height;
     private String height1;
 
     /**
      * Setter for the label height.
      */
-    public LabelsfactoryLabel setHeight(Double height) {
+    public LabelsfactoryLabel setHeight(Number height) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -334,13 +334,13 @@ public class LabelsfactoryLabel extends CoreText {
         return this;
     }
 
-    private Double maxFontSize;
+    private Number maxFontSize;
     private String maxFontSize1;
 
     /**
      * Setter for maximum font size settings for adjust text to.
      */
-    public LabelsfactoryLabel setMaxFontSize(Double maxFontSize) {
+    public LabelsfactoryLabel setMaxFontSize(Number maxFontSize) {
         if (jsBase == null) {
             this.maxFontSize = null;
             this.maxFontSize1 = null;
@@ -390,13 +390,52 @@ public class LabelsfactoryLabel extends CoreText {
         return this;
     }
 
-    private Double minFontSize;
+    private String text;
+    private List<AnychartMathRect> setMeasureWithText = new ArrayList<>();
+
+    /**
+     * Measures the text with the current labels settings.
+     */
+    public AnychartMathRect measureWithText(String text) {
+        if (jsBase == null) {
+            this.text = text;
+        } else {
+            this.text = text;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            
+            js.append(String.format(Locale.US, "var setMeasureWithText" + ++variableIndex + " = " + jsBase + ".measureWithText(%s);", wrapQuotes(text)));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".measureWithText(%s);", wrapQuotes(text)));
+                js.setLength(0);
+            }
+        }
+        AnychartMathRect item = new AnychartMathRect("setMeasureWithText" + variableIndex);
+        setMeasureWithText.add(item);
+        return item;
+    }
+    private String generateJSsetMeasureWithText() {
+        if (!setMeasureWithText.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (AnychartMathRect item : setMeasureWithText) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private Number minFontSize;
     private String minFontSize1;
 
     /**
      * Setter for minimum font size settings for adjust text from.
      */
-    public LabelsfactoryLabel setMinFontSize(Double minFontSize) {
+    public LabelsfactoryLabel setMinFontSize(Number minFontSize) {
         if (jsBase == null) {
             this.minFontSize = null;
             this.minFontSize1 = null;
@@ -446,13 +485,13 @@ public class LabelsfactoryLabel extends CoreText {
         return this;
     }
 
-    private Double offsetX;
+    private Number offsetX;
     private String offsetX1;
 
     /**
      * Setter for label offsetX settings.
      */
-    public LabelsfactoryLabel setOffsetX(Double offsetX) {
+    public LabelsfactoryLabel setOffsetX(Number offsetX) {
         if (jsBase == null) {
             this.offsetX = null;
             this.offsetX1 = null;
@@ -502,13 +541,13 @@ public class LabelsfactoryLabel extends CoreText {
         return this;
     }
 
-    private Double offsetY;
+    private Number offsetY;
     private String offsetY1;
 
     /**
      * Setter for label offsetY settings.
      */
-    public LabelsfactoryLabel setOffsetY(Double offsetY) {
+    public LabelsfactoryLabel setOffsetY(Number offsetY) {
         if (jsBase == null) {
             this.offsetY = null;
             this.offsetY1 = null;
@@ -570,16 +609,16 @@ public class LabelsfactoryLabel extends CoreText {
         return getPadding;
     }
 
-    private Double[] padding;
+    private Number[] padding;
     private String[] padding1;
     private String padding2;
-    private Double padding3;
+    private Number padding3;
     private String padding4;
 
     /**
      * Setter for label padding in pixels using a single value.
      */
-    public LabelsfactoryLabel setPadding(Double[] padding) {
+    public LabelsfactoryLabel setPadding(Number[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -636,13 +675,13 @@ public class LabelsfactoryLabel extends CoreText {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for label padding setting in pixels using a several value.
@@ -713,7 +752,7 @@ public class LabelsfactoryLabel extends CoreText {
     /**
      * Setter for label padding setting in pixels using a several value.
      */
-    public LabelsfactoryLabel setPadding(Double value1, Double value3, Double value5, Double value7) {
+    public LabelsfactoryLabel setPadding(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -800,12 +839,12 @@ public class LabelsfactoryLabel extends CoreText {
         return this;
     }
 
-    private Double rotation;
+    private Number rotation;
 
     /**
      * Setter for the rotate a label around an anchor.
      */
-    public LabelsfactoryLabel setRotation(Double rotation) {
+    public LabelsfactoryLabel setRotation(Number rotation) {
         if (jsBase == null) {
             this.rotation = rotation;
         } else {
@@ -825,13 +864,13 @@ public class LabelsfactoryLabel extends CoreText {
         return this;
     }
 
-    private Double width;
+    private Number width;
     private String width1;
 
     /**
      * Setter for the label width.
      */
-    public LabelsfactoryLabel setWidth(Double width) {
+    public LabelsfactoryLabel setWidth(Number width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -917,6 +956,7 @@ public class LabelsfactoryLabel extends CoreText {
 
         js.append(generateJsGetters());
 
+        js.append(generateJSsetMeasureWithText());
         
 
         String result = js.toString();

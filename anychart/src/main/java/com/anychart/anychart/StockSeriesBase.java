@@ -297,13 +297,13 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double maxPointWidth;
+    private Number maxPointWidth;
     private String maxPointWidth1;
 
     /**
      * Setter for the maximum point width.
      */
-    public StockSeriesBase setMaxPointWidth(Double maxPointWidth) {
+    public StockSeriesBase setMaxPointWidth(Number maxPointWidth) {
         if (jsBase == null) {
             this.maxPointWidth = null;
             this.maxPointWidth1 = null;
@@ -353,13 +353,13 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double minPointLength;
+    private Number minPointLength;
     private String minPointLength1;
 
     /**
      * Setter for the minimum point length.
      */
-    public StockSeriesBase setMinPointLength(Double minPointLength) {
+    public StockSeriesBase setMinPointLength(Number minPointLength) {
         if (jsBase == null) {
             this.minPointLength = null;
             this.minPointLength1 = null;
@@ -471,13 +471,13 @@ public class StockSeriesBase extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double pointWidth;
+    private Number pointWidth;
     private String pointWidth1;
 
     /**
      * Setter for the point width settings.
      */
-    public StockSeriesBase setPointWidth(Double pointWidth) {
+    public StockSeriesBase setPointWidth(Number pointWidth) {
         if (jsBase == null) {
             this.pointWidth = null;
             this.pointWidth1 = null;

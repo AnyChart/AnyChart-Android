@@ -104,12 +104,12 @@ public class Aroon extends JsObject {
         return this;
     }
 
-    private Double period;
+    private Number period;
 
     /**
      * Setter for the indicator period.
      */
-    public Aroon setPeriod(Double period) {
+    public Aroon setPeriod(Number period) {
         if (jsBase == null) {
             this.period = period;
         } else {

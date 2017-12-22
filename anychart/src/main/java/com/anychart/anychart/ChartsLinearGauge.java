@@ -47,12 +47,12 @@ public class ChartsLinearGauge extends SeparateChart {
     }
 
     
-    private Double var_args;
+    private Number var_args;
 
     /**
      * Adds pointers to the gauge.
      */
-    public void addPointer(Double var_args) {
+    public void addPointer(Number var_args) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -83,7 +83,7 @@ public class ChartsLinearGauge extends SeparateChart {
     /**
      * Getter for the gauge axis.
      */
-    public AxesLinearGauge getAxis(Double index) {
+    public AxesLinearGauge getAxis(Number index) {
         AxesLinearGauge item = new AxesLinearGauge(jsBase + ".axis("+ index+")");
         getAxis1.add(item);
         return item;
@@ -126,14 +126,14 @@ public class ChartsLinearGauge extends SeparateChart {
         return this;
     }
 
-    private Double index1;
+    private Number index1;
     private String axis2;
     private Boolean axis3;
 
     /**
      * Setter for the chart axis by index.
      */
-    public ChartsLinearGauge setAxis(String axis2, Double index1) {
+    public ChartsLinearGauge setAxis(String axis2, Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -151,7 +151,7 @@ public class ChartsLinearGauge extends SeparateChart {
     /**
      * Setter for the chart axis by index.
      */
-    public ChartsLinearGauge setAxis(Boolean axis3, Double index1) {
+    public ChartsLinearGauge setAxis(Boolean axis3, Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -165,13 +165,13 @@ public class ChartsLinearGauge extends SeparateChart {
         return this;
     }
 
-    private Double dataIndex;
+    private Number dataIndex;
     private List<LineargaugePointersBar> setBar = new ArrayList<>();
 
     /**
      * Adds Bar pointer.
      */
-    public LineargaugePointersBar bar(Double dataIndex) {
+    public LineargaugePointersBar bar(Number dataIndex) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -214,27 +214,27 @@ public class ChartsLinearGauge extends SeparateChart {
      * Setter for the pointers mapping.
      */
     public ChartsLinearGauge setData(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         return this;
     }
 
@@ -295,14 +295,14 @@ public class ChartsLinearGauge extends SeparateChart {
         return this;
     }
 
-    private Double id;
+    private Number id;
     private String id1;
     private List<LineargaugePointersBase> setGetPointer = new ArrayList<>();
 
     /**
      * Returns pointer by id.
      */
-    public LineargaugePointersBase getPointer(Double id) {
+    public LineargaugePointersBase getPointer(Number id) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -359,13 +359,13 @@ public class ChartsLinearGauge extends SeparateChart {
         return "";
     }
 
-    private Double index2;
+    private Number index2;
     private List<LineargaugePointersBase> setGetPointerAt = new ArrayList<>();
 
     /**
      * Returns pointer by index.
      */
-    public LineargaugePointersBase getPointerAt(Double index2) {
+    public LineargaugePointersBase getPointerAt(Number index2) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -392,7 +392,7 @@ public class ChartsLinearGauge extends SeparateChart {
     }
 
     private String globalOffset;
-    private Double globalOffset1;
+    private Number globalOffset1;
 
     /**
      * Setter for the global offset of a linear gauge.
@@ -415,7 +415,7 @@ public class ChartsLinearGauge extends SeparateChart {
     /**
      * Setter for the global offset of a linear gauge.
      */
-    public ChartsLinearGauge setGlobalOffset(Double globalOffset1) {
+    public ChartsLinearGauge setGlobalOffset(Number globalOffset1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -493,6 +493,11 @@ public class ChartsLinearGauge extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -553,13 +558,13 @@ public class ChartsLinearGauge extends SeparateChart {
         return this;
     }
 
-    private Double dataIndex1;
+    private Number dataIndex1;
     private List<Led> setLed = new ArrayList<>();
 
     /**
      * Adds Led pointer.
      */
-    public Led led(Double dataIndex1) {
+    public Led led(Number dataIndex1) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -585,13 +590,13 @@ public class ChartsLinearGauge extends SeparateChart {
         return "";
     }
 
-    private Double dataIndex2;
+    private Number dataIndex2;
     private List<LineargaugePointersMarker> setMarker = new ArrayList<>();
 
     /**
      * Adds Marker pointer.
      */
-    public LineargaugePointersMarker marker(Double dataIndex2) {
+    public LineargaugePointersMarker marker(Number dataIndex2) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -646,6 +651,11 @@ public class ChartsLinearGauge extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -732,6 +742,11 @@ public class ChartsLinearGauge extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -748,6 +763,11 @@ public class ChartsLinearGauge extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -787,13 +807,13 @@ public class ChartsLinearGauge extends SeparateChart {
         return this;
     }
 
-    private Double dataIndex3;
+    private Number dataIndex3;
     private List<PointersRangeBar> setRangeBar = new ArrayList<>();
 
     /**
      * Adds Range bar pointer.
      */
-    public PointersRangeBar rangeBar(Double dataIndex3) {
+    public PointersRangeBar rangeBar(Number dataIndex3) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -819,13 +839,13 @@ public class ChartsLinearGauge extends SeparateChart {
         return "";
     }
 
-    private Double id2;
+    private Number id2;
     private String id3;
 
     /**
      * Removes pointer by id.
      */
-    public ChartsLinearGauge removePointer(Double id2) {
+    public ChartsLinearGauge removePointer(Number id2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -857,12 +877,12 @@ public class ChartsLinearGauge extends SeparateChart {
         return this;
     }
 
-    private Double index3;
+    private Number index3;
 
     /**
      * Removes pointer by index.
      */
-    public ChartsLinearGauge removePointerAt(Double index3) {
+    public ChartsLinearGauge removePointerAt(Number index3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -941,6 +961,11 @@ public class ChartsLinearGauge extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".scale(%s);",  ((scale2 != null) ? scale2.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -962,7 +987,7 @@ public class ChartsLinearGauge extends SeparateChart {
     /**
      * Getter for the scale bar.
      */
-    public ScaleBar getScaleBar(Double index4) {
+    public ScaleBar getScaleBar(Number index4) {
         ScaleBar item = new ScaleBar(jsBase + ".scaleBar("+ index4+")");
         getScaleBar1.add(item);
         return item;
@@ -1005,14 +1030,14 @@ public class ChartsLinearGauge extends SeparateChart {
         return this;
     }
 
-    private Double index5;
+    private Number index5;
     private String scaleBar2;
     private Boolean scaleBar3;
 
     /**
      * Setter for the scale bar by index.
      */
-    public ChartsLinearGauge setScaleBar(String scaleBar2, Double index5) {
+    public ChartsLinearGauge setScaleBar(String scaleBar2, Number index5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1030,7 +1055,7 @@ public class ChartsLinearGauge extends SeparateChart {
     /**
      * Setter for the scale bar by index.
      */
-    public ChartsLinearGauge setScaleBar(Boolean scaleBar3, Double index5) {
+    public ChartsLinearGauge setScaleBar(Boolean scaleBar3, Number index5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1044,13 +1069,13 @@ public class ChartsLinearGauge extends SeparateChart {
         return this;
     }
 
-    private Double dataIndex4;
+    private Number dataIndex4;
     private List<Tank> setTank = new ArrayList<>();
 
     /**
      * Adds Tank pointer.
      */
-    public Tank tank(Double dataIndex4) {
+    public Tank tank(Number dataIndex4) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -1076,13 +1101,13 @@ public class ChartsLinearGauge extends SeparateChart {
         return "";
     }
 
-    private Double dataIndex5;
+    private Number dataIndex5;
     private List<Thermometer> setThermometer = new ArrayList<>();
 
     /**
      * Adds Thermometer pointer.
      */
-    public Thermometer thermometer(Double dataIndex5) {
+    public Thermometer thermometer(Number dataIndex5) {
         if (isChain) {
             js.append(";");
             isChain = false;

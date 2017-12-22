@@ -9,14 +9,14 @@ import java.util.Arrays;
 public class BbandsbContext extends JsObject  {
 
     
-    private Double deviation;
+    private Number deviation;
     private CycledQueue highQueue;
-    private Double period;
-    private Double prevDeviation;
-    private Double prevResult;
+    private Number period;
+    private Number prevDeviation;
+    private Number prevResult;
 
     
-    public BbandsbContext(Double deviation, CycledQueue highQueue, Double period, Double prevDeviation, Double prevResult) {
+    public BbandsbContext(Number deviation, CycledQueue highQueue, Number period, Number prevDeviation, Number prevResult) {
         this.deviation = deviation;
         this.highQueue = highQueue;
         this.period = period;

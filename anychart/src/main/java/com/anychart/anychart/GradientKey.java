@@ -10,11 +10,11 @@ public class GradientKey extends JsObject  {
 
     
     private String color;
-    private Double offset;
-    private Double opacity;
+    private Number offset;
+    private Number opacity;
 
     
-    public GradientKey(String color, Double offset, Double opacity) {
+    public GradientKey(String color, Number offset, Number opacity) {
         this.color = color;
         this.offset = offset;
         this.opacity = opacity;

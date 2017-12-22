@@ -408,12 +408,12 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity.
      */
-    public CoreResourceTimeline fill(String color, Double opacity) {
+    public CoreResourceTimeline fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -437,17 +437,17 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public CoreResourceTimeline fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -488,7 +488,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public CoreResourceTimeline fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -529,7 +529,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public CoreResourceTimeline fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -570,7 +570,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public CoreResourceTimeline fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -611,7 +611,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public CoreResourceTimeline fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -652,7 +652,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public CoreResourceTimeline fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -690,18 +690,18 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CoreResourceTimeline fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -752,7 +752,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CoreResourceTimeline fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -905,12 +905,12 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double fontOpacity;
+    private Number fontOpacity;
 
     /**
      * Setter for font opacity settings.
      */
-    public CoreResourceTimeline setFontOpacity(Double fontOpacity) {
+    public CoreResourceTimeline setFontOpacity(Number fontOpacity) {
         if (jsBase == null) {
             this.fontOpacity = fontOpacity;
         } else {
@@ -930,13 +930,13 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double fontSize;
+    private Number fontSize;
     private String fontSize1;
 
     /**
      * Setter for font size settings.
      */
-    public CoreResourceTimeline setFontSize(Double fontSize) {
+    public CoreResourceTimeline setFontSize(Number fontSize) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -1099,7 +1099,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     }
 
     private String fontWeight;
-    private Double fontWeight1;
+    private Number fontWeight1;
 
     /**
      * Setter for font weight settings.
@@ -1131,7 +1131,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * Setter for font weight settings.
      */
-    public CoreResourceTimeline setFontWeight(Double fontWeight1) {
+    public CoreResourceTimeline setFontWeight(Number fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -1273,13 +1273,13 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double letterSpacing;
+    private Number letterSpacing;
     private String letterSpacing1;
 
     /**
      * Setter for text letter spacing settings.
      */
-    public CoreResourceTimeline setLetterSpacing(Double letterSpacing) {
+    public CoreResourceTimeline setLetterSpacing(Number letterSpacing) {
         if (jsBase == null) {
             this.letterSpacing = null;
             this.letterSpacing1 = null;
@@ -1329,12 +1329,12 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double levelHeight;
+    private Number levelHeight;
 
     /**
      * Setter for the level height.
      */
-    public CoreResourceTimeline setLevelHeight(Double levelHeight) {
+    public CoreResourceTimeline setLevelHeight(Number levelHeight) {
         if (jsBase == null) {
             this.levelHeight = levelHeight;
         } else {
@@ -1354,13 +1354,13 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double lineHeight;
+    private Number lineHeight;
     private String lineHeight1;
 
     /**
      * Setter for text line height settings.
      */
-    public CoreResourceTimeline setLineHeight(Double lineHeight) {
+    public CoreResourceTimeline setLineHeight(Number lineHeight) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -1410,13 +1410,13 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double maxFontSize;
+    private Number maxFontSize;
     private String maxFontSize1;
 
     /**
      * Setter for the maximum font size.
      */
-    public CoreResourceTimeline setMaxFontSize(Double maxFontSize) {
+    public CoreResourceTimeline setMaxFontSize(Number maxFontSize) {
         if (jsBase == null) {
             this.maxFontSize = null;
             this.maxFontSize1 = null;
@@ -1466,13 +1466,13 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double minFontSize;
+    private Number minFontSize;
     private String minFontSize1;
 
     /**
      * Setter for the minimum font size.
      */
-    public CoreResourceTimeline setMinFontSize(Double minFontSize) {
+    public CoreResourceTimeline setMinFontSize(Number minFontSize) {
         if (jsBase == null) {
             this.minFontSize = null;
             this.minFontSize1 = null;
@@ -1602,14 +1602,14 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return getPadding;
     }
 
-    private Double[] padding;
+    private Number[] padding;
     private String[] padding1;
     private String padding2;
 
     /**
      * Setter for paddings in pixels using a single value.
      */
-    public CoreResourceTimeline setPadding(Double[] padding) {
+    public CoreResourceTimeline setPadding(Number[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -1690,13 +1690,13 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for paddings in pixels using several numbers.
@@ -1767,7 +1767,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     /**
      * Setter for paddings in pixels using several numbers.
      */
-    public CoreResourceTimeline setPadding(Double value1, Double value3, Double value5, Double value7) {
+    public CoreResourceTimeline setPadding(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1857,7 +1857,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
     private Stroke color1;
     private ColoredFill color2;
     private String color3;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -1866,7 +1866,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Setter for the stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CoreResourceTimeline setStroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CoreResourceTimeline setStroke(Stroke color1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1904,7 +1904,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Setter for the stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CoreResourceTimeline setStroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CoreResourceTimeline setStroke(ColoredFill color2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1942,7 +1942,7 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
      * Setter for the stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CoreResourceTimeline setStroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CoreResourceTimeline setStroke(String color3, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -2031,12 +2031,12 @@ public class CoreResourceTimeline extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double textIndent;
+    private Number textIndent;
 
     /**
      * Setter for text-indent settings.
      */
-    public CoreResourceTimeline setTextIndent(Double textIndent) {
+    public CoreResourceTimeline setTextIndent(Number textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
         } else {

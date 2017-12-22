@@ -40,23 +40,23 @@ public class HatchFills extends CoreBase {
     /**
      * Getter for type palette HatchFills from list by index.
      */
-    public HatchFill getItemAt(Double index) {
+    public HatchFill getItemAt(Number index) {
         HatchFill item = new HatchFill(jsBase + ".itemAt(" + index + ")");
         getItemAt.add(item);
         return item;
     }
 
-    private Double index;
+    private Number index;
     private HatchFillType type;
     private String type1;
     private String color;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
 
     /**
      * Setter for type palette HatchFills from list by index.
      */
-    public HatchFills setItemAt(Double index, HatchFillType type, String color, Double thickness, Double size) {
+    public HatchFills setItemAt(Number index, HatchFillType type, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.index = index;
             this.type = null;
@@ -91,7 +91,7 @@ public class HatchFills extends CoreBase {
     /**
      * Setter for type palette HatchFills from list by index.
      */
-    public HatchFills setItemAt(Double index, String type1, String color, Double thickness, Double size) {
+    public HatchFills setItemAt(Number index, String type1, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.index = index;
             this.type = null;
@@ -122,13 +122,13 @@ public class HatchFills extends CoreBase {
         return this;
     }
 
-    private Double index1;
+    private Number index1;
     private PatternFill patternFill;
 
     /**
      * Setter for type palette HatchFills from list by index using patternFill.
      */
-    public HatchFills setItemAt(Double index1, PatternFill patternFill) {
+    public HatchFills setItemAt(Number index1, PatternFill patternFill) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -153,13 +153,13 @@ public class HatchFills extends CoreBase {
         return this;
     }
 
-    private Double index2;
+    private Number index2;
     private HatchFill instance;
 
     /**
      * Setter for type palette HatchFills from list by index using instance.
      */
-    public HatchFills setItemAt(Double index2, HatchFill instance) {
+    public HatchFills setItemAt(Number index2, HatchFill instance) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -185,13 +185,13 @@ public class HatchFills extends CoreBase {
         return this;
     }
 
-    private Double index3;
+    private Number index3;
     private Boolean state;
 
     /**
      * Enables/disables type palette HatchFills from list by index.
      */
-    public HatchFills itemAt(Double index3, Boolean state) {
+    public HatchFills itemAt(Number index3, Boolean state) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;

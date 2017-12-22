@@ -36,12 +36,12 @@ public class RSI extends JsObject {
     }
 
     
-    private Double period;
+    private Number period;
 
     /**
      * Setter for the period.
      */
-    public RSI setPeriod(Double period) {
+    public RSI setPeriod(Number period) {
         if (jsBase == null) {
             this.period = period;
         } else {

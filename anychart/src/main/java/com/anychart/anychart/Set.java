@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -11,7 +14,7 @@ Data is stored as an array or rows where each row contains several columns (see 
 To start working with this storage you need to map columns using
 {@link anychart.data.Set#mapAs} method (you can create as many mappings as you like).<br/>
 Each field can be a number, a string, a function, an array or an object.
-Data fields can of any type and they way you read them depends on mapping only:
+Data fields can of any type and its way you read them depends on mapping only:
 {@link anychart.data.Set#mapAs}. Sample mappings are shown in code samples 3, 4 and 5.<br/>
 <b>Note:</b> To create an instance of this class use {@link anychart.data#set} method.
  */
@@ -55,7 +58,7 @@ public class Set extends CoreBase {
     private TextParsingSettings settings2;
 
     /**
-     * Setter for Set data.
+     * Setter for the Set data.
      */
     public Set setData(String[] data, TextParsingMode settings) {
         if (jsBase == null) {
@@ -88,7 +91,7 @@ public class Set extends CoreBase {
 
 
     /**
-     * Setter for Set data.
+     * Setter for the Set data.
      */
     public Set setData(String[] data, String settings1) {
         if (jsBase == null) {
@@ -121,7 +124,7 @@ public class Set extends CoreBase {
 
 
     /**
-     * Setter for Set data.
+     * Setter for the Set data.
      */
     public Set setData(String[] data, TextParsingSettings settings2) {
         if (jsBase == null) {
@@ -154,7 +157,7 @@ public class Set extends CoreBase {
 
 
     /**
-     * Setter for Set data.
+     * Setter for the Set data.
      */
     public Set setData(String data1, TextParsingMode settings) {
         if (jsBase == null) {
@@ -187,7 +190,7 @@ public class Set extends CoreBase {
 
 
     /**
-     * Setter for Set data.
+     * Setter for the Set data.
      */
     public Set setData(String data1, String settings1) {
         if (jsBase == null) {
@@ -220,7 +223,7 @@ public class Set extends CoreBase {
 
 
     /**
-     * Setter for Set data.
+     * Setter for the Set data.
      */
     public Set setData(String data1, TextParsingSettings settings2) {
         if (jsBase == null) {
@@ -251,12 +254,12 @@ public class Set extends CoreBase {
         return this;
     }
 
-    private Double index;
+    private Number index;
 
     /**
      * Inserts the row to the set at the specified position.
      */
-    public Set insert(Double index) {
+    public Set insert(Number index) {
         if (jsBase == null) {
             this.index = index;
         } else {
@@ -313,12 +316,12 @@ Default mapping is shown in {@link anychart.data.Set} constructor samples.
         return "";
     }
 
-    private Double index1;
+    private Number index1;
 
     /**
      * Removes the row by index.
      */
-    public Set remove(Double index1) {
+    public Set remove(Number index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -341,12 +344,12 @@ Default mapping is shown in {@link anychart.data.Set} constructor samples.
         return this;
     }
 
-    private Double rowIndex;
+    private Number rowIndex;
 
     /**
      * Sets the row in the set by the index.
      */
-    public void setRow(Double rowIndex) {
+    public void setRow(Number rowIndex) {
         if (jsBase == null) {
             this.rowIndex = rowIndex;
         } else {

@@ -1,9 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -74,13 +76,13 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
     private List<CoreResourceTimeline> setFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity.
      */
-    public CoreResourceTimeline fill(String color, Double opacity) {
+    public CoreResourceTimeline fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -117,18 +119,18 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
     private List<CoreResourceTimeline> setFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public CoreResourceTimeline fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -183,7 +185,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public CoreResourceTimeline fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -238,7 +240,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public CoreResourceTimeline fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -293,7 +295,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public CoreResourceTimeline fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -348,7 +350,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public CoreResourceTimeline fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -403,7 +405,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public CoreResourceTimeline fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -454,19 +456,19 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
     private List<CoreResourceTimeline> setFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CoreResourceTimeline fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -531,7 +533,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CoreResourceTimeline fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CoreResourceTimeline fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -603,7 +605,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
         return getPadding;
     }
 
-    private Double[] padding;
+    private Number[] padding;
     private String[] padding1;
     private String padding2;
     private List<CoreResourceTimeline> setPadding = new ArrayList<>();
@@ -611,7 +613,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
     /**
      * Setter for paddings in pixels using a single value.
      */
-    public CoreResourceTimeline setPadding(Double[] padding) {
+    public CoreResourceTimeline setPadding(Number[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -733,13 +735,13 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
     private List<CoreResourceTimeline> setPadding3 = new ArrayList<>();
 
     /**
@@ -825,7 +827,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
     /**
      * Setter for paddings in pixels using several numbers.
      */
-    public CoreResourceTimeline setPadding(Double value1, Double value3, Double value5, Double value7) {
+    public CoreResourceTimeline setPadding(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;

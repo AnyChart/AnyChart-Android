@@ -9,7 +9,8 @@ import android.text.TextUtils;
 
 // class
 /**
- * 
+ * The Polar class contains methods for configuring standalones Polar axes.<br/>
+This class allow to create custom Polar axes or add them to charts.
  */
 public class StandalonesAxesPolar extends CoreAxesPolar {
 
@@ -38,7 +39,7 @@ public class StandalonesAxesPolar extends CoreAxesPolar {
     private Layer getContainer;
 
     /**
-     * Getter for the axis current container.
+     * Getter for the axis container.
      */
     public Layer getContainer() {
         if (getContainer == null)
@@ -239,15 +240,15 @@ public class StandalonesAxesPolar extends CoreAxesPolar {
         return this;
     }
 
-    private Double left;
-    private Double top;
-    private Double width;
-    private Double height;
+    private Number left;
+    private Number top;
+    private Number width;
+    private Number height;
 
     /**
      * Setter for bounds using several values.
      */
-    public StandalonesAxesPolar setParentBounds(Double left, Double top, Double width, Double height) {
+    public StandalonesAxesPolar setParentBounds(Number left, Number top, Number width, Number height) {
         if (jsBase == null) {
             this.left = left;
             this.top = top;
@@ -274,7 +275,7 @@ public class StandalonesAxesPolar extends CoreAxesPolar {
     }
 
     private String startAngle;
-    private Double startAngle1;
+    private Number startAngle1;
 
     /**
      * Setter for a start angle.
@@ -306,7 +307,7 @@ public class StandalonesAxesPolar extends CoreAxesPolar {
     /**
      * Setter for a start angle.
      */
-    public StandalonesAxesPolar setStartAngle(Double startAngle1) {
+    public StandalonesAxesPolar setStartAngle(Number startAngle1) {
         if (jsBase == null) {
             this.startAngle = null;
             this.startAngle1 = null;

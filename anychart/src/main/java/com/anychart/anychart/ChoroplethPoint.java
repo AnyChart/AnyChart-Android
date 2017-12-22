@@ -64,7 +64,7 @@ public class ChoroplethPoint extends SeriesPoint {
     private AnychartMathRect getGetFeatureBounds;
 
     /**
-     * Getter for the current point bounds.<br/>
+     * Getter for the point bounds.<br/>
 <b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
      */
     public AnychartMathRect getGetFeatureBounds() {
@@ -74,13 +74,13 @@ public class ChoroplethPoint extends SeriesPoint {
         return getGetFeatureBounds;
     }
 
-    private Double middleX;
+    private Number middleX;
 
     /**
      * Setter for the X center of the point label.<br/>
 <b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
      */
-    public ChoroplethPoint setMiddleX(Double middleX) {
+    public ChoroplethPoint setMiddleX(Number middleX) {
         if (jsBase == null) {
             this.middleX = middleX;
         } else {
@@ -100,13 +100,13 @@ public class ChoroplethPoint extends SeriesPoint {
         return this;
     }
 
-    private Double middleY;
+    private Number middleY;
 
     /**
      * Setter for the Y center of the point label.<br/>
 <b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
      */
-    public ChoroplethPoint setMiddleY(Double middleY) {
+    public ChoroplethPoint setMiddleY(Number middleY) {
         if (jsBase == null) {
             this.middleY = middleY;
         } else {
@@ -126,13 +126,13 @@ public class ChoroplethPoint extends SeriesPoint {
         return this;
     }
 
-    private Double scale;
+    private Number scale;
 
     /**
      * Scales point.<br/>
 <b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
      */
-    public ChoroplethPoint scaleFactor(Double scale) {
+    public ChoroplethPoint scaleFactor(Number scale) {
         if (jsBase == null) {
             this.scale = scale;
         } else {
@@ -152,14 +152,14 @@ public class ChoroplethPoint extends SeriesPoint {
         return this;
     }
 
-    private Double dx;
-    private Double dy;
+    private Number dx;
+    private Number dy;
 
     /**
      * Moves point.<br/>
 <b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
      */
-    public ChoroplethPoint translate(Double dx, Double dy) {
+    public ChoroplethPoint translate(Number dx, Number dy) {
         if (jsBase == null) {
             this.dx = dx;
             this.dy = dy;
@@ -181,14 +181,14 @@ public class ChoroplethPoint extends SeriesPoint {
         return this;
     }
 
-    private Double dx1;
-    private Double dy1;
+    private Number dx1;
+    private Number dy1;
 
     /**
      * Setter for the point translation.<br/>
 <b>Note:</b> Works only after {@link anychart.charts.Map#draw} is called.
      */
-    public ChoroplethPoint setTranslation(Double dx1, Double dy1) {
+    public ChoroplethPoint setTranslation(Number dx1, Number dy1) {
         if (jsBase == null) {
             this.dx = null;
             this.dx1 = null;

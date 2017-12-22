@@ -9,11 +9,11 @@ import java.util.Arrays;
 public class RocContext extends JsObject  {
 
     
-    private Double period;
+    private Number period;
     private CycledQueue queue;
 
     
-    public RocContext(Double period, CycledQueue queue) {
+    public RocContext(Number period, CycledQueue queue) {
         this.period = period;
         this.queue = queue;
 

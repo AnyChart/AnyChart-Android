@@ -4,7 +4,7 @@ import java.util.Locale;
 
 /**
  * Anchor enum. Defines 9 items.<br/>
-<img src="/si/special-hotfixes-typescript/anychart.enums.Anchor.png" width="327" height="179"/>
+<img src="/si/8.1.0/anychart.enums.Anchor.png" width="327" height="179"/>
  */
 public enum EnumsAnchor implements JsObject.JsObjectInterface {
     AUTO("auto"),

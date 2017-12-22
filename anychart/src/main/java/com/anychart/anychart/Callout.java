@@ -293,7 +293,7 @@ public class Callout extends VisualBase {
     }
 
     private String length;
-    private Double length1;
+    private Number length1;
 
     /**
      * Setter for the callout length.
@@ -325,7 +325,7 @@ public class Callout extends VisualBase {
     /**
      * Setter for the callout length.
      */
-    public Callout setLength(Double length1) {
+    public Callout setLength(Number length1) {
         if (jsBase == null) {
             this.length = null;
             this.length1 = null;
@@ -360,14 +360,14 @@ public class Callout extends VisualBase {
         return getMargin;
     }
 
-    private Double[] margin;
+    private Number[] margin;
     private String[] margin1;
     private String margin2;
 
     /**
      * Setter for the callout margin using a single value.
      */
-    public Callout setMargin(Double[] margin) {
+    public Callout setMargin(Number[] margin) {
         if (jsBase == null) {
             this.margin = null;
             this.margin1 = null;
@@ -448,13 +448,13 @@ public class Callout extends VisualBase {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for the callout margin using several values.
@@ -525,7 +525,7 @@ public class Callout extends VisualBase {
     /**
      * Setter for the callout margin using several values.
      */
-    public Callout setMargin(Double value1, Double value3, Double value5, Double value7) {
+    public Callout setMargin(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -692,14 +692,14 @@ public class Callout extends VisualBase {
         return getPadding;
     }
 
-    private Double[] padding;
+    private Number[] padding;
     private String[] padding1;
     private String padding2;
 
     /**
      * Setter for the callout padding using a single value.
      */
-    public Callout setPadding(Double[] padding) {
+    public Callout setPadding(Number[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -780,13 +780,13 @@ public class Callout extends VisualBase {
     }
 
     private String value8;
-    private Double value9;
+    private Number value9;
     private String value10;
-    private Double value11;
+    private Number value11;
     private String value12;
-    private Double value13;
+    private Number value13;
     private String value14;
-    private Double value15;
+    private Number value15;
 
     /**
      * Setter for the callout padding using several numbers.
@@ -889,7 +889,7 @@ public class Callout extends VisualBase {
     /**
      * Setter for the callout padding using several numbers.
      */
-    public Callout setPadding(Double value9, Double value11, Double value13, Double value15) {
+    public Callout setPadding(Number value9, Number value11, Number value13, Number value15) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1091,13 +1091,13 @@ public class Callout extends VisualBase {
         return this;
     }
 
-    private Double width;
+    private Number width;
     private String width1;
 
     /**
      * Setter for the callout width.
      */
-    public Callout setWidth(Double width) {
+    public Callout setWidth(Number width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

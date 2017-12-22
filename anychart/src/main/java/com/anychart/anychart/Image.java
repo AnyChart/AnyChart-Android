@@ -121,12 +121,12 @@ public class Image extends Element {
         return this;
     }
 
-    private Double height;
+    private Number height;
 
     /**
      * Setter for the image height.
      */
-    public Image setHeight(Double height) {
+    public Image setHeight(Number height) {
         if (jsBase == null) {
             this.height = height;
         } else {
@@ -172,12 +172,12 @@ Set null value for non-display image.
         return this;
     }
 
-    private Double width;
+    private Number width;
 
     /**
      * Setter for the image width.
      */
-    public Image setWidth(Double width) {
+    public Image setWidth(Number width) {
         if (jsBase == null) {
             this.width = width;
         } else {
@@ -197,12 +197,12 @@ Set null value for non-display image.
         return this;
     }
 
-    private Double x;
+    private Number x;
 
     /**
      * Setter for X coordinate.
      */
-    public Image setX(Double x) {
+    public Image setX(Number x) {
         if (jsBase == null) {
             this.x = x;
         } else {
@@ -222,12 +222,12 @@ Set null value for non-display image.
         return this;
     }
 
-    private Double y;
+    private Number y;
 
     /**
      * Setter for the Y coordinate.
      */
-    public Image setY(Double y) {
+    public Image setY(Number y) {
         if (jsBase == null) {
             this.y = y;
         } else {

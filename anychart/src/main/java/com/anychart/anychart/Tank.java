@@ -94,12 +94,12 @@ public class Tank extends LineargaugePointersBase {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity for the empty part of a tank. Fill as a string or an object.
      */
-    public Tank emptyFill(String color, Double opacity) {
+    public Tank emptyFill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -139,14 +139,14 @@ public class Tank extends LineargaugePointersBase {
     private String patternFillOrType3;
     private Boolean patternFillOrType4;
     private String color1;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
 
     /**
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Tank setEmptyHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
+    public Tank setEmptyHatchFill(PatternFill patternFillOrType, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -186,7 +186,7 @@ public class Tank extends LineargaugePointersBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Tank setEmptyHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
+    public Tank setEmptyHatchFill(HatchFill patternFillOrType1, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -226,7 +226,7 @@ public class Tank extends LineargaugePointersBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Tank setEmptyHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
+    public Tank setEmptyHatchFill(HatchFillType patternFillOrType2, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -266,7 +266,7 @@ public class Tank extends LineargaugePointersBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Tank setEmptyHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
+    public Tank setEmptyHatchFill(String patternFillOrType3, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -306,7 +306,7 @@ public class Tank extends LineargaugePointersBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Tank setEmptyHatchFill(Boolean patternFillOrType4, String color1, Double thickness, Double size) {
+    public Tank setEmptyHatchFill(Boolean patternFillOrType4, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;

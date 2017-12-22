@@ -43,7 +43,7 @@ public class CrosshairLabel extends CoreText {
 
     /**
      * Setter for adjust font settings.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
      */
     public CrosshairLabel setAdjustFontSize(String bothOrByWidth, Boolean byHeight) {
         if (jsBase == null) {
@@ -74,7 +74,7 @@ public class CrosshairLabel extends CoreText {
 
     /**
      * Setter for adjust font settings.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
      */
     public CrosshairLabel setAdjustFontSize(Boolean[] bothOrByWidth1, Boolean byHeight) {
         if (jsBase == null) {
@@ -105,7 +105,7 @@ public class CrosshairLabel extends CoreText {
 
     /**
      * Setter for adjust font settings.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.adjustFontSize.png' height='97' width='399'/>
      */
     public CrosshairLabel setAdjustFontSize(Boolean bothOrByWidth2, Boolean byHeight) {
         if (jsBase == null) {
@@ -189,12 +189,12 @@ public class CrosshairLabel extends CoreText {
         return this;
     }
 
-    private Double axisIndex;
+    private Number axisIndex;
 
     /**
      * Setter for the axis index.
      */
-    public CrosshairLabel setAxisIndex(Double axisIndex) {
+    public CrosshairLabel setAxisIndex(Number axisIndex) {
         if (jsBase == null) {
             this.axisIndex = axisIndex;
         } else {
@@ -285,13 +285,13 @@ public class CrosshairLabel extends CoreText {
         return this;
     }
 
-    private Double height;
+    private Number height;
     private String height1;
 
     /**
      * Setter for the crosshair label height.
      */
-    public CrosshairLabel setHeight(Double height) {
+    public CrosshairLabel setHeight(Number height) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -341,13 +341,13 @@ public class CrosshairLabel extends CoreText {
         return this;
     }
 
-    private Double maxFontSize;
+    private Number maxFontSize;
     private String maxFontSize1;
 
     /**
      * Setter for the font size for adjust text to.
      */
-    public CrosshairLabel setMaxFontSize(Double maxFontSize) {
+    public CrosshairLabel setMaxFontSize(Number maxFontSize) {
         if (jsBase == null) {
             this.maxFontSize = null;
             this.maxFontSize1 = null;
@@ -397,13 +397,13 @@ public class CrosshairLabel extends CoreText {
         return this;
     }
 
-    private Double minFontSize;
+    private Number minFontSize;
     private String minFontSize1;
 
     /**
      * Setter for the minimum font size for adjust text from.
      */
-    public CrosshairLabel setMinFontSize(Double minFontSize) {
+    public CrosshairLabel setMinFontSize(Number minFontSize) {
         if (jsBase == null) {
             this.minFontSize = null;
             this.minFontSize1 = null;
@@ -453,15 +453,15 @@ public class CrosshairLabel extends CoreText {
         return this;
     }
 
-    private Double offsetX;
+    private Number offsetX;
     private String offsetX1;
 
     /**
      * Setter for crosshair label offsetX settings.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
-    public CrosshairLabel setOffsetX(Double offsetX) {
+    public CrosshairLabel setOffsetX(Number offsetX) {
         if (jsBase == null) {
             this.offsetX = null;
             this.offsetX1 = null;
@@ -487,7 +487,7 @@ Arrows show offsets layout.
 
     /**
      * Setter for crosshair label offsetX settings.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.ui.CrosshairLabel.offsetX.png' height='436' width='577'/><br/>
 Arrows show offsets layout.
      */
     public CrosshairLabel setOffsetX(String offsetX1) {
@@ -513,14 +513,14 @@ Arrows show offsets layout.
         return this;
     }
 
-    private Double offsetY;
+    private Number offsetY;
     private String offsetY1;
 
     /**
      * Setter for crosshair label offsetY settings.
 See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
      */
-    public CrosshairLabel setOffsetY(Double offsetY) {
+    public CrosshairLabel setOffsetY(Number offsetY) {
         if (jsBase == null) {
             this.offsetY = null;
             this.offsetY1 = null;
@@ -583,14 +583,14 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
         return getPadding;
     }
 
-    private Double[] padding;
+    private Number[] padding;
     private String[] padding1;
     private String padding2;
 
     /**
      * Setter for crosshair label padding in pixels by one value.
      */
-    public CrosshairLabel setPadding(Double[] padding) {
+    public CrosshairLabel setPadding(Number[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -671,13 +671,13 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for crosshair label padding in pixels.
@@ -748,7 +748,7 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
     /**
      * Setter for crosshair label padding in pixels.
      */
-    public CrosshairLabel setPadding(Double value1, Double value3, Double value5, Double value7) {
+    public CrosshairLabel setPadding(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -810,13 +810,13 @@ See illustration in {@link anychart.core.ui.CrosshairLabel#offsetX}.
         return this;
     }
 
-    private Double width;
+    private Number width;
     private String width1;
 
     /**
      * Setter for the crosshair label width.
      */
-    public CrosshairLabel setWidth(Double width) {
+    public CrosshairLabel setWidth(Number width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

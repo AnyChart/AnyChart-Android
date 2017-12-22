@@ -10,7 +10,7 @@ import android.text.TextUtils;
 // class
 /**
  * <b>anychart.data.Iterator</b> class is used to work with data in a View.<br/>
-Iterator allows to get data from a {@link anychart.data.View} by crawling through rows. Iterator
+The iterator allows getting data from a {@link anychart.data.View} by crawling through rows. Iterator
 can be obtained using {@link anychart.data.View#getIterator} method and has methods to control current
 index and get values from data/metadata fields in a current row.
  */
@@ -63,12 +63,12 @@ public class Iterator extends JsObject {
         return this;
     }
 
-    private Double index;
+    private Number index;
 
     /**
      * Sets a passed index as the current index and returns it in case of success.
      */
-    public void setSelect(Double index) {
+    public void setSelect(Number index) {
         if (jsBase == null) {
             this.index = index;
         } else {

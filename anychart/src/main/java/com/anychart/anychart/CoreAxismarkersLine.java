@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -231,7 +236,7 @@ public class CoreAxismarkersLine extends VisualBase {
     private Stroke stroke;
     private ColoredFill stroke1;
     private String stroke2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -239,7 +244,7 @@ public class CoreAxismarkersLine extends VisualBase {
     /**
      * Setter for the line marker stroke.
      */
-    public CoreAxismarkersLine setStroke(Stroke stroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CoreAxismarkersLine setStroke(Stroke stroke, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -275,7 +280,7 @@ public class CoreAxismarkersLine extends VisualBase {
     /**
      * Setter for the line marker stroke.
      */
-    public CoreAxismarkersLine setStroke(ColoredFill stroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CoreAxismarkersLine setStroke(ColoredFill stroke1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -311,7 +316,7 @@ public class CoreAxismarkersLine extends VisualBase {
     /**
      * Setter for the line marker stroke.
      */
-    public CoreAxismarkersLine setStroke(String stroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CoreAxismarkersLine setStroke(String stroke2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -343,12 +348,12 @@ public class CoreAxismarkersLine extends VisualBase {
         return this;
     }
 
-    private Double newValue;
+    private Number newValue;
 
     /**
      * Setter for the line marker value.
      */
-    public CoreAxismarkersLine setValue(Double newValue) {
+    public CoreAxismarkersLine setValue(Number newValue) {
         if (jsBase == null) {
             this.newValue = newValue;
         } else {

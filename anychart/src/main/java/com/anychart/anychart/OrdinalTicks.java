@@ -1,10 +1,15 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
- * Scale ticks settings.
+ * The OrdinalTicks class contains methods for configuring ticks on the Ordinal scale.
  */
 public class OrdinalTicks extends CoreBase {
 
@@ -30,12 +35,13 @@ public class OrdinalTicks extends CoreBase {
     }
 
     
-    private Double interval;
+    private Number interval;
 
     /**
-     * Setter for ticks interval value. Passed value as rounded and defaults to 1 in case of incorrect settings.
+     * Setter for ticks interval value.<br/>
+Passed value is rounded and defaults to 1 in case of incorrect settings.
      */
-    public OrdinalTicks setInterval(Double interval) {
+    public OrdinalTicks setInterval(Number interval) {
         if (jsBase == null) {
             this.interval = interval;
         } else {
@@ -55,10 +61,35 @@ public class OrdinalTicks extends CoreBase {
         return this;
     }
 
+    private Number maxCount;
+
+    /**
+     * Setter for maximum ticks count.
+     */
+    public OrdinalTicks setMaxCount(Number maxCount) {
+        if (jsBase == null) {
+            this.maxCount = maxCount;
+        } else {
+            this.maxCount = maxCount;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".maxCount(%f)", maxCount));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxCount(%f);", maxCount));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private String[] values;
 
     /**
-     * Setter for tick names.
+     * Setter for the tick names.
      */
     public OrdinalTicks setNames(String[] values) {
         if (jsBase == null) {

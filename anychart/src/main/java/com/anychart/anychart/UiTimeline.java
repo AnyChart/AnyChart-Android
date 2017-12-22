@@ -62,12 +62,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity.
      */
-    public UiTimeline backgroundFill(String color, Double opacity) {
+    public UiTimeline backgroundFill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -91,17 +91,17 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline backgroundFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public UiTimeline backgroundFill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -142,7 +142,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline backgroundFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public UiTimeline backgroundFill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -183,7 +183,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline backgroundFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public UiTimeline backgroundFill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -224,7 +224,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline backgroundFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public UiTimeline backgroundFill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -265,7 +265,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline backgroundFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public UiTimeline backgroundFill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -306,7 +306,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline backgroundFill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public UiTimeline backgroundFill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -344,18 +344,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline backgroundFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiTimeline backgroundFill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -406,7 +406,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline backgroundFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiTimeline backgroundFill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -453,6 +453,230 @@ public class UiTimeline extends JsObject {
     }
 
     private Fill imageSettings;
+    private String baseBarAnchor;
+    private EnumsAnchor baseBarAnchor1;
+
+    /**
+     * Setter for the base bar anchor.
+     */
+    public UiTimeline setBaseBarAnchor(String baseBarAnchor) {
+        if (jsBase == null) {
+            this.baseBarAnchor = null;
+            this.baseBarAnchor1 = null;
+            
+            this.baseBarAnchor = baseBarAnchor;
+        } else {
+            this.baseBarAnchor = baseBarAnchor;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".baseBarAnchor(%s)", wrapQuotes(baseBarAnchor)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseBarAnchor(%s);", wrapQuotes(baseBarAnchor)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the base bar anchor.
+     */
+    public UiTimeline setBaseBarAnchor(EnumsAnchor baseBarAnchor1) {
+        if (jsBase == null) {
+            this.baseBarAnchor = null;
+            this.baseBarAnchor1 = null;
+            
+            this.baseBarAnchor1 = baseBarAnchor1;
+        } else {
+            this.baseBarAnchor1 = baseBarAnchor1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".baseBarAnchor(%s)", ((baseBarAnchor1 != null) ? baseBarAnchor1.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseBarAnchor(%s);", ((baseBarAnchor1 != null) ? baseBarAnchor1.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String baseBarHeight;
+    private Number baseBarHeight1;
+
+    /**
+     * Setter for the base bar height.
+     */
+    public UiTimeline setBaseBarHeight(String baseBarHeight) {
+        if (jsBase == null) {
+            this.baseBarHeight = null;
+            this.baseBarHeight1 = null;
+            
+            this.baseBarHeight = baseBarHeight;
+        } else {
+            this.baseBarHeight = baseBarHeight;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".baseBarHeight(%s)", wrapQuotes(baseBarHeight)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseBarHeight(%s);", wrapQuotes(baseBarHeight)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the base bar height.
+     */
+    public UiTimeline setBaseBarHeight(Number baseBarHeight1) {
+        if (jsBase == null) {
+            this.baseBarHeight = null;
+            this.baseBarHeight1 = null;
+            
+            this.baseBarHeight1 = baseBarHeight1;
+        } else {
+            this.baseBarHeight1 = baseBarHeight1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".baseBarHeight(%f)", baseBarHeight1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseBarHeight(%f);", baseBarHeight1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String baseBarOffset;
+    private Number baseBarOffset1;
+
+    /**
+     * Setter for the base bar offset.
+     */
+    public UiTimeline setBaseBarOffset(String baseBarOffset) {
+        if (jsBase == null) {
+            this.baseBarOffset = null;
+            this.baseBarOffset1 = null;
+            
+            this.baseBarOffset = baseBarOffset;
+        } else {
+            this.baseBarOffset = baseBarOffset;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".baseBarOffset(%s)", wrapQuotes(baseBarOffset)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseBarOffset(%s);", wrapQuotes(baseBarOffset)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the base bar offset.
+     */
+    public UiTimeline setBaseBarOffset(Number baseBarOffset1) {
+        if (jsBase == null) {
+            this.baseBarOffset = null;
+            this.baseBarOffset1 = null;
+            
+            this.baseBarOffset1 = baseBarOffset1;
+        } else {
+            this.baseBarOffset1 = baseBarOffset1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".baseBarOffset(%f)", baseBarOffset1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseBarOffset(%f);", baseBarOffset1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String baseBarPosition;
+    private EnumsAnchor baseBarPosition1;
+
+    /**
+     * Setter for the base bar position.
+     */
+    public UiTimeline setBaseBarPosition(String baseBarPosition) {
+        if (jsBase == null) {
+            this.baseBarPosition = null;
+            this.baseBarPosition1 = null;
+            
+            this.baseBarPosition = baseBarPosition;
+        } else {
+            this.baseBarPosition = baseBarPosition;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".baseBarPosition(%s)", wrapQuotes(baseBarPosition)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseBarPosition(%s);", wrapQuotes(baseBarPosition)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the base bar position.
+     */
+    public UiTimeline setBaseBarPosition(EnumsAnchor baseBarPosition1) {
+        if (jsBase == null) {
+            this.baseBarPosition = null;
+            this.baseBarPosition1 = null;
+            
+            this.baseBarPosition1 = baseBarPosition1;
+        } else {
+            this.baseBarPosition1 = baseBarPosition1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".baseBarPosition(%s)", ((baseBarPosition1 != null) ? baseBarPosition1.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseBarPosition(%s);", ((baseBarPosition1 != null) ? baseBarPosition1.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Fill baseFill;
 
     /**
@@ -480,12 +704,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color1;
-    private Double opacity3;
+    private Number opacity3;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTimeline baseFill(String color1, Double opacity3) {
+    public UiTimeline baseFill(String color1, Number opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -517,17 +741,17 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys4;
     private String[] keys5;
-    private Double angle1;
+    private Number angle1;
     private Boolean mode4;
     private VectorRect mode5;
     private String mode6;
-    private Double opacity4;
+    private Number opacity4;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baseFill(GradientKey[] keys4, Double angle1, Double opacity4, Boolean mode4) {
+    public UiTimeline baseFill(GradientKey[] keys4, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -582,7 +806,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baseFill(GradientKey[] keys4, Double angle1, Double opacity4, VectorRect mode5) {
+    public UiTimeline baseFill(GradientKey[] keys4, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -637,7 +861,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baseFill(GradientKey[] keys4, Double angle1, Double opacity4, String mode6) {
+    public UiTimeline baseFill(GradientKey[] keys4, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -692,7 +916,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baseFill(String[] keys5, Double angle1, Double opacity4, Boolean mode4) {
+    public UiTimeline baseFill(String[] keys5, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -747,7 +971,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baseFill(String[] keys5, Double angle1, Double opacity4, VectorRect mode5) {
+    public UiTimeline baseFill(String[] keys5, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -802,7 +1026,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baseFill(String[] keys5, Double angle1, Double opacity4, String mode6) {
+    public UiTimeline baseFill(String[] keys5, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -854,18 +1078,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys6;
     private String[] keys7;
-    private Double cx1;
-    private Double cy1;
+    private Number cx1;
+    private Number cy1;
     private GraphicsMathRect mode7;
-    private Double opacity5;
-    private Double fx1;
-    private Double fy1;
+    private Number opacity5;
+    private Number fx1;
+    private Number fy1;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baseFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public UiTimeline baseFill(GradientKey[] keys6, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -939,7 +1163,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baseFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public UiTimeline baseFill(String[] keys7, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1080,7 +1304,7 @@ public class UiTimeline extends JsObject {
     private Stroke baseStroke;
     private ColoredFill baseStroke1;
     private String baseStroke2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -1089,7 +1313,7 @@ public class UiTimeline extends JsObject {
      * Setter for the base stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setBaseStroke(Stroke baseStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public UiTimeline setBaseStroke(Stroke baseStroke, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.baseStroke = null;
             this.baseStroke1 = null;
@@ -1126,7 +1350,7 @@ public class UiTimeline extends JsObject {
      * Setter for the base stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setBaseStroke(ColoredFill baseStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public UiTimeline setBaseStroke(ColoredFill baseStroke1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.baseStroke = null;
             this.baseStroke1 = null;
@@ -1163,7 +1387,7 @@ public class UiTimeline extends JsObject {
      * Setter for the base stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setBaseStroke(String baseStroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public UiTimeline setBaseStroke(String baseStroke2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.baseStroke = null;
             this.baseStroke1 = null;
@@ -1220,6 +1444,230 @@ public class UiTimeline extends JsObject {
         return this;
     }
 
+    private String baselineBarAnchor;
+    private EnumsAnchor baselineBarAnchor1;
+
+    /**
+     * Setter for the baseline bar anchor.
+     */
+    public UiTimeline setBaselineBarAnchor(String baselineBarAnchor) {
+        if (jsBase == null) {
+            this.baselineBarAnchor = null;
+            this.baselineBarAnchor1 = null;
+            
+            this.baselineBarAnchor = baselineBarAnchor;
+        } else {
+            this.baselineBarAnchor = baselineBarAnchor;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".baselineBarAnchor(%s)", wrapQuotes(baselineBarAnchor)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineBarAnchor(%s);", wrapQuotes(baselineBarAnchor)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the baseline bar anchor.
+     */
+    public UiTimeline setBaselineBarAnchor(EnumsAnchor baselineBarAnchor1) {
+        if (jsBase == null) {
+            this.baselineBarAnchor = null;
+            this.baselineBarAnchor1 = null;
+            
+            this.baselineBarAnchor1 = baselineBarAnchor1;
+        } else {
+            this.baselineBarAnchor1 = baselineBarAnchor1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".baselineBarAnchor(%s)", ((baselineBarAnchor1 != null) ? baselineBarAnchor1.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineBarAnchor(%s);", ((baselineBarAnchor1 != null) ? baselineBarAnchor1.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String baselineBarHeight;
+    private Number baselineBarHeight1;
+
+    /**
+     * Setter for the baseline bar height.
+     */
+    public UiTimeline setBaselineBarHeight(String baselineBarHeight) {
+        if (jsBase == null) {
+            this.baselineBarHeight = null;
+            this.baselineBarHeight1 = null;
+            
+            this.baselineBarHeight = baselineBarHeight;
+        } else {
+            this.baselineBarHeight = baselineBarHeight;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".baselineBarHeight(%s)", wrapQuotes(baselineBarHeight)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineBarHeight(%s);", wrapQuotes(baselineBarHeight)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the baseline bar height.
+     */
+    public UiTimeline setBaselineBarHeight(Number baselineBarHeight1) {
+        if (jsBase == null) {
+            this.baselineBarHeight = null;
+            this.baselineBarHeight1 = null;
+            
+            this.baselineBarHeight1 = baselineBarHeight1;
+        } else {
+            this.baselineBarHeight1 = baselineBarHeight1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".baselineBarHeight(%f)", baselineBarHeight1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineBarHeight(%f);", baselineBarHeight1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String baselineBarOffset;
+    private Number baselineBarOffset1;
+
+    /**
+     * Setter for the baseline bar offset.
+     */
+    public UiTimeline setBaselineBarOffset(String baselineBarOffset) {
+        if (jsBase == null) {
+            this.baselineBarOffset = null;
+            this.baselineBarOffset1 = null;
+            
+            this.baselineBarOffset = baselineBarOffset;
+        } else {
+            this.baselineBarOffset = baselineBarOffset;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".baselineBarOffset(%s)", wrapQuotes(baselineBarOffset)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineBarOffset(%s);", wrapQuotes(baselineBarOffset)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the baseline bar offset.
+     */
+    public UiTimeline setBaselineBarOffset(Number baselineBarOffset1) {
+        if (jsBase == null) {
+            this.baselineBarOffset = null;
+            this.baselineBarOffset1 = null;
+            
+            this.baselineBarOffset1 = baselineBarOffset1;
+        } else {
+            this.baselineBarOffset1 = baselineBarOffset1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".baselineBarOffset(%f)", baselineBarOffset1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineBarOffset(%f);", baselineBarOffset1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String baselineBarPosition;
+    private EnumsAnchor baselineBarPosition1;
+
+    /**
+     * Setter for the baseline bar position.
+     */
+    public UiTimeline setBaselineBarPosition(String baselineBarPosition) {
+        if (jsBase == null) {
+            this.baselineBarPosition = null;
+            this.baselineBarPosition1 = null;
+            
+            this.baselineBarPosition = baselineBarPosition;
+        } else {
+            this.baselineBarPosition = baselineBarPosition;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".baselineBarPosition(%s)", wrapQuotes(baselineBarPosition)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineBarPosition(%s);", wrapQuotes(baselineBarPosition)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the baseline bar position.
+     */
+    public UiTimeline setBaselineBarPosition(EnumsAnchor baselineBarPosition1) {
+        if (jsBase == null) {
+            this.baselineBarPosition = null;
+            this.baselineBarPosition1 = null;
+            
+            this.baselineBarPosition1 = baselineBarPosition1;
+        } else {
+            this.baselineBarPosition1 = baselineBarPosition1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".baselineBarPosition(%s)", ((baselineBarPosition1 != null) ? baselineBarPosition1.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineBarPosition(%s);", ((baselineBarPosition1 != null) ? baselineBarPosition1.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Fill baselineFill;
 
     /**
@@ -1247,12 +1695,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color2;
-    private Double opacity6;
+    private Number opacity6;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTimeline baselineFill(String color2, Double opacity6) {
+    public UiTimeline baselineFill(String color2, Number opacity6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1288,17 +1736,17 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys8;
     private String[] keys9;
-    private Double angle2;
+    private Number angle2;
     private Boolean mode8;
     private VectorRect mode9;
     private String mode10;
-    private Double opacity7;
+    private Number opacity7;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baselineFill(GradientKey[] keys8, Double angle2, Double opacity7, Boolean mode8) {
+    public UiTimeline baselineFill(GradientKey[] keys8, Number angle2, Number opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1365,7 +1813,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baselineFill(GradientKey[] keys8, Double angle2, Double opacity7, VectorRect mode9) {
+    public UiTimeline baselineFill(GradientKey[] keys8, Number angle2, Number opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1432,7 +1880,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baselineFill(GradientKey[] keys8, Double angle2, Double opacity7, String mode10) {
+    public UiTimeline baselineFill(GradientKey[] keys8, Number angle2, Number opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1499,7 +1947,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baselineFill(String[] keys9, Double angle2, Double opacity7, Boolean mode8) {
+    public UiTimeline baselineFill(String[] keys9, Number angle2, Number opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1566,7 +2014,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baselineFill(String[] keys9, Double angle2, Double opacity7, VectorRect mode9) {
+    public UiTimeline baselineFill(String[] keys9, Number angle2, Number opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1633,7 +2081,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baselineFill(String[] keys9, Double angle2, Double opacity7, String mode10) {
+    public UiTimeline baselineFill(String[] keys9, Number angle2, Number opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1697,18 +2145,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys10;
     private String[] keys11;
-    private Double cx2;
-    private Double cy2;
+    private Number cx2;
+    private Number cy2;
     private GraphicsMathRect mode11;
-    private Double opacity8;
-    private Double fx2;
-    private Double fy2;
+    private Number opacity8;
+    private Number fx2;
+    private Number fy2;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baselineFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public UiTimeline baselineFill(GradientKey[] keys10, Number cx2, Number cy2, GraphicsMathRect mode11, Number opacity8, Number fx2, Number fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1797,7 +2245,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline baselineFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public UiTimeline baselineFill(String[] keys11, Number cx2, Number cy2, GraphicsMathRect mode11, Number opacity8, Number fx2, Number fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1953,7 +2401,7 @@ public class UiTimeline extends JsObject {
     private Stroke baselineStroke;
     private ColoredFill baselineStroke1;
     private String baselineStroke2;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -1962,7 +2410,7 @@ public class UiTimeline extends JsObject {
      * Setter for the baseline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setBaselineStroke(Stroke baselineStroke, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public UiTimeline setBaselineStroke(Stroke baselineStroke, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.baselineStroke = null;
             this.baselineStroke1 = null;
@@ -2011,7 +2459,7 @@ public class UiTimeline extends JsObject {
      * Setter for the baseline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setBaselineStroke(ColoredFill baselineStroke1, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public UiTimeline setBaselineStroke(ColoredFill baselineStroke1, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.baselineStroke = null;
             this.baselineStroke1 = null;
@@ -2060,7 +2508,7 @@ public class UiTimeline extends JsObject {
      * Setter for the baseline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setBaselineStroke(String baselineStroke2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public UiTimeline setBaselineStroke(String baselineStroke2, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.baselineStroke = null;
             this.baselineStroke1 = null;
@@ -2163,18 +2611,18 @@ public class UiTimeline extends JsObject {
     private Fill connectorFill;
     private GradientKey[] connectorFill1;
     private String[] connectorFill2;
-    private Double cx3;
-    private Double cy3;
+    private Number cx3;
+    private Number cy3;
     private GraphicsMathRect opacityOrMode;
-    private Double opacity9;
-    private Double fx3;
-    private Double fy3;
+    private Number opacity9;
+    private Number fx3;
+    private Number fy3;
 
     /**
      * Setter for connector fill settings using an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline setConnectorFill(Fill connectorFill, Double cx3, Double cy3, GraphicsMathRect opacityOrMode, Double opacity9, Double fx3, Double fy3) {
+    public UiTimeline setConnectorFill(Fill connectorFill, Number cx3, Number cy3, GraphicsMathRect opacityOrMode, Number opacity9, Number fx3, Number fy3) {
         if (jsBase == null) {
             this.connectorFill = null;
             this.connectorFill1 = null;
@@ -2246,7 +2694,7 @@ public class UiTimeline extends JsObject {
      * Setter for connector fill settings using an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline setConnectorFill(GradientKey[] connectorFill1, Double cx3, Double cy3, GraphicsMathRect opacityOrMode, Double opacity9, Double fx3, Double fy3) {
+    public UiTimeline setConnectorFill(GradientKey[] connectorFill1, Number cx3, Number cy3, GraphicsMathRect opacityOrMode, Number opacity9, Number fx3, Number fy3) {
         if (jsBase == null) {
             this.connectorFill = null;
             this.connectorFill1 = null;
@@ -2318,7 +2766,7 @@ public class UiTimeline extends JsObject {
      * Setter for connector fill settings using an object or a string.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline setConnectorFill(String[] connectorFill2, Double cx3, Double cy3, GraphicsMathRect opacityOrMode, Double opacity9, Double fx3, Double fy3) {
+    public UiTimeline setConnectorFill(String[] connectorFill2, Number cx3, Number cy3, GraphicsMathRect opacityOrMode, Number opacity9, Number fx3, Number fy3) {
         if (jsBase == null) {
             this.connectorFill = null;
             this.connectorFill1 = null;
@@ -2388,7 +2836,7 @@ public class UiTimeline extends JsObject {
     private Stroke connectorPreviewStroke;
     private ColoredFill connectorPreviewStroke1;
     private String connectorPreviewStroke2;
-    private Double thickness2;
+    private Number thickness2;
     private String dashpattern2;
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
@@ -2397,7 +2845,7 @@ public class UiTimeline extends JsObject {
      * Setter for the connector preview stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setConnectorPreviewStroke(Stroke connectorPreviewStroke, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public UiTimeline setConnectorPreviewStroke(Stroke connectorPreviewStroke, Number thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.connectorPreviewStroke = null;
             this.connectorPreviewStroke1 = null;
@@ -2450,7 +2898,7 @@ public class UiTimeline extends JsObject {
      * Setter for the connector preview stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setConnectorPreviewStroke(ColoredFill connectorPreviewStroke1, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public UiTimeline setConnectorPreviewStroke(ColoredFill connectorPreviewStroke1, Number thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.connectorPreviewStroke = null;
             this.connectorPreviewStroke1 = null;
@@ -2503,7 +2951,7 @@ public class UiTimeline extends JsObject {
      * Setter for the connector preview stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setConnectorPreviewStroke(String connectorPreviewStroke2, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public UiTimeline setConnectorPreviewStroke(String connectorPreviewStroke2, Number thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.connectorPreviewStroke = null;
             this.connectorPreviewStroke1 = null;
@@ -2554,7 +3002,7 @@ public class UiTimeline extends JsObject {
     private Stroke connectorStroke;
     private ColoredFill connectorStroke1;
     private String connectorStroke2;
-    private Double thickness3;
+    private Number thickness3;
     private String dashpattern3;
     private StrokeLineJoin lineJoin3;
     private StrokeLineCap lineCap3;
@@ -2563,7 +3011,7 @@ public class UiTimeline extends JsObject {
      * Setter for the connector stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setConnectorStroke(Stroke connectorStroke, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
+    public UiTimeline setConnectorStroke(Stroke connectorStroke, Number thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.connectorStroke = null;
             this.connectorStroke1 = null;
@@ -2620,7 +3068,7 @@ public class UiTimeline extends JsObject {
      * Setter for the connector stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setConnectorStroke(ColoredFill connectorStroke1, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
+    public UiTimeline setConnectorStroke(ColoredFill connectorStroke1, Number thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.connectorStroke = null;
             this.connectorStroke1 = null;
@@ -2677,7 +3125,7 @@ public class UiTimeline extends JsObject {
      * Setter for the connector stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setConnectorStroke(String connectorStroke2, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
+    public UiTimeline setConnectorStroke(String connectorStroke2, Number thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.connectorStroke = null;
             this.connectorStroke1 = null;
@@ -2756,12 +3204,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color3;
-    private Double opacity10;
+    private Number opacity10;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTimeline editConnectorThumbFill(String color3, Double opacity10) {
+    public UiTimeline editConnectorThumbFill(String color3, Number opacity10) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -2802,17 +3250,17 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys12;
     private String[] keys13;
-    private Double angle3;
+    private Number angle3;
     private Boolean mode12;
     private VectorRect mode13;
     private String mode14;
-    private Double opacity11;
+    private Number opacity11;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editConnectorThumbFill(GradientKey[] keys12, Double angle3, Double opacity11, Boolean mode12) {
+    public UiTimeline editConnectorThumbFill(GradientKey[] keys12, Number angle3, Number opacity11, Boolean mode12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2892,7 +3340,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editConnectorThumbFill(GradientKey[] keys12, Double angle3, Double opacity11, VectorRect mode13) {
+    public UiTimeline editConnectorThumbFill(GradientKey[] keys12, Number angle3, Number opacity11, VectorRect mode13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2972,7 +3420,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editConnectorThumbFill(GradientKey[] keys12, Double angle3, Double opacity11, String mode14) {
+    public UiTimeline editConnectorThumbFill(GradientKey[] keys12, Number angle3, Number opacity11, String mode14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3052,7 +3500,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editConnectorThumbFill(String[] keys13, Double angle3, Double opacity11, Boolean mode12) {
+    public UiTimeline editConnectorThumbFill(String[] keys13, Number angle3, Number opacity11, Boolean mode12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3132,7 +3580,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editConnectorThumbFill(String[] keys13, Double angle3, Double opacity11, VectorRect mode13) {
+    public UiTimeline editConnectorThumbFill(String[] keys13, Number angle3, Number opacity11, VectorRect mode13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3212,7 +3660,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editConnectorThumbFill(String[] keys13, Double angle3, Double opacity11, String mode14) {
+    public UiTimeline editConnectorThumbFill(String[] keys13, Number angle3, Number opacity11, String mode14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3289,18 +3737,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys14;
     private String[] keys15;
-    private Double cx4;
-    private Double cy4;
+    private Number cx4;
+    private Number cy4;
     private GraphicsMathRect mode15;
-    private Double opacity12;
-    private Double fx4;
-    private Double fy4;
+    private Number opacity12;
+    private Number fx4;
+    private Number fy4;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editConnectorThumbFill(GradientKey[] keys14, Double cx4, Double cy4, GraphicsMathRect mode15, Double opacity12, Double fx4, Double fy4) {
+    public UiTimeline editConnectorThumbFill(GradientKey[] keys14, Number cx4, Number cy4, GraphicsMathRect mode15, Number opacity12, Number fx4, Number fy4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3409,7 +3857,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editConnectorThumbFill(String[] keys15, Double cx4, Double cy4, GraphicsMathRect mode15, Double opacity12, Double fx4, Double fy4) {
+    public UiTimeline editConnectorThumbFill(String[] keys15, Number cx4, Number cy4, GraphicsMathRect mode15, Number opacity12, Number fx4, Number fy4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3517,7 +3965,7 @@ public class UiTimeline extends JsObject {
     private Stroke editConnectorThumbStroke;
     private ColoredFill editConnectorThumbStroke1;
     private String editConnectorThumbStroke2;
-    private Double thickness4;
+    private Number thickness4;
     private String dashpattern4;
     private StrokeLineJoin lineJoin4;
     private StrokeLineCap lineCap4;
@@ -3526,7 +3974,7 @@ public class UiTimeline extends JsObject {
      * Setter for the edit connector thumb stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditConnectorThumbStroke(Stroke editConnectorThumbStroke, Double thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
+    public UiTimeline setEditConnectorThumbStroke(Stroke editConnectorThumbStroke, Number thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.editConnectorThumbStroke = null;
             this.editConnectorThumbStroke1 = null;
@@ -3587,7 +4035,7 @@ public class UiTimeline extends JsObject {
      * Setter for the edit connector thumb stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditConnectorThumbStroke(ColoredFill editConnectorThumbStroke1, Double thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
+    public UiTimeline setEditConnectorThumbStroke(ColoredFill editConnectorThumbStroke1, Number thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.editConnectorThumbStroke = null;
             this.editConnectorThumbStroke1 = null;
@@ -3648,7 +4096,7 @@ public class UiTimeline extends JsObject {
      * Setter for the edit connector thumb stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditConnectorThumbStroke(String editConnectorThumbStroke2, Double thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
+    public UiTimeline setEditConnectorThumbStroke(String editConnectorThumbStroke2, Number thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.editConnectorThumbStroke = null;
             this.editConnectorThumbStroke1 = null;
@@ -3704,12 +4152,12 @@ public class UiTimeline extends JsObject {
         return this;
     }
 
-    private Double editFinishConnectorMarkerHorizontalOffset;
+    private Number editFinishConnectorMarkerHorizontalOffset;
 
     /**
      * Setter for the finish edit connector control horizontal offset.
      */
-    public UiTimeline setEditFinishConnectorMarkerHorizontalOffset(Double editFinishConnectorMarkerHorizontalOffset) {
+    public UiTimeline setEditFinishConnectorMarkerHorizontalOffset(Number editFinishConnectorMarkerHorizontalOffset) {
         if (jsBase == null) {
             this.editFinishConnectorMarkerHorizontalOffset = editFinishConnectorMarkerHorizontalOffset;
         } else {
@@ -3729,12 +4177,12 @@ public class UiTimeline extends JsObject {
         return this;
     }
 
-    private Double editFinishConnectorMarkerSize;
+    private Number editFinishConnectorMarkerSize;
 
     /**
      * Setter for the finish edit connector control size.
      */
-    public UiTimeline setEditFinishConnectorMarkerSize(Double editFinishConnectorMarkerSize) {
+    public UiTimeline setEditFinishConnectorMarkerSize(Number editFinishConnectorMarkerSize) {
         if (jsBase == null) {
             this.editFinishConnectorMarkerSize = editFinishConnectorMarkerSize;
         } else {
@@ -3810,12 +4258,12 @@ public class UiTimeline extends JsObject {
         }
     }
 
-    private Double editFinishConnectorMarkerVerticalOffset;
+    private Number editFinishConnectorMarkerVerticalOffset;
 
     /**
      * Setter for the finish edit connector control vertical offset.
      */
-    public UiTimeline setEditFinishConnectorMarkerVerticalOffset(Double editFinishConnectorMarkerVerticalOffset) {
+    public UiTimeline setEditFinishConnectorMarkerVerticalOffset(Number editFinishConnectorMarkerVerticalOffset) {
         if (jsBase == null) {
             this.editFinishConnectorMarkerVerticalOffset = editFinishConnectorMarkerVerticalOffset;
         } else {
@@ -3862,12 +4310,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color4;
-    private Double opacity13;
+    private Number opacity13;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTimeline editIntervalThumbFill(String color4, Double opacity13) {
+    public UiTimeline editIntervalThumbFill(String color4, Number opacity13) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3912,17 +4360,17 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys16;
     private String[] keys17;
-    private Double angle4;
+    private Number angle4;
     private Boolean mode16;
     private VectorRect mode17;
     private String mode18;
-    private Double opacity14;
+    private Number opacity14;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editIntervalThumbFill(GradientKey[] keys16, Double angle4, Double opacity14, Boolean mode16) {
+    public UiTimeline editIntervalThumbFill(GradientKey[] keys16, Number angle4, Number opacity14, Boolean mode16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4014,7 +4462,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editIntervalThumbFill(GradientKey[] keys16, Double angle4, Double opacity14, VectorRect mode17) {
+    public UiTimeline editIntervalThumbFill(GradientKey[] keys16, Number angle4, Number opacity14, VectorRect mode17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4106,7 +4554,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editIntervalThumbFill(GradientKey[] keys16, Double angle4, Double opacity14, String mode18) {
+    public UiTimeline editIntervalThumbFill(GradientKey[] keys16, Number angle4, Number opacity14, String mode18) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4198,7 +4646,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editIntervalThumbFill(String[] keys17, Double angle4, Double opacity14, Boolean mode16) {
+    public UiTimeline editIntervalThumbFill(String[] keys17, Number angle4, Number opacity14, Boolean mode16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4290,7 +4738,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editIntervalThumbFill(String[] keys17, Double angle4, Double opacity14, VectorRect mode17) {
+    public UiTimeline editIntervalThumbFill(String[] keys17, Number angle4, Number opacity14, VectorRect mode17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4382,7 +4830,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editIntervalThumbFill(String[] keys17, Double angle4, Double opacity14, String mode18) {
+    public UiTimeline editIntervalThumbFill(String[] keys17, Number angle4, Number opacity14, String mode18) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4471,18 +4919,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys18;
     private String[] keys19;
-    private Double cx5;
-    private Double cy5;
+    private Number cx5;
+    private Number cy5;
     private GraphicsMathRect mode19;
-    private Double opacity15;
-    private Double fx5;
-    private Double fy5;
+    private Number opacity15;
+    private Number fx5;
+    private Number fy5;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editIntervalThumbFill(GradientKey[] keys18, Double cx5, Double cy5, GraphicsMathRect mode19, Double opacity15, Double fx5, Double fy5) {
+    public UiTimeline editIntervalThumbFill(GradientKey[] keys18, Number cx5, Number cy5, GraphicsMathRect mode19, Number opacity15, Number fx5, Number fy5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4606,7 +5054,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editIntervalThumbFill(String[] keys19, Double cx5, Double cy5, GraphicsMathRect mode19, Double opacity15, Double fx5, Double fy5) {
+    public UiTimeline editIntervalThumbFill(String[] keys19, Number cx5, Number cy5, GraphicsMathRect mode19, Number opacity15, Number fx5, Number fy5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -4729,7 +5177,7 @@ public class UiTimeline extends JsObject {
     private Stroke editIntervalThumbStroke;
     private ColoredFill editIntervalThumbStroke1;
     private String editIntervalThumbStroke2;
-    private Double thickness5;
+    private Number thickness5;
     private String dashpattern5;
     private StrokeLineJoin lineJoin5;
     private StrokeLineCap lineCap5;
@@ -4738,7 +5186,7 @@ public class UiTimeline extends JsObject {
      * Setter for the edit interval thumb stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditIntervalThumbStroke(Stroke editIntervalThumbStroke, Double thickness5, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
+    public UiTimeline setEditIntervalThumbStroke(Stroke editIntervalThumbStroke, Number thickness5, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
         if (jsBase == null) {
             this.editIntervalThumbStroke = null;
             this.editIntervalThumbStroke1 = null;
@@ -4803,7 +5251,7 @@ public class UiTimeline extends JsObject {
      * Setter for the edit interval thumb stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditIntervalThumbStroke(ColoredFill editIntervalThumbStroke1, Double thickness5, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
+    public UiTimeline setEditIntervalThumbStroke(ColoredFill editIntervalThumbStroke1, Number thickness5, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
         if (jsBase == null) {
             this.editIntervalThumbStroke = null;
             this.editIntervalThumbStroke1 = null;
@@ -4868,7 +5316,7 @@ public class UiTimeline extends JsObject {
      * Setter for the edit interval thumb stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditIntervalThumbStroke(String editIntervalThumbStroke2, Double thickness5, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
+    public UiTimeline setEditIntervalThumbStroke(String editIntervalThumbStroke2, Number thickness5, String dashpattern5, StrokeLineJoin lineJoin5, StrokeLineCap lineCap5) {
         if (jsBase == null) {
             this.editIntervalThumbStroke = null;
             this.editIntervalThumbStroke1 = null;
@@ -4928,12 +5376,12 @@ public class UiTimeline extends JsObject {
         return this;
     }
 
-    private Double editIntervalWidth;
+    private Number editIntervalWidth;
 
     /**
      * Setter for the interval edit control width.
      */
-    public UiTimeline setEditIntervalWidth(Double editIntervalWidth) {
+    public UiTimeline setEditIntervalWidth(Number editIntervalWidth) {
         if (jsBase == null) {
             this.editIntervalWidth = editIntervalWidth;
         } else {
@@ -4980,12 +5428,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color5;
-    private Double opacity16;
+    private Number opacity16;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTimeline editPreviewFill(String color5, Double opacity16) {
+    public UiTimeline editPreviewFill(String color5, Number opacity16) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -5034,17 +5482,17 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys20;
     private String[] keys21;
-    private Double angle5;
+    private Number angle5;
     private Boolean mode20;
     private VectorRect mode21;
     private String mode22;
-    private Double opacity17;
+    private Number opacity17;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editPreviewFill(GradientKey[] keys20, Double angle5, Double opacity17, Boolean mode20) {
+    public UiTimeline editPreviewFill(GradientKey[] keys20, Number angle5, Number opacity17, Boolean mode20) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5148,7 +5596,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editPreviewFill(GradientKey[] keys20, Double angle5, Double opacity17, VectorRect mode21) {
+    public UiTimeline editPreviewFill(GradientKey[] keys20, Number angle5, Number opacity17, VectorRect mode21) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5252,7 +5700,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editPreviewFill(GradientKey[] keys20, Double angle5, Double opacity17, String mode22) {
+    public UiTimeline editPreviewFill(GradientKey[] keys20, Number angle5, Number opacity17, String mode22) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5356,7 +5804,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editPreviewFill(String[] keys21, Double angle5, Double opacity17, Boolean mode20) {
+    public UiTimeline editPreviewFill(String[] keys21, Number angle5, Number opacity17, Boolean mode20) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5460,7 +5908,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editPreviewFill(String[] keys21, Double angle5, Double opacity17, VectorRect mode21) {
+    public UiTimeline editPreviewFill(String[] keys21, Number angle5, Number opacity17, VectorRect mode21) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5564,7 +6012,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editPreviewFill(String[] keys21, Double angle5, Double opacity17, String mode22) {
+    public UiTimeline editPreviewFill(String[] keys21, Number angle5, Number opacity17, String mode22) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5665,18 +6113,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys22;
     private String[] keys23;
-    private Double cx6;
-    private Double cy6;
+    private Number cx6;
+    private Number cy6;
     private GraphicsMathRect mode23;
-    private Double opacity18;
-    private Double fx6;
-    private Double fy6;
+    private Number opacity18;
+    private Number fx6;
+    private Number fy6;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editPreviewFill(GradientKey[] keys22, Double cx6, Double cy6, GraphicsMathRect mode23, Double opacity18, Double fx6, Double fy6) {
+    public UiTimeline editPreviewFill(GradientKey[] keys22, Number cx6, Number cy6, GraphicsMathRect mode23, Number opacity18, Number fx6, Number fy6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5815,7 +6263,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editPreviewFill(String[] keys23, Double cx6, Double cy6, GraphicsMathRect mode23, Double opacity18, Double fx6, Double fy6) {
+    public UiTimeline editPreviewFill(String[] keys23, Number cx6, Number cy6, GraphicsMathRect mode23, Number opacity18, Number fx6, Number fy6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -5953,7 +6401,7 @@ public class UiTimeline extends JsObject {
     private Stroke editPreviewStroke;
     private ColoredFill editPreviewStroke1;
     private String editPreviewStroke2;
-    private Double thickness6;
+    private Number thickness6;
     private String dashpattern6;
     private StrokeLineJoin lineJoin6;
     private StrokeLineCap lineCap6;
@@ -5962,7 +6410,7 @@ public class UiTimeline extends JsObject {
      * Setter for the edit preview stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditPreviewStroke(Stroke editPreviewStroke, Double thickness6, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
+    public UiTimeline setEditPreviewStroke(Stroke editPreviewStroke, Number thickness6, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
         if (jsBase == null) {
             this.editPreviewStroke = null;
             this.editPreviewStroke1 = null;
@@ -6031,7 +6479,7 @@ public class UiTimeline extends JsObject {
      * Setter for the edit preview stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditPreviewStroke(ColoredFill editPreviewStroke1, Double thickness6, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
+    public UiTimeline setEditPreviewStroke(ColoredFill editPreviewStroke1, Number thickness6, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
         if (jsBase == null) {
             this.editPreviewStroke = null;
             this.editPreviewStroke1 = null;
@@ -6100,7 +6548,7 @@ public class UiTimeline extends JsObject {
      * Setter for the edit preview stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditPreviewStroke(String editPreviewStroke2, Double thickness6, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
+    public UiTimeline setEditPreviewStroke(String editPreviewStroke2, Number thickness6, String dashpattern6, StrokeLineJoin lineJoin6, StrokeLineCap lineCap6) {
         if (jsBase == null) {
             this.editPreviewStroke = null;
             this.editPreviewStroke1 = null;
@@ -6191,12 +6639,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color6;
-    private Double opacity19;
+    private Number opacity19;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTimeline editProgressFill(String color6, Double opacity19) {
+    public UiTimeline editProgressFill(String color6, Number opacity19) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -6249,17 +6697,17 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys24;
     private String[] keys25;
-    private Double angle6;
+    private Number angle6;
     private Boolean mode24;
     private VectorRect mode25;
     private String mode26;
-    private Double opacity20;
+    private Number opacity20;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editProgressFill(GradientKey[] keys24, Double angle6, Double opacity20, Boolean mode24) {
+    public UiTimeline editProgressFill(GradientKey[] keys24, Number angle6, Number opacity20, Boolean mode24) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6375,7 +6823,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editProgressFill(GradientKey[] keys24, Double angle6, Double opacity20, VectorRect mode25) {
+    public UiTimeline editProgressFill(GradientKey[] keys24, Number angle6, Number opacity20, VectorRect mode25) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6491,7 +6939,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editProgressFill(GradientKey[] keys24, Double angle6, Double opacity20, String mode26) {
+    public UiTimeline editProgressFill(GradientKey[] keys24, Number angle6, Number opacity20, String mode26) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6607,7 +7055,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editProgressFill(String[] keys25, Double angle6, Double opacity20, Boolean mode24) {
+    public UiTimeline editProgressFill(String[] keys25, Number angle6, Number opacity20, Boolean mode24) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6723,7 +7171,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editProgressFill(String[] keys25, Double angle6, Double opacity20, VectorRect mode25) {
+    public UiTimeline editProgressFill(String[] keys25, Number angle6, Number opacity20, VectorRect mode25) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6839,7 +7287,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editProgressFill(String[] keys25, Double angle6, Double opacity20, String mode26) {
+    public UiTimeline editProgressFill(String[] keys25, Number angle6, Number opacity20, String mode26) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -6952,18 +7400,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys26;
     private String[] keys27;
-    private Double cx7;
-    private Double cy7;
+    private Number cx7;
+    private Number cy7;
     private GraphicsMathRect mode27;
-    private Double opacity21;
-    private Double fx7;
-    private Double fy7;
+    private Number opacity21;
+    private Number fx7;
+    private Number fy7;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editProgressFill(GradientKey[] keys26, Double cx7, Double cy7, GraphicsMathRect mode27, Double opacity21, Double fx7, Double fy7) {
+    public UiTimeline editProgressFill(GradientKey[] keys26, Number cx7, Number cy7, GraphicsMathRect mode27, Number opacity21, Number fx7, Number fy7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7117,7 +7565,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editProgressFill(String[] keys27, Double cx7, Double cy7, GraphicsMathRect mode27, Double opacity21, Double fx7, Double fy7) {
+    public UiTimeline editProgressFill(String[] keys27, Number cx7, Number cy7, GraphicsMathRect mode27, Number opacity21, Number fx7, Number fy7) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -7270,7 +7718,7 @@ public class UiTimeline extends JsObject {
     private Stroke editProgressStroke;
     private ColoredFill editProgressStroke1;
     private String editProgressStroke2;
-    private Double thickness7;
+    private Number thickness7;
     private String dashpattern7;
     private StrokeLineJoin lineJoin7;
     private StrokeLineCap lineCap7;
@@ -7279,7 +7727,7 @@ public class UiTimeline extends JsObject {
      * Setter for the edit progress stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditProgressStroke(Stroke editProgressStroke, Double thickness7, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
+    public UiTimeline setEditProgressStroke(Stroke editProgressStroke, Number thickness7, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
         if (jsBase == null) {
             this.editProgressStroke = null;
             this.editProgressStroke1 = null;
@@ -7352,7 +7800,7 @@ public class UiTimeline extends JsObject {
      * Setter for the edit progress stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditProgressStroke(ColoredFill editProgressStroke1, Double thickness7, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
+    public UiTimeline setEditProgressStroke(ColoredFill editProgressStroke1, Number thickness7, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
         if (jsBase == null) {
             this.editProgressStroke = null;
             this.editProgressStroke1 = null;
@@ -7425,7 +7873,7 @@ public class UiTimeline extends JsObject {
      * Setter for the edit progress stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditProgressStroke(String editProgressStroke2, Double thickness7, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
+    public UiTimeline setEditProgressStroke(String editProgressStroke2, Number thickness7, String dashpattern7, StrokeLineJoin lineJoin7, StrokeLineCap lineCap7) {
         if (jsBase == null) {
             this.editProgressStroke = null;
             this.editProgressStroke1 = null;
@@ -7493,12 +7941,12 @@ public class UiTimeline extends JsObject {
         return this;
     }
 
-    private Double editStartConnectorMarkerHorizontalOffset;
+    private Number editStartConnectorMarkerHorizontalOffset;
 
     /**
      * Setter for the start edit connector control horizontal offset.
      */
-    public UiTimeline setEditStartConnectorMarkerHorizontalOffset(Double editStartConnectorMarkerHorizontalOffset) {
+    public UiTimeline setEditStartConnectorMarkerHorizontalOffset(Number editStartConnectorMarkerHorizontalOffset) {
         if (jsBase == null) {
             this.editStartConnectorMarkerHorizontalOffset = editStartConnectorMarkerHorizontalOffset;
         } else {
@@ -7518,12 +7966,12 @@ public class UiTimeline extends JsObject {
         return this;
     }
 
-    private Double editStartConnectorMarkerSize;
+    private Number editStartConnectorMarkerSize;
 
     /**
      * Setter for the start edit connector control size.
      */
-    public UiTimeline setEditStartConnectorMarkerSize(Double editStartConnectorMarkerSize) {
+    public UiTimeline setEditStartConnectorMarkerSize(Number editStartConnectorMarkerSize) {
         if (jsBase == null) {
             this.editStartConnectorMarkerSize = editStartConnectorMarkerSize;
         } else {
@@ -7599,12 +8047,12 @@ public class UiTimeline extends JsObject {
         }
     }
 
-    private Double editStartConnectorMarkerVerticalOffset;
+    private Number editStartConnectorMarkerVerticalOffset;
 
     /**
      * Setter for the start edit connector control vertical offset.
      */
-    public UiTimeline setEditStartConnectorMarkerVerticalOffset(Double editStartConnectorMarkerVerticalOffset) {
+    public UiTimeline setEditStartConnectorMarkerVerticalOffset(Number editStartConnectorMarkerVerticalOffset) {
         if (jsBase == null) {
             this.editStartConnectorMarkerVerticalOffset = editStartConnectorMarkerVerticalOffset;
         } else {
@@ -7627,7 +8075,7 @@ public class UiTimeline extends JsObject {
     private Stroke editStructurePreviewDashStroke;
     private ColoredFill editStructurePreviewDashStroke1;
     private String editStructurePreviewDashStroke2;
-    private Double thickness8;
+    private Number thickness8;
     private String dashpattern8;
     private StrokeLineJoin lineJoin8;
     private StrokeLineCap lineCap8;
@@ -7636,7 +8084,7 @@ public class UiTimeline extends JsObject {
      * Setter for the preview dash stroke when editing structure.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditStructurePreviewDashStroke(Stroke editStructurePreviewDashStroke, Double thickness8, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
+    public UiTimeline setEditStructurePreviewDashStroke(Stroke editStructurePreviewDashStroke, Number thickness8, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
         if (jsBase == null) {
             this.editStructurePreviewDashStroke = null;
             this.editStructurePreviewDashStroke1 = null;
@@ -7713,7 +8161,7 @@ public class UiTimeline extends JsObject {
      * Setter for the preview dash stroke when editing structure.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditStructurePreviewDashStroke(ColoredFill editStructurePreviewDashStroke1, Double thickness8, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
+    public UiTimeline setEditStructurePreviewDashStroke(ColoredFill editStructurePreviewDashStroke1, Number thickness8, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
         if (jsBase == null) {
             this.editStructurePreviewDashStroke = null;
             this.editStructurePreviewDashStroke1 = null;
@@ -7790,7 +8238,7 @@ public class UiTimeline extends JsObject {
      * Setter for the preview dash stroke when editing structure.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditStructurePreviewDashStroke(String editStructurePreviewDashStroke2, Double thickness8, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
+    public UiTimeline setEditStructurePreviewDashStroke(String editStructurePreviewDashStroke2, Number thickness8, String dashpattern8, StrokeLineJoin lineJoin8, StrokeLineCap lineCap8) {
         if (jsBase == null) {
             this.editStructurePreviewDashStroke = null;
             this.editStructurePreviewDashStroke1 = null;
@@ -7889,12 +8337,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color7;
-    private Double opacity22;
+    private Number opacity22;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTimeline editStructurePreviewFill(String color7, Double opacity22) {
+    public UiTimeline editStructurePreviewFill(String color7, Number opacity22) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -7951,17 +8399,17 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys28;
     private String[] keys29;
-    private Double angle7;
+    private Number angle7;
     private Boolean mode28;
     private VectorRect mode29;
     private String mode30;
-    private Double opacity23;
+    private Number opacity23;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editStructurePreviewFill(GradientKey[] keys28, Double angle7, Double opacity23, Boolean mode28) {
+    public UiTimeline editStructurePreviewFill(GradientKey[] keys28, Number angle7, Number opacity23, Boolean mode28) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -8089,7 +8537,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editStructurePreviewFill(GradientKey[] keys28, Double angle7, Double opacity23, VectorRect mode29) {
+    public UiTimeline editStructurePreviewFill(GradientKey[] keys28, Number angle7, Number opacity23, VectorRect mode29) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -8217,7 +8665,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editStructurePreviewFill(GradientKey[] keys28, Double angle7, Double opacity23, String mode30) {
+    public UiTimeline editStructurePreviewFill(GradientKey[] keys28, Number angle7, Number opacity23, String mode30) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -8345,7 +8793,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editStructurePreviewFill(String[] keys29, Double angle7, Double opacity23, Boolean mode28) {
+    public UiTimeline editStructurePreviewFill(String[] keys29, Number angle7, Number opacity23, Boolean mode28) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -8473,7 +8921,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editStructurePreviewFill(String[] keys29, Double angle7, Double opacity23, VectorRect mode29) {
+    public UiTimeline editStructurePreviewFill(String[] keys29, Number angle7, Number opacity23, VectorRect mode29) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -8601,7 +9049,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editStructurePreviewFill(String[] keys29, Double angle7, Double opacity23, String mode30) {
+    public UiTimeline editStructurePreviewFill(String[] keys29, Number angle7, Number opacity23, String mode30) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -8726,18 +9174,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys30;
     private String[] keys31;
-    private Double cx8;
-    private Double cy8;
+    private Number cx8;
+    private Number cy8;
     private GraphicsMathRect mode31;
-    private Double opacity24;
-    private Double fx8;
-    private Double fy8;
+    private Number opacity24;
+    private Number fx8;
+    private Number fy8;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editStructurePreviewFill(GradientKey[] keys30, Double cx8, Double cy8, GraphicsMathRect mode31, Double opacity24, Double fx8, Double fy8) {
+    public UiTimeline editStructurePreviewFill(GradientKey[] keys30, Number cx8, Number cy8, GraphicsMathRect mode31, Number opacity24, Number fx8, Number fy8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -8906,7 +9354,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline editStructurePreviewFill(String[] keys31, Double cx8, Double cy8, GraphicsMathRect mode31, Double opacity24, Double fx8, Double fy8) {
+    public UiTimeline editStructurePreviewFill(String[] keys31, Number cx8, Number cy8, GraphicsMathRect mode31, Number opacity24, Number fx8, Number fy8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -9074,7 +9522,7 @@ public class UiTimeline extends JsObject {
     private Stroke editStructurePreviewStroke;
     private ColoredFill editStructurePreviewStroke1;
     private String editStructurePreviewStroke2;
-    private Double thickness9;
+    private Number thickness9;
     private String dashpattern9;
     private StrokeLineJoin lineJoin9;
     private StrokeLineCap lineCap9;
@@ -9083,7 +9531,7 @@ public class UiTimeline extends JsObject {
      * Setter for the preview stroke when editing structure.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditStructurePreviewStroke(Stroke editStructurePreviewStroke, Double thickness9, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
+    public UiTimeline setEditStructurePreviewStroke(Stroke editStructurePreviewStroke, Number thickness9, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
         if (jsBase == null) {
             this.editStructurePreviewStroke = null;
             this.editStructurePreviewStroke1 = null;
@@ -9164,7 +9612,7 @@ public class UiTimeline extends JsObject {
      * Setter for the preview stroke when editing structure.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditStructurePreviewStroke(ColoredFill editStructurePreviewStroke1, Double thickness9, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
+    public UiTimeline setEditStructurePreviewStroke(ColoredFill editStructurePreviewStroke1, Number thickness9, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
         if (jsBase == null) {
             this.editStructurePreviewStroke = null;
             this.editStructurePreviewStroke1 = null;
@@ -9245,7 +9693,7 @@ public class UiTimeline extends JsObject {
      * Setter for the preview stroke when editing structure.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setEditStructurePreviewStroke(String editStructurePreviewStroke2, Double thickness9, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
+    public UiTimeline setEditStructurePreviewStroke(String editStructurePreviewStroke2, Number thickness9, String dashpattern9, StrokeLineJoin lineJoin9, StrokeLineCap lineCap9) {
         if (jsBase == null) {
             this.editStructurePreviewStroke = null;
             this.editStructurePreviewStroke1 = null;
@@ -9462,7 +9910,7 @@ public class UiTimeline extends JsObject {
     /**
      * Getter for the line marker.
      */
-    public GanttLine getLineMarker(Double index) {
+    public GanttLine getLineMarker(Number index) {
         GanttLine item = new GanttLine(jsBase + ".lineMarker(" + index + ")");
         getLineMarker.add(item);
         return item;
@@ -9524,7 +9972,7 @@ public class UiTimeline extends JsObject {
         return this;
     }
 
-    private Double index;
+    private Number index;
     private String lineMarker2;
     private Boolean lineMarker3;
     private GanttDateTimeMarkers lineMarker4;
@@ -9533,7 +9981,7 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for the line marker by index.
      */
-    public UiTimeline setLineMarker(Double index, String lineMarker2) {
+    public UiTimeline setLineMarker(Number index, String lineMarker2) {
         if (jsBase == null) {
             this.index = index;
             this.lineMarker = null;
@@ -9566,7 +10014,7 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for the line marker by index.
      */
-    public UiTimeline setLineMarker(Double index, Boolean lineMarker3) {
+    public UiTimeline setLineMarker(Number index, Boolean lineMarker3) {
         if (jsBase == null) {
             this.index = index;
             this.lineMarker = null;
@@ -9599,7 +10047,7 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for the line marker by index.
      */
-    public UiTimeline setLineMarker(Double index, GanttDateTimeMarkers lineMarker4) {
+    public UiTimeline setLineMarker(Number index, GanttDateTimeMarkers lineMarker4) {
         if (jsBase == null) {
             this.index = index;
             this.lineMarker = null;
@@ -9665,6 +10113,62 @@ public class UiTimeline extends JsObject {
         return this;
     }
 
+    private String milestoneAnchor;
+    private EnumsAnchor milestoneAnchor1;
+
+    /**
+     * Setter for the milestone anchor.
+     */
+    public UiTimeline setMilestoneAnchor(String milestoneAnchor) {
+        if (jsBase == null) {
+            this.milestoneAnchor = null;
+            this.milestoneAnchor1 = null;
+            
+            this.milestoneAnchor = milestoneAnchor;
+        } else {
+            this.milestoneAnchor = milestoneAnchor;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".milestoneAnchor(%s)", wrapQuotes(milestoneAnchor)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneAnchor(%s);", wrapQuotes(milestoneAnchor)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the milestone anchor.
+     */
+    public UiTimeline setMilestoneAnchor(EnumsAnchor milestoneAnchor1) {
+        if (jsBase == null) {
+            this.milestoneAnchor = null;
+            this.milestoneAnchor1 = null;
+            
+            this.milestoneAnchor1 = milestoneAnchor1;
+        } else {
+            this.milestoneAnchor1 = milestoneAnchor1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".milestoneAnchor(%s)", ((milestoneAnchor1 != null) ? milestoneAnchor1.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneAnchor(%s);", ((milestoneAnchor1 != null) ? milestoneAnchor1.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Fill milestoneFill;
 
     /**
@@ -9692,12 +10196,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color8;
-    private Double opacity25;
+    private Number opacity25;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTimeline milestoneFill(String color8, Double opacity25) {
+    public UiTimeline milestoneFill(String color8, Number opacity25) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -9758,17 +10262,17 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys32;
     private String[] keys33;
-    private Double angle8;
+    private Number angle8;
     private Boolean mode32;
     private VectorRect mode33;
     private String mode34;
-    private Double opacity26;
+    private Number opacity26;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline milestoneFill(GradientKey[] keys32, Double angle8, Double opacity26, Boolean mode32) {
+    public UiTimeline milestoneFill(GradientKey[] keys32, Number angle8, Number opacity26, Boolean mode32) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -9908,7 +10412,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline milestoneFill(GradientKey[] keys32, Double angle8, Double opacity26, VectorRect mode33) {
+    public UiTimeline milestoneFill(GradientKey[] keys32, Number angle8, Number opacity26, VectorRect mode33) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -10048,7 +10552,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline milestoneFill(GradientKey[] keys32, Double angle8, Double opacity26, String mode34) {
+    public UiTimeline milestoneFill(GradientKey[] keys32, Number angle8, Number opacity26, String mode34) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -10188,7 +10692,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline milestoneFill(String[] keys33, Double angle8, Double opacity26, Boolean mode32) {
+    public UiTimeline milestoneFill(String[] keys33, Number angle8, Number opacity26, Boolean mode32) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -10328,7 +10832,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline milestoneFill(String[] keys33, Double angle8, Double opacity26, VectorRect mode33) {
+    public UiTimeline milestoneFill(String[] keys33, Number angle8, Number opacity26, VectorRect mode33) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -10468,7 +10972,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline milestoneFill(String[] keys33, Double angle8, Double opacity26, String mode34) {
+    public UiTimeline milestoneFill(String[] keys33, Number angle8, Number opacity26, String mode34) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -10605,18 +11109,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys34;
     private String[] keys35;
-    private Double cx9;
-    private Double cy9;
+    private Number cx9;
+    private Number cy9;
     private GraphicsMathRect mode35;
-    private Double opacity27;
-    private Double fx9;
-    private Double fy9;
+    private Number opacity27;
+    private Number fx9;
+    private Number fy9;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline milestoneFill(GradientKey[] keys34, Double cx9, Double cy9, GraphicsMathRect mode35, Double opacity27, Double fx9, Double fy9) {
+    public UiTimeline milestoneFill(GradientKey[] keys34, Number cx9, Number cy9, GraphicsMathRect mode35, Number opacity27, Number fx9, Number fy9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -10800,7 +11304,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline milestoneFill(String[] keys35, Double cx9, Double cy9, GraphicsMathRect mode35, Double opacity27, Double fx9, Double fy9) {
+    public UiTimeline milestoneFill(String[] keys35, Number cx9, Number cy9, GraphicsMathRect mode35, Number opacity27, Number fx9, Number fy9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -10980,6 +11484,62 @@ public class UiTimeline extends JsObject {
     }
 
     private Fill imageSettings8;
+    private String milestoneHeight;
+    private Number milestoneHeight1;
+
+    /**
+     * Setter for the milestone height.
+     */
+    public UiTimeline setMilestoneHeight(String milestoneHeight) {
+        if (jsBase == null) {
+            this.milestoneHeight = null;
+            this.milestoneHeight1 = null;
+            
+            this.milestoneHeight = milestoneHeight;
+        } else {
+            this.milestoneHeight = milestoneHeight;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".milestoneHeight(%s)", wrapQuotes(milestoneHeight)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneHeight(%s);", wrapQuotes(milestoneHeight)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the milestone height.
+     */
+    public UiTimeline setMilestoneHeight(Number milestoneHeight1) {
+        if (jsBase == null) {
+            this.milestoneHeight = null;
+            this.milestoneHeight1 = null;
+            
+            this.milestoneHeight1 = milestoneHeight1;
+        } else {
+            this.milestoneHeight1 = milestoneHeight1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".milestoneHeight(%f)", milestoneHeight1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneHeight(%f);", milestoneHeight1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private UiLabelsFactory getMilestoneLabels;
 
     /**
@@ -11048,10 +11608,122 @@ public class UiTimeline extends JsObject {
         return this;
     }
 
+    private String milestoneOffset;
+    private Number milestoneOffset1;
+
+    /**
+     * Setter for the milestone offset.
+     */
+    public UiTimeline setMilestoneOffset(String milestoneOffset) {
+        if (jsBase == null) {
+            this.milestoneOffset = null;
+            this.milestoneOffset1 = null;
+            
+            this.milestoneOffset = milestoneOffset;
+        } else {
+            this.milestoneOffset = milestoneOffset;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".milestoneOffset(%s)", wrapQuotes(milestoneOffset)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneOffset(%s);", wrapQuotes(milestoneOffset)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the milestone offset.
+     */
+    public UiTimeline setMilestoneOffset(Number milestoneOffset1) {
+        if (jsBase == null) {
+            this.milestoneOffset = null;
+            this.milestoneOffset1 = null;
+            
+            this.milestoneOffset1 = milestoneOffset1;
+        } else {
+            this.milestoneOffset1 = milestoneOffset1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".milestoneOffset(%f)", milestoneOffset1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneOffset(%f);", milestoneOffset1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String milestonePosition;
+    private EnumsAnchor milestonePosition1;
+
+    /**
+     * Setter for the milestone position.
+     */
+    public UiTimeline setMilestonePosition(String milestonePosition) {
+        if (jsBase == null) {
+            this.milestonePosition = null;
+            this.milestonePosition1 = null;
+            
+            this.milestonePosition = milestonePosition;
+        } else {
+            this.milestonePosition = milestonePosition;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".milestonePosition(%s)", wrapQuotes(milestonePosition)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestonePosition(%s);", wrapQuotes(milestonePosition)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the milestone position.
+     */
+    public UiTimeline setMilestonePosition(EnumsAnchor milestonePosition1) {
+        if (jsBase == null) {
+            this.milestonePosition = null;
+            this.milestonePosition1 = null;
+            
+            this.milestonePosition1 = milestonePosition1;
+        } else {
+            this.milestonePosition1 = milestonePosition1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".milestonePosition(%s)", ((milestonePosition1 != null) ? milestonePosition1.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestonePosition(%s);", ((milestonePosition1 != null) ? milestonePosition1.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Stroke milestoneStroke;
     private ColoredFill milestoneStroke1;
     private String milestoneStroke2;
-    private Double thickness10;
+    private Number thickness10;
     private String dashpattern10;
     private StrokeLineJoin lineJoin10;
     private StrokeLineCap lineCap10;
@@ -11059,7 +11731,7 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for the milestone stroke settings.
      */
-    public UiTimeline setMilestoneStroke(Stroke milestoneStroke, Double thickness10, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
+    public UiTimeline setMilestoneStroke(Stroke milestoneStroke, Number thickness10, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
         if (jsBase == null) {
             this.milestoneStroke = null;
             this.milestoneStroke1 = null;
@@ -11143,7 +11815,7 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for the milestone stroke settings.
      */
-    public UiTimeline setMilestoneStroke(ColoredFill milestoneStroke1, Double thickness10, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
+    public UiTimeline setMilestoneStroke(ColoredFill milestoneStroke1, Number thickness10, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
         if (jsBase == null) {
             this.milestoneStroke = null;
             this.milestoneStroke1 = null;
@@ -11227,7 +11899,7 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for the milestone stroke settings.
      */
-    public UiTimeline setMilestoneStroke(String milestoneStroke2, Double thickness10, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
+    public UiTimeline setMilestoneStroke(String milestoneStroke2, Number thickness10, String dashpattern10, StrokeLineJoin lineJoin10, StrokeLineCap lineCap10) {
         if (jsBase == null) {
             this.milestoneStroke = null;
             this.milestoneStroke1 = null;
@@ -11307,6 +11979,230 @@ public class UiTimeline extends JsObject {
         return this;
     }
 
+    private String parentBarAnchor;
+    private EnumsAnchor parentBarAnchor1;
+
+    /**
+     * Setter for the parent bar anchor.
+     */
+    public UiTimeline setParentBarAnchor(String parentBarAnchor) {
+        if (jsBase == null) {
+            this.parentBarAnchor = null;
+            this.parentBarAnchor1 = null;
+            
+            this.parentBarAnchor = parentBarAnchor;
+        } else {
+            this.parentBarAnchor = parentBarAnchor;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".parentBarAnchor(%s)", wrapQuotes(parentBarAnchor)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBarAnchor(%s);", wrapQuotes(parentBarAnchor)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the parent bar anchor.
+     */
+    public UiTimeline setParentBarAnchor(EnumsAnchor parentBarAnchor1) {
+        if (jsBase == null) {
+            this.parentBarAnchor = null;
+            this.parentBarAnchor1 = null;
+            
+            this.parentBarAnchor1 = parentBarAnchor1;
+        } else {
+            this.parentBarAnchor1 = parentBarAnchor1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".parentBarAnchor(%s)", ((parentBarAnchor1 != null) ? parentBarAnchor1.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBarAnchor(%s);", ((parentBarAnchor1 != null) ? parentBarAnchor1.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String parentBarHeight;
+    private Number parentBarHeight1;
+
+    /**
+     * Setter for the parent bar height.
+     */
+    public UiTimeline setParentBarHeight(String parentBarHeight) {
+        if (jsBase == null) {
+            this.parentBarHeight = null;
+            this.parentBarHeight1 = null;
+            
+            this.parentBarHeight = parentBarHeight;
+        } else {
+            this.parentBarHeight = parentBarHeight;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".parentBarHeight(%s)", wrapQuotes(parentBarHeight)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBarHeight(%s);", wrapQuotes(parentBarHeight)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the parent bar height.
+     */
+    public UiTimeline setParentBarHeight(Number parentBarHeight1) {
+        if (jsBase == null) {
+            this.parentBarHeight = null;
+            this.parentBarHeight1 = null;
+            
+            this.parentBarHeight1 = parentBarHeight1;
+        } else {
+            this.parentBarHeight1 = parentBarHeight1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".parentBarHeight(%f)", parentBarHeight1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBarHeight(%f);", parentBarHeight1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String parentBarOffset;
+    private Number parentBarOffset1;
+
+    /**
+     * Setter for the parent bar offset.
+     */
+    public UiTimeline setParentBarOffset(String parentBarOffset) {
+        if (jsBase == null) {
+            this.parentBarOffset = null;
+            this.parentBarOffset1 = null;
+            
+            this.parentBarOffset = parentBarOffset;
+        } else {
+            this.parentBarOffset = parentBarOffset;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".parentBarOffset(%s)", wrapQuotes(parentBarOffset)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBarOffset(%s);", wrapQuotes(parentBarOffset)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the parent bar offset.
+     */
+    public UiTimeline setParentBarOffset(Number parentBarOffset1) {
+        if (jsBase == null) {
+            this.parentBarOffset = null;
+            this.parentBarOffset1 = null;
+            
+            this.parentBarOffset1 = parentBarOffset1;
+        } else {
+            this.parentBarOffset1 = parentBarOffset1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".parentBarOffset(%f)", parentBarOffset1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBarOffset(%f);", parentBarOffset1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String parentBarPosition;
+    private EnumsAnchor parentBarPosition1;
+
+    /**
+     * Setter for the parent bar position.
+     */
+    public UiTimeline setParentBarPosition(String parentBarPosition) {
+        if (jsBase == null) {
+            this.parentBarPosition = null;
+            this.parentBarPosition1 = null;
+            
+            this.parentBarPosition = parentBarPosition;
+        } else {
+            this.parentBarPosition = parentBarPosition;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".parentBarPosition(%s)", wrapQuotes(parentBarPosition)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBarPosition(%s);", wrapQuotes(parentBarPosition)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the parent bar position.
+     */
+    public UiTimeline setParentBarPosition(EnumsAnchor parentBarPosition1) {
+        if (jsBase == null) {
+            this.parentBarPosition = null;
+            this.parentBarPosition1 = null;
+            
+            this.parentBarPosition1 = parentBarPosition1;
+        } else {
+            this.parentBarPosition1 = parentBarPosition1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".parentBarPosition(%s)", ((parentBarPosition1 != null) ? parentBarPosition1.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBarPosition(%s);", ((parentBarPosition1 != null) ? parentBarPosition1.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Fill parentFill;
 
     /**
@@ -11334,12 +12230,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color9;
-    private Double opacity28;
+    private Number opacity28;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTimeline parentFill(String color9, Double opacity28) {
+    public UiTimeline parentFill(String color9, Number opacity28) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -11404,17 +12300,17 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys36;
     private String[] keys37;
-    private Double angle9;
+    private Number angle9;
     private Boolean mode36;
     private VectorRect mode37;
     private String mode38;
-    private Double opacity29;
+    private Number opacity29;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline parentFill(GradientKey[] keys36, Double angle9, Double opacity29, Boolean mode36) {
+    public UiTimeline parentFill(GradientKey[] keys36, Number angle9, Number opacity29, Boolean mode36) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -11566,7 +12462,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline parentFill(GradientKey[] keys36, Double angle9, Double opacity29, VectorRect mode37) {
+    public UiTimeline parentFill(GradientKey[] keys36, Number angle9, Number opacity29, VectorRect mode37) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -11718,7 +12614,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline parentFill(GradientKey[] keys36, Double angle9, Double opacity29, String mode38) {
+    public UiTimeline parentFill(GradientKey[] keys36, Number angle9, Number opacity29, String mode38) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -11870,7 +12766,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline parentFill(String[] keys37, Double angle9, Double opacity29, Boolean mode36) {
+    public UiTimeline parentFill(String[] keys37, Number angle9, Number opacity29, Boolean mode36) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -12022,7 +12918,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline parentFill(String[] keys37, Double angle9, Double opacity29, VectorRect mode37) {
+    public UiTimeline parentFill(String[] keys37, Number angle9, Number opacity29, VectorRect mode37) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -12174,7 +13070,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline parentFill(String[] keys37, Double angle9, Double opacity29, String mode38) {
+    public UiTimeline parentFill(String[] keys37, Number angle9, Number opacity29, String mode38) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -12323,18 +13219,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys38;
     private String[] keys39;
-    private Double cx10;
-    private Double cy10;
+    private Number cx10;
+    private Number cy10;
     private GraphicsMathRect mode39;
-    private Double opacity30;
-    private Double fx10;
-    private Double fy10;
+    private Number opacity30;
+    private Number fx10;
+    private Number fy10;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline parentFill(GradientKey[] keys38, Double cx10, Double cy10, GraphicsMathRect mode39, Double opacity30, Double fx10, Double fy10) {
+    public UiTimeline parentFill(GradientKey[] keys38, Number cx10, Number cy10, GraphicsMathRect mode39, Number opacity30, Number fx10, Number fy10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -12533,7 +13429,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline parentFill(String[] keys39, Double cx10, Double cy10, GraphicsMathRect mode39, Double opacity30, Double fx10, Double fy10) {
+    public UiTimeline parentFill(String[] keys39, Number cx10, Number cy10, GraphicsMathRect mode39, Number opacity30, Number fx10, Number fy10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -12799,7 +13695,7 @@ public class UiTimeline extends JsObject {
     private Stroke parentStroke;
     private ColoredFill parentStroke1;
     private String parentStroke2;
-    private Double thickness11;
+    private Number thickness11;
     private String dashpattern11;
     private StrokeLineJoin lineJoin11;
     private StrokeLineCap lineCap11;
@@ -12808,7 +13704,7 @@ public class UiTimeline extends JsObject {
      * Setter for the parent stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setParentStroke(Stroke parentStroke, Double thickness11, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
+    public UiTimeline setParentStroke(Stroke parentStroke, Number thickness11, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
         if (jsBase == null) {
             this.parentStroke = null;
             this.parentStroke1 = null;
@@ -12897,7 +13793,7 @@ public class UiTimeline extends JsObject {
      * Setter for the parent stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setParentStroke(ColoredFill parentStroke1, Double thickness11, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
+    public UiTimeline setParentStroke(ColoredFill parentStroke1, Number thickness11, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
         if (jsBase == null) {
             this.parentStroke = null;
             this.parentStroke1 = null;
@@ -12986,7 +13882,7 @@ public class UiTimeline extends JsObject {
      * Setter for the parent stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setParentStroke(String parentStroke2, Double thickness11, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
+    public UiTimeline setParentStroke(String parentStroke2, Number thickness11, String dashpattern11, StrokeLineJoin lineJoin11, StrokeLineCap lineCap11) {
         if (jsBase == null) {
             this.parentStroke = null;
             this.parentStroke1 = null;
@@ -13070,6 +13966,230 @@ public class UiTimeline extends JsObject {
         return this;
     }
 
+    private String progressBarAnchor;
+    private EnumsAnchor progressBarAnchor1;
+
+    /**
+     * Setter for the progress bar anchor.
+     */
+    public UiTimeline setProgressBarAnchor(String progressBarAnchor) {
+        if (jsBase == null) {
+            this.progressBarAnchor = null;
+            this.progressBarAnchor1 = null;
+            
+            this.progressBarAnchor = progressBarAnchor;
+        } else {
+            this.progressBarAnchor = progressBarAnchor;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".progressBarAnchor(%s)", wrapQuotes(progressBarAnchor)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressBarAnchor(%s);", wrapQuotes(progressBarAnchor)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the progress bar anchor.
+     */
+    public UiTimeline setProgressBarAnchor(EnumsAnchor progressBarAnchor1) {
+        if (jsBase == null) {
+            this.progressBarAnchor = null;
+            this.progressBarAnchor1 = null;
+            
+            this.progressBarAnchor1 = progressBarAnchor1;
+        } else {
+            this.progressBarAnchor1 = progressBarAnchor1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".progressBarAnchor(%s)", ((progressBarAnchor1 != null) ? progressBarAnchor1.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressBarAnchor(%s);", ((progressBarAnchor1 != null) ? progressBarAnchor1.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String progressBarHeight;
+    private Number progressBarHeight1;
+
+    /**
+     * Setter for the parent bar height.
+     */
+    public UiTimeline setProgressBarHeight(String progressBarHeight) {
+        if (jsBase == null) {
+            this.progressBarHeight = null;
+            this.progressBarHeight1 = null;
+            
+            this.progressBarHeight = progressBarHeight;
+        } else {
+            this.progressBarHeight = progressBarHeight;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".progressBarHeight(%s)", wrapQuotes(progressBarHeight)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressBarHeight(%s);", wrapQuotes(progressBarHeight)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the parent bar height.
+     */
+    public UiTimeline setProgressBarHeight(Number progressBarHeight1) {
+        if (jsBase == null) {
+            this.progressBarHeight = null;
+            this.progressBarHeight1 = null;
+            
+            this.progressBarHeight1 = progressBarHeight1;
+        } else {
+            this.progressBarHeight1 = progressBarHeight1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".progressBarHeight(%f)", progressBarHeight1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressBarHeight(%f);", progressBarHeight1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String progressBarOffset;
+    private Number progressBarOffset1;
+
+    /**
+     * Setter for the progress bar offset.
+     */
+    public UiTimeline setProgressBarOffset(String progressBarOffset) {
+        if (jsBase == null) {
+            this.progressBarOffset = null;
+            this.progressBarOffset1 = null;
+            
+            this.progressBarOffset = progressBarOffset;
+        } else {
+            this.progressBarOffset = progressBarOffset;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".progressBarOffset(%s)", wrapQuotes(progressBarOffset)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressBarOffset(%s);", wrapQuotes(progressBarOffset)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the progress bar offset.
+     */
+    public UiTimeline setProgressBarOffset(Number progressBarOffset1) {
+        if (jsBase == null) {
+            this.progressBarOffset = null;
+            this.progressBarOffset1 = null;
+            
+            this.progressBarOffset1 = progressBarOffset1;
+        } else {
+            this.progressBarOffset1 = progressBarOffset1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".progressBarOffset(%f)", progressBarOffset1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressBarOffset(%f);", progressBarOffset1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private String progressBarPosition;
+    private EnumsAnchor progressBarPosition1;
+
+    /**
+     * Setter for the progress bar position.
+     */
+    public UiTimeline setProgressBarPosition(String progressBarPosition) {
+        if (jsBase == null) {
+            this.progressBarPosition = null;
+            this.progressBarPosition1 = null;
+            
+            this.progressBarPosition = progressBarPosition;
+        } else {
+            this.progressBarPosition = progressBarPosition;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".progressBarPosition(%s)", wrapQuotes(progressBarPosition)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressBarPosition(%s);", wrapQuotes(progressBarPosition)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the progress bar position.
+     */
+    public UiTimeline setProgressBarPosition(EnumsAnchor progressBarPosition1) {
+        if (jsBase == null) {
+            this.progressBarPosition = null;
+            this.progressBarPosition1 = null;
+            
+            this.progressBarPosition1 = progressBarPosition1;
+        } else {
+            this.progressBarPosition1 = progressBarPosition1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".progressBarPosition(%s)", ((progressBarPosition1 != null) ? progressBarPosition1.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressBarPosition(%s);", ((progressBarPosition1 != null) ? progressBarPosition1.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Fill progressFill;
 
     /**
@@ -13097,12 +14217,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color10;
-    private Double opacity31;
+    private Number opacity31;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTimeline progressFill(String color10, Double opacity31) {
+    public UiTimeline progressFill(String color10, Number opacity31) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -13171,17 +14291,17 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys40;
     private String[] keys41;
-    private Double angle10;
+    private Number angle10;
     private Boolean mode40;
     private VectorRect mode41;
     private String mode42;
-    private Double opacity32;
+    private Number opacity32;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline progressFill(GradientKey[] keys40, Double angle10, Double opacity32, Boolean mode40) {
+    public UiTimeline progressFill(GradientKey[] keys40, Number angle10, Number opacity32, Boolean mode40) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -13345,7 +14465,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline progressFill(GradientKey[] keys40, Double angle10, Double opacity32, VectorRect mode41) {
+    public UiTimeline progressFill(GradientKey[] keys40, Number angle10, Number opacity32, VectorRect mode41) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -13509,7 +14629,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline progressFill(GradientKey[] keys40, Double angle10, Double opacity32, String mode42) {
+    public UiTimeline progressFill(GradientKey[] keys40, Number angle10, Number opacity32, String mode42) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -13673,7 +14793,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline progressFill(String[] keys41, Double angle10, Double opacity32, Boolean mode40) {
+    public UiTimeline progressFill(String[] keys41, Number angle10, Number opacity32, Boolean mode40) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -13837,7 +14957,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline progressFill(String[] keys41, Double angle10, Double opacity32, VectorRect mode41) {
+    public UiTimeline progressFill(String[] keys41, Number angle10, Number opacity32, VectorRect mode41) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -14001,7 +15121,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline progressFill(String[] keys41, Double angle10, Double opacity32, String mode42) {
+    public UiTimeline progressFill(String[] keys41, Number angle10, Number opacity32, String mode42) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -14162,18 +15282,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys42;
     private String[] keys43;
-    private Double cx11;
-    private Double cy11;
+    private Number cx11;
+    private Number cy11;
     private GraphicsMathRect mode43;
-    private Double opacity33;
-    private Double fx11;
-    private Double fy11;
+    private Number opacity33;
+    private Number fx11;
+    private Number fy11;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline progressFill(GradientKey[] keys42, Double cx11, Double cy11, GraphicsMathRect mode43, Double opacity33, Double fx11, Double fy11) {
+    public UiTimeline progressFill(GradientKey[] keys42, Number cx11, Number cy11, GraphicsMathRect mode43, Number opacity33, Number fx11, Number fy11) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -14387,7 +15507,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline progressFill(String[] keys43, Double cx11, Double cy11, GraphicsMathRect mode43, Double opacity33, Double fx11, Double fy11) {
+    public UiTimeline progressFill(String[] keys43, Number cx11, Number cy11, GraphicsMathRect mode43, Number opacity33, Number fx11, Number fy11) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -14668,7 +15788,7 @@ public class UiTimeline extends JsObject {
     private Stroke progressStroke;
     private ColoredFill progressStroke1;
     private String progressStroke2;
-    private Double thickness12;
+    private Number thickness12;
     private String dashpattern12;
     private StrokeLineJoin lineJoin12;
     private StrokeLineCap lineCap12;
@@ -14677,7 +15797,7 @@ public class UiTimeline extends JsObject {
      * Setter for the progress bar stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setProgressStroke(Stroke progressStroke, Double thickness12, String dashpattern12, StrokeLineJoin lineJoin12, StrokeLineCap lineCap12) {
+    public UiTimeline setProgressStroke(Stroke progressStroke, Number thickness12, String dashpattern12, StrokeLineJoin lineJoin12, StrokeLineCap lineCap12) {
         if (jsBase == null) {
             this.progressStroke = null;
             this.progressStroke1 = null;
@@ -14770,7 +15890,7 @@ public class UiTimeline extends JsObject {
      * Setter for the progress bar stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setProgressStroke(ColoredFill progressStroke1, Double thickness12, String dashpattern12, StrokeLineJoin lineJoin12, StrokeLineCap lineCap12) {
+    public UiTimeline setProgressStroke(ColoredFill progressStroke1, Number thickness12, String dashpattern12, StrokeLineJoin lineJoin12, StrokeLineCap lineCap12) {
         if (jsBase == null) {
             this.progressStroke = null;
             this.progressStroke1 = null;
@@ -14863,7 +15983,7 @@ public class UiTimeline extends JsObject {
      * Setter for the progress bar stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setProgressStroke(String progressStroke2, Double thickness12, String dashpattern12, StrokeLineJoin lineJoin12, StrokeLineCap lineCap12) {
+    public UiTimeline setProgressStroke(String progressStroke2, Number thickness12, String dashpattern12, StrokeLineJoin lineJoin12, StrokeLineCap lineCap12) {
         if (jsBase == null) {
             this.progressStroke = null;
             this.progressStroke1 = null;
@@ -14956,7 +16076,7 @@ public class UiTimeline extends JsObject {
     /**
      * Getter for the range marker.
      */
-    public GanttRange getRangeMarker(Double index) {
+    public GanttRange getRangeMarker(Number index) {
         GanttRange item = new GanttRange(jsBase + ".rangeMarker(" + index + ")");
         getRangeMarker.add(item);
         return item;
@@ -15018,7 +16138,7 @@ public class UiTimeline extends JsObject {
         return this;
     }
 
-    private Double index1;
+    private Number index1;
     private String rangeMarker2;
     private Boolean rangeMarker3;
     private GanttDateTimeMarkers rangeMarker4;
@@ -15027,7 +16147,7 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for the range marker by index.
      */
-    public UiTimeline setRangeMarker(Double index1, String rangeMarker2) {
+    public UiTimeline setRangeMarker(Number index1, String rangeMarker2) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -15063,7 +16183,7 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for the range marker by index.
      */
-    public UiTimeline setRangeMarker(Double index1, Boolean rangeMarker3) {
+    public UiTimeline setRangeMarker(Number index1, Boolean rangeMarker3) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -15099,7 +16219,7 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for the range marker by index.
      */
-    public UiTimeline setRangeMarker(Double index1, GanttDateTimeMarkers rangeMarker4) {
+    public UiTimeline setRangeMarker(Number index1, GanttDateTimeMarkers rangeMarker4) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -15158,12 +16278,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color11;
-    private Double opacity34;
+    private Number opacity34;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTimeline rowEvenFill(String color11, Double opacity34) {
+    public UiTimeline rowEvenFill(String color11, Number opacity34) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -15236,17 +16356,17 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys44;
     private String[] keys45;
-    private Double angle11;
+    private Number angle11;
     private Boolean mode44;
     private VectorRect mode45;
     private String mode46;
-    private Double opacity35;
+    private Number opacity35;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowEvenFill(GradientKey[] keys44, Double angle11, Double opacity35, Boolean mode44) {
+    public UiTimeline rowEvenFill(GradientKey[] keys44, Number angle11, Number opacity35, Boolean mode44) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -15422,7 +16542,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowEvenFill(GradientKey[] keys44, Double angle11, Double opacity35, VectorRect mode45) {
+    public UiTimeline rowEvenFill(GradientKey[] keys44, Number angle11, Number opacity35, VectorRect mode45) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -15598,7 +16718,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowEvenFill(GradientKey[] keys44, Double angle11, Double opacity35, String mode46) {
+    public UiTimeline rowEvenFill(GradientKey[] keys44, Number angle11, Number opacity35, String mode46) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -15774,7 +16894,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowEvenFill(String[] keys45, Double angle11, Double opacity35, Boolean mode44) {
+    public UiTimeline rowEvenFill(String[] keys45, Number angle11, Number opacity35, Boolean mode44) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -15950,7 +17070,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowEvenFill(String[] keys45, Double angle11, Double opacity35, VectorRect mode45) {
+    public UiTimeline rowEvenFill(String[] keys45, Number angle11, Number opacity35, VectorRect mode45) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -16126,7 +17246,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowEvenFill(String[] keys45, Double angle11, Double opacity35, String mode46) {
+    public UiTimeline rowEvenFill(String[] keys45, Number angle11, Number opacity35, String mode46) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -16299,18 +17419,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys46;
     private String[] keys47;
-    private Double cx12;
-    private Double cy12;
+    private Number cx12;
+    private Number cy12;
     private GraphicsMathRect mode47;
-    private Double opacity36;
-    private Double fx12;
-    private Double fy12;
+    private Number opacity36;
+    private Number fx12;
+    private Number fy12;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowEvenFill(GradientKey[] keys46, Double cx12, Double cy12, GraphicsMathRect mode47, Double opacity36, Double fx12, Double fy12) {
+    public UiTimeline rowEvenFill(GradientKey[] keys46, Number cx12, Number cy12, GraphicsMathRect mode47, Number opacity36, Number fx12, Number fy12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -16539,7 +17659,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowEvenFill(String[] keys47, Double cx12, Double cy12, GraphicsMathRect mode47, Double opacity36, Double fx12, Double fy12) {
+    public UiTimeline rowEvenFill(String[] keys47, Number cx12, Number cy12, GraphicsMathRect mode47, Number opacity36, Number fx12, Number fy12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -16791,12 +17911,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color12;
-    private Double opacity37;
+    private Number opacity37;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTimeline rowFill(String color12, Double opacity37) {
+    public UiTimeline rowFill(String color12, Number opacity37) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -16873,17 +17993,17 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys48;
     private String[] keys49;
-    private Double angle12;
+    private Number angle12;
     private Boolean mode48;
     private VectorRect mode49;
     private String mode50;
-    private Double opacity38;
+    private Number opacity38;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowFill(GradientKey[] keys48, Double angle12, Double opacity38, Boolean mode48) {
+    public UiTimeline rowFill(GradientKey[] keys48, Number angle12, Number opacity38, Boolean mode48) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -17071,7 +18191,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowFill(GradientKey[] keys48, Double angle12, Double opacity38, VectorRect mode49) {
+    public UiTimeline rowFill(GradientKey[] keys48, Number angle12, Number opacity38, VectorRect mode49) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -17259,7 +18379,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowFill(GradientKey[] keys48, Double angle12, Double opacity38, String mode50) {
+    public UiTimeline rowFill(GradientKey[] keys48, Number angle12, Number opacity38, String mode50) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -17447,7 +18567,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowFill(String[] keys49, Double angle12, Double opacity38, Boolean mode48) {
+    public UiTimeline rowFill(String[] keys49, Number angle12, Number opacity38, Boolean mode48) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -17635,7 +18755,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowFill(String[] keys49, Double angle12, Double opacity38, VectorRect mode49) {
+    public UiTimeline rowFill(String[] keys49, Number angle12, Number opacity38, VectorRect mode49) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -17823,7 +18943,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowFill(String[] keys49, Double angle12, Double opacity38, String mode50) {
+    public UiTimeline rowFill(String[] keys49, Number angle12, Number opacity38, String mode50) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -18008,18 +19128,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys50;
     private String[] keys51;
-    private Double cx13;
-    private Double cy13;
+    private Number cx13;
+    private Number cy13;
     private GraphicsMathRect mode51;
-    private Double opacity39;
-    private Double fx13;
-    private Double fy13;
+    private Number opacity39;
+    private Number fx13;
+    private Number fy13;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowFill(GradientKey[] keys50, Double cx13, Double cy13, GraphicsMathRect mode51, Double opacity39, Double fx13, Double fy13) {
+    public UiTimeline rowFill(GradientKey[] keys50, Number cx13, Number cy13, GraphicsMathRect mode51, Number opacity39, Number fx13, Number fy13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -18263,7 +19383,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowFill(String[] keys51, Double cx13, Double cy13, GraphicsMathRect mode51, Double opacity39, Double fx13, Double fy13) {
+    public UiTimeline rowFill(String[] keys51, Number cx13, Number cy13, GraphicsMathRect mode51, Number opacity39, Number fx13, Number fy13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -18530,12 +19650,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color13;
-    private Double opacity40;
+    private Number opacity40;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTimeline rowHoverFill(String color13, Double opacity40) {
+    public UiTimeline rowHoverFill(String color13, Number opacity40) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -18616,17 +19736,17 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys52;
     private String[] keys53;
-    private Double angle13;
+    private Number angle13;
     private Boolean mode52;
     private VectorRect mode53;
     private String mode54;
-    private Double opacity41;
+    private Number opacity41;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowHoverFill(GradientKey[] keys52, Double angle13, Double opacity41, Boolean mode52) {
+    public UiTimeline rowHoverFill(GradientKey[] keys52, Number angle13, Number opacity41, Boolean mode52) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -18826,7 +19946,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowHoverFill(GradientKey[] keys52, Double angle13, Double opacity41, VectorRect mode53) {
+    public UiTimeline rowHoverFill(GradientKey[] keys52, Number angle13, Number opacity41, VectorRect mode53) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -19026,7 +20146,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowHoverFill(GradientKey[] keys52, Double angle13, Double opacity41, String mode54) {
+    public UiTimeline rowHoverFill(GradientKey[] keys52, Number angle13, Number opacity41, String mode54) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -19226,7 +20346,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowHoverFill(String[] keys53, Double angle13, Double opacity41, Boolean mode52) {
+    public UiTimeline rowHoverFill(String[] keys53, Number angle13, Number opacity41, Boolean mode52) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -19426,7 +20546,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowHoverFill(String[] keys53, Double angle13, Double opacity41, VectorRect mode53) {
+    public UiTimeline rowHoverFill(String[] keys53, Number angle13, Number opacity41, VectorRect mode53) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -19626,7 +20746,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowHoverFill(String[] keys53, Double angle13, Double opacity41, String mode54) {
+    public UiTimeline rowHoverFill(String[] keys53, Number angle13, Number opacity41, String mode54) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -19823,18 +20943,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys54;
     private String[] keys55;
-    private Double cx14;
-    private Double cy14;
+    private Number cx14;
+    private Number cy14;
     private GraphicsMathRect mode55;
-    private Double opacity42;
-    private Double fx14;
-    private Double fy14;
+    private Number opacity42;
+    private Number fx14;
+    private Number fy14;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowHoverFill(GradientKey[] keys54, Double cx14, Double cy14, GraphicsMathRect mode55, Double opacity42, Double fx14, Double fy14) {
+    public UiTimeline rowHoverFill(GradientKey[] keys54, Number cx14, Number cy14, GraphicsMathRect mode55, Number opacity42, Number fx14, Number fy14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -20093,7 +21213,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowHoverFill(String[] keys55, Double cx14, Double cy14, GraphicsMathRect mode55, Double opacity42, Double fx14, Double fy14) {
+    public UiTimeline rowHoverFill(String[] keys55, Number cx14, Number cy14, GraphicsMathRect mode55, Number opacity42, Number fx14, Number fy14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -20374,12 +21494,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color14;
-    private Double opacity43;
+    private Number opacity43;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTimeline rowOddFill(String color14, Double opacity43) {
+    public UiTimeline rowOddFill(String color14, Number opacity43) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -20464,17 +21584,17 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys56;
     private String[] keys57;
-    private Double angle14;
+    private Number angle14;
     private Boolean mode56;
     private VectorRect mode57;
     private String mode58;
-    private Double opacity44;
+    private Number opacity44;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowOddFill(GradientKey[] keys56, Double angle14, Double opacity44, Boolean mode56) {
+    public UiTimeline rowOddFill(GradientKey[] keys56, Number angle14, Number opacity44, Boolean mode56) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -20686,7 +21806,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowOddFill(GradientKey[] keys56, Double angle14, Double opacity44, VectorRect mode57) {
+    public UiTimeline rowOddFill(GradientKey[] keys56, Number angle14, Number opacity44, VectorRect mode57) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -20898,7 +22018,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowOddFill(GradientKey[] keys56, Double angle14, Double opacity44, String mode58) {
+    public UiTimeline rowOddFill(GradientKey[] keys56, Number angle14, Number opacity44, String mode58) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -21110,7 +22230,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowOddFill(String[] keys57, Double angle14, Double opacity44, Boolean mode56) {
+    public UiTimeline rowOddFill(String[] keys57, Number angle14, Number opacity44, Boolean mode56) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -21322,7 +22442,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowOddFill(String[] keys57, Double angle14, Double opacity44, VectorRect mode57) {
+    public UiTimeline rowOddFill(String[] keys57, Number angle14, Number opacity44, VectorRect mode57) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -21534,7 +22654,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowOddFill(String[] keys57, Double angle14, Double opacity44, String mode58) {
+    public UiTimeline rowOddFill(String[] keys57, Number angle14, Number opacity44, String mode58) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -21743,18 +22863,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys58;
     private String[] keys59;
-    private Double cx15;
-    private Double cy15;
+    private Number cx15;
+    private Number cy15;
     private GraphicsMathRect mode59;
-    private Double opacity45;
-    private Double fx15;
-    private Double fy15;
+    private Number opacity45;
+    private Number fx15;
+    private Number fy15;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowOddFill(GradientKey[] keys58, Double cx15, Double cy15, GraphicsMathRect mode59, Double opacity45, Double fx15, Double fy15) {
+    public UiTimeline rowOddFill(GradientKey[] keys58, Number cx15, Number cy15, GraphicsMathRect mode59, Number opacity45, Number fx15, Number fy15) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -22028,7 +23148,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowOddFill(String[] keys59, Double cx15, Double cy15, GraphicsMathRect mode59, Double opacity45, Double fx15, Double fy15) {
+    public UiTimeline rowOddFill(String[] keys59, Number cx15, Number cy15, GraphicsMathRect mode59, Number opacity45, Number fx15, Number fy15) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -22325,12 +23445,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color15;
-    private Double opacity46;
+    private Number opacity46;
 
     /**
      * Fill color in selected mode with opacity. Fill as a string or an object.
      */
-    public UiTimeline rowSelectedFill(String color15, Double opacity46) {
+    public UiTimeline rowSelectedFill(String color15, Number opacity46) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -22419,7 +23539,7 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys60;
     private String[] keys61;
-    private Double angle15;
+    private Number angle15;
     private Boolean mode60;
     private VectorRect mode61;
     private String mode62;
@@ -22428,7 +23548,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowSelectedFill(GradientKey[] keys60, Double angle15, Boolean mode60) {
+    public UiTimeline rowSelectedFill(GradientKey[] keys60, Number angle15, Boolean mode60) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -22601,7 +23721,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowSelectedFill(GradientKey[] keys60, Double angle15, VectorRect mode61) {
+    public UiTimeline rowSelectedFill(GradientKey[] keys60, Number angle15, VectorRect mode61) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -22774,7 +23894,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowSelectedFill(GradientKey[] keys60, Double angle15, String mode62) {
+    public UiTimeline rowSelectedFill(GradientKey[] keys60, Number angle15, String mode62) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -22947,7 +24067,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowSelectedFill(String[] keys61, Double angle15, Boolean mode60) {
+    public UiTimeline rowSelectedFill(String[] keys61, Number angle15, Boolean mode60) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -23120,7 +24240,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowSelectedFill(String[] keys61, Double angle15, VectorRect mode61) {
+    public UiTimeline rowSelectedFill(String[] keys61, Number angle15, VectorRect mode61) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -23293,7 +24413,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowSelectedFill(String[] keys61, Double angle15, String mode62) {
+    public UiTimeline rowSelectedFill(String[] keys61, Number angle15, String mode62) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -23463,18 +24583,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys62;
     private String[] keys63;
-    private Double cx16;
-    private Double cy16;
+    private Number cx16;
+    private Number cy16;
     private GraphicsMathRect mode63;
-    private Double opacity47;
-    private Double fx16;
-    private Double fy16;
+    private Number opacity47;
+    private Number fx16;
+    private Number fy16;
 
     /**
      * Radial gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowSelectedFill(GradientKey[] keys62, Double cx16, Double cy16, GraphicsMathRect mode63, Double opacity47, Double fx16, Double fy16) {
+    public UiTimeline rowSelectedFill(GradientKey[] keys62, Number cx16, Number cy16, GraphicsMathRect mode63, Number opacity47, Number fx16, Number fy16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -23762,7 +24882,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill in selected mode.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline rowSelectedFill(String[] keys63, Double cx16, Double cy16, GraphicsMathRect mode63, Double opacity47, Double fx16, Double fy16) {
+    public UiTimeline rowSelectedFill(String[] keys63, Number cx16, Number cy16, GraphicsMathRect mode63, Number opacity47, Number fx16, Number fy16) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -24083,6 +25203,304 @@ public class UiTimeline extends JsObject {
         return this;
     }
 
+    private Stroke selectedConnectorStroke;
+    private ColoredFill selectedConnectorStroke1;
+    private String selectedConnectorStroke2;
+    private Number thickness13;
+    private String dashpattern13;
+    private StrokeLineJoin lineJoin13;
+    private StrokeLineCap lineCap13;
+
+    /**
+     * Setter for the selected connector stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
+    public UiTimeline setSelectedConnectorStroke(Stroke selectedConnectorStroke, Number thickness13, String dashpattern13, StrokeLineJoin lineJoin13, StrokeLineCap lineCap13) {
+        if (jsBase == null) {
+            this.selectedConnectorStroke = null;
+            this.selectedConnectorStroke1 = null;
+            this.selectedConnectorStroke2 = null;
+            
+            this.selectedConnectorStroke = selectedConnectorStroke;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            this.thickness10 = null;
+            this.thickness11 = null;
+            this.thickness12 = null;
+            this.thickness13 = null;
+            
+            this.thickness13 = thickness13;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            this.dashpattern4 = null;
+            this.dashpattern5 = null;
+            this.dashpattern6 = null;
+            this.dashpattern7 = null;
+            this.dashpattern8 = null;
+            this.dashpattern9 = null;
+            this.dashpattern10 = null;
+            this.dashpattern11 = null;
+            this.dashpattern12 = null;
+            this.dashpattern13 = null;
+            
+            this.dashpattern13 = dashpattern13;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            this.lineJoin4 = null;
+            this.lineJoin5 = null;
+            this.lineJoin6 = null;
+            this.lineJoin7 = null;
+            this.lineJoin8 = null;
+            this.lineJoin9 = null;
+            this.lineJoin10 = null;
+            this.lineJoin11 = null;
+            this.lineJoin12 = null;
+            this.lineJoin13 = null;
+            
+            this.lineJoin13 = lineJoin13;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            this.lineCap4 = null;
+            this.lineCap5 = null;
+            this.lineCap6 = null;
+            this.lineCap7 = null;
+            this.lineCap8 = null;
+            this.lineCap9 = null;
+            this.lineCap10 = null;
+            this.lineCap11 = null;
+            this.lineCap12 = null;
+            this.lineCap13 = null;
+            
+            this.lineCap13 = lineCap13;
+        } else {
+            this.selectedConnectorStroke = selectedConnectorStroke;
+            this.thickness13 = thickness13;
+            this.dashpattern13 = dashpattern13;
+            this.lineJoin13 = lineJoin13;
+            this.lineCap13 = lineCap13;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".selectedConnectorStroke(%s, %f, %s, %s, %s)", ((selectedConnectorStroke != null) ? selectedConnectorStroke.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedConnectorStroke(%s, %f, %s, %s, %s);", ((selectedConnectorStroke != null) ? selectedConnectorStroke.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the selected connector stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
+    public UiTimeline setSelectedConnectorStroke(ColoredFill selectedConnectorStroke1, Number thickness13, String dashpattern13, StrokeLineJoin lineJoin13, StrokeLineCap lineCap13) {
+        if (jsBase == null) {
+            this.selectedConnectorStroke = null;
+            this.selectedConnectorStroke1 = null;
+            this.selectedConnectorStroke2 = null;
+            
+            this.selectedConnectorStroke1 = selectedConnectorStroke1;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            this.thickness10 = null;
+            this.thickness11 = null;
+            this.thickness12 = null;
+            this.thickness13 = null;
+            
+            this.thickness13 = thickness13;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            this.dashpattern4 = null;
+            this.dashpattern5 = null;
+            this.dashpattern6 = null;
+            this.dashpattern7 = null;
+            this.dashpattern8 = null;
+            this.dashpattern9 = null;
+            this.dashpattern10 = null;
+            this.dashpattern11 = null;
+            this.dashpattern12 = null;
+            this.dashpattern13 = null;
+            
+            this.dashpattern13 = dashpattern13;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            this.lineJoin4 = null;
+            this.lineJoin5 = null;
+            this.lineJoin6 = null;
+            this.lineJoin7 = null;
+            this.lineJoin8 = null;
+            this.lineJoin9 = null;
+            this.lineJoin10 = null;
+            this.lineJoin11 = null;
+            this.lineJoin12 = null;
+            this.lineJoin13 = null;
+            
+            this.lineJoin13 = lineJoin13;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            this.lineCap4 = null;
+            this.lineCap5 = null;
+            this.lineCap6 = null;
+            this.lineCap7 = null;
+            this.lineCap8 = null;
+            this.lineCap9 = null;
+            this.lineCap10 = null;
+            this.lineCap11 = null;
+            this.lineCap12 = null;
+            this.lineCap13 = null;
+            
+            this.lineCap13 = lineCap13;
+        } else {
+            this.selectedConnectorStroke1 = selectedConnectorStroke1;
+            this.thickness13 = thickness13;
+            this.dashpattern13 = dashpattern13;
+            this.lineJoin13 = lineJoin13;
+            this.lineCap13 = lineCap13;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".selectedConnectorStroke(%s, %f, %s, %s, %s)", ((selectedConnectorStroke1 != null) ? selectedConnectorStroke1.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedConnectorStroke(%s, %f, %s, %s, %s);", ((selectedConnectorStroke1 != null) ? selectedConnectorStroke1.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the selected connector stroke settings.
+{docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
+     */
+    public UiTimeline setSelectedConnectorStroke(String selectedConnectorStroke2, Number thickness13, String dashpattern13, StrokeLineJoin lineJoin13, StrokeLineCap lineCap13) {
+        if (jsBase == null) {
+            this.selectedConnectorStroke = null;
+            this.selectedConnectorStroke1 = null;
+            this.selectedConnectorStroke2 = null;
+            
+            this.selectedConnectorStroke2 = selectedConnectorStroke2;
+            this.thickness = null;
+            this.thickness1 = null;
+            this.thickness2 = null;
+            this.thickness3 = null;
+            this.thickness4 = null;
+            this.thickness5 = null;
+            this.thickness6 = null;
+            this.thickness7 = null;
+            this.thickness8 = null;
+            this.thickness9 = null;
+            this.thickness10 = null;
+            this.thickness11 = null;
+            this.thickness12 = null;
+            this.thickness13 = null;
+            
+            this.thickness13 = thickness13;
+            this.dashpattern = null;
+            this.dashpattern1 = null;
+            this.dashpattern2 = null;
+            this.dashpattern3 = null;
+            this.dashpattern4 = null;
+            this.dashpattern5 = null;
+            this.dashpattern6 = null;
+            this.dashpattern7 = null;
+            this.dashpattern8 = null;
+            this.dashpattern9 = null;
+            this.dashpattern10 = null;
+            this.dashpattern11 = null;
+            this.dashpattern12 = null;
+            this.dashpattern13 = null;
+            
+            this.dashpattern13 = dashpattern13;
+            this.lineJoin = null;
+            this.lineJoin1 = null;
+            this.lineJoin2 = null;
+            this.lineJoin3 = null;
+            this.lineJoin4 = null;
+            this.lineJoin5 = null;
+            this.lineJoin6 = null;
+            this.lineJoin7 = null;
+            this.lineJoin8 = null;
+            this.lineJoin9 = null;
+            this.lineJoin10 = null;
+            this.lineJoin11 = null;
+            this.lineJoin12 = null;
+            this.lineJoin13 = null;
+            
+            this.lineJoin13 = lineJoin13;
+            this.lineCap = null;
+            this.lineCap1 = null;
+            this.lineCap2 = null;
+            this.lineCap3 = null;
+            this.lineCap4 = null;
+            this.lineCap5 = null;
+            this.lineCap6 = null;
+            this.lineCap7 = null;
+            this.lineCap8 = null;
+            this.lineCap9 = null;
+            this.lineCap10 = null;
+            this.lineCap11 = null;
+            this.lineCap12 = null;
+            this.lineCap13 = null;
+            
+            this.lineCap13 = lineCap13;
+        } else {
+            this.selectedConnectorStroke2 = selectedConnectorStroke2;
+            this.thickness13 = thickness13;
+            this.dashpattern13 = dashpattern13;
+            this.lineJoin13 = lineJoin13;
+            this.lineCap13 = lineCap13;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".selectedConnectorStroke(%s, %f, %s, %s, %s)", wrapQuotes(selectedConnectorStroke2), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedConnectorStroke(%s, %f, %s, %s, %s);", wrapQuotes(selectedConnectorStroke2), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Fill selectedElementFill;
 
     /**
@@ -24110,12 +25528,12 @@ public class UiTimeline extends JsObject {
     }
 
     private String color16;
-    private Double opacity48;
+    private Number opacity48;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTimeline selectedElementFill(String color16, Double opacity48) {
+    public UiTimeline selectedElementFill(String color16, Number opacity48) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -24207,17 +25625,17 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys64;
     private String[] keys65;
-    private Double angle16;
+    private Number angle16;
     private Boolean mode64;
     private VectorRect mode65;
     private String mode66;
-    private Double opacity49;
+    private Number opacity49;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline selectedElementFill(GradientKey[] keys64, Double angle16, Double opacity49, Boolean mode64) {
+    public UiTimeline selectedElementFill(GradientKey[] keys64, Number angle16, Number opacity49, Boolean mode64) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -24452,7 +25870,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline selectedElementFill(GradientKey[] keys64, Double angle16, Double opacity49, VectorRect mode65) {
+    public UiTimeline selectedElementFill(GradientKey[] keys64, Number angle16, Number opacity49, VectorRect mode65) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -24687,7 +26105,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline selectedElementFill(GradientKey[] keys64, Double angle16, Double opacity49, String mode66) {
+    public UiTimeline selectedElementFill(GradientKey[] keys64, Number angle16, Number opacity49, String mode66) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -24922,7 +26340,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline selectedElementFill(String[] keys65, Double angle16, Double opacity49, Boolean mode64) {
+    public UiTimeline selectedElementFill(String[] keys65, Number angle16, Number opacity49, Boolean mode64) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -25157,7 +26575,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline selectedElementFill(String[] keys65, Double angle16, Double opacity49, VectorRect mode65) {
+    public UiTimeline selectedElementFill(String[] keys65, Number angle16, Number opacity49, VectorRect mode65) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -25392,7 +26810,7 @@ public class UiTimeline extends JsObject {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline selectedElementFill(String[] keys65, Double angle16, Double opacity49, String mode66) {
+    public UiTimeline selectedElementFill(String[] keys65, Number angle16, Number opacity49, String mode66) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -25624,18 +27042,18 @@ public class UiTimeline extends JsObject {
 
     private GradientKey[] keys66;
     private String[] keys67;
-    private Double cx17;
-    private Double cy17;
+    private Number cx17;
+    private Number cy17;
     private GraphicsMathRect mode67;
-    private Double opacity50;
-    private Double fx17;
-    private Double fy17;
+    private Number opacity50;
+    private Number fx17;
+    private Number fy17;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline selectedElementFill(GradientKey[] keys66, Double cx17, Double cy17, GraphicsMathRect mode67, Double opacity50, Double fx17, Double fy17) {
+    public UiTimeline selectedElementFill(GradientKey[] keys66, Number cx17, Number cy17, GraphicsMathRect mode67, Number opacity50, Number fx17, Number fy17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -25938,7 +27356,7 @@ public class UiTimeline extends JsObject {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTimeline selectedElementFill(String[] keys67, Double cx17, Double cy17, GraphicsMathRect mode67, Double opacity50, Double fx17, Double fy17) {
+    public UiTimeline selectedElementFill(String[] keys67, Number cx17, Number cy17, GraphicsMathRect mode67, Number opacity50, Number fx17, Number fy17) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -26240,16 +27658,16 @@ public class UiTimeline extends JsObject {
     private Stroke selectedElementStroke;
     private ColoredFill selectedElementStroke1;
     private String selectedElementStroke2;
-    private Double thickness13;
-    private String dashpattern13;
-    private StrokeLineJoin lineJoin13;
-    private StrokeLineCap lineCap13;
+    private Number thickness14;
+    private String dashpattern14;
+    private StrokeLineJoin lineJoin14;
+    private StrokeLineCap lineCap14;
 
     /**
      * Setter for the selected element on timeline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setSelectedElementStroke(Stroke selectedElementStroke, Double thickness13, String dashpattern13, StrokeLineJoin lineJoin13, StrokeLineCap lineCap13) {
+    public UiTimeline setSelectedElementStroke(Stroke selectedElementStroke, Number thickness14, String dashpattern14, StrokeLineJoin lineJoin14, StrokeLineCap lineCap14) {
         if (jsBase == null) {
             this.selectedElementStroke = null;
             this.selectedElementStroke1 = null;
@@ -26270,8 +27688,9 @@ public class UiTimeline extends JsObject {
             this.thickness11 = null;
             this.thickness12 = null;
             this.thickness13 = null;
+            this.thickness14 = null;
             
-            this.thickness13 = thickness13;
+            this.thickness14 = thickness14;
             this.dashpattern = null;
             this.dashpattern1 = null;
             this.dashpattern2 = null;
@@ -26286,8 +27705,9 @@ public class UiTimeline extends JsObject {
             this.dashpattern11 = null;
             this.dashpattern12 = null;
             this.dashpattern13 = null;
+            this.dashpattern14 = null;
             
-            this.dashpattern13 = dashpattern13;
+            this.dashpattern14 = dashpattern14;
             this.lineJoin = null;
             this.lineJoin1 = null;
             this.lineJoin2 = null;
@@ -26302,8 +27722,9 @@ public class UiTimeline extends JsObject {
             this.lineJoin11 = null;
             this.lineJoin12 = null;
             this.lineJoin13 = null;
+            this.lineJoin14 = null;
             
-            this.lineJoin13 = lineJoin13;
+            this.lineJoin14 = lineJoin14;
             this.lineCap = null;
             this.lineCap1 = null;
             this.lineCap2 = null;
@@ -26318,23 +27739,24 @@ public class UiTimeline extends JsObject {
             this.lineCap11 = null;
             this.lineCap12 = null;
             this.lineCap13 = null;
+            this.lineCap14 = null;
             
-            this.lineCap13 = lineCap13;
+            this.lineCap14 = lineCap14;
         } else {
             this.selectedElementStroke = selectedElementStroke;
-            this.thickness13 = thickness13;
-            this.dashpattern13 = dashpattern13;
-            this.lineJoin13 = lineJoin13;
-            this.lineCap13 = lineCap13;
+            this.thickness14 = thickness14;
+            this.dashpattern14 = dashpattern14;
+            this.lineJoin14 = lineJoin14;
+            this.lineCap14 = lineCap14;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null"), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementStroke(%s, %f, %s, %s, %s);", ((selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementStroke(%s, %f, %s, %s, %s);", ((selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null"), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -26346,7 +27768,7 @@ public class UiTimeline extends JsObject {
      * Setter for the selected element on timeline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setSelectedElementStroke(ColoredFill selectedElementStroke1, Double thickness13, String dashpattern13, StrokeLineJoin lineJoin13, StrokeLineCap lineCap13) {
+    public UiTimeline setSelectedElementStroke(ColoredFill selectedElementStroke1, Number thickness14, String dashpattern14, StrokeLineJoin lineJoin14, StrokeLineCap lineCap14) {
         if (jsBase == null) {
             this.selectedElementStroke = null;
             this.selectedElementStroke1 = null;
@@ -26367,8 +27789,9 @@ public class UiTimeline extends JsObject {
             this.thickness11 = null;
             this.thickness12 = null;
             this.thickness13 = null;
+            this.thickness14 = null;
             
-            this.thickness13 = thickness13;
+            this.thickness14 = thickness14;
             this.dashpattern = null;
             this.dashpattern1 = null;
             this.dashpattern2 = null;
@@ -26383,8 +27806,9 @@ public class UiTimeline extends JsObject {
             this.dashpattern11 = null;
             this.dashpattern12 = null;
             this.dashpattern13 = null;
+            this.dashpattern14 = null;
             
-            this.dashpattern13 = dashpattern13;
+            this.dashpattern14 = dashpattern14;
             this.lineJoin = null;
             this.lineJoin1 = null;
             this.lineJoin2 = null;
@@ -26399,8 +27823,9 @@ public class UiTimeline extends JsObject {
             this.lineJoin11 = null;
             this.lineJoin12 = null;
             this.lineJoin13 = null;
+            this.lineJoin14 = null;
             
-            this.lineJoin13 = lineJoin13;
+            this.lineJoin14 = lineJoin14;
             this.lineCap = null;
             this.lineCap1 = null;
             this.lineCap2 = null;
@@ -26415,23 +27840,24 @@ public class UiTimeline extends JsObject {
             this.lineCap11 = null;
             this.lineCap12 = null;
             this.lineCap13 = null;
+            this.lineCap14 = null;
             
-            this.lineCap13 = lineCap13;
+            this.lineCap14 = lineCap14;
         } else {
             this.selectedElementStroke1 = selectedElementStroke1;
-            this.thickness13 = thickness13;
-            this.dashpattern13 = dashpattern13;
-            this.lineJoin13 = lineJoin13;
-            this.lineCap13 = lineCap13;
+            this.thickness14 = thickness14;
+            this.dashpattern14 = dashpattern14;
+            this.lineJoin14 = lineJoin14;
+            this.lineCap14 = lineCap14;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null"), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementStroke(%s, %f, %s, %s, %s);", ((selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementStroke(%s, %f, %s, %s, %s);", ((selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null"), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -26443,7 +27869,7 @@ public class UiTimeline extends JsObject {
      * Setter for the selected element on timeline stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTimeline setSelectedElementStroke(String selectedElementStroke2, Double thickness13, String dashpattern13, StrokeLineJoin lineJoin13, StrokeLineCap lineCap13) {
+    public UiTimeline setSelectedElementStroke(String selectedElementStroke2, Number thickness14, String dashpattern14, StrokeLineJoin lineJoin14, StrokeLineCap lineCap14) {
         if (jsBase == null) {
             this.selectedElementStroke = null;
             this.selectedElementStroke1 = null;
@@ -26464,8 +27890,9 @@ public class UiTimeline extends JsObject {
             this.thickness11 = null;
             this.thickness12 = null;
             this.thickness13 = null;
+            this.thickness14 = null;
             
-            this.thickness13 = thickness13;
+            this.thickness14 = thickness14;
             this.dashpattern = null;
             this.dashpattern1 = null;
             this.dashpattern2 = null;
@@ -26480,8 +27907,9 @@ public class UiTimeline extends JsObject {
             this.dashpattern11 = null;
             this.dashpattern12 = null;
             this.dashpattern13 = null;
+            this.dashpattern14 = null;
             
-            this.dashpattern13 = dashpattern13;
+            this.dashpattern14 = dashpattern14;
             this.lineJoin = null;
             this.lineJoin1 = null;
             this.lineJoin2 = null;
@@ -26496,8 +27924,9 @@ public class UiTimeline extends JsObject {
             this.lineJoin11 = null;
             this.lineJoin12 = null;
             this.lineJoin13 = null;
+            this.lineJoin14 = null;
             
-            this.lineJoin13 = lineJoin13;
+            this.lineJoin14 = lineJoin14;
             this.lineCap = null;
             this.lineCap1 = null;
             this.lineCap2 = null;
@@ -26512,23 +27941,24 @@ public class UiTimeline extends JsObject {
             this.lineCap11 = null;
             this.lineCap12 = null;
             this.lineCap13 = null;
+            this.lineCap14 = null;
             
-            this.lineCap13 = lineCap13;
+            this.lineCap14 = lineCap14;
         } else {
             this.selectedElementStroke2 = selectedElementStroke2;
-            this.thickness13 = thickness13;
-            this.dashpattern13 = dashpattern13;
-            this.lineJoin13 = lineJoin13;
-            this.lineCap13 = lineCap13;
+            this.thickness14 = thickness14;
+            this.dashpattern14 = dashpattern14;
+            this.lineJoin14 = lineJoin14;
+            this.lineCap14 = lineCap14;
             if (!isChain) {
                 js.append(jsBase);
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", wrapQuotes(selectedElementStroke2), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", wrapQuotes(selectedElementStroke2), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementStroke(%s, %f, %s, %s, %s);", wrapQuotes(selectedElementStroke2), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementStroke(%s, %f, %s, %s, %s);", wrapQuotes(selectedElementStroke2), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -26540,7 +27970,7 @@ public class UiTimeline extends JsObject {
     /**
      * Getter for the text marker.
      */
-    public GanttText getTextMarker(Double index) {
+    public GanttText getTextMarker(Number index) {
         GanttText item = new GanttText(jsBase + ".textMarker(" + index + ")");
         getTextMarker.add(item);
         return item;
@@ -26602,7 +28032,7 @@ public class UiTimeline extends JsObject {
         return this;
     }
 
-    private Double index2;
+    private Number index2;
     private String textMarker2;
     private Boolean textMarker3;
     private GanttDateTimeMarkers textMarker4;
@@ -26611,7 +28041,7 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for text marker by index.
      */
-    public UiTimeline setTextMarker(Double index2, String textMarker2) {
+    public UiTimeline setTextMarker(Number index2, String textMarker2) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -26648,7 +28078,7 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for text marker by index.
      */
-    public UiTimeline setTextMarker(Double index2, Boolean textMarker3) {
+    public UiTimeline setTextMarker(Number index2, Boolean textMarker3) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -26685,7 +28115,7 @@ public class UiTimeline extends JsObject {
     /**
      * Setter for text marker by index.
      */
-    public UiTimeline setTextMarker(Double index2, GanttDateTimeMarkers textMarker4) {
+    public UiTimeline setTextMarker(Number index2, GanttDateTimeMarkers textMarker4) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;

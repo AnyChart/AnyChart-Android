@@ -270,12 +270,12 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Even fill color with opacity.
      */
-    public ResourceResourceList evenFill(String color, Double opacity) {
+    public ResourceResourceList evenFill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -299,17 +299,17 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ResourceResourceList evenFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public ResourceResourceList evenFill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -350,7 +350,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
      * Linear gradient even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ResourceResourceList evenFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public ResourceResourceList evenFill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -391,7 +391,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
      * Linear gradient even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ResourceResourceList evenFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public ResourceResourceList evenFill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -432,7 +432,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
      * Linear gradient even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ResourceResourceList evenFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public ResourceResourceList evenFill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -473,7 +473,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
      * Linear gradient even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ResourceResourceList evenFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public ResourceResourceList evenFill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -514,7 +514,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
      * Linear gradient even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ResourceResourceList evenFill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public ResourceResourceList evenFill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -552,18 +552,18 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ResourceResourceList evenFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public ResourceResourceList evenFill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -614,7 +614,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
      * Radial gradient even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ResourceResourceList evenFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public ResourceResourceList evenFill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -762,12 +762,12 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     }
 
     private String color1;
-    private Double opacity3;
+    private Number opacity3;
 
     /**
      * Odd fill color with opacity.
      */
-    public ResourceResourceList oddFill(String color1, Double opacity3) {
+    public ResourceResourceList oddFill(String color1, Number opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -799,17 +799,17 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private GradientKey[] keys4;
     private String[] keys5;
-    private Double angle1;
+    private Number angle1;
     private Boolean mode4;
     private VectorRect mode5;
     private String mode6;
-    private Double opacity4;
+    private Number opacity4;
 
     /**
      * Linear gradient odd fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ResourceResourceList oddFill(GradientKey[] keys4, Double angle1, Double opacity4, Boolean mode4) {
+    public ResourceResourceList oddFill(GradientKey[] keys4, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -864,7 +864,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
      * Linear gradient odd fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ResourceResourceList oddFill(GradientKey[] keys4, Double angle1, Double opacity4, VectorRect mode5) {
+    public ResourceResourceList oddFill(GradientKey[] keys4, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -919,7 +919,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
      * Linear gradient odd fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ResourceResourceList oddFill(GradientKey[] keys4, Double angle1, Double opacity4, String mode6) {
+    public ResourceResourceList oddFill(GradientKey[] keys4, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -974,7 +974,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
      * Linear gradient odd fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ResourceResourceList oddFill(String[] keys5, Double angle1, Double opacity4, Boolean mode4) {
+    public ResourceResourceList oddFill(String[] keys5, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1029,7 +1029,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
      * Linear gradient odd fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ResourceResourceList oddFill(String[] keys5, Double angle1, Double opacity4, VectorRect mode5) {
+    public ResourceResourceList oddFill(String[] keys5, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1084,7 +1084,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
      * Linear gradient odd fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ResourceResourceList oddFill(String[] keys5, Double angle1, Double opacity4, String mode6) {
+    public ResourceResourceList oddFill(String[] keys5, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1136,18 +1136,18 @@ public class ResourceResourceList extends VisualBaseWithBounds {
 
     private GradientKey[] keys6;
     private String[] keys7;
-    private Double cx1;
-    private Double cy1;
+    private Number cx1;
+    private Number cy1;
     private GraphicsMathRect mode7;
-    private Double opacity5;
-    private Double fx1;
-    private Double fy1;
+    private Number opacity5;
+    private Number fx1;
+    private Number fy1;
 
     /**
      * Radial gradient odd fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ResourceResourceList oddFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public ResourceResourceList oddFill(GradientKey[] keys6, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1221,7 +1221,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
      * Radial gradient odd fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ResourceResourceList oddFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public ResourceResourceList oddFill(String[] keys7, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1365,7 +1365,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
     private Stroke color2;
     private ColoredFill color3;
     private String color4;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -1374,7 +1374,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
      * Setter for the stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public ResourceResourceList setStroke(Stroke color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public ResourceResourceList setStroke(Stroke color2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1413,7 +1413,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
      * Setter for the stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public ResourceResourceList setStroke(ColoredFill color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public ResourceResourceList setStroke(ColoredFill color3, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1452,7 +1452,7 @@ public class ResourceResourceList extends VisualBaseWithBounds {
      * Setter for the stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public ResourceResourceList setStroke(String color4, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public ResourceResourceList setStroke(String color4, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;

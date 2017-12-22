@@ -63,13 +63,13 @@ public class LegendItem extends CoreText {
     private HatchFillType patternFillOrType2;
     private String patternFillOrType3;
     private String color;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
 
     /**
      * Setter for icon hatch fill settings.
      */
-    public LegendItem setIconHatchFill(PatternFill patternFillOrType, String color, Double thickness, Double size) {
+    public LegendItem setIconHatchFill(PatternFill patternFillOrType, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -104,7 +104,7 @@ public class LegendItem extends CoreText {
     /**
      * Setter for icon hatch fill settings.
      */
-    public LegendItem setIconHatchFill(HatchFill patternFillOrType1, String color, Double thickness, Double size) {
+    public LegendItem setIconHatchFill(HatchFill patternFillOrType1, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -139,7 +139,7 @@ public class LegendItem extends CoreText {
     /**
      * Setter for icon hatch fill settings.
      */
-    public LegendItem setIconHatchFill(HatchFillType patternFillOrType2, String color, Double thickness, Double size) {
+    public LegendItem setIconHatchFill(HatchFillType patternFillOrType2, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -174,7 +174,7 @@ public class LegendItem extends CoreText {
     /**
      * Setter for icon hatch fill settings.
      */
-    public LegendItem setIconHatchFill(String patternFillOrType3, String color, Double thickness, Double size) {
+    public LegendItem setIconHatchFill(String patternFillOrType3, String color, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -221,7 +221,7 @@ public class LegendItem extends CoreText {
     /**
      * Getter/setter for iconTextSpacing setting.
      */
-    public LegendItem getIconTextSpacing(Double iconTextSpacing) {
+    public LegendItem getIconTextSpacing(Number iconTextSpacing) {
         LegendItem item = new LegendItem(jsBase + ".iconTextSpacing(" + iconTextSpacing + ")");
         getIconTextSpacing.add(item);
         return item;
@@ -238,13 +238,13 @@ public class LegendItem extends CoreText {
         return item;
     }
 
-    private Double maxHeight;
+    private Number maxHeight;
     private String maxHeight1;
 
     /**
      * Setter for the maximal height of a legend item.
      */
-    public LegendItem setMaxHeight(Double maxHeight) {
+    public LegendItem setMaxHeight(Number maxHeight) {
         if (jsBase == null) {
             this.maxHeight = null;
             this.maxHeight1 = null;
@@ -294,13 +294,13 @@ public class LegendItem extends CoreText {
         return this;
     }
 
-    private Double maxWidth;
+    private Number maxWidth;
     private String maxWidth1;
 
     /**
      * Setter for the maximal width of a legend item.
      */
-    public LegendItem setMaxWidth(Double maxWidth) {
+    public LegendItem setMaxWidth(Number maxWidth) {
         if (jsBase == null) {
             this.maxWidth = null;
             this.maxWidth1 = null;
@@ -366,7 +366,7 @@ public class LegendItem extends CoreText {
     /**
      * Getter/setter for X coordinate of legend item.
      */
-    public LegendItem getX(Double x) {
+    public LegendItem getX(Number x) {
         LegendItem item = new LegendItem(jsBase + ".x(" + x + ")");
         getX.add(item);
         return item;
@@ -388,7 +388,7 @@ public class LegendItem extends CoreText {
     /**
      * Getter/setter for Y coordinate of legend item.
      */
-    public LegendItem getY(Double y) {
+    public LegendItem getY(Number y) {
         LegendItem item = new LegendItem(jsBase + ".y(" + y + ")");
         getY.add(item);
         return item;

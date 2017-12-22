@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * 
+ * The Line class contains methods for configuring standalones line markers.
  */
 public class StandalonesAxismarkersLine extends CoreAxismarkersLine {
 
@@ -38,7 +38,7 @@ public class StandalonesAxismarkersLine extends CoreAxismarkersLine {
     private Layer getContainer;
 
     /**
-     * Getter for the line marker current container.
+     * Getter for the line marker container.
      */
     public Layer getContainer() {
         if (getContainer == null)
@@ -53,7 +53,7 @@ public class StandalonesAxismarkersLine extends CoreAxismarkersLine {
     private Element container3;
 
     /**
-     * Setter for the line marker current container.
+     * Setter for the line marker container.
      */
     public StandalonesAxismarkersLine setContainer(Layer container) {
         if (jsBase == null) {
@@ -83,7 +83,7 @@ public class StandalonesAxismarkersLine extends CoreAxismarkersLine {
 
 
     /**
-     * Setter for the line marker current container.
+     * Setter for the line marker container.
      */
     public StandalonesAxismarkersLine setContainer(Stage container1) {
         if (jsBase == null) {
@@ -113,7 +113,7 @@ public class StandalonesAxismarkersLine extends CoreAxismarkersLine {
 
 
     /**
-     * Setter for the line marker current container.
+     * Setter for the line marker container.
      */
     public StandalonesAxismarkersLine setContainer(String container2) {
         if (jsBase == null) {
@@ -142,7 +142,7 @@ public class StandalonesAxismarkersLine extends CoreAxismarkersLine {
 
 
     /**
-     * Setter for the line marker current container.
+     * Setter for the line marker container.
      */
     public StandalonesAxismarkersLine setContainer(Element container3) {
         if (jsBase == null) {
@@ -173,7 +173,7 @@ public class StandalonesAxismarkersLine extends CoreAxismarkersLine {
     private AnychartMathRect getParentBounds;
 
     /**
-     * Getter for bounds.
+     * Getter for the line marker bounds.
      */
     public AnychartMathRect getParentBounds() {
         if (getParentBounds == null)
@@ -239,15 +239,15 @@ public class StandalonesAxismarkersLine extends CoreAxismarkersLine {
         return this;
     }
 
-    private Double left;
-    private Double top;
-    private Double width;
-    private Double height;
+    private Number left;
+    private Number top;
+    private Number width;
+    private Number height;
 
     /**
      * Setter for bounds using several values.
      */
-    public StandalonesAxismarkersLine setParentBounds(Double left, Double top, Double width, Double height) {
+    public StandalonesAxismarkersLine setParentBounds(Number left, Number top, Number width, Number height) {
         if (jsBase == null) {
             this.left = left;
             this.top = top;

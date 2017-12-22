@@ -106,7 +106,7 @@ public class Chart extends VisualBaseWithBounds {
     private Animation getAnimation;
 
     /**
-     * Getter for the current animation setting.
+     * Getter for animation settings.
      */
     public Animation getAnimation() {
         if (getAnimation == null)
@@ -119,7 +119,7 @@ public class Chart extends VisualBaseWithBounds {
     private String animation1;
 
     /**
-     * Setter for the animation setting by one value.
+     * Setter for animation settings by one value.
      */
     public Chart setAnimation(Boolean animation) {
         if (jsBase == null) {
@@ -146,7 +146,7 @@ public class Chart extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for the animation setting by one value.
+     * Setter for animation settings by one value.
      */
     public Chart setAnimation(String animation1) {
         if (jsBase == null) {
@@ -172,12 +172,12 @@ public class Chart extends VisualBaseWithBounds {
     }
 
     private Boolean enabled;
-    private Double duration;
+    private Number duration;
 
     /**
-     * Setter for the animation settings using several parameters.
+     * Setter for animation settings using several parameters.
      */
-    public Chart setAnimation(Boolean enabled, Double duration) {
+    public Chart setAnimation(Boolean enabled, Number duration) {
         if (jsBase == null) {
             this.enabled = enabled;
             this.duration = duration;
@@ -199,10 +199,36 @@ public class Chart extends VisualBaseWithBounds {
         return this;
     }
 
+    private Boolean autoRedraw;
+
+    /**
+     * Setter for the autoRedraw flag.<br/>
+Flag whether to automatically call chart.draw() on any changes or not.
+     */
+    public Chart setAutoRedraw(Boolean autoRedraw) {
+        if (jsBase == null) {
+            this.autoRedraw = autoRedraw;
+        } else {
+            this.autoRedraw = autoRedraw;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".autoRedraw(%b)", autoRedraw));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".autoRedraw(%b);", autoRedraw));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private UiBackground getBackground;
 
     /**
-     * Getter for the current chart background.
+     * Getter for the chart background.
      */
     public UiBackground getBackground() {
         if (getBackground == null)
@@ -374,7 +400,7 @@ public class Chart extends VisualBaseWithBounds {
     private ContextMenu getContextMenu;
 
     /**
-     * Getter for the current context menu.
+     * Getter for the context menu.
      */
     public ContextMenu getContextMenu() {
         if (getContextMenu == null)
@@ -433,6 +459,76 @@ public class Chart extends VisualBaseWithBounds {
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".contextMenu(%b);", contextMenu1));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private ChartCredits getCredits;
+
+    /**
+     * Getter for the credits.
+     */
+    public ChartCredits getCredits() {
+        if (getCredits == null)
+            getCredits = new ChartCredits(jsBase + ".credits()");
+
+        return getCredits;
+    }
+
+    private String credits;
+    private Boolean credits1;
+
+    /**
+     * Setter for the chart credits.
+{docs:Quick_Start/Credits}Learn more about credits settings.{docs}
+     */
+    public Chart setCredits(String credits) {
+        if (jsBase == null) {
+            this.credits = null;
+            this.credits1 = null;
+            
+            this.credits = credits;
+        } else {
+            this.credits = credits;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".credits(%s)", wrapQuotes(credits)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%s);", wrapQuotes(credits)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for the chart credits.
+{docs:Quick_Start/Credits}Learn more about credits settings.{docs}
+     */
+    public Chart setCredits(Boolean credits1) {
+        if (jsBase == null) {
+            this.credits = null;
+            this.credits1 = null;
+            
+            this.credits1 = credits1;
+        } else {
+            this.credits1 = credits1;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".credits(%b)", credits1));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".credits(%b);", credits1));
                 js.setLength(0);
             }
         }
@@ -502,15 +598,15 @@ public class Chart extends VisualBaseWithBounds {
     }
 
     private String onSuccessOrOptions;
-    private Double width;
-    private Double height;
-    private Double quality;
+    private Number width;
+    private Number height;
+    private Number quality;
     private Boolean forceTransparentWhite;
 
     /**
      * Returns JPG as base64 string.
      */
-    public void getJpgBase64String(String onSuccessOrOptions, Double width, Double height, Double quality, Boolean forceTransparentWhite) {
+    public void getJpgBase64String(String onSuccessOrOptions, Number width, Number height, Number quality, Boolean forceTransparentWhite) {
         if (jsBase == null) {
             this.onSuccessOrOptions = onSuccessOrOptions;
             this.width = width;
@@ -539,17 +635,17 @@ public class Chart extends VisualBaseWithBounds {
     }
 
     private String onSuccessOrOptions1;
-    private Double paperSizeOrWidth;
+    private Number paperSizeOrWidth;
     private String paperSizeOrWidth1;
-    private Double landscapeOrWidth;
+    private Number landscapeOrWidth;
     private Boolean landscapeOrWidth1;
-    private Double x;
-    private Double y;
+    private Number x;
+    private Number y;
 
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(String onSuccessOrOptions1, Double paperSizeOrWidth, Double x, Double landscapeOrWidth, Double y) {
+    public void getPdfBase64String(String onSuccessOrOptions1, Number paperSizeOrWidth, Number x, Number landscapeOrWidth, Number y) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -590,7 +686,7 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(String onSuccessOrOptions1, Double paperSizeOrWidth, Double x, Boolean landscapeOrWidth1, Double y) {
+    public void getPdfBase64String(String onSuccessOrOptions1, Number paperSizeOrWidth, Number x, Boolean landscapeOrWidth1, Number y) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -631,7 +727,7 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(String onSuccessOrOptions1, String paperSizeOrWidth1, Double x, Double landscapeOrWidth, Double y) {
+    public void getPdfBase64String(String onSuccessOrOptions1, String paperSizeOrWidth1, Number x, Number landscapeOrWidth, Number y) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -672,7 +768,7 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(String onSuccessOrOptions1, String paperSizeOrWidth1, Double x, Boolean landscapeOrWidth1, Double y) {
+    public void getPdfBase64String(String onSuccessOrOptions1, String paperSizeOrWidth1, Number x, Boolean landscapeOrWidth1, Number y) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -710,14 +806,14 @@ public class Chart extends VisualBaseWithBounds {
     }
 
     private String onSuccessOrOptions2;
-    private Double width1;
-    private Double height1;
-    private Double quality1;
+    private Number width1;
+    private Number height1;
+    private Number quality1;
 
     /**
      * Returns PNG as base64 string.
      */
-    public void getPngBase64String(String onSuccessOrOptions2, Double width1, Double height1, Double quality1) {
+    public void getPngBase64String(String onSuccessOrOptions2, Number width1, Number height1, Number quality1) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -758,7 +854,7 @@ public class Chart extends VisualBaseWithBounds {
 
     private String onSuccessOrOptions3;
     private String paperSizeOrWidth2;
-    private Double paperSizeOrWidth3;
+    private Number paperSizeOrWidth3;
     private Boolean landscapeOrHeight;
     private String landscapeOrHeight1;
 
@@ -847,7 +943,7 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Returns SVG as base64 string.
      */
-    public void getSvgBase64String(String onSuccessOrOptions3, Double paperSizeOrWidth3, Boolean landscapeOrHeight) {
+    public void getSvgBase64String(String onSuccessOrOptions3, Number paperSizeOrWidth3, Boolean landscapeOrHeight) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -888,7 +984,7 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Returns SVG as base64 string.
      */
-    public void getSvgBase64String(String onSuccessOrOptions3, Double paperSizeOrWidth3, String landscapeOrHeight1) {
+    public void getSvgBase64String(String onSuccessOrOptions3, Number paperSizeOrWidth3, String landscapeOrHeight1) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -925,14 +1021,14 @@ public class Chart extends VisualBaseWithBounds {
         }
     }
 
-    private Double xCoord;
-    private Double yCoord;
+    private Number xCoord;
+    private Number yCoord;
 
     /**
      * Converts the global coordinates to local coordinates.
 <b>Note:</b> Works only after {@link anychart.core.Chart#draw} is called.
      */
-    public void globalToLocal(Double xCoord, Double yCoord) {
+    public void globalToLocal(Number xCoord, Number yCoord) {
         if (jsBase == null) {
             this.xCoord = xCoord;
             this.yCoord = yCoord;
@@ -957,7 +1053,7 @@ public class Chart extends VisualBaseWithBounds {
     private List<UiLabel> getLabel = new ArrayList<>();
 
     /**
-     * Getter for chart label.
+     * Getter for the chart label.
      */
     public UiLabel getLabel(String index) {
         UiLabel item = new UiLabel(jsBase + ".label(" + wrapQuotes(index) + ")");
@@ -968,9 +1064,9 @@ public class Chart extends VisualBaseWithBounds {
     private List<UiLabel> getLabel1 = new ArrayList<>();
 
     /**
-     * Getter for chart label.
+     * Getter for the chart label.
      */
-    public UiLabel getLabel(Double index) {
+    public UiLabel getLabel(Number index) {
         UiLabel item = new UiLabel(jsBase + ".label(" + index + ")");
         getLabel1.add(item);
         return item;
@@ -981,7 +1077,7 @@ public class Chart extends VisualBaseWithBounds {
     private String label2;
 
     /**
-     * Setter for chart label.
+     * Setter for the chart label.
      */
     public Chart setLabel(Boolean label) {
         if (jsBase == null) {
@@ -1009,7 +1105,7 @@ public class Chart extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for chart label.
+     * Setter for the chart label.
      */
     public Chart setLabel(String label1) {
         if (jsBase == null) {
@@ -1036,13 +1132,13 @@ public class Chart extends VisualBaseWithBounds {
     }
 
     private String index;
-    private Double index1;
+    private Number index1;
     private Boolean label3;
     private String label4;
     private String label5;
 
     /**
-     * Setter for chart label.
+     * Setter for the chart label.
      */
     public Chart setLabel(String index, Boolean label3) {
         if (jsBase == null) {
@@ -1078,7 +1174,7 @@ public class Chart extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for chart label.
+     * Setter for the chart label.
      */
     public Chart setLabel(String index, String label4) {
         if (jsBase == null) {
@@ -1114,9 +1210,9 @@ public class Chart extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for chart label.
+     * Setter for the chart label.
      */
-    public Chart setLabel(Double index1, Boolean label3) {
+    public Chart setLabel(Number index1, Boolean label3) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -1150,9 +1246,9 @@ public class Chart extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for chart label.
+     * Setter for the chart label.
      */
-    public Chart setLabel(Double index1, String label4) {
+    public Chart setLabel(Number index1, String label4) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -1184,14 +1280,14 @@ public class Chart extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double xCoord1;
-    private Double yCoord1;
+    private Number xCoord1;
+    private Number yCoord1;
 
     /**
      * Converts the local coordinates to global coordinates.
 <b>Note:</b> Works only after {@link anychart.core.Chart#draw} is called.
      */
-    public void localToGlobal(Double xCoord1, Double yCoord1) {
+    public void localToGlobal(Number xCoord1, Number yCoord1) {
         if (jsBase == null) {
             this.xCoord = null;
             this.xCoord1 = null;
@@ -1222,8 +1318,8 @@ public class Chart extends VisualBaseWithBounds {
     private Margin getMargin;
 
     /**
-     * Getter for current chart margin.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
+     * Getter for the chart margin.<br/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
      */
     public Margin getMargin() {
         if (getMargin == null)
@@ -1232,14 +1328,14 @@ public class Chart extends VisualBaseWithBounds {
         return getMargin;
     }
 
-    private Double[] margin;
+    private Number[] margin;
     private String[] margin1;
     private String margin2;
 
     /**
      * Setter for the chart margin in pixels using a single complex object.
      */
-    public Chart setMargin(Double[] margin) {
+    public Chart setMargin(Number[] margin) {
         if (jsBase == null) {
             this.margin = null;
             this.margin1 = null;
@@ -1320,13 +1416,13 @@ public class Chart extends VisualBaseWithBounds {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for the chart margin in pixels using several simple values.
@@ -1397,7 +1493,7 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Setter for the chart margin in pixels using several simple values.
      */
-    public Chart setMargin(Double value1, Double value3, Double value5, Double value7) {
+    public Chart setMargin(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1501,7 +1597,7 @@ public class Chart extends VisualBaseWithBounds {
 
     /**
      * Getter for the chart padding.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
      */
     public UtilsPadding getPadding() {
         if (getPadding == null)
@@ -1510,14 +1606,14 @@ public class Chart extends VisualBaseWithBounds {
         return getPadding;
     }
 
-    private Double[] padding;
+    private Number[] padding;
     private String[] padding1;
     private String padding2;
 
     /**
      * Setter for the chart paddings in pixels using a single value.
      */
-    public Chart setPadding(Double[] padding) {
+    public Chart setPadding(Number[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -1598,13 +1694,13 @@ public class Chart extends VisualBaseWithBounds {
     }
 
     private String value8;
-    private Double value9;
+    private Number value9;
     private String value10;
-    private Double value11;
+    private Number value11;
     private String value12;
-    private Double value13;
+    private Number value13;
     private String value14;
-    private Double value15;
+    private Number value15;
 
     /**
      * Setter for the chart paddings in pixels using several numbers.
@@ -1707,7 +1803,7 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Setter for the chart paddings in pixels using several numbers.
      */
-    public Chart setPadding(Double value9, Double value11, Double value13, Double value15) {
+    public Chart setPadding(Number value9, Number value11, Number value13, Number value15) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1867,17 +1963,17 @@ public class Chart extends VisualBaseWithBounds {
         }
     }
 
-    private Double width2;
+    private Number width2;
     private String width3;
-    private Double height2;
-    private Double quality2;
+    private Number height2;
+    private Number quality2;
     private Boolean forceTransparentWhite1;
     private String filename1;
 
     /**
      * Saves the current chart as JPEG image.
      */
-    public void saveAsJpg(Double width2, Double height2, Double quality2, Boolean forceTransparentWhite1, String filename1) {
+    public void saveAsJpg(Number width2, Number height2, Number quality2, Boolean forceTransparentWhite1, String filename1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -1928,7 +2024,7 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Saves the current chart as JPEG image.
      */
-    public void saveAsJpg(String width3, Double height2, Double quality2, Boolean forceTransparentWhite1, String filename1) {
+    public void saveAsJpg(String width3, Number height2, Number quality2, Boolean forceTransparentWhite1, String filename1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -2004,18 +2100,18 @@ public class Chart extends VisualBaseWithBounds {
         }
     }
 
-    private Double paperSizeOrWidthOrOptions;
+    private Number paperSizeOrWidthOrOptions;
     private String paperSizeOrWidthOrOptions1;
     private String paperSizeOrWidthOrOptions2;
     private Boolean landscape;
-    private Double x1;
-    private Double y1;
+    private Number x1;
+    private Number y1;
     private String filename3;
 
     /**
      * Saves the current chart as PDF image.
      */
-    public void saveAsPdf(Double paperSizeOrWidthOrOptions, Boolean landscape, Double x1, Double y1, String filename3) {
+    public void saveAsPdf(Number paperSizeOrWidthOrOptions, Boolean landscape, Number x1, Number y1, String filename3) {
         if (jsBase == null) {
             this.paperSizeOrWidthOrOptions = null;
             this.paperSizeOrWidthOrOptions1 = null;
@@ -2062,7 +2158,7 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Saves the current chart as PDF image.
      */
-    public void saveAsPdf(String paperSizeOrWidthOrOptions1, Boolean landscape, Double x1, Double y1, String filename3) {
+    public void saveAsPdf(String paperSizeOrWidthOrOptions1, Boolean landscape, Number x1, Number y1, String filename3) {
         if (jsBase == null) {
             this.paperSizeOrWidthOrOptions = null;
             this.paperSizeOrWidthOrOptions1 = null;
@@ -2105,16 +2201,16 @@ public class Chart extends VisualBaseWithBounds {
         }
     }
 
-    private Double width4;
+    private Number width4;
     private String width5;
-    private Double height3;
-    private Double quality3;
+    private Number height3;
+    private Number quality3;
     private String filename4;
 
     /**
      * Saves the current chart as PNG image.
      */
-    public void saveAsPng(Double width4, Double height3, Double quality3, String filename4) {
+    public void saveAsPng(Number width4, Number height3, Number quality3, String filename4) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -2167,7 +2263,7 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Saves the current chart as PNG image.
      */
-    public void saveAsPng(String width5, Double height3, Double quality3, String filename4) {
+    public void saveAsPng(String width5, Number height3, Number quality3, String filename4) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -2261,13 +2357,13 @@ public class Chart extends VisualBaseWithBounds {
         }
     }
 
-    private Double width6;
-    private Double height4;
+    private Number width6;
+    private Number height4;
 
     /**
      * Saves the stage as SVG image using width and height.
      */
-    public void saveAsSvg(Double width6, Double height4) {
+    public void saveAsSvg(Number width6, Number height4) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -2445,12 +2541,12 @@ public class Chart extends VisualBaseWithBounds {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public Chart selectMarqueeFill(String color, Double opacity) {
+    public Chart selectMarqueeFill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -2474,17 +2570,17 @@ public class Chart extends VisualBaseWithBounds {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Chart selectMarqueeFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public Chart selectMarqueeFill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2525,7 +2621,7 @@ public class Chart extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Chart selectMarqueeFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public Chart selectMarqueeFill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2566,7 +2662,7 @@ public class Chart extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Chart selectMarqueeFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public Chart selectMarqueeFill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2607,7 +2703,7 @@ public class Chart extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Chart selectMarqueeFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public Chart selectMarqueeFill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2648,7 +2744,7 @@ public class Chart extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Chart selectMarqueeFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public Chart selectMarqueeFill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2689,7 +2785,7 @@ public class Chart extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Chart selectMarqueeFill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public Chart selectMarqueeFill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2727,18 +2823,18 @@ public class Chart extends VisualBaseWithBounds {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Chart selectMarqueeFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Chart selectMarqueeFill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2789,7 +2885,7 @@ public class Chart extends VisualBaseWithBounds {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Chart selectMarqueeFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Chart selectMarqueeFill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2839,7 +2935,7 @@ public class Chart extends VisualBaseWithBounds {
     private Stroke color1;
     private ColoredFill color2;
     private String color3;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -2848,7 +2944,7 @@ public class Chart extends VisualBaseWithBounds {
      * Setter for the select marquee stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Chart setSelectMarqueeStroke(Stroke color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Chart setSelectMarqueeStroke(Stroke color1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -2886,7 +2982,7 @@ public class Chart extends VisualBaseWithBounds {
      * Setter for the select marquee stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Chart setSelectMarqueeStroke(ColoredFill color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Chart setSelectMarqueeStroke(ColoredFill color2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -2924,7 +3020,7 @@ public class Chart extends VisualBaseWithBounds {
      * Setter for the select marquee stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Chart setSelectMarqueeStroke(String color3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Chart setSelectMarqueeStroke(String color3, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -2959,16 +3055,16 @@ public class Chart extends VisualBaseWithBounds {
 
     private String onSuccessOrOptions4;
     private Boolean asBase;
-    private Double width7;
-    private Double height5;
-    private Double quality4;
+    private Number width7;
+    private Number height5;
+    private Number quality4;
     private Boolean forceTransparentWhite2;
     private String filename8;
 
     /**
      * Shares a chart as a JPG file and returns a link to the shared image.
      */
-    public void shareAsJpg(String onSuccessOrOptions4, Boolean asBase, Double width7, Double height5, Double quality4, Boolean forceTransparentWhite2, String filename8) {
+    public void shareAsJpg(String onSuccessOrOptions4, Boolean asBase, Number width7, Number height5, Number quality4, Boolean forceTransparentWhite2, String filename8) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -3044,18 +3140,18 @@ public class Chart extends VisualBaseWithBounds {
 
     private String onSuccessOrOptions5;
     private Boolean asBase1;
-    private Double paperSizeOrWidth4;
+    private Number paperSizeOrWidth4;
     private String paperSizeOrWidth5;
-    private Double landscapeOrWidth2;
+    private Number landscapeOrWidth2;
     private Boolean landscapeOrWidth3;
-    private Double x2;
-    private Double y2;
+    private Number x2;
+    private Number y2;
     private String filename9;
 
     /**
      * Shares a chart as a PDF file and returns a link to the shared image.
      */
-    public void shareAsPdf(String onSuccessOrOptions5, Boolean asBase1, Double paperSizeOrWidth4, Double x2, Double landscapeOrWidth2, Double y2, String filename9) {
+    public void shareAsPdf(String onSuccessOrOptions5, Boolean asBase1, Number paperSizeOrWidth4, Number x2, Number landscapeOrWidth2, Number y2, String filename9) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -3132,7 +3228,7 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Shares a chart as a PDF file and returns a link to the shared image.
      */
-    public void shareAsPdf(String onSuccessOrOptions5, Boolean asBase1, Double paperSizeOrWidth4, Double x2, Boolean landscapeOrWidth3, Double y2, String filename9) {
+    public void shareAsPdf(String onSuccessOrOptions5, Boolean asBase1, Number paperSizeOrWidth4, Number x2, Boolean landscapeOrWidth3, Number y2, String filename9) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -3209,7 +3305,7 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Shares a chart as a PDF file and returns a link to the shared image.
      */
-    public void shareAsPdf(String onSuccessOrOptions5, Boolean asBase1, String paperSizeOrWidth5, Double x2, Double landscapeOrWidth2, Double y2, String filename9) {
+    public void shareAsPdf(String onSuccessOrOptions5, Boolean asBase1, String paperSizeOrWidth5, Number x2, Number landscapeOrWidth2, Number y2, String filename9) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -3286,7 +3382,7 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Shares a chart as a PDF file and returns a link to the shared image.
      */
-    public void shareAsPdf(String onSuccessOrOptions5, Boolean asBase1, String paperSizeOrWidth5, Double x2, Boolean landscapeOrWidth3, Double y2, String filename9) {
+    public void shareAsPdf(String onSuccessOrOptions5, Boolean asBase1, String paperSizeOrWidth5, Number x2, Boolean landscapeOrWidth3, Number y2, String filename9) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -3361,15 +3457,15 @@ public class Chart extends VisualBaseWithBounds {
 
     private String onSuccessOrOptions6;
     private Boolean asBase2;
-    private Double width8;
-    private Double height6;
-    private Double quality5;
+    private Number width8;
+    private Number height6;
+    private Number quality5;
     private String filename10;
 
     /**
      * Shares a chart as a PNG file and returns a link to the shared image.
      */
-    public void shareAsPng(String onSuccessOrOptions6, Boolean asBase2, Double width8, Double height6, Double quality5, String filename10) {
+    public void shareAsPng(String onSuccessOrOptions6, Boolean asBase2, Number width8, Number height6, Number quality5, String filename10) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -3451,7 +3547,7 @@ public class Chart extends VisualBaseWithBounds {
     private String onSuccessOrOptions7;
     private Boolean asBase3;
     private String paperSizeOrWidth6;
-    private Double paperSizeOrWidth7;
+    private Number paperSizeOrWidth7;
     private Boolean landscapeOrHeight2;
     private String landscapeOrHeight3;
     private String filename11;
@@ -3605,7 +3701,7 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Shares a chart as a SVG file and returns a link to the shared image.
      */
-    public void shareAsSvg(String onSuccessOrOptions7, Boolean asBase3, Double paperSizeOrWidth7, String filename11, Boolean landscapeOrHeight2) {
+    public void shareAsSvg(String onSuccessOrOptions7, Boolean asBase3, Number paperSizeOrWidth7, String filename11, Boolean landscapeOrHeight2) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -3678,7 +3774,7 @@ public class Chart extends VisualBaseWithBounds {
     /**
      * Shares a chart as a SVG file and returns a link to the shared image.
      */
-    public void shareAsSvg(String onSuccessOrOptions7, Boolean asBase3, Double paperSizeOrWidth7, String filename11, String landscapeOrHeight3) {
+    public void shareAsSvg(String onSuccessOrOptions7, Boolean asBase3, Number paperSizeOrWidth7, String filename11, String landscapeOrHeight3) {
         if (jsBase == null) {
             this.onSuccessOrOptions = null;
             this.onSuccessOrOptions1 = null;
@@ -3887,7 +3983,7 @@ public class Chart extends VisualBaseWithBounds {
     private UiTitle getTitle;
 
     /**
-     * Getter for chart title.
+     * Getter for the chart title.
      */
     public UiTitle getTitle() {
         if (getTitle == null)
@@ -4191,13 +4287,13 @@ public class Chart extends VisualBaseWithBounds {
         }
     }
 
-    private Double width9;
-    private Double height7;
+    private Number width9;
+    private Number height7;
 
     /**
      * Returns SVG string with with determined the width and height.
      */
-    public void toSvg(Double width9, Double height7) {
+    public void toSvg(Number width9, Number height7) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -4267,7 +4363,7 @@ public class Chart extends VisualBaseWithBounds {
     private Tooltip getTooltip;
 
     /**
-     * Getter for current chart tooltip.
+     * Getter for the chart tooltip.
      */
     public Tooltip getTooltip() {
         if (getTooltip == null)
@@ -4280,7 +4376,7 @@ public class Chart extends VisualBaseWithBounds {
     private Boolean tooltip1;
 
     /**
-     * Setter for chart tooltip.
+     * Setter for the chart tooltip.
      */
     public Chart setTooltip(String tooltip) {
         if (jsBase == null) {
@@ -4307,7 +4403,7 @@ public class Chart extends VisualBaseWithBounds {
 
 
     /**
-     * Setter for chart tooltip.
+     * Setter for the chart tooltip.
      */
     public Chart setTooltip(Boolean tooltip1) {
         if (jsBase == null) {
@@ -4363,6 +4459,13 @@ public class Chart extends VisualBaseWithBounds {
     private String generateJSgetContextMenu() {
         if (getContextMenu != null) {
             return getContextMenu.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetCredits() {
+        if (getCredits != null) {
+            return getCredits.generateJs();
         }
         return "";
     }
@@ -4445,6 +4548,7 @@ public class Chart extends VisualBaseWithBounds {
         jsGetters.append(generateJSgetBackground());
         jsGetters.append(generateJSgetContainer());
         jsGetters.append(generateJSgetContextMenu());
+        jsGetters.append(generateJSgetCredits());
         jsGetters.append(generateJSgetExports());
         jsGetters.append(generateJSgetLabel());
         jsGetters.append(generateJSgetLabel1());

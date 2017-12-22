@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -140,7 +145,7 @@ public class CoreText extends VisualBase {
     private String fontFamily;
 
     /**
-     * Setter for font family.
+     * Setter for the font family.
      */
     public CoreText setFontFamily(String fontFamily) {
         if (jsBase == null) {
@@ -162,12 +167,12 @@ public class CoreText extends VisualBase {
         return this;
     }
 
-    private Double fontOpacity;
+    private Number fontOpacity;
 
     /**
      * Setter for the text font opacity. Double value from 0 to 1.
      */
-    public CoreText setFontOpacity(Double fontOpacity) {
+    public CoreText setFontOpacity(Number fontOpacity) {
         if (jsBase == null) {
             this.fontOpacity = fontOpacity;
         } else {
@@ -188,10 +193,10 @@ public class CoreText extends VisualBase {
     }
 
     private String fontSize;
-    private Double fontSize1;
+    private Number fontSize1;
 
     /**
-     * Setter for text font size.
+     * Setter for the text font size.
      */
     public CoreText setFontSize(String fontSize) {
         if (jsBase == null) {
@@ -218,9 +223,9 @@ public class CoreText extends VisualBase {
 
 
     /**
-     * Setter for text font size.
+     * Setter for the text font size.
      */
-    public CoreText setFontSize(Double fontSize1) {
+    public CoreText setFontSize(Number fontSize1) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -356,7 +361,7 @@ public class CoreText extends VisualBase {
     }
 
     private String fontWeight;
-    private Double fontWeight1;
+    private Number fontWeight1;
 
     /**
      * Setter for the text font weight.<br/>
@@ -390,7 +395,7 @@ public class CoreText extends VisualBase {
      * Setter for the text font weight.<br/>
 {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public CoreText setFontWeight(Double fontWeight1) {
+    public CoreText setFontWeight(Number fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -470,7 +475,7 @@ public class CoreText extends VisualBase {
     }
 
     private String letterSpacing;
-    private Double letterSpacing1;
+    private Number letterSpacing1;
 
     /**
      * Setter for the text letter spacing.<br/>
@@ -504,7 +509,7 @@ public class CoreText extends VisualBase {
      * Setter for the text letter spacing.<br/>
 {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public CoreText setLetterSpacing(Double letterSpacing1) {
+    public CoreText setLetterSpacing(Number letterSpacing1) {
         if (jsBase == null) {
             this.letterSpacing = null;
             this.letterSpacing1 = null;
@@ -528,7 +533,7 @@ public class CoreText extends VisualBase {
     }
 
     private String lineHeight;
-    private Double lineHeight1;
+    private Number lineHeight1;
 
     /**
      * Setter for the text line height.<br/>
@@ -562,7 +567,7 @@ public class CoreText extends VisualBase {
      * Setter for the text line height.<br/>
 {@link https://www.w3schools.com/cssref/pr_dim_line-height.asp}
      */
-    public CoreText setLineHeight(Double lineHeight1) {
+    public CoreText setLineHeight(Number lineHeight1) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -666,12 +671,12 @@ public class CoreText extends VisualBase {
         return this;
     }
 
-    private Double textIndent;
+    private Number textIndent;
 
     /**
      * Setter for the text indent.
      */
-    public CoreText setTextIndent(Double textIndent) {
+    public CoreText setTextIndent(Number textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
         } else {
@@ -774,7 +779,7 @@ public class CoreText extends VisualBase {
 
     private String name;
     private String textSettings;
-    private Double textSettings1;
+    private Number textSettings1;
     private Boolean textSettings2;
 
     /**
@@ -810,7 +815,7 @@ public class CoreText extends VisualBase {
     /**
      * Setter for the text appearance settings.
      */
-    public CoreText setTextSettings(String name, Double textSettings1) {
+    public CoreText setTextSettings(String name, Number textSettings1) {
         if (jsBase == null) {
             this.name = name;
             this.textSettings = null;

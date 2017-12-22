@@ -11,10 +11,10 @@ public class AroonContext extends JsObject  {
     
     private CycledQueue highQueue;
     private CycledQueue lowQueue;
-    private Double period;
+    private Number period;
 
     
-    public AroonContext(CycledQueue highQueue, CycledQueue lowQueue, Double period) {
+    public AroonContext(CycledQueue highQueue, CycledQueue lowQueue, Number period) {
         this.highQueue = highQueue;
         this.lowQueue = lowQueue;
         this.period = period;

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Scale ticks.
+ * The ScatterTicks class contains methods for configuring ticks on the Scatter scale.
  */
 public class ScatterTicks extends CoreBase {
 
@@ -35,13 +35,13 @@ public class ScatterTicks extends CoreBase {
     }
 
     
-    private Double base;
+    private Number base;
 
     /**
      * Setter for ticks base value.
 <b>Note:</b> it is a number that is guaranteed to set a tick if the number is located between minimum and maximum values of the scale.
      */
-    public ScatterTicks setBase(Double base) {
+    public ScatterTicks setBase(Number base) {
         if (jsBase == null) {
             this.base = base;
         } else {
@@ -61,13 +61,13 @@ public class ScatterTicks extends CoreBase {
         return this;
     }
 
-    private Double count;
+    private Number count;
 
     /**
      * Setter for ticks count value.
 <b>Note:</b> Final number of ticks can be greater (one more tick can be added).
      */
-    public ScatterTicks setCount(Double count) {
+    public ScatterTicks setCount(Number count) {
         if (jsBase == null) {
             this.count = count;
         } else {
@@ -87,14 +87,14 @@ public class ScatterTicks extends CoreBase {
         return this;
     }
 
-    private Double minimumCount;
-    private Double maximumCount;
+    private Number minimumCount;
+    private Number maximumCount;
 
     /**
      * Setter for ticks count value using two parameters.
 <b>Note:</b> Final number of ticks can be greater than maximum (one more tick can be added).
      */
-    public ScatterTicks setCount(Double minimumCount, Double maximumCount) {
+    public ScatterTicks setCount(Number minimumCount, Number maximumCount) {
         if (jsBase == null) {
             this.minimumCount = minimumCount;
             this.maximumCount = maximumCount;
@@ -116,12 +116,12 @@ public class ScatterTicks extends CoreBase {
         return this;
     }
 
-    private Double interval;
+    private Number interval;
 
     /**
      * Setter for ticks interval value.
      */
-    public ScatterTicks setInterval(Double interval) {
+    public ScatterTicks setInterval(Number interval) {
         if (jsBase == null) {
             this.interval = interval;
         } else {

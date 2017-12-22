@@ -36,12 +36,12 @@ public class RoC extends JsObject {
     }
 
     
-    private Double period;
+    private Number period;
 
     /**
      * Setter for the period.
      */
-    public RoC setPeriod(Double period) {
+    public RoC setPeriod(Number period) {
         if (jsBase == null) {
             this.period = period;
         } else {

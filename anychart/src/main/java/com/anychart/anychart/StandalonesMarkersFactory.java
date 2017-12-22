@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * 
+ * The MarkersFactory class contains methods for configuring standalones markers factory.
  */
 public class StandalonesMarkersFactory extends UiMarkersFactory {
 

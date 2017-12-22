@@ -128,7 +128,7 @@ public class UiBackground extends VisualBaseWithBounds {
 
     private Stroke bottomStroke3;
     private String bottomStroke4;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -136,7 +136,7 @@ public class UiBackground extends VisualBaseWithBounds {
     /**
      * Setter for bottom stroke settings.
      */
-    public UiBackground setBottomStroke(Stroke bottomStroke3, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public UiBackground setBottomStroke(Stroke bottomStroke3, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.bottomStroke = null;
             this.bottomStroke1 = null;
@@ -174,7 +174,7 @@ public class UiBackground extends VisualBaseWithBounds {
     /**
      * Setter for bottom stroke settings.
      */
-    public UiBackground setBottomStroke(String bottomStroke4, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public UiBackground setBottomStroke(String bottomStroke4, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.bottomStroke = null;
             this.bottomStroke1 = null;
@@ -264,14 +264,14 @@ public class UiBackground extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double corners;
+    private Number corners;
     private String corners1;
-    private Double[] corners2;
+    private Number[] corners2;
 
     /**
      * Setter for the corner radius by one value.
      */
-    public UiBackground setCorners(Double[] corners2) {
+    public UiBackground setCorners(Number[] corners2) {
         if (jsBase == null) {
             this.corners = null;
             this.corners1 = null;
@@ -323,13 +323,13 @@ public class UiBackground extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double topLeft;
+    private Number topLeft;
     private String topLeft1;
-    private Double topRight;
+    private Number topRight;
     private String topRight1;
-    private Double bottomRight;
+    private Number bottomRight;
     private String bottomRight1;
-    private Double bottomLeft;
+    private Number bottomLeft;
     private String bottomLeft1;
 
     /**
@@ -377,7 +377,7 @@ public class UiBackground extends VisualBaseWithBounds {
     /**
      * Setter for the corner radius by each value.
      */
-    public UiBackground setCorners(Double topLeft, Double topRight, Double bottomRight, Double bottomLeft) {
+    public UiBackground setCorners(Number topLeft, Number topRight, Number bottomRight, Number bottomLeft) {
         if (jsBase == null) {
             this.topLeft = null;
             this.topLeft1 = null;
@@ -450,12 +450,12 @@ e.g. "red 0.5".
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill as a color with opacity.
      */
-    public UiBackground fill(String color, Double opacity) {
+    public UiBackground fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -479,16 +479,16 @@ e.g. "red 0.5".
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
      */
-    public UiBackground fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public UiBackground fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -528,7 +528,7 @@ e.g. "red 0.5".
     /**
      * Linear gradient fill.
      */
-    public UiBackground fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public UiBackground fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -568,7 +568,7 @@ e.g. "red 0.5".
     /**
      * Linear gradient fill.
      */
-    public UiBackground fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public UiBackground fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -608,7 +608,7 @@ e.g. "red 0.5".
     /**
      * Linear gradient fill.
      */
-    public UiBackground fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public UiBackground fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -648,7 +648,7 @@ e.g. "red 0.5".
     /**
      * Linear gradient fill.
      */
-    public UiBackground fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public UiBackground fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -688,7 +688,7 @@ e.g. "red 0.5".
     /**
      * Linear gradient fill.
      */
-    public UiBackground fill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public UiBackground fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -726,17 +726,17 @@ e.g. "red 0.5".
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
      */
-    public UiBackground fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiBackground fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -786,7 +786,7 @@ e.g. "red 0.5".
     /**
      * Radial gradient fill.
      */
-    public UiBackground fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiBackground fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -890,7 +890,7 @@ e.g. "red 0.5".
 
     private Stroke leftStroke2;
     private String leftStroke3;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -898,7 +898,7 @@ e.g. "red 0.5".
     /**
      * Setter for left stroke settings.
      */
-    public UiBackground setLeftStroke(Stroke leftStroke2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public UiBackground setLeftStroke(Stroke leftStroke2, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.leftStroke = null;
             this.leftStroke1 = null;
@@ -947,7 +947,7 @@ e.g. "red 0.5".
     /**
      * Setter for left stroke settings.
      */
-    public UiBackground setLeftStroke(String leftStroke3, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public UiBackground setLeftStroke(String leftStroke3, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.leftStroke = null;
             this.leftStroke1 = null;
@@ -1081,7 +1081,7 @@ e.g. "red 0.5".
 
     private Stroke rightStroke3;
     private String rightStroke4;
-    private Double thickness2;
+    private Number thickness2;
     private String dashpattern2;
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
@@ -1089,7 +1089,7 @@ e.g. "red 0.5".
     /**
      * Setter for right stroke settings.
      */
-    public UiBackground setRightStroke(Stroke rightStroke3, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public UiBackground setRightStroke(Stroke rightStroke3, Number thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.rightStroke = null;
             this.rightStroke1 = null;
@@ -1143,7 +1143,7 @@ e.g. "red 0.5".
     /**
      * Setter for right stroke settings.
      */
-    public UiBackground setRightStroke(String rightStroke4, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public UiBackground setRightStroke(String rightStroke4, Number thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.rightStroke = null;
             this.rightStroke1 = null;
@@ -1282,7 +1282,7 @@ e.g. "red 0.5".
 
     private Stroke stroke3;
     private String stroke4;
-    private Double thickness3;
+    private Number thickness3;
     private String dashpattern3;
     private StrokeLineJoin lineJoin3;
     private StrokeLineCap lineCap3;
@@ -1290,7 +1290,7 @@ e.g. "red 0.5".
     /**
      * Setter for stroke settings.
      */
-    public UiBackground setStroke(Stroke stroke3, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
+    public UiBackground setStroke(Stroke stroke3, Number thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -1348,7 +1348,7 @@ e.g. "red 0.5".
     /**
      * Setter for stroke settings.
      */
-    public UiBackground setStroke(String stroke4, Double thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
+    public UiBackground setStroke(String stroke4, Number thickness3, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -1491,7 +1491,7 @@ e.g. "red 0.5".
 
     private Stroke topStroke3;
     private String topStroke4;
-    private Double thickness4;
+    private Number thickness4;
     private String dashpattern4;
     private StrokeLineJoin lineJoin4;
     private StrokeLineCap lineCap4;
@@ -1499,7 +1499,7 @@ e.g. "red 0.5".
     /**
      * Setter for top stroke settings.
      */
-    public UiBackground setTopStroke(Stroke topStroke3, Double thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
+    public UiBackground setTopStroke(Stroke topStroke3, Number thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.topStroke = null;
             this.topStroke1 = null;
@@ -1561,7 +1561,7 @@ e.g. "red 0.5".
     /**
      * Setter for top stroke settings.
      */
-    public UiBackground setTopStroke(String topStroke4, Double thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
+    public UiBackground setTopStroke(String topStroke4, Number thickness4, String dashpattern4, StrokeLineJoin lineJoin4, StrokeLineCap lineCap4) {
         if (jsBase == null) {
             this.topStroke = null;
             this.topStroke1 = null;

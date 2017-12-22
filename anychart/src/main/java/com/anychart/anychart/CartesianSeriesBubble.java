@@ -89,12 +89,12 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity.
      */
-    public CartesianSeriesBubble fill(String color, Double opacity) {
+    public CartesianSeriesBubble fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -118,17 +118,17 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public CartesianSeriesBubble fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -169,7 +169,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public CartesianSeriesBubble fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -210,7 +210,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public CartesianSeriesBubble fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -251,7 +251,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public CartesianSeriesBubble fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -292,7 +292,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public CartesianSeriesBubble fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -333,7 +333,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble fill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public CartesianSeriesBubble fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -371,18 +371,18 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CartesianSeriesBubble fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -433,7 +433,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CartesianSeriesBubble fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -497,14 +497,14 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     private HatchFillType patternFillOrType2;
     private String patternFillOrType3;
     private String color1;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
 
     /**
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBubble setHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
+    public CartesianSeriesBubble setHatchFill(PatternFill patternFillOrType, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -543,7 +543,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBubble setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
+    public CartesianSeriesBubble setHatchFill(HatchFill patternFillOrType1, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -582,7 +582,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBubble setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
+    public CartesianSeriesBubble setHatchFill(HatchFillType patternFillOrType2, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -621,7 +621,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public CartesianSeriesBubble setHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
+    public CartesianSeriesBubble setHatchFill(String patternFillOrType3, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -682,12 +682,12 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     }
 
     private String color2;
-    private Double opacity3;
+    private Number opacity3;
 
     /**
      * Negative fill color with opacity.
      */
-    public CartesianSeriesBubble negativeFill(String color2, Double opacity3) {
+    public CartesianSeriesBubble negativeFill(String color2, Number opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -720,17 +720,17 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
 
     private GradientKey[] keys4;
     private String[] keys5;
-    private Double angle1;
+    private Number angle1;
     private Boolean mode4;
     private VectorRect mode5;
     private String mode6;
-    private Double opacity4;
+    private Number opacity4;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble negativeFill(GradientKey[] keys4, Double angle1, Double opacity4, Boolean mode4) {
+    public CartesianSeriesBubble negativeFill(GradientKey[] keys4, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -785,7 +785,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble negativeFill(GradientKey[] keys4, Double angle1, Double opacity4, VectorRect mode5) {
+    public CartesianSeriesBubble negativeFill(GradientKey[] keys4, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -840,7 +840,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble negativeFill(GradientKey[] keys4, Double angle1, Double opacity4, String mode6) {
+    public CartesianSeriesBubble negativeFill(GradientKey[] keys4, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -895,7 +895,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble negativeFill(String[] keys5, Double angle1, Double opacity4, Boolean mode4) {
+    public CartesianSeriesBubble negativeFill(String[] keys5, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -950,7 +950,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble negativeFill(String[] keys5, Double angle1, Double opacity4, VectorRect mode5) {
+    public CartesianSeriesBubble negativeFill(String[] keys5, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1005,7 +1005,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble negativeFill(String[] keys5, Double angle1, Double opacity4, String mode6) {
+    public CartesianSeriesBubble negativeFill(String[] keys5, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1057,18 +1057,18 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
 
     private GradientKey[] keys6;
     private String[] keys7;
-    private Double cx1;
-    private Double cy1;
+    private Number cx1;
+    private Number cy1;
     private GraphicsMathRect mode7;
-    private Double opacity5;
-    private Double fx1;
-    private Double fy1;
+    private Number opacity5;
+    private Number fx1;
+    private Number fy1;
 
     /**
      * Radial gradient negative fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble negativeFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public CartesianSeriesBubble negativeFill(GradientKey[] keys6, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1142,7 +1142,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Radial gradient negative fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble negativeFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public CartesianSeriesBubble negativeFill(String[] keys7, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1229,14 +1229,14 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     private HatchFillType patternFillOrType6;
     private String patternFillOrType7;
     private String color3;
-    private Double thickness1;
-    private Double size1;
+    private Number thickness1;
+    private Number size1;
 
     /**
      * Setter for negative hatch fill settings.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble setNegativeHatchFill(PatternFill patternFillOrType4, String color3, Double thickness1, Double size1) {
+    public CartesianSeriesBubble setNegativeHatchFill(PatternFill patternFillOrType4, String color3, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -1287,7 +1287,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Setter for negative hatch fill settings.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble setNegativeHatchFill(HatchFill patternFillOrType5, String color3, Double thickness1, Double size1) {
+    public CartesianSeriesBubble setNegativeHatchFill(HatchFill patternFillOrType5, String color3, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -1338,7 +1338,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Setter for negative hatch fill settings.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble setNegativeHatchFill(HatchFillType patternFillOrType6, String color3, Double thickness1, Double size1) {
+    public CartesianSeriesBubble setNegativeHatchFill(HatchFillType patternFillOrType6, String color3, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -1389,7 +1389,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Setter for negative hatch fill settings.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CartesianSeriesBubble setNegativeHatchFill(String patternFillOrType7, String color3, Double thickness1, Double size1) {
+    public CartesianSeriesBubble setNegativeHatchFill(String patternFillOrType7, String color3, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -1438,7 +1438,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     private Stroke color4;
     private ColoredFill color5;
     private String color6;
-    private Double thickness2;
+    private Number thickness2;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -1447,7 +1447,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Setter for negative stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CartesianSeriesBubble setNegativeStroke(Stroke color4, Double thickness2, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CartesianSeriesBubble setNegativeStroke(Stroke color4, Number thickness2, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1492,7 +1492,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Setter for negative stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CartesianSeriesBubble setNegativeStroke(ColoredFill color5, Double thickness2, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CartesianSeriesBubble setNegativeStroke(ColoredFill color5, Number thickness2, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1537,7 +1537,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Setter for negative stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CartesianSeriesBubble setNegativeStroke(String color6, Double thickness2, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CartesianSeriesBubble setNegativeStroke(String color6, Number thickness2, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1580,7 +1580,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
     private Stroke color7;
     private ColoredFill color8;
     private String color9;
-    private Double thickness3;
+    private Number thickness3;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -1589,7 +1589,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CartesianSeriesBubble setStroke(Stroke color7, Double thickness3, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public CartesianSeriesBubble setStroke(Stroke color7, Number thickness3, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1647,7 +1647,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CartesianSeriesBubble setStroke(ColoredFill color8, Double thickness3, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public CartesianSeriesBubble setStroke(ColoredFill color8, Number thickness3, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1705,7 +1705,7 @@ public class CartesianSeriesBubble extends CartesianSeriesBaseWithMarkers {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CartesianSeriesBubble setStroke(String color9, Double thickness3, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public CartesianSeriesBubble setStroke(String color9, Number thickness3, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;

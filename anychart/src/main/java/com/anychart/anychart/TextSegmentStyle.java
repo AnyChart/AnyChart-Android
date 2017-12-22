@@ -13,16 +13,16 @@ public class TextSegmentStyle extends JsObject  {
     private String decoration;
     private String fontFamily;
     private String fontSize;
-    private Double fontSize1;
+    private Number fontSize1;
     private String fontStyle;
     private String fontVariant;
-    private Double fontWeight;
+    private Number fontWeight;
     private String fontWeight1;
     private String letterSpacing;
-    private Double opacity;
+    private Number opacity;
 
     
-    public TextSegmentStyle(String fontSize, Double fontWeight, String color, String decoration, String fontFamily, String fontStyle, String fontVariant, String letterSpacing, Double opacity) {
+    public TextSegmentStyle(String fontSize, Number fontWeight, String color, String decoration, String fontFamily, String fontStyle, String fontVariant, String letterSpacing, Number opacity) {
         this.fontSize = fontSize;
         this.fontWeight = fontWeight;
         this.color = color;
@@ -35,7 +35,7 @@ public class TextSegmentStyle extends JsObject  {
 
         js.append(String.format(Locale.US, "{fontSize: %s,fontWeight: %f,color: %s,decoration: %s,fontFamily: %s,fontStyle: %s,fontVariant: %s,letterSpacing: %s,opacity: %f}",  wrapQuotes(fontSize), fontWeight, wrapQuotes(color), wrapQuotes(decoration), wrapQuotes(fontFamily), wrapQuotes(fontStyle), wrapQuotes(fontVariant), wrapQuotes(letterSpacing), opacity));
     }
-    public TextSegmentStyle(String fontSize, String fontWeight1, String color, String decoration, String fontFamily, String fontStyle, String fontVariant, String letterSpacing, Double opacity) {
+    public TextSegmentStyle(String fontSize, String fontWeight1, String color, String decoration, String fontFamily, String fontStyle, String fontVariant, String letterSpacing, Number opacity) {
         this.fontSize = fontSize;
         this.fontWeight1 = fontWeight1;
         this.color = color;
@@ -48,7 +48,7 @@ public class TextSegmentStyle extends JsObject  {
 
         js.append(String.format(Locale.US, "{fontSize: %s,fontWeight: %s,color: %s,decoration: %s,fontFamily: %s,fontStyle: %s,fontVariant: %s,letterSpacing: %s,opacity: %f}",  wrapQuotes(fontSize), wrapQuotes(fontWeight1), wrapQuotes(color), wrapQuotes(decoration), wrapQuotes(fontFamily), wrapQuotes(fontStyle), wrapQuotes(fontVariant), wrapQuotes(letterSpacing), opacity));
     }
-    public TextSegmentStyle(Double fontSize1, Double fontWeight, String color, String decoration, String fontFamily, String fontStyle, String fontVariant, String letterSpacing, Double opacity) {
+    public TextSegmentStyle(Number fontSize1, Number fontWeight, String color, String decoration, String fontFamily, String fontStyle, String fontVariant, String letterSpacing, Number opacity) {
         this.fontSize1 = fontSize1;
         this.fontWeight = fontWeight;
         this.color = color;
@@ -61,7 +61,7 @@ public class TextSegmentStyle extends JsObject  {
 
         js.append(String.format(Locale.US, "{fontSize: %f,fontWeight: %f,color: %s,decoration: %s,fontFamily: %s,fontStyle: %s,fontVariant: %s,letterSpacing: %s,opacity: %f}",  fontSize1, fontWeight, wrapQuotes(color), wrapQuotes(decoration), wrapQuotes(fontFamily), wrapQuotes(fontStyle), wrapQuotes(fontVariant), wrapQuotes(letterSpacing), opacity));
     }
-    public TextSegmentStyle(Double fontSize1, String fontWeight1, String color, String decoration, String fontFamily, String fontStyle, String fontVariant, String letterSpacing, Double opacity) {
+    public TextSegmentStyle(Number fontSize1, String fontWeight1, String color, String decoration, String fontFamily, String fontStyle, String fontVariant, String letterSpacing, Number opacity) {
         this.fontSize1 = fontSize1;
         this.fontWeight1 = fontWeight1;
         this.color = color;

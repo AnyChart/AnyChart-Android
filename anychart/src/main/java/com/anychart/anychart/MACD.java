@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -33,12 +36,12 @@ public class MACD extends JsObject {
     }
 
     
-    private Double fastPeriod;
+    private Number fastPeriod;
 
     /**
      * Setter for the fast period.
      */
-    public MACD setFastPeriod(Double fastPeriod) {
+    public MACD setFastPeriod(Number fastPeriod) {
         if (jsBase == null) {
             this.fastPeriod = fastPeriod;
         } else {
@@ -198,12 +201,12 @@ public class MACD extends JsObject {
         return this;
     }
 
-    private Double signalPeriod;
+    private Number signalPeriod;
 
     /**
      * Setter for the signal period.
      */
-    public MACD setSignalPeriod(Double signalPeriod) {
+    public MACD setSignalPeriod(Number signalPeriod) {
         if (jsBase == null) {
             this.signalPeriod = signalPeriod;
         } else {
@@ -304,7 +307,7 @@ public class MACD extends JsObject {
     /**
      * Getter and setter for the slow period.
      */
-    public MACD getSlowPeriod(Double slowPeriod) {
+    public MACD getSlowPeriod(Number slowPeriod) {
         MACD item = new MACD(jsBase + ".slowPeriod(" + slowPeriod + ")");
         getSlowPeriod.add(item);
         return item;

@@ -140,12 +140,12 @@ public class LegendItemSettings extends CoreText {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity.
      */
-    public LegendItemSettings iconFill(String color, Double opacity) {
+    public LegendItemSettings iconFill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -169,17 +169,17 @@ public class LegendItemSettings extends CoreText {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LegendItemSettings iconFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public LegendItemSettings iconFill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -220,7 +220,7 @@ public class LegendItemSettings extends CoreText {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LegendItemSettings iconFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public LegendItemSettings iconFill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -261,7 +261,7 @@ public class LegendItemSettings extends CoreText {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LegendItemSettings iconFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public LegendItemSettings iconFill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -302,7 +302,7 @@ public class LegendItemSettings extends CoreText {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LegendItemSettings iconFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public LegendItemSettings iconFill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -343,7 +343,7 @@ public class LegendItemSettings extends CoreText {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LegendItemSettings iconFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public LegendItemSettings iconFill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -384,7 +384,7 @@ public class LegendItemSettings extends CoreText {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LegendItemSettings iconFill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public LegendItemSettings iconFill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -422,18 +422,18 @@ public class LegendItemSettings extends CoreText {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LegendItemSettings iconFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public LegendItemSettings iconFill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -484,7 +484,7 @@ public class LegendItemSettings extends CoreText {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LegendItemSettings iconFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public LegendItemSettings iconFill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -547,13 +547,13 @@ public class LegendItemSettings extends CoreText {
     private HatchFillType patternFillOrType2;
     private String patternFillOrType3;
     private String color1;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
 
     /**
      * Setter for icon hatch fill settings.
      */
-    public LegendItemSettings setIconHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
+    public LegendItemSettings setIconHatchFill(PatternFill patternFillOrType, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -591,7 +591,7 @@ public class LegendItemSettings extends CoreText {
     /**
      * Setter for icon hatch fill settings.
      */
-    public LegendItemSettings setIconHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
+    public LegendItemSettings setIconHatchFill(HatchFill patternFillOrType1, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -629,7 +629,7 @@ public class LegendItemSettings extends CoreText {
     /**
      * Setter for icon hatch fill settings.
      */
-    public LegendItemSettings setIconHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
+    public LegendItemSettings setIconHatchFill(HatchFillType patternFillOrType2, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -667,7 +667,7 @@ public class LegendItemSettings extends CoreText {
     /**
      * Setter for icon hatch fill settings.
      */
-    public LegendItemSettings setIconHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
+    public LegendItemSettings setIconHatchFill(String patternFillOrType3, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -728,12 +728,12 @@ public class LegendItemSettings extends CoreText {
     }
 
     private String color2;
-    private Double opacity3;
+    private Number opacity3;
 
     /**
      * Icon marker fill color with opacity.
      */
-    public LegendItemSettings iconMarkerFill(String color2, Double opacity3) {
+    public LegendItemSettings iconMarkerFill(String color2, Number opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -766,17 +766,17 @@ public class LegendItemSettings extends CoreText {
 
     private GradientKey[] keys4;
     private String[] keys5;
-    private Double angle1;
+    private Number angle1;
     private Boolean mode4;
     private VectorRect mode5;
     private String mode6;
-    private Double opacity4;
+    private Number opacity4;
 
     /**
      * Linear gradient fill for icon marker.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LegendItemSettings iconMarkerFill(GradientKey[] keys4, Double angle1, Double opacity4, Boolean mode4) {
+    public LegendItemSettings iconMarkerFill(GradientKey[] keys4, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -831,7 +831,7 @@ public class LegendItemSettings extends CoreText {
      * Linear gradient fill for icon marker.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LegendItemSettings iconMarkerFill(GradientKey[] keys4, Double angle1, Double opacity4, VectorRect mode5) {
+    public LegendItemSettings iconMarkerFill(GradientKey[] keys4, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -886,7 +886,7 @@ public class LegendItemSettings extends CoreText {
      * Linear gradient fill for icon marker.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LegendItemSettings iconMarkerFill(GradientKey[] keys4, Double angle1, Double opacity4, String mode6) {
+    public LegendItemSettings iconMarkerFill(GradientKey[] keys4, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -941,7 +941,7 @@ public class LegendItemSettings extends CoreText {
      * Linear gradient fill for icon marker.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LegendItemSettings iconMarkerFill(String[] keys5, Double angle1, Double opacity4, Boolean mode4) {
+    public LegendItemSettings iconMarkerFill(String[] keys5, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -996,7 +996,7 @@ public class LegendItemSettings extends CoreText {
      * Linear gradient fill for icon marker.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LegendItemSettings iconMarkerFill(String[] keys5, Double angle1, Double opacity4, VectorRect mode5) {
+    public LegendItemSettings iconMarkerFill(String[] keys5, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1051,7 +1051,7 @@ public class LegendItemSettings extends CoreText {
      * Linear gradient fill for icon marker.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LegendItemSettings iconMarkerFill(String[] keys5, Double angle1, Double opacity4, String mode6) {
+    public LegendItemSettings iconMarkerFill(String[] keys5, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1103,18 +1103,18 @@ public class LegendItemSettings extends CoreText {
 
     private GradientKey[] keys6;
     private String[] keys7;
-    private Double cx1;
-    private Double cy1;
+    private Number cx1;
+    private Number cy1;
     private GraphicsMathRect mode7;
-    private Double opacity5;
-    private Double fx1;
-    private Double fy1;
+    private Number opacity5;
+    private Number fx1;
+    private Number fy1;
 
     /**
      * Radial gradient fill for icon marker.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LegendItemSettings iconMarkerFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public LegendItemSettings iconMarkerFill(GradientKey[] keys6, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1188,7 +1188,7 @@ public class LegendItemSettings extends CoreText {
      * Radial gradient fill for icon marker.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public LegendItemSettings iconMarkerFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public LegendItemSettings iconMarkerFill(String[] keys7, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1261,7 +1261,7 @@ public class LegendItemSettings extends CoreText {
     private Stroke color3;
     private ColoredFill color4;
     private String color5;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -1269,7 +1269,7 @@ public class LegendItemSettings extends CoreText {
     /**
      * Setter for icon marker stroke settings.
      */
-    public LegendItemSettings setIconMarkerStroke(Stroke color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public LegendItemSettings setIconMarkerStroke(Stroke color3, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1311,7 +1311,7 @@ public class LegendItemSettings extends CoreText {
     /**
      * Setter for icon marker stroke settings.
      */
-    public LegendItemSettings setIconMarkerStroke(ColoredFill color4, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public LegendItemSettings setIconMarkerStroke(ColoredFill color4, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1353,7 +1353,7 @@ public class LegendItemSettings extends CoreText {
     /**
      * Setter for icon marker stroke settings.
      */
-    public LegendItemSettings setIconMarkerStroke(String color5, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public LegendItemSettings setIconMarkerStroke(String color5, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1447,13 +1447,13 @@ public class LegendItemSettings extends CoreText {
         return this;
     }
 
-    private Double iconSize;
+    private Number iconSize;
     private String iconSize1;
 
     /**
      * Setter for the icon size of legend item.
      */
-    public LegendItemSettings setIconSize(Double iconSize) {
+    public LegendItemSettings setIconSize(Number iconSize) {
         if (jsBase == null) {
             this.iconSize = null;
             this.iconSize1 = null;
@@ -1506,7 +1506,7 @@ public class LegendItemSettings extends CoreText {
     private Stroke iconStroke;
     private ColoredFill iconStroke1;
     private String iconStroke2;
-    private Double thickness2;
+    private Number thickness2;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -1515,7 +1515,7 @@ public class LegendItemSettings extends CoreText {
      * Setter for legend item icon stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public LegendItemSettings setIconStroke(Stroke iconStroke, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public LegendItemSettings setIconStroke(Stroke iconStroke, Number thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.iconStroke = null;
             this.iconStroke1 = null;
@@ -1565,7 +1565,7 @@ public class LegendItemSettings extends CoreText {
      * Setter for legend item icon stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public LegendItemSettings setIconStroke(ColoredFill iconStroke1, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public LegendItemSettings setIconStroke(ColoredFill iconStroke1, Number thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.iconStroke = null;
             this.iconStroke1 = null;
@@ -1615,7 +1615,7 @@ public class LegendItemSettings extends CoreText {
      * Setter for legend item icon stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public LegendItemSettings setIconStroke(String iconStroke2, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public LegendItemSettings setIconStroke(String iconStroke2, Number thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.iconStroke = null;
             this.iconStroke1 = null;
@@ -1660,12 +1660,12 @@ public class LegendItemSettings extends CoreText {
         return this;
     }
 
-    private Double iconTextSpacing;
+    private Number iconTextSpacing;
 
     /**
      * Setter for a spacing between icon and text.
      */
-    public LegendItemSettings setIconTextSpacing(Double iconTextSpacing) {
+    public LegendItemSettings setIconTextSpacing(Number iconTextSpacing) {
         if (jsBase == null) {
             this.iconTextSpacing = iconTextSpacing;
         } else {

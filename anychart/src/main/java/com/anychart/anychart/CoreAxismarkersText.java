@@ -198,13 +198,13 @@ public class CoreAxismarkersText extends CoreText {
         return "";
     }
 
-    private Double height;
+    private Number height;
     private String height1;
 
     /**
      * Setter for the text marker height.
      */
-    public CoreAxismarkersText setHeight(Double height) {
+    public CoreAxismarkersText setHeight(Number height) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -310,13 +310,13 @@ public class CoreAxismarkersText extends CoreText {
         return this;
     }
 
-    private Double offsetX;
+    private Number offsetX;
     private String offsetX1;
 
     /**
      * Setter for the text marker offset by x.
      */
-    public CoreAxismarkersText setOffsetX(Double offsetX) {
+    public CoreAxismarkersText setOffsetX(Number offsetX) {
         if (jsBase == null) {
             this.offsetX = null;
             this.offsetX1 = null;
@@ -366,13 +366,13 @@ public class CoreAxismarkersText extends CoreText {
         return this;
     }
 
-    private Double offsetY;
+    private Number offsetY;
     private String offsetY1;
 
     /**
      * Setter for the text marker offset by y.
      */
-    public CoreAxismarkersText setOffsetY(Double offsetY) {
+    public CoreAxismarkersText setOffsetY(Number offsetY) {
         if (jsBase == null) {
             this.offsetY = null;
             this.offsetY1 = null;
@@ -422,12 +422,12 @@ public class CoreAxismarkersText extends CoreText {
         return this;
     }
 
-    private Double rotation;
+    private Number rotation;
 
     /**
      * Setter for the text marker rotation.
      */
-    public CoreAxismarkersText setRotation(Double rotation) {
+    public CoreAxismarkersText setRotation(Number rotation) {
         if (jsBase == null) {
             this.rotation = rotation;
         } else {
@@ -576,12 +576,12 @@ public class CoreAxismarkersText extends CoreText {
         return this;
     }
 
-    private Double value;
+    private Number value;
 
     /**
      * Setter for the text marker value.
      */
-    public CoreAxismarkersText setValue(Double value) {
+    public CoreAxismarkersText setValue(Number value) {
         if (jsBase == null) {
             this.value = value;
         } else {
@@ -601,13 +601,13 @@ public class CoreAxismarkersText extends CoreText {
         return this;
     }
 
-    private Double width;
+    private Number width;
     private String width1;
 
     /**
      * Setter for the text marker width.
      */
-    public CoreAxismarkersText setWidth(Double width) {
+    public CoreAxismarkersText setWidth(Number width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

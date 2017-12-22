@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * 
+ * The Table class contains methods for configuring standalones table.
  */
 public class StandalonesTable extends UiTable {
 

@@ -35,12 +35,12 @@ public class CCI extends JsObject {
     }
 
     
-    private Double period;
+    private Number period;
 
     /**
      * Setter for the indicator period.
      */
-    public CCI setPeriod(Double period) {
+    public CCI setPeriod(Number period) {
         if (jsBase == null) {
             this.period = period;
         } else {

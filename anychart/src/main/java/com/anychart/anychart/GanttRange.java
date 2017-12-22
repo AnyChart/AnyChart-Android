@@ -62,12 +62,12 @@ public class GanttRange extends VisualBase {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public GanttRange fill(String color, Double opacity) {
+    public GanttRange fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -91,17 +91,17 @@ public class GanttRange extends VisualBase {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public GanttRange fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public GanttRange fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -142,7 +142,7 @@ public class GanttRange extends VisualBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public GanttRange fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public GanttRange fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -183,7 +183,7 @@ public class GanttRange extends VisualBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public GanttRange fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public GanttRange fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -224,7 +224,7 @@ public class GanttRange extends VisualBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public GanttRange fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public GanttRange fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -265,7 +265,7 @@ public class GanttRange extends VisualBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public GanttRange fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public GanttRange fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -306,7 +306,7 @@ public class GanttRange extends VisualBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public GanttRange fill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public GanttRange fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -344,18 +344,18 @@ public class GanttRange extends VisualBase {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public GanttRange fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public GanttRange fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -406,7 +406,7 @@ public class GanttRange extends VisualBase {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public GanttRange fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public GanttRange fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -453,14 +453,14 @@ public class GanttRange extends VisualBase {
     }
 
     private Fill imageSettings;
-    private Double from;
+    private Number from;
     private GanttDateTimeMarkers from1;
     private String from2;
 
     /**
      * Setter for the starting marker value.
      */
-    public GanttRange setFrom(Double from) {
+    public GanttRange setFrom(Number from) {
         if (jsBase == null) {
             this.from = null;
             this.from1 = null;
@@ -638,14 +638,14 @@ public class GanttRange extends VisualBase {
         return this;
     }
 
-    private Double to;
+    private Number to;
     private GanttDateTimeMarkers to1;
     private String to2;
 
     /**
      * Setter for the ending marker value.
      */
-    public GanttRange setTo(Double to) {
+    public GanttRange setTo(Number to) {
         if (jsBase == null) {
             this.to = null;
             this.to1 = null;

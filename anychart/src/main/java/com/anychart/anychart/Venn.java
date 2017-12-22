@@ -63,27 +63,27 @@ public class Venn extends SeparateChart {
      * Setter for the data for the chart.
      */
     public Venn setData(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         return this;
     }
 
@@ -146,12 +146,12 @@ public class Venn extends SeparateChart {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public Venn fill(String color, Double opacity) {
+    public Venn fill(String color, Number opacity) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -167,17 +167,17 @@ public class Venn extends SeparateChart {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Venn fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public Venn fill(GradientKey[] keys, Boolean mode, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -196,7 +196,7 @@ public class Venn extends SeparateChart {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Venn fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public Venn fill(GradientKey[] keys, VectorRect mode1, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -215,7 +215,7 @@ public class Venn extends SeparateChart {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Venn fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public Venn fill(GradientKey[] keys, String mode2, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -234,7 +234,7 @@ public class Venn extends SeparateChart {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Venn fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public Venn fill(String[] keys1, Boolean mode, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -253,7 +253,7 @@ public class Venn extends SeparateChart {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Venn fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public Venn fill(String[] keys1, VectorRect mode1, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -272,7 +272,7 @@ public class Venn extends SeparateChart {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Venn fill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public Venn fill(String[] keys1, String mode2, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -288,18 +288,18 @@ public class Venn extends SeparateChart {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Venn fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Venn fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -318,7 +318,7 @@ public class Venn extends SeparateChart {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Venn fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Venn fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -351,13 +351,13 @@ public class Venn extends SeparateChart {
     private String patternFillOrType3;
     private Boolean patternFillOrType4;
     private String color1;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
 
     /**
      * Setter for hatch fill settings.
      */
-    public Venn setHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
+    public Venn setHatchFill(PatternFill patternFillOrType, String color1, Number thickness, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -375,7 +375,7 @@ public class Venn extends SeparateChart {
     /**
      * Setter for hatch fill settings.
      */
-    public Venn setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
+    public Venn setHatchFill(HatchFill patternFillOrType1, String color1, Number thickness, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -393,7 +393,7 @@ public class Venn extends SeparateChart {
     /**
      * Setter for hatch fill settings.
      */
-    public Venn setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
+    public Venn setHatchFill(HatchFillType patternFillOrType2, String color1, Number thickness, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -411,7 +411,7 @@ public class Venn extends SeparateChart {
     /**
      * Setter for hatch fill settings.
      */
-    public Venn setHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
+    public Venn setHatchFill(String patternFillOrType3, String color1, Number thickness, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -429,7 +429,7 @@ public class Venn extends SeparateChart {
     /**
      * Setter for hatch fill settings.
      */
-    public Venn setHatchFill(Boolean patternFillOrType4, String color1, Double thickness, Double size) {
+    public Venn setHatchFill(Boolean patternFillOrType4, String color1, Number thickness, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -507,15 +507,20 @@ public class Venn extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
-    private Double index;
+    private Number index;
 
     /**
      * Hovers point by index.
      */
-    public Venn hover(Double index) {
+    public Venn hover(Number index) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -529,12 +534,12 @@ public class Venn extends SeparateChart {
         return this;
     }
 
-    private Double[] indexes;
+    private Number[] indexes;
 
     /**
      * Hovers points by indexes.
      */
-    public Venn hover(Double[] indexes) {
+    public Venn hover(Number[] indexes) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -689,6 +694,11 @@ public class Venn extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -858,6 +868,11 @@ public class Venn extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -875,6 +890,11 @@ public class Venn extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -916,12 +936,12 @@ public class Venn extends SeparateChart {
         return this;
     }
 
-    private Double index1;
+    private Number index1;
 
     /**
      * Selects point by index.
      */
-    public Venn select(Double index1) {
+    public Venn select(Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -935,13 +955,13 @@ public class Venn extends SeparateChart {
         return this;
     }
 
-    private Double indexes1;
-    private Double[] indexes2;
+    private Number indexes1;
+    private Number[] indexes2;
 
     /**
      * Selects point by indexes.
      */
-    public Venn select(Double[] indexes2) {
+    public Venn select(Number[] indexes2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -989,7 +1009,7 @@ public class Venn extends SeparateChart {
     private Stroke color2;
     private ColoredFill color3;
     private String color4;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -998,7 +1018,7 @@ public class Venn extends SeparateChart {
      * Setter for the stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Venn setStroke(Stroke color2, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Venn setStroke(Stroke color2, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1017,7 +1037,7 @@ public class Venn extends SeparateChart {
      * Setter for the stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Venn setStroke(ColoredFill color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Venn setStroke(ColoredFill color3, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1036,7 +1056,7 @@ public class Venn extends SeparateChart {
      * Setter for the stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Venn setStroke(String color4, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Venn setStroke(String color4, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1050,13 +1070,13 @@ public class Venn extends SeparateChart {
         return this;
     }
 
-    private Double indexOrIndexes;
-    private Double[] indexOrIndexes1;
+    private Number indexOrIndexes;
+    private Number[] indexOrIndexes1;
 
     /**
      * Removes hover from the series point or series.
      */
-    public Venn unhover(Double indexOrIndexes) {
+    public Venn unhover(Number indexOrIndexes) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1074,7 +1094,7 @@ public class Venn extends SeparateChart {
     /**
      * Removes hover from the series point or series.
      */
-    public Venn unhover(Double[] indexOrIndexes1) {
+    public Venn unhover(Number[] indexOrIndexes1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1088,12 +1108,12 @@ public class Venn extends SeparateChart {
         return this;
     }
 
-    private Double index2;
+    private Number index2;
 
     /**
      * Deselects selected point by index.
      */
-    public Venn unselect(Double index2) {
+    public Venn unselect(Number index2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1107,12 +1127,12 @@ public class Venn extends SeparateChart {
         return this;
     }
 
-    private Double[] indexes3;
+    private Number[] indexes3;
 
     /**
      * Deselects selected points by indexes.
      */
-    public Venn unselect(Double[] indexes3) {
+    public Venn unselect(Number[] indexes3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;

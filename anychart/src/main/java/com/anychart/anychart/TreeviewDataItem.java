@@ -127,12 +127,12 @@ public class TreeviewDataItem extends JsObject {
     private String child3;
     private TreeDataItem child4;
     private TreeviewDataItem child5;
-    private Double index;
+    private Number index;
 
     /**
      * Inserts a child into a specified position.
      */
-    public TreeviewDataItem addChildAt(String child3, Double index) {
+    public TreeviewDataItem addChildAt(String child3, Number index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -165,7 +165,7 @@ public class TreeviewDataItem extends JsObject {
     /**
      * Inserts a child into a specified position.
      */
-    public TreeviewDataItem addChildAt(TreeDataItem child4, Double index) {
+    public TreeviewDataItem addChildAt(TreeDataItem child4, Number index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -198,7 +198,7 @@ public class TreeviewDataItem extends JsObject {
     /**
      * Inserts a child into a specified position.
      */
-    public TreeviewDataItem addChildAt(TreeviewDataItem child5, Double index) {
+    public TreeviewDataItem addChildAt(TreeviewDataItem child5, Number index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -232,7 +232,7 @@ public class TreeviewDataItem extends JsObject {
     /**
      * Gets the child by index.
      */
-    public TreeviewDataItem getGetChildAt(Double index) {
+    public TreeviewDataItem getGetChildAt(Number index) {
         TreeviewDataItem item = new TreeviewDataItem(jsBase + ".getChildAt(" + index + ")");
         getGetChildAt.add(item);
         return item;
@@ -345,12 +345,12 @@ public class TreeviewDataItem extends JsObject {
         return this;
     }
 
-    private Double index1;
+    private Number index1;
 
     /**
-     * Removes child at specified position.
+     * Removes child at the specified position.
      */
-    public TreeviewDataItem removeChildAt(Double index1) {
+    public TreeviewDataItem removeChildAt(Number index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;

@@ -147,13 +147,13 @@ public class GanttText extends CoreText {
         return this;
     }
 
-    private Double height;
+    private Number height;
     private String height1;
 
     /**
      * Setter for the text marker height.
      */
-    public GanttText setHeight(Double height) {
+    public GanttText setHeight(Number height) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -261,13 +261,13 @@ public class GanttText extends CoreText {
         return this;
     }
 
-    private Double offsetX;
+    private Number offsetX;
     private String offsetX1;
 
     /**
      * Setter for the text marker offset by x.
      */
-    public GanttText setOffsetX(Double offsetX) {
+    public GanttText setOffsetX(Number offsetX) {
         if (jsBase == null) {
             this.offsetX = null;
             this.offsetX1 = null;
@@ -317,13 +317,13 @@ public class GanttText extends CoreText {
         return this;
     }
 
-    private Double offsetY;
+    private Number offsetY;
     private String offsetY1;
 
     /**
      * Setter for the text marker offset by y.
      */
-    public GanttText setOffsetY(Double offsetY) {
+    public GanttText setOffsetY(Number offsetY) {
         if (jsBase == null) {
             this.offsetY = null;
             this.offsetY1 = null;
@@ -373,12 +373,12 @@ public class GanttText extends CoreText {
         return this;
     }
 
-    private Double rotation;
+    private Number rotation;
 
     /**
      * Setter for the gantt text marker rotation.
      */
-    public GanttText setRotation(Double rotation) {
+    public GanttText setRotation(Number rotation) {
         if (jsBase == null) {
             this.rotation = rotation;
         } else {
@@ -448,14 +448,14 @@ public class GanttText extends CoreText {
         return this;
     }
 
-    private Double value;
+    private Number value;
     private GanttDateTimeMarkers value1;
     private String value2;
 
     /**
      * Setter for the gantt text marker value.
      */
-    public GanttText setValue(Double value) {
+    public GanttText setValue(Number value) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -535,13 +535,13 @@ public class GanttText extends CoreText {
         return this;
     }
 
-    private Double width;
+    private Number width;
     private String width1;
 
     /**
      * Setter for the text marker width.
      */
-    public GanttText setWidth(Double width) {
+    public GanttText setWidth(Number width) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

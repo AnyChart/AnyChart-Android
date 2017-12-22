@@ -35,12 +35,12 @@ public class MapSeriesMarker extends MapSeriesBase {
     }
 
     
-    private Double size;
+    private Number size;
 
     /**
      * Setter for the marker size setting.
      */
-    public MapSeriesMarker setSize(Double size) {
+    public MapSeriesMarker setSize(Number size) {
         if (jsBase == null) {
             this.size = size;
         } else {

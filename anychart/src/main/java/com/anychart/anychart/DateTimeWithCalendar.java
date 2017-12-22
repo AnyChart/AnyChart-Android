@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Date scale with calendar support.
+ * The DateTimeWithCalendar class contains methods for configuring calendar on the DateTime scale.
  */
 public class DateTimeWithCalendar extends ScatterBase {
 
@@ -47,12 +47,12 @@ public class DateTimeWithCalendar extends ScatterBase {
         return getCalendar;
     }
 
-    private Double count;
+    private Number count;
 
     /**
      * Setter for the unit count.
      */
-    public DateTimeWithCalendar setCount(Double count) {
+    public DateTimeWithCalendar setCount(Number count) {
         if (jsBase == null) {
             this.count = count;
         } else {
@@ -72,12 +72,12 @@ public class DateTimeWithCalendar extends ScatterBase {
         return this;
     }
 
-    private Double date;
+    private Number date;
 
     /**
      * Transforms date to pixels.
      */
-    public void dateToPix(Double date) {
+    public void dateToPix(Number date) {
         if (jsBase == null) {
             this.date = date;
         } else {
@@ -97,17 +97,17 @@ public class DateTimeWithCalendar extends ScatterBase {
         }
     }
 
-    private Double fromPix;
-    private Double toPix;
+    private Number fromPix;
+    private Number toPix;
     private Interval unit;
     private String unit1;
-    private Double count1;
+    private Number count1;
 
     /**
      * Returns ticks array (even indexes are left borders, odd indexes are right borders of the tick)
-with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel (if available).
+with a passed interval. Ticks fill space from the fromPix pixel to the toPix pixel (if available).
      */
-    public void getTicks(Double fromPix, Double toPix, Interval unit, Double count1) {
+    public void getTicks(Number fromPix, Number toPix, Interval unit, Number count1) {
         if (jsBase == null) {
             this.fromPix = fromPix;
             this.toPix = toPix;
@@ -142,9 +142,9 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
 
     /**
      * Returns ticks array (even indexes are left borders, odd indexes are right borders of the tick)
-with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel (if available).
+with a passed interval. Ticks fill space from the fromPix pixel to the toPix pixel (if available).
      */
-    public void getTicks(Double fromPix, Double toPix, String unit1, Double count1) {
+    public void getTicks(Number fromPix, Number toPix, String unit1, Number count1) {
         if (jsBase == null) {
             this.fromPix = fromPix;
             this.toPix = toPix;
@@ -176,13 +176,13 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
         }
     }
 
-    private Double maximumGap;
+    private Number maximumGap;
     private List<DateTime> setMaximumGap = new ArrayList<>();
 
     /**
      * Setter for the scale maximum gap.
      */
-    public DateTime setMaximumGap(Double maximumGap) {
+    public DateTime setMaximumGap(Number maximumGap) {
         if (jsBase == null) {
             this.maximumGap = maximumGap;
         } else {
@@ -215,13 +215,13 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
         return "";
     }
 
-    private Double minimumGap;
+    private Number minimumGap;
     private List<DateTime> setMinimumGap = new ArrayList<>();
 
     /**
      * Setter for the scale minimum gap.
      */
-    public DateTime setMinimumGap(Double minimumGap) {
+    public DateTime setMinimumGap(Number minimumGap) {
         if (jsBase == null) {
             this.minimumGap = minimumGap;
         } else {
@@ -254,12 +254,12 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
         return "";
     }
 
-    private Double pix;
+    private Number pix;
 
     /**
      * Transforms pixels to date.
      */
-    public void pixToDate(Double pix) {
+    public void pixToDate(Number pix) {
         if (jsBase == null) {
             this.pix = pix;
         } else {
@@ -282,7 +282,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
     private Boolean skipHolidays;
 
     /**
-     * Setter for skipping holidays.
+     * Setter for skipping of holidays.
      */
     public DateTimeWithCalendar setSkipHolidays(Boolean skipHolidays) {
         if (jsBase == null) {
@@ -304,13 +304,13 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
         return this;
     }
 
-    private Double softMaximum;
+    private Number softMaximum;
     private List<DateTime> setSoftMaximum = new ArrayList<>();
 
     /**
      * Setter for the soft maximum.
      */
-    public DateTime setSoftMaximum(Double softMaximum) {
+    public DateTime setSoftMaximum(Number softMaximum) {
         if (jsBase == null) {
             this.softMaximum = softMaximum;
         } else {
@@ -343,13 +343,13 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
         return "";
     }
 
-    private Double softMinimum;
+    private Number softMinimum;
     private List<DateTime> setSoftMinimum = new ArrayList<>();
 
     /**
      * Setter for the soft minimum.
      */
-    public DateTime setSoftMinimum(Double softMinimum) {
+    public DateTime setSoftMinimum(Number softMinimum) {
         if (jsBase == null) {
             this.softMinimum = softMinimum;
         } else {
@@ -442,13 +442,13 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
         return this;
     }
 
-    private Double unitPixSize;
+    private Number unitPixSize;
     private String unitPixSize1;
 
     /**
-     * Setter for unit size.
+     * Setter for the unit size.
      */
-    public DateTimeWithCalendar setUnitPixSize(Double unitPixSize) {
+    public DateTimeWithCalendar setUnitPixSize(Number unitPixSize) {
         if (jsBase == null) {
             this.unitPixSize = null;
             this.unitPixSize1 = null;
@@ -473,7 +473,7 @@ with passed interval. Ticks fill space from the fromPix pixel to the toPix pixel
 
 
     /**
-     * Setter for unit size.
+     * Setter for the unit size.
      */
     public DateTimeWithCalendar setUnitPixSize(String unitPixSize1) {
         if (jsBase == null) {

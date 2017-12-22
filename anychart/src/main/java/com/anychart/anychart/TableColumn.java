@@ -50,7 +50,7 @@ public class TableColumn extends TableBase {
     private Stroke color;
     private ColoredFill color1;
     private String color2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -60,7 +60,7 @@ public class TableColumn extends TableBase {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public TableBase setCellBorder(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public TableBase setCellBorder(Stroke color, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -111,7 +111,7 @@ public class TableColumn extends TableBase {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public TableBase setCellBorder(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public TableBase setCellBorder(ColoredFill color1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -162,7 +162,7 @@ public class TableColumn extends TableBase {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public TableBase setCellBorder(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public TableBase setCellBorder(String color2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -248,13 +248,13 @@ public class TableColumn extends TableBase {
     }
 
     private String color3;
-    private Double opacity;
+    private Number opacity;
     private List<TableBase> setCellFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public TableBase cellFill(String color3, Double opacity) {
+    public TableBase cellFill(String color3, Number opacity) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -296,18 +296,18 @@ public class TableColumn extends TableBase {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
     private List<TableBase> setCellFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TableBase cellFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public TableBase cellFill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -362,7 +362,7 @@ public class TableColumn extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TableBase cellFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public TableBase cellFill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -417,7 +417,7 @@ public class TableColumn extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TableBase cellFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public TableBase cellFill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -472,7 +472,7 @@ public class TableColumn extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TableBase cellFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public TableBase cellFill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -527,7 +527,7 @@ public class TableColumn extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TableBase cellFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public TableBase cellFill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -582,7 +582,7 @@ public class TableColumn extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TableBase cellFill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public TableBase cellFill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -633,19 +633,19 @@ public class TableColumn extends TableBase {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
     private List<TableBase> setCellFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TableBase cellFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public TableBase cellFill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -710,7 +710,7 @@ public class TableColumn extends TableBase {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TableBase cellFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public TableBase cellFill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -782,7 +782,7 @@ public class TableColumn extends TableBase {
         return getCellPadding;
     }
 
-    private Double[] cellPadding;
+    private Number[] cellPadding;
     private String[] cellPadding1;
     private String cellPadding2;
     private List<TableBase> setCellPadding = new ArrayList<>();
@@ -790,7 +790,7 @@ public class TableColumn extends TableBase {
     /**
      * Setter for current cell paddings in pixels using a single value.
      */
-    public TableBase setCellPadding(Double[] cellPadding) {
+    public TableBase setCellPadding(Number[] cellPadding) {
         if (jsBase == null) {
             this.cellPadding = null;
             this.cellPadding1 = null;
@@ -912,13 +912,13 @@ public class TableColumn extends TableBase {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
     private List<TableBase> setCellPadding3 = new ArrayList<>();
 
     /**
@@ -1004,7 +1004,7 @@ public class TableColumn extends TableBase {
     /**
      * Setter for current cell paddings in pixels using several numbers.
      */
-    public TableBase setCellPadding(Double value1, Double value3, Double value5, Double value7) {
+    public TableBase setCellPadding(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1079,13 +1079,13 @@ public class TableColumn extends TableBase {
         return "";
     }
 
-    private Double row;
+    private Number row;
     private List<Cell> setGetCell = new ArrayList<>();
 
     /**
      * Returns cell of current column by row index.
      */
-    public Cell getCell(Double row) {
+    public Cell getCell(Number row) {
         if (jsBase == null) {
             this.row = row;
         } else {
@@ -1134,14 +1134,14 @@ public class TableColumn extends TableBase {
     /**
      * Getter and setter for column max width settings.
      */
-    public TableColumn getMaxWidth(Double maxWidth) {
+    public TableColumn getMaxWidth(Number maxWidth) {
         TableColumn item = new TableColumn(jsBase + ".maxWidth(" + maxWidth + ")");
         getMaxWidth1.add(item);
         return item;
     }
 
     private String minWidth;
-    private Double minWidth1;
+    private Number minWidth1;
 
     /**
      * Setter for column minimum width settings.
@@ -1173,7 +1173,7 @@ public class TableColumn extends TableBase {
     /**
      * Setter for column minimum width settings.
      */
-    public TableColumn setMinWidth(Double minWidth1) {
+    public TableColumn setMinWidth(Number minWidth1) {
         if (jsBase == null) {
             this.minWidth = null;
             this.minWidth1 = null;
@@ -1197,7 +1197,7 @@ public class TableColumn extends TableBase {
     }
 
     private String width;
-    private Double width1;
+    private Number width1;
 
     /**
      * Setter for column width settings.
@@ -1229,7 +1229,7 @@ public class TableColumn extends TableBase {
     /**
      * Setter for column width settings.
      */
-    public TableColumn setWidth(Double width1) {
+    public TableColumn setWidth(Number width1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

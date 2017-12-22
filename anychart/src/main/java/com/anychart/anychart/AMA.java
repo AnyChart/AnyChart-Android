@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -31,12 +36,12 @@ public class AMA extends JsObject {
     }
 
     
-    private Double fastPeriod;
+    private Number fastPeriod;
 
     /**
      * Setter for the fast indicator period.
      */
-    public AMA setFastPeriod(Double fastPeriod) {
+    public AMA setFastPeriod(Number fastPeriod) {
         if (jsBase == null) {
             this.fastPeriod = fastPeriod;
         } else {
@@ -56,12 +61,12 @@ public class AMA extends JsObject {
         return this;
     }
 
-    private Double period;
+    private Number period;
 
     /**
      * Setter for the indicator period.
      */
-    public AMA setPeriod(Double period) {
+    public AMA setPeriod(Number period) {
         if (jsBase == null) {
             this.period = period;
         } else {
@@ -149,12 +154,12 @@ public class AMA extends JsObject {
         return this;
     }
 
-    private Double slowPeriod;
+    private Number slowPeriod;
 
     /**
      * Setter for the slow indicator period.
      */
-    public AMA setSlowPeriod(Double slowPeriod) {
+    public AMA setSlowPeriod(Number slowPeriod) {
         if (jsBase == null) {
             this.slowPeriod = slowPeriod;
         } else {

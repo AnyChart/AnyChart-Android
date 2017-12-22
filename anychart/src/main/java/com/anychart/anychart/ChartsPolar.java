@@ -54,27 +54,27 @@ public class ChartsPolar extends SeparateChart {
      * Adds series to the chart.
      */
     public void addSeries(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
     }
 
 
@@ -101,27 +101,27 @@ public class ChartsPolar extends SeparateChart {
      * Adds Area series.
      */
     public PolarSeriesArea area(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setArea" + ++variableIndex + " = " + jsBase + ".area(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setArea" + ++variableIndex + " = " + jsBase + ".area(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".area(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         PolarSeriesArea item = new PolarSeriesArea("setArea" + variableIndex);
         setArea.add(item);
         return item;
@@ -169,12 +169,12 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
-    private Double barGroupsPadding;
+    private Number barGroupsPadding;
 
     /**
      * Setter for the space between bar groups on the ordinal scale by ratio of bars width.
      */
-    public ChartsPolar setBarGroupsPadding(Double barGroupsPadding) {
+    public ChartsPolar setBarGroupsPadding(Number barGroupsPadding) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -188,12 +188,12 @@ public class ChartsPolar extends SeparateChart {
         return this;
     }
 
-    private Double barsPadding;
+    private Number barsPadding;
 
     /**
      * Setter for the space between bars on the ordinal scale by ratio of bars width.
      */
-    public ChartsPolar setBarsPadding(Double barsPadding) {
+    public ChartsPolar setBarsPadding(Number barsPadding) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -213,27 +213,27 @@ public class ChartsPolar extends SeparateChart {
      * Adds Column series.
      */
     public PolarSeriesColumn column(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setColumn" + ++variableIndex + " = " + jsBase + ".column(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setColumn" + ++variableIndex + " = " + jsBase + ".column(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         PolarSeriesColumn item = new PolarSeriesColumn("setColumn" + variableIndex);
         setColumn.add(item);
         return item;
@@ -338,7 +338,7 @@ public class ChartsPolar extends SeparateChart {
     /**
      * Getter for the series by its id.
      */
-    public PolarSeriesBase getGetSeries(Double id) {
+    public PolarSeriesBase getGetSeries(Number id) {
         PolarSeriesBase item = new PolarSeriesBase(jsBase + ".getSeries("+ id+")");
         getGetSeries.add(item);
         return item;
@@ -360,7 +360,7 @@ public class ChartsPolar extends SeparateChart {
     /**
      * Getter for the series by its index.
      */
-    public PolarSeriesBase getGetSeriesAt(Double index) {
+    public PolarSeriesBase getGetSeriesAt(Number index) {
         PolarSeriesBase item = new PolarSeriesBase(jsBase + ".getSeriesAt("+ index+")");
         getGetSeriesAt.add(item);
         return item;
@@ -429,6 +429,11 @@ public class ChartsPolar extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -463,13 +468,13 @@ public class ChartsPolar extends SeparateChart {
         return this;
     }
 
-    private Double innerRadius;
+    private Number innerRadius;
     private String innerRadius1;
 
     /**
      * Setter for the inner radius in pixels or percent of main radius.
      */
-    public ChartsPolar setInnerRadius(Double innerRadius) {
+    public ChartsPolar setInnerRadius(Number innerRadius) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -557,27 +562,27 @@ public class ChartsPolar extends SeparateChart {
      * Adds Line series.
      */
     public PolarSeriesLine line(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         PolarSeriesLine item = new PolarSeriesLine("setLine" + variableIndex);
         setLine.add(item);
         return item;
@@ -631,27 +636,27 @@ public class ChartsPolar extends SeparateChart {
      * Adds Marker series.
      */
     public PolarSeriesMarker marker(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         PolarSeriesMarker item = new PolarSeriesMarker("setMarker" + variableIndex);
         setMarker.add(item);
         return item;
@@ -728,6 +733,11 @@ public class ChartsPolar extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -785,13 +795,13 @@ public class ChartsPolar extends SeparateChart {
         return this;
     }
 
-    private Double maxPointWidth;
+    private Number maxPointWidth;
     private String maxPointWidth1;
 
     /**
      * Setter for the maximum point width.
      */
-    public ChartsPolar setMaxPointWidth(Double maxPointWidth) {
+    public ChartsPolar setMaxPointWidth(Number maxPointWidth) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -884,6 +894,11 @@ public class ChartsPolar extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -901,6 +916,11 @@ public class ChartsPolar extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -942,13 +962,13 @@ public class ChartsPolar extends SeparateChart {
         return this;
     }
 
-    private Double pointWidth;
+    private Number pointWidth;
     private String pointWidth1;
 
     /**
      * Setter for the point width settings.
      */
-    public ChartsPolar setPointWidth(Double pointWidth) {
+    public ChartsPolar setPointWidth(Number pointWidth) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -986,27 +1006,27 @@ public class ChartsPolar extends SeparateChart {
      * Adds Polygon series.
      */
     public Polygon polygon(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setPolygon" + ++variableIndex + " = " + jsBase + ".polygon(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setPolygon" + ++variableIndex + " = " + jsBase + ".polygon(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polygon(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         Polygon item = new Polygon("setPolygon" + variableIndex);
         setPolygon.add(item);
         return item;
@@ -1060,27 +1080,27 @@ public class ChartsPolar extends SeparateChart {
      * Adds Polyline series.
      */
     public Polyline polyline(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setPolyline" + ++variableIndex + " = " + jsBase + ".polyline(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setPolyline" + ++variableIndex + " = " + jsBase + ".polyline(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".polyline(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         Polyline item = new Polyline("setPolyline" + variableIndex);
         setPolyline.add(item);
         return item;
@@ -1134,27 +1154,27 @@ public class ChartsPolar extends SeparateChart {
      * Adds Range Column series.
      */
     public PolarSeriesRangeColumn rangeColumn(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setRangeColumn" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setRangeColumn" + ++variableIndex + " = " + jsBase + ".rangeColumn(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeColumn(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         PolarSeriesRangeColumn item = new PolarSeriesRangeColumn("setRangeColumn" + variableIndex);
         setRangeColumn.add(item);
         return item;
@@ -1202,13 +1222,13 @@ public class ChartsPolar extends SeparateChart {
         return "";
     }
 
-    private Double id2;
+    private Number id2;
     private String id3;
 
     /**
      * Removes one of series from chart by its id.
      */
-    public ChartsPolar removeSeries(Double id2) {
+    public ChartsPolar removeSeries(Number id2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1240,12 +1260,12 @@ public class ChartsPolar extends SeparateChart {
         return this;
     }
 
-    private Double index1;
+    private Number index1;
 
     /**
      * Removes one of series from chart by its index.
      */
-    public ChartsPolar removeSeriesAt(Double index1) {
+    public ChartsPolar removeSeriesAt(Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1311,7 +1331,7 @@ If the points of series should be sorted by X before drawing.
     }
 
     private String startAngle;
-    private Double startAngle1;
+    private Number startAngle1;
 
     /**
      * Setter for the chart start angle.
@@ -1334,7 +1354,7 @@ If the points of series should be sorted by X before drawing.
     /**
      * Setter for the chart start angle.
      */
-    public ChartsPolar setStartAngle(Double startAngle1) {
+    public ChartsPolar setStartAngle(Number startAngle1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1349,14 +1369,14 @@ If the points of series should be sorted by X before drawing.
     }
 
 
-    private CoreAxesRadar getXAxis;
+    private CoreAxesPolar getXAxis;
 
     /**
      * Getter for the chart X-axis.
      */
-    public CoreAxesRadar getXAxis() {
+    public CoreAxesPolar getXAxis() {
         if (getXAxis == null)
-            getXAxis = new CoreAxesRadar(jsBase + ".xAxis()");
+            getXAxis = new CoreAxesPolar(jsBase + ".xAxis()");
 
         return getXAxis;
     }
@@ -1416,7 +1436,7 @@ If the points of series should be sorted by X before drawing.
     /**
      * Getter for the chart grid by X-scale.
      */
-    public CoreGridsPolar getXGrid(Double index2) {
+    public CoreGridsPolar getXGrid(Number index2) {
         CoreGridsPolar item = new CoreGridsPolar(jsBase + ".xGrid("+ index2+")");
         getXGrid1.add(item);
         return item;
@@ -1459,14 +1479,14 @@ If the points of series should be sorted by X before drawing.
         return this;
     }
 
-    private Double index3;
+    private Number index3;
     private String xGrid2;
     private Boolean xGrid3;
 
     /**
      * Setter for chart grid by index.
      */
-    public ChartsPolar setXGrid(String xGrid2, Double index3) {
+    public ChartsPolar setXGrid(String xGrid2, Number index3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1484,7 +1504,7 @@ If the points of series should be sorted by X before drawing.
     /**
      * Setter for chart grid by index.
      */
-    public ChartsPolar setXGrid(Boolean xGrid3, Double index3) {
+    public ChartsPolar setXGrid(Boolean xGrid3, Number index3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1516,7 +1536,7 @@ If the points of series should be sorted by X before drawing.
     /**
      * Getter for the chart minor grid by X-scale.
      */
-    public CoreGridsPolar getXMinorGrid(Double index4) {
+    public CoreGridsPolar getXMinorGrid(Number index4) {
         CoreGridsPolar item = new CoreGridsPolar(jsBase + ".xMinorGrid("+ index4+")");
         getXMinorGrid1.add(item);
         return item;
@@ -1559,14 +1579,14 @@ If the points of series should be sorted by X before drawing.
         return this;
     }
 
-    private Double index5;
+    private Number index5;
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
 
     /**
      * Setter for the chart minor grid by index.
      */
-    public ChartsPolar setXMinorGrid(String xMinorGrid2, Double index5) {
+    public ChartsPolar setXMinorGrid(String xMinorGrid2, Number index5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1584,7 +1604,7 @@ If the points of series should be sorted by X before drawing.
     /**
      * Setter for the chart minor grid by index.
      */
-    public ChartsPolar setXMinorGrid(Boolean xMinorGrid3, Double index5) {
+    public ChartsPolar setXMinorGrid(Boolean xMinorGrid3, Number index5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1663,6 +1683,11 @@ If the points of series should be sorted by X before drawing.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale3 != null) ? xScale3.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -1734,7 +1759,7 @@ If the points of series should be sorted by X before drawing.
     /**
      * Getter for the chart grid by Y-scale.
      */
-    public CoreGridsPolar getYGrid(Double index6) {
+    public CoreGridsPolar getYGrid(Number index6) {
         CoreGridsPolar item = new CoreGridsPolar(jsBase + ".yGrid("+ index6+")");
         getYGrid1.add(item);
         return item;
@@ -1777,14 +1802,14 @@ If the points of series should be sorted by X before drawing.
         return this;
     }
 
-    private Double index7;
+    private Number index7;
     private String yGrid2;
     private Boolean yGrid3;
 
     /**
      * Setter for chart grid by index.
      */
-    public ChartsPolar setYGrid(String yGrid2, Double index7) {
+    public ChartsPolar setYGrid(String yGrid2, Number index7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1802,7 +1827,7 @@ If the points of series should be sorted by X before drawing.
     /**
      * Setter for chart grid by index.
      */
-    public ChartsPolar setYGrid(Boolean yGrid3, Double index7) {
+    public ChartsPolar setYGrid(Boolean yGrid3, Number index7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1834,7 +1859,7 @@ If the points of series should be sorted by X before drawing.
     /**
      * Getter for the chart minor grid by Y-scale.
      */
-    public CoreGridsPolar getYMinorGrid(Double index8) {
+    public CoreGridsPolar getYMinorGrid(Number index8) {
         CoreGridsPolar item = new CoreGridsPolar(jsBase + ".yMinorGrid("+ index8+")");
         getYMinorGrid1.add(item);
         return item;
@@ -1877,14 +1902,14 @@ If the points of series should be sorted by X before drawing.
         return this;
     }
 
-    private Double index9;
+    private Number index9;
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
 
     /**
      * Setter for the chart minor grid by index.
      */
-    public ChartsPolar setYMinorGrid(String yMinorGrid2, Double index9) {
+    public ChartsPolar setYMinorGrid(String yMinorGrid2, Number index9) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1902,7 +1927,7 @@ If the points of series should be sorted by X before drawing.
     /**
      * Setter for the chart minor grid by index.
      */
-    public ChartsPolar setYMinorGrid(Boolean yMinorGrid3, Double index9) {
+    public ChartsPolar setYMinorGrid(Boolean yMinorGrid3, Number index9) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1981,6 +2006,11 @@ If the points of series should be sorted by X before drawing.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale3 != null) ? yScale3.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 

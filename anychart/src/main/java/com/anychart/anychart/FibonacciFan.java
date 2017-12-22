@@ -38,7 +38,7 @@ public class FibonacciFan extends FibonacciBase {
     private Stroke grid;
     private ColoredFill grid1;
     private String grid2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -47,7 +47,7 @@ public class FibonacciFan extends FibonacciBase {
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public FibonacciFan setGrid(Stroke grid, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public FibonacciFan setGrid(Stroke grid, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.grid = null;
             this.grid1 = null;
@@ -84,7 +84,7 @@ public class FibonacciFan extends FibonacciBase {
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public FibonacciFan setGrid(ColoredFill grid1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public FibonacciFan setGrid(ColoredFill grid1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.grid = null;
             this.grid1 = null;
@@ -121,7 +121,7 @@ public class FibonacciFan extends FibonacciBase {
      * Setter for annotation grid settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public FibonacciFan setGrid(String grid2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public FibonacciFan setGrid(String grid2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.grid = null;
             this.grid1 = null;

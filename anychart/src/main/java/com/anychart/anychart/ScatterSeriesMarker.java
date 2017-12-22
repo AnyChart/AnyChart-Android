@@ -63,12 +63,12 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public ScatterSeriesMarker fill(String color, Double opacity) {
+    public ScatterSeriesMarker fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -92,17 +92,17 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScatterSeriesMarker fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public ScatterSeriesMarker fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -143,7 +143,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScatterSeriesMarker fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public ScatterSeriesMarker fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -184,7 +184,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScatterSeriesMarker fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public ScatterSeriesMarker fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -225,7 +225,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScatterSeriesMarker fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public ScatterSeriesMarker fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -266,7 +266,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScatterSeriesMarker fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public ScatterSeriesMarker fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -307,7 +307,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScatterSeriesMarker fill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public ScatterSeriesMarker fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -345,18 +345,18 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScatterSeriesMarker fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public ScatterSeriesMarker fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -407,7 +407,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public ScatterSeriesMarker fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public ScatterSeriesMarker fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -471,14 +471,14 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
     private HatchFillType patternFillOrType2;
     private String patternFillOrType3;
     private String color1;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
 
     /**
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public ScatterSeriesMarker setHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
+    public ScatterSeriesMarker setHatchFill(PatternFill patternFillOrType, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -517,7 +517,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public ScatterSeriesMarker setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
+    public ScatterSeriesMarker setHatchFill(HatchFill patternFillOrType1, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -556,7 +556,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public ScatterSeriesMarker setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
+    public ScatterSeriesMarker setHatchFill(HatchFillType patternFillOrType2, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -595,7 +595,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public ScatterSeriesMarker setHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
+    public ScatterSeriesMarker setHatchFill(String patternFillOrType3, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -629,12 +629,12 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
         return this;
     }
 
-    private Double size1;
+    private Number size1;
 
     /**
      * Setter for the marker size.
      */
-    public ScatterSeriesMarker setSize(Double size1) {
+    public ScatterSeriesMarker setSize(Number size1) {
         if (jsBase == null) {
             this.size = null;
             this.size1 = null;
@@ -660,7 +660,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
     private Stroke color2;
     private ColoredFill color3;
     private String color4;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -669,7 +669,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public ScatterSeriesMarker setStroke(Stroke color2, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public ScatterSeriesMarker setStroke(Stroke color2, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -711,7 +711,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public ScatterSeriesMarker setStroke(ColoredFill color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public ScatterSeriesMarker setStroke(ColoredFill color3, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -753,7 +753,7 @@ public class ScatterSeriesMarker extends ScatterSeriesBase {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public ScatterSeriesMarker setStroke(String color4, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public ScatterSeriesMarker setStroke(String color4, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;

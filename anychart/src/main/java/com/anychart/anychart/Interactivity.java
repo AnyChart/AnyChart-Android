@@ -92,6 +92,31 @@ public class Interactivity extends CoreBase {
         return this;
     }
 
+    private Boolean multiSelectOnClick;
+
+    /**
+     * Setter for the multi-select on click.
+     */
+    public Interactivity setMultiSelectOnClick(Boolean multiSelectOnClick) {
+        if (jsBase == null) {
+            this.multiSelectOnClick = multiSelectOnClick;
+        } else {
+            this.multiSelectOnClick = multiSelectOnClick;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".multiSelectOnClick(%b)", multiSelectOnClick));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".multiSelectOnClick(%b);", multiSelectOnClick));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private SelectionMode selectionMode;
     private String selectionMode1;
 
@@ -148,14 +173,14 @@ public class Interactivity extends CoreBase {
         return this;
     }
 
-    private Double spotRadius;
+    private Number spotRadius;
 
     /**
      * Setter for the spot radius.
 Size of the area under cursor in pixels for radius hovering.
 <b>Note:</b> Works only with "by-spot" value in the {@link anychart.core.utils.Interactivity#hoverMode} method.
      */
-    public Interactivity setSpotRadius(Double spotRadius) {
+    public Interactivity setSpotRadius(Number spotRadius) {
         if (jsBase == null) {
             this.spotRadius = spotRadius;
         } else {
@@ -169,6 +194,32 @@ Size of the area under cursor in pixels for radius hovering.
 
             if (isRendered) {
                 onChangeListener.onChange(String.format(Locale.US, jsBase + ".spotRadius(%f);", spotRadius));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
+    private Boolean unselectOnClickOutOfPoint;
+
+    /**
+     * Setter for the unselectOnClickOutOfPoint.<br/>
+If the value is <b>true<b/>, disables select all points when clicking outside the chart point.
+     */
+    public Interactivity setUnselectOnClickOutOfPoint(Boolean unselectOnClickOutOfPoint) {
+        if (jsBase == null) {
+            this.unselectOnClickOutOfPoint = unselectOnClickOutOfPoint;
+        } else {
+            this.unselectOnClickOutOfPoint = unselectOnClickOutOfPoint;
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".unselectOnClickOutOfPoint(%b)", unselectOnClickOutOfPoint));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselectOnClickOutOfPoint(%b);", unselectOnClickOutOfPoint));
                 js.setLength(0);
             }
         }

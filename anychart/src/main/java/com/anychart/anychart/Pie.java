@@ -47,14 +47,45 @@ public class Pie extends SeparateChart {
     }
 
     
-    private Double connectorLength;
+
+    private Center getCenter;
+
+    /**
+     * Getter for center settings.
+     */
+    public Center getCenter() {
+        if (getCenter == null)
+            getCenter = new Center(jsBase + ".center()");
+
+        return getCenter;
+    }
+    private String centerSettings;
+
+    /**
+     * Setter for center settings.
+     */
+    public Pie setCenter(String centerSettings) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".center(%s)", wrapQuotes(centerSettings)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".center(%s)", wrapQuotes(centerSettings)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+    private Number connectorLength;
     private String connectorLength1;
 
     /**
      * Setter for the outside labels connector length.<br/>
 <b>Note:</b> Works only with outside labels mode.
      */
-    public Pie setConnectorLength(Double connectorLength) {
+    public Pie setConnectorLength(Number connectorLength) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -90,7 +121,7 @@ public class Pie extends SeparateChart {
     private Stroke connectorStroke;
     private ColoredFill connectorStroke1;
     private String connectorStroke2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -100,7 +131,7 @@ public class Pie extends SeparateChart {
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs} <br/>
 <b>Note: </b> Works only with outside labels mode.
      */
-    public Pie setConnectorStroke(Stroke connectorStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Pie setConnectorStroke(Stroke connectorStroke, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -120,7 +151,7 @@ public class Pie extends SeparateChart {
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs} <br/>
 <b>Note: </b> Works only with outside labels mode.
      */
-    public Pie setConnectorStroke(ColoredFill connectorStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Pie setConnectorStroke(ColoredFill connectorStroke1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -140,7 +171,7 @@ public class Pie extends SeparateChart {
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs} <br/>
 <b>Note: </b> Works only with outside labels mode.
      */
-    public Pie setConnectorStroke(String connectorStroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Pie setConnectorStroke(String connectorStroke2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -172,27 +203,27 @@ public class Pie extends SeparateChart {
 Learn more about mapping at {@link anychart.data.Mapping}.
      */
     public Pie setData(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         return this;
     }
 
@@ -216,7 +247,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     }
 
     private String explode;
-    private Double explode1;
+    private Number explode1;
 
     /**
      * Setter for the value of the exploded pie slice.<br/>
@@ -241,7 +272,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
      * Setter for the value of the exploded pie slice.<br/>
 <b>Note:</b> Works only with exploded points mode.
      */
-    public Pie setExplode(Double explode1) {
+    public Pie setExplode(Number explode1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -250,45 +281,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".explode(%f)", explode1));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-    private Double index;
-    private Boolean explode2;
-
-    /**
-     * Explodes slice at index.
-     */
-    public Pie explodeSlice(Double index, Boolean explode2) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".explodeSlice(%f, %b)", index, explode2));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".explodeSlice(%f, %b)", index, explode2));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-    private Boolean explodeSlices;
-
-    /**
-     * Explodes all slices.
-     */
-    public Pie explodeSlices(Boolean explodeSlices) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".explodeSlices(%b)", explodeSlices));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".explodeSlices(%b)", explodeSlices));
             js.setLength(0);
         }
         return this;
@@ -315,12 +307,12 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity.
      */
-    public Pie fill(String color, Double opacity) {
+    public Pie fill(String color, Number opacity) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -336,17 +328,17 @@ Learn more about mapping at {@link anychart.data.Mapping}.
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Pie fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public Pie fill(GradientKey[] keys, Boolean mode, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -365,7 +357,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Pie fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public Pie fill(GradientKey[] keys, VectorRect mode1, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -384,7 +376,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Pie fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public Pie fill(GradientKey[] keys, String mode2, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -403,7 +395,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Pie fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public Pie fill(String[] keys1, Boolean mode, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -422,7 +414,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Pie fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public Pie fill(String[] keys1, VectorRect mode1, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -441,7 +433,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Pie fill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public Pie fill(String[] keys1, String mode2, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -457,18 +449,18 @@ Learn more about mapping at {@link anychart.data.Mapping}.
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Pie fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Pie fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -487,7 +479,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Pie fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Pie fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -558,13 +550,13 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     private String patternFillOrType3;
     private Boolean patternFillOrType4;
     private String color1;
-    private Double thickness1;
-    private Double size;
+    private Number thickness1;
+    private Number size;
 
     /**
      * Setter for the hatch fill settings.
      */
-    public Pie setHatchFill(PatternFill patternFillOrType, String color1, Double thickness1, Double size) {
+    public Pie setHatchFill(PatternFill patternFillOrType, String color1, Number thickness1, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -582,7 +574,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     /**
      * Setter for the hatch fill settings.
      */
-    public Pie setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness1, Double size) {
+    public Pie setHatchFill(HatchFill patternFillOrType1, String color1, Number thickness1, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -600,7 +592,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     /**
      * Setter for the hatch fill settings.
      */
-    public Pie setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness1, Double size) {
+    public Pie setHatchFill(HatchFillType patternFillOrType2, String color1, Number thickness1, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -618,7 +610,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     /**
      * Setter for the hatch fill settings.
      */
-    public Pie setHatchFill(String patternFillOrType3, String color1, Double thickness1, Double size) {
+    public Pie setHatchFill(String patternFillOrType3, String color1, Number thickness1, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -636,7 +628,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     /**
      * Setter for the hatch fill settings.
      */
-    public Pie setHatchFill(Boolean patternFillOrType4, String color1, Double thickness1, Double size) {
+    public Pie setHatchFill(Boolean patternFillOrType4, String color1, Number thickness1, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -717,23 +709,28 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
-    private Double index1;
+    private Number index;
 
     /**
      * Setter for the hover state on a slice by index.
      */
-    public Pie setHover(Double index1) {
+    public Pie setHover(Number index) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hover(%f)", index1));
+        js.append(String.format(Locale.US, ".hover(%f)", index));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hover(%f)", index1));
+            onChangeListener.onChange(String.format(Locale.US, ".hover(%f)", index));
             js.setLength(0);
         }
         return this;
@@ -771,7 +768,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     }
 
     private String innerRadius;
-    private Double innerRadius1;
+    private Number innerRadius1;
 
     /**
      * Setter for the inner radius in case of a Donut chart.
@@ -794,7 +791,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     /**
      * Setter for the inner radius in case of a Donut chart.
      */
-    public Pie setInnerRadius(Double innerRadius1) {
+    public Pie setInnerRadius(Number innerRadius1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -808,14 +805,14 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         return this;
     }
 
-    private Double insideLabelsOffset;
+    private Number insideLabelsOffset;
     private String insideLabelsOffset1;
 
     /**
      * Setter for inside labels space settings.<br/>
 <b>Note:</b> Works only with inside labels mode.
      */
-    public Pie setInsideLabelsOffset(Double insideLabelsOffset) {
+    public Pie setInsideLabelsOffset(Number insideLabelsOffset) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -929,14 +926,65 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         return this;
     }
 
-    private Double outsideLabelsCriticalAngle;
+
+    private Outline getOutline;
+
+    /**
+     * Getter for outline settings.
+     */
+    public Outline getOutline() {
+        if (getOutline == null)
+            getOutline = new Outline(jsBase + ".outline()");
+
+        return getOutline;
+    }
+    private String settings;
+    private Boolean settings1;
+    private String settings2;
+
+    /**
+     * Setter for outline settings.
+     */
+    public Pie setOutline(String settings) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".outline(%s)", wrapQuotes(settings)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".outline(%s)", wrapQuotes(settings)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter for outline settings.
+     */
+    public Pie setOutline(Boolean settings1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".outline(%b)", settings1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".outline(%b)", settings1));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+    private Number outsideLabelsCriticalAngle;
     private String outsideLabelsCriticalAngle1;
 
     /**
      * Setter for the outside labels connector critical angle settings.<br/>
 <b>Note:</b> Works only with outside labels mode.
      */
-    public Pie setOutsideLabelsCriticalAngle(Double outsideLabelsCriticalAngle) {
+    public Pie setOutsideLabelsCriticalAngle(Number outsideLabelsCriticalAngle) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -964,46 +1012,6 @@ Learn more about mapping at {@link anychart.data.Mapping}.
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".outsideLabelsCriticalAngle(%s)", wrapQuotes(outsideLabelsCriticalAngle1)));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-    private Double outsideLabelsSpace;
-    private String outsideLabelsSpace1;
-
-    /**
-     * Setter for the outside labels space settings.<br/>
-<b>Note:</b> Works only with outside labels mode.
-     */
-    public Pie setOutsideLabelsSpace(Double outsideLabelsSpace) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".outsideLabelsSpace(%f)", outsideLabelsSpace));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".outsideLabelsSpace(%f)", outsideLabelsSpace));
-            js.setLength(0);
-        }
-        return this;
-    }
-
-
-    /**
-     * Setter for the outside labels space settings.<br/>
-<b>Note:</b> Works only with outside labels mode.
-     */
-    public Pie setOutsideLabelsSpace(String outsideLabelsSpace1) {
-        if (!isChain) {
-            js.append(jsBase);
-            isChain = true;
-        }
-        js.append(String.format(Locale.US, ".outsideLabelsSpace(%s)", wrapQuotes(outsideLabelsSpace1)));
-
-        if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".outsideLabelsSpace(%s)", wrapQuotes(outsideLabelsSpace1)));
             js.setLength(0);
         }
         return this;
@@ -1096,6 +1104,11 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -1113,6 +1126,11 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -1155,7 +1173,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     }
 
     private String radius;
-    private Double radius1;
+    private Number radius1;
 
     /**
      * Setter for the outer pie radius.
@@ -1178,7 +1196,7 @@ Learn more about mapping at {@link anychart.data.Mapping}.
     /**
      * Setter for the outer pie radius.
      */
-    public Pie setRadius(Double radius1) {
+    public Pie setRadius(Number radius1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1187,6 +1205,77 @@ Learn more about mapping at {@link anychart.data.Mapping}.
 
         if (isRendered) {
             onChangeListener.onChange(String.format(Locale.US, ".radius(%f)", radius1));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+    private Number index1;
+
+    /**
+     * Selects points by index.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Pie#draw} is called.
+     */
+    public Pie select(Number index1) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".select(%f)", index1));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".select(%f)", index1));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+    private Number[] indexes;
+
+    /**
+     * Selects points by indexes.<br/>
+<b>Note:</b> Works only after {@link anychart.charts.Pie#draw} is called.
+     */
+    public Pie select(Number[] indexes) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".select(%s)", Arrays.toString(indexes)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".select(%s)", Arrays.toString(indexes)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    private StateSettings getSelected;
+
+    /**
+     * Getter for selected state settings.
+     */
+    public StateSettings getSelected() {
+        if (getSelected == null)
+            getSelected = new StateSettings(jsBase + ".selected()");
+
+        return getSelected;
+    }
+    private String selected;
+
+    /**
+     * Setter for selected state settings.
+     */
+    public Pie setSelected(String selected) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".selected(%s)", wrapQuotes(selected)));
             js.setLength(0);
         }
         return this;
@@ -1233,7 +1322,7 @@ Ascending, Descending and No sorting is supported.
     }
 
     private String startAngle;
-    private Double startAngle1;
+    private Number startAngle1;
 
     /**
      * Setter for the angle of the first slice.
@@ -1256,7 +1345,7 @@ Ascending, Descending and No sorting is supported.
     /**
      * Setter for the angle of the first slice.
      */
-    public Pie setStartAngle(Double startAngle1) {
+    public Pie setStartAngle(Number startAngle1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1273,7 +1362,7 @@ Ascending, Descending and No sorting is supported.
     private Stroke stroke;
     private ColoredFill stroke1;
     private String stroke2;
-    private Double thickness2;
+    private Number thickness2;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -1282,7 +1371,7 @@ Ascending, Descending and No sorting is supported.
      * Setter for the pie slices stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Pie setStroke(Stroke stroke, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Pie setStroke(Stroke stroke, Number thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1301,7 +1390,7 @@ Ascending, Descending and No sorting is supported.
      * Setter for the pie slices stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Pie setStroke(ColoredFill stroke1, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Pie setStroke(ColoredFill stroke1, Number thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1320,7 +1409,7 @@ Ascending, Descending and No sorting is supported.
      * Setter for the pie slices stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Pie setStroke(String stroke2, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Pie setStroke(String stroke2, Number thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1332,6 +1421,13 @@ Ascending, Descending and No sorting is supported.
             js.setLength(0);
         }
         return this;
+    }
+
+    private String generateJSgetCenter() {
+        if (getCenter != null) {
+            return getCenter.generateJs();
+        }
+        return "";
     }
 
     private String generateJSgetData() {
@@ -1376,9 +1472,23 @@ Ascending, Descending and No sorting is supported.
         return "";
     }
 
+    private String generateJSgetOutline() {
+        if (getOutline != null) {
+            return getOutline.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetPalette() {
         if (getPalette != null) {
             return getPalette.generateJs();
+        }
+        return "";
+    }
+
+    private String generateJSgetSelected() {
+        if (getSelected != null) {
+            return getSelected.generateJs();
         }
         return "";
     }
@@ -1390,13 +1500,16 @@ Ascending, Descending and No sorting is supported.
             js.append(";");
             isChain = false;
         }
+        js.append(generateJSgetCenter());
         js.append(generateJSgetData());
         js.append(generateJSgetHatchFill());
         js.append(generateJSgetHatchFillPalette());
         js.append(generateJSgetHovered());
         js.append(generateJSgetLabels());
         js.append(generateJSgetNormal());
+        js.append(generateJSgetOutline());
         js.append(generateJSgetPalette());
+        js.append(generateJSgetSelected());
 
         js.append(super.generateJsGetters());
         js.append(super.generateJs());

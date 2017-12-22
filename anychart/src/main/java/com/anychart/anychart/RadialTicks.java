@@ -36,13 +36,13 @@ public class RadialTicks extends VisualBase {
     }
 
     
-    private Double length;
+    private Number length;
 
     /**
      * Setter for ticks length.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.axes.RadialTicks.length.png' height='77' width='412'/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.axes.RadialTicks.length.png' height='77' width='412'/>
      */
-    public RadialTicks setLength(Double length) {
+    public RadialTicks setLength(Number length) {
         if (jsBase == null) {
             this.length = length;
         } else {
@@ -67,7 +67,7 @@ public class RadialTicks extends VisualBase {
 
     /**
      * Setter for stroke settings via single parameter.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.axes.RadialTicks.stroke.png' height='66' width='413'/><br/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.axes.RadialTicks.stroke.png' height='66' width='413'/><br/>
      */
     public Ticks setStroke(Stroke stroke) {
         if (jsBase == null) {
@@ -103,7 +103,7 @@ public class RadialTicks extends VisualBase {
     }
 
     private String color;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -126,7 +126,7 @@ The following options are acceptable:
 </ul>
 <b>Note:</b> String parts order is significant and '3px red' is not the same as 'red 3px'.
      */
-    public RadialTicks setStroke(String color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public RadialTicks setStroke(String color, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = color;
             this.thickness = thickness;

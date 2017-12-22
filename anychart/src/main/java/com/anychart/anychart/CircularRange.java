@@ -35,12 +35,12 @@ public class CircularRange extends VisualBase {
     }
 
     
-    private Double index;
+    private Number index;
 
     /**
      * Setter for the axis index.
      */
-    public CircularRange setAxisIndex(Double index) {
+    public CircularRange setAxisIndex(Number index) {
         if (jsBase == null) {
             this.index = index;
         } else {
@@ -60,14 +60,14 @@ public class CircularRange extends VisualBase {
         return this;
     }
 
-    private Double cornersRounding;
+    private Number cornersRounding;
     private String cornersRounding1;
 
     /**
      * Setter for the rounding of circular ranges.<br/>
 Round off the ends of circular ranges to the specified radius.
      */
-    public CircularRange setCornersRounding(Double cornersRounding) {
+    public CircularRange setCornersRounding(Number cornersRounding) {
         if (jsBase == null) {
             this.cornersRounding = null;
             this.cornersRounding1 = null;
@@ -118,13 +118,13 @@ Round off the ends of circular ranges to the specified radius.
         return this;
     }
 
-    private Double endSize;
+    private Number endSize;
     private String endSize1;
 
     /**
      * Setter for the range end size.
      */
-    public CircularRange setEndSize(Double endSize) {
+    public CircularRange setEndSize(Number endSize) {
         if (jsBase == null) {
             this.endSize = null;
             this.endSize1 = null;
@@ -199,12 +199,12 @@ Round off the ends of circular ranges to the specified radius.
         return this;
     }
 
-    private Double from;
+    private Number from;
 
     /**
      * Setter for the starting range value.
      */
-    public CircularRange setFrom(Double from) {
+    public CircularRange setFrom(Number from) {
         if (jsBase == null) {
             this.from = from;
         } else {
@@ -280,13 +280,13 @@ Round off the ends of circular ranges to the specified radius.
         return this;
     }
 
-    private Double radius;
+    private Number radius;
     private String radius1;
 
     /**
      * Setter for the range radius.
      */
-    public CircularRange setRadius(Double radius) {
+    public CircularRange setRadius(Number radius) {
         if (jsBase == null) {
             this.radius = null;
             this.radius1 = null;
@@ -336,13 +336,13 @@ Round off the ends of circular ranges to the specified radius.
         return this;
     }
 
-    private Double startSize;
+    private Number startSize;
     private String startSize1;
 
     /**
      * Setter for the range start size.
      */
-    public CircularRange setStartSize(Double startSize) {
+    public CircularRange setStartSize(Number startSize) {
         if (jsBase == null) {
             this.startSize = null;
             this.startSize1 = null;
@@ -392,12 +392,12 @@ Round off the ends of circular ranges to the specified radius.
         return this;
     }
 
-    private Double to;
+    private Number to;
 
     /**
      * Setter for the ending range value.
      */
-    public CircularRange setTo(Double to) {
+    public CircularRange setTo(Number to) {
         if (jsBase == null) {
             this.to = to;
         } else {

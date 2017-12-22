@@ -9,12 +9,12 @@ import java.util.Arrays;
 public class ControlPoint extends JsObject  {
 
     
-    private Double height;
-    private Double left;
-    private Double right;
+    private Number height;
+    private Number left;
+    private Number right;
 
     
-    public ControlPoint(Double height, Double left, Double right) {
+    public ControlPoint(Number height, Number left, Number right) {
         this.height = height;
         this.left = left;
         this.right = right;

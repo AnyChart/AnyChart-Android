@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Common format context class.
+ * The Context class contains methods to show some information from extra fields in the format function context.
  */
 public class FormatContext extends JsObject {
 

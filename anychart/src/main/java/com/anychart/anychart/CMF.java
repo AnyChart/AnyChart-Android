@@ -35,12 +35,12 @@ public class CMF extends JsObject {
     }
 
     
-    private Double period;
+    private Number period;
 
     /**
      * Setter for the indicator period.
      */
-    public CMF setPeriod(Double period) {
+    public CMF setPeriod(Number period) {
         if (jsBase == null) {
             this.period = period;
         } else {

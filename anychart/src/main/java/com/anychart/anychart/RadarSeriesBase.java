@@ -41,13 +41,13 @@ public class RadarSeriesBase extends AnychartSeriesBase {
     }
 
     
-    private Double indexes;
-    private Double[] indexes1;
+    private Number indexes;
+    private Number[] indexes1;
 
     /**
      * Excludes points at the specified index.
      */
-    public void excludePoint(Double indexes) {
+    public void excludePoint(Number indexes) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -74,7 +74,7 @@ public class RadarSeriesBase extends AnychartSeriesBase {
     /**
      * Excludes points at the specified index.
      */
-    public void excludePoint(Double[] indexes1) {
+    public void excludePoint(Number[] indexes1) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -97,13 +97,13 @@ public class RadarSeriesBase extends AnychartSeriesBase {
         }
     }
 
-    private Double indexes2;
-    private Double[] indexes3;
+    private Number indexes2;
+    private Number[] indexes3;
 
     /**
      * Includes excluded points with the specified indexes.
      */
-    public void includePoint(Double indexes2) {
+    public void includePoint(Number indexes2) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -132,7 +132,7 @@ public class RadarSeriesBase extends AnychartSeriesBase {
     /**
      * Includes excluded points with the specified indexes.
      */
-    public void includePoint(Double[] indexes3) {
+    public void includePoint(Number[] indexes3) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -157,13 +157,13 @@ public class RadarSeriesBase extends AnychartSeriesBase {
         }
     }
 
-    private Double indexes4;
-    private Double[] indexes5;
+    private Number indexes4;
+    private Number[] indexes5;
 
     /**
      * Keep only the specified points.
      */
-    public void keepOnlyPoints(Double indexes4) {
+    public void keepOnlyPoints(Number indexes4) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -194,7 +194,7 @@ public class RadarSeriesBase extends AnychartSeriesBase {
     /**
      * Keep only the specified points.
      */
-    public void keepOnlyPoints(Double[] indexes5) {
+    public void keepOnlyPoints(Number[] indexes5) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -221,12 +221,12 @@ public class RadarSeriesBase extends AnychartSeriesBase {
         }
     }
 
-    private Double xSubRangeRatio;
+    private Number xSubRangeRatio;
 
     /**
      * Transforms values to pixel coordinates.
      */
-    public void transformXY(Double xSubRangeRatio) {
+    public void transformXY(Number xSubRangeRatio) {
         if (jsBase == null) {
             this.xSubRangeRatio = xSubRangeRatio;
         } else {

@@ -39,7 +39,7 @@ public class ScrollerseriesOHLC extends ScrollerseriesDiscreteBase {
     private Stroke fallingStroke;
     private ColoredFill fallingStroke1;
     private String fallingStroke2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -48,7 +48,7 @@ public class ScrollerseriesOHLC extends ScrollerseriesDiscreteBase {
      * Setter for falling stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public ScrollerseriesOHLC setFallingStroke(Stroke fallingStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public ScrollerseriesOHLC setFallingStroke(Stroke fallingStroke, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.fallingStroke = null;
             this.fallingStroke1 = null;
@@ -85,7 +85,7 @@ public class ScrollerseriesOHLC extends ScrollerseriesDiscreteBase {
      * Setter for falling stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public ScrollerseriesOHLC setFallingStroke(ColoredFill fallingStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public ScrollerseriesOHLC setFallingStroke(ColoredFill fallingStroke1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.fallingStroke = null;
             this.fallingStroke1 = null;
@@ -122,7 +122,7 @@ public class ScrollerseriesOHLC extends ScrollerseriesDiscreteBase {
      * Setter for falling stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public ScrollerseriesOHLC setFallingStroke(String fallingStroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public ScrollerseriesOHLC setFallingStroke(String fallingStroke2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.fallingStroke = null;
             this.fallingStroke1 = null;
@@ -157,7 +157,7 @@ public class ScrollerseriesOHLC extends ScrollerseriesDiscreteBase {
     private Stroke risingStroke;
     private ColoredFill risingStroke1;
     private String risingStroke2;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -166,7 +166,7 @@ public class ScrollerseriesOHLC extends ScrollerseriesDiscreteBase {
      * Setter for rising stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public ScrollerseriesOHLC setRisingStroke(Stroke risingStroke, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public ScrollerseriesOHLC setRisingStroke(Stroke risingStroke, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.risingStroke = null;
             this.risingStroke1 = null;
@@ -215,7 +215,7 @@ public class ScrollerseriesOHLC extends ScrollerseriesDiscreteBase {
      * Setter for rising stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public ScrollerseriesOHLC setRisingStroke(ColoredFill risingStroke1, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public ScrollerseriesOHLC setRisingStroke(ColoredFill risingStroke1, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.risingStroke = null;
             this.risingStroke1 = null;
@@ -264,7 +264,7 @@ public class ScrollerseriesOHLC extends ScrollerseriesDiscreteBase {
      * Setter for rising stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public ScrollerseriesOHLC setRisingStroke(String risingStroke2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public ScrollerseriesOHLC setRisingStroke(String risingStroke2, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.risingStroke = null;
             this.risingStroke1 = null;

@@ -1,10 +1,15 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
- * 
+ * The ResourceList class contains methods for configuring standalones resource list.
  */
 public class StandalonesResourceList extends ResourceResourceList {
 
@@ -234,15 +239,15 @@ public class StandalonesResourceList extends ResourceResourceList {
         return this;
     }
 
-    private Double left;
-    private Double top;
-    private Double width;
-    private Double height;
+    private Number left;
+    private Number top;
+    private Number width;
+    private Number height;
 
     /**
      * Setter for bounds using several values.
      */
-    public StandalonesResourceList setParentBounds(Double left, Double top, Double width, Double height) {
+    public StandalonesResourceList setParentBounds(Number left, Number top, Number width, Number height) {
         if (jsBase == null) {
             this.left = left;
             this.top = top;

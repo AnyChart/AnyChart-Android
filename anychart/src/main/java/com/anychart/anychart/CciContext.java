@@ -9,13 +9,13 @@ import java.util.Arrays;
 public class CciContext extends JsObject  {
 
     
-    private Double dequeuedValue;
-    private Double period;
-    private Double prevResult;
+    private Number dequeuedValue;
+    private Number period;
+    private Number prevResult;
     private CycledQueue queue;
 
     
-    public CciContext(Double dequeuedValue, Double period, Double prevResult, CycledQueue queue) {
+    public CciContext(Number dequeuedValue, Number period, Number prevResult, CycledQueue queue) {
         this.dequeuedValue = dequeuedValue;
         this.period = period;
         this.prevResult = prevResult;

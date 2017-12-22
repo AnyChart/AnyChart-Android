@@ -63,7 +63,7 @@ public class Point extends JsObject {
     private SeparateChart getGetChart;
 
     /**
-     * Getter for the current chart which current point belongs to.
+     * Getter for the chart which current point belongs to.
      */
     public SeparateChart getGetChart() {
         if (getGetChart == null)

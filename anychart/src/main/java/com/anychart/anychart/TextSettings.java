@@ -141,12 +141,12 @@ public class TextSettings extends SettingsWithMargin {
         return this;
     }
 
-    private Double fontOpacity;
+    private Number fontOpacity;
 
     /**
      * Setter for the font opacity.
      */
-    public TextSettings setFontOpacity(Double fontOpacity) {
+    public TextSettings setFontOpacity(Number fontOpacity) {
         if (jsBase == null) {
             this.fontOpacity = fontOpacity;
         } else {
@@ -167,7 +167,7 @@ public class TextSettings extends SettingsWithMargin {
     }
 
     private String fontSize;
-    private Double fontSize1;
+    private Number fontSize1;
 
     /**
      * Setter for the text font size text.
@@ -199,7 +199,7 @@ public class TextSettings extends SettingsWithMargin {
     /**
      * Setter for the text font size text.
      */
-    public TextSettings setFontSize(Double fontSize1) {
+    public TextSettings setFontSize(Number fontSize1) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -335,7 +335,7 @@ public class TextSettings extends SettingsWithMargin {
     }
 
     private String fontWeight;
-    private Double fontWeight1;
+    private Number fontWeight1;
 
     /**
      * Setter for the font weight.
@@ -367,7 +367,7 @@ public class TextSettings extends SettingsWithMargin {
     /**
      * Setter for the font weight.
      */
-    public TextSettings setFontWeight(Double fontWeight1) {
+    public TextSettings setFontWeight(Number fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -447,7 +447,7 @@ public class TextSettings extends SettingsWithMargin {
     }
 
     private String letterSpacing;
-    private Double letterSpacing1;
+    private Number letterSpacing1;
 
     /**
      * Setter for the letter spacing.
@@ -479,7 +479,7 @@ public class TextSettings extends SettingsWithMargin {
     /**
      * Setter for the letter spacing.
      */
-    public TextSettings setLetterSpacing(Double letterSpacing1) {
+    public TextSettings setLetterSpacing(Number letterSpacing1) {
         if (jsBase == null) {
             this.letterSpacing = null;
             this.letterSpacing1 = null;
@@ -503,7 +503,7 @@ public class TextSettings extends SettingsWithMargin {
     }
 
     private String lineHeight;
-    private Double lineHeight1;
+    private Number lineHeight1;
 
     /**
      * Setter for the font line height.
@@ -535,7 +535,7 @@ public class TextSettings extends SettingsWithMargin {
     /**
      * Setter for the font line height.
      */
-    public TextSettings setLineHeight(Double lineHeight1) {
+    public TextSettings setLineHeight(Number lineHeight1) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -639,12 +639,12 @@ public class TextSettings extends SettingsWithMargin {
         return this;
     }
 
-    private Double textIndent;
+    private Number textIndent;
 
     /**
      * Setter for text indent settings.
      */
-    public TextSettings setTextIndent(Double textIndent) {
+    public TextSettings setTextIndent(Number textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
         } else {

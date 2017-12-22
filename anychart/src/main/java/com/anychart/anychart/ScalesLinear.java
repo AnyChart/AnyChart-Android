@@ -9,7 +9,8 @@ import android.text.TextUtils;
 
 // class
 /**
- * Represents simple linear scale that transforms values from domain [a, b] to domain [0, 1].
+ * The Linear class contains methods for configuring Linear scale.<br/>
+Represents simple linear scale that transforms values from domain [a, b] to domain [0, 1].
 Note that a can be greater than b. The only condition for the scale is that a != b.<br/>
 <b>Note:</b> To create instance use {@link anychart.scales#linear} method.
  */
@@ -39,7 +40,7 @@ public class ScalesLinear extends ScatterBase {
     
     private ScaleCompareWithMode compareWith;
     private String compareWith1;
-    private Double compareWith2;
+    private Number compareWith2;
 
     /**
      * Setter for the date which should be used as a changes zero for series.
@@ -100,7 +101,7 @@ public class ScalesLinear extends ScatterBase {
     /**
      * Setter for the date which should be used as a changes zero for series.
      */
-    public ScalesLinear setCompareWith(Double compareWith2) {
+    public ScalesLinear setCompareWith(Number compareWith2) {
         if (jsBase == null) {
             this.compareWith = null;
             this.compareWith1 = null;
@@ -180,12 +181,12 @@ public class ScalesLinear extends ScatterBase {
         return this;
     }
 
-    private Double maximumGap;
+    private Number maximumGap;
 
     /**
      * Setter for the scale maximum gap.
      */
-    public ScalesLinear setMaximumGap(Double maximumGap) {
+    public ScalesLinear setMaximumGap(Number maximumGap) {
         if (jsBase == null) {
             this.maximumGap = maximumGap;
         } else {
@@ -205,12 +206,12 @@ public class ScalesLinear extends ScatterBase {
         return this;
     }
 
-    private Double minimumGap;
+    private Number minimumGap;
 
     /**
      * Setter for the scale minimum gap.
      */
-    public ScalesLinear setMinimumGap(Double minimumGap) {
+    public ScalesLinear setMinimumGap(Number minimumGap) {
         if (jsBase == null) {
             this.minimumGap = minimumGap;
         } else {
@@ -298,12 +299,12 @@ public class ScalesLinear extends ScatterBase {
         return this;
     }
 
-    private Double softMaximum;
+    private Number softMaximum;
 
     /**
-     * Setter for soft maximum.
+     * Setter for the soft maximum.
      */
-    public ScalesLinear setSoftMaximum(Double softMaximum) {
+    public ScalesLinear setSoftMaximum(Number softMaximum) {
         if (jsBase == null) {
             this.softMaximum = softMaximum;
         } else {
@@ -323,12 +324,12 @@ public class ScalesLinear extends ScatterBase {
         return this;
     }
 
-    private Double softMinimum;
+    private Number softMinimum;
 
     /**
-     * Setter for soft minimum.
+     * Setter for the soft minimum.
      */
-    public ScalesLinear setSoftMinimum(Double softMinimum) {
+    public ScalesLinear setSoftMinimum(Number softMinimum) {
         if (jsBase == null) {
             this.softMinimum = softMinimum;
         } else {
@@ -408,7 +409,7 @@ public class ScalesLinear extends ScatterBase {
     private String stackMode1;
 
     /**
-     * Setter for stacked mode.
+     * Setter for the stacked mode.
      */
     public ScalesLinear setStackMode(ScaleStackMode stackMode) {
         if (jsBase == null) {
@@ -435,7 +436,7 @@ public class ScalesLinear extends ScatterBase {
 
 
     /**
-     * Setter for stacked mode.
+     * Setter for the stacked mode.
      */
     public ScalesLinear setStackMode(String stackMode1) {
         if (jsBase == null) {

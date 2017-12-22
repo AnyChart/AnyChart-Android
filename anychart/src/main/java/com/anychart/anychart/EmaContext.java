@@ -9,12 +9,12 @@ import java.util.Arrays;
 public class EmaContext extends JsObject  {
 
     
-    private Double period;
-    private Double prevResult;
+    private Number period;
+    private Number prevResult;
     private CycledQueue queue;
 
     
-    public EmaContext(Double period, Double prevResult, CycledQueue queue) {
+    public EmaContext(Number period, Number prevResult, CycledQueue queue) {
         this.period = period;
         this.prevResult = prevResult;
         this.queue = queue;

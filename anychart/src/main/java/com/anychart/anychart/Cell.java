@@ -35,12 +35,12 @@ public class Cell extends TableBase {
     }
 
     
-    private Double colSpan;
+    private Number colSpan;
 
     /**
      * Setter for cell columns span.
      */
-    public Cell setColSpan(Double colSpan) {
+    public Cell setColSpan(Number colSpan) {
         if (jsBase == null) {
             this.colSpan = colSpan;
         } else {
@@ -74,7 +74,7 @@ public class Cell extends TableBase {
 
     private VisualBase content;
     private String content1;
-    private Double content2;
+    private Number content2;
 
     /**
      * Setter for cell content.
@@ -136,7 +136,7 @@ public class Cell extends TableBase {
     /**
      * Setter for cell content.
      */
-    public Cell setContent(Double content2) {
+    public Cell setContent(Number content2) {
         if (jsBase == null) {
             this.content = null;
             this.content1 = null;
@@ -187,12 +187,12 @@ public class Cell extends TableBase {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public Cell fill(String color, Double opacity) {
+    public Cell fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -216,17 +216,17 @@ public class Cell extends TableBase {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cell fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public Cell fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -267,7 +267,7 @@ public class Cell extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cell fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public Cell fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -308,7 +308,7 @@ public class Cell extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cell fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public Cell fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -349,7 +349,7 @@ public class Cell extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cell fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public Cell fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -390,7 +390,7 @@ public class Cell extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cell fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public Cell fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -431,7 +431,7 @@ public class Cell extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cell fill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public Cell fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -469,18 +469,18 @@ public class Cell extends TableBase {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cell fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Cell fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -531,7 +531,7 @@ public class Cell extends TableBase {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cell fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Cell fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -590,14 +590,14 @@ public class Cell extends TableBase {
         return getPadding;
     }
 
-    private Double[] padding;
+    private Number[] padding;
     private String[] padding1;
     private String padding2;
 
     /**
      * Setter for cell paddings in pixels using a single value.<br/>
      */
-    public Cell setPadding(Double[] padding) {
+    public Cell setPadding(Number[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -678,13 +678,13 @@ public class Cell extends TableBase {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for cell paddings in pixels using several numbers.
@@ -755,7 +755,7 @@ public class Cell extends TableBase {
     /**
      * Setter for cell paddings in pixels using several numbers.
      */
-    public Cell setPadding(Double value1, Double value3, Double value5, Double value7) {
+    public Cell setPadding(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -817,12 +817,12 @@ public class Cell extends TableBase {
         return this;
     }
 
-    private Double rowSpan;
+    private Number rowSpan;
 
     /**
      * Setter for cell rows span.
      */
-    public Cell setRowSpan(Double rowSpan) {
+    public Cell setRowSpan(Number rowSpan) {
         if (jsBase == null) {
             this.rowSpan = rowSpan;
         } else {

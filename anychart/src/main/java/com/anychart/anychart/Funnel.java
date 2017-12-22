@@ -48,7 +48,7 @@ public class Funnel extends SeparateChart {
 
     
     private String baseWidth;
-    private Double baseWidth1;
+    private Number baseWidth1;
 
     /**
      * Setter for the funnel width in pixels or in percentage.
@@ -71,7 +71,7 @@ public class Funnel extends SeparateChart {
     /**
      * Setter for the funnel width in pixels or in percentage.
      */
-    public Funnel setBaseWidth(Double baseWidth1) {
+    public Funnel setBaseWidth(Number baseWidth1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -85,13 +85,13 @@ public class Funnel extends SeparateChart {
         return this;
     }
 
-    private Double connectorLength;
+    private Number connectorLength;
     private String connectorLength1;
 
     /**
      * Setter for outside labels connector length.
      */
-    public Funnel setConnectorLength(Double connectorLength) {
+    public Funnel setConnectorLength(Number connectorLength) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -126,7 +126,7 @@ public class Funnel extends SeparateChart {
     private Stroke connectorStroke;
     private ColoredFill connectorStroke1;
     private String connectorStroke2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -135,7 +135,7 @@ public class Funnel extends SeparateChart {
      * Setter for outside labels connectors stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Funnel setConnectorStroke(Stroke connectorStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Funnel setConnectorStroke(Stroke connectorStroke, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -154,7 +154,7 @@ public class Funnel extends SeparateChart {
      * Setter for outside labels connectors stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Funnel setConnectorStroke(ColoredFill connectorStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Funnel setConnectorStroke(ColoredFill connectorStroke1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -173,7 +173,7 @@ public class Funnel extends SeparateChart {
      * Setter for outside labels connectors stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Funnel setConnectorStroke(String connectorStroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Funnel setConnectorStroke(String connectorStroke2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -204,27 +204,27 @@ public class Funnel extends SeparateChart {
      * Setter for the data for the current chart.
      */
     public Funnel setData(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         return this;
     }
 
@@ -268,12 +268,12 @@ public class Funnel extends SeparateChart {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity.
      */
-    public Funnel fill(String color, Double opacity) {
+    public Funnel fill(String color, Number opacity) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -289,17 +289,17 @@ public class Funnel extends SeparateChart {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Funnel fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public Funnel fill(GradientKey[] keys, Boolean mode, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -318,7 +318,7 @@ public class Funnel extends SeparateChart {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Funnel fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public Funnel fill(GradientKey[] keys, VectorRect mode1, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -337,7 +337,7 @@ public class Funnel extends SeparateChart {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Funnel fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public Funnel fill(GradientKey[] keys, String mode2, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -356,7 +356,7 @@ public class Funnel extends SeparateChart {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Funnel fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public Funnel fill(String[] keys1, Boolean mode, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -375,7 +375,7 @@ public class Funnel extends SeparateChart {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Funnel fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public Funnel fill(String[] keys1, VectorRect mode1, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -394,7 +394,7 @@ public class Funnel extends SeparateChart {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Funnel fill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public Funnel fill(String[] keys1, String mode2, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -410,18 +410,18 @@ public class Funnel extends SeparateChart {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Funnel fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Funnel fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -440,7 +440,7 @@ public class Funnel extends SeparateChart {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Funnel fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Funnel fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -473,13 +473,13 @@ public class Funnel extends SeparateChart {
     private String patternFillOrType3;
     private Boolean patternFillOrType4;
     private String color1;
-    private Double thickness1;
-    private Double size;
+    private Number thickness1;
+    private Number size;
 
     /**
      * Setter for the hatch fill settings.
      */
-    public Funnel setHatchFill(PatternFill patternFillOrType, String color1, Double thickness1, Double size) {
+    public Funnel setHatchFill(PatternFill patternFillOrType, String color1, Number thickness1, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -497,7 +497,7 @@ public class Funnel extends SeparateChart {
     /**
      * Setter for the hatch fill settings.
      */
-    public Funnel setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness1, Double size) {
+    public Funnel setHatchFill(HatchFill patternFillOrType1, String color1, Number thickness1, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -515,7 +515,7 @@ public class Funnel extends SeparateChart {
     /**
      * Setter for the hatch fill settings.
      */
-    public Funnel setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness1, Double size) {
+    public Funnel setHatchFill(HatchFillType patternFillOrType2, String color1, Number thickness1, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -533,7 +533,7 @@ public class Funnel extends SeparateChart {
     /**
      * Setter for the hatch fill settings.
      */
-    public Funnel setHatchFill(String patternFillOrType3, String color1, Double thickness1, Double size) {
+    public Funnel setHatchFill(String patternFillOrType3, String color1, Number thickness1, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -551,7 +551,7 @@ public class Funnel extends SeparateChart {
     /**
      * Setter for the hatch fill settings.
      */
-    public Funnel setHatchFill(Boolean patternFillOrType4, String color1, Double thickness1, Double size) {
+    public Funnel setHatchFill(Boolean patternFillOrType4, String color1, Number thickness1, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -629,15 +629,20 @@ public class Funnel extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
-    private Double index;
+    private Number index;
 
     /**
      * Setter for the hover state on a element or all elements.
      */
-    public Funnel setHover(Double index) {
+    public Funnel setHover(Number index) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -761,6 +766,11 @@ public class Funnel extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -870,7 +880,7 @@ public class Funnel extends SeparateChart {
     }
 
     private String neckHeight;
-    private Double neckHeight1;
+    private Number neckHeight1;
 
     /**
      * Setter for the height of the neck.
@@ -893,7 +903,7 @@ public class Funnel extends SeparateChart {
     /**
      * Setter for the height of the neck.
      */
-    public Funnel setNeckHeight(Double neckHeight1) {
+    public Funnel setNeckHeight(Number neckHeight1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -908,7 +918,7 @@ public class Funnel extends SeparateChart {
     }
 
     private String neckWidth;
-    private Double neckWidth1;
+    private Number neckWidth1;
 
     /**
      * Setter for the width of the neck.
@@ -931,7 +941,7 @@ public class Funnel extends SeparateChart {
     /**
      * Setter for the width of the neck.
      */
-    public Funnel setNeckWidth(Double neckWidth1) {
+    public Funnel setNeckWidth(Number neckWidth1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1063,6 +1073,11 @@ public class Funnel extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -1080,6 +1095,11 @@ public class Funnel extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -1122,7 +1142,7 @@ public class Funnel extends SeparateChart {
     }
 
     private String pointsPadding;
-    private Double pointsPadding1;
+    private Number pointsPadding1;
 
     /**
      * Setter for the padding between points.
@@ -1145,7 +1165,7 @@ public class Funnel extends SeparateChart {
     /**
      * Setter for the padding between points.
      */
-    public Funnel setPointsPadding(Double pointsPadding1) {
+    public Funnel setPointsPadding(Number pointsPadding1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1159,13 +1179,13 @@ public class Funnel extends SeparateChart {
         return this;
     }
 
-    private Double index1;
+    private Number index1;
 
     /**
      * Selects points by index.
 <b>Note:</b> Works only after {@link anychart.charts.Funnel#draw} is called.
      */
-    public Funnel select(Double index1) {
+    public Funnel select(Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1179,13 +1199,13 @@ public class Funnel extends SeparateChart {
         return this;
     }
 
-    private Double[] indexes;
+    private Number[] indexes;
 
     /**
      * Selects points by indexes.<br/>
 <b>Note:</b> Works only after {@link anychart.charts.Funnel#draw} is called.
      */
-    public Funnel select(Double[] indexes) {
+    public Funnel select(Number[] indexes) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1253,7 +1273,7 @@ public class Funnel extends SeparateChart {
     private Stroke color2;
     private ColoredFill color3;
     private String color4;
-    private Double thickness2;
+    private Number thickness2;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -1262,7 +1282,7 @@ public class Funnel extends SeparateChart {
      * Setter for the funnel points stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Funnel setStroke(Stroke color2, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Funnel setStroke(Stroke color2, Number thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1281,7 +1301,7 @@ public class Funnel extends SeparateChart {
      * Setter for the funnel points stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Funnel setStroke(ColoredFill color3, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Funnel setStroke(ColoredFill color3, Number thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1300,7 +1320,7 @@ public class Funnel extends SeparateChart {
      * Setter for the funnel points stroke using several parameters.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Funnel setStroke(String color4, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Funnel setStroke(String color4, Number thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;

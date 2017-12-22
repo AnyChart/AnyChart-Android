@@ -63,13 +63,13 @@ public class Box extends WidthBased {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity.<br/>
 Fill as a string or an object.
      */
-    public Box fill(String color, Double opacity) {
+    public Box fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -93,17 +93,17 @@ Fill as a string or an object.
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Box fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public Box fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -144,7 +144,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Box fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public Box fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -185,7 +185,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Box fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public Box fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -226,7 +226,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Box fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public Box fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -267,7 +267,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Box fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public Box fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -308,7 +308,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Box fill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public Box fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -346,18 +346,18 @@ Fill as a string or an object.
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Box fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Box fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -408,7 +408,7 @@ Fill as a string or an object.
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Box fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Box fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -472,14 +472,14 @@ Fill as a string or an object.
     private HatchFillType patternFillOrType2;
     private String patternFillOrType3;
     private String color1;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
 
     /**
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Box setHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
+    public Box setHatchFill(PatternFill patternFillOrType, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -518,7 +518,7 @@ Fill as a string or an object.
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Box setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
+    public Box setHatchFill(HatchFill patternFillOrType1, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -557,7 +557,7 @@ Fill as a string or an object.
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Box setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
+    public Box setHatchFill(HatchFillType patternFillOrType2, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -596,7 +596,7 @@ Fill as a string or an object.
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Box setHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
+    public Box setHatchFill(String patternFillOrType3, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -633,7 +633,7 @@ Fill as a string or an object.
     private Stroke color2;
     private ColoredFill color3;
     private String color4;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -642,7 +642,7 @@ Fill as a string or an object.
      * Setter for median stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Box setMedianStroke(Stroke color2, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Box setMedianStroke(Stroke color2, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -684,7 +684,7 @@ Fill as a string or an object.
      * Setter for median stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Box setMedianStroke(ColoredFill color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Box setMedianStroke(ColoredFill color3, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -726,7 +726,7 @@ Fill as a string or an object.
      * Setter for median stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Box setMedianStroke(String color4, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Box setMedianStroke(String color4, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -837,7 +837,7 @@ Fill as a string or an object.
     private Stroke color5;
     private ColoredFill color6;
     private String color7;
-    private Double thickness2;
+    private Number thickness2;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -846,7 +846,7 @@ Fill as a string or an object.
      * Setter for stem stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Box setStemStroke(Stroke color5, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Box setStemStroke(Stroke color5, Number thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -901,7 +901,7 @@ Fill as a string or an object.
      * Setter for stem stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Box setStemStroke(ColoredFill color6, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Box setStemStroke(ColoredFill color6, Number thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -956,7 +956,7 @@ Fill as a string or an object.
      * Setter for stem stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Box setStemStroke(String color7, Double thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Box setStemStroke(String color7, Number thickness2, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1009,7 +1009,7 @@ Fill as a string or an object.
     private Stroke color8;
     private ColoredFill color9;
     private String color10;
-    private Double thickness3;
+    private Number thickness3;
     private String dashpattern2;
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
@@ -1018,7 +1018,7 @@ Fill as a string or an object.
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Box setStroke(Stroke color8, Double thickness3, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public Box setStroke(Stroke color8, Number thickness3, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1080,7 +1080,7 @@ Fill as a string or an object.
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Box setStroke(ColoredFill color9, Double thickness3, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public Box setStroke(ColoredFill color9, Number thickness3, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1142,7 +1142,7 @@ Fill as a string or an object.
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Box setStroke(String color10, Double thickness3, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public Box setStroke(String color10, Number thickness3, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1202,7 +1202,7 @@ Fill as a string or an object.
     private Stroke color11;
     private ColoredFill color12;
     private String color13;
-    private Double thickness4;
+    private Number thickness4;
     private String dashpattern3;
     private StrokeLineJoin lineJoin3;
     private StrokeLineCap lineCap3;
@@ -1211,7 +1211,7 @@ Fill as a string or an object.
      * Setter for whisker stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Box setWhiskerStroke(Stroke color11, Double thickness4, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
+    public Box setWhiskerStroke(Stroke color11, Number thickness4, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1280,7 +1280,7 @@ Fill as a string or an object.
      * Setter for whisker stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Box setWhiskerStroke(ColoredFill color12, Double thickness4, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
+    public Box setWhiskerStroke(ColoredFill color12, Number thickness4, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1349,7 +1349,7 @@ Fill as a string or an object.
      * Setter for whisker stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Box setWhiskerStroke(String color13, Double thickness4, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
+    public Box setWhiskerStroke(String color13, Number thickness4, String dashpattern3, StrokeLineJoin lineJoin3, StrokeLineCap lineCap3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1413,13 +1413,13 @@ Fill as a string or an object.
         return this;
     }
 
-    private Double whiskerWidth;
+    private Number whiskerWidth;
     private String whiskerWidth1;
 
     /**
      * Setter for whisker width settings.
      */
-    public Box setWhiskerWidth(Double whiskerWidth) {
+    public Box setWhiskerWidth(Number whiskerWidth) {
         if (jsBase == null) {
             this.whiskerWidth = null;
             this.whiskerWidth1 = null;

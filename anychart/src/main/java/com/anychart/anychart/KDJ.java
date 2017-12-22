@@ -92,12 +92,12 @@ public class KDJ extends JsObject {
         return this;
     }
 
-    private Double dMultiplier;
+    private Number dMultiplier;
 
     /**
      * Setter for the %D multiplier.
      */
-    public KDJ setDMultiplier(Double dMultiplier) {
+    public KDJ setDMultiplier(Number dMultiplier) {
         if (jsBase == null) {
             this.dMultiplier = dMultiplier;
         } else {
@@ -117,12 +117,12 @@ public class KDJ extends JsObject {
         return this;
     }
 
-    private Double dPeriod;
+    private Number dPeriod;
 
     /**
      * Setter for the %D Period.
      */
-    public KDJ setDPeriod(Double dPeriod) {
+    public KDJ setDPeriod(Number dPeriod) {
         if (jsBase == null) {
             this.dPeriod = dPeriod;
         } else {
@@ -287,7 +287,7 @@ public class KDJ extends JsObject {
     /**
      * Getter and setter for the %K smoothing period.
      */
-    public KDJ getKMAPeriod(Double kMAPeriod) {
+    public KDJ getKMAPeriod(Number kMAPeriod) {
         KDJ item = new KDJ(jsBase + ".kMAPeriod(" + kMAPeriod + ")");
         getKMAPeriod.add(item);
         return item;
@@ -349,12 +349,12 @@ public class KDJ extends JsObject {
         return this;
     }
 
-    private Double kMultiplier;
+    private Number kMultiplier;
 
     /**
      * Setter for the %K multiplier.
      */
-    public KDJ setKMultiplier(Double kMultiplier) {
+    public KDJ setKMultiplier(Number kMultiplier) {
         if (jsBase == null) {
             this.kMultiplier = kMultiplier;
         } else {
@@ -374,12 +374,12 @@ public class KDJ extends JsObject {
         return this;
     }
 
-    private Double kPeriod;
+    private Number kPeriod;
 
     /**
      * Setter for the %K Period.
      */
-    public KDJ setKPeriod(Double kPeriod) {
+    public KDJ setKPeriod(Number kPeriod) {
         if (jsBase == null) {
             this.kPeriod = kPeriod;
         } else {

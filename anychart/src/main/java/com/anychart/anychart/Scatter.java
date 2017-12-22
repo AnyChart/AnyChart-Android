@@ -51,27 +51,27 @@ public class Scatter extends SeparateChart {
      * Adds series to chart.
      */
     public void addSeries(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".addSeries(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".addSeries(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
     }
 
 
@@ -129,27 +129,27 @@ public class Scatter extends SeparateChart {
      * Adds Bubble series.
      */
     public ScatterSeriesBubble bubble(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setBubble" + ++variableIndex + " = " + jsBase + ".bubble(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setBubble" + ++variableIndex + " = " + jsBase + ".bubble(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".bubble(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         ScatterSeriesBubble item = new ScatterSeriesBubble("setBubble" + variableIndex);
         setBubble.add(item);
         return item;
@@ -316,7 +316,7 @@ public class Scatter extends SeparateChart {
     /**
      * Gets series by its id.
      */
-    public ScatterSeriesBase getGetSeries(Double id) {
+    public ScatterSeriesBase getGetSeries(Number id) {
         ScatterSeriesBase item = new ScatterSeriesBase(jsBase + ".getSeries("+ id+")");
         getGetSeries.add(item);
         return item;
@@ -338,7 +338,7 @@ public class Scatter extends SeparateChart {
     /**
      * Gets series by its index.
      */
-    public ScatterSeriesBase getGetSeriesAt(Double index) {
+    public ScatterSeriesBase getGetSeriesAt(Number index) {
         ScatterSeriesBase item = new ScatterSeriesBase(jsBase + ".getSeriesAt("+ index+")");
         getGetSeriesAt.add(item);
         return item;
@@ -407,6 +407,11 @@ public class Scatter extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".hatchFillPalette(%s);",  ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFillPalette(%s)", ((hatchFillPalette2 != null) ? hatchFillPalette2.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -497,27 +502,27 @@ public class Scatter extends SeparateChart {
      * Adds Line series.
      */
     public ScatterSeriesLine line(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         ScatterSeriesLine item = new ScatterSeriesLine("setLine" + variableIndex);
         setLine.add(item);
         return item;
@@ -583,7 +588,7 @@ public class Scatter extends SeparateChart {
     /**
      * Getter for the chart line marker.
      */
-    public CoreAxismarkersLine getLineMarker(Double index1) {
+    public CoreAxismarkersLine getLineMarker(Number index1) {
         CoreAxismarkersLine item = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index1+")");
         getLineMarker1.add(item);
         return item;
@@ -626,14 +631,14 @@ public class Scatter extends SeparateChart {
         return this;
     }
 
-    private Double index2;
+    private Number index2;
     private String lineMarker2;
     private Boolean lineMarker3;
 
     /**
      * Setter for the chart line marker by index.
      */
-    public Scatter setLineMarker(String lineMarker2, Double index2) {
+    public Scatter setLineMarker(String lineMarker2, Number index2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -651,7 +656,7 @@ public class Scatter extends SeparateChart {
     /**
      * Setter for the chart line marker by index.
      */
-    public Scatter setLineMarker(Boolean lineMarker3, Double index2) {
+    public Scatter setLineMarker(Boolean lineMarker3, Number index2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -671,27 +676,27 @@ public class Scatter extends SeparateChart {
      * Adds Marker series.
      */
     public ScatterSeriesMarker marker(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         ScatterSeriesMarker item = new ScatterSeriesMarker("setMarker" + variableIndex);
         setMarker.add(item);
         return item;
@@ -768,6 +773,11 @@ public class Scatter extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".markerPalette(%s);",  ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".markerPalette(%s)", ((markerPalette != null) ? markerPalette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -825,13 +835,13 @@ public class Scatter extends SeparateChart {
         return this;
     }
 
-    private Double maxBubbleSize;
+    private Number maxBubbleSize;
     private String maxBubbleSize1;
 
     /**
      * Setter for the maximum size for all bubbles on the charts.
      */
-    public Scatter setMaxBubbleSize(Double maxBubbleSize) {
+    public Scatter setMaxBubbleSize(Number maxBubbleSize) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -863,13 +873,13 @@ public class Scatter extends SeparateChart {
         return this;
     }
 
-    private Double minBubbleSize;
+    private Number minBubbleSize;
     private String minBubbleSize1;
 
     /**
      * Setter for the minimum size for all bubbles on the charts.
      */
-    public Scatter setMinBubbleSize(Double minBubbleSize) {
+    public Scatter setMinBubbleSize(Number minBubbleSize) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -962,6 +972,11 @@ public class Scatter extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -979,6 +994,11 @@ public class Scatter extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -1069,7 +1089,7 @@ public class Scatter extends SeparateChart {
     /**
      * Getter for the chart range marker.
      */
-    public CoreAxismarkersRange getRangeMarker(Double index3) {
+    public CoreAxismarkersRange getRangeMarker(Number index3) {
         CoreAxismarkersRange item = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index3+")");
         getRangeMarker1.add(item);
         return item;
@@ -1112,14 +1132,14 @@ public class Scatter extends SeparateChart {
         return this;
     }
 
-    private Double index4;
+    private Number index4;
     private String rangeMarker2;
     private Boolean rangeMarker3;
 
     /**
      * Setter for the chart range marker by index.
      */
-    public Scatter setRangeMarker(String rangeMarker2, Double index4) {
+    public Scatter setRangeMarker(String rangeMarker2, Number index4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1137,7 +1157,7 @@ public class Scatter extends SeparateChart {
     /**
      * Setter for the chart range marker by index.
      */
-    public Scatter setRangeMarker(Boolean rangeMarker3, Double index4) {
+    public Scatter setRangeMarker(Boolean rangeMarker3, Number index4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1151,13 +1171,13 @@ public class Scatter extends SeparateChart {
         return this;
     }
 
-    private Double id2;
+    private Number id2;
     private String id3;
 
     /**
      * Removes one of series from chart by its id.
      */
-    public Scatter removeSeries(Double id2) {
+    public Scatter removeSeries(Number id2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1189,12 +1209,12 @@ public class Scatter extends SeparateChart {
         return this;
     }
 
-    private Double index5;
+    private Number index5;
 
     /**
      * Removes one of series from chart by its index.
      */
-    public Scatter removeSeriesAt(Double index5) {
+    public Scatter removeSeriesAt(Number index5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1257,7 +1277,7 @@ public class Scatter extends SeparateChart {
     /**
      * Getter for the chart text marker.
      */
-    public CoreAxismarkersText getTextMarker(Double index6) {
+    public CoreAxismarkersText getTextMarker(Number index6) {
         CoreAxismarkersText item = new CoreAxismarkersText(jsBase + ".textMarker("+ index6+")");
         getTextMarker1.add(item);
         return item;
@@ -1300,14 +1320,14 @@ public class Scatter extends SeparateChart {
         return this;
     }
 
-    private Double index7;
+    private Number index7;
     private String textMarker2;
     private Boolean textMarker3;
 
     /**
      * Setter for the chart text marker by index.
      */
-    public Scatter setTextMarker(String textMarker2, Double index7) {
+    public Scatter setTextMarker(String textMarker2, Number index7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1325,7 +1345,7 @@ public class Scatter extends SeparateChart {
     /**
      * Setter for the chart text marker by index.
      */
-    public Scatter setTextMarker(Boolean textMarker3, Double index7) {
+    public Scatter setTextMarker(Boolean textMarker3, Number index7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1357,7 +1377,7 @@ public class Scatter extends SeparateChart {
     /**
      * Getter for chart X-axis.
      */
-    public CoreAxesLinear getXAxis(Double index8) {
+    public CoreAxesLinear getXAxis(Number index8) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".xAxis("+ index8+")");
         getXAxis1.add(item);
         return item;
@@ -1400,14 +1420,14 @@ public class Scatter extends SeparateChart {
         return this;
     }
 
-    private Double index9;
+    private Number index9;
     private String xAxis2;
     private Boolean xAxis3;
 
     /**
      * Setter for chart X-axis by index.
      */
-    public Scatter setXAxis(String xAxis2, Double index9) {
+    public Scatter setXAxis(String xAxis2, Number index9) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1425,7 +1445,7 @@ public class Scatter extends SeparateChart {
     /**
      * Setter for chart X-axis by index.
      */
-    public Scatter setXAxis(Boolean xAxis3, Double index9) {
+    public Scatter setXAxis(Boolean xAxis3, Number index9) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1457,7 +1477,7 @@ public class Scatter extends SeparateChart {
     /**
      * Getter for chart grid by X-scale.
      */
-    public CoreGridsLinear getXGrid(Double index10) {
+    public CoreGridsLinear getXGrid(Number index10) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xGrid("+ index10+")");
         getXGrid1.add(item);
         return item;
@@ -1500,14 +1520,14 @@ public class Scatter extends SeparateChart {
         return this;
     }
 
-    private Double index11;
+    private Number index11;
     private String xGrid2;
     private Boolean xGrid3;
 
     /**
      * Setter for chart grid by index.
      */
-    public Scatter setXGrid(String xGrid2, Double index11) {
+    public Scatter setXGrid(String xGrid2, Number index11) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1525,7 +1545,7 @@ public class Scatter extends SeparateChart {
     /**
      * Setter for chart grid by index.
      */
-    public Scatter setXGrid(Boolean xGrid3, Double index11) {
+    public Scatter setXGrid(Boolean xGrid3, Number index11) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1557,7 +1577,7 @@ public class Scatter extends SeparateChart {
     /**
      * Getter for chart minor grid by X-scale.
      */
-    public CoreGridsLinear getXMinorGrid(Double index12) {
+    public CoreGridsLinear getXMinorGrid(Number index12) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".xMinorGrid("+ index12+")");
         getXMinorGrid1.add(item);
         return item;
@@ -1600,14 +1620,14 @@ public class Scatter extends SeparateChart {
         return this;
     }
 
-    private Double index13;
+    private Number index13;
     private String xMinorGrid2;
     private Boolean xMinorGrid3;
 
     /**
      * Setter for chart minor grid by index.
      */
-    public Scatter setXMinorGrid(String xMinorGrid2, Double index13) {
+    public Scatter setXMinorGrid(String xMinorGrid2, Number index13) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1625,7 +1645,7 @@ public class Scatter extends SeparateChart {
     /**
      * Setter for chart minor grid by index.
      */
-    public Scatter setXMinorGrid(Boolean xMinorGrid3, Double index13) {
+    public Scatter setXMinorGrid(Boolean xMinorGrid3, Number index13) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1704,6 +1724,11 @@ public class Scatter extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale3 != null) ? xScale3.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale3 != null) ? xScale3.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -1725,7 +1750,7 @@ public class Scatter extends SeparateChart {
     /**
      * Getter for chart Y-axis.
      */
-    public CoreAxesLinear getYAxis(Double index14) {
+    public CoreAxesLinear getYAxis(Number index14) {
         CoreAxesLinear item = new CoreAxesLinear(jsBase + ".yAxis("+ index14+")");
         getYAxis1.add(item);
         return item;
@@ -1768,14 +1793,14 @@ public class Scatter extends SeparateChart {
         return this;
     }
 
-    private Double index15;
+    private Number index15;
     private String yAxis2;
     private Boolean yAxis3;
 
     /**
      * Setter for chart Y-axis by index.
      */
-    public Scatter setYAxis(String yAxis2, Double index15) {
+    public Scatter setYAxis(String yAxis2, Number index15) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1793,7 +1818,7 @@ public class Scatter extends SeparateChart {
     /**
      * Setter for chart Y-axis by index.
      */
-    public Scatter setYAxis(Boolean yAxis3, Double index15) {
+    public Scatter setYAxis(Boolean yAxis3, Number index15) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1825,7 +1850,7 @@ public class Scatter extends SeparateChart {
     /**
      * Getter for chart grid by Y-scale.
      */
-    public CoreGridsLinear getYGrid(Double index16) {
+    public CoreGridsLinear getYGrid(Number index16) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yGrid("+ index16+")");
         getYGrid1.add(item);
         return item;
@@ -1868,14 +1893,14 @@ public class Scatter extends SeparateChart {
         return this;
     }
 
-    private Double index17;
+    private Number index17;
     private String yGrid2;
     private Boolean yGrid3;
 
     /**
      * Setter for chart grid by index.
      */
-    public Scatter setYGrid(String yGrid2, Double index17) {
+    public Scatter setYGrid(String yGrid2, Number index17) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1893,7 +1918,7 @@ public class Scatter extends SeparateChart {
     /**
      * Setter for chart grid by index.
      */
-    public Scatter setYGrid(Boolean yGrid3, Double index17) {
+    public Scatter setYGrid(Boolean yGrid3, Number index17) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1925,7 +1950,7 @@ public class Scatter extends SeparateChart {
     /**
      * Getter for chart minor grid by Y-scale.
      */
-    public CoreGridsLinear getYMinorGrid(Double index18) {
+    public CoreGridsLinear getYMinorGrid(Number index18) {
         CoreGridsLinear item = new CoreGridsLinear(jsBase + ".yMinorGrid("+ index18+")");
         getYMinorGrid1.add(item);
         return item;
@@ -1968,14 +1993,14 @@ public class Scatter extends SeparateChart {
         return this;
     }
 
-    private Double index19;
+    private Number index19;
     private String yMinorGrid2;
     private Boolean yMinorGrid3;
 
     /**
      * Setter for chart minor grid by index.
      */
-    public Scatter setYMinorGrid(String yMinorGrid2, Double index19) {
+    public Scatter setYMinorGrid(String yMinorGrid2, Number index19) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1993,7 +2018,7 @@ public class Scatter extends SeparateChart {
     /**
      * Setter for chart minor grid by index.
      */
-    public Scatter setYMinorGrid(Boolean yMinorGrid3, Double index19) {
+    public Scatter setYMinorGrid(Boolean yMinorGrid3, Number index19) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2072,6 +2097,11 @@ public class Scatter extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale3 != null) ? yScale3.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale3 != null) ? yScale3.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 

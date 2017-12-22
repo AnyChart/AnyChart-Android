@@ -51,7 +51,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Stroke color;
     private ColoredFill color1;
     private String color2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -59,7 +59,7 @@ public class UiTable extends VisualBaseWithBounds {
     /**
      * Setter for border of the table (not cells).
      */
-    public UiTable setBorder(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public UiTable setBorder(Stroke color, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -95,7 +95,7 @@ public class UiTable extends VisualBaseWithBounds {
     /**
      * Setter for border of the table (not cells).
      */
-    public UiTable setBorder(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public UiTable setBorder(ColoredFill color1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -131,7 +131,7 @@ public class UiTable extends VisualBaseWithBounds {
     /**
      * Setter for border of the table (not cells).
      */
-    public UiTable setBorder(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public UiTable setBorder(String color2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -166,7 +166,7 @@ public class UiTable extends VisualBaseWithBounds {
     private Stroke strokeOrFill;
     private ColoredFill strokeOrFill1;
     private String strokeOrFill2;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -175,7 +175,7 @@ public class UiTable extends VisualBaseWithBounds {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTable setCellBorder(Stroke strokeOrFill, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public UiTable setCellBorder(Stroke strokeOrFill, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -224,7 +224,7 @@ public class UiTable extends VisualBaseWithBounds {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTable setCellBorder(ColoredFill strokeOrFill1, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public UiTable setCellBorder(ColoredFill strokeOrFill1, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -273,7 +273,7 @@ public class UiTable extends VisualBaseWithBounds {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public UiTable setCellBorder(String strokeOrFill2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public UiTable setCellBorder(String strokeOrFill2, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.strokeOrFill = null;
             this.strokeOrFill1 = null;
@@ -344,12 +344,12 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
     private String color3;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTable cellFill(String color3, Double opacity) {
+    public UiTable cellFill(String color3, Number opacity) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -378,17 +378,17 @@ public class UiTable extends VisualBaseWithBounds {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable cellFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public UiTable cellFill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -429,7 +429,7 @@ public class UiTable extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable cellFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public UiTable cellFill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -470,7 +470,7 @@ public class UiTable extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable cellFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public UiTable cellFill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -511,7 +511,7 @@ public class UiTable extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable cellFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public UiTable cellFill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -552,7 +552,7 @@ public class UiTable extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable cellFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public UiTable cellFill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -593,7 +593,7 @@ public class UiTable extends VisualBaseWithBounds {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable cellFill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public UiTable cellFill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -631,18 +631,18 @@ public class UiTable extends VisualBaseWithBounds {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable cellFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiTable cellFill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -693,7 +693,7 @@ public class UiTable extends VisualBaseWithBounds {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable cellFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public UiTable cellFill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -752,14 +752,14 @@ public class UiTable extends VisualBaseWithBounds {
         return getCellPadding;
     }
 
-    private Double[] cellPadding;
+    private Number[] cellPadding;
     private String[] cellPadding1;
     private String cellPadding2;
 
     /**
      * Setter for cell paddings in pixels using a single value.
      */
-    public UiTable setCellPadding(Double[] cellPadding) {
+    public UiTable setCellPadding(Number[] cellPadding) {
         if (jsBase == null) {
             this.cellPadding = null;
             this.cellPadding1 = null;
@@ -840,13 +840,13 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for cell paddings in pixels using several numbers.
@@ -917,7 +917,7 @@ public class UiTable extends VisualBaseWithBounds {
     /**
      * Setter for cell paddings in pixels using several numbers.
      */
-    public UiTable setCellPadding(Double value1, Double value3, Double value5, Double value7) {
+    public UiTable setCellPadding(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -979,12 +979,12 @@ public class UiTable extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double colsCount;
+    private Number colsCount;
 
     /**
      * Setter for table columns count.
      */
-    public UiTable setColsCount(Double colsCount) {
+    public UiTable setColsCount(Number colsCount) {
         if (jsBase == null) {
             this.colsCount = colsCount;
         } else {
@@ -1005,7 +1005,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
     private String colsMaxWidth;
-    private Double colsMaxWidth1;
+    private Number colsMaxWidth1;
 
     /**
      * Setter for the column width maximum.
@@ -1037,7 +1037,7 @@ public class UiTable extends VisualBaseWithBounds {
     /**
      * Setter for the column width maximum.
      */
-    public UiTable setColsMaxWidth(Double colsMaxWidth1) {
+    public UiTable setColsMaxWidth(Number colsMaxWidth1) {
         if (jsBase == null) {
             this.colsMaxWidth = null;
             this.colsMaxWidth1 = null;
@@ -1061,7 +1061,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
     private String colsMinWidth;
-    private Double colsMinWidth1;
+    private Number colsMinWidth1;
 
     /**
      * Setter for column width minimum.
@@ -1093,7 +1093,7 @@ public class UiTable extends VisualBaseWithBounds {
     /**
      * Setter for column width minimum.
      */
-    public UiTable setColsMinWidth(Double colsMinWidth1) {
+    public UiTable setColsMinWidth(Number colsMinWidth1) {
         if (jsBase == null) {
             this.colsMinWidth = null;
             this.colsMinWidth1 = null;
@@ -1117,7 +1117,7 @@ public class UiTable extends VisualBaseWithBounds {
     }
 
     private String colsWidth;
-    private Double colsWidth1;
+    private Number colsWidth1;
 
     /**
      * Setter for the column width.
@@ -1149,7 +1149,7 @@ public class UiTable extends VisualBaseWithBounds {
     /**
      * Setter for the column width.
      */
-    public UiTable setColsWidth(Double colsWidth1) {
+    public UiTable setColsWidth(Number colsWidth1) {
         if (jsBase == null) {
             this.colsWidth = null;
             this.colsWidth1 = null;
@@ -1332,13 +1332,13 @@ public class UiTable extends VisualBaseWithBounds {
         return this;
     }
 
-    private Double fontOpacity;
+    private Number fontOpacity;
 
     /**
      * Setter for the text font opacity.
 Double value from 0 to 1.
      */
-    public UiTable setFontOpacity(Double fontOpacity) {
+    public UiTable setFontOpacity(Number fontOpacity) {
         if (jsBase == null) {
             this.fontOpacity = fontOpacity;
         } else {
@@ -1359,7 +1359,7 @@ Double value from 0 to 1.
     }
 
     private String fontSize;
-    private Double fontSize1;
+    private Number fontSize1;
 
     /**
      * Setter for text font size.
@@ -1391,7 +1391,7 @@ Double value from 0 to 1.
     /**
      * Setter for text font size.
      */
-    public UiTable setFontSize(Double fontSize1) {
+    public UiTable setFontSize(Number fontSize1) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -1527,7 +1527,7 @@ Double value from 0 to 1.
     }
 
     private String fontWeight;
-    private Double fontWeight1;
+    private Number fontWeight1;
 
     /**
      * Setter for the text font weight.
@@ -1561,7 +1561,7 @@ Double value from 0 to 1.
      * Setter for the text font weight.
 {@link https://www.w3schools.com/cssref/pr_font_weight.asp}
      */
-    public UiTable setFontWeight(Double fontWeight1) {
+    public UiTable setFontWeight(Number fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -1584,14 +1584,14 @@ Double value from 0 to 1.
         return this;
     }
 
-    private Double row;
-    private Double col;
+    private Number row;
+    private Number col;
     private List<Cell> setGetCell = new ArrayList<>();
 
     /**
      * Returns cell by its row and column number.
      */
-    public Cell getCell(Double row, Double col) {
+    public Cell getCell(Number row, Number col) {
         if (jsBase == null) {
             this.row = row;
             this.col = col;
@@ -1626,13 +1626,13 @@ Double value from 0 to 1.
         return "";
     }
 
-    private Double col1;
+    private Number col1;
     private List<TableColumn> setGetCol = new ArrayList<>();
 
     /**
      * Returns column instance by its number.
      */
-    public TableColumn getCol(Double col1) {
+    public TableColumn getCol(Number col1) {
         if (jsBase == null) {
             this.col = null;
             this.col1 = null;
@@ -1668,15 +1668,15 @@ Double value from 0 to 1.
         return "";
     }
 
-    private Double width;
-    private Double height;
-    private Double quality;
+    private Number width;
+    private Number height;
+    private Number quality;
     private Boolean forceTransparentWhite;
 
     /**
      * Returns JPG as base64 string.
      */
-    public void getJpgBase64String(Double width, Double height, Double quality, Boolean forceTransparentWhite) {
+    public void getJpgBase64String(Number width, Number height, Number quality, Boolean forceTransparentWhite) {
         if (jsBase == null) {
             this.width = width;
             this.height = height;
@@ -1702,17 +1702,17 @@ Double value from 0 to 1.
         }
     }
 
-    private Double paperSizeOrWidth;
+    private Number paperSizeOrWidth;
     private String paperSizeOrWidth1;
-    private Double landscapeOrWidth;
+    private Number landscapeOrWidth;
     private Boolean landscapeOrWidth1;
-    private Double x;
-    private Double y;
+    private Number x;
+    private Number y;
 
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(Double paperSizeOrWidth, Double x, Double landscapeOrWidth, Double y) {
+    public void getPdfBase64String(Number paperSizeOrWidth, Number x, Number landscapeOrWidth, Number y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -1748,7 +1748,7 @@ Double value from 0 to 1.
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(Double paperSizeOrWidth, Double x, Boolean landscapeOrWidth1, Double y) {
+    public void getPdfBase64String(Number paperSizeOrWidth, Number x, Boolean landscapeOrWidth1, Number y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -1784,7 +1784,7 @@ Double value from 0 to 1.
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(String paperSizeOrWidth1, Double x, Double landscapeOrWidth, Double y) {
+    public void getPdfBase64String(String paperSizeOrWidth1, Number x, Number landscapeOrWidth, Number y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -1820,7 +1820,7 @@ Double value from 0 to 1.
     /**
      * Returns PDF as base64 string.
      */
-    public void getPdfBase64String(String paperSizeOrWidth1, Double x, Boolean landscapeOrWidth1, Double y) {
+    public void getPdfBase64String(String paperSizeOrWidth1, Number x, Boolean landscapeOrWidth1, Number y) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -1852,14 +1852,14 @@ Double value from 0 to 1.
         }
     }
 
-    private Double width1;
-    private Double height1;
-    private Double quality1;
+    private Number width1;
+    private Number height1;
+    private Number quality1;
 
     /**
      * Returns PNG as base64 string.
      */
-    public void getPngBase64String(Double width1, Double height1, Double quality1) {
+    public void getPngBase64String(Number width1, Number height1, Number quality1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -1892,13 +1892,13 @@ Double value from 0 to 1.
         }
     }
 
-    private Double row1;
+    private Number row1;
     private List<Row> setGetRow = new ArrayList<>();
 
     /**
      * Returns row instance by its number.
      */
-    public Row getRow(Double row1) {
+    public Row getRow(Number row1) {
         if (jsBase == null) {
             this.row = null;
             this.row1 = null;
@@ -1935,7 +1935,7 @@ Double value from 0 to 1.
     }
 
     private String paperSizeOrWidth2;
-    private Double paperSizeOrWidth3;
+    private Number paperSizeOrWidth3;
     private Boolean landscapeOrHeight;
     private String landscapeOrHeight1;
 
@@ -2010,7 +2010,7 @@ Double value from 0 to 1.
     /**
      * Returns SVG as base64 string.
      */
-    public void getSvgBase64String(Double paperSizeOrWidth3, Boolean landscapeOrHeight) {
+    public void getSvgBase64String(Number paperSizeOrWidth3, Boolean landscapeOrHeight) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -2044,7 +2044,7 @@ Double value from 0 to 1.
     /**
      * Returns SVG as base64 string.
      */
-    public void getSvgBase64String(Double paperSizeOrWidth3, String landscapeOrHeight1) {
+    public void getSvgBase64String(Number paperSizeOrWidth3, String landscapeOrHeight1) {
         if (jsBase == null) {
             this.paperSizeOrWidth = null;
             this.paperSizeOrWidth1 = null;
@@ -2131,7 +2131,7 @@ Double value from 0 to 1.
     }
 
     private String letterSpacing;
-    private Double letterSpacing1;
+    private Number letterSpacing1;
 
     /**
      * Setter for the text letter spacing.
@@ -2165,7 +2165,7 @@ Double value from 0 to 1.
      * Setter for the text letter spacing.
 {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public UiTable setLetterSpacing(Double letterSpacing1) {
+    public UiTable setLetterSpacing(Number letterSpacing1) {
         if (jsBase == null) {
             this.letterSpacing = null;
             this.letterSpacing1 = null;
@@ -2189,7 +2189,7 @@ Double value from 0 to 1.
     }
 
     private String lineHeight;
-    private Double lineHeight1;
+    private Number lineHeight1;
 
     /**
      * Setter for the text line height. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
@@ -2221,7 +2221,7 @@ Double value from 0 to 1.
     /**
      * Setter for the text line height. {@link https://www.w3schools.com/cssref/pr_text_letter-spacing.asp}
      */
-    public UiTable setLineHeight(Double lineHeight1) {
+    public UiTable setLineHeight(Number lineHeight1) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -2271,12 +2271,12 @@ Double value from 0 to 1.
     }
 
     private String color4;
-    private Double opacity3;
+    private Number opacity3;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTable rowEvenFill(String color4, Double opacity3) {
+    public UiTable rowEvenFill(String color4, Number opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -2311,17 +2311,17 @@ Double value from 0 to 1.
 
     private GradientKey[] keys4;
     private String[] keys5;
-    private Double angle1;
+    private Number angle1;
     private Boolean mode4;
     private VectorRect mode5;
     private String mode6;
-    private Double opacity4;
+    private Number opacity4;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowEvenFill(GradientKey[] keys4, Double angle1, Double opacity4, Boolean mode4) {
+    public UiTable rowEvenFill(GradientKey[] keys4, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2376,7 +2376,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowEvenFill(GradientKey[] keys4, Double angle1, Double opacity4, VectorRect mode5) {
+    public UiTable rowEvenFill(GradientKey[] keys4, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2431,7 +2431,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowEvenFill(GradientKey[] keys4, Double angle1, Double opacity4, String mode6) {
+    public UiTable rowEvenFill(GradientKey[] keys4, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2486,7 +2486,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowEvenFill(String[] keys5, Double angle1, Double opacity4, Boolean mode4) {
+    public UiTable rowEvenFill(String[] keys5, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2541,7 +2541,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowEvenFill(String[] keys5, Double angle1, Double opacity4, VectorRect mode5) {
+    public UiTable rowEvenFill(String[] keys5, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2596,7 +2596,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowEvenFill(String[] keys5, Double angle1, Double opacity4, String mode6) {
+    public UiTable rowEvenFill(String[] keys5, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2648,18 +2648,18 @@ Double value from 0 to 1.
 
     private GradientKey[] keys6;
     private String[] keys7;
-    private Double cx1;
-    private Double cy1;
+    private Number cx1;
+    private Number cy1;
     private GraphicsMathRect mode7;
-    private Double opacity5;
-    private Double fx1;
-    private Double fy1;
+    private Number opacity5;
+    private Number fx1;
+    private Number fy1;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowEvenFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public UiTable rowEvenFill(GradientKey[] keys6, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2733,7 +2733,7 @@ Double value from 0 to 1.
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowEvenFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public UiTable rowEvenFill(String[] keys7, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2830,12 +2830,12 @@ Double value from 0 to 1.
     }
 
     private String color5;
-    private Double opacity6;
+    private Number opacity6;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public UiTable rowOddFill(String color5, Double opacity6) {
+    public UiTable rowOddFill(String color5, Number opacity6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -2874,17 +2874,17 @@ Double value from 0 to 1.
 
     private GradientKey[] keys8;
     private String[] keys9;
-    private Double angle2;
+    private Number angle2;
     private Boolean mode8;
     private VectorRect mode9;
     private String mode10;
-    private Double opacity7;
+    private Number opacity7;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowOddFill(GradientKey[] keys8, Double angle2, Double opacity7, Boolean mode8) {
+    public UiTable rowOddFill(GradientKey[] keys8, Number angle2, Number opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2951,7 +2951,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowOddFill(GradientKey[] keys8, Double angle2, Double opacity7, VectorRect mode9) {
+    public UiTable rowOddFill(GradientKey[] keys8, Number angle2, Number opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3018,7 +3018,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowOddFill(GradientKey[] keys8, Double angle2, Double opacity7, String mode10) {
+    public UiTable rowOddFill(GradientKey[] keys8, Number angle2, Number opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3085,7 +3085,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowOddFill(String[] keys9, Double angle2, Double opacity7, Boolean mode8) {
+    public UiTable rowOddFill(String[] keys9, Number angle2, Number opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3152,7 +3152,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowOddFill(String[] keys9, Double angle2, Double opacity7, VectorRect mode9) {
+    public UiTable rowOddFill(String[] keys9, Number angle2, Number opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3219,7 +3219,7 @@ Double value from 0 to 1.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowOddFill(String[] keys9, Double angle2, Double opacity7, String mode10) {
+    public UiTable rowOddFill(String[] keys9, Number angle2, Number opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3283,18 +3283,18 @@ Double value from 0 to 1.
 
     private GradientKey[] keys10;
     private String[] keys11;
-    private Double cx2;
-    private Double cy2;
+    private Number cx2;
+    private Number cy2;
     private GraphicsMathRect mode11;
-    private Double opacity8;
-    private Double fx2;
-    private Double fy2;
+    private Number opacity8;
+    private Number fx2;
+    private Number fy2;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowOddFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public UiTable rowOddFill(GradientKey[] keys10, Number cx2, Number cy2, GraphicsMathRect mode11, Number opacity8, Number fx2, Number fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3383,7 +3383,7 @@ Double value from 0 to 1.
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public UiTable rowOddFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public UiTable rowOddFill(String[] keys11, Number cx2, Number cy2, GraphicsMathRect mode11, Number opacity8, Number fx2, Number fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3468,12 +3468,12 @@ Double value from 0 to 1.
     }
 
     private Fill imageSettings2;
-    private Double rowsCount;
+    private Number rowsCount;
 
     /**
      * Setter for table rows count.
      */
-    public UiTable setRowsCount(Double rowsCount) {
+    public UiTable setRowsCount(Number rowsCount) {
         if (jsBase == null) {
             this.rowsCount = rowsCount;
         } else {
@@ -3494,7 +3494,7 @@ Double value from 0 to 1.
     }
 
     private String rowsHeight;
-    private Double rowsHeight1;
+    private Number rowsHeight1;
 
     /**
      * Setter for row height.
@@ -3526,7 +3526,7 @@ Double value from 0 to 1.
     /**
      * Setter for row height.
      */
-    public UiTable setRowsHeight(Double rowsHeight1) {
+    public UiTable setRowsHeight(Number rowsHeight1) {
         if (jsBase == null) {
             this.rowsHeight = null;
             this.rowsHeight1 = null;
@@ -3550,7 +3550,7 @@ Double value from 0 to 1.
     }
 
     private String rowsMaxHeight;
-    private Double rowsMaxHeight1;
+    private Number rowsMaxHeight1;
 
     /**
      * Setter for the row height maximum.
@@ -3582,7 +3582,7 @@ Double value from 0 to 1.
     /**
      * Setter for the row height maximum.
      */
-    public UiTable setRowsMaxHeight(Double rowsMaxHeight1) {
+    public UiTable setRowsMaxHeight(Number rowsMaxHeight1) {
         if (jsBase == null) {
             this.rowsMaxHeight = null;
             this.rowsMaxHeight1 = null;
@@ -3606,7 +3606,7 @@ Double value from 0 to 1.
     }
 
     private String rowsMinHeight;
-    private Double rowsMinHeight1;
+    private Number rowsMinHeight1;
 
     /**
      * Setter for the row height minimum.
@@ -3638,7 +3638,7 @@ Double value from 0 to 1.
     /**
      * Setter for the row height minimum.
      */
-    public UiTable setRowsMinHeight(Double rowsMinHeight1) {
+    public UiTable setRowsMinHeight(Number rowsMinHeight1) {
         if (jsBase == null) {
             this.rowsMinHeight = null;
             this.rowsMinHeight1 = null;
@@ -3661,15 +3661,15 @@ Double value from 0 to 1.
         return this;
     }
 
-    private Double width2;
-    private Double height2;
-    private Double quality2;
+    private Number width2;
+    private Number height2;
+    private Number quality2;
     private Boolean forceTransparentWhite1;
 
     /**
      * Saves the current table into JPEG file.
      */
-    public void saveAsJpg(Double width2, Double height2, Double quality2, Boolean forceTransparentWhite1) {
+    public void saveAsJpg(Number width2, Number height2, Number quality2, Boolean forceTransparentWhite1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -3712,13 +3712,13 @@ Double value from 0 to 1.
 
     private String paperSize;
     private Boolean landscape;
-    private Double x1;
-    private Double y1;
+    private Number x1;
+    private Number y1;
 
     /**
      * Saves the current table into PDF file.
      */
-    public void saveAsPdf(String paperSize, Boolean landscape, Double x1, Double y1) {
+    public void saveAsPdf(String paperSize, Boolean landscape, Number x1, Number y1) {
         if (jsBase == null) {
             this.paperSize = paperSize;
             this.landscape = landscape;
@@ -3750,14 +3750,14 @@ Double value from 0 to 1.
         }
     }
 
-    private Double width3;
-    private Double height3;
-    private Double quality3;
+    private Number width3;
+    private Number height3;
+    private Number quality3;
 
     /**
      * Saves the current table into PNG file.
      */
-    public void saveAsPng(Double width3, Double height3, Double quality3) {
+    public void saveAsPng(Number width3, Number height3, Number quality3) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -3830,13 +3830,13 @@ Double value from 0 to 1.
         }
     }
 
-    private Double width4;
-    private Double height4;
+    private Number width4;
+    private Number height4;
 
     /**
      * Saves the current visual state into SVG file image width and height.
      */
-    public void saveAsSvg(Double width4, Double height4) {
+    public void saveAsSvg(Number width4, Number height4) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;
@@ -3896,16 +3896,16 @@ Double value from 0 to 1.
     }
 
     private Boolean asBase;
-    private Double width5;
-    private Double height5;
-    private Double quality4;
+    private Number width5;
+    private Number height5;
+    private Number quality4;
     private Boolean forceTransparentWhite2;
     private String filename;
 
     /**
      * Shares a table as a JPG file and returns a link to the shared image.
      */
-    public void shareAsJpg(Boolean asBase, Double width5, Double height5, Double quality4, Boolean forceTransparentWhite2, String filename) {
+    public void shareAsJpg(Boolean asBase, Number width5, Number height5, Number quality4, Boolean forceTransparentWhite2, String filename) {
         if (jsBase == null) {
             this.asBase = asBase;
             this.width = null;
@@ -3960,18 +3960,18 @@ Double value from 0 to 1.
     }
 
     private Boolean asBase1;
-    private Double paperSizeOrWidth4;
+    private Number paperSizeOrWidth4;
     private String paperSizeOrWidth5;
-    private Double landscapeOrWidth2;
+    private Number landscapeOrWidth2;
     private Boolean landscapeOrWidth3;
-    private Double x2;
-    private Double y2;
+    private Number x2;
+    private Number y2;
     private String filename1;
 
     /**
      * Shares a table as a PDF file and returns a link to the shared image.
      */
-    public void shareAsPdf(Boolean asBase1, Double paperSizeOrWidth4, Double x2, Double landscapeOrWidth2, Double y2, String filename1) {
+    public void shareAsPdf(Boolean asBase1, Number paperSizeOrWidth4, Number x2, Number landscapeOrWidth2, Number y2, String filename1) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -4031,7 +4031,7 @@ Double value from 0 to 1.
     /**
      * Shares a table as a PDF file and returns a link to the shared image.
      */
-    public void shareAsPdf(Boolean asBase1, Double paperSizeOrWidth4, Double x2, Boolean landscapeOrWidth3, Double y2, String filename1) {
+    public void shareAsPdf(Boolean asBase1, Number paperSizeOrWidth4, Number x2, Boolean landscapeOrWidth3, Number y2, String filename1) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -4091,7 +4091,7 @@ Double value from 0 to 1.
     /**
      * Shares a table as a PDF file and returns a link to the shared image.
      */
-    public void shareAsPdf(Boolean asBase1, String paperSizeOrWidth5, Double x2, Double landscapeOrWidth2, Double y2, String filename1) {
+    public void shareAsPdf(Boolean asBase1, String paperSizeOrWidth5, Number x2, Number landscapeOrWidth2, Number y2, String filename1) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -4151,7 +4151,7 @@ Double value from 0 to 1.
     /**
      * Shares a table as a PDF file and returns a link to the shared image.
      */
-    public void shareAsPdf(Boolean asBase1, String paperSizeOrWidth5, Double x2, Boolean landscapeOrWidth3, Double y2, String filename1) {
+    public void shareAsPdf(Boolean asBase1, String paperSizeOrWidth5, Number x2, Boolean landscapeOrWidth3, Number y2, String filename1) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -4208,15 +4208,15 @@ Double value from 0 to 1.
     }
 
     private Boolean asBase2;
-    private Double width6;
-    private Double height6;
-    private Double quality5;
+    private Number width6;
+    private Number height6;
+    private Number quality5;
     private String filename2;
 
     /**
      * Shares a table as a PNG file and returns a link to the shared image.
      */
-    public void shareAsPng(Boolean asBase2, Double width6, Double height6, Double quality5, String filename2) {
+    public void shareAsPng(Boolean asBase2, Number width6, Number height6, Number quality5, String filename2) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -4277,7 +4277,7 @@ Double value from 0 to 1.
 
     private Boolean asBase3;
     private String paperSizeOrWidth6;
-    private Double paperSizeOrWidth7;
+    private Number paperSizeOrWidth7;
     private Boolean landscapeOrHeight2;
     private String landscapeOrHeight3;
     private String filename3;
@@ -4393,7 +4393,7 @@ Double value from 0 to 1.
     /**
      * Shares a table as a SVG file and returns a link to the shared image.
      */
-    public void shareAsSvg(Boolean asBase3, Double paperSizeOrWidth7, String filename3, Boolean landscapeOrHeight2) {
+    public void shareAsSvg(Boolean asBase3, Number paperSizeOrWidth7, String filename3, Boolean landscapeOrHeight2) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -4447,7 +4447,7 @@ Double value from 0 to 1.
     /**
      * Shares a table as a SVG file and returns a link to the shared image.
      */
-    public void shareAsSvg(Boolean asBase3, Double paperSizeOrWidth7, String filename3, String landscapeOrHeight3) {
+    public void shareAsSvg(Boolean asBase3, Number paperSizeOrWidth7, String filename3, String landscapeOrHeight3) {
         if (jsBase == null) {
             this.asBase = null;
             this.asBase1 = null;
@@ -4553,12 +4553,12 @@ Double value from 0 to 1.
         return this;
     }
 
-    private Double textIndent;
+    private Number textIndent;
 
     /**
      * Setter for the text indent.
      */
-    public UiTable setTextIndent(Double textIndent) {
+    public UiTable setTextIndent(Number textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
         } else {
@@ -4670,13 +4670,13 @@ Double value from 0 to 1.
         }
     }
 
-    private Double width7;
-    private Double height7;
+    private Number width7;
+    private Number height7;
 
     /**
      * Returns SVG string if type of content SVG with determined the width and height otherwise returns empty string.
      */
-    public void toSvg(Double width7, Double height7) {
+    public void toSvg(Number width7, Number height7) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

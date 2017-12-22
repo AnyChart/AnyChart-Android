@@ -233,12 +233,12 @@ public class Grid extends VisualBaseWithBounds {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Even fill color with opacity.
      */
-    public Grid evenFill(String color, Double opacity) {
+    public Grid evenFill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -262,17 +262,17 @@ public class Grid extends VisualBaseWithBounds {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid evenFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public Grid evenFill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -313,7 +313,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid evenFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public Grid evenFill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -354,7 +354,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid evenFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public Grid evenFill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -395,7 +395,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid evenFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public Grid evenFill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -436,7 +436,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid evenFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public Grid evenFill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -477,7 +477,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid evenFill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public Grid evenFill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -515,18 +515,18 @@ public class Grid extends VisualBaseWithBounds {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid evenFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Grid evenFill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -577,7 +577,7 @@ public class Grid extends VisualBaseWithBounds {
      * Radial gradient even fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid evenFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Grid evenFill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -641,14 +641,14 @@ public class Grid extends VisualBaseWithBounds {
     private HatchFillType patternFillOrType2;
     private String patternFillOrType3;
     private String color1;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
 
     /**
      * Setter for even hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Grid setEvenHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
+    public Grid setEvenHatchFill(PatternFill patternFillOrType, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -687,7 +687,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for even hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Grid setEvenHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
+    public Grid setEvenHatchFill(HatchFill patternFillOrType1, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -726,7 +726,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for even hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Grid setEvenHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
+    public Grid setEvenHatchFill(HatchFillType patternFillOrType2, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -765,7 +765,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for even hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Grid setEvenHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
+    public Grid setEvenHatchFill(String patternFillOrType3, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -826,12 +826,12 @@ public class Grid extends VisualBaseWithBounds {
     }
 
     private String color2;
-    private Double opacity3;
+    private Number opacity3;
 
     /**
      * Odd holiday fill color with opacity.
      */
-    public Grid evenHolidayFill(String color2, Double opacity3) {
+    public Grid evenHolidayFill(String color2, Number opacity3) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -864,17 +864,17 @@ public class Grid extends VisualBaseWithBounds {
 
     private GradientKey[] keys4;
     private String[] keys5;
-    private Double angle1;
+    private Number angle1;
     private Boolean mode4;
     private VectorRect mode5;
     private String mode6;
-    private Double opacity4;
+    private Number opacity4;
 
     /**
      * Linear gradient even holiday fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid evenHolidayFill(GradientKey[] keys4, Double angle1, Double opacity4, Boolean mode4) {
+    public Grid evenHolidayFill(GradientKey[] keys4, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -929,7 +929,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient even holiday fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid evenHolidayFill(GradientKey[] keys4, Double angle1, Double opacity4, VectorRect mode5) {
+    public Grid evenHolidayFill(GradientKey[] keys4, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -984,7 +984,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient even holiday fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid evenHolidayFill(GradientKey[] keys4, Double angle1, Double opacity4, String mode6) {
+    public Grid evenHolidayFill(GradientKey[] keys4, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1039,7 +1039,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient even holiday fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid evenHolidayFill(String[] keys5, Double angle1, Double opacity4, Boolean mode4) {
+    public Grid evenHolidayFill(String[] keys5, Number angle1, Number opacity4, Boolean mode4) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1094,7 +1094,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient even holiday fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid evenHolidayFill(String[] keys5, Double angle1, Double opacity4, VectorRect mode5) {
+    public Grid evenHolidayFill(String[] keys5, Number angle1, Number opacity4, VectorRect mode5) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1149,7 +1149,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient even holiday fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid evenHolidayFill(String[] keys5, Double angle1, Double opacity4, String mode6) {
+    public Grid evenHolidayFill(String[] keys5, Number angle1, Number opacity4, String mode6) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1201,18 +1201,18 @@ public class Grid extends VisualBaseWithBounds {
 
     private GradientKey[] keys6;
     private String[] keys7;
-    private Double cx1;
-    private Double cy1;
+    private Number cx1;
+    private Number cy1;
     private GraphicsMathRect mode7;
-    private Double opacity5;
-    private Double fx1;
-    private Double fy1;
+    private Number opacity5;
+    private Number fx1;
+    private Number fy1;
 
     /**
      * Radial gradient even holiday fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid evenHolidayFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public Grid evenHolidayFill(GradientKey[] keys6, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1286,7 +1286,7 @@ public class Grid extends VisualBaseWithBounds {
      * Radial gradient even holiday fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid evenHolidayFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public Grid evenHolidayFill(String[] keys7, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1373,14 +1373,14 @@ public class Grid extends VisualBaseWithBounds {
     private HatchFillType patternFillOrType6;
     private String patternFillOrType7;
     private String color3;
-    private Double thickness1;
-    private Double size1;
+    private Number thickness1;
+    private Number size1;
 
     /**
      * Setter for even holiday hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Grid setEvenHolidayHatchFill(PatternFill patternFillOrType4, String color3, Double thickness1, Double size1) {
+    public Grid setEvenHolidayHatchFill(PatternFill patternFillOrType4, String color3, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -1431,7 +1431,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for even holiday hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Grid setEvenHolidayHatchFill(HatchFill patternFillOrType5, String color3, Double thickness1, Double size1) {
+    public Grid setEvenHolidayHatchFill(HatchFill patternFillOrType5, String color3, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -1482,7 +1482,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for even holiday hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Grid setEvenHolidayHatchFill(HatchFillType patternFillOrType6, String color3, Double thickness1, Double size1) {
+    public Grid setEvenHolidayHatchFill(HatchFillType patternFillOrType6, String color3, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -1533,7 +1533,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for even holiday hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Grid setEvenHolidayHatchFill(String patternFillOrType7, String color3, Double thickness1, Double size1) {
+    public Grid setEvenHolidayHatchFill(String patternFillOrType7, String color3, Number thickness1, Number size1) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -1582,7 +1582,7 @@ public class Grid extends VisualBaseWithBounds {
     private Stroke color4;
     private ColoredFill color5;
     private String color6;
-    private Double thickness2;
+    private Number thickness2;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -1591,7 +1591,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for the horizontal stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Grid setHorizontalStroke(Stroke color4, Double thickness2, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Grid setHorizontalStroke(Stroke color4, Number thickness2, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1636,7 +1636,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for the horizontal stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Grid setHorizontalStroke(ColoredFill color5, Double thickness2, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Grid setHorizontalStroke(ColoredFill color5, Number thickness2, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1681,7 +1681,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for the horizontal stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Grid setHorizontalStroke(String color6, Double thickness2, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Grid setHorizontalStroke(String color6, Number thickness2, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1748,12 +1748,12 @@ public class Grid extends VisualBaseWithBounds {
     }
 
     private String color7;
-    private Double opacity6;
+    private Number opacity6;
 
     /**
      * Odd fill color with opacity.
      */
-    public Grid oddFill(String color7, Double opacity6) {
+    public Grid oddFill(String color7, Number opacity6) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -1794,17 +1794,17 @@ public class Grid extends VisualBaseWithBounds {
 
     private GradientKey[] keys8;
     private String[] keys9;
-    private Double angle2;
+    private Number angle2;
     private Boolean mode8;
     private VectorRect mode9;
     private String mode10;
-    private Double opacity7;
+    private Number opacity7;
 
     /**
      * Linear gradient odd fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid oddFill(GradientKey[] keys8, Double angle2, Double opacity7, Boolean mode8) {
+    public Grid oddFill(GradientKey[] keys8, Number angle2, Number opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1871,7 +1871,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient odd fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid oddFill(GradientKey[] keys8, Double angle2, Double opacity7, VectorRect mode9) {
+    public Grid oddFill(GradientKey[] keys8, Number angle2, Number opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -1938,7 +1938,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient odd fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid oddFill(GradientKey[] keys8, Double angle2, Double opacity7, String mode10) {
+    public Grid oddFill(GradientKey[] keys8, Number angle2, Number opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2005,7 +2005,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient odd fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid oddFill(String[] keys9, Double angle2, Double opacity7, Boolean mode8) {
+    public Grid oddFill(String[] keys9, Number angle2, Number opacity7, Boolean mode8) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2072,7 +2072,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient odd fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid oddFill(String[] keys9, Double angle2, Double opacity7, VectorRect mode9) {
+    public Grid oddFill(String[] keys9, Number angle2, Number opacity7, VectorRect mode9) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2139,7 +2139,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient odd fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid oddFill(String[] keys9, Double angle2, Double opacity7, String mode10) {
+    public Grid oddFill(String[] keys9, Number angle2, Number opacity7, String mode10) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2203,18 +2203,18 @@ public class Grid extends VisualBaseWithBounds {
 
     private GradientKey[] keys10;
     private String[] keys11;
-    private Double cx2;
-    private Double cy2;
+    private Number cx2;
+    private Number cy2;
     private GraphicsMathRect mode11;
-    private Double opacity8;
-    private Double fx2;
-    private Double fy2;
+    private Number opacity8;
+    private Number fx2;
+    private Number fy2;
 
     /**
      * Radial gradient odd fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid oddFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public Grid oddFill(GradientKey[] keys10, Number cx2, Number cy2, GraphicsMathRect mode11, Number opacity8, Number fx2, Number fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2303,7 +2303,7 @@ public class Grid extends VisualBaseWithBounds {
      * Radial gradient odd fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid oddFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public Grid oddFill(String[] keys11, Number cx2, Number cy2, GraphicsMathRect mode11, Number opacity8, Number fx2, Number fy2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2405,14 +2405,14 @@ public class Grid extends VisualBaseWithBounds {
     private HatchFillType patternFillOrType10;
     private String patternFillOrType11;
     private String color8;
-    private Double thickness3;
-    private Double size2;
+    private Number thickness3;
+    private Number size2;
 
     /**
      * Setter for odd hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Grid setOddHatchFill(PatternFill patternFillOrType8, String color8, Double thickness3, Double size2) {
+    public Grid setOddHatchFill(PatternFill patternFillOrType8, String color8, Number thickness3, Number size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -2475,7 +2475,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for odd hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Grid setOddHatchFill(HatchFill patternFillOrType9, String color8, Double thickness3, Double size2) {
+    public Grid setOddHatchFill(HatchFill patternFillOrType9, String color8, Number thickness3, Number size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -2538,7 +2538,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for odd hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Grid setOddHatchFill(HatchFillType patternFillOrType10, String color8, Double thickness3, Double size2) {
+    public Grid setOddHatchFill(HatchFillType patternFillOrType10, String color8, Number thickness3, Number size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -2601,7 +2601,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for odd hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Grid setOddHatchFill(String patternFillOrType11, String color8, Double thickness3, Double size2) {
+    public Grid setOddHatchFill(String patternFillOrType11, String color8, Number thickness3, Number size2) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -2686,12 +2686,12 @@ public class Grid extends VisualBaseWithBounds {
     }
 
     private String color9;
-    private Double opacity9;
+    private Number opacity9;
 
     /**
      * Odd holiday fill color with opacity.
      */
-    public Grid oddHolidayFill(String color9, Double opacity9) {
+    public Grid oddHolidayFill(String color9, Number opacity9) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -2737,17 +2737,17 @@ public class Grid extends VisualBaseWithBounds {
 
     private GradientKey[] keys12;
     private String[] keys13;
-    private Double angle3;
+    private Number angle3;
     private Boolean mode12;
     private VectorRect mode13;
     private String mode14;
-    private Double opacity10;
+    private Number opacity10;
 
     /**
      * Linear gradient odd holiday fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid oddHolidayFill(GradientKey[] keys12, Double angle3, Double opacity10, Boolean mode12) {
+    public Grid oddHolidayFill(GradientKey[] keys12, Number angle3, Number opacity10, Boolean mode12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2826,7 +2826,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient odd holiday fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid oddHolidayFill(GradientKey[] keys12, Double angle3, Double opacity10, VectorRect mode13) {
+    public Grid oddHolidayFill(GradientKey[] keys12, Number angle3, Number opacity10, VectorRect mode13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2905,7 +2905,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient odd holiday fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid oddHolidayFill(GradientKey[] keys12, Double angle3, Double opacity10, String mode14) {
+    public Grid oddHolidayFill(GradientKey[] keys12, Number angle3, Number opacity10, String mode14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -2984,7 +2984,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient odd holiday fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid oddHolidayFill(String[] keys13, Double angle3, Double opacity10, Boolean mode12) {
+    public Grid oddHolidayFill(String[] keys13, Number angle3, Number opacity10, Boolean mode12) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3063,7 +3063,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient odd holiday fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid oddHolidayFill(String[] keys13, Double angle3, Double opacity10, VectorRect mode13) {
+    public Grid oddHolidayFill(String[] keys13, Number angle3, Number opacity10, VectorRect mode13) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3142,7 +3142,7 @@ public class Grid extends VisualBaseWithBounds {
      * Linear gradient odd holiday fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid oddHolidayFill(String[] keys13, Double angle3, Double opacity10, String mode14) {
+    public Grid oddHolidayFill(String[] keys13, Number angle3, Number opacity10, String mode14) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3218,18 +3218,18 @@ public class Grid extends VisualBaseWithBounds {
 
     private GradientKey[] keys14;
     private String[] keys15;
-    private Double cx3;
-    private Double cy3;
+    private Number cx3;
+    private Number cy3;
     private GraphicsMathRect mode15;
-    private Double opacity11;
-    private Double fx3;
-    private Double fy3;
+    private Number opacity11;
+    private Number fx3;
+    private Number fy3;
 
     /**
      * Radial gradient odd holiday fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid oddHolidayFill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
+    public Grid oddHolidayFill(GradientKey[] keys14, Number cx3, Number cy3, GraphicsMathRect mode15, Number opacity11, Number fx3, Number fy3) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3333,7 +3333,7 @@ public class Grid extends VisualBaseWithBounds {
      * Radial gradient odd holiday fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Grid oddHolidayFill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
+    public Grid oddHolidayFill(String[] keys15, Number cx3, Number cy3, GraphicsMathRect mode15, Number opacity11, Number fx3, Number fy3) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -3450,14 +3450,14 @@ public class Grid extends VisualBaseWithBounds {
     private HatchFillType patternFillOrType14;
     private String patternFillOrType15;
     private String color10;
-    private Double thickness4;
-    private Double size3;
+    private Number thickness4;
+    private Number size3;
 
     /**
      * Setter for odd holiday hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Grid setOddHolidayHatchFill(PatternFill patternFillOrType12, String color10, Double thickness4, Double size3) {
+    public Grid setOddHolidayHatchFill(PatternFill patternFillOrType12, String color10, Number thickness4, Number size3) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -3528,7 +3528,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for odd holiday hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Grid setOddHolidayHatchFill(HatchFill patternFillOrType13, String color10, Double thickness4, Double size3) {
+    public Grid setOddHolidayHatchFill(HatchFill patternFillOrType13, String color10, Number thickness4, Number size3) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -3599,7 +3599,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for odd holiday hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Grid setOddHolidayHatchFill(HatchFillType patternFillOrType14, String color10, Double thickness4, Double size3) {
+    public Grid setOddHolidayHatchFill(HatchFillType patternFillOrType14, String color10, Number thickness4, Number size3) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -3670,7 +3670,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for odd holiday hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Grid setOddHolidayHatchFill(String patternFillOrType15, String color10, Double thickness4, Double size3) {
+    public Grid setOddHolidayHatchFill(String patternFillOrType15, String color10, Number thickness4, Number size3) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -3807,7 +3807,7 @@ public class Grid extends VisualBaseWithBounds {
     private Stroke color11;
     private ColoredFill color12;
     private String color13;
-    private Double thickness5;
+    private Number thickness5;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -3816,7 +3816,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for the vertical stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Grid setVerticalStroke(Stroke color11, Double thickness5, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Grid setVerticalStroke(Stroke color11, Number thickness5, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3880,7 +3880,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for the vertical stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Grid setVerticalStroke(ColoredFill color12, Double thickness5, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Grid setVerticalStroke(ColoredFill color12, Number thickness5, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -3944,7 +3944,7 @@ public class Grid extends VisualBaseWithBounds {
      * Setter for the vertical stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Grid setVerticalStroke(String color13, Double thickness5, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public Grid setVerticalStroke(String color13, Number thickness5, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;

@@ -50,7 +50,7 @@ public class Row extends TableBase {
     private Stroke color;
     private ColoredFill color1;
     private String color2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -60,7 +60,7 @@ public class Row extends TableBase {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public TableBase setCellBorder(Stroke color, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public TableBase setCellBorder(Stroke color, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -111,7 +111,7 @@ public class Row extends TableBase {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public TableBase setCellBorder(ColoredFill color1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public TableBase setCellBorder(ColoredFill color1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -162,7 +162,7 @@ public class Row extends TableBase {
      * Setter for cell border settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public TableBase setCellBorder(String color2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public TableBase setCellBorder(String color2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -248,13 +248,13 @@ public class Row extends TableBase {
     }
 
     private String color3;
-    private Double opacity;
+    private Number opacity;
     private List<TableBase> setCellFill1 = new ArrayList<>();
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public TableBase cellFill(String color3, Double opacity) {
+    public TableBase cellFill(String color3, Number opacity) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -296,18 +296,18 @@ public class Row extends TableBase {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
     private List<TableBase> setCellFill2 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TableBase cellFill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public TableBase cellFill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -362,7 +362,7 @@ public class Row extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TableBase cellFill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public TableBase cellFill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -417,7 +417,7 @@ public class Row extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TableBase cellFill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public TableBase cellFill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -472,7 +472,7 @@ public class Row extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TableBase cellFill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public TableBase cellFill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -527,7 +527,7 @@ public class Row extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TableBase cellFill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public TableBase cellFill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -582,7 +582,7 @@ public class Row extends TableBase {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TableBase cellFill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public TableBase cellFill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -633,19 +633,19 @@ public class Row extends TableBase {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
     private List<TableBase> setCellFill8 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TableBase cellFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public TableBase cellFill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -710,7 +710,7 @@ public class Row extends TableBase {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public TableBase cellFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public TableBase cellFill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -782,7 +782,7 @@ public class Row extends TableBase {
         return getCellPadding;
     }
 
-    private Double[] cellPadding;
+    private Number[] cellPadding;
     private String[] cellPadding1;
     private String cellPadding2;
     private List<TableBase> setCellPadding = new ArrayList<>();
@@ -790,7 +790,7 @@ public class Row extends TableBase {
     /**
      * Setter for cell paddings in pixels using a single value.
      */
-    public TableBase setCellPadding(Double[] cellPadding) {
+    public TableBase setCellPadding(Number[] cellPadding) {
         if (jsBase == null) {
             this.cellPadding = null;
             this.cellPadding1 = null;
@@ -912,13 +912,13 @@ public class Row extends TableBase {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
     private List<TableBase> setCellPadding3 = new ArrayList<>();
 
     /**
@@ -1004,7 +1004,7 @@ public class Row extends TableBase {
     /**
      * Setter for cell paddings in pixels using several numbers.
      */
-    public TableBase setCellPadding(Double value1, Double value3, Double value5, Double value7) {
+    public TableBase setCellPadding(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1079,13 +1079,13 @@ public class Row extends TableBase {
         return "";
     }
 
-    private Double col;
+    private Number col;
     private List<Cell> setGetCell = new ArrayList<>();
 
     /**
      * Returns cell of current row by column index.
      */
-    public Cell getCell(Double col) {
+    public Cell getCell(Number col) {
         if (jsBase == null) {
             this.col = col;
         } else {
@@ -1119,7 +1119,7 @@ public class Row extends TableBase {
     }
 
     private String height;
-    private Double height1;
+    private Number height1;
 
     /**
      * Setter for row height settings.
@@ -1151,7 +1151,7 @@ public class Row extends TableBase {
     /**
      * Setter for row height settings.
      */
-    public Row setHeight(Double height1) {
+    public Row setHeight(Number height1) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -1190,14 +1190,14 @@ public class Row extends TableBase {
     /**
      * Getter for row maximum height settings.
      */
-    public Row getMaxHeight(Double maxHeight) {
+    public Row getMaxHeight(Number maxHeight) {
         Row item = new Row(jsBase + ".maxHeight(" + maxHeight + ")");
         getMaxHeight1.add(item);
         return item;
     }
 
     private String minHeight;
-    private Double minHeight1;
+    private Number minHeight1;
 
     /**
      * Setter for row minimum height settings.
@@ -1229,7 +1229,7 @@ public class Row extends TableBase {
     /**
      * Setter for row minimum height settings.
      */
-    public Row setMinHeight(Double minHeight1) {
+    public Row setMinHeight(Number minHeight1) {
         if (jsBase == null) {
             this.minHeight = null;
             this.minHeight1 = null;

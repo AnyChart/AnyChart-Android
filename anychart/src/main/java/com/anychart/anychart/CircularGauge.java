@@ -96,14 +96,14 @@ public class CircularGauge extends Chart {
         return this;
     }
 
-    private Double index;
+    private Number index;
     private String axis2;
     private Boolean axis3;
 
     /**
      * Setter for the gauge axis by index.
      */
-    public CircularGauge setAxis(String axis2, Double index) {
+    public CircularGauge setAxis(String axis2, Number index) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -121,7 +121,7 @@ public class CircularGauge extends Chart {
     /**
      * Setter for the gauge axis by index.
      */
-    public CircularGauge setAxis(Boolean axis3, Double index) {
+    public CircularGauge setAxis(Boolean axis3, Number index) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -153,7 +153,7 @@ public class CircularGauge extends Chart {
     /**
      * Getter for the bar pointer.
      */
-    public GaugePointersBar getBar(Double index1) {
+    public GaugePointersBar getBar(Number index1) {
         GaugePointersBar item = new GaugePointersBar(jsBase + ".bar("+ index1+")");
         getBar1.add(item);
         return item;
@@ -196,14 +196,14 @@ public class CircularGauge extends Chart {
         return this;
     }
 
-    private Double index2;
+    private Number index2;
     private String bar2;
     private Boolean bar3;
 
     /**
      * Setter for the bar pointer by index.
      */
-    public CircularGauge setBar(String bar2, Double index2) {
+    public CircularGauge setBar(String bar2, Number index2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -221,7 +221,7 @@ public class CircularGauge extends Chart {
     /**
      * Setter for the bar pointer by index.
      */
-    public CircularGauge setBar(Boolean bar3, Double index2) {
+    public CircularGauge setBar(Boolean bar3, Number index2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -285,13 +285,13 @@ public class CircularGauge extends Chart {
         return this;
     }
 
-    private Double circularPadding;
+    private Number circularPadding;
     private String circularPadding1;
 
     /**
      * Setter for circular space around the gauge.
      */
-    public CircularGauge setCircularPadding(Double circularPadding) {
+    public CircularGauge setCircularPadding(Number circularPadding) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -340,27 +340,27 @@ public class CircularGauge extends Chart {
      * Setter for pointers mapping
      */
     public CircularGauge setData(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         return this;
     }
 
@@ -443,12 +443,12 @@ public class CircularGauge extends Chart {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity. Fill as a string or an object.
      */
-    public CircularGauge fill(String color, Double opacity) {
+    public CircularGauge fill(String color, Number opacity) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -464,17 +464,17 @@ public class CircularGauge extends Chart {
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CircularGauge fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public CircularGauge fill(GradientKey[] keys, Boolean mode, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -493,7 +493,7 @@ public class CircularGauge extends Chart {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CircularGauge fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public CircularGauge fill(GradientKey[] keys, VectorRect mode1, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -512,7 +512,7 @@ public class CircularGauge extends Chart {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CircularGauge fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public CircularGauge fill(GradientKey[] keys, String mode2, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -531,7 +531,7 @@ public class CircularGauge extends Chart {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CircularGauge fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public CircularGauge fill(String[] keys1, Boolean mode, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -550,7 +550,7 @@ public class CircularGauge extends Chart {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CircularGauge fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public CircularGauge fill(String[] keys1, VectorRect mode1, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -569,7 +569,7 @@ public class CircularGauge extends Chart {
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CircularGauge fill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public CircularGauge fill(String[] keys1, String mode2, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -585,18 +585,18 @@ public class CircularGauge extends Chart {
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CircularGauge fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CircularGauge fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -615,7 +615,7 @@ public class CircularGauge extends Chart {
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public CircularGauge fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public CircularGauge fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -648,7 +648,7 @@ public class CircularGauge extends Chart {
     /**
      * Getter for the knob pointer.
      */
-    public Knob getKnob(Double index3) {
+    public Knob getKnob(Number index3) {
         Knob item = new Knob(jsBase + ".knob("+ index3+")");
         getKnob1.add(item);
         return item;
@@ -691,14 +691,14 @@ public class CircularGauge extends Chart {
         return this;
     }
 
-    private Double index4;
+    private Number index4;
     private String knob2;
     private Boolean knob3;
 
     /**
      * Setter for the knob pointer by index.
      */
-    public CircularGauge setKnob(String knob2, Double index4) {
+    public CircularGauge setKnob(String knob2, Number index4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -716,7 +716,7 @@ public class CircularGauge extends Chart {
     /**
      * Setter for the knob pointer by index.
      */
-    public CircularGauge setKnob(Boolean knob3, Double index4) {
+    public CircularGauge setKnob(Boolean knob3, Number index4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -748,7 +748,7 @@ public class CircularGauge extends Chart {
     /**
      * Getter for the marker pointer.
      */
-    public GaugePointersMarker getMarker(Double index5) {
+    public GaugePointersMarker getMarker(Number index5) {
         GaugePointersMarker item = new GaugePointersMarker(jsBase + ".marker("+ index5+")");
         getMarker1.add(item);
         return item;
@@ -791,14 +791,14 @@ public class CircularGauge extends Chart {
         return this;
     }
 
-    private Double index6;
+    private Number index6;
     private String marker2;
     private Boolean marker3;
 
     /**
      * Setter for the marker pointer by index.
      */
-    public CircularGauge setMarker(String marker2, Double index6) {
+    public CircularGauge setMarker(String marker2, Number index6) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -816,7 +816,7 @@ public class CircularGauge extends Chart {
     /**
      * Setter for the marker pointer by index.
      */
-    public CircularGauge setMarker(Boolean marker3, Double index6) {
+    public CircularGauge setMarker(Boolean marker3, Number index6) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -848,7 +848,7 @@ public class CircularGauge extends Chart {
     /**
      * Getter for the needle pointer.
      */
-    public Needle getNeedle(Double index7) {
+    public Needle getNeedle(Number index7) {
         Needle item = new Needle(jsBase + ".needle("+ index7+")");
         getNeedle1.add(item);
         return item;
@@ -891,14 +891,14 @@ public class CircularGauge extends Chart {
         return this;
     }
 
-    private Double index8;
+    private Number index8;
     private String needle2;
     private Boolean needle3;
 
     /**
      * Setter for the needle pointer by index.
      */
-    public CircularGauge setNeedle(String needle2, Double index8) {
+    public CircularGauge setNeedle(String needle2, Number index8) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -916,7 +916,7 @@ public class CircularGauge extends Chart {
     /**
      * Setter for the needle pointer by index.
      */
-    public CircularGauge setNeedle(Boolean needle3, Double index8) {
+    public CircularGauge setNeedle(Boolean needle3, Number index8) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -948,7 +948,7 @@ public class CircularGauge extends Chart {
     /**
      * Getter for the circular range.
      */
-    public CircularRange getRange(Double index9) {
+    public CircularRange getRange(Number index9) {
         CircularRange item = new CircularRange(jsBase + ".range("+ index9+")");
         getRange1.add(item);
         return item;
@@ -991,14 +991,14 @@ public class CircularGauge extends Chart {
         return this;
     }
 
-    private Double index10;
+    private Number index10;
     private String range2;
     private Boolean range3;
 
     /**
      * Setter for the circular range settings by index.
      */
-    public CircularGauge setRange(String range2, Double index10) {
+    public CircularGauge setRange(String range2, Number index10) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1016,7 +1016,7 @@ public class CircularGauge extends Chart {
     /**
      * Setter for the circular range settings by index.
      */
-    public CircularGauge setRange(Boolean range3, Double index10) {
+    public CircularGauge setRange(Boolean range3, Number index10) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1031,7 +1031,7 @@ public class CircularGauge extends Chart {
     }
 
     private String startAngle;
-    private Double startAngle1;
+    private Number startAngle1;
 
     /**
      * Setter for the start angle.
@@ -1054,7 +1054,7 @@ public class CircularGauge extends Chart {
     /**
      * Setter for the start angle.
      */
-    public CircularGauge setStartAngle(Double startAngle1) {
+    public CircularGauge setStartAngle(Number startAngle1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1071,7 +1071,7 @@ public class CircularGauge extends Chart {
     private Stroke stroke;
     private ColoredFill stroke1;
     private String stroke2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -1080,7 +1080,7 @@ public class CircularGauge extends Chart {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CircularGauge setStroke(Stroke stroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CircularGauge setStroke(Stroke stroke, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1099,7 +1099,7 @@ public class CircularGauge extends Chart {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CircularGauge setStroke(ColoredFill stroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CircularGauge setStroke(ColoredFill stroke1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1118,7 +1118,7 @@ public class CircularGauge extends Chart {
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CircularGauge setStroke(String stroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CircularGauge setStroke(String stroke2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1133,7 +1133,7 @@ public class CircularGauge extends Chart {
     }
 
     private String sweepAngle;
-    private Double sweepAngle1;
+    private Number sweepAngle1;
 
     /**
      * Setter for the gauge sweep angle.
@@ -1156,7 +1156,7 @@ public class CircularGauge extends Chart {
     /**
      * Setter for the gauge sweep angle.
      */
-    public CircularGauge setSweepAngle(Double sweepAngle1) {
+    public CircularGauge setSweepAngle(Number sweepAngle1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;

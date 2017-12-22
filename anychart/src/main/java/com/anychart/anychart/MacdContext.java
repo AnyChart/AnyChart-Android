@@ -9,18 +9,18 @@ import java.util.Arrays;
 public class MacdContext extends JsObject  {
 
     
-    private Double fastPeriod;
+    private Number fastPeriod;
     private CycledQueue fastQueue;
-    private Double fastResult;
-    private Double signalPeriod;
+    private Number fastResult;
+    private Number signalPeriod;
     private CycledQueue signalQueue;
-    private Double signalResult;
-    private Double slowPeriod;
+    private Number signalResult;
+    private Number slowPeriod;
     private CycledQueue slowQueue;
-    private Double slowResult;
+    private Number slowResult;
 
     
-    public MacdContext(Double fastPeriod, CycledQueue fastQueue, Double fastResult, Double signalPeriod, CycledQueue signalQueue, Double signalResult, Double slowPeriod, CycledQueue slowQueue, Double slowResult) {
+    public MacdContext(Number fastPeriod, CycledQueue fastQueue, Number fastResult, Number signalPeriod, CycledQueue signalQueue, Number signalResult, Number slowPeriod, CycledQueue slowQueue, Number slowResult) {
         this.fastPeriod = fastPeriod;
         this.fastQueue = fastQueue;
         this.fastResult = fastResult;

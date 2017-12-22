@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Range Picker (only for stock chart).
+ * The RangePicker class contains methods for configuring range picker.
  */
 public class RangePicker extends JsObject {
 

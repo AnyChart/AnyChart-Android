@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Gradient palette.
+ * Gradient palette class.
  */
 public class RangeColors extends CoreBase {
 
@@ -35,13 +35,13 @@ public class RangeColors extends CoreBase {
     }
 
     
-    private Double count;
+    private Number count;
 
     /**
      * Setter for color palette's colors counts.<br/>
 <b>Note:</b> Defines how many steps we need in gradient.
      */
-    public RangeColors setCount(Double count) {
+    public RangeColors setCount(Number count) {
         if (jsBase == null) {
             this.count = count;
         } else {
@@ -61,13 +61,13 @@ public class RangeColors extends CoreBase {
         return this;
     }
 
-    private Double index;
+    private Number index;
     private SolidFill color;
 
     /**
      * Setter for color palette colors from list by index.
      */
-    public RangeColors setItemAt(Double index, SolidFill color) {
+    public RangeColors setItemAt(Number index, SolidFill color) {
         if (jsBase == null) {
             this.index = index;
             this.color = color;

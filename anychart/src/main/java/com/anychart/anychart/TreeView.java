@@ -167,13 +167,13 @@ public class TreeView extends CoreBase {
     private String child3;
     private TreeDataItem child4;
     private TreeviewDataItem child5;
-    private Double index;
+    private Number index;
     private List<TreeviewDataItem> setAddChildAt = new ArrayList<>();
 
     /**
      * Inserts a child into a specified position.
      */
-    public TreeviewDataItem addChildAt(String child3, Double index) {
+    public TreeviewDataItem addChildAt(String child3, Number index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -220,7 +220,7 @@ public class TreeView extends CoreBase {
     /**
      * Inserts a child into a specified position.
      */
-    public TreeviewDataItem addChildAt(TreeDataItem child4, Double index) {
+    public TreeviewDataItem addChildAt(TreeDataItem child4, Number index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -267,7 +267,7 @@ public class TreeView extends CoreBase {
     /**
      * Inserts a child into a specified position.
      */
-    public TreeviewDataItem addChildAt(TreeviewDataItem child5, Double index) {
+    public TreeviewDataItem addChildAt(TreeviewDataItem child5, Number index) {
         if (jsBase == null) {
             this.child = null;
             this.child1 = null;
@@ -473,7 +473,7 @@ public class TreeView extends CoreBase {
     /**
      * Gets the child by index.
      */
-    public TreeviewDataItem getGetChildAt(Double index) {
+    public TreeviewDataItem getGetChildAt(Number index) {
         TreeviewDataItem item = new TreeviewDataItem(jsBase + ".getChildAt(" + index + ")");
         getGetChildAt.add(item);
         return item;
@@ -575,13 +575,13 @@ public class TreeView extends CoreBase {
         return "";
     }
 
-    private Double index1;
+    private Number index1;
     private List<TreeviewDataItem> setRemoveChildAt = new ArrayList<>();
 
     /**
-     * Removes child at specified position.
+     * Removes child at the specified position.
      */
-    public TreeviewDataItem removeChildAt(Double index1) {
+    public TreeviewDataItem removeChildAt(Number index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -619,7 +619,7 @@ public class TreeView extends CoreBase {
 
     private String soughtField;
     private String search;
-    private Double search1;
+    private Number search1;
     private Boolean search2;
     private String comparisonFn;
     private List<TreeviewDataItem> setSearch = new ArrayList<>();
@@ -673,7 +673,7 @@ public class TreeView extends CoreBase {
     /**
      * Performs a data search.
      */
-    public TreeviewDataItem search(String soughtField, Double search1, String comparisonFn) {
+    public TreeviewDataItem search(String soughtField, Number search1, String comparisonFn) {
         if (jsBase == null) {
             this.soughtField = soughtField;
             this.search = null;
@@ -762,7 +762,7 @@ public class TreeView extends CoreBase {
 
     private String soughtField1;
     private String searchItems;
-    private Double searchItems1;
+    private Number searchItems1;
     private Boolean searchItems2;
     private String comparisonFn1;
 
@@ -807,7 +807,7 @@ public class TreeView extends CoreBase {
     /**
      * Performs a data item search.
      */
-    public void searchItems(String soughtField1, Double searchItems1, String comparisonFn1) {
+    public void searchItems(String soughtField1, Number searchItems1, String comparisonFn1) {
         if (jsBase == null) {
             this.soughtField = null;
             this.soughtField1 = null;

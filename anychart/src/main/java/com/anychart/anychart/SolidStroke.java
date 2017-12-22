@@ -13,11 +13,11 @@ public class SolidStroke extends JsObject implements Stroke {
     private String dash;
     private String lineCap;
     private String lineJoin;
-    private Double opacity;
-    private Double thickness;
+    private Number opacity;
+    private Number thickness;
 
     
-    public SolidStroke(String color, String dash, String lineCap, String lineJoin, Double opacity, Double thickness) {
+    public SolidStroke(String color, String dash, String lineCap, String lineJoin, Number opacity, Number thickness) {
         this.color = color;
         this.dash = dash;
         this.lineCap = lineCap;

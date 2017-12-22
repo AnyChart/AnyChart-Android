@@ -35,13 +35,13 @@ public class Animation extends CoreBase {
     }
 
     
-    private Double duration;
+    private Number duration;
 
     /**
      * Setter for animation duration in milliseconds.
 See sample at {@link anychart.core.Chart#animation}.
      */
-    public Animation setDuration(Double duration) {
+    public Animation setDuration(Number duration) {
         if (jsBase == null) {
             this.duration = duration;
         } else {

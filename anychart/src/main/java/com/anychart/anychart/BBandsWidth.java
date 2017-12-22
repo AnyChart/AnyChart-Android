@@ -35,12 +35,12 @@ public class BBandsWidth extends JsObject {
     }
 
     
-    private Double deviation;
+    private Number deviation;
 
     /**
      * Setter for the deviation.
      */
-    public BBandsWidth setDeviation(Double deviation) {
+    public BBandsWidth setDeviation(Number deviation) {
         if (jsBase == null) {
             this.deviation = deviation;
         } else {
@@ -60,12 +60,12 @@ public class BBandsWidth extends JsObject {
         return this;
     }
 
-    private Double period;
+    private Number period;
 
     /**
      * Setter for the period.
      */
-    public BBandsWidth setPeriod(Double period) {
+    public BBandsWidth setPeriod(Number period) {
         if (jsBase == null) {
             this.period = period;
         } else {

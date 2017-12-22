@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Define Ordinal scale.
+ * The Ordinal class contains methods for configuring Ordinal scale.<br/>
 <b>Note:</b> To create instance use {@link anychart.scales#ordinal} method.
  */
 public class Ordinal extends ScalesBase {
@@ -36,13 +36,13 @@ public class Ordinal extends ScalesBase {
     }
 
     
-    private Double ratio;
+    private Number ratio;
 
     /**
      * Returns tick name by its ratio position.
 <b>Note:</b> returns correct values only after {@link anychart.scales.Base#finishAutoCalc} or <b>chart.draw()</b>.
      */
-    public void inverseTransform(Double ratio) {
+    public void inverseTransform(Number ratio) {
         if (jsBase == null) {
             this.ratio = ratio;
         } else {
@@ -155,13 +155,13 @@ public class Ordinal extends ScalesBase {
         return this;
     }
 
-    private Double subRangeRatio;
+    private Number subRangeRatio;
 
     /**
      * Returns tick position ratio by its name.
 <b>Note:</b> returns correct values only after {@link anychart.scales.Base#finishAutoCalc} or <b>chart.draw()</b>.
      */
-    public void transform(Double subRangeRatio) {
+    public void transform(Number subRangeRatio) {
         if (jsBase == null) {
             this.subRangeRatio = subRangeRatio;
         } else {
@@ -181,12 +181,12 @@ public class Ordinal extends ScalesBase {
         }
     }
 
-    private Double[] weights;
+    private Number[] weights;
 
     /**
      * Setter for scale weights.
      */
-    public Ordinal setWeights(Double[] weights) {
+    public Ordinal setWeights(Number[] weights) {
         if (jsBase == null) {
             this.weights = weights;
         } else {

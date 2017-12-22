@@ -520,12 +520,12 @@ public class Tooltip extends VisualBase {
         return this;
     }
 
-    private Double fontOpacity;
+    private Number fontOpacity;
 
     /**
      * Setter for font opacity settings.
      */
-    public Tooltip setFontOpacity(Double fontOpacity) {
+    public Tooltip setFontOpacity(Number fontOpacity) {
         if (jsBase == null) {
             this.fontOpacity = fontOpacity;
         } else {
@@ -545,13 +545,13 @@ public class Tooltip extends VisualBase {
         return this;
     }
 
-    private Double fontSize;
+    private Number fontSize;
     private String fontSize1;
 
     /**
      * Setter for font size settings.
      */
-    public Tooltip setFontSize(Double fontSize) {
+    public Tooltip setFontSize(Number fontSize) {
         if (jsBase == null) {
             this.fontSize = null;
             this.fontSize1 = null;
@@ -714,7 +714,7 @@ public class Tooltip extends VisualBase {
     }
 
     private String fontWeight;
-    private Double fontWeight1;
+    private Number fontWeight1;
 
     /**
      * Setter for font weight settings.
@@ -746,7 +746,7 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for font weight settings.
      */
-    public Tooltip setFontWeight(Double fontWeight1) {
+    public Tooltip setFontWeight(Number fontWeight1) {
         if (jsBase == null) {
             this.fontWeight = null;
             this.fontWeight1 = null;
@@ -852,7 +852,7 @@ public class Tooltip extends VisualBase {
     }
 
     private String height;
-    private Double height1;
+    private Number height1;
 
     /**
      * Setter for the tooltip height.
@@ -884,7 +884,7 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the tooltip height.
      */
-    public Tooltip setHeight(Double height1) {
+    public Tooltip setHeight(Number height1) {
         if (jsBase == null) {
             this.height = null;
             this.height1 = null;
@@ -932,12 +932,12 @@ public class Tooltip extends VisualBase {
         }
     }
 
-    private Double hideDelay;
+    private Number hideDelay;
 
     /**
      * Setter for the delay in milliseconds before a tooltip becomes hidden.
      */
-    public Tooltip setHideDelay(Double hideDelay) {
+    public Tooltip setHideDelay(Number hideDelay) {
         if (jsBase == null) {
             this.hideDelay = hideDelay;
         } else {
@@ -957,12 +957,12 @@ public class Tooltip extends VisualBase {
         return this;
     }
 
-    private Double letterSpacing;
+    private Number letterSpacing;
 
     /**
      * Setter for text letter spacing settings.
      */
-    public Tooltip setLetterSpacing(Double letterSpacing) {
+    public Tooltip setLetterSpacing(Number letterSpacing) {
         if (jsBase == null) {
             this.letterSpacing = letterSpacing;
         } else {
@@ -982,13 +982,13 @@ public class Tooltip extends VisualBase {
         return this;
     }
 
-    private Double lineHeight;
+    private Number lineHeight;
     private String lineHeight1;
 
     /**
      * Setter for text line height settings.
      */
-    public Tooltip setLineHeight(Double lineHeight) {
+    public Tooltip setLineHeight(Number lineHeight) {
         if (jsBase == null) {
             this.lineHeight = null;
             this.lineHeight1 = null;
@@ -1038,13 +1038,13 @@ public class Tooltip extends VisualBase {
         return this;
     }
 
-    private Double maxFontSize;
+    private Number maxFontSize;
     private String maxFontSize1;
 
     /**
      * Setter for maximum font size settings for adjust text from.
      */
-    public Tooltip setMaxFontSize(Double maxFontSize) {
+    public Tooltip setMaxFontSize(Number maxFontSize) {
         if (jsBase == null) {
             this.maxFontSize = null;
             this.maxFontSize1 = null;
@@ -1094,13 +1094,13 @@ public class Tooltip extends VisualBase {
         return this;
     }
 
-    private Double minFontSize;
+    private Number minFontSize;
     private String minFontSize1;
 
     /**
      * Setter for minimum font size settings for adjust text from.
      */
-    public Tooltip setMinFontSize(Double minFontSize) {
+    public Tooltip setMinFontSize(Number minFontSize) {
         if (jsBase == null) {
             this.minFontSize = null;
             this.minFontSize1 = null;
@@ -1150,12 +1150,12 @@ public class Tooltip extends VisualBase {
         return this;
     }
 
-    private Double offsetX;
+    private Number offsetX;
 
     /**
      * Setter for union tooltip offsetX.
      */
-    public Tooltip setOffsetX(Double offsetX) {
+    public Tooltip setOffsetX(Number offsetX) {
         if (jsBase == null) {
             this.offsetX = offsetX;
         } else {
@@ -1175,12 +1175,12 @@ public class Tooltip extends VisualBase {
         return this;
     }
 
-    private Double offsetY;
+    private Number offsetY;
 
     /**
      * Setter for the tooltip offset by Y.
      */
-    public Tooltip setOffsetY(Double offsetY) {
+    public Tooltip setOffsetY(Number offsetY) {
         if (jsBase == null) {
             this.offsetY = offsetY;
         } else {
@@ -1212,14 +1212,14 @@ public class Tooltip extends VisualBase {
         return getPadding;
     }
 
-    private Double[] padding;
+    private Number[] padding;
     private String[] padding1;
     private String padding2;
 
     /**
      * Setter for the tooltip padding in pixels by one value.
      */
-    public Tooltip setPadding(Double[] padding) {
+    public Tooltip setPadding(Number[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -1300,13 +1300,13 @@ public class Tooltip extends VisualBase {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for the tooltip padding in pixels.
@@ -1377,7 +1377,7 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the tooltip padding in pixels.
      */
-    public Tooltip setPadding(Double value1, Double value3, Double value5, Double value7) {
+    public Tooltip setPadding(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -1702,12 +1702,12 @@ public class Tooltip extends VisualBase {
         return this;
     }
 
-    private Double textIndent;
+    private Number textIndent;
 
     /**
      * Setter for text-indent settings.
      */
-    public Tooltip setTextIndent(Double textIndent) {
+    public Tooltip setTextIndent(Number textIndent) {
         if (jsBase == null) {
             this.textIndent = textIndent;
         } else {
@@ -1810,7 +1810,7 @@ public class Tooltip extends VisualBase {
 
     private String name;
     private String textSettings1;
-    private Double textSettings2;
+    private Number textSettings2;
     private Boolean textSettings3;
 
     /**
@@ -1847,7 +1847,7 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the custom text appearance settings.
      */
-    public Tooltip setTextSettings(String name, Double textSettings2) {
+    public Tooltip setTextSettings(String name, Number textSettings2) {
         if (jsBase == null) {
             this.name = name;
             this.textSettings = null;
@@ -2157,7 +2157,7 @@ public class Tooltip extends VisualBase {
     }
 
     private String width;
-    private Double width1;
+    private Number width1;
 
     /**
      * Setter for the tooltip width.
@@ -2189,7 +2189,7 @@ public class Tooltip extends VisualBase {
     /**
      * Setter for the tooltip width.
      */
-    public Tooltip setWidth(Double width1) {
+    public Tooltip setWidth(Number width1) {
         if (jsBase == null) {
             this.width = null;
             this.width1 = null;

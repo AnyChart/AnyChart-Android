@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Gantt date time scale.
+ * The GanttDateTime class contains methods for configuring DateTime scale on the Gantt chart.
  */
 public class GanttDateTime extends CoreBase {
 
@@ -35,12 +35,12 @@ public class GanttDateTime extends CoreBase {
     }
 
     
-    private Double maximum;
+    private Number maximum;
 
     /**
      * Setter for the scale maximum.
      */
-    public GanttDateTime setMaximum(Double maximum) {
+    public GanttDateTime setMaximum(Number maximum) {
         if (jsBase == null) {
             this.maximum = maximum;
         } else {
@@ -60,12 +60,12 @@ public class GanttDateTime extends CoreBase {
         return this;
     }
 
-    private Double maximumGap;
+    private Number maximumGap;
 
     /**
      * Setter for the maximum gap.
      */
-    public GanttDateTime setMaximumGap(Double maximumGap) {
+    public GanttDateTime setMaximumGap(Number maximumGap) {
         if (jsBase == null) {
             this.maximumGap = maximumGap;
         } else {
@@ -85,12 +85,12 @@ public class GanttDateTime extends CoreBase {
         return this;
     }
 
-    private Double minimum;
+    private Number minimum;
 
     /**
      * Setter for the scale minimum.
      */
-    public GanttDateTime setMinimum(Double minimum) {
+    public GanttDateTime setMinimum(Number minimum) {
         if (jsBase == null) {
             this.minimum = minimum;
         } else {
@@ -110,12 +110,12 @@ public class GanttDateTime extends CoreBase {
         return this;
     }
 
-    private Double minimumGap;
+    private Number minimumGap;
 
     /**
      * Setter for the minimum gap.
      */
-    public GanttDateTime setMinimumGap(Double minimumGap) {
+    public GanttDateTime setMinimumGap(Number minimumGap) {
         if (jsBase == null) {
             this.minimumGap = minimumGap;
         } else {
@@ -135,12 +135,12 @@ public class GanttDateTime extends CoreBase {
         return this;
     }
 
-    private Double softMaximum;
+    private Number softMaximum;
 
     /**
      * Setter for the scale soft maximum.
      */
-    public GanttDateTime setSoftMaximum(Double softMaximum) {
+    public GanttDateTime setSoftMaximum(Number softMaximum) {
         if (jsBase == null) {
             this.softMaximum = softMaximum;
         } else {
@@ -160,12 +160,12 @@ public class GanttDateTime extends CoreBase {
         return this;
     }
 
-    private Double softMinimum;
+    private Number softMinimum;
 
     /**
      * Setter for the scale soft minimum.
      */
-    public GanttDateTime setSoftMinimum(Double softMinimum) {
+    public GanttDateTime setSoftMinimum(Number softMinimum) {
         if (jsBase == null) {
             this.softMinimum = softMinimum;
         } else {

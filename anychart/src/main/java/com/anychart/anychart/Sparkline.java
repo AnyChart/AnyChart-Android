@@ -74,6 +74,11 @@ False, if series is created manually. True, if created via the chart.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".clip(%s);",  ((clip != null) ? clip.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".clip(%s)", ((clip != null) ? clip.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -113,27 +118,27 @@ False, if series is created manually. True, if created via the chart.
      * Setter for the series mapping.
      */
     public Sparkline setData(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         return this;
     }
 
@@ -177,13 +182,13 @@ False, if series is created manually. True, if created via the chart.
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity.<br/>
 Fill as a string or an object.
      */
-    public Sparkline fill(String color, Double opacity) {
+    public Sparkline fill(String color, Number opacity) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -199,17 +204,17 @@ Fill as a string or an object.
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline fill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public Sparkline fill(GradientKey[] keys, Boolean mode, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -228,7 +233,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline fill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public Sparkline fill(GradientKey[] keys, VectorRect mode1, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -247,7 +252,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline fill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public Sparkline fill(GradientKey[] keys, String mode2, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -266,7 +271,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline fill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public Sparkline fill(String[] keys1, Boolean mode, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -285,7 +290,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline fill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public Sparkline fill(String[] keys1, VectorRect mode1, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -304,7 +309,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline fill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public Sparkline fill(String[] keys1, String mode2, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -320,18 +325,18 @@ Fill as a string or an object.
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Sparkline fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -350,7 +355,7 @@ Fill as a string or an object.
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Sparkline fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -386,13 +391,13 @@ Fill as a string or an object.
     }
 
     private String color1;
-    private Double opacity3;
+    private Number opacity3;
 
     /**
      * Fill color with opacity.<br/>
 Fill as a string or an object.
      */
-    public Sparkline firstFill(String color1, Double opacity3) {
+    public Sparkline firstFill(String color1, Number opacity3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -408,17 +413,17 @@ Fill as a string or an object.
 
     private GradientKey[] keys4;
     private String[] keys5;
-    private Double angle1;
+    private Number angle1;
     private Boolean mode4;
     private VectorRect mode5;
     private String mode6;
-    private Double opacity4;
+    private Number opacity4;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline firstFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public Sparkline firstFill(GradientKey[] keys4, Boolean mode4, Number angle1, Number opacity4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -437,7 +442,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline firstFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public Sparkline firstFill(GradientKey[] keys4, VectorRect mode5, Number angle1, Number opacity4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -456,7 +461,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline firstFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public Sparkline firstFill(GradientKey[] keys4, String mode6, Number angle1, Number opacity4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -475,7 +480,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline firstFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public Sparkline firstFill(String[] keys5, Boolean mode4, Number angle1, Number opacity4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -494,7 +499,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline firstFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public Sparkline firstFill(String[] keys5, VectorRect mode5, Number angle1, Number opacity4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -513,7 +518,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline firstFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public Sparkline firstFill(String[] keys5, String mode6, Number angle1, Number opacity4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -529,18 +534,18 @@ Fill as a string or an object.
 
     private GradientKey[] keys6;
     private String[] keys7;
-    private Double cx1;
-    private Double cy1;
+    private Number cx1;
+    private Number cy1;
     private GraphicsMathRect mode7;
-    private Double opacity5;
-    private Double fx1;
-    private Double fy1;
+    private Number opacity5;
+    private Number fx1;
+    private Number fy1;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline firstFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public Sparkline firstFill(GradientKey[] keys6, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -559,7 +564,7 @@ Fill as a string or an object.
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline firstFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public Sparkline firstFill(String[] keys7, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -591,14 +596,14 @@ Fill as a string or an object.
     private HatchFillType patternFillOrType2;
     private String patternFillOrType3;
     private String color2;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
 
     /**
      * Setter for first hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setFirstHatchFill(PatternFill patternFillOrType, String color2, Double thickness, Double size) {
+    public Sparkline setFirstHatchFill(PatternFill patternFillOrType, String color2, Number thickness, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -617,7 +622,7 @@ Fill as a string or an object.
      * Setter for first hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setFirstHatchFill(HatchFill patternFillOrType1, String color2, Double thickness, Double size) {
+    public Sparkline setFirstHatchFill(HatchFill patternFillOrType1, String color2, Number thickness, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -636,7 +641,7 @@ Fill as a string or an object.
      * Setter for first hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setFirstHatchFill(HatchFillType patternFillOrType2, String color2, Double thickness, Double size) {
+    public Sparkline setFirstHatchFill(HatchFillType patternFillOrType2, String color2, Number thickness, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -655,7 +660,7 @@ Fill as a string or an object.
      * Setter for first hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setFirstHatchFill(String patternFillOrType3, String color2, Double thickness, Double size) {
+    public Sparkline setFirstHatchFill(String patternFillOrType3, String color2, Number thickness, Number size) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -786,14 +791,14 @@ Fill as a string or an object.
     private HatchFillType patternFillOrType6;
     private String patternFillOrType7;
     private String color3;
-    private Double thickness1;
-    private Double size1;
+    private Number thickness1;
+    private Number size1;
 
     /**
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setHatchFill(PatternFill patternFillOrType4, String color3, Double thickness1, Double size1) {
+    public Sparkline setHatchFill(PatternFill patternFillOrType4, String color3, Number thickness1, Number size1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -812,7 +817,7 @@ Fill as a string or an object.
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setHatchFill(HatchFill patternFillOrType5, String color3, Double thickness1, Double size1) {
+    public Sparkline setHatchFill(HatchFill patternFillOrType5, String color3, Number thickness1, Number size1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -831,7 +836,7 @@ Fill as a string or an object.
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setHatchFill(HatchFillType patternFillOrType6, String color3, Double thickness1, Double size1) {
+    public Sparkline setHatchFill(HatchFillType patternFillOrType6, String color3, Number thickness1, Number size1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -850,7 +855,7 @@ Fill as a string or an object.
      * Setter for hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setHatchFill(String patternFillOrType7, String color3, Double thickness1, Double size1) {
+    public Sparkline setHatchFill(String patternFillOrType7, String color3, Number thickness1, Number size1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -935,13 +940,13 @@ Fill as a string or an object.
     }
 
     private String color4;
-    private Double opacity6;
+    private Number opacity6;
 
     /**
      * Fill color with opacity.<br/>
 Fill as a string or an object.
      */
-    public Sparkline lastFill(String color4, Double opacity6) {
+    public Sparkline lastFill(String color4, Number opacity6) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -957,17 +962,17 @@ Fill as a string or an object.
 
     private GradientKey[] keys8;
     private String[] keys9;
-    private Double angle2;
+    private Number angle2;
     private Boolean mode8;
     private VectorRect mode9;
     private String mode10;
-    private Double opacity7;
+    private Number opacity7;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline lastFill(GradientKey[] keys8, Boolean mode8, Double angle2, Double opacity7) {
+    public Sparkline lastFill(GradientKey[] keys8, Boolean mode8, Number angle2, Number opacity7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -986,7 +991,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline lastFill(GradientKey[] keys8, VectorRect mode9, Double angle2, Double opacity7) {
+    public Sparkline lastFill(GradientKey[] keys8, VectorRect mode9, Number angle2, Number opacity7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1005,7 +1010,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline lastFill(GradientKey[] keys8, String mode10, Double angle2, Double opacity7) {
+    public Sparkline lastFill(GradientKey[] keys8, String mode10, Number angle2, Number opacity7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1024,7 +1029,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline lastFill(String[] keys9, Boolean mode8, Double angle2, Double opacity7) {
+    public Sparkline lastFill(String[] keys9, Boolean mode8, Number angle2, Number opacity7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1043,7 +1048,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline lastFill(String[] keys9, VectorRect mode9, Double angle2, Double opacity7) {
+    public Sparkline lastFill(String[] keys9, VectorRect mode9, Number angle2, Number opacity7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1062,7 +1067,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline lastFill(String[] keys9, String mode10, Double angle2, Double opacity7) {
+    public Sparkline lastFill(String[] keys9, String mode10, Number angle2, Number opacity7) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1078,18 +1083,18 @@ Fill as a string or an object.
 
     private GradientKey[] keys10;
     private String[] keys11;
-    private Double cx2;
-    private Double cy2;
+    private Number cx2;
+    private Number cy2;
     private GraphicsMathRect mode11;
-    private Double opacity8;
-    private Double fx2;
-    private Double fy2;
+    private Number opacity8;
+    private Number fx2;
+    private Number fy2;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline lastFill(GradientKey[] keys10, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public Sparkline lastFill(GradientKey[] keys10, Number cx2, Number cy2, GraphicsMathRect mode11, Number opacity8, Number fx2, Number fy2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1108,7 +1113,7 @@ Fill as a string or an object.
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline lastFill(String[] keys11, Double cx2, Double cy2, GraphicsMathRect mode11, Double opacity8, Double fx2, Double fy2) {
+    public Sparkline lastFill(String[] keys11, Number cx2, Number cy2, GraphicsMathRect mode11, Number opacity8, Number fx2, Number fy2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1140,14 +1145,14 @@ Fill as a string or an object.
     private HatchFillType patternFillOrType10;
     private String patternFillOrType11;
     private String color5;
-    private Double thickness2;
-    private Double size2;
+    private Number thickness2;
+    private Number size2;
 
     /**
      * Setter for last hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setLastHatchFill(PatternFill patternFillOrType8, String color5, Double thickness2, Double size2) {
+    public Sparkline setLastHatchFill(PatternFill patternFillOrType8, String color5, Number thickness2, Number size2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1166,7 +1171,7 @@ Fill as a string or an object.
      * Setter for last hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setLastHatchFill(HatchFill patternFillOrType9, String color5, Double thickness2, Double size2) {
+    public Sparkline setLastHatchFill(HatchFill patternFillOrType9, String color5, Number thickness2, Number size2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1185,7 +1190,7 @@ Fill as a string or an object.
      * Setter for last hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setLastHatchFill(HatchFillType patternFillOrType10, String color5, Double thickness2, Double size2) {
+    public Sparkline setLastHatchFill(HatchFillType patternFillOrType10, String color5, Number thickness2, Number size2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1204,7 +1209,7 @@ Fill as a string or an object.
      * Setter for last hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setLastHatchFill(String patternFillOrType11, String color5, Double thickness2, Double size2) {
+    public Sparkline setLastHatchFill(String patternFillOrType11, String color5, Number thickness2, Number size2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1336,7 +1341,7 @@ Fill as a string or an object.
     /**
      * Getter for the chart line marker.
      */
-    public CoreAxismarkersLine getLineMarker(Double index) {
+    public CoreAxismarkersLine getLineMarker(Number index) {
         CoreAxismarkersLine item = new CoreAxismarkersLine(jsBase + ".lineMarker("+ index+")");
         getLineMarker1.add(item);
         return item;
@@ -1379,14 +1384,14 @@ Fill as a string or an object.
         return this;
     }
 
-    private Double index1;
+    private Number index1;
     private String lineMarker2;
     private Boolean lineMarker3;
 
     /**
      * Setter for the chart line marker by index.
      */
-    public Sparkline setLineMarker(String lineMarker2, Double index1) {
+    public Sparkline setLineMarker(String lineMarker2, Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1404,7 +1409,7 @@ Fill as a string or an object.
     /**
      * Setter for the chart line marker by index.
      */
-    public Sparkline setLineMarker(Boolean lineMarker3, Double index1) {
+    public Sparkline setLineMarker(Boolean lineMarker3, Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1489,13 +1494,13 @@ Fill as a string or an object.
     }
 
     private String color6;
-    private Double opacity9;
+    private Number opacity9;
 
     /**
      * Fill color with opacity.<br/>
 Fill as a string or an object.
      */
-    public Sparkline maxFill(String color6, Double opacity9) {
+    public Sparkline maxFill(String color6, Number opacity9) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1511,17 +1516,17 @@ Fill as a string or an object.
 
     private GradientKey[] keys12;
     private String[] keys13;
-    private Double angle3;
+    private Number angle3;
     private Boolean mode12;
     private VectorRect mode13;
     private String mode14;
-    private Double opacity10;
+    private Number opacity10;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline maxFill(GradientKey[] keys12, Boolean mode12, Double angle3, Double opacity10) {
+    public Sparkline maxFill(GradientKey[] keys12, Boolean mode12, Number angle3, Number opacity10) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1540,7 +1545,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline maxFill(GradientKey[] keys12, VectorRect mode13, Double angle3, Double opacity10) {
+    public Sparkline maxFill(GradientKey[] keys12, VectorRect mode13, Number angle3, Number opacity10) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1559,7 +1564,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline maxFill(GradientKey[] keys12, String mode14, Double angle3, Double opacity10) {
+    public Sparkline maxFill(GradientKey[] keys12, String mode14, Number angle3, Number opacity10) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1578,7 +1583,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline maxFill(String[] keys13, Boolean mode12, Double angle3, Double opacity10) {
+    public Sparkline maxFill(String[] keys13, Boolean mode12, Number angle3, Number opacity10) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1597,7 +1602,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline maxFill(String[] keys13, VectorRect mode13, Double angle3, Double opacity10) {
+    public Sparkline maxFill(String[] keys13, VectorRect mode13, Number angle3, Number opacity10) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1616,7 +1621,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline maxFill(String[] keys13, String mode14, Double angle3, Double opacity10) {
+    public Sparkline maxFill(String[] keys13, String mode14, Number angle3, Number opacity10) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1632,18 +1637,18 @@ Fill as a string or an object.
 
     private GradientKey[] keys14;
     private String[] keys15;
-    private Double cx3;
-    private Double cy3;
+    private Number cx3;
+    private Number cy3;
     private GraphicsMathRect mode15;
-    private Double opacity11;
-    private Double fx3;
-    private Double fy3;
+    private Number opacity11;
+    private Number fx3;
+    private Number fy3;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline maxFill(GradientKey[] keys14, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
+    public Sparkline maxFill(GradientKey[] keys14, Number cx3, Number cy3, GraphicsMathRect mode15, Number opacity11, Number fx3, Number fy3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1662,7 +1667,7 @@ Fill as a string or an object.
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline maxFill(String[] keys15, Double cx3, Double cy3, GraphicsMathRect mode15, Double opacity11, Double fx3, Double fy3) {
+    public Sparkline maxFill(String[] keys15, Number cx3, Number cy3, GraphicsMathRect mode15, Number opacity11, Number fx3, Number fy3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1694,14 +1699,14 @@ Fill as a string or an object.
     private HatchFillType patternFillOrType14;
     private String patternFillOrType15;
     private String color7;
-    private Double thickness3;
-    private Double size3;
+    private Number thickness3;
+    private Number size3;
 
     /**
      * Setter for hatch fill settings of maximum point.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setMaxHatchFill(PatternFill patternFillOrType12, String color7, Double thickness3, Double size3) {
+    public Sparkline setMaxHatchFill(PatternFill patternFillOrType12, String color7, Number thickness3, Number size3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1720,7 +1725,7 @@ Fill as a string or an object.
      * Setter for hatch fill settings of maximum point.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setMaxHatchFill(HatchFill patternFillOrType13, String color7, Double thickness3, Double size3) {
+    public Sparkline setMaxHatchFill(HatchFill patternFillOrType13, String color7, Number thickness3, Number size3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1739,7 +1744,7 @@ Fill as a string or an object.
      * Setter for hatch fill settings of maximum point.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setMaxHatchFill(HatchFillType patternFillOrType14, String color7, Double thickness3, Double size3) {
+    public Sparkline setMaxHatchFill(HatchFillType patternFillOrType14, String color7, Number thickness3, Number size3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1758,7 +1763,7 @@ Fill as a string or an object.
      * Setter for hatch fill settings of maximum point.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setMaxHatchFill(String patternFillOrType15, String color7, Double thickness3, Double size3) {
+    public Sparkline setMaxHatchFill(String patternFillOrType15, String color7, Number thickness3, Number size3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1893,13 +1898,13 @@ Fill as a string or an object.
     }
 
     private String color8;
-    private Double opacity12;
+    private Number opacity12;
 
     /**
      * Fill color with opacity.<br/>
 Fill as a string or an object.
      */
-    public Sparkline minFill(String color8, Double opacity12) {
+    public Sparkline minFill(String color8, Number opacity12) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1915,17 +1920,17 @@ Fill as a string or an object.
 
     private GradientKey[] keys16;
     private String[] keys17;
-    private Double angle4;
+    private Number angle4;
     private Boolean mode16;
     private VectorRect mode17;
     private String mode18;
-    private Double opacity13;
+    private Number opacity13;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline minFill(GradientKey[] keys16, Boolean mode16, Double angle4, Double opacity13) {
+    public Sparkline minFill(GradientKey[] keys16, Boolean mode16, Number angle4, Number opacity13) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1944,7 +1949,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline minFill(GradientKey[] keys16, VectorRect mode17, Double angle4, Double opacity13) {
+    public Sparkline minFill(GradientKey[] keys16, VectorRect mode17, Number angle4, Number opacity13) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1963,7 +1968,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline minFill(GradientKey[] keys16, String mode18, Double angle4, Double opacity13) {
+    public Sparkline minFill(GradientKey[] keys16, String mode18, Number angle4, Number opacity13) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1982,7 +1987,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline minFill(String[] keys17, Boolean mode16, Double angle4, Double opacity13) {
+    public Sparkline minFill(String[] keys17, Boolean mode16, Number angle4, Number opacity13) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2001,7 +2006,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline minFill(String[] keys17, VectorRect mode17, Double angle4, Double opacity13) {
+    public Sparkline minFill(String[] keys17, VectorRect mode17, Number angle4, Number opacity13) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2020,7 +2025,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline minFill(String[] keys17, String mode18, Double angle4, Double opacity13) {
+    public Sparkline minFill(String[] keys17, String mode18, Number angle4, Number opacity13) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2036,18 +2041,18 @@ Fill as a string or an object.
 
     private GradientKey[] keys18;
     private String[] keys19;
-    private Double cx4;
-    private Double cy4;
+    private Number cx4;
+    private Number cy4;
     private GraphicsMathRect mode19;
-    private Double opacity14;
-    private Double fx4;
-    private Double fy4;
+    private Number opacity14;
+    private Number fx4;
+    private Number fy4;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline minFill(GradientKey[] keys18, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
+    public Sparkline minFill(GradientKey[] keys18, Number cx4, Number cy4, GraphicsMathRect mode19, Number opacity14, Number fx4, Number fy4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2066,7 +2071,7 @@ Fill as a string or an object.
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline minFill(String[] keys19, Double cx4, Double cy4, GraphicsMathRect mode19, Double opacity14, Double fx4, Double fy4) {
+    public Sparkline minFill(String[] keys19, Number cx4, Number cy4, GraphicsMathRect mode19, Number opacity14, Number fx4, Number fy4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2098,14 +2103,14 @@ Fill as a string or an object.
     private HatchFillType patternFillOrType18;
     private String patternFillOrType19;
     private String color9;
-    private Double thickness4;
-    private Double size4;
+    private Number thickness4;
+    private Number size4;
 
     /**
      * Setter for hatch fill settings of minimum point.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setMinHatchFill(PatternFill patternFillOrType16, String color9, Double thickness4, Double size4) {
+    public Sparkline setMinHatchFill(PatternFill patternFillOrType16, String color9, Number thickness4, Number size4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2124,7 +2129,7 @@ Fill as a string or an object.
      * Setter for hatch fill settings of minimum point.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setMinHatchFill(HatchFill patternFillOrType17, String color9, Double thickness4, Double size4) {
+    public Sparkline setMinHatchFill(HatchFill patternFillOrType17, String color9, Number thickness4, Number size4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2143,7 +2148,7 @@ Fill as a string or an object.
      * Setter for hatch fill settings of minimum point.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setMinHatchFill(HatchFillType patternFillOrType18, String color9, Double thickness4, Double size4) {
+    public Sparkline setMinHatchFill(HatchFillType patternFillOrType18, String color9, Number thickness4, Number size4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2162,7 +2167,7 @@ Fill as a string or an object.
      * Setter for hatch fill settings of minimum point.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setMinHatchFill(String patternFillOrType19, String color9, Double thickness4, Double size4) {
+    public Sparkline setMinHatchFill(String patternFillOrType19, String color9, Number thickness4, Number size4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2297,13 +2302,13 @@ Fill as a string or an object.
     }
 
     private String color10;
-    private Double opacity15;
+    private Number opacity15;
 
     /**
      * Fill color with opacity.<br/>
 Fill as a string or an object.
      */
-    public Sparkline negativeFill(String color10, Double opacity15) {
+    public Sparkline negativeFill(String color10, Number opacity15) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2319,17 +2324,17 @@ Fill as a string or an object.
 
     private GradientKey[] keys20;
     private String[] keys21;
-    private Double angle5;
+    private Number angle5;
     private Boolean mode20;
     private VectorRect mode21;
     private String mode22;
-    private Double opacity16;
+    private Number opacity16;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline negativeFill(GradientKey[] keys20, Boolean mode20, Double angle5, Double opacity16) {
+    public Sparkline negativeFill(GradientKey[] keys20, Boolean mode20, Number angle5, Number opacity16) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2348,7 +2353,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline negativeFill(GradientKey[] keys20, VectorRect mode21, Double angle5, Double opacity16) {
+    public Sparkline negativeFill(GradientKey[] keys20, VectorRect mode21, Number angle5, Number opacity16) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2367,7 +2372,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline negativeFill(GradientKey[] keys20, String mode22, Double angle5, Double opacity16) {
+    public Sparkline negativeFill(GradientKey[] keys20, String mode22, Number angle5, Number opacity16) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2386,7 +2391,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline negativeFill(String[] keys21, Boolean mode20, Double angle5, Double opacity16) {
+    public Sparkline negativeFill(String[] keys21, Boolean mode20, Number angle5, Number opacity16) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2405,7 +2410,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline negativeFill(String[] keys21, VectorRect mode21, Double angle5, Double opacity16) {
+    public Sparkline negativeFill(String[] keys21, VectorRect mode21, Number angle5, Number opacity16) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2424,7 +2429,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline negativeFill(String[] keys21, String mode22, Double angle5, Double opacity16) {
+    public Sparkline negativeFill(String[] keys21, String mode22, Number angle5, Number opacity16) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2440,18 +2445,18 @@ Fill as a string or an object.
 
     private GradientKey[] keys22;
     private String[] keys23;
-    private Double cx5;
-    private Double cy5;
+    private Number cx5;
+    private Number cy5;
     private GraphicsMathRect mode23;
-    private Double opacity17;
-    private Double fx5;
-    private Double fy5;
+    private Number opacity17;
+    private Number fx5;
+    private Number fy5;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline negativeFill(GradientKey[] keys22, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
+    public Sparkline negativeFill(GradientKey[] keys22, Number cx5, Number cy5, GraphicsMathRect mode23, Number opacity17, Number fx5, Number fy5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2470,7 +2475,7 @@ Fill as a string or an object.
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Sparkline negativeFill(String[] keys23, Double cx5, Double cy5, GraphicsMathRect mode23, Double opacity17, Double fx5, Double fy5) {
+    public Sparkline negativeFill(String[] keys23, Number cx5, Number cy5, GraphicsMathRect mode23, Number opacity17, Number fx5, Number fy5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2502,14 +2507,14 @@ Fill as a string or an object.
     private HatchFillType patternFillOrType22;
     private String patternFillOrType23;
     private String color11;
-    private Double thickness5;
-    private Double size5;
+    private Number thickness5;
+    private Number size5;
 
     /**
      * Setter for negative hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setNegativeHatchFill(PatternFill patternFillOrType20, String color11, Double thickness5, Double size5) {
+    public Sparkline setNegativeHatchFill(PatternFill patternFillOrType20, String color11, Number thickness5, Number size5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2528,7 +2533,7 @@ Fill as a string or an object.
      * Setter for negative hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setNegativeHatchFill(HatchFill patternFillOrType21, String color11, Double thickness5, Double size5) {
+    public Sparkline setNegativeHatchFill(HatchFill patternFillOrType21, String color11, Number thickness5, Number size5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2547,7 +2552,7 @@ Fill as a string or an object.
      * Setter for negative hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setNegativeHatchFill(HatchFillType patternFillOrType22, String color11, Double thickness5, Double size5) {
+    public Sparkline setNegativeHatchFill(HatchFillType patternFillOrType22, String color11, Number thickness5, Number size5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2566,7 +2571,7 @@ Fill as a string or an object.
      * Setter for negative hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Sparkline setNegativeHatchFill(String patternFillOrType23, String color11, Double thickness5, Double size5) {
+    public Sparkline setNegativeHatchFill(String patternFillOrType23, String color11, Number thickness5, Number size5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2680,13 +2685,13 @@ Fill as a string or an object.
         return this;
     }
 
-    private Double pointWidth;
+    private Number pointWidth;
     private String pointWidth1;
 
     /**
      * Setter for point width settings.
      */
-    public Sparkline setPointWidth(Double pointWidth) {
+    public Sparkline setPointWidth(Number pointWidth) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2736,7 +2741,7 @@ Fill as a string or an object.
     /**
      * Getter for the chart range marker.
      */
-    public CoreAxismarkersRange getRangeMarker(Double index2) {
+    public CoreAxismarkersRange getRangeMarker(Number index2) {
         CoreAxismarkersRange item = new CoreAxismarkersRange(jsBase + ".rangeMarker("+ index2+")");
         getRangeMarker1.add(item);
         return item;
@@ -2779,14 +2784,14 @@ Fill as a string or an object.
         return this;
     }
 
-    private Double index3;
+    private Number index3;
     private String rangeMarker2;
     private Boolean rangeMarker3;
 
     /**
      * Setter for the chart range marker by index.
      */
-    public Sparkline setRangeMarker(String rangeMarker2, Double index3) {
+    public Sparkline setRangeMarker(String rangeMarker2, Number index3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2804,7 +2809,7 @@ Fill as a string or an object.
     /**
      * Setter for the chart range marker by index.
      */
-    public Sparkline setRangeMarker(Boolean rangeMarker3, Double index3) {
+    public Sparkline setRangeMarker(Boolean rangeMarker3, Number index3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2859,7 +2864,7 @@ Fill as a string or an object.
     private Stroke color12;
     private ColoredFill color13;
     private String color14;
-    private Double thickness6;
+    private Number thickness6;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -2868,7 +2873,7 @@ Fill as a string or an object.
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Sparkline setStroke(Stroke color12, Double thickness6, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Sparkline setStroke(Stroke color12, Number thickness6, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2887,7 +2892,7 @@ Fill as a string or an object.
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Sparkline setStroke(ColoredFill color13, Double thickness6, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Sparkline setStroke(ColoredFill color13, Number thickness6, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2906,7 +2911,7 @@ Fill as a string or an object.
      * Setter for stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Sparkline setStroke(String color14, Double thickness6, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Sparkline setStroke(String color14, Number thickness6, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -2938,7 +2943,7 @@ Fill as a string or an object.
     /**
      * Getter for the chart text marker.
      */
-    public CoreAxismarkersText getTextMarker(Double index4) {
+    public CoreAxismarkersText getTextMarker(Number index4) {
         CoreAxismarkersText item = new CoreAxismarkersText(jsBase + ".textMarker("+ index4+")");
         getTextMarker1.add(item);
         return item;
@@ -2981,14 +2986,14 @@ Fill as a string or an object.
         return this;
     }
 
-    private Double index5;
+    private Number index5;
     private String textMarker2;
     private Boolean textMarker3;
 
     /**
      * Setter for the chart text marker by index.
      */
-    public Sparkline setTextMarker(String textMarker2, Double index5) {
+    public Sparkline setTextMarker(String textMarker2, Number index5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -3006,7 +3011,7 @@ Fill as a string or an object.
     /**
      * Setter for the chart text marker by index.
      */
-    public Sparkline setTextMarker(Boolean textMarker3, Double index5) {
+    public Sparkline setTextMarker(Boolean textMarker3, Number index5) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -3088,6 +3093,11 @@ Fill as a string or an object.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".xScale(%s);",  ((xScale2 != null) ? xScale2.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".xScale(%s)", ((xScale2 != null) ? xScale2.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -3159,6 +3169,11 @@ Fill as a string or an object.
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".yScale(%s);",  ((yScale2 != null) ? yScale2.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".yScale(%s)", ((yScale2 != null) ? yScale2.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 

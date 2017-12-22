@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Linear color scale.
+ * The LinearColor class contains methods for configuring Linear color scale.<br/>
 <b>Note:</b> To create instance use {@link anychart.scales#linearColor} method.
  */
 public class LinearColor extends ScatterBase {
@@ -71,7 +71,7 @@ public class LinearColor extends ScatterBase {
     private RadialGradientFill[] var_args7;
 
     /**
-     * Sets linear gradient for the linear color scale.
+     * Setter for the linear gradient for the linear color scale.
      */
     public LinearColor setColors(String var_args) {
         if (jsBase == null) {
@@ -104,7 +104,7 @@ public class LinearColor extends ScatterBase {
 
 
     /**
-     * Sets linear gradient for the linear color scale.
+     * Setter for the linear gradient for the linear color scale.
      */
     public LinearColor setColors(SolidFill var_args1) {
         if (jsBase == null) {
@@ -137,7 +137,7 @@ public class LinearColor extends ScatterBase {
 
 
     /**
-     * Sets linear gradient for the linear color scale.
+     * Setter for the linear gradient for the linear color scale.
      */
     public LinearColor setColors(LinearGradientFill var_args2) {
         if (jsBase == null) {
@@ -170,7 +170,7 @@ public class LinearColor extends ScatterBase {
 
 
     /**
-     * Sets linear gradient for the linear color scale.
+     * Setter for the linear gradient for the linear color scale.
      */
     public LinearColor setColors(RadialGradientFill var_args3) {
         if (jsBase == null) {
@@ -203,7 +203,7 @@ public class LinearColor extends ScatterBase {
 
 
     /**
-     * Sets linear gradient for the linear color scale.
+     * Setter for the linear gradient for the linear color scale.
      */
     public LinearColor setColors(String[] var_args4) {
         if (jsBase == null) {
@@ -236,7 +236,7 @@ public class LinearColor extends ScatterBase {
 
 
     /**
-     * Sets linear gradient for the linear color scale.
+     * Setter for the linear gradient for the linear color scale.
      */
     public LinearColor setColors(SolidFill[] var_args5) {
         if (jsBase == null) {
@@ -269,7 +269,7 @@ public class LinearColor extends ScatterBase {
 
 
     /**
-     * Sets linear gradient for the linear color scale.
+     * Setter for the linear gradient for the linear color scale.
      */
     public LinearColor setColors(LinearGradientFill[] var_args6) {
         if (jsBase == null) {
@@ -302,7 +302,7 @@ public class LinearColor extends ScatterBase {
 
 
     /**
-     * Sets linear gradient for the linear color scale.
+     * Setter for the linear gradient for the linear color scale.
      */
     public LinearColor setColors(RadialGradientFill[] var_args7) {
         if (jsBase == null) {
@@ -336,7 +336,7 @@ public class LinearColor extends ScatterBase {
     private ScatterTicks getMinorTicks;
 
     /**
-     * Gets the current set of scale minor ticks in terms of data values.
+     * Getter for the set of scale minor ticks in terms of data values.
      */
     public ScatterTicks getMinorTicks() {
         if (getMinorTicks == null)
@@ -349,7 +349,7 @@ public class LinearColor extends ScatterBase {
     private String[] minorTicks1;
 
     /**
-     * Sets a set of scale minor ticks in terms of data values.
+     * Setter for the  set of scale minor ticks in terms of data values.
      */
     public LinearColor setMinorTicks(String minorTicks) {
         if (jsBase == null) {
@@ -376,7 +376,7 @@ public class LinearColor extends ScatterBase {
 
 
     /**
-     * Sets a set of scale minor ticks in terms of data values.
+     * Setter for the  set of scale minor ticks in terms of data values.
      */
     public LinearColor setMinorTicks(String[] minorTicks1) {
         if (jsBase == null) {
@@ -404,7 +404,7 @@ public class LinearColor extends ScatterBase {
     private ScatterTicks getTicks;
 
     /**
-     * Gets the current set of scale ticks in terms of data values.
+     * Getter for the set of scale ticks in terms of data values.
      */
     public ScatterTicks getTicks() {
         if (getTicks == null)
@@ -417,7 +417,7 @@ public class LinearColor extends ScatterBase {
     private String[] ticks1;
 
     /**
-     * Sets a set of scale ticks in terms of data values.
+     * Setter for the set of scale ticks in terms of data values.
      */
     public LinearColor setTicks(String ticks) {
         if (jsBase == null) {
@@ -444,7 +444,7 @@ public class LinearColor extends ScatterBase {
 
 
     /**
-     * Sets a set of scale ticks in terms of data values.
+     * Setter for the set of scale ticks in terms of data values.
      */
     public LinearColor setTicks(String[] ticks1) {
         if (jsBase == null) {
@@ -469,12 +469,12 @@ public class LinearColor extends ScatterBase {
         return this;
     }
 
-    private Double valueToColor;
+    private Number valueToColor;
 
     /**
      * Converts value to color. Returns color ratio by its number.
      */
-    public void valueToColor(Double valueToColor) {
+    public void valueToColor(Number valueToColor) {
         if (jsBase == null) {
             this.valueToColor = valueToColor;
         } else {

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Scroller standalone class.
+ * The Scroller class contains methods for configuring standalones scroller.
  */
 public class StandalonesScroller extends UiScroller {
 
@@ -38,7 +38,7 @@ public class StandalonesScroller extends UiScroller {
     private Element getContainer;
 
     /**
-     * Getter for the scroller current container.
+     * Getter for the scroller container.
      */
     public Element getContainer() {
         if (getContainer == null)
@@ -104,13 +104,13 @@ public class StandalonesScroller extends UiScroller {
         return this;
     }
 
-    private Double endRatio;
+    private Number endRatio;
 
     /**
-     * Setter for the ending ratio.
+     * Setter for the ending ratio.<br/>
 <b>Note</b>: It is always greater than the startRatio.
      */
-    public StandalonesScroller setEndRatio(Double endRatio) {
+    public StandalonesScroller setEndRatio(Number endRatio) {
         if (jsBase == null) {
             this.endRatio = endRatio;
         } else {
@@ -133,7 +133,8 @@ public class StandalonesScroller extends UiScroller {
     private AnychartMathRect getParentBounds;
 
     /**
-     * Getter for bounds. As a getter falls back to stage bounds.
+     * Getter for parent bounds.<br/>
+As a getter falls back to stage bounds.
      */
     public AnychartMathRect getParentBounds() {
         if (getParentBounds == null)
@@ -199,15 +200,15 @@ public class StandalonesScroller extends UiScroller {
         return this;
     }
 
-    private Double left;
-    private Double top;
-    private Double width;
-    private Double height;
+    private Number left;
+    private Number top;
+    private Number width;
+    private Number height;
 
     /**
-     * Setter for bounds using several value.
+     * Setter for bounds using several values.
      */
-    public StandalonesScroller setParentBounds(Double left, Double top, Double width, Double height) {
+    public StandalonesScroller setParentBounds(Number left, Number top, Number width, Number height) {
         if (jsBase == null) {
             this.left = left;
             this.top = top;
@@ -233,13 +234,13 @@ public class StandalonesScroller extends UiScroller {
         return this;
     }
 
-    private Double startRatio;
-    private Double endRatio1;
+    private Number startRatio;
+    private Number endRatio1;
 
     /**
      * Changes current selected range to the passed one.
      */
-    public StandalonesScroller setRange(Double startRatio, Double endRatio1) {
+    public StandalonesScroller setRange(Number startRatio, Number endRatio1) {
         if (jsBase == null) {
             this.startRatio = startRatio;
             this.endRatio = null;
@@ -264,13 +265,13 @@ public class StandalonesScroller extends UiScroller {
         return this;
     }
 
-    private Double startRatio1;
+    private Number startRatio1;
 
     /**
-     * Setter for the starting ratio.
+     * Setter for the starting ratio.<br/>
 <b>Note</b>: It is always less than the endRatio.
      */
-    public StandalonesScroller setStartRatio(Double startRatio1) {
+    public StandalonesScroller setStartRatio(Number startRatio1) {
         if (jsBase == null) {
             this.startRatio = null;
             this.startRatio1 = null;

@@ -60,13 +60,13 @@ public class OrdinalZoom extends JsObject {
         return this;
     }
 
-    private Double startRatio;
-    private Double endRatio;
+    private Number startRatio;
+    private Number endRatio;
 
     /**
      * Sets zoom to passed start and end ratios.
      */
-    public OrdinalZoom setSetTo(Double startRatio, Double endRatio) {
+    public OrdinalZoom setSetTo(Number startRatio, Number endRatio) {
         if (jsBase == null) {
             this.startRatio = startRatio;
             this.endRatio = endRatio;
@@ -88,14 +88,14 @@ public class OrdinalZoom extends JsObject {
         return this;
     }
 
-    private Double pointsCount;
+    private Number pointsCount;
     private Boolean fromEnd;
     private ScalesBase scale;
 
     /**
      * Setups zoom by passed values.
      */
-    public OrdinalZoom setToPointsCount(Double pointsCount, Boolean fromEnd, ScalesBase scale) {
+    public OrdinalZoom setToPointsCount(Number pointsCount, Boolean fromEnd, ScalesBase scale) {
         if (jsBase == null) {
             this.pointsCount = pointsCount;
             this.fromEnd = fromEnd;

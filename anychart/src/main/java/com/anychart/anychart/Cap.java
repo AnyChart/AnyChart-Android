@@ -62,13 +62,13 @@ public class Cap extends VisualBase {
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Cap fill color with opacity.<br/>
 Fill as a string or an object.
      */
-    public Cap fill(String color, Double opacity) {
+    public Cap fill(String color, Number opacity) {
         if (jsBase == null) {
             this.color = color;
             this.opacity = opacity;
@@ -92,17 +92,17 @@ Fill as a string or an object.
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient cap fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cap fill(GradientKey[] keys, Double angle, Double opacity1, Boolean mode) {
+    public Cap fill(GradientKey[] keys, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -143,7 +143,7 @@ Fill as a string or an object.
      * Linear gradient cap fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cap fill(GradientKey[] keys, Double angle, Double opacity1, VectorRect mode1) {
+    public Cap fill(GradientKey[] keys, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -184,7 +184,7 @@ Fill as a string or an object.
      * Linear gradient cap fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cap fill(GradientKey[] keys, Double angle, Double opacity1, String mode2) {
+    public Cap fill(GradientKey[] keys, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -225,7 +225,7 @@ Fill as a string or an object.
      * Linear gradient cap fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cap fill(String[] keys1, Double angle, Double opacity1, Boolean mode) {
+    public Cap fill(String[] keys1, Number angle, Number opacity1, Boolean mode) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -266,7 +266,7 @@ Fill as a string or an object.
      * Linear gradient cap fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cap fill(String[] keys1, Double angle, Double opacity1, VectorRect mode1) {
+    public Cap fill(String[] keys1, Number angle, Number opacity1, VectorRect mode1) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -307,7 +307,7 @@ Fill as a string or an object.
      * Linear gradient cap fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cap fill(String[] keys1, Double angle, Double opacity1, String mode2) {
+    public Cap fill(String[] keys1, Number angle, Number opacity1, String mode2) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -345,18 +345,18 @@ Fill as a string or an object.
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial cap fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cap fill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Cap fill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -407,7 +407,7 @@ Fill as a string or an object.
      * Radial cap fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Cap fill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Cap fill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (jsBase == null) {
             this.keys = null;
             this.keys1 = null;
@@ -472,14 +472,14 @@ Fill as a string or an object.
     private String patternFillOrType3;
     private Boolean patternFillOrType4;
     private String color1;
-    private Double thickness;
-    private Double size;
+    private Number thickness;
+    private Number size;
 
     /**
      * Setter for cap hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Cap setHatchFill(PatternFill patternFillOrType, String color1, Double thickness, Double size) {
+    public Cap setHatchFill(PatternFill patternFillOrType, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -519,7 +519,7 @@ Fill as a string or an object.
      * Setter for cap hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Cap setHatchFill(HatchFill patternFillOrType1, String color1, Double thickness, Double size) {
+    public Cap setHatchFill(HatchFill patternFillOrType1, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -559,7 +559,7 @@ Fill as a string or an object.
      * Setter for cap hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Cap setHatchFill(HatchFillType patternFillOrType2, String color1, Double thickness, Double size) {
+    public Cap setHatchFill(HatchFillType patternFillOrType2, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -599,7 +599,7 @@ Fill as a string or an object.
      * Setter for cap hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Cap setHatchFill(String patternFillOrType3, String color1, Double thickness, Double size) {
+    public Cap setHatchFill(String patternFillOrType3, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -639,7 +639,7 @@ Fill as a string or an object.
      * Setter for cap hatch fill settings.
 {docs:Graphics/Hatch_Fill_Settings}Learn more about hatch fill settings.{docs}
      */
-    public Cap setHatchFill(Boolean patternFillOrType4, String color1, Double thickness, Double size) {
+    public Cap setHatchFill(Boolean patternFillOrType4, String color1, Number thickness, Number size) {
         if (jsBase == null) {
             this.patternFillOrType = null;
             this.patternFillOrType1 = null;
@@ -674,13 +674,13 @@ Fill as a string or an object.
         return this;
     }
 
-    private Double radius;
+    private Number radius;
     private String radius1;
 
     /**
      * Setter for the cap radius.
      */
-    public Cap setRadius(Double radius) {
+    public Cap setRadius(Number radius) {
         if (jsBase == null) {
             this.radius = null;
             this.radius1 = null;
@@ -733,7 +733,7 @@ Fill as a string or an object.
     private Stroke color2;
     private ColoredFill color3;
     private String color4;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -742,7 +742,7 @@ Fill as a string or an object.
      * Setter for cap stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Cap setStroke(Stroke color2, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Cap setStroke(Stroke color2, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -784,7 +784,7 @@ Fill as a string or an object.
      * Setter for cap stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Cap setStroke(ColoredFill color3, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Cap setStroke(ColoredFill color3, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;
@@ -826,7 +826,7 @@ Fill as a string or an object.
      * Setter for cap stroke settings.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public Cap setStroke(String color4, Double thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public Cap setStroke(String color4, Number thickness1, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.color = null;
             this.color1 = null;

@@ -10,7 +10,7 @@ public class NumberLocale extends JsObject  {
 
     
     private String decimalPoint;
-    private Double decimalsCount;
+    private Number decimalsCount;
     private String groupsSeparator;
     private String scale;
     private Boolean scale1;
@@ -19,7 +19,7 @@ public class NumberLocale extends JsObject  {
     private Boolean zeroFillDecimals;
 
     
-    public NumberLocale(String scale, String decimalPoint, Double decimalsCount, String groupsSeparator, String scaleSuffixSeparator, Boolean useBracketsForNegative, Boolean zeroFillDecimals) {
+    public NumberLocale(String scale, String decimalPoint, Number decimalsCount, String groupsSeparator, String scaleSuffixSeparator, Boolean useBracketsForNegative, Boolean zeroFillDecimals) {
         this.scale = scale;
         this.decimalPoint = decimalPoint;
         this.decimalsCount = decimalsCount;
@@ -30,7 +30,7 @@ public class NumberLocale extends JsObject  {
 
         js.append(String.format(Locale.US, "{scale: %s,decimalPoint: %s,decimalsCount: %f,groupsSeparator: %s,scaleSuffixSeparator: %s,useBracketsForNegative: %b,zeroFillDecimals: %b}",  wrapQuotes(scale), wrapQuotes(decimalPoint), decimalsCount, wrapQuotes(groupsSeparator), wrapQuotes(scaleSuffixSeparator), useBracketsForNegative, zeroFillDecimals));
     }
-    public NumberLocale(Boolean scale1, String decimalPoint, Double decimalsCount, String groupsSeparator, String scaleSuffixSeparator, Boolean useBracketsForNegative, Boolean zeroFillDecimals) {
+    public NumberLocale(Boolean scale1, String decimalPoint, Number decimalsCount, String groupsSeparator, String scaleSuffixSeparator, Boolean useBracketsForNegative, Boolean zeroFillDecimals) {
         this.scale1 = scale1;
         this.decimalPoint = decimalPoint;
         this.decimalsCount = decimalsCount;

@@ -9,7 +9,8 @@ import android.text.TextUtils;
 
 // class
 /**
- * 
+ * The Linear class contains methods for configuring standalones Linear axes.<br/>
+This class allow to create custom Linear axes or add them to charts.
  */
 public class StandalonesAxesLinear extends CoreAxesLinear {
 
@@ -38,7 +39,7 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     private Layer getContainer;
 
     /**
-     * Getter for the axis current container.
+     * Getter for the axis container.
      */
     public Layer getContainer() {
         if (getContainer == null)
@@ -173,7 +174,7 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     private UtilsPadding getPadding;
 
     /**
-     * Getter for the current chart padding.
+     * Getter for the axis padding.
      */
     public UtilsPadding getPadding() {
         if (getPadding == null)
@@ -182,14 +183,14 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         return getPadding;
     }
 
-    private Double[] padding;
+    private Number[] padding;
     private String[] padding1;
     private String padding2;
 
     /**
      * Setter for the axis paddings in pixels using a single value.
      */
-    public StandalonesAxesLinear setPadding(Double[] padding) {
+    public StandalonesAxesLinear setPadding(Number[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -270,13 +271,13 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for the axis paddings in pixels using several numbers.
@@ -347,7 +348,7 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     /**
      * Setter for the axis paddings in pixels using several numbers.
      */
-    public StandalonesAxesLinear setPadding(Double value1, Double value3, Double value5, Double value7) {
+    public StandalonesAxesLinear setPadding(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -412,7 +413,7 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
     private AnychartMathRect getParentBounds;
 
     /**
-     * Getter for bounds.
+     * Getter for axis bounds.
      */
     public AnychartMathRect getParentBounds() {
         if (getParentBounds == null)
@@ -478,15 +479,15 @@ public class StandalonesAxesLinear extends CoreAxesLinear {
         return this;
     }
 
-    private Double left;
-    private Double top;
-    private Double width;
-    private Double height;
+    private Number left;
+    private Number top;
+    private Number width;
+    private Number height;
 
     /**
      * Setter for bounds using several values.
      */
-    public StandalonesAxesLinear setParentBounds(Double left, Double top, Double width, Double height) {
+    public StandalonesAxesLinear setParentBounds(Number left, Number top, Number width, Number height) {
         if (jsBase == null) {
             this.left = left;
             this.top = top;

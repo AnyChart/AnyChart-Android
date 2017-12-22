@@ -42,12 +42,12 @@ public class Circle extends VectorEllipse {
     }
 
     
-    private Double radius;
+    private Number radius;
 
     /**
      * Setter for the circle radius.
      */
-    public Circle setRadius(Double radius) {
+    public Circle setRadius(Number radius) {
         if (jsBase == null) {
             this.radius = radius;
         } else {

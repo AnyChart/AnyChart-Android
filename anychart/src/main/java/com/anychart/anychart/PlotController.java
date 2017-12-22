@@ -493,13 +493,13 @@ public class PlotController extends VisualBase {
         return this;
     }
 
-    private Double index;
+    private Number index;
     private List<AnnotationsBase> setGetAnnotationAt = new ArrayList<>();
 
     /**
      * Returns annotation by index.
      */
-    public AnnotationsBase getAnnotationAt(Double index) {
+    public AnnotationsBase getAnnotationAt(Number index) {
         if (jsBase == null) {
             this.index = index;
         } else {
@@ -634,12 +634,12 @@ public class PlotController extends VisualBase {
     }
 
     private String config11;
-    private List<AnnotationsLine> setLine = new ArrayList<>();
+    private List<AnnotationsLabel> setLabel = new ArrayList<>();
 
     /**
-     * Creates and returns a Line annotation.
+     * Creates and returns a Label annotation.
      */
-    public AnnotationsLine line(String config11) {
+    public AnnotationsLabel label(String config11) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -662,22 +662,22 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s);", wrapQuotes(config11)));
+            js.append(String.format(Locale.US, "var setLabel" + ++variableIndex + " = " + jsBase + ".label(%s);", wrapQuotes(config11)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s);", wrapQuotes(config11)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s);", wrapQuotes(config11)));
                 js.setLength(0);
             }
         }
-        AnnotationsLine item = new AnnotationsLine("setLine" + variableIndex);
-        setLine.add(item);
+        AnnotationsLabel item = new AnnotationsLabel("setLabel" + variableIndex);
+        setLabel.add(item);
         return item;
     }
-    private String generateJSsetLine() {
-        if (!setLine.isEmpty()) {
+    private String generateJSsetLabel() {
+        if (!setLabel.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (AnnotationsLine item : setLine) {
+            for (AnnotationsLabel item : setLabel) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -686,12 +686,12 @@ public class PlotController extends VisualBase {
     }
 
     private String config12;
-    private List<AnnotationsMarker> setMarker = new ArrayList<>();
+    private List<AnnotationsLine> setLine = new ArrayList<>();
 
     /**
-     * Creates and returns a Marker annotation.
+     * Creates and returns a Line annotation.
      */
-    public AnnotationsMarker marker(String config12) {
+    public AnnotationsLine line(String config12) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -715,22 +715,22 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", wrapQuotes(config12)));
+            js.append(String.format(Locale.US, "var setLine" + ++variableIndex + " = " + jsBase + ".line(%s);", wrapQuotes(config12)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s);", wrapQuotes(config12)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".line(%s);", wrapQuotes(config12)));
                 js.setLength(0);
             }
         }
-        AnnotationsMarker item = new AnnotationsMarker("setMarker" + variableIndex);
-        setMarker.add(item);
+        AnnotationsLine item = new AnnotationsLine("setLine" + variableIndex);
+        setLine.add(item);
         return item;
     }
-    private String generateJSsetMarker() {
-        if (!setMarker.isEmpty()) {
+    private String generateJSsetLine() {
+        if (!setLine.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (AnnotationsMarker item : setMarker) {
+            for (AnnotationsLine item : setLine) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -739,12 +739,12 @@ public class PlotController extends VisualBase {
     }
 
     private String config13;
-    private List<Ray> setRay = new ArrayList<>();
+    private List<AnnotationsMarker> setMarker = new ArrayList<>();
 
     /**
-     * Creates and returns a Ray annotation.
+     * Creates and returns a Marker annotation.
      */
-    public Ray ray(String config13) {
+    public AnnotationsMarker marker(String config13) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -769,22 +769,22 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setRay" + ++variableIndex + " = " + jsBase + ".ray(%s);", wrapQuotes(config13)));
+            js.append(String.format(Locale.US, "var setMarker" + ++variableIndex + " = " + jsBase + ".marker(%s);", wrapQuotes(config13)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ray(%s);", wrapQuotes(config13)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".marker(%s);", wrapQuotes(config13)));
                 js.setLength(0);
             }
         }
-        Ray item = new Ray("setRay" + variableIndex);
-        setRay.add(item);
+        AnnotationsMarker item = new AnnotationsMarker("setMarker" + variableIndex);
+        setMarker.add(item);
         return item;
     }
-    private String generateJSsetRay() {
-        if (!setRay.isEmpty()) {
+    private String generateJSsetMarker() {
+        if (!setMarker.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Ray item : setRay) {
+            for (AnnotationsMarker item : setMarker) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -793,12 +793,12 @@ public class PlotController extends VisualBase {
     }
 
     private String config14;
-    private List<Rectangle> setRectangle = new ArrayList<>();
+    private List<Ray> setRay = new ArrayList<>();
 
     /**
-     * Creates and returns a Rectangle annotation.
+     * Creates and returns a Ray annotation.
      */
-    public Rectangle rectangle(String config14) {
+    public Ray ray(String config14) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -824,11 +824,67 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setRectangle" + ++variableIndex + " = " + jsBase + ".rectangle(%s);", wrapQuotes(config14)));
+            js.append(String.format(Locale.US, "var setRay" + ++variableIndex + " = " + jsBase + ".ray(%s);", wrapQuotes(config14)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rectangle(%s);", wrapQuotes(config14)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".ray(%s);", wrapQuotes(config14)));
+                js.setLength(0);
+            }
+        }
+        Ray item = new Ray("setRay" + variableIndex);
+        setRay.add(item);
+        return item;
+    }
+    private String generateJSsetRay() {
+        if (!setRay.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Ray item : setRay) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private String config15;
+    private List<Rectangle> setRectangle = new ArrayList<>();
+
+    /**
+     * Creates and returns a Rectangle annotation.
+     */
+    public Rectangle rectangle(String config15) {
+        if (jsBase == null) {
+            this.config = null;
+            this.config1 = null;
+            this.config2 = null;
+            this.config3 = null;
+            this.config4 = null;
+            this.config5 = null;
+            this.config6 = null;
+            this.config7 = null;
+            this.config8 = null;
+            this.config9 = null;
+            this.config10 = null;
+            this.config11 = null;
+            this.config12 = null;
+            this.config13 = null;
+            this.config14 = null;
+            this.config15 = null;
+            
+            this.config15 = config15;
+        } else {
+            this.config15 = config15;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            
+            js.append(String.format(Locale.US, "var setRectangle" + ++variableIndex + " = " + jsBase + ".rectangle(%s);", wrapQuotes(config15)));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rectangle(%s);", wrapQuotes(config15)));
                 js.setLength(0);
             }
         }
@@ -873,12 +929,12 @@ public class PlotController extends VisualBase {
         return this;
     }
 
-    private Double index1;
+    private Number index1;
 
     /**
      * Removes an annotation from a plot by its index.
      */
-    public PlotController removeAnnotationAt(Double index1) {
+    public PlotController removeAnnotationAt(Number index1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -1121,69 +1177,13 @@ public class PlotController extends VisualBase {
         }
     }
 
-    private String config15;
+    private String config16;
     private List<TrendChannel> setTrendChannel = new ArrayList<>();
 
     /**
      * Creates and returns a Trend Channel annotation.
      */
-    public TrendChannel trendChannel(String config15) {
-        if (jsBase == null) {
-            this.config = null;
-            this.config1 = null;
-            this.config2 = null;
-            this.config3 = null;
-            this.config4 = null;
-            this.config5 = null;
-            this.config6 = null;
-            this.config7 = null;
-            this.config8 = null;
-            this.config9 = null;
-            this.config10 = null;
-            this.config11 = null;
-            this.config12 = null;
-            this.config13 = null;
-            this.config14 = null;
-            this.config15 = null;
-            
-            this.config15 = config15;
-        } else {
-            this.config15 = config15;
-            if (isChain) {
-                js.append(";");
-                isChain = false;
-            }
-            
-            js.append(String.format(Locale.US, "var setTrendChannel" + ++variableIndex + " = " + jsBase + ".trendChannel(%s);", wrapQuotes(config15)));
-            
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".trendChannel(%s);", wrapQuotes(config15)));
-                js.setLength(0);
-            }
-        }
-        TrendChannel item = new TrendChannel("setTrendChannel" + variableIndex);
-        setTrendChannel.add(item);
-        return item;
-    }
-    private String generateJSsetTrendChannel() {
-        if (!setTrendChannel.isEmpty()) {
-            StringBuilder resultJs = new StringBuilder();
-            for (TrendChannel item : setTrendChannel) {
-                resultJs.append(item.generateJs());
-            }
-            return resultJs.toString();
-        }
-        return "";
-    }
-
-    private String config16;
-    private List<Triangle> setTriangle = new ArrayList<>();
-
-    /**
-     * Creates and returns a Triangle annotation.
-     */
-    public Triangle triangle(String config16) {
+    public TrendChannel trendChannel(String config16) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -1211,22 +1211,22 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setTriangle" + ++variableIndex + " = " + jsBase + ".triangle(%s);", wrapQuotes(config16)));
+            js.append(String.format(Locale.US, "var setTrendChannel" + ++variableIndex + " = " + jsBase + ".trendChannel(%s);", wrapQuotes(config16)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".triangle(%s);", wrapQuotes(config16)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".trendChannel(%s);", wrapQuotes(config16)));
                 js.setLength(0);
             }
         }
-        Triangle item = new Triangle("setTriangle" + variableIndex);
-        setTriangle.add(item);
+        TrendChannel item = new TrendChannel("setTrendChannel" + variableIndex);
+        setTrendChannel.add(item);
         return item;
     }
-    private String generateJSsetTriangle() {
-        if (!setTriangle.isEmpty()) {
+    private String generateJSsetTrendChannel() {
+        if (!setTrendChannel.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (Triangle item : setTriangle) {
+            for (TrendChannel item : setTrendChannel) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -1235,12 +1235,12 @@ public class PlotController extends VisualBase {
     }
 
     private String config17;
-    private List<VerticalLine> setVerticalLine = new ArrayList<>();
+    private List<Triangle> setTriangle = new ArrayList<>();
 
     /**
-     * Creates and returns a Vertical Line annotation.
+     * Creates and returns a Triangle annotation.
      */
-    public VerticalLine verticalLine(String config17) {
+    public Triangle triangle(String config17) {
         if (jsBase == null) {
             this.config = null;
             this.config1 = null;
@@ -1269,11 +1269,70 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setVerticalLine" + ++variableIndex + " = " + jsBase + ".verticalLine(%s);", wrapQuotes(config17)));
+            js.append(String.format(Locale.US, "var setTriangle" + ++variableIndex + " = " + jsBase + ".triangle(%s);", wrapQuotes(config17)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticalLine(%s);", wrapQuotes(config17)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".triangle(%s);", wrapQuotes(config17)));
+                js.setLength(0);
+            }
+        }
+        Triangle item = new Triangle("setTriangle" + variableIndex);
+        setTriangle.add(item);
+        return item;
+    }
+    private String generateJSsetTriangle() {
+        if (!setTriangle.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Triangle item : setTriangle) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private String config18;
+    private List<VerticalLine> setVerticalLine = new ArrayList<>();
+
+    /**
+     * Creates and returns a Vertical Line annotation.
+     */
+    public VerticalLine verticalLine(String config18) {
+        if (jsBase == null) {
+            this.config = null;
+            this.config1 = null;
+            this.config2 = null;
+            this.config3 = null;
+            this.config4 = null;
+            this.config5 = null;
+            this.config6 = null;
+            this.config7 = null;
+            this.config8 = null;
+            this.config9 = null;
+            this.config10 = null;
+            this.config11 = null;
+            this.config12 = null;
+            this.config13 = null;
+            this.config14 = null;
+            this.config15 = null;
+            this.config16 = null;
+            this.config17 = null;
+            this.config18 = null;
+            
+            this.config18 = config18;
+        } else {
+            this.config18 = config18;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            
+            js.append(String.format(Locale.US, "var setVerticalLine" + ++variableIndex + " = " + jsBase + ".verticalLine(%s);", wrapQuotes(config18)));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticalLine(%s);", wrapQuotes(config18)));
                 js.setLength(0);
             }
         }
@@ -1324,6 +1383,7 @@ public class PlotController extends VisualBase {
         js.append(generateJSsetGetAnnotationAt());
         js.append(generateJSsetHorizontalLine());
         js.append(generateJSsetInfiniteLine());
+        js.append(generateJSsetLabel());
         js.append(generateJSsetLine());
         js.append(generateJSsetMarker());
         js.append(generateJSsetRay());

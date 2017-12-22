@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Scale ticks.
+ * The DateTimeTicks class contains methods for configuring ticks on the DateTime scale.
  */
 public class DateTimeTicks extends CoreBase {
 
@@ -35,12 +35,12 @@ public class DateTimeTicks extends CoreBase {
     }
 
     
-    private Double count;
+    private Number count;
 
     /**
      * Setter for ticks count value.
      */
-    public DateTimeTicks setCount(Double count) {
+    public DateTimeTicks setCount(Number count) {
         if (jsBase == null) {
             this.count = count;
         } else {
@@ -63,7 +63,7 @@ public class DateTimeTicks extends CoreBase {
     private String isodate;
 
     /**
-     * Setter for ticks interval value by string representing date part or ISO 8601 interval string.
+     * Setter for ticks interval value by a string representing date part or ISO 8601 interval string..
      */
     public DateTimeTicks setInterval(String isodate) {
         if (jsBase == null) {
@@ -87,12 +87,12 @@ public class DateTimeTicks extends CoreBase {
 
     private Interval unit;
     private String unit1;
-    private Double count1;
+    private Number count1;
 
     /**
-     * Setter for ticks interval value by unit.
+     * Setter for ticks interval value by the unit.
      */
-    public DateTimeTicks setInterval(Interval unit, Double count1) {
+    public DateTimeTicks setInterval(Interval unit, Number count1) {
         if (jsBase == null) {
             this.unit = null;
             this.unit1 = null;
@@ -122,9 +122,9 @@ public class DateTimeTicks extends CoreBase {
 
 
     /**
-     * Setter for ticks interval value by unit.
+     * Setter for ticks interval value by the unit.
      */
-    public DateTimeTicks setInterval(String unit1, Double count1) {
+    public DateTimeTicks setInterval(String unit1, Number count1) {
         if (jsBase == null) {
             this.unit = null;
             this.unit1 = null;
@@ -152,18 +152,18 @@ public class DateTimeTicks extends CoreBase {
         return this;
     }
 
-    private Double years;
-    private Double months;
-    private Double days;
-    private Double hours;
-    private Double minutes;
-    private Double seconds;
+    private Number years;
+    private Number months;
+    private Number days;
+    private Number hours;
+    private Number minutes;
+    private Number seconds;
 
     /**
      * Setter for ticks interval value.
 <b>Note:</b> If any passed value is defined but is not a number or less than 0, it defaults to NaN and count() resets to 5.
      */
-    public DateTimeTicks setInterval(Double years, Double months, Double days, Double hours, Double minutes, Double seconds) {
+    public DateTimeTicks setInterval(Number years, Number months, Number days, Number hours, Number minutes, Number seconds) {
         if (jsBase == null) {
             this.years = years;
             this.months = months;

@@ -46,12 +46,12 @@ public class TagCloud extends SeparateChart {
     }
 
     
-    private Double[] angles;
+    private Number[] angles;
 
     /**
      * Setter for tags rotation angles.
      */
-    public TagCloud setAngles(Double[] angles) {
+    public TagCloud setAngles(Number[] angles) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -65,12 +65,12 @@ public class TagCloud extends SeparateChart {
         return this;
     }
 
-    private Double anglesCount;
+    private Number anglesCount;
 
     /**
      * Setter for the angles count.
      */
-    public TagCloud setAnglesCount(Double anglesCount) {
+    public TagCloud setAnglesCount(Number anglesCount) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -164,6 +164,11 @@ public class TagCloud extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale != null) ? colorScale.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", ((colorScale != null) ? colorScale.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -180,6 +185,11 @@ public class TagCloud extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".colorScale(%s);",  ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".colorScale(%s)", ((colorScale1 != null) ? colorScale1.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -237,27 +247,27 @@ public class TagCloud extends SeparateChart {
 <b>Note:</b> All data is words values.
      */
     public TagCloud setData(List<DataEntry> data) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
 
-            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s);", resultData.toString()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s);", resultData.toString()));
+            js.setLength(0);
         }
+    }
         return this;
     }
 
@@ -280,12 +290,12 @@ public class TagCloud extends SeparateChart {
         return this;
     }
 
-    private Double fromAngle;
+    private Number fromAngle;
 
     /**
      * Setter for the starting angle.
      */
-    public TagCloud setFromAngle(Double fromAngle) {
+    public TagCloud setFromAngle(Number fromAngle) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -305,18 +315,18 @@ public class TagCloud extends SeparateChart {
     /**
      * Gets wrapped point by index.
      */
-    public Point getGetPoint(Double index) {
+    public Point getGetPoint(Number index) {
         Point item = new Point(jsBase + ".getPoint("+ index+")");
         getGetPoint.add(item);
         return item;
     }
-    private Double index1;
-    private Double[] index2;
+    private Number index1;
+    private Number[] index2;
 
     /**
      * Hovers a point by its index.
      */
-    public TagCloud hover(Double index1) {
+    public TagCloud hover(Number index1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -334,7 +344,7 @@ public class TagCloud extends SeparateChart {
     /**
      * Hovers a point by its index.
      */
-    public TagCloud hover(Double[] index2) {
+    public TagCloud hover(Number[] index2) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -478,6 +488,11 @@ public class TagCloud extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette != null) ? palette.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette != null) ? palette.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -495,6 +510,11 @@ public class TagCloud extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".palette(%s);",  ((palette1 != null) ? palette1.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((palette1 != null) ? palette1.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
@@ -601,16 +621,21 @@ public class TagCloud extends SeparateChart {
         js.append(jsBase);
 
         js.append(String.format(Locale.US, ".scale(%s);",  ((scale2 != null) ? scale2.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".scale(%s)", ((scale2 != null) ? scale2.getJsBase() : "null")));
+            js.setLength(0);
+        }
         return this;
     }
 
-    private Double index3;
+    private Number index3;
 
     /**
      * Selects points by index.
 <b>Note:</b> Works only after {@link anychart.charts.TagCloud#draw} is called.
      */
-    public TagCloud select(Double index3) {
+    public TagCloud select(Number index3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -624,13 +649,13 @@ public class TagCloud extends SeparateChart {
         return this;
     }
 
-    private Double[] indexes;
+    private Number[] indexes;
 
     /**
      * Selects points by indexes.
 <b>Note:</b> Works only after {@link anychart.charts.TagCloud#draw} is called.
      */
-    public TagCloud select(Double[] indexes) {
+    public TagCloud select(Number[] indexes) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -675,12 +700,12 @@ public class TagCloud extends SeparateChart {
         return this;
     }
 
-    private Double textSpacing;
+    private Number textSpacing;
 
     /**
      * Setter for text spacing.
      */
-    public TagCloud setTextSpacing(Double textSpacing) {
+    public TagCloud setTextSpacing(Number textSpacing) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -694,12 +719,12 @@ public class TagCloud extends SeparateChart {
         return this;
     }
 
-    private Double toAngle;
+    private Number toAngle;
 
     /**
      * Setter for the end angle.
      */
-    public TagCloud setToAngle(Double toAngle) {
+    public TagCloud setToAngle(Number toAngle) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -713,13 +738,13 @@ public class TagCloud extends SeparateChart {
         return this;
     }
 
-    private Double indexOrIndexes;
-    private Double[] indexOrIndexes1;
+    private Number indexOrIndexes;
+    private Number[] indexOrIndexes1;
 
     /**
      * Deselects all points or points by index.
      */
-    public void unselect(Double indexOrIndexes) {
+    public void unselect(Number indexOrIndexes) {
         if (isChain) {
             js.append(";");
             isChain = false;
@@ -736,7 +761,7 @@ public class TagCloud extends SeparateChart {
     /**
      * Deselects all points or points by index.
      */
-    public void unselect(Double[] indexOrIndexes1) {
+    public void unselect(Number[] indexOrIndexes1) {
         if (isChain) {
             js.append(";");
             isChain = false;

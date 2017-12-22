@@ -35,13 +35,13 @@ public class Connector extends MapSeriesBaseWithMarkers {
     }
 
     
-    private Double curvature;
+    private Number curvature;
     private String curvature1;
 
     /**
      * Setter for the curvature of connector point.
      */
-    public Connector setCurvature(Double curvature) {
+    public Connector setCurvature(Number curvature) {
         if (jsBase == null) {
             this.curvature = null;
             this.curvature1 = null;
@@ -96,7 +96,7 @@ public class Connector extends MapSeriesBaseWithMarkers {
     /**
      * Getter for the connector width in the end point.
      */
-    public Connector getEndSize(Double endSize) {
+    public Connector getEndSize(Number endSize) {
         Connector item = new Connector(jsBase + ".endSize(" + endSize + ")");
         getEndSize.add(item);
         return item;
@@ -113,13 +113,13 @@ public class Connector extends MapSeriesBaseWithMarkers {
         return item;
     }
 
-    private Double startSize;
+    private Number startSize;
     private String startSize1;
 
     /**
      * Setter for the connector width in the start point.
      */
-    public Connector setStartSize(Double startSize) {
+    public Connector setStartSize(Number startSize) {
         if (jsBase == null) {
             this.startSize = null;
             this.startSize1 = null;

@@ -121,27 +121,27 @@ The collapseTask() method should be used after drawing a chart.
      * Setter for the chart data.
      */
     public Gantt setData(List<DataEntry> data, TreeFillingMethod fillMethod) {
-        if (isChain) {
-            js.append(";");
-            isChain = false;
+    if (isChain) {
+        js.append(";");
+        isChain = false;
+    }
+
+    if (!data.isEmpty()) {
+        StringBuilder resultData = new StringBuilder();
+        resultData.append("[");
+        for (DataEntry dataEntry : data) {
+            resultData.append(dataEntry.generateJs()).append(",");
         }
+        resultData.setLength(resultData.length() - 1);
+        resultData.append("]");
 
-        if (!data.isEmpty()) {
-            StringBuilder resultData = new StringBuilder();
-            resultData.append("[");
-            for (DataEntry dataEntry : data) {
-                resultData.append(dataEntry.generateJs()).append(",");
-            }
-            resultData.setLength(resultData.length() - 1);
-            resultData.append("]");
+        js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s, %s);", resultData.toString(), fillMethod.generateJs()));
 
-            js.append(String.format(Locale.US, "var setData" + ++variableIndex + " = " + jsBase + ".data(%s, %s);", resultData.toString(), fillMethod.generateJs()));
-
-            if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", resultData.toString(), fillMethod.generateJs()));
-                js.setLength(0);
-            }
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".data(%s, %s);", resultData.toString(), fillMethod.generateJs()));
+            js.setLength(0);
         }
+    }
         return this;
     }
 
@@ -195,12 +195,12 @@ The collapseTask() method should be used after drawing a chart.
         return this;
     }
 
-    private Double defaultRowHeight;
+    private Number defaultRowHeight;
 
     /**
      * Setter for the default row height.
      */
-    public Gantt setDefaultRowHeight(Double defaultRowHeight) {
+    public Gantt setDefaultRowHeight(Number defaultRowHeight) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -284,13 +284,13 @@ The expandTask() method should be used after drawing a chart.
 
         return getGetTimeline;
     }
-    private Double headerHeight;
+    private Number headerHeight;
     private String headerHeight1;
 
     /**
      * Setter for the header height.
      */
-    public Gantt setHeaderHeight(Double headerHeight) {
+    public Gantt setHeaderHeight(Number headerHeight) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -322,6 +322,100 @@ The expandTask() method should be used after drawing a chart.
         return this;
     }
 
+
+    private RangeColors getPalette;
+
+    /**
+     * Getter for the palette.
+     */
+    public RangeColors getPalette() {
+        if (getPalette == null)
+            getPalette = new RangeColors(jsBase + ".palette()");
+
+        return getPalette;
+    }
+    private RangeColors paletteSettings;
+    private DistinctColors paletteSettings1;
+    private String paletteSettings2;
+    private String[] paletteSettings3;
+
+    /**
+     * Setter the for palette.
+     */
+    public Gantt setPalette(RangeColors paletteSettings) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(paletteSettings.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((paletteSettings != null) ? paletteSettings.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((paletteSettings != null) ? paletteSettings.getJsBase() : "null")));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter the for palette.
+     */
+    public Gantt setPalette(DistinctColors paletteSettings1) {
+        if (isChain) {
+            js.append(";");
+            isChain = false;
+        }
+        js.append(paletteSettings1.generateJs());
+        js.append(jsBase);
+
+        js.append(String.format(Locale.US, ".palette(%s);",  ((paletteSettings1 != null) ? paletteSettings1.getJsBase() : "null")));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", ((paletteSettings1 != null) ? paletteSettings1.getJsBase() : "null")));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter the for palette.
+     */
+    public Gantt setPalette(String paletteSettings2) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".palette(%s)", wrapQuotes(paletteSettings2)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", wrapQuotes(paletteSettings2)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * Setter the for palette.
+     */
+    public Gantt setPalette(String[] paletteSettings3) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(paletteSettings3)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".palette(%s)", arrayToStringWrapQuotes(paletteSettings3)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
     private Fill rowHoverFill;
 
     /**
@@ -343,13 +437,13 @@ The expandTask() method should be used after drawing a chart.
     }
 
     private String color;
-    private Double opacity;
+    private Number opacity;
 
     /**
      * Fill color with opacity.<br/>
 Fill as a string or an object.
      */
-    public Gantt rowHoverFill(String color, Double opacity) {
+    public Gantt rowHoverFill(String color, Number opacity) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -365,17 +459,17 @@ Fill as a string or an object.
 
     private GradientKey[] keys;
     private String[] keys1;
-    private Double angle;
+    private Number angle;
     private Boolean mode;
     private VectorRect mode1;
     private String mode2;
-    private Double opacity1;
+    private Number opacity1;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Gantt rowHoverFill(GradientKey[] keys, Boolean mode, Double angle, Double opacity1) {
+    public Gantt rowHoverFill(GradientKey[] keys, Boolean mode, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -394,7 +488,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Gantt rowHoverFill(GradientKey[] keys, VectorRect mode1, Double angle, Double opacity1) {
+    public Gantt rowHoverFill(GradientKey[] keys, VectorRect mode1, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -413,7 +507,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Gantt rowHoverFill(GradientKey[] keys, String mode2, Double angle, Double opacity1) {
+    public Gantt rowHoverFill(GradientKey[] keys, String mode2, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -432,7 +526,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Gantt rowHoverFill(String[] keys1, Boolean mode, Double angle, Double opacity1) {
+    public Gantt rowHoverFill(String[] keys1, Boolean mode, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -451,7 +545,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Gantt rowHoverFill(String[] keys1, VectorRect mode1, Double angle, Double opacity1) {
+    public Gantt rowHoverFill(String[] keys1, VectorRect mode1, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -470,7 +564,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Gantt rowHoverFill(String[] keys1, String mode2, Double angle, Double opacity1) {
+    public Gantt rowHoverFill(String[] keys1, String mode2, Number angle, Number opacity1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -486,18 +580,18 @@ Fill as a string or an object.
 
     private GradientKey[] keys2;
     private String[] keys3;
-    private Double cx;
-    private Double cy;
+    private Number cx;
+    private Number cy;
     private GraphicsMathRect mode3;
-    private Double opacity2;
-    private Double fx;
-    private Double fy;
+    private Number opacity2;
+    private Number fx;
+    private Number fy;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Gantt rowHoverFill(GradientKey[] keys2, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Gantt rowHoverFill(GradientKey[] keys2, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -516,7 +610,7 @@ Fill as a string or an object.
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Gantt rowHoverFill(String[] keys3, Double cx, Double cy, GraphicsMathRect mode3, Double opacity2, Double fx, Double fy) {
+    public Gantt rowHoverFill(String[] keys3, Number cx, Number cy, GraphicsMathRect mode3, Number opacity2, Number fx, Number fy) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -551,13 +645,13 @@ Fill as a string or an object.
     }
 
     private String color1;
-    private Double opacity3;
+    private Number opacity3;
 
     /**
      * Fill color with opacity.<br/>
 Fill as a string or an object.
      */
-    public Gantt rowSelectedFill(String color1, Double opacity3) {
+    public Gantt rowSelectedFill(String color1, Number opacity3) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -573,17 +667,17 @@ Fill as a string or an object.
 
     private GradientKey[] keys4;
     private String[] keys5;
-    private Double angle1;
+    private Number angle1;
     private Boolean mode4;
     private VectorRect mode5;
     private String mode6;
-    private Double opacity4;
+    private Number opacity4;
 
     /**
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Gantt rowSelectedFill(GradientKey[] keys4, Boolean mode4, Double angle1, Double opacity4) {
+    public Gantt rowSelectedFill(GradientKey[] keys4, Boolean mode4, Number angle1, Number opacity4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -602,7 +696,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Gantt rowSelectedFill(GradientKey[] keys4, VectorRect mode5, Double angle1, Double opacity4) {
+    public Gantt rowSelectedFill(GradientKey[] keys4, VectorRect mode5, Number angle1, Number opacity4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -621,7 +715,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Gantt rowSelectedFill(GradientKey[] keys4, String mode6, Double angle1, Double opacity4) {
+    public Gantt rowSelectedFill(GradientKey[] keys4, String mode6, Number angle1, Number opacity4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -640,7 +734,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Gantt rowSelectedFill(String[] keys5, Boolean mode4, Double angle1, Double opacity4) {
+    public Gantt rowSelectedFill(String[] keys5, Boolean mode4, Number angle1, Number opacity4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -659,7 +753,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Gantt rowSelectedFill(String[] keys5, VectorRect mode5, Double angle1, Double opacity4) {
+    public Gantt rowSelectedFill(String[] keys5, VectorRect mode5, Number angle1, Number opacity4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -678,7 +772,7 @@ Fill as a string or an object.
      * Linear gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Gantt rowSelectedFill(String[] keys5, String mode6, Double angle1, Double opacity4) {
+    public Gantt rowSelectedFill(String[] keys5, String mode6, Number angle1, Number opacity4) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -694,18 +788,18 @@ Fill as a string or an object.
 
     private GradientKey[] keys6;
     private String[] keys7;
-    private Double cx1;
-    private Double cy1;
+    private Number cx1;
+    private Number cy1;
     private GraphicsMathRect mode7;
-    private Double opacity5;
-    private Double fx1;
-    private Double fy1;
+    private Number opacity5;
+    private Number fx1;
+    private Number fy1;
 
     /**
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Gantt rowSelectedFill(GradientKey[] keys6, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public Gantt rowSelectedFill(GradientKey[] keys6, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -724,7 +818,7 @@ Fill as a string or an object.
      * Radial gradient fill.
 {docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
      */
-    public Gantt rowSelectedFill(String[] keys7, Double cx1, Double cy1, GraphicsMathRect mode7, Double opacity5, Double fx1, Double fy1) {
+    public Gantt rowSelectedFill(String[] keys7, Number cx1, Number cy1, GraphicsMathRect mode7, Number opacity5, Number fx1, Number fy1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -776,13 +870,13 @@ Fill as a string or an object.
         return this;
     }
 
-    private Double pxOffset;
+    private Number pxOffset;
 
     /**
      * Performs vertical scrolling by pixel offset.<br/>
 The scrollTo() method should be used after drawing a chart.
      */
-    public Gantt scrollTo(Double pxOffset) {
+    public Gantt scrollTo(Number pxOffset) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -796,13 +890,13 @@ The scrollTo() method should be used after drawing a chart.
         return this;
     }
 
-    private Double index;
+    private Number index;
 
     /**
      * Scrolls vertically to specified index.<br/>
 The scrollToEnd() method should be used after drawing a chart.
      */
-    public Gantt scrollToEnd(Double index) {
+    public Gantt scrollToEnd(Number index) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -816,12 +910,12 @@ The scrollToEnd() method should be used after drawing a chart.
         return this;
     }
 
-    private Double rowIndex;
+    private Number rowIndex;
 
     /**
      * Performs vertical scroll for a row at the specified index.
      */
-    public Gantt scrollToRow(Double rowIndex) {
+    public Gantt scrollToRow(Number rowIndex) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -836,7 +930,7 @@ The scrollToEnd() method should be used after drawing a chart.
     }
 
     private String splitterPosition;
-    private Double splitterPosition1;
+    private Number splitterPosition1;
 
     /**
      * Setter for the splitter position.
@@ -859,7 +953,7 @@ The scrollToEnd() method should be used after drawing a chart.
     /**
      * Setter for the splitter position.
      */
-    public Gantt setSplitterPosition(Double splitterPosition1) {
+    public Gantt setSplitterPosition(Number splitterPosition1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -904,12 +998,12 @@ The scrollToEnd() method should be used after drawing a chart.
         return this;
     }
 
-    private Double zoomFactor;
+    private Number zoomFactor;
 
     /**
      * Timeline zoom in.
      */
-    public Gantt zoomIn(Double zoomFactor) {
+    public Gantt zoomIn(Number zoomFactor) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -923,12 +1017,12 @@ The scrollToEnd() method should be used after drawing a chart.
         return this;
     }
 
-    private Double zoomFactor1;
+    private Number zoomFactor1;
 
     /**
      * Timeline zoom out.
      */
-    public Gantt zoomOut(Double zoomFactor1) {
+    public Gantt zoomOut(Number zoomFactor1) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -942,13 +1036,13 @@ The scrollToEnd() method should be used after drawing a chart.
         return this;
     }
 
-    private Double startDate;
-    private Double endDate;
+    private Number startDate;
+    private Number endDate;
 
     /**
      * Sets the timeline zoom to range using the date.
      */
-    public Gantt setZoomTo(Double startDate, Double endDate) {
+    public Gantt setZoomTo(Number startDate, Number endDate) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -964,14 +1058,14 @@ The scrollToEnd() method should be used after drawing a chart.
 
     private Interval unit;
     private String unit1;
-    private Double count;
+    private Number count;
     private GanttRangeAnchor anchor;
     private String anchor1;
 
     /**
      * Sets the timeline zoom to range using the interval.
      */
-    public Gantt setZoomTo(Interval unit, GanttRangeAnchor anchor, Double count) {
+    public Gantt setZoomTo(Interval unit, GanttRangeAnchor anchor, Number count) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -989,7 +1083,7 @@ The scrollToEnd() method should be used after drawing a chart.
     /**
      * Sets the timeline zoom to range using the interval.
      */
-    public Gantt setZoomTo(Interval unit, String anchor1, Double count) {
+    public Gantt setZoomTo(Interval unit, String anchor1, Number count) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1007,7 +1101,7 @@ The scrollToEnd() method should be used after drawing a chart.
     /**
      * Sets the timeline zoom to range using the interval.
      */
-    public Gantt setZoomTo(String unit1, GanttRangeAnchor anchor, Double count) {
+    public Gantt setZoomTo(String unit1, GanttRangeAnchor anchor, Number count) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1025,7 +1119,7 @@ The scrollToEnd() method should be used after drawing a chart.
     /**
      * Sets the timeline zoom to range using the interval.
      */
-    public Gantt setZoomTo(String unit1, String anchor1, Double count) {
+    public Gantt setZoomTo(String unit1, String anchor1, Number count) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
@@ -1060,6 +1154,13 @@ The scrollToEnd() method should be used after drawing a chart.
         return "";
     }
 
+    private String generateJSgetPalette() {
+        if (getPalette != null) {
+            return getPalette.generateJs();
+        }
+        return "";
+    }
+
     private String generateJSgetXScale() {
         if (getXScale != null) {
             return getXScale.generateJs();
@@ -1077,6 +1178,7 @@ The scrollToEnd() method should be used after drawing a chart.
         js.append(generateJSgetData());
         js.append(generateJSgetDataGrid());
         js.append(generateJSgetGetTimeline());
+        js.append(generateJSgetPalette());
         js.append(generateJSgetXScale());
 
         js.append(super.generateJsGetters());

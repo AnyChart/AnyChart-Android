@@ -36,15 +36,15 @@ public class TableMapping extends CoreBase {
 
     
     private String name;
-    private Double column;
+    private Number column;
     private AggregationType type;
     private String type1;
-    private Double weightsColumn;
+    private Number weightsColumn;
 
     /**
      * Adds a field to the mapping.
      */
-    public TableMapping addField(String name, Double column, AggregationType type, Double weightsColumn) {
+    public TableMapping addField(String name, Number column, AggregationType type, Number weightsColumn) {
         if (jsBase == null) {
             this.name = name;
             this.column = column;
@@ -77,7 +77,7 @@ public class TableMapping extends CoreBase {
     /**
      * Adds a field to the mapping.
      */
-    public TableMapping addField(String name, Double column, String type1, Double weightsColumn) {
+    public TableMapping addField(String name, Number column, String type1, Number weightsColumn) {
         if (jsBase == null) {
             this.name = name;
             this.column = column;

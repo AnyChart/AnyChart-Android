@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * 
+ * The Text class contains methods for configuring standalones text markers.
  */
 public class StandalonesAxismarkersText extends CoreAxismarkersText {
 
@@ -38,7 +38,7 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
     private Layer getContainer;
 
     /**
-     * Getter for the text marker current container.
+     * Getter for the text marker container.
      */
     public Layer getContainer() {
         if (getContainer == null)
@@ -53,7 +53,7 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
     private Element container3;
 
     /**
-     * Setter for the text marker current container.
+     * Setter for the text marker container.
      */
     public StandalonesAxismarkersText setContainer(Layer container) {
         if (jsBase == null) {
@@ -83,7 +83,7 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
 
 
     /**
-     * Setter for the text marker current container.
+     * Setter for the text marker container.
      */
     public StandalonesAxismarkersText setContainer(Stage container1) {
         if (jsBase == null) {
@@ -113,7 +113,7 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
 
 
     /**
-     * Setter for the text marker current container.
+     * Setter for the text marker container.
      */
     public StandalonesAxismarkersText setContainer(String container2) {
         if (jsBase == null) {
@@ -142,7 +142,7 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
 
 
     /**
-     * Setter for the text marker current container.
+     * Setter for the text marker container.
      */
     public StandalonesAxismarkersText setContainer(Element container3) {
         if (jsBase == null) {
@@ -239,15 +239,15 @@ public class StandalonesAxismarkersText extends CoreAxismarkersText {
         return this;
     }
 
-    private Double left;
-    private Double top;
-    private Double width;
-    private Double height;
+    private Number left;
+    private Number top;
+    private Number width;
+    private Number height;
 
     /**
      * Setter for bounds using several values.
      */
-    public StandalonesAxismarkersText setParentBounds(Double left, Double top, Double width, Double height) {
+    public StandalonesAxismarkersText setParentBounds(Number left, Number top, Number width, Number height) {
         if (jsBase == null) {
             this.left = left;
             this.top = top;

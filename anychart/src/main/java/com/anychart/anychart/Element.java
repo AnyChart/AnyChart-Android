@@ -38,17 +38,17 @@ public class Element extends JsObject {
     }
 
     
-    private Double m;
-    private Double m1;
-    private Double m2;
-    private Double m3;
-    private Double m4;
-    private Double m5;
+    private Number m;
+    private Number m1;
+    private Number m2;
+    private Number m3;
+    private Number m4;
+    private Number m5;
 
     /**
      * Combines the current transformation with the given transformation matrix.
      */
-    public Element appendTransformationMatrix(Double m, Double m1, Double m2, Double m3, Double m4, Double m5) {
+    public Element appendTransformationMatrix(Number m, Number m1, Number m2, Number m3, Number m4, Number m5) {
         if (jsBase == null) {
             this.m = null;
             this.m1 = null;
@@ -467,14 +467,14 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         return this;
     }
 
-    private Double degrees;
-    private Double cx;
-    private Double cy;
+    private Number degrees;
+    private Number cx;
+    private Number cy;
 
     /**
      * Rotates a shape around the given rotation point.
      */
-    public Element rotate(Double degrees, Double cx, Double cy) {
+    public Element rotate(Number degrees, Number cx, Number cy) {
         if (jsBase == null) {
             this.degrees = degrees;
             this.cx = cx;
@@ -498,14 +498,14 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         return this;
     }
 
-    private Double degrees1;
+    private Number degrees1;
     private VectorAnchor anchor;
     private String anchor1;
 
     /**
      * Rotates a shape around the given anchor.
      */
-    public Element rotateByAnchor(Double degrees1, VectorAnchor anchor) {
+    public Element rotateByAnchor(Number degrees1, VectorAnchor anchor) {
         if (jsBase == null) {
             this.degrees = null;
             this.degrees1 = null;
@@ -537,7 +537,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
     /**
      * Rotates a shape around the given anchor.
      */
-    public Element rotateByAnchor(Double degrees1, String anchor1) {
+    public Element rotateByAnchor(Number degrees1, String anchor1) {
         if (jsBase == null) {
             this.degrees = null;
             this.degrees1 = null;
@@ -565,15 +565,15 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         return this;
     }
 
-    private Double sx;
-    private Double sy;
-    private Double cx1;
-    private Double cy1;
+    private Number sx;
+    private Number sy;
+    private Number cx1;
+    private Number cy1;
 
     /**
      * Scales a shape. Scaling center is set in the coordinate system of the parent.
      */
-    public Element scale(Double sx, Double sy, Double cx1, Double cy1) {
+    public Element scale(Number sx, Number sy, Number cx1, Number cy1) {
         if (jsBase == null) {
             this.sx = sx;
             this.sy = sy;
@@ -605,15 +605,15 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         return this;
     }
 
-    private Double sx1;
-    private Double sy1;
+    private Number sx1;
+    private Number sy1;
     private VectorAnchor anchor2;
     private String anchor3;
 
     /**
      * Scales a shape by anchor. Scaling center is set as an anchor.
      */
-    public Element scaleByAnchor(Double sx1, Double sy1, VectorAnchor anchor2) {
+    public Element scaleByAnchor(Number sx1, Number sy1, VectorAnchor anchor2) {
         if (jsBase == null) {
             this.sx = null;
             this.sx1 = null;
@@ -652,7 +652,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
     /**
      * Scales a shape by anchor. Scaling center is set as an anchor.
      */
-    public Element scaleByAnchor(Double sx1, Double sy1, String anchor3) {
+    public Element scaleByAnchor(Number sx1, Number sy1, String anchor3) {
         if (jsBase == null) {
             this.sx = null;
             this.sx1 = null;
@@ -687,13 +687,13 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         return this;
     }
 
-    private Double x;
-    private Double y;
+    private Number x;
+    private Number y;
 
     /**
      * Sets top left corner of a shape (transformation taken into account) in the coordinate system of the parent.
      */
-    public Element setSetPosition(Double x, Double y) {
+    public Element setSetPosition(Number x, Number y) {
         if (jsBase == null) {
             this.x = x;
             this.y = y;
@@ -715,14 +715,14 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         return this;
     }
 
-    private Double degrees2;
-    private Double cx2;
-    private Double cy2;
+    private Number degrees2;
+    private Number cx2;
+    private Number cy2;
 
     /**
      * Rotates a shape around the given point.
      */
-    public Element setRotation(Double degrees2, Double cx2, Double cy2) {
+    public Element setRotation(Number degrees2, Number cx2, Number cy2) {
         if (jsBase == null) {
             this.degrees = null;
             this.degrees1 = null;
@@ -758,14 +758,14 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         return this;
     }
 
-    private Double degrees3;
+    private Number degrees3;
     private VectorAnchor anchor4;
     private String anchor5;
 
     /**
      * Rotates a shape around the given anchor.
      */
-    public Element setRotationByAnchor(Double degrees3, VectorAnchor anchor4) {
+    public Element setRotationByAnchor(Number degrees3, VectorAnchor anchor4) {
         if (jsBase == null) {
             this.degrees = null;
             this.degrees1 = null;
@@ -803,7 +803,7 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
     /**
      * Rotates a shape around the given anchor.
      */
-    public Element setRotationByAnchor(Double degrees3, String anchor5) {
+    public Element setRotationByAnchor(Number degrees3, String anchor5) {
         if (jsBase == null) {
             this.degrees = null;
             this.degrees1 = null;
@@ -837,17 +837,17 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         return this;
     }
 
-    private Double m6;
-    private Double m7;
-    private Double m8;
-    private Double m9;
-    private Double m10;
-    private Double m11;
+    private Number m6;
+    private Number m7;
+    private Number m8;
+    private Number m9;
+    private Number m10;
+    private Number m11;
 
     /**
      * Sets the transformation matrix.
      */
-    public Element setSetTransformationMatrix(Double m6, Double m7, Double m8, Double m9, Double m10, Double m11) {
+    public Element setSetTransformationMatrix(Number m6, Number m7, Number m8, Number m9, Number m10, Number m11) {
         if (jsBase == null) {
             this.m = null;
             this.m1 = null;
@@ -980,13 +980,13 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         return this;
     }
 
-    private Double tx;
-    private Double ty;
+    private Number tx;
+    private Number ty;
 
     /**
      * Moves a shape taking an account the current transformation.
      */
-    public Element translate(Double tx, Double ty) {
+    public Element translate(Number tx, Number ty) {
         if (jsBase == null) {
             this.tx = tx;
             this.ty = ty;
@@ -1033,12 +1033,12 @@ Learn more by <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/vectoreffect
         return this;
     }
 
-    private Double zIndex;
+    private Number zIndex;
 
     /**
      * Sets the element's zIndex.
      */
-    public Element setZIndex(Double zIndex) {
+    public Element setZIndex(Number zIndex) {
         if (jsBase == null) {
             this.zIndex = zIndex;
         } else {

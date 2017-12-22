@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * 
+ * The Legend class contains methods for configuring standalones legend.
  */
 public class StandalonesLegend extends UiLegend {
 
@@ -38,7 +38,7 @@ public class StandalonesLegend extends UiLegend {
     private Element getContainer;
 
     /**
-     * Getter for the legend current container.
+     * Getter for the legend container.
      */
     public Element getContainer() {
         if (getContainer == null)
@@ -176,7 +176,8 @@ public class StandalonesLegend extends UiLegend {
     private AnychartMathRect getParentBounds;
 
     /**
-     * Getter for bounds. As a getter falls back to stage bounds.
+     * Getter for parent bounds.<br/>
+As a getter falls back to stage bounds.
      */
     public AnychartMathRect getParentBounds() {
         if (getParentBounds == null)
@@ -242,15 +243,15 @@ public class StandalonesLegend extends UiLegend {
         return this;
     }
 
-    private Double left;
-    private Double top;
-    private Double width;
-    private Double height;
+    private Number left;
+    private Number top;
+    private Number width;
+    private Number height;
 
     /**
-     * Setter for bounds using several value.
+     * Setter for bounds using several values.
      */
-    public StandalonesLegend setParentBounds(Double left, Double top, Double width, Double height) {
+    public StandalonesLegend setParentBounds(Number left, Number top, Number width, Number height) {
         if (jsBase == null) {
             this.left = left;
             this.top = top;

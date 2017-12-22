@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Define geo scale.
+ * The Geo class contains methods for configuring Geo scale in the Map.
  */
 public class Geo extends CoreBase {
 
@@ -35,13 +35,13 @@ public class Geo extends CoreBase {
     }
 
     
-    private Double x;
-    private Double y;
+    private Number x;
+    private Number y;
 
     /**
      * Extends the current input domain with the passed values (if such don't exist in the domain).
      */
-    public Geo extendDataRange(Double x, Double y) {
+    public Geo extendDataRange(Number x, Number y) {
         if (jsBase == null) {
             this.x = x;
             this.y = y;
@@ -63,12 +63,12 @@ public class Geo extends CoreBase {
         return this;
     }
 
-    private Double gap;
+    private Number gap;
 
     /**
-     * Setter for the gap setting.
+     * Setter for the gap settings.
      */
-    public Geo setGap(Double gap) {
+    public Geo setGap(Number gap) {
         if (jsBase == null) {
             this.gap = gap;
         } else {
@@ -88,14 +88,14 @@ public class Geo extends CoreBase {
         return this;
     }
 
-    private Double maxTicksCount;
+    private Number maxTicksCount;
 
     /**
      * Setter for maximum ticks count.<br/>
 Use the maxTicksCount() method for interval-mode ticks calculation.<br/>
 If the number of ticks is greater than set in maxTicksCount(), the scale calculates from 4 to 6 ticks.
      */
-    public Geo setMaxTicksCount(Double maxTicksCount) {
+    public Geo setMaxTicksCount(Number maxTicksCount) {
         if (jsBase == null) {
             this.maxTicksCount = maxTicksCount;
         } else {
@@ -115,12 +115,12 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         return this;
     }
 
-    private Double maximumX;
+    private Number maximumX;
 
     /**
      * Setter for the maximum X.
      */
-    public Geo setMaximumX(Double maximumX) {
+    public Geo setMaximumX(Number maximumX) {
         if (jsBase == null) {
             this.maximumX = maximumX;
         } else {
@@ -140,12 +140,12 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         return this;
     }
 
-    private Double maximumY;
+    private Number maximumY;
 
     /**
      * Setter for the maximum Y.
      */
-    public Geo setMaximumY(Double maximumY) {
+    public Geo setMaximumY(Number maximumY) {
         if (jsBase == null) {
             this.maximumY = maximumY;
         } else {
@@ -165,12 +165,12 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         return this;
     }
 
-    private Double minimumX;
+    private Number minimumX;
 
     /**
      * Setter for the minimum X.
      */
-    public Geo setMinimumX(Double minimumX) {
+    public Geo setMinimumX(Number minimumX) {
         if (jsBase == null) {
             this.minimumX = minimumX;
         } else {
@@ -190,12 +190,12 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         return this;
     }
 
-    private Double minimumY;
+    private Number minimumY;
 
     /**
      * Setter for the minimum Y.
      */
-    public Geo setMinimumY(Double minimumY) {
+    public Geo setMinimumY(Number minimumY) {
         if (jsBase == null) {
             this.minimumY = minimumY;
         } else {
@@ -215,12 +215,12 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         return this;
     }
 
-    private Double[] precision;
+    private Number[] precision;
 
     /**
      * Setter for the precision using one value.
      */
-    public Geo setPrecision(Double[] precision) {
+    public Geo setPrecision(Number[] precision) {
         if (jsBase == null) {
             this.precision = precision;
         } else {
@@ -240,13 +240,13 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
         return this;
     }
 
-    private Double xPrecision;
-    private Double yPrecision;
+    private Number xPrecision;
+    private Number yPrecision;
 
     /**
      * Setter for the precision using several values.
      */
-    public Geo setPrecision(Double xPrecision, Double yPrecision) {
+    public Geo setPrecision(Number xPrecision, Number yPrecision) {
         if (jsBase == null) {
             this.xPrecision = xPrecision;
             this.yPrecision = yPrecision;

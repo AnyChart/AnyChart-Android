@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Special view which allows to map anychart.data.Set storages.
+ * The special view which allows mapping anychart.data.Set storages.
  */
 public class Mapping extends View {
 

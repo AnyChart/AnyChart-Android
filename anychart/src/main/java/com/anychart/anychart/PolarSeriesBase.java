@@ -41,13 +41,13 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     }
 
     
-    private Double indexes;
-    private Double[] indexes1;
+    private Number indexes;
+    private Number[] indexes1;
 
     /**
      * Excludes points at the specified index.
      */
-    public void excludePoint(Double indexes) {
+    public void excludePoint(Number indexes) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -74,7 +74,7 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     /**
      * Excludes points at the specified index.
      */
-    public void excludePoint(Double[] indexes1) {
+    public void excludePoint(Number[] indexes1) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -97,13 +97,13 @@ public class PolarSeriesBase extends AnychartSeriesBase {
         }
     }
 
-    private Double indexes2;
-    private Double[] indexes3;
+    private Number indexes2;
+    private Number[] indexes3;
 
     /**
      * Includes excluded points with the specified indexes.
      */
-    public void includePoint(Double indexes2) {
+    public void includePoint(Number indexes2) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -132,7 +132,7 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     /**
      * Includes excluded points with the specified indexes.
      */
-    public void includePoint(Double[] indexes3) {
+    public void includePoint(Number[] indexes3) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -157,13 +157,13 @@ public class PolarSeriesBase extends AnychartSeriesBase {
         }
     }
 
-    private Double indexes4;
-    private Double[] indexes5;
+    private Number indexes4;
+    private Number[] indexes5;
 
     /**
      * Keep only the specified points.
      */
-    public void keepOnlyPoints(Double indexes4) {
+    public void keepOnlyPoints(Number indexes4) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -194,7 +194,7 @@ public class PolarSeriesBase extends AnychartSeriesBase {
     /**
      * Keep only the specified points.
      */
-    public void keepOnlyPoints(Double[] indexes5) {
+    public void keepOnlyPoints(Number[] indexes5) {
         if (jsBase == null) {
             this.indexes = null;
             this.indexes1 = null;
@@ -221,13 +221,13 @@ public class PolarSeriesBase extends AnychartSeriesBase {
         }
     }
 
-    private Double maxPointWidth;
+    private Number maxPointWidth;
     private String maxPointWidth1;
 
     /**
      * Setter for the maximum point width.
      */
-    public PolarSeriesBase setMaxPointWidth(Double maxPointWidth) {
+    public PolarSeriesBase setMaxPointWidth(Number maxPointWidth) {
         if (jsBase == null) {
             this.maxPointWidth = null;
             this.maxPointWidth1 = null;
@@ -277,13 +277,13 @@ public class PolarSeriesBase extends AnychartSeriesBase {
         return this;
     }
 
-    private Double pointWidth;
+    private Number pointWidth;
     private String pointWidth1;
 
     /**
      * Setter for the point width settings.
      */
-    public PolarSeriesBase setPointWidth(Double pointWidth) {
+    public PolarSeriesBase setPointWidth(Number pointWidth) {
         if (jsBase == null) {
             this.pointWidth = null;
             this.pointWidth1 = null;

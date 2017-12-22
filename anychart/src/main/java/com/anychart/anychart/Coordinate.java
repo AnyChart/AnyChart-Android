@@ -9,12 +9,12 @@ import java.util.Arrays;
 public class Coordinate extends JsObject  {
 
     
-    private Double[] XYCoordinates;
+    private Number[] XYCoordinates;
     private String XYCoordinates1;
     private CoordinateObject XYCoordinates2;
 
     
-    public Coordinate(Double[] XYCoordinates) {
+    public Coordinate(Number[] XYCoordinates) {
         this.XYCoordinates = XYCoordinates;
 
         js.append(String.format(Locale.US, "{XYCoordinates: %s}",  Arrays.toString(XYCoordinates)));

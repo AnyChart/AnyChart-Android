@@ -52,7 +52,7 @@ public class Quarter extends UiBackground {
     /**
      * Getter for quarter label.
      */
-    public UiLabel getLabel(Double index) {
+    public UiLabel getLabel(Number index) {
         UiLabel item = new UiLabel(jsBase + ".label(" + index + ")");
         getLabel1.add(item);
         return item;
@@ -146,7 +146,7 @@ public class Quarter extends UiBackground {
     }
 
     private String index;
-    private Double index1;
+    private Number index1;
     private Boolean label3;
     private String label4;
     private String label5;
@@ -255,7 +255,7 @@ public class Quarter extends UiBackground {
     /**
      * Setter for quarter label.
      */
-    public Chart setLabel(Double index1, Boolean label3) {
+    public Chart setLabel(Number index1, Boolean label3) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -305,7 +305,7 @@ public class Quarter extends UiBackground {
     /**
      * Setter for quarter label.
      */
-    public Chart setLabel(Double index1, String label4) {
+    public Chart setLabel(Number index1, String label4) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -354,7 +354,7 @@ public class Quarter extends UiBackground {
 
     /**
      * Getter for the quarter margin.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.Chart.prototype.margin.png' width='352' height='351'/>
      */
     public Margin getMargin() {
         if (getMargin == null)
@@ -363,14 +363,14 @@ public class Quarter extends UiBackground {
         return getMargin;
     }
 
-    private Double[] margin;
+    private Number[] margin;
     private String[] margin1;
     private String margin2;
 
     /**
      * Setter for the quarter margin in pixels using a single complex object.
      */
-    public Quarter setMargin(Double[] margin) {
+    public Quarter setMargin(Number[] margin) {
         if (jsBase == null) {
             this.margin = null;
             this.margin1 = null;
@@ -451,13 +451,13 @@ public class Quarter extends UiBackground {
     }
 
     private String value;
-    private Double value1;
+    private Number value1;
     private String value2;
-    private Double value3;
+    private Number value3;
     private String value4;
-    private Double value5;
+    private Number value5;
     private String value6;
-    private Double value7;
+    private Number value7;
 
     /**
      * Setter for the quarter margin in pixels using several simple values.
@@ -528,7 +528,7 @@ public class Quarter extends UiBackground {
     /**
      * Setter for the quarter margin in pixels using several simple values.
      */
-    public Quarter setMargin(Double value1, Double value3, Double value5, Double value7) {
+    public Quarter setMargin(Number value1, Number value3, Number value5, Number value7) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -594,7 +594,7 @@ public class Quarter extends UiBackground {
 
     /**
      * Getter for the quarter padding.<br/>
-<img src='https://api.anychart.com/si/special-hotfixes-typescript/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
+<img src='https://api.anychart.com/si/8.1.0/anychart.core.Chart.prototype.padding.png' width='352' height='351'/>
      */
     public UtilsPadding getPadding() {
         if (getPadding == null)
@@ -603,7 +603,7 @@ public class Quarter extends UiBackground {
         return getPadding;
     }
 
-    private Double[] padding;
+    private Number[] padding;
     private String[] padding1;
     private String padding2;
     private List<Chart> setPadding = new ArrayList<>();
@@ -611,7 +611,7 @@ public class Quarter extends UiBackground {
     /**
      * Setter for the quarter paddings in pixels using a single value.
      */
-    public Chart setPadding(Double[] padding) {
+    public Chart setPadding(Number[] padding) {
         if (jsBase == null) {
             this.padding = null;
             this.padding1 = null;
@@ -733,13 +733,13 @@ public class Quarter extends UiBackground {
     }
 
     private String value8;
-    private Double value9;
+    private Number value9;
     private String value10;
-    private Double value11;
+    private Number value11;
     private String value12;
-    private Double value13;
+    private Number value13;
     private String value14;
-    private Double value15;
+    private Number value15;
     private List<Chart> setPadding3 = new ArrayList<>();
 
     /**
@@ -857,7 +857,7 @@ public class Quarter extends UiBackground {
     /**
      * Setter for the quarter paddings in pixels using several numbers.
      */
-    public Chart setPadding(Double value9, Double value11, Double value13, Double value15) {
+    public Chart setPadding(Number value9, Number value11, Number value13, Number value15) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;

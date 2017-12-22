@@ -36,12 +36,12 @@ public class MMA extends JsObject {
     }
 
     
-    private Double period;
+    private Number period;
 
     /**
      * Setter for the indicator period.
      */
-    public MMA setPeriod(Double period) {
+    public MMA setPeriod(Number period) {
         if (jsBase == null) {
             this.period = period;
         } else {

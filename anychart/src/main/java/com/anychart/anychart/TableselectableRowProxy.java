@@ -60,12 +60,12 @@ public class TableselectableRowProxy extends JsObject {
         }
     }
 
-    private Double column;
+    private Number column;
 
     /**
      * Returns current column value.
      */
-    public void getColumn(Double column) {
+    public void getColumn(Number column) {
         if (jsBase == null) {
             this.column = column;
         } else {

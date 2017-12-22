@@ -9,7 +9,7 @@ import android.text.TextUtils;
 
 // class
 /**
- * Zoom ui element (for zoomable chart).
+ * The Zoom class contains methods for configuring zoom ui element.
  */
 public class Zoom extends JsObject {
 

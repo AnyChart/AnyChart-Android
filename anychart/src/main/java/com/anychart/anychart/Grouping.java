@@ -110,12 +110,12 @@ public class Grouping extends CoreBase {
         return this;
     }
 
-    private Double maxVisiblePoints;
+    private Number maxVisiblePoints;
 
     /**
      * Setter for the maximum visible points count.
      */
-    public Grouping setMaxVisiblePoints(Double maxVisiblePoints) {
+    public Grouping setMaxVisiblePoints(Number maxVisiblePoints) {
         if (jsBase == null) {
             this.maxVisiblePoints = maxVisiblePoints;
         } else {
@@ -135,12 +135,12 @@ public class Grouping extends CoreBase {
         return this;
     }
 
-    private Double minPixPerPoint;
+    private Number minPixPerPoint;
 
     /**
      * Setter for minimum pixels per point count.
      */
-    public Grouping setMinPixPerPoint(Double minPixPerPoint) {
+    public Grouping setMinPixPerPoint(Number minPixPerPoint) {
         if (jsBase == null) {
             this.minPixPerPoint = minPixPerPoint;
         } else {

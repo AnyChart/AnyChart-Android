@@ -36,13 +36,13 @@ public class Margin extends CoreBase {
     }
 
     
-    private Double bottom;
+    private Number bottom;
     private String bottom1;
 
     /**
      * Setter for the bottom space.
      */
-    public Margin setBottom(Double bottom) {
+    public Margin setBottom(Number bottom) {
         if (jsBase == null) {
             this.bottom = null;
             this.bottom1 = null;
@@ -92,13 +92,13 @@ public class Margin extends CoreBase {
         return this;
     }
 
-    private Double left;
+    private Number left;
     private String left1;
 
     /**
      * Setter for the left space.
      */
-    public Margin setLeft(Double left) {
+    public Margin setLeft(Number left) {
         if (jsBase == null) {
             this.left = null;
             this.left1 = null;
@@ -148,13 +148,13 @@ public class Margin extends CoreBase {
         return this;
     }
 
-    private Double right;
+    private Number right;
     private String right1;
 
     /**
      * Setter for the right space.
      */
-    public Margin setRight(Double right) {
+    public Margin setRight(Number right) {
         if (jsBase == null) {
             this.right = null;
             this.right1 = null;
@@ -205,21 +205,21 @@ public class Margin extends CoreBase {
     }
 
     private String value;
-    private Double value1;
-    private Double[] value2;
+    private Number value1;
+    private Number[] value2;
     private String[] value3;
     private String value4;
     private String value5;
-    private Double value6;
+    private Number value6;
     private String value7;
-    private Double value8;
+    private Number value8;
     private String value9;
-    private Double value10;
+    private Number value10;
 
     /**
      * Sets all offsets.
      */
-    public Margin setSet(Double[] value2) {
+    public Margin setSet(Number[] value2) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
@@ -287,13 +287,13 @@ public class Margin extends CoreBase {
         return this;
     }
 
-    private Double top;
+    private Number top;
     private String top1;
 
     /**
      * Setter for the top space.
      */
-    public Margin setTop(Double top) {
+    public Margin setTop(Number top) {
         if (jsBase == null) {
             this.top = null;
             this.top1 = null;

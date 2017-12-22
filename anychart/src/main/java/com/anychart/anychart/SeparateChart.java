@@ -11,7 +11,7 @@ import android.text.TextUtils;
 /**
  * Base class for all charts, contains the margins, the background and the title.
  */
-public class SeparateChart extends ChartWithCredits {
+public class SeparateChart extends Chart {
 
     public SeparateChart() {
         js.setLength(0);
@@ -38,7 +38,7 @@ public class SeparateChart extends ChartWithCredits {
     private Interactivity getInteractivity;
 
     /**
-     * Gets the current interactivity settings for chart.
+     * Getter for interactivity settings for the chart.
      */
     public Interactivity getInteractivity() {
         if (getInteractivity == null)
@@ -52,7 +52,7 @@ public class SeparateChart extends ChartWithCredits {
     private String interactivity2;
 
     /**
-     * Sets interactivity settings for chart.
+     * Setter for interactivity settings for the chart.
      */
     public SeparateChart setInteractivity(String interactivity) {
         if (jsBase == null) {
@@ -80,7 +80,7 @@ public class SeparateChart extends ChartWithCredits {
 
 
     /**
-     * Sets interactivity settings for chart.
+     * Setter for interactivity settings for the chart.
      */
     public SeparateChart setInteractivity(HoverMode interactivity1) {
         if (jsBase == null) {
@@ -109,7 +109,7 @@ public class SeparateChart extends ChartWithCredits {
     private UiLegend getLegend;
 
     /**
-     * Getter for the current chart legend.
+     * Getter for the chart legend.
      */
     public UiLegend getLegend() {
         if (getLegend == null)
@@ -123,7 +123,7 @@ public class SeparateChart extends ChartWithCredits {
     private List<Chart> setLegend = new ArrayList<>();
 
     /**
-     * Setter for chart legend setting.
+     * Setter for chart legend settings.
      */
     public Chart setLegend(String legend) {
         if (jsBase == null) {
@@ -164,7 +164,7 @@ public class SeparateChart extends ChartWithCredits {
     private List<Chart> setLegend1 = new ArrayList<>();
 
     /**
-     * Setter for chart legend setting.
+     * Setter for chart legend settings.
      */
     public Chart setLegend(Boolean legend1) {
         if (jsBase == null) {

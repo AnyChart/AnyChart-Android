@@ -47,13 +47,13 @@ public class CurrentPriceIndicator extends VisualBase {
         return getAxis;
     }
 
-    private Double axis;
+    private Number axis;
     private CoreAxesLinear axis1;
 
     /**
      * Setter for the target axis.
      */
-    public CurrentPriceIndicator setAxis(Double axis) {
+    public CurrentPriceIndicator setAxis(Number axis) {
         if (jsBase == null) {
             this.axis = null;
             this.axis1 = null;
@@ -117,7 +117,7 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
     private String index;
-    private Double index1;
+    private Number index1;
     private Boolean fallingLabel;
     private String fallingLabel1;
 
@@ -188,7 +188,7 @@ public class CurrentPriceIndicator extends VisualBase {
     /**
      * Setter for the price indicator falling label.
      */
-    public CurrentPriceIndicator setFallingLabel(Double index1, Boolean fallingLabel) {
+    public CurrentPriceIndicator setFallingLabel(Number index1, Boolean fallingLabel) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -220,7 +220,7 @@ public class CurrentPriceIndicator extends VisualBase {
     /**
      * Setter for the price indicator falling label.
      */
-    public CurrentPriceIndicator setFallingLabel(Double index1, String fallingLabel1) {
+    public CurrentPriceIndicator setFallingLabel(Number index1, String fallingLabel1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -251,7 +251,7 @@ public class CurrentPriceIndicator extends VisualBase {
     private Stroke fallingStroke;
     private ColoredFill fallingStroke1;
     private String fallingStroke2;
-    private Double thickness;
+    private Number thickness;
     private String dashpattern;
     private StrokeLineJoin lineJoin;
     private StrokeLineCap lineCap;
@@ -259,7 +259,7 @@ public class CurrentPriceIndicator extends VisualBase {
     /**
      * Setter for the price indicator falling stroke.
      */
-    public CurrentPriceIndicator setFallingStroke(Stroke fallingStroke, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CurrentPriceIndicator setFallingStroke(Stroke fallingStroke, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.fallingStroke = null;
             this.fallingStroke1 = null;
@@ -295,7 +295,7 @@ public class CurrentPriceIndicator extends VisualBase {
     /**
      * Setter for the price indicator falling stroke.
      */
-    public CurrentPriceIndicator setFallingStroke(ColoredFill fallingStroke1, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CurrentPriceIndicator setFallingStroke(ColoredFill fallingStroke1, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.fallingStroke = null;
             this.fallingStroke1 = null;
@@ -331,7 +331,7 @@ public class CurrentPriceIndicator extends VisualBase {
     /**
      * Setter for the price indicator falling stroke.
      */
-    public CurrentPriceIndicator setFallingStroke(String fallingStroke2, Double thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
+    public CurrentPriceIndicator setFallingStroke(String fallingStroke2, Number thickness, String dashpattern, StrokeLineJoin lineJoin, StrokeLineCap lineCap) {
         if (jsBase == null) {
             this.fallingStroke = null;
             this.fallingStroke1 = null;
@@ -376,7 +376,7 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
     private String index2;
-    private Double index3;
+    private Number index3;
     private Boolean label;
     private String label1;
 
@@ -451,7 +451,7 @@ public class CurrentPriceIndicator extends VisualBase {
     /**
      * Setter for the price indicator label.
      */
-    public CurrentPriceIndicator setLabel(Double index3, Boolean label) {
+    public CurrentPriceIndicator setLabel(Number index3, Boolean label) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -485,7 +485,7 @@ public class CurrentPriceIndicator extends VisualBase {
     /**
      * Setter for the price indicator label.
      */
-    public CurrentPriceIndicator setLabel(Double index3, String label1) {
+    public CurrentPriceIndicator setLabel(Number index3, String label1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -528,7 +528,7 @@ public class CurrentPriceIndicator extends VisualBase {
     }
 
     private String index4;
-    private Double index5;
+    private Number index5;
     private Boolean risingLabel;
     private String risingLabel1;
 
@@ -607,7 +607,7 @@ public class CurrentPriceIndicator extends VisualBase {
     /**
      * Setter for the price indicator rising label.
      */
-    public CurrentPriceIndicator setRisingLabel(Double index5, Boolean risingLabel) {
+    public CurrentPriceIndicator setRisingLabel(Number index5, Boolean risingLabel) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -643,7 +643,7 @@ public class CurrentPriceIndicator extends VisualBase {
     /**
      * Setter for the price indicator rising label.
      */
-    public CurrentPriceIndicator setRisingLabel(Double index5, String risingLabel1) {
+    public CurrentPriceIndicator setRisingLabel(Number index5, String risingLabel1) {
         if (jsBase == null) {
             this.index = null;
             this.index1 = null;
@@ -678,7 +678,7 @@ public class CurrentPriceIndicator extends VisualBase {
     private Stroke risingStroke;
     private ColoredFill risingStroke1;
     private String risingStroke2;
-    private Double thickness1;
+    private Number thickness1;
     private String dashpattern1;
     private StrokeLineJoin lineJoin1;
     private StrokeLineCap lineCap1;
@@ -686,7 +686,7 @@ public class CurrentPriceIndicator extends VisualBase {
     /**
      * Setter for the price indicator rising stroke.<br/>
      */
-    public CurrentPriceIndicator setRisingStroke(Stroke risingStroke, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public CurrentPriceIndicator setRisingStroke(Stroke risingStroke, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.risingStroke = null;
             this.risingStroke1 = null;
@@ -734,7 +734,7 @@ public class CurrentPriceIndicator extends VisualBase {
     /**
      * Setter for the price indicator rising stroke.<br/>
      */
-    public CurrentPriceIndicator setRisingStroke(ColoredFill risingStroke1, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public CurrentPriceIndicator setRisingStroke(ColoredFill risingStroke1, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.risingStroke = null;
             this.risingStroke1 = null;
@@ -782,7 +782,7 @@ public class CurrentPriceIndicator extends VisualBase {
     /**
      * Setter for the price indicator rising stroke.<br/>
      */
-    public CurrentPriceIndicator setRisingStroke(String risingStroke2, Double thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
+    public CurrentPriceIndicator setRisingStroke(String risingStroke2, Number thickness1, String dashpattern1, StrokeLineJoin lineJoin1, StrokeLineCap lineCap1) {
         if (jsBase == null) {
             this.risingStroke = null;
             this.risingStroke1 = null;
@@ -838,13 +838,13 @@ public class CurrentPriceIndicator extends VisualBase {
         return getSeries;
     }
 
-    private Double series;
+    private Number series;
     private StockSeriesBase series1;
 
     /**
      * Setter for the target series.
      */
-    public CurrentPriceIndicator setSeries(Double series) {
+    public CurrentPriceIndicator setSeries(Number series) {
         if (jsBase == null) {
             this.series = null;
             this.series1 = null;
@@ -898,7 +898,7 @@ public class CurrentPriceIndicator extends VisualBase {
     private Stroke stroke;
     private ColoredFill stroke1;
     private String stroke2;
-    private Double thickness2;
+    private Number thickness2;
     private String dashpattern2;
     private StrokeLineJoin lineJoin2;
     private StrokeLineCap lineCap2;
@@ -907,7 +907,7 @@ public class CurrentPriceIndicator extends VisualBase {
      * Setter for the price indicator stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CurrentPriceIndicator setStroke(Stroke stroke, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public CurrentPriceIndicator setStroke(Stroke stroke, Number thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -960,7 +960,7 @@ public class CurrentPriceIndicator extends VisualBase {
      * Setter for the price indicator stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CurrentPriceIndicator setStroke(ColoredFill stroke1, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public CurrentPriceIndicator setStroke(ColoredFill stroke1, Number thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -1013,7 +1013,7 @@ public class CurrentPriceIndicator extends VisualBase {
      * Setter for the price indicator stroke.
 {docs:Graphics/Stroke_Settings}Learn more about stroke settings.{docs}
      */
-    public CurrentPriceIndicator setStroke(String stroke2, Double thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
+    public CurrentPriceIndicator setStroke(String stroke2, Number thickness2, String dashpattern2, StrokeLineJoin lineJoin2, StrokeLineCap lineCap2) {
         if (jsBase == null) {
             this.stroke = null;
             this.stroke1 = null;
@@ -1063,7 +1063,7 @@ public class CurrentPriceIndicator extends VisualBase {
 
     private PriceIndicatorDataSource value;
     private String value1;
-    private Double value2;
+    private Number value2;
 
     /**
      * Setter for the stock price indicator.
@@ -1124,7 +1124,7 @@ public class CurrentPriceIndicator extends VisualBase {
     /**
      * Setter for the stock price indicator.
      */
-    public CurrentPriceIndicator setValue(Double value2) {
+    public CurrentPriceIndicator setValue(Number value2) {
         if (jsBase == null) {
             this.value = null;
             this.value1 = null;
