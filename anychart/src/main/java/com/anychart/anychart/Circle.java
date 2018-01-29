@@ -57,10 +57,10 @@ public class Circle extends VectorEllipse {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".radius(%f)", radius));
+            js.append(String.format(Locale.US, ".radius(%s)", radius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radius(%f);", radius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radius(%s);", radius));
                 js.setLength(0);
             }
         }

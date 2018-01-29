@@ -54,10 +54,10 @@ public class SeriesConnector extends MapSeriesBaseWithMarkers {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".curvature(%f)", curvature));
+            js.append(String.format(Locale.US, ".curvature(%s)", curvature));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".curvature(%f);", curvature));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".curvature(%s);", curvature));
                 js.setLength(0);
             }
         }
@@ -132,10 +132,10 @@ public class SeriesConnector extends MapSeriesBaseWithMarkers {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".startSize(%f)", startSize));
+            js.append(String.format(Locale.US, ".startSize(%s)", startSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startSize(%f);", startSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startSize(%s);", startSize));
                 js.setLength(0);
             }
         }

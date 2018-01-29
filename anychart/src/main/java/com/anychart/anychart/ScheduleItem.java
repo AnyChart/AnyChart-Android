@@ -19,7 +19,7 @@ public class ScheduleItem extends JsObject  {
         this.start = start;
         this.workingTime = workingTime;
 
-        js.append(String.format(Locale.US, "{end: %f,start: %f,workingTime: %s}",  end, start, wrapQuotes(workingTime)));
+        js.append(String.format(Locale.US, "{end: %s,start: %s,workingTime: %s}",  end, start, wrapQuotes(workingTime)));
     }
 
     @Override

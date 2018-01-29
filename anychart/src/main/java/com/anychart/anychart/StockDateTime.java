@@ -121,10 +121,10 @@ public class StockDateTime extends VisualBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".height(%f)", height));
+            js.append(String.format(Locale.US, ".height(%s)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height));
                 js.setLength(0);
             }
         }

@@ -212,10 +212,10 @@ public class Resource extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".cellPadding(%f, %f, %f, %f)", value1, value3, value5, value7));
+        js.append(String.format(Locale.US, ".cellPadding(%s, %s, %s, %s)", value1, value3, value5, value7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%f, %f, %f, %f)", value1, value3, value5, value7));
+            onChangeListener.onChange(String.format(Locale.US, ".cellPadding(%s, %s, %s, %s)", value1, value3, value5, value7));
             js.setLength(0);
         }
         return this;
@@ -263,10 +263,10 @@ public class Resource extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".currentStartDate(%f)", currentStartDate));
+        js.append(String.format(Locale.US, ".currentStartDate(%s)", currentStartDate));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".currentStartDate(%f)", currentStartDate));
+            onChangeListener.onChange(String.format(Locale.US, ".currentStartDate(%s)", currentStartDate));
             js.setLength(0);
         }
         return this;
@@ -362,10 +362,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".defaultMinutesPerDay(%f)", defaultMinutesPerDay));
+        js.append(String.format(Locale.US, ".defaultMinutesPerDay(%s)", defaultMinutesPerDay));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".defaultMinutesPerDay(%f)", defaultMinutesPerDay));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultMinutesPerDay(%s)", defaultMinutesPerDay));
             js.setLength(0);
         }
         return this;
@@ -483,10 +483,10 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hover(%f, %f)", resourceIndex, activityIndex));
+        js.append(String.format(Locale.US, ".hover(%s, %s)", resourceIndex, activityIndex));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hover(%f, %f)", resourceIndex, activityIndex));
+            onChangeListener.onChange(String.format(Locale.US, ".hover(%s, %s)", resourceIndex, activityIndex));
             js.setLength(0);
         }
         return this;
@@ -502,10 +502,10 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hoverPoint(%f)", globalIndex));
+        js.append(String.format(Locale.US, ".hoverPoint(%s)", globalIndex));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hoverPoint(%f)", globalIndex));
+            onChangeListener.onChange(String.format(Locale.US, ".hoverPoint(%s)", globalIndex));
             js.setLength(0);
         }
         return this;
@@ -552,10 +552,10 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minRowHeight(%f)", minRowHeight));
+        js.append(String.format(Locale.US, ".minRowHeight(%s)", minRowHeight));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minRowHeight(%f)", minRowHeight));
+            onChangeListener.onChange(String.format(Locale.US, ".minRowHeight(%s)", minRowHeight));
             js.setLength(0);
         }
         return this;
@@ -621,10 +621,10 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".pixPerHour(%f)", pixPerHour));
+        js.append(String.format(Locale.US, ".pixPerHour(%s)", pixPerHour));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".pixPerHour(%f)", pixPerHour));
+            onChangeListener.onChange(String.format(Locale.US, ".pixPerHour(%s)", pixPerHour));
             js.setLength(0);
         }
         return this;
@@ -641,10 +641,10 @@ Hovers an activity determined by the resourceIndex and the activityIndex.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".resourceListWidth(%f)", resourceListWidth));
+        js.append(String.format(Locale.US, ".resourceListWidth(%s)", resourceListWidth));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".resourceListWidth(%f)", resourceListWidth));
+            onChangeListener.onChange(String.format(Locale.US, ".resourceListWidth(%s)", resourceListWidth));
             js.setLength(0);
         }
         return this;
@@ -680,10 +680,10 @@ Selects an activity determined by the resourceIndex and the activityIndex.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".select(%f, %f)", resourceIndex1, activityIndex1));
+        js.append(String.format(Locale.US, ".select(%s, %s)", resourceIndex1, activityIndex1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".select(%f, %f)", resourceIndex1, activityIndex1));
+            onChangeListener.onChange(String.format(Locale.US, ".select(%s, %s)", resourceIndex1, activityIndex1));
             js.setLength(0);
         }
         return this;
@@ -699,10 +699,10 @@ Selects an activity determined by the resourceIndex and the activityIndex.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectPoint(%f)", globalIndex1));
+        js.append(String.format(Locale.US, ".selectPoint(%s)", globalIndex1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectPoint(%f)", globalIndex1));
+            onChangeListener.onChange(String.format(Locale.US, ".selectPoint(%s)", globalIndex1));
             js.setLength(0);
         }
         return this;
@@ -724,10 +724,10 @@ Selects an activity determined by the resourceIndex and the activityIndex.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".splitterStroke(%s, %s, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".splitterStroke(%s, %s, %s, %s, %s)", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -742,10 +742,10 @@ Selects an activity determined by the resourceIndex and the activityIndex.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".splitterStroke(%s, %s, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".splitterStroke(%s, %s, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -760,10 +760,10 @@ Selects an activity determined by the resourceIndex and the activityIndex.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".splitterStroke(%s, %s, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".splitterStroke(%s, %f, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".splitterStroke(%s, %s, %s, %s, %s)", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -830,10 +830,10 @@ Selects an activity determined by the resourceIndex and the activityIndex.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".timeLineHeight(%f)", timeLineHeight));
+        js.append(String.format(Locale.US, ".timeLineHeight(%s)", timeLineHeight));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".timeLineHeight(%f)", timeLineHeight));
+            onChangeListener.onChange(String.format(Locale.US, ".timeLineHeight(%s)", timeLineHeight));
             js.setLength(0);
         }
         return this;
@@ -907,10 +907,10 @@ Selects an activity determined by the resourceIndex and the activityIndex.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".unhover(%f, %f)", resourceIndex2, activityIndex2));
+        js.append(String.format(Locale.US, ".unhover(%s, %s)", resourceIndex2, activityIndex2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".unhover(%f, %f)", resourceIndex2, activityIndex2));
+            onChangeListener.onChange(String.format(Locale.US, ".unhover(%s, %s)", resourceIndex2, activityIndex2));
             js.setLength(0);
         }
         return this;
@@ -925,10 +925,10 @@ Selects an activity determined by the resourceIndex and the activityIndex.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".unhover(%s, %f)", Arrays.toString(resourceIndex3), activityIndex2));
+        js.append(String.format(Locale.US, ".unhover(%s, %s)", Arrays.toString(resourceIndex3), activityIndex2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".unhover(%s, %f)", Arrays.toString(resourceIndex3), activityIndex2));
+            onChangeListener.onChange(String.format(Locale.US, ".unhover(%s, %s)", Arrays.toString(resourceIndex3), activityIndex2));
             js.setLength(0);
         }
         return this;
@@ -946,10 +946,10 @@ Selects an activity determined by the resourceIndex and the activityIndex.
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unselect(%f, %f);", resourceIndex4, activityIndex3));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unselect(%s, %s);", resourceIndex4, activityIndex3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselect(%f, %f)", resourceIndex4, activityIndex3));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselect(%s, %s)", resourceIndex4, activityIndex3));
             js.setLength(0);
         }
     }
@@ -963,10 +963,10 @@ Selects an activity determined by the resourceIndex and the activityIndex.
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unselect(%s, %f);", Arrays.toString(resourceIndex5), activityIndex3));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unselect(%s, %s);", Arrays.toString(resourceIndex5), activityIndex3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselect(%s, %f)", Arrays.toString(resourceIndex5), activityIndex3));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselect(%s, %s)", Arrays.toString(resourceIndex5), activityIndex3));
             js.setLength(0);
         }
     }
@@ -1064,10 +1064,10 @@ Zooms chart to the level denoted by the passed index or identifier.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomLevel(%f)", indexOrId));
+        js.append(String.format(Locale.US, ".zoomLevel(%s)", indexOrId));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomLevel(%f)", indexOrId));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomLevel(%s)", indexOrId));
             js.setLength(0);
         }
         return this;

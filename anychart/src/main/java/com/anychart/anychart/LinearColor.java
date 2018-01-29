@@ -484,11 +484,11 @@ public class LinearColor extends ScatterBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".valueToColor(%f);", valueToColor));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".valueToColor(%s);", valueToColor));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueToColor(%f);", valueToColor));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueToColor(%s);", valueToColor));
                 js.setLength(0);
             }
         }

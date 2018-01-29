@@ -199,10 +199,10 @@ Clips visible part of a series by a rectangle (or chart).
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".error(%f)", error3));
+            js.append(String.format(Locale.US, ".error(%s)", error3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".error(%f);", error3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".error(%s);", error3));
                 js.setLength(0);
             }
         }
@@ -228,11 +228,11 @@ Clips visible part of a series by a rectangle (or chart).
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".excludePoint(%f);", indexes));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".excludePoint(%s);", indexes));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%f);", indexes));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%s);", indexes));
                 js.setLength(0);
             }
         }
@@ -286,11 +286,11 @@ Clips visible part of a series by a rectangle (or chart).
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".includePoint(%f);", indexes2));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".includePoint(%s);", indexes2));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%f);", indexes2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%s);", indexes2));
                 js.setLength(0);
             }
         }
@@ -348,11 +348,11 @@ Clips visible part of a series by a rectangle (or chart).
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".keepOnlyPoints(%f);", indexes4));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".keepOnlyPoints(%s);", indexes4));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f);", indexes4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s);", indexes4));
                 js.setLength(0);
             }
         }

@@ -1,6 +1,7 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
 
 /**
  * Radial gradient stroke.
@@ -35,7 +36,7 @@ public class RadialGradientStroke extends JsObject implements Stroke {
         this.opacity = opacity;
         this.thickness = thickness;
 
-        js.append(String.format(Locale.US, "{keys: %s,cx: %f,cy: %f,dash: %s,fx: %f,fy: %f,lineCap: %s,lineJoin: %s,mode: %s,opacity: %f,thickness: %f}",  arrayToString(keys), cx, cy, wrapQuotes(dash), fx, fy, wrapQuotes(lineCap), wrapQuotes(lineJoin), ((mode != null) ? mode.generateJs() : "null"), opacity, thickness));
+        js.append(String.format(Locale.US, "{keys: %s,cx: %s,cy: %s,dash: %s,fx: %s,fy: %s,lineCap: %s,lineJoin: %s,mode: %s,opacity: %s,thickness: %s}",  arrayToString(keys), cx, cy, wrapQuotes(dash), fx, fy, wrapQuotes(lineCap), wrapQuotes(lineJoin), ((mode != null) ? mode.generateJs() : "null"), opacity, thickness));
     }
     public RadialGradientStroke(String[] keys1, Number cx, Number cy, String dash, Number fx, Number fy, String lineCap, String lineJoin, GraphicsMathRect mode, Number opacity, Number thickness) {
         this.keys1 = keys1;
@@ -50,7 +51,7 @@ public class RadialGradientStroke extends JsObject implements Stroke {
         this.opacity = opacity;
         this.thickness = thickness;
 
-        js.append(String.format(Locale.US, "{keys: %s,cx: %f,cy: %f,dash: %s,fx: %f,fy: %f,lineCap: %s,lineJoin: %s,mode: %s,opacity: %f,thickness: %f}",  arrayToStringWrapQuotes(keys1), cx, cy, wrapQuotes(dash), fx, fy, wrapQuotes(lineCap), wrapQuotes(lineJoin), ((mode != null) ? mode.generateJs() : "null"), opacity, thickness));
+        js.append(String.format(Locale.US, "{keys: %s,cx: %s,cy: %s,dash: %s,fx: %s,fy: %s,lineCap: %s,lineJoin: %s,mode: %s,opacity: %s,thickness: %s}",  arrayToStringWrapQuotes(keys1), cx, cy, wrapQuotes(dash), fx, fy, wrapQuotes(lineCap), wrapQuotes(lineJoin), ((mode != null) ? mode.generateJs() : "null"), opacity, thickness));
     }
 
     @Override

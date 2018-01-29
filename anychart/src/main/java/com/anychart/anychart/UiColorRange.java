@@ -1,8 +1,11 @@
 package com.anychart.anychart;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -103,10 +106,10 @@ public class UiColorRange extends CoreAxesLinear {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".colorLineSize(%f)", colorLineSize));
+            js.append(String.format(Locale.US, ".colorLineSize(%s)", colorLineSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorLineSize(%f);", colorLineSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".colorLineSize(%s);", colorLineSize));
                 js.setLength(0);
             }
         }
@@ -159,10 +162,10 @@ public class UiColorRange extends CoreAxesLinear {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".length(%f)", length1));
+            js.append(String.format(Locale.US, ".length(%s)", length1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".length(%f);", length1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".length(%s);", length1));
                 js.setLength(0);
             }
         }

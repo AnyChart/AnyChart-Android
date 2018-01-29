@@ -168,10 +168,10 @@ public class DatagridColumn extends VisualBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".defaultWidth(%f)", defaultWidth));
+            js.append(String.format(Locale.US, ".defaultWidth(%s)", defaultWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".defaultWidth(%f);", defaultWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".defaultWidth(%s);", defaultWidth));
                 js.setLength(0);
             }
         }
@@ -193,10 +193,10 @@ public class DatagridColumn extends VisualBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".depthPaddingMultiplier(%f)", depthPaddingMultiplier));
+            js.append(String.format(Locale.US, ".depthPaddingMultiplier(%s)", depthPaddingMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".depthPaddingMultiplier(%f);", depthPaddingMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".depthPaddingMultiplier(%s);", depthPaddingMultiplier));
                 js.setLength(0);
             }
         }
@@ -356,10 +356,10 @@ public class DatagridColumn extends VisualBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".width(%f)", width));
+            js.append(String.format(Locale.US, ".width(%s)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width));
                 js.setLength(0);
             }
         }

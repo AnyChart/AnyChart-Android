@@ -107,10 +107,10 @@ public class Stochastic extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".dPeriod(%f)", dPeriod));
+            js.append(String.format(Locale.US, ".dPeriod(%s)", dPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dPeriod(%f);", dPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dPeriod(%s);", dPeriod));
                 js.setLength(0);
             }
         }
@@ -200,10 +200,10 @@ public class Stochastic extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".kMAPeriod(%f)", kMAPeriod));
+            js.append(String.format(Locale.US, ".kMAPeriod(%s)", kMAPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kMAPeriod(%f);", kMAPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kMAPeriod(%s);", kMAPeriod));
                 js.setLength(0);
             }
         }
@@ -281,10 +281,10 @@ public class Stochastic extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".kPeriod(%f)", kPeriod));
+            js.append(String.format(Locale.US, ".kPeriod(%s)", kPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kPeriod(%f);", kPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kPeriod(%s);", kPeriod));
                 js.setLength(0);
             }
         }

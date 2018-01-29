@@ -23,7 +23,7 @@ public class AtrContext extends JsObject  {
         this.prevResult = prevResult;
         this.queue = queue;
 
-        js.append(String.format(Locale.US, "{dequeuedValue: %f,period: %f,prevClose: %f,prevResult: %f,queue: %s}",  dequeuedValue, period, prevClose, prevResult, ((queue != null) ? queue.generateJs() : "null")));
+        js.append(String.format(Locale.US, "{dequeuedValue: %s,period: %s,prevClose: %s,prevResult: %s,queue: %s}",  dequeuedValue, period, prevClose, prevResult, ((queue != null) ? queue.generateJs() : "null")));
     }
 
     @Override

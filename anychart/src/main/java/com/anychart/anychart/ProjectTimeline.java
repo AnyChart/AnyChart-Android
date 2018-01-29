@@ -50,10 +50,10 @@ public class ProjectTimeline extends UiTimeline {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".defaultRowHeight(%f)", defaultRowHeight));
+            js.append(String.format(Locale.US, ".defaultRowHeight(%s)", defaultRowHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".defaultRowHeight(%f);", defaultRowHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".defaultRowHeight(%s);", defaultRowHeight));
                 js.setLength(0);
             }
         }

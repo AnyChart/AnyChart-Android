@@ -52,10 +52,10 @@ public class Ticks extends VisualBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".length(%f)", length));
+            js.append(String.format(Locale.US, ".length(%s)", length));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".length(%f);", length));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".length(%s);", length));
                 js.setLength(0);
             }
         }
@@ -148,6 +148,28 @@ You can set ticks inside of a chart area or outside its position.<br/>
         return this;
     }
 
+
+    /**
+     * 
+     */
+    public Ticks setStroke(String json) {
+        if (jsBase == null) {
+        } else {
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".stroke(%s)", wrapQuotes(json)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(json)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private String color;
     private Number thickness;
     private String dashpattern;
@@ -190,10 +212,10 @@ The following options are acceptable:
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }

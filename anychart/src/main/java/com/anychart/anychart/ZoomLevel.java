@@ -22,7 +22,7 @@ public class ZoomLevel extends JsObject  {
         this.id = id;
         this.unitPixSize = unitPixSize;
 
-        js.append(String.format(Locale.US, "{unit: %s,count: %f,id: %s,unitPixSize: %f}",  ((unit != null) ? unit.generateJs() : "null"), count, wrapQuotes(id), unitPixSize));
+        js.append(String.format(Locale.US, "{unit: %s,count: %s,id: %s,unitPixSize: %s}",  ((unit != null) ? unit.generateJs() : "null"), count, wrapQuotes(id), unitPixSize));
     }
     public ZoomLevel(String unit1, Number count, String id, Number unitPixSize) {
         this.unit1 = unit1;
@@ -30,7 +30,7 @@ public class ZoomLevel extends JsObject  {
         this.id = id;
         this.unitPixSize = unitPixSize;
 
-        js.append(String.format(Locale.US, "{unit: %s,count: %f,id: %s,unitPixSize: %f}",  wrapQuotes(unit1), count, wrapQuotes(id), unitPixSize));
+        js.append(String.format(Locale.US, "{unit: %s,count: %s,id: %s,unitPixSize: %s}",  wrapQuotes(unit1), count, wrapQuotes(id), unitPixSize));
     }
 
     @Override

@@ -17,7 +17,7 @@ public class RocContext extends JsObject  {
         this.period = period;
         this.queue = queue;
 
-        js.append(String.format(Locale.US, "{period: %f,queue: %s}",  period, ((queue != null) ? queue.generateJs() : "null")));
+        js.append(String.format(Locale.US, "{period: %s,queue: %s}",  period, ((queue != null) ? queue.generateJs() : "null")));
     }
 
     @Override

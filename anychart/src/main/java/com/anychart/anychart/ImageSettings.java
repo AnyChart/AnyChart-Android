@@ -111,10 +111,10 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".borderRadius(%f)", borderRadius));
+            js.append(String.format(Locale.US, ".borderRadius(%s)", borderRadius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".borderRadius(%f);", borderRadius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".borderRadius(%s);", borderRadius));
                 js.setLength(0);
             }
         }
@@ -220,10 +220,10 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".opacity(%f)", opacity));
+            js.append(String.format(Locale.US, ".opacity(%s)", opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".opacity(%f);", opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".opacity(%s);", opacity));
                 js.setLength(0);
             }
         }
@@ -276,10 +276,10 @@ Learn more about border radius {@link https://www.w3schools.com/cssref/css3_pr_b
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".size(%f)", size1));
+            js.append(String.format(Locale.US, ".size(%s)", size1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".size(%f);", size1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".size(%s);", size1));
                 js.setLength(0);
             }
         }

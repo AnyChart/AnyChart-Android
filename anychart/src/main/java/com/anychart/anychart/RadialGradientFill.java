@@ -28,7 +28,7 @@ public class RadialGradientFill extends JsObject implements ColoredFill, Fill {
         this.mode = mode;
         this.opacity = opacity;
 
-        js.append(String.format(Locale.US, "{keys: %s,cx: %f,cy: %f,fx: %f,fy: %f,mode: %s,opacity: %f}",  arrayToString(keys), cx, cy, fx, fy, ((mode != null) ? mode.generateJs() : "null"), opacity));
+        js.append(String.format(Locale.US, "{keys: %s,cx: %s,cy: %s,fx: %s,fy: %s,mode: %s,opacity: %s}",  arrayToString(keys), cx, cy, fx, fy, ((mode != null) ? mode.generateJs() : "null"), opacity));
     }
     public RadialGradientFill(String[] keys1, Number cx, Number cy, Number fx, Number fy, GraphicsMathRect mode, Number opacity) {
         this.keys1 = keys1;
@@ -39,7 +39,7 @@ public class RadialGradientFill extends JsObject implements ColoredFill, Fill {
         this.mode = mode;
         this.opacity = opacity;
 
-        js.append(String.format(Locale.US, "{keys: %s,cx: %f,cy: %f,fx: %f,fy: %f,mode: %s,opacity: %f}",  arrayToStringWrapQuotes(keys1), cx, cy, fx, fy, ((mode != null) ? mode.generateJs() : "null"), opacity));
+        js.append(String.format(Locale.US, "{keys: %s,cx: %s,cy: %s,fx: %s,fy: %s,mode: %s,opacity: %s}",  arrayToStringWrapQuotes(keys1), cx, cy, fx, fy, ((mode != null) ? mode.generateJs() : "null"), opacity));
     }
 
     @Override

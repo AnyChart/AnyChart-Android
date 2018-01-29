@@ -25,7 +25,7 @@ public class SolidStroke extends JsObject implements Stroke {
         this.opacity = opacity;
         this.thickness = thickness;
 
-        js.append(String.format(Locale.US, "{color: %s,dash: %s,lineCap: %s,lineJoin: %s,opacity: %f,thickness: %f}",  wrapQuotes(color), wrapQuotes(dash), wrapQuotes(lineCap), wrapQuotes(lineJoin), opacity, thickness));
+        js.append(String.format(Locale.US, "{color: %s,dash: %s,lineCap: %s,lineJoin: %s,opacity: %s,thickness: %s}",  wrapQuotes(color), wrapQuotes(dash), wrapQuotes(lineCap), wrapQuotes(lineJoin), opacity, thickness));
     }
 
     @Override

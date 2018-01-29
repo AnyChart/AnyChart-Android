@@ -50,10 +50,10 @@ public class GanttDateTime extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".maximum(%f)", maximum));
+            js.append(String.format(Locale.US, ".maximum(%s)", maximum));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximum(%f);", maximum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximum(%s);", maximum));
                 js.setLength(0);
             }
         }
@@ -75,10 +75,10 @@ public class GanttDateTime extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
+            js.append(String.format(Locale.US, ".maximumGap(%s)", maximumGap));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumGap(%f);", maximumGap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumGap(%s);", maximumGap));
                 js.setLength(0);
             }
         }
@@ -100,10 +100,10 @@ public class GanttDateTime extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".minimum(%f)", minimum));
+            js.append(String.format(Locale.US, ".minimum(%s)", minimum));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimum(%f);", minimum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimum(%s);", minimum));
                 js.setLength(0);
             }
         }
@@ -125,10 +125,10 @@ public class GanttDateTime extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
+            js.append(String.format(Locale.US, ".minimumGap(%s)", minimumGap));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumGap(%f);", minimumGap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumGap(%s);", minimumGap));
                 js.setLength(0);
             }
         }
@@ -150,10 +150,10 @@ public class GanttDateTime extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
+            js.append(String.format(Locale.US, ".softMaximum(%s)", softMaximum));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMaximum(%f);", softMaximum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMaximum(%s);", softMaximum));
                 js.setLength(0);
             }
         }
@@ -175,10 +175,10 @@ public class GanttDateTime extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
+            js.append(String.format(Locale.US, ".softMinimum(%s)", softMinimum));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMinimum(%f);", softMinimum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMinimum(%s);", softMinimum));
                 js.setLength(0);
             }
         }

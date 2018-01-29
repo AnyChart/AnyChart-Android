@@ -28,11 +28,12 @@ public final class AnyChartView extends FrameLayout {
 
     private boolean isRestored;
 
+    private StringBuilder scripts = new StringBuilder();
+
     protected StringBuilder js = new StringBuilder();
 
     public AnyChartView(Context context) {
         super(context);
-
         init();
     }
 
@@ -43,7 +44,6 @@ public final class AnyChartView extends FrameLayout {
 
     public AnyChartView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         init();
     }
 
@@ -120,7 +120,7 @@ public final class AnyChartView extends FrameLayout {
                 }
 
                 isRendered = true;
-                
+
                 chart.setOnChangeListener(new Chart.OnChange() {
                     @Override
                     public void onChange(final String jsChange) {
@@ -141,11 +141,41 @@ public final class AnyChartView extends FrameLayout {
         });
 
         webView.addJavascriptInterface(MyApplication.getInstance().getJavaScriptInterface(), "android");
-        webView.loadUrl("file:///android_asset/base.html");
+    }
+
+    private void loadHtml() {
+        String htmlData = "<html>\n" +
+                "<head>\n" +
+                "    <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\n" +
+                "    <style type=\"text/css\">\n" +
+                "        html, body, #container {\n" +
+                "            width: 100%;\n" +
+                "            height: 100%;\n" +
+                "            margin: 0;\n" +
+                "            padding: 0;\n" +
+                "        }\n" +
+                "    </style>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "<script src=\"file:///android_asset/anychart-bundle.min.js\"></script>" +
+                scripts.toString() +
+                "<link rel=\"stylesheet\" href=\"file:///android_asset/anychart-ui.min.css\"/>\n" +
+                "<div id=\"container\"></div>\n" +
+                "</body>\n" +
+                "</html>";
+
+        webView.loadDataWithBaseURL("", htmlData, "text/HTML", "UTF-8", "");
+    }
+
+    public void addScript(String url) {
+        scripts.append("<script src=\"")
+                .append(url)
+                .append("\"></script>\n");
     }
 
     public void setChart(Chart chart) {
         this.chart = chart;
+        loadHtml();
     }
 
 }

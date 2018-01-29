@@ -23,7 +23,7 @@ public class CmfContext extends JsObject  {
         this.prevVolumeSum = prevVolumeSum;
         this.volumeQueue = volumeQueue;
 
-        js.append(String.format(Locale.US, "{mfvQueue: %s,period: %f,prevMFVSum: %f,prevVolumeSum: %f,volumeQueue: %s}",  ((mfvQueue != null) ? mfvQueue.generateJs() : "null"), period, prevMFVSum, prevVolumeSum, ((volumeQueue != null) ? volumeQueue.generateJs() : "null")));
+        js.append(String.format(Locale.US, "{mfvQueue: %s,period: %s,prevMFVSum: %s,prevVolumeSum: %s,volumeQueue: %s}",  ((mfvQueue != null) ? mfvQueue.generateJs() : "null"), period, prevMFVSum, prevVolumeSum, ((volumeQueue != null) ? volumeQueue.generateJs() : "null")));
     }
 
     @Override

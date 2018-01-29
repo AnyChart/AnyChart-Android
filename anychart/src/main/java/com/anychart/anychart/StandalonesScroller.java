@@ -120,10 +120,10 @@ public class StandalonesScroller extends UiScroller {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".endRatio(%f)", endRatio));
+            js.append(String.format(Locale.US, ".endRatio(%s)", endRatio));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".endRatio(%f);", endRatio));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".endRatio(%s);", endRatio));
                 js.setLength(0);
             }
         }
@@ -224,10 +224,10 @@ As a getter falls back to stage bounds.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
+            js.append(String.format(Locale.US, ".parentBounds(%s, %s, %s, %s)", left, top, width, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBounds(%f, %f, %f, %f);", left, top, width, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
                 js.setLength(0);
             }
         }
@@ -255,10 +255,10 @@ As a getter falls back to stage bounds.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".setRange(%f, %f)", startRatio, endRatio1));
+            js.append(String.format(Locale.US, ".setRange(%s, %s)", startRatio, endRatio1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setRange(%f, %f);", startRatio, endRatio1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setRange(%s, %s);", startRatio, endRatio1));
                 js.setLength(0);
             }
         }
@@ -284,10 +284,10 @@ As a getter falls back to stage bounds.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".startRatio(%f)", startRatio1));
+            js.append(String.format(Locale.US, ".startRatio(%s)", startRatio1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startRatio(%f);", startRatio1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startRatio(%s);", startRatio1));
                 js.setLength(0);
             }
         }

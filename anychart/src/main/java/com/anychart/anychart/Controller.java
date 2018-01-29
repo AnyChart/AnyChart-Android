@@ -405,6 +405,28 @@ public class Controller extends CoreBase {
         return this;
     }
 
+
+    /**
+     * 
+     */
+    public Controller setFill(String json) {
+        if (jsBase == null) {
+        } else {
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".fill(%s)", wrapQuotes(json)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(json)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private String color;
     private Number opacity;
 
@@ -423,10 +445,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
+            js.append(String.format(Locale.US, ".fill(%s, %s)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f);", wrapQuotes(color), opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s);", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -471,10 +493,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %s, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %b);", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -512,10 +534,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             js.append(mode1.generateJs());
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -553,10 +575,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -594,10 +616,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -635,10 +657,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             js.append(mode1.generateJs());
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -676,10 +698,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -735,10 +757,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             js.append(mode3.generateJs());
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -786,10 +808,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             js.append(mode3.generateJs());
-            js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -918,10 +940,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
+            js.append(String.format(Locale.US, ".fontOpacity(%s)", fontOpacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%s);", fontOpacity));
                 js.setLength(0);
             }
         }
@@ -947,10 +969,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontPadding(%f)", fontPadding));
+            js.append(String.format(Locale.US, ".fontPadding(%s)", fontPadding));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontPadding(%f);", fontPadding));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontPadding(%s);", fontPadding));
                 js.setLength(0);
             }
         }
@@ -1003,10 +1025,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontSize(%f)", fontSize));
+            js.append(String.format(Locale.US, ".fontSize(%s)", fontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize));
                 js.setLength(0);
             }
         }
@@ -1198,10 +1220,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
+            js.append(String.format(Locale.US, ".fontWeight(%s)", fontWeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight1));
                 js.setLength(0);
             }
         }
@@ -1358,10 +1380,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".group(%f, %s)", index, wrapQuotes(group3)));
+            js.append(String.format(Locale.US, ".group(%s, %s)", index, wrapQuotes(group3)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".group(%f, %s);", index, wrapQuotes(group3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".group(%s, %s);", index, wrapQuotes(group3)));
                 js.setLength(0);
             }
         }
@@ -1391,10 +1413,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".group(%f, %s)", index, arrayToStringWrapQuotes(group4)));
+            js.append(String.format(Locale.US, ".group(%s, %s)", index, arrayToStringWrapQuotes(group4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".group(%f, %s);", index, arrayToStringWrapQuotes(group4)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".group(%s, %s);", index, arrayToStringWrapQuotes(group4)));
                 js.setLength(0);
             }
         }
@@ -1424,10 +1446,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".group(%f, %b)", index, group5));
+            js.append(String.format(Locale.US, ".group(%s, %b)", index, group5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".group(%f, %b);", index, group5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".group(%s, %b);", index, group5));
                 js.setLength(0);
             }
         }
@@ -1536,10 +1558,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".height(%f)", height1));
+            js.append(String.format(Locale.US, ".height(%s)", height1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height1));
                 js.setLength(0);
             }
         }
@@ -1598,10 +1620,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing));
+            js.append(String.format(Locale.US, ".letterSpacing(%s)", letterSpacing));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%s);", letterSpacing));
                 js.setLength(0);
             }
         }
@@ -1627,10 +1649,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight));
+            js.append(String.format(Locale.US, ".lineHeight(%s)", lineHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight));
                 js.setLength(0);
             }
         }
@@ -1683,10 +1705,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
+            js.append(String.format(Locale.US, ".maxFontSize(%s)", maxFontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxFontSize(%f);", maxFontSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxFontSize(%s);", maxFontSize));
                 js.setLength(0);
             }
         }
@@ -1739,10 +1761,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
+            js.append(String.format(Locale.US, ".minFontSize(%s)", minFontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minFontSize(%f);", minFontSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minFontSize(%s);", minFontSize));
                 js.setLength(0);
             }
         }
@@ -1991,11 +2013,11 @@ public class Controller extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setStroke" + ++variableIndex + " = " + jsBase + ".stroke(%s, %f, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, "var setStroke" + ++variableIndex + " = " + jsBase + ".stroke(%s, %s, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2015,6 +2037,42 @@ public class Controller extends CoreBase {
     }
 
     private List<MapSeriesBase> setStroke1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public MapSeriesBase setStroke(String json) {
+        if (jsBase == null) {
+        } else {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            
+            js.append(String.format(Locale.US, "var setStroke1" + ++variableIndex + " = " + jsBase + ".stroke(%s);", wrapQuotes(json)));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(json)));
+                js.setLength(0);
+            }
+        }
+        MapSeriesBase item = new MapSeriesBase("setStroke1" + variableIndex);
+        setStroke1.add(item);
+        return item;
+    }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (MapSeriesBase item : setStroke1) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<MapSeriesBase> setStroke2 = new ArrayList<>();
 
     /**
      * Setter for series stroke settings.
@@ -2042,22 +2100,22 @@ public class Controller extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setStroke1" + ++variableIndex + " = " + jsBase + ".stroke(%s, %f, %s, %s, %s);", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, "var setStroke2" + ++variableIndex + " = " + jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
-        MapSeriesBase item = new MapSeriesBase("setStroke1" + variableIndex);
-        setStroke1.add(item);
+        MapSeriesBase item = new MapSeriesBase("setStroke2" + variableIndex);
+        setStroke2.add(item);
         return item;
     }
-    private String generateJSsetStroke1() {
-        if (!setStroke1.isEmpty()) {
+    private String generateJSsetStroke2() {
+        if (!setStroke2.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (MapSeriesBase item : setStroke1) {
+            for (MapSeriesBase item : setStroke2) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -2136,10 +2194,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
+            js.append(String.format(Locale.US, ".textIndent(%s)", textIndent));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%s);", textIndent));
                 js.setLength(0);
             }
         }
@@ -2481,10 +2539,10 @@ public class Controller extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".width(%f)", width1));
+            js.append(String.format(Locale.US, ".width(%s)", width1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width1));
                 js.setLength(0);
             }
         }
@@ -2684,8 +2742,7 @@ public class Controller extends CoreBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetStroke());
-        js.append(generateJSsetStroke1());
+        js.append(generateJSsetStroke2());
         js.append(generateJSsetTooltip());
         js.append(generateJSsetTooltip1());
         

@@ -31,7 +31,7 @@ public class MacdContext extends JsObject  {
         this.slowQueue = slowQueue;
         this.slowResult = slowResult;
 
-        js.append(String.format(Locale.US, "{fastPeriod: %f,fastQueue: %s,fastResult: %f,signalPeriod: %f,signalQueue: %s,signalResult: %f,slowPeriod: %f,slowQueue: %s,slowResult: %f}",  fastPeriod, ((fastQueue != null) ? fastQueue.generateJs() : "null"), fastResult, signalPeriod, ((signalQueue != null) ? signalQueue.generateJs() : "null"), signalResult, slowPeriod, ((slowQueue != null) ? slowQueue.generateJs() : "null"), slowResult));
+        js.append(String.format(Locale.US, "{fastPeriod: %s,fastQueue: %s,fastResult: %s,signalPeriod: %s,signalQueue: %s,signalResult: %s,slowPeriod: %s,slowQueue: %s,slowResult: %s}",  fastPeriod, ((fastQueue != null) ? fastQueue.generateJs() : "null"), fastResult, signalPeriod, ((signalQueue != null) ? signalQueue.generateJs() : "null"), signalResult, slowPeriod, ((slowQueue != null) ? slowQueue.generateJs() : "null"), slowResult));
     }
 
     @Override

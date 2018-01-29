@@ -52,10 +52,10 @@ public class Logarithmic extends ScalesLinear {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".logBase(%f)", logBase));
+            js.append(String.format(Locale.US, ".logBase(%s)", logBase));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".logBase(%f);", logBase));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".logBase(%s);", logBase));
                 js.setLength(0);
             }
         }

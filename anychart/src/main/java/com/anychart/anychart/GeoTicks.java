@@ -51,10 +51,10 @@ public class GeoTicks extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".count(%f)", count));
+            js.append(String.format(Locale.US, ".count(%s)", count));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%f);", count));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%s);", count));
                 js.setLength(0);
             }
         }
@@ -80,10 +80,10 @@ public class GeoTicks extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".count(%f, %f)", minimumCount, maximumCount));
+            js.append(String.format(Locale.US, ".count(%s, %s)", minimumCount, maximumCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%f, %f);", minimumCount, maximumCount));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%s, %s);", minimumCount, maximumCount));
                 js.setLength(0);
             }
         }
@@ -105,10 +105,10 @@ public class GeoTicks extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".interval(%f)", interval));
+            js.append(String.format(Locale.US, ".interval(%s)", interval));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%f);", interval));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%s);", interval));
                 js.setLength(0);
             }
         }

@@ -125,10 +125,10 @@ public class Grouping extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".maxVisiblePoints(%f)", maxVisiblePoints));
+            js.append(String.format(Locale.US, ".maxVisiblePoints(%s)", maxVisiblePoints));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxVisiblePoints(%f);", maxVisiblePoints));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxVisiblePoints(%s);", maxVisiblePoints));
                 js.setLength(0);
             }
         }
@@ -150,10 +150,10 @@ public class Grouping extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".minPixPerPoint(%f)", minPixPerPoint));
+            js.append(String.format(Locale.US, ".minPixPerPoint(%s)", minPixPerPoint));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minPixPerPoint(%f);", minPixPerPoint));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minPixPerPoint(%s);", minPixPerPoint));
                 js.setLength(0);
             }
         }

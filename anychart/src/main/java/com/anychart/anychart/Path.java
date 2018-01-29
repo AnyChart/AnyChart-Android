@@ -73,10 +73,10 @@ of the Y-axis, that is clockwise.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".arcTo(%f, %f, %f, %f)", rx, ry, fromAngle, extent));
+            js.append(String.format(Locale.US, ".arcTo(%s, %s, %s, %s)", rx, ry, fromAngle, extent));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".arcTo(%f, %f, %f, %f);", rx, ry, fromAngle, extent));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".arcTo(%s, %s, %s, %s);", rx, ry, fromAngle, extent));
                 js.setLength(0);
             }
         }
@@ -119,10 +119,10 @@ of the Y-axis, that is clockwise.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".arcToAsCurves(%f, %f, %f, %f)", rx1, ry1, fromAngle1, extent1));
+            js.append(String.format(Locale.US, ".arcToAsCurves(%s, %s, %s, %s)", rx1, ry1, fromAngle1, extent1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".arcToAsCurves(%f, %f, %f, %f);", rx1, ry1, fromAngle1, extent1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".arcToAsCurves(%s, %s, %s, %s);", rx1, ry1, fromAngle1, extent1));
                 js.setLength(0);
             }
         }
@@ -170,10 +170,10 @@ Read more at {@link https://www.w3.org/TR/SVG/implnote.html#ArcImplementationNot
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".arcToByEndPoint(%f, %f, %f, %f, %b, %b)", x, y, rx2, ry2, largeArc, clockwiseArc));
+            js.append(String.format(Locale.US, ".arcToByEndPoint(%s, %s, %s, %s, %b, %b)", x, y, rx2, ry2, largeArc, clockwiseArc));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".arcToByEndPoint(%f, %f, %f, %f, %b, %b);", x, y, rx2, ry2, largeArc, clockwiseArc));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".arcToByEndPoint(%s, %s, %s, %s, %b, %b);", x, y, rx2, ry2, largeArc, clockwiseArc));
                 js.setLength(0);
             }
         }
@@ -229,10 +229,10 @@ with clockwise and counterclock drawing option.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".circularArc(%f, %f, %f, %f, %f, %f, %b)", cx, cy, rx3, ry3, fromAngle2, sweep, lineTo));
+            js.append(String.format(Locale.US, ".circularArc(%s, %s, %s, %s, %s, %s, %b)", cx, cy, rx3, ry3, fromAngle2, sweep, lineTo));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".circularArc(%f, %f, %f, %f, %f, %f, %b);", cx, cy, rx3, ry3, fromAngle2, sweep, lineTo));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".circularArc(%s, %s, %s, %s, %s, %s, %b);", cx, cy, rx3, ry3, fromAngle2, sweep, lineTo));
                 js.setLength(0);
             }
         }
@@ -285,10 +285,10 @@ Each curve is defined by 3 points (6 coordinates) – two control points and an 
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".curveTo(%f, %f, %f, %f, %f, %f, %f)", controlX, controlY, controlX1, controlY1, endX, endY, var_args));
+            js.append(String.format(Locale.US, ".curveTo(%s, %s, %s, %s, %s, %s, %s)", controlX, controlY, controlX1, controlY1, endX, endY, var_args));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".curveTo(%f, %f, %f, %f, %f, %f, %f);", controlX, controlY, controlX1, controlY1, endX, endY, var_args));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".curveTo(%s, %s, %s, %s, %s, %s, %s);", controlX, controlY, controlX1, controlY1, endX, endY, var_args));
                 js.setLength(0);
             }
         }
@@ -325,10 +325,10 @@ Each curve is defined by 3 points (6 coordinates) – two control points and an 
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".lineTo(%f, %f, %f)", x1, y1, var_args1));
+            js.append(String.format(Locale.US, ".lineTo(%s, %s, %s)", x1, y1, var_args1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineTo(%f, %f, %f);", x1, y1, var_args1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineTo(%s, %s, %s);", x1, y1, var_args1));
                 js.setLength(0);
             }
         }
@@ -362,10 +362,10 @@ Remember that if you call the <b>moveTo</b> method a few times in a row, only th
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".moveTo(%f, %f)", x2, y2));
+            js.append(String.format(Locale.US, ".moveTo(%s, %s)", x2, y2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".moveTo(%f, %f);", x2, y2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".moveTo(%s, %s);", x2, y2));
                 js.setLength(0);
             }
         }
@@ -418,10 +418,10 @@ Each curve is defined by 2 points (4 coordinates) – a control point and an end
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".quadraticCurveTo(%f, %f, %f, %f, %f)", controlX2, controlY2, endX1, endY1, var_args2));
+            js.append(String.format(Locale.US, ".quadraticCurveTo(%s, %s, %s, %s, %s)", controlX2, controlY2, endX1, endY1, var_args2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".quadraticCurveTo(%f, %f, %f, %f, %f);", controlX2, controlY2, endX1, endY1, var_args2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".quadraticCurveTo(%s, %s, %s, %s, %s);", controlX2, controlY2, endX1, endY1, var_args2));
                 js.setLength(0);
             }
         }

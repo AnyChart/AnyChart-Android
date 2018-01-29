@@ -81,10 +81,10 @@ public class Thermometer extends LineargaugePointersBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".bulbPadding(%f)", bulbPadding1));
+            js.append(String.format(Locale.US, ".bulbPadding(%s)", bulbPadding1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bulbPadding(%f);", bulbPadding1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bulbPadding(%s);", bulbPadding1));
                 js.setLength(0);
             }
         }

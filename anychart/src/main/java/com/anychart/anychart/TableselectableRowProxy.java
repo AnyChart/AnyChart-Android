@@ -75,11 +75,11 @@ public class TableselectableRowProxy extends JsObject {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getColumn(%f);", column));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getColumn(%s);", column));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getColumn(%f);", column));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getColumn(%s);", column));
                 js.setLength(0);
             }
         }

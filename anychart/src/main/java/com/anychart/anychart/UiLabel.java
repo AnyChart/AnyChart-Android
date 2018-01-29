@@ -284,10 +284,10 @@ public class UiLabel extends CoreText {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".height(%f)", height));
+            js.append(String.format(Locale.US, ".height(%s)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height));
                 js.setLength(0);
             }
         }
@@ -340,10 +340,10 @@ public class UiLabel extends CoreText {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
+            js.append(String.format(Locale.US, ".maxFontSize(%s)", maxFontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxFontSize(%f);", maxFontSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxFontSize(%s);", maxFontSize));
                 js.setLength(0);
             }
         }
@@ -396,10 +396,10 @@ public class UiLabel extends CoreText {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
+            js.append(String.format(Locale.US, ".minFontSize(%s)", minFontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minFontSize(%f);", minFontSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minFontSize(%s);", minFontSize));
                 js.setLength(0);
             }
         }
@@ -454,10 +454,10 @@ Arrows show offsets layout.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".offsetX(%f)", offsetX));
+            js.append(String.format(Locale.US, ".offsetX(%s)", offsetX));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetX(%f);", offsetX));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetX(%s);", offsetX));
                 js.setLength(0);
             }
         }
@@ -514,10 +514,10 @@ Arrows show offsets layout.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".offsetY(%f)", offsetY));
+            js.append(String.format(Locale.US, ".offsetY(%s)", offsetY));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetY(%f);", offsetY));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetY(%s);", offsetY));
                 js.setLength(0);
             }
         }
@@ -782,10 +782,10 @@ Arrows show offsets layout.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value1, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
@@ -863,10 +863,10 @@ Arrows show offsets layout.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rotation(%f)", rotation));
+            js.append(String.format(Locale.US, ".rotation(%s)", rotation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotation(%f);", rotation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotation(%s);", rotation));
                 js.setLength(0);
             }
         }
@@ -917,10 +917,10 @@ Arrows show offsets layout.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".width(%f)", width));
+            js.append(String.format(Locale.US, ".width(%s)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width));
                 js.setLength(0);
             }
         }

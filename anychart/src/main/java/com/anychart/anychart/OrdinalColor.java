@@ -101,11 +101,11 @@ public class OrdinalColor extends ScalesBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getIndexByValue(%f);", getIndexByValue));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getIndexByValue(%s);", getIndexByValue));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getIndexByValue(%f);", getIndexByValue));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getIndexByValue(%s);", getIndexByValue));
                 js.setLength(0);
             }
         }
@@ -126,11 +126,11 @@ public class OrdinalColor extends ScalesBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getRangeByValue(%f);", getRangeByValue));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getRangeByValue(%s);", getRangeByValue));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getRangeByValue(%f);", getRangeByValue));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getRangeByValue(%s);", getRangeByValue));
                 js.setLength(0);
             }
         }
@@ -151,11 +151,11 @@ public class OrdinalColor extends ScalesBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".inverseTransform(%f);", ratio));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".inverseTransform(%s);", ratio));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f);", ratio));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%s);", ratio));
                 js.setLength(0);
             }
         }
@@ -294,11 +294,11 @@ public class OrdinalColor extends ScalesBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".transform(%f);", subRangeRatio));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".transform(%s);", subRangeRatio));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%f);", subRangeRatio));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%s);", subRangeRatio));
                 js.setLength(0);
             }
         }
@@ -319,11 +319,11 @@ public class OrdinalColor extends ScalesBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".valueToColor(%f);", valueToColor));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".valueToColor(%s);", valueToColor));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueToColor(%f);", valueToColor));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueToColor(%s);", valueToColor));
                 js.setLength(0);
             }
         }

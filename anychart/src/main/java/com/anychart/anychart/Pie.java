@@ -90,10 +90,10 @@ public class Pie extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".connectorLength(%f)", connectorLength));
+        js.append(String.format(Locale.US, ".connectorLength(%s)", connectorLength));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".connectorLength(%f)", connectorLength));
+            onChangeListener.onChange(String.format(Locale.US, ".connectorLength(%s)", connectorLength));
             js.setLength(0);
         }
         return this;
@@ -136,10 +136,10 @@ public class Pie extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".connectorStroke(%s, %s, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %s, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -156,10 +156,10 @@ public class Pie extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".connectorStroke(%s, %s, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %s, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -176,10 +176,10 @@ public class Pie extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".connectorStroke(%s, %s, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".connectorStroke(%s, %s, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -277,10 +277,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".explode(%f)", explode1));
+        js.append(String.format(Locale.US, ".explode(%s)", explode1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".explode(%f)", explode1));
+            onChangeListener.onChange(String.format(Locale.US, ".explode(%s)", explode1));
             js.setLength(0);
         }
         return this;
@@ -306,6 +306,24 @@ Learn more about mapping at {@link anychart.data.Mapping}.
         return this;
     }
 
+
+    /**
+     * 
+     */
+    public Pie setFill(String json) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".fill(%s)", wrapQuotes(json)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", wrapQuotes(json)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
     private String color;
     private Number opacity;
 
@@ -317,10 +335,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
+        js.append(String.format(Locale.US, ".fill(%s, %s)", wrapQuotes(color), opacity));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s)", wrapQuotes(color), opacity));
             js.setLength(0);
         }
         return this;
@@ -343,10 +361,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %b, %s, %s)", arrayToString(keys), mode, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %s, %s)", arrayToString(keys), mode, angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -362,10 +380,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -381,10 +399,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -400,10 +418,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -419,10 +437,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -438,10 +456,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -465,10 +483,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             js.setLength(0);
         }
         return this;
@@ -484,10 +502,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             js.setLength(0);
         }
         return this;
@@ -561,10 +579,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %s, %s)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %s, %s)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
             js.setLength(0);
         }
         return this;
@@ -579,10 +597,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %s, %s)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %s, %s)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
             js.setLength(0);
         }
         return this;
@@ -597,10 +615,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %s, %s)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %s, %s)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness1, size));
             js.setLength(0);
         }
         return this;
@@ -615,10 +633,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness1, size));
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness1, size));
             js.setLength(0);
         }
         return this;
@@ -633,10 +651,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color1), thickness1, size));
+        js.append(String.format(Locale.US, ".hatchFill(%b, %s, %s, %s)", patternFillOrType4, wrapQuotes(color1), thickness1, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%b, %s, %f, %f)", patternFillOrType4, wrapQuotes(color1), thickness1, size));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%b, %s, %s, %s)", patternFillOrType4, wrapQuotes(color1), thickness1, size));
             js.setLength(0);
         }
         return this;
@@ -727,10 +745,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hover(%f)", index));
+        js.append(String.format(Locale.US, ".hover(%s)", index));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hover(%f)", index));
+            onChangeListener.onChange(String.format(Locale.US, ".hover(%s)", index));
             js.setLength(0);
         }
         return this;
@@ -796,10 +814,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".innerRadius(%f)", innerRadius1));
+        js.append(String.format(Locale.US, ".innerRadius(%s)", innerRadius1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".innerRadius(%f)", innerRadius1));
+            onChangeListener.onChange(String.format(Locale.US, ".innerRadius(%s)", innerRadius1));
             js.setLength(0);
         }
         return this;
@@ -817,10 +835,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".insideLabelsOffset(%f)", insideLabelsOffset));
+        js.append(String.format(Locale.US, ".insideLabelsOffset(%s)", insideLabelsOffset));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".insideLabelsOffset(%f)", insideLabelsOffset));
+            onChangeListener.onChange(String.format(Locale.US, ".insideLabelsOffset(%s)", insideLabelsOffset));
             js.setLength(0);
         }
         return this;
@@ -989,10 +1007,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".outsideLabelsCriticalAngle(%f)", outsideLabelsCriticalAngle));
+        js.append(String.format(Locale.US, ".outsideLabelsCriticalAngle(%s)", outsideLabelsCriticalAngle));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".outsideLabelsCriticalAngle(%f)", outsideLabelsCriticalAngle));
+            onChangeListener.onChange(String.format(Locale.US, ".outsideLabelsCriticalAngle(%s)", outsideLabelsCriticalAngle));
             js.setLength(0);
         }
         return this;
@@ -1201,10 +1219,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".radius(%f)", radius1));
+        js.append(String.format(Locale.US, ".radius(%s)", radius1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".radius(%f)", radius1));
+            onChangeListener.onChange(String.format(Locale.US, ".radius(%s)", radius1));
             js.setLength(0);
         }
         return this;
@@ -1221,10 +1239,10 @@ Learn more about mapping at {@link anychart.data.Mapping}.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".select(%f)", index1));
+        js.append(String.format(Locale.US, ".select(%s)", index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".select(%f)", index1));
+            onChangeListener.onChange(String.format(Locale.US, ".select(%s)", index1));
             js.setLength(0);
         }
         return this;
@@ -1350,10 +1368,10 @@ Ascending, Descending and No sorting is supported.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".startAngle(%f)", startAngle1));
+        js.append(String.format(Locale.US, ".startAngle(%s)", startAngle1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".startAngle(%f)", startAngle1));
+            onChangeListener.onChange(String.format(Locale.US, ".startAngle(%s)", startAngle1));
             js.setLength(0);
         }
         return this;
@@ -1376,10 +1394,28 @@ Ascending, Descending and No sorting is supported.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * 
+     */
+    public Pie setStroke(String json) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".stroke(%s)", wrapQuotes(json)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", wrapQuotes(json)));
             js.setLength(0);
         }
         return this;
@@ -1395,10 +1431,10 @@ Ascending, Descending and No sorting is supported.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1414,10 +1450,10 @@ Ascending, Descending and No sorting is supported.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", wrapQuotes(stroke2), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", wrapQuotes(stroke2), thickness2, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
             js.setLength(0);
         }
         return this;

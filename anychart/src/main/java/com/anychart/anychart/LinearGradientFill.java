@@ -23,7 +23,7 @@ public class LinearGradientFill extends JsObject implements ColoredFill, Fill {
         this.angle = angle;
         this.opacity = opacity;
 
-        js.append(String.format(Locale.US, "{keys: %s,mode: %b,angle: %f,opacity: %f}",  arrayToString(keys), mode, angle, opacity));
+        js.append(String.format(Locale.US, "{keys: %s,mode: %b,angle: %s,opacity: %s}",  arrayToString(keys), mode, angle, opacity));
     }
     public LinearGradientFill(GradientKey[] keys, GraphicsMathRect mode1, Number angle, Number opacity) {
         this.keys = keys;
@@ -31,7 +31,7 @@ public class LinearGradientFill extends JsObject implements ColoredFill, Fill {
         this.angle = angle;
         this.opacity = opacity;
 
-        js.append(String.format(Locale.US, "{keys: %s,mode: %s,angle: %f,opacity: %f}",  arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity));
+        js.append(String.format(Locale.US, "{keys: %s,mode: %s,angle: %s,opacity: %s}",  arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity));
     }
     public LinearGradientFill(String[] keys1, Boolean mode, Number angle, Number opacity) {
         this.keys1 = keys1;
@@ -39,7 +39,7 @@ public class LinearGradientFill extends JsObject implements ColoredFill, Fill {
         this.angle = angle;
         this.opacity = opacity;
 
-        js.append(String.format(Locale.US, "{keys: %s,mode: %b,angle: %f,opacity: %f}",  arrayToStringWrapQuotes(keys1), mode, angle, opacity));
+        js.append(String.format(Locale.US, "{keys: %s,mode: %b,angle: %s,opacity: %s}",  arrayToStringWrapQuotes(keys1), mode, angle, opacity));
     }
     public LinearGradientFill(String[] keys1, GraphicsMathRect mode1, Number angle, Number opacity) {
         this.keys1 = keys1;
@@ -47,7 +47,7 @@ public class LinearGradientFill extends JsObject implements ColoredFill, Fill {
         this.angle = angle;
         this.opacity = opacity;
 
-        js.append(String.format(Locale.US, "{keys: %s,mode: %s,angle: %f,opacity: %f}",  arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity));
+        js.append(String.format(Locale.US, "{keys: %s,mode: %s,angle: %s,opacity: %s}",  arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity));
     }
 
     @Override

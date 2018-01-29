@@ -1,11 +1,8 @@
 package com.anychart.anychart;
 
-import java.util.Locale;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
-
-import android.text.TextUtils;
+import java.util.List;
+import java.util.Locale;
 
 // class
 /**
@@ -54,10 +51,10 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".bottom(%f)", bottom));
+            js.append(String.format(Locale.US, ".bottom(%s)", bottom));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
                 js.setLength(0);
             }
         }
@@ -329,11 +326,11 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setBounds4" + ++variableIndex + " = " + jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
+            js.append(String.format(Locale.US, "var setBounds4" + ++variableIndex + " = " + jsBase + ".bounds(%s, %s, %s, %s);", x, y, width, height));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%f, %f, %f, %f);", x, y, width, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bounds(%s, %s, %s, %s);", x, y, width, height));
                 js.setLength(0);
             }
         }
@@ -373,10 +370,10 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".height(%f)", height2));
+            js.append(String.format(Locale.US, ".height(%s)", height2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height2));
                 js.setLength(0);
             }
         }
@@ -431,10 +428,10 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".left(%f)", left));
+            js.append(String.format(Locale.US, ".left(%s)", left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%f);", left));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s);", left));
                 js.setLength(0);
             }
         }
@@ -488,11 +485,11 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setMaxHeight" + ++variableIndex + " = " + jsBase + ".maxHeight(%f);", maxHeight));
+            js.append(String.format(Locale.US, "var setMaxHeight" + ++variableIndex + " = " + jsBase + ".maxHeight(%s);", maxHeight));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%s);", maxHeight));
                 js.setLength(0);
             }
         }
@@ -572,11 +569,11 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setMaxWidth" + ++variableIndex + " = " + jsBase + ".maxWidth(%f);", maxWidth));
+            js.append(String.format(Locale.US, "var setMaxWidth" + ++variableIndex + " = " + jsBase + ".maxWidth(%s);", maxWidth));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%s);", maxWidth));
                 js.setLength(0);
             }
         }
@@ -656,11 +653,11 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setMinHeight" + ++variableIndex + " = " + jsBase + ".minHeight(%f);", minHeight));
+            js.append(String.format(Locale.US, "var setMinHeight" + ++variableIndex + " = " + jsBase + ".minHeight(%s);", minHeight));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight));
                 js.setLength(0);
             }
         }
@@ -740,11 +737,11 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setMinWidth" + ++variableIndex + " = " + jsBase + ".minWidth(%f);", minWidth));
+            js.append(String.format(Locale.US, "var setMinWidth" + ++variableIndex + " = " + jsBase + ".minWidth(%s);", minWidth));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%s);", minWidth));
                 js.setLength(0);
             }
         }
@@ -823,10 +820,10 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".right(%f)", right));
+            js.append(String.format(Locale.US, ".right(%s)", right));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%f);", right));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s);", right));
                 js.setLength(0);
             }
         }
@@ -879,10 +876,10 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".top(%f)", top));
+            js.append(String.format(Locale.US, ".top(%s)", top));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%f);", top));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s);", top));
                 js.setLength(0);
             }
         }
@@ -937,10 +934,10 @@ public class VisualBaseWithBounds extends VisualBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".width(%f)", width2));
+            js.append(String.format(Locale.US, ".width(%s)", width2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width2));
                 js.setLength(0);
             }
         }

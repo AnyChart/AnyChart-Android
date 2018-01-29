@@ -110,10 +110,10 @@ public class GaugePointersMarker extends GaugePointersBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".radius(%f)", radius));
+            js.append(String.format(Locale.US, ".radius(%s)", radius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radius(%f);", radius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radius(%s);", radius));
                 js.setLength(0);
             }
         }
@@ -166,10 +166,10 @@ public class GaugePointersMarker extends GaugePointersBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".size(%f)", size));
+            js.append(String.format(Locale.US, ".size(%s)", size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".size(%f);", size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".size(%s);", size));
                 js.setLength(0);
             }
         }

@@ -250,10 +250,10 @@ public class VectorText extends Element {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontSize(%f)", fontSize1));
+            js.append(String.format(Locale.US, ".fontSize(%s)", fontSize1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize1));
                 js.setLength(0);
             }
         }
@@ -418,10 +418,10 @@ public class VectorText extends Element {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
+            js.append(String.format(Locale.US, ".fontWeight(%s)", fontWeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight1));
                 js.setLength(0);
             }
         }
@@ -503,10 +503,10 @@ public class VectorText extends Element {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".height(%f)", height));
+            js.append(String.format(Locale.US, ".height(%s)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height));
                 js.setLength(0);
             }
         }
@@ -611,10 +611,10 @@ public class VectorText extends Element {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
+            js.append(String.format(Locale.US, ".letterSpacing(%s)", letterSpacing1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%s);", letterSpacing1));
                 js.setLength(0);
             }
         }
@@ -667,10 +667,10 @@ public class VectorText extends Element {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
+            js.append(String.format(Locale.US, ".lineHeight(%s)", lineHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight1));
                 js.setLength(0);
             }
         }
@@ -692,10 +692,10 @@ public class VectorText extends Element {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".opacity(%f)", opacity));
+            js.append(String.format(Locale.US, ".opacity(%s)", opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".opacity(%f);", opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".opacity(%s);", opacity));
                 js.setLength(0);
             }
         }
@@ -807,10 +807,10 @@ The text-indent property specifies the indentation of the first line in a text-b
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
+            js.append(String.format(Locale.US, ".textIndent(%s)", textIndent));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%s);", textIndent));
                 js.setLength(0);
             }
         }
@@ -948,10 +948,10 @@ The text-indent property specifies the indentation of the first line in a text-b
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".width(%f)", width));
+            js.append(String.format(Locale.US, ".width(%s)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width));
                 js.setLength(0);
             }
         }
@@ -1114,10 +1114,10 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".x(%f)", x));
+            js.append(String.format(Locale.US, ".x(%s)", x));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".x(%f);", x));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".x(%s);", x));
                 js.setLength(0);
             }
         }
@@ -1139,10 +1139,10 @@ More at: <a href='https://www.w3schools.com/cssref/css3_pr_word-wrap.asp'>Word-w
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".y(%f)", y));
+            js.append(String.format(Locale.US, ".y(%s)", y));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".y(%f);", y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".y(%s);", y));
                 js.setLength(0);
             }
         }

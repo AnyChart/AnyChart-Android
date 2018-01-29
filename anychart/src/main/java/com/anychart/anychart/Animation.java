@@ -51,10 +51,10 @@ See sample at {@link anychart.core.Chart#animation}.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".duration(%f)", duration));
+            js.append(String.format(Locale.US, ".duration(%s)", duration));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".duration(%f);", duration));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".duration(%s);", duration));
                 js.setLength(0);
             }
         }

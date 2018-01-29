@@ -250,10 +250,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".evenFill(%s, %f)", wrapQuotes(color), opacity));
+            js.append(String.format(Locale.US, ".evenFill(%s, %s)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f);", wrapQuotes(color), opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %s);", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -298,10 +298,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
+            js.append(String.format(Locale.US, ".evenFill(%s, %s, %s, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %s, %s, %b);", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -339,10 +339,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode1.generateJs());
-            js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".evenFill(%s, %s, %s, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -380,10 +380,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+            js.append(String.format(Locale.US, ".evenFill(%s, %s, %s, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -421,10 +421,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+            js.append(String.format(Locale.US, ".evenFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -462,10 +462,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode1.generateJs());
-            js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".evenFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -503,10 +503,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+            js.append(String.format(Locale.US, ".evenFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -562,10 +562,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode3.generateJs());
-            js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".evenFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -613,10 +613,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode3.generateJs());
-            js.append(String.format(Locale.US, ".evenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".evenFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -672,10 +672,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(patternFillOrType.generateJs());
-            js.append(String.format(Locale.US, ".evenHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.getJsBase() : "null"), wrapQuotes(color1), thickness, size));
+            js.append(String.format(Locale.US, ".evenHatchFill(%s, %s, %s, %s)", ((patternFillOrType != null) ? patternFillOrType.getJsBase() : "null"), wrapQuotes(color1), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHatchFill(%s, %s, %f, %f);", ((patternFillOrType != null) ? patternFillOrType.getJsBase() : "null"), wrapQuotes(color1), thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHatchFill(%s, %s, %s, %s);", ((patternFillOrType != null) ? patternFillOrType.getJsBase() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
@@ -711,10 +711,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(patternFillOrType1.generateJs());
-            js.append(String.format(Locale.US, ".evenHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.getJsBase() : "null"), wrapQuotes(color1), thickness, size));
+            js.append(String.format(Locale.US, ".evenHatchFill(%s, %s, %s, %s)", ((patternFillOrType1 != null) ? patternFillOrType1.getJsBase() : "null"), wrapQuotes(color1), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHatchFill(%s, %s, %f, %f);", ((patternFillOrType1 != null) ? patternFillOrType1.getJsBase() : "null"), wrapQuotes(color1), thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHatchFill(%s, %s, %s, %s);", ((patternFillOrType1 != null) ? patternFillOrType1.getJsBase() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
@@ -750,10 +750,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".evenHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
+            js.append(String.format(Locale.US, ".evenHatchFill(%s, %s, %s, %s)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHatchFill(%s, %s, %f, %f);", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHatchFill(%s, %s, %s, %s);", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
@@ -789,10 +789,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".evenHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
+            js.append(String.format(Locale.US, ".evenHatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrType3), wrapQuotes(color1), thickness, size));
                 js.setLength(0);
             }
         }
@@ -852,10 +852,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %f)", wrapQuotes(color2), opacity3));
+            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %s)", wrapQuotes(color2), opacity3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %f);", wrapQuotes(color2), opacity3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %s);", wrapQuotes(color2), opacity3));
                 js.setLength(0);
             }
         }
@@ -914,10 +914,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
+            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %s, %s, %b)", arrayToString(keys4), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %f, %f, %b);", arrayToString(keys4), angle1, opacity4, mode4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %s, %s, %b);", arrayToString(keys4), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -969,10 +969,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode5.generateJs());
-            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %s, %s, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %s, %s, %s);", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1024,10 +1024,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
+            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %s, %s, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %s, %s, %s);", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1079,10 +1079,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
+            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -1134,10 +1134,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode5.generateJs());
-            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1189,10 +1189,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
+            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1271,10 +1271,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode7.generateJs());
-            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1345,10 +1345,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode7.generateJs());
-            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+            js.append(String.format(Locale.US, ".evenHolidayFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1416,10 +1416,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(patternFillOrType4.generateJs());
-            js.append(String.format(Locale.US, ".evenHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType4 != null) ? patternFillOrType4.getJsBase() : "null"), wrapQuotes(color3), thickness1, size1));
+            js.append(String.format(Locale.US, ".evenHolidayHatchFill(%s, %s, %s, %s)", ((patternFillOrType4 != null) ? patternFillOrType4.getJsBase() : "null"), wrapQuotes(color3), thickness1, size1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayHatchFill(%s, %s, %f, %f);", ((patternFillOrType4 != null) ? patternFillOrType4.getJsBase() : "null"), wrapQuotes(color3), thickness1, size1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayHatchFill(%s, %s, %s, %s);", ((patternFillOrType4 != null) ? patternFillOrType4.getJsBase() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
@@ -1467,10 +1467,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(patternFillOrType5.generateJs());
-            js.append(String.format(Locale.US, ".evenHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.getJsBase() : "null"), wrapQuotes(color3), thickness1, size1));
+            js.append(String.format(Locale.US, ".evenHolidayHatchFill(%s, %s, %s, %s)", ((patternFillOrType5 != null) ? patternFillOrType5.getJsBase() : "null"), wrapQuotes(color3), thickness1, size1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayHatchFill(%s, %s, %f, %f);", ((patternFillOrType5 != null) ? patternFillOrType5.getJsBase() : "null"), wrapQuotes(color3), thickness1, size1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayHatchFill(%s, %s, %s, %s);", ((patternFillOrType5 != null) ? patternFillOrType5.getJsBase() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
@@ -1518,10 +1518,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".evenHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
+            js.append(String.format(Locale.US, ".evenHolidayHatchFill(%s, %s, %s, %s)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayHatchFill(%s, %s, %f, %f);", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayHatchFill(%s, %s, %s, %s);", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
@@ -1569,10 +1569,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".evenHolidayHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType7), wrapQuotes(color3), thickness1, size1));
+            js.append(String.format(Locale.US, ".evenHolidayHatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType7), wrapQuotes(color3), thickness1, size1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrType7), wrapQuotes(color3), thickness1, size1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".evenHolidayHatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrType7), wrapQuotes(color3), thickness1, size1));
                 js.setLength(0);
             }
         }
@@ -1621,10 +1621,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".horizontalStroke(%s, %f, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".horizontalStroke(%s, %s, %s, %s, %s)", ((color4 != null) ? color4.generateJs() : "null"), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontalStroke(%s, %f, %s, %s, %s);", ((color4 != null) ? color4.generateJs() : "null"), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontalStroke(%s, %s, %s, %s, %s);", ((color4 != null) ? color4.generateJs() : "null"), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1666,10 +1666,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".horizontalStroke(%s, %f, %s, %s, %s)", ((color5 != null) ? color5.generateJs() : "null"), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".horizontalStroke(%s, %s, %s, %s, %s)", ((color5 != null) ? color5.generateJs() : "null"), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontalStroke(%s, %f, %s, %s, %s);", ((color5 != null) ? color5.generateJs() : "null"), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontalStroke(%s, %s, %s, %s, %s);", ((color5 != null) ? color5.generateJs() : "null"), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1711,10 +1711,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".horizontalStroke(%s, %f, %s, %s, %s)", wrapQuotes(color6), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".horizontalStroke(%s, %s, %s, %s, %s)", wrapQuotes(color6), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontalStroke(%s, %f, %s, %s, %s);", wrapQuotes(color6), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontalStroke(%s, %s, %s, %s, %s);", wrapQuotes(color6), thickness2, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1782,10 +1782,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".oddFill(%s, %f)", wrapQuotes(color7), opacity6));
+            js.append(String.format(Locale.US, ".oddFill(%s, %s)", wrapQuotes(color7), opacity6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f);", wrapQuotes(color7), opacity6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %s);", wrapQuotes(color7), opacity6));
                 js.setLength(0);
             }
         }
@@ -1856,10 +1856,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %b)", arrayToString(keys8), angle2, opacity7, mode8));
+            js.append(String.format(Locale.US, ".oddFill(%s, %s, %s, %b)", arrayToString(keys8), angle2, opacity7, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %b);", arrayToString(keys8), angle2, opacity7, mode8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %s, %s, %b);", arrayToString(keys8), angle2, opacity7, mode8));
                 js.setLength(0);
             }
         }
@@ -1923,10 +1923,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode9.generateJs());
-            js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".oddFill(%s, %s, %s, %s)", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %s);", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %s, %s, %s);", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1990,10 +1990,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
+            js.append(String.format(Locale.US, ".oddFill(%s, %s, %s, %s)", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %s);", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %s, %s, %s);", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -2057,10 +2057,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
+            js.append(String.format(Locale.US, ".oddFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
                 js.setLength(0);
             }
         }
@@ -2124,10 +2124,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode9.generateJs());
-            js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".oddFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2191,10 +2191,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
+            js.append(String.format(Locale.US, ".oddFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -2288,10 +2288,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode11.generateJs());
-            js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
+            js.append(String.format(Locale.US, ".oddFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -2377,10 +2377,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode11.generateJs());
-            js.append(String.format(Locale.US, ".oddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
+            js.append(String.format(Locale.US, ".oddFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -2460,10 +2460,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(patternFillOrType8.generateJs());
-            js.append(String.format(Locale.US, ".oddHatchFill(%s, %s, %f, %f)", ((patternFillOrType8 != null) ? patternFillOrType8.getJsBase() : "null"), wrapQuotes(color8), thickness3, size2));
+            js.append(String.format(Locale.US, ".oddHatchFill(%s, %s, %s, %s)", ((patternFillOrType8 != null) ? patternFillOrType8.getJsBase() : "null"), wrapQuotes(color8), thickness3, size2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHatchFill(%s, %s, %f, %f);", ((patternFillOrType8 != null) ? patternFillOrType8.getJsBase() : "null"), wrapQuotes(color8), thickness3, size2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHatchFill(%s, %s, %s, %s);", ((patternFillOrType8 != null) ? patternFillOrType8.getJsBase() : "null"), wrapQuotes(color8), thickness3, size2));
                 js.setLength(0);
             }
         }
@@ -2523,10 +2523,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(patternFillOrType9.generateJs());
-            js.append(String.format(Locale.US, ".oddHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.getJsBase() : "null"), wrapQuotes(color8), thickness3, size2));
+            js.append(String.format(Locale.US, ".oddHatchFill(%s, %s, %s, %s)", ((patternFillOrType9 != null) ? patternFillOrType9.getJsBase() : "null"), wrapQuotes(color8), thickness3, size2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHatchFill(%s, %s, %f, %f);", ((patternFillOrType9 != null) ? patternFillOrType9.getJsBase() : "null"), wrapQuotes(color8), thickness3, size2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHatchFill(%s, %s, %s, %s);", ((patternFillOrType9 != null) ? patternFillOrType9.getJsBase() : "null"), wrapQuotes(color8), thickness3, size2));
                 js.setLength(0);
             }
         }
@@ -2586,10 +2586,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".oddHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color8), thickness3, size2));
+            js.append(String.format(Locale.US, ".oddHatchFill(%s, %s, %s, %s)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color8), thickness3, size2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHatchFill(%s, %s, %f, %f);", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color8), thickness3, size2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHatchFill(%s, %s, %s, %s);", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color8), thickness3, size2));
                 js.setLength(0);
             }
         }
@@ -2649,10 +2649,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".oddHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType11), wrapQuotes(color8), thickness3, size2));
+            js.append(String.format(Locale.US, ".oddHatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType11), wrapQuotes(color8), thickness3, size2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrType11), wrapQuotes(color8), thickness3, size2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrType11), wrapQuotes(color8), thickness3, size2));
                 js.setLength(0);
             }
         }
@@ -2725,10 +2725,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %f)", wrapQuotes(color9), opacity9));
+            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %s)", wrapQuotes(color9), opacity9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %f);", wrapQuotes(color9), opacity9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %s);", wrapQuotes(color9), opacity9));
                 js.setLength(0);
             }
         }
@@ -2811,10 +2811,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %f, %f, %b)", arrayToString(keys12), angle3, opacity10, mode12));
+            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %s, %s, %b)", arrayToString(keys12), angle3, opacity10, mode12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %f, %f, %b);", arrayToString(keys12), angle3, opacity10, mode12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %s, %s, %b);", arrayToString(keys12), angle3, opacity10, mode12));
                 js.setLength(0);
             }
         }
@@ -2890,10 +2890,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode13.generateJs());
-            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %s, %s, %s)", arrayToString(keys12), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %f, %f, %s);", arrayToString(keys12), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %s, %s, %s);", arrayToString(keys12), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2969,10 +2969,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity10, wrapQuotes(mode14)));
+            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %s, %s, %s)", arrayToString(keys12), angle3, opacity10, wrapQuotes(mode14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %f, %f, %s);", arrayToString(keys12), angle3, opacity10, wrapQuotes(mode14)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %s, %s, %s);", arrayToString(keys12), angle3, opacity10, wrapQuotes(mode14)));
                 js.setLength(0);
             }
         }
@@ -3048,10 +3048,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys13), angle3, opacity10, mode12));
+            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys13), angle3, opacity10, mode12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys13), angle3, opacity10, mode12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys13), angle3, opacity10, mode12));
                 js.setLength(0);
             }
         }
@@ -3127,10 +3127,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode13.generateJs());
-            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys13), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys13), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3206,10 +3206,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity10, wrapQuotes(mode14)));
+            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity10, wrapQuotes(mode14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys13), angle3, opacity10, wrapQuotes(mode14)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys13), angle3, opacity10, wrapQuotes(mode14)));
                 js.setLength(0);
             }
         }
@@ -3318,10 +3318,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode15.generateJs());
-            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
+            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -3422,10 +3422,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode15.generateJs());
-            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
+            js.append(String.format(Locale.US, ".oddHolidayFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -3513,10 +3513,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(patternFillOrType12.generateJs());
-            js.append(String.format(Locale.US, ".oddHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType12 != null) ? patternFillOrType12.getJsBase() : "null"), wrapQuotes(color10), thickness4, size3));
+            js.append(String.format(Locale.US, ".oddHolidayHatchFill(%s, %s, %s, %s)", ((patternFillOrType12 != null) ? patternFillOrType12.getJsBase() : "null"), wrapQuotes(color10), thickness4, size3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayHatchFill(%s, %s, %f, %f);", ((patternFillOrType12 != null) ? patternFillOrType12.getJsBase() : "null"), wrapQuotes(color10), thickness4, size3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayHatchFill(%s, %s, %s, %s);", ((patternFillOrType12 != null) ? patternFillOrType12.getJsBase() : "null"), wrapQuotes(color10), thickness4, size3));
                 js.setLength(0);
             }
         }
@@ -3584,10 +3584,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(patternFillOrType13.generateJs());
-            js.append(String.format(Locale.US, ".oddHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType13 != null) ? patternFillOrType13.getJsBase() : "null"), wrapQuotes(color10), thickness4, size3));
+            js.append(String.format(Locale.US, ".oddHolidayHatchFill(%s, %s, %s, %s)", ((patternFillOrType13 != null) ? patternFillOrType13.getJsBase() : "null"), wrapQuotes(color10), thickness4, size3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayHatchFill(%s, %s, %f, %f);", ((patternFillOrType13 != null) ? patternFillOrType13.getJsBase() : "null"), wrapQuotes(color10), thickness4, size3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayHatchFill(%s, %s, %s, %s);", ((patternFillOrType13 != null) ? patternFillOrType13.getJsBase() : "null"), wrapQuotes(color10), thickness4, size3));
                 js.setLength(0);
             }
         }
@@ -3655,10 +3655,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".oddHolidayHatchFill(%s, %s, %f, %f)", ((patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null"), wrapQuotes(color10), thickness4, size3));
+            js.append(String.format(Locale.US, ".oddHolidayHatchFill(%s, %s, %s, %s)", ((patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null"), wrapQuotes(color10), thickness4, size3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayHatchFill(%s, %s, %f, %f);", ((patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null"), wrapQuotes(color10), thickness4, size3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayHatchFill(%s, %s, %s, %s);", ((patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null"), wrapQuotes(color10), thickness4, size3));
                 js.setLength(0);
             }
         }
@@ -3726,10 +3726,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".oddHolidayHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType15), wrapQuotes(color10), thickness4, size3));
+            js.append(String.format(Locale.US, ".oddHolidayHatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType15), wrapQuotes(color10), thickness4, size3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayHatchFill(%s, %s, %f, %f);", wrapQuotes(patternFillOrType15), wrapQuotes(color10), thickness4, size3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".oddHolidayHatchFill(%s, %s, %s, %s);", wrapQuotes(patternFillOrType15), wrapQuotes(color10), thickness4, size3));
                 js.setLength(0);
             }
         }
@@ -3865,10 +3865,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".verticalStroke(%s, %f, %s, %s, %s)", ((color11 != null) ? color11.generateJs() : "null"), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".verticalStroke(%s, %s, %s, %s, %s)", ((color11 != null) ? color11.generateJs() : "null"), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticalStroke(%s, %f, %s, %s, %s);", ((color11 != null) ? color11.generateJs() : "null"), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticalStroke(%s, %s, %s, %s, %s);", ((color11 != null) ? color11.generateJs() : "null"), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3929,10 +3929,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".verticalStroke(%s, %f, %s, %s, %s)", ((color12 != null) ? color12.generateJs() : "null"), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".verticalStroke(%s, %s, %s, %s, %s)", ((color12 != null) ? color12.generateJs() : "null"), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticalStroke(%s, %f, %s, %s, %s);", ((color12 != null) ? color12.generateJs() : "null"), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticalStroke(%s, %s, %s, %s, %s);", ((color12 != null) ? color12.generateJs() : "null"), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3993,10 +3993,10 @@ public class Grid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".verticalStroke(%s, %f, %s, %s, %s)", wrapQuotes(color13), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".verticalStroke(%s, %s, %s, %s, %s)", wrapQuotes(color13), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticalStroke(%s, %f, %s, %s, %s);", wrapQuotes(color13), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticalStroke(%s, %s, %s, %s, %s);", wrapQuotes(color13), thickness5, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }

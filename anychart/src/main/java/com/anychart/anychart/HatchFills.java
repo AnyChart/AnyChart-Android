@@ -77,10 +77,10 @@ public class HatchFills extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".itemAt(%f, %s, %s, %f, %f)", index, ((type != null) ? type.generateJs() : "null"), wrapQuotes(color), thickness, size));
+            js.append(String.format(Locale.US, ".itemAt(%s, %s, %s, %s, %s)", index, ((type != null) ? type.generateJs() : "null"), wrapQuotes(color), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%f, %s, %s, %f, %f);", index, ((type != null) ? type.generateJs() : "null"), wrapQuotes(color), thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%s, %s, %s, %s, %s);", index, ((type != null) ? type.generateJs() : "null"), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
@@ -112,10 +112,10 @@ public class HatchFills extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".itemAt(%f, %s, %s, %f, %f)", index, wrapQuotes(type1), wrapQuotes(color), thickness, size));
+            js.append(String.format(Locale.US, ".itemAt(%s, %s, %s, %s, %s)", index, wrapQuotes(type1), wrapQuotes(color), thickness, size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%f, %s, %s, %f, %f);", index, wrapQuotes(type1), wrapQuotes(color), thickness, size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%s, %s, %s, %s, %s);", index, wrapQuotes(type1), wrapQuotes(color), thickness, size));
                 js.setLength(0);
             }
         }
@@ -143,10 +143,10 @@ public class HatchFills extends CoreBase {
                 isChain = true;
             }
             js.append(patternFill.generateJs());
-            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index1, ((patternFill != null) ? patternFill.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".itemAt(%s, %s)", index1, ((patternFill != null) ? patternFill.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%f, %s);", index1, ((patternFill != null) ? patternFill.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%s, %s);", index1, ((patternFill != null) ? patternFill.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -175,10 +175,10 @@ public class HatchFills extends CoreBase {
                 isChain = true;
             }
             js.append(instance.generateJs());
-            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index2, ((instance != null) ? instance.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".itemAt(%s, %s)", index2, ((instance != null) ? instance.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%f, %s);", index2, ((instance != null) ? instance.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%s, %s);", index2, ((instance != null) ? instance.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -208,10 +208,10 @@ public class HatchFills extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".itemAt(%f, %b)", index3, state));
+            js.append(String.format(Locale.US, ".itemAt(%s, %b)", index3, state));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%f, %b);", index3, state));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%s, %b);", index3, state));
                 js.setLength(0);
             }
         }

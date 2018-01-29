@@ -50,10 +50,10 @@ public class CircularRange extends VisualBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".axisIndex(%f)", index));
+            js.append(String.format(Locale.US, ".axisIndex(%s)", index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".axisIndex(%f);", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".axisIndex(%s);", index));
                 js.setLength(0);
             }
         }
@@ -80,10 +80,10 @@ Round off the ends of circular ranges to the specified radius.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".cornersRounding(%f)", cornersRounding));
+            js.append(String.format(Locale.US, ".cornersRounding(%s)", cornersRounding));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cornersRounding(%f);", cornersRounding));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cornersRounding(%s);", cornersRounding));
                 js.setLength(0);
             }
         }
@@ -137,10 +137,10 @@ Round off the ends of circular ranges to the specified radius.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".endSize(%f)", endSize));
+            js.append(String.format(Locale.US, ".endSize(%s)", endSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".endSize(%f);", endSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".endSize(%s);", endSize));
                 js.setLength(0);
             }
         }
@@ -199,6 +199,28 @@ Round off the ends of circular ranges to the specified radius.
         return this;
     }
 
+
+    /**
+     * 
+     */
+    public CircularRange setFill(String json) {
+        if (jsBase == null) {
+        } else {
+            if (!isChain) {
+                js.append(jsBase);
+                isChain = true;
+            }
+            
+            js.append(String.format(Locale.US, ".fill(%s)", wrapQuotes(json)));
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(json)));
+                js.setLength(0);
+            }
+        }
+        return this;
+    }
+
     private Number from;
 
     /**
@@ -214,10 +236,10 @@ Round off the ends of circular ranges to the specified radius.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".from(%f)", from));
+            js.append(String.format(Locale.US, ".from(%s)", from));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".from(%f);", from));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".from(%s);", from));
                 js.setLength(0);
             }
         }
@@ -299,10 +321,10 @@ Round off the ends of circular ranges to the specified radius.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".radius(%f)", radius));
+            js.append(String.format(Locale.US, ".radius(%s)", radius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radius(%f);", radius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radius(%s);", radius));
                 js.setLength(0);
             }
         }
@@ -355,10 +377,10 @@ Round off the ends of circular ranges to the specified radius.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".startSize(%f)", startSize));
+            js.append(String.format(Locale.US, ".startSize(%s)", startSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startSize(%f);", startSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startSize(%s);", startSize));
                 js.setLength(0);
             }
         }
@@ -407,10 +429,10 @@ Round off the ends of circular ranges to the specified radius.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".to(%f)", to));
+            js.append(String.format(Locale.US, ".to(%s)", to));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".to(%f);", to));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".to(%s);", to));
                 js.setLength(0);
             }
         }

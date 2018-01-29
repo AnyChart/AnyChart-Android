@@ -181,6 +181,24 @@ False, if series is created manually. True, if created via the chart.
         return this;
     }
 
+
+    /**
+     * 
+     */
+    public Sparkline setFill(String json) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".fill(%s)", wrapQuotes(json)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", wrapQuotes(json)));
+            js.setLength(0);
+        }
+        return this;
+    }
+
     private String color;
     private Number opacity;
 
@@ -193,10 +211,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
+        js.append(String.format(Locale.US, ".fill(%s, %s)", wrapQuotes(color), opacity));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s)", wrapQuotes(color), opacity));
             js.setLength(0);
         }
         return this;
@@ -219,10 +237,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %b, %s, %s)", arrayToString(keys), mode, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %s, %s)", arrayToString(keys), mode, angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -238,10 +256,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -257,10 +275,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -276,10 +294,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -295,10 +313,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -314,10 +332,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -341,10 +359,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             js.setLength(0);
         }
         return this;
@@ -360,10 +378,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             js.setLength(0);
         }
         return this;
@@ -402,10 +420,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".firstFill(%s, %f)", wrapQuotes(color1), opacity3));
+        js.append(String.format(Locale.US, ".firstFill(%s, %s)", wrapQuotes(color1), opacity3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %f)", wrapQuotes(color1), opacity3));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s)", wrapQuotes(color1), opacity3));
             js.setLength(0);
         }
         return this;
@@ -428,10 +446,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".firstFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+        js.append(String.format(Locale.US, ".firstFill(%s, %b, %s, %s)", arrayToString(keys4), mode4, angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %b, %s, %s)", arrayToString(keys4), mode4, angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -447,10 +465,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+        js.append(String.format(Locale.US, ".firstFill(%s, %s, %s, %s)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %s, %s)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -466,10 +484,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+        js.append(String.format(Locale.US, ".firstFill(%s, %s, %s, %s)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %s, %s)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -485,10 +503,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".firstFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+        js.append(String.format(Locale.US, ".firstFill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -504,10 +522,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+        js.append(String.format(Locale.US, ".firstFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -523,10 +541,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+        js.append(String.format(Locale.US, ".firstFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -550,10 +568,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".firstFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+        js.append(String.format(Locale.US, ".firstFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
             js.setLength(0);
         }
         return this;
@@ -569,10 +587,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".firstFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+        js.append(String.format(Locale.US, ".firstFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+            onChangeListener.onChange(String.format(Locale.US, ".firstFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
             js.setLength(0);
         }
         return this;
@@ -608,10 +626,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color2), thickness, size));
+        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %s, %s)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color2), thickness, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color2), thickness, size));
+            onChangeListener.onChange(String.format(Locale.US, ".firstHatchFill(%s, %s, %s, %s)", ((patternFillOrType != null) ? patternFillOrType.generateJs() : "null"), wrapQuotes(color2), thickness, size));
             js.setLength(0);
         }
         return this;
@@ -627,10 +645,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color2), thickness, size));
+        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %s, %s)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color2), thickness, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color2), thickness, size));
+            onChangeListener.onChange(String.format(Locale.US, ".firstHatchFill(%s, %s, %s, %s)", ((patternFillOrType1 != null) ? patternFillOrType1.generateJs() : "null"), wrapQuotes(color2), thickness, size));
             js.setLength(0);
         }
         return this;
@@ -646,10 +664,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color2), thickness, size));
+        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %s, %s)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color2), thickness, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color2), thickness, size));
+            onChangeListener.onChange(String.format(Locale.US, ".firstHatchFill(%s, %s, %s, %s)", ((patternFillOrType2 != null) ? patternFillOrType2.generateJs() : "null"), wrapQuotes(color2), thickness, size));
             js.setLength(0);
         }
         return this;
@@ -665,10 +683,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color2), thickness, size));
+        js.append(String.format(Locale.US, ".firstHatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType3), wrapQuotes(color2), thickness, size));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".firstHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType3), wrapQuotes(color2), thickness, size));
+            onChangeListener.onChange(String.format(Locale.US, ".firstHatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType3), wrapQuotes(color2), thickness, size));
             js.setLength(0);
         }
         return this;
@@ -803,10 +821,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %s, %s)", ((patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %s, %s)", ((patternFillOrType4 != null) ? patternFillOrType4.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
             js.setLength(0);
         }
         return this;
@@ -822,10 +840,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %s, %s)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %s, %s)", ((patternFillOrType5 != null) ? patternFillOrType5.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
             js.setLength(0);
         }
         return this;
@@ -841,10 +859,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %s, %s)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %s, %s)", ((patternFillOrType6 != null) ? patternFillOrType6.generateJs() : "null"), wrapQuotes(color3), thickness1, size1));
             js.setLength(0);
         }
         return this;
@@ -860,10 +878,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType7), wrapQuotes(color3), thickness1, size1));
+        js.append(String.format(Locale.US, ".hatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType7), wrapQuotes(color3), thickness1, size1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType7), wrapQuotes(color3), thickness1, size1));
+            onChangeListener.onChange(String.format(Locale.US, ".hatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType7), wrapQuotes(color3), thickness1, size1));
             js.setLength(0);
         }
         return this;
@@ -951,10 +969,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lastFill(%s, %f)", wrapQuotes(color4), opacity6));
+        js.append(String.format(Locale.US, ".lastFill(%s, %s)", wrapQuotes(color4), opacity6));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %f)", wrapQuotes(color4), opacity6));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s)", wrapQuotes(color4), opacity6));
             js.setLength(0);
         }
         return this;
@@ -977,10 +995,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lastFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
+        js.append(String.format(Locale.US, ".lastFill(%s, %b, %s, %s)", arrayToString(keys8), mode8, angle2, opacity7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %b, %f, %f)", arrayToString(keys8), mode8, angle2, opacity7));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %b, %s, %s)", arrayToString(keys8), mode8, angle2, opacity7));
             js.setLength(0);
         }
         return this;
@@ -996,10 +1014,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+        js.append(String.format(Locale.US, ".lastFill(%s, %s, %s, %s)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %s, %s)", arrayToString(keys8), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
             js.setLength(0);
         }
         return this;
@@ -1015,10 +1033,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
+        js.append(String.format(Locale.US, ".lastFill(%s, %s, %s, %s)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %s, %s)", arrayToString(keys8), wrapQuotes(mode10), angle2, opacity7));
             js.setLength(0);
         }
         return this;
@@ -1034,10 +1052,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lastFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
+        js.append(String.format(Locale.US, ".lastFill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys9), mode8, angle2, opacity7));
             js.setLength(0);
         }
         return this;
@@ -1053,10 +1071,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+        js.append(String.format(Locale.US, ".lastFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys9), ((mode9 != null) ? mode9.generateJs() : "null"), angle2, opacity7));
             js.setLength(0);
         }
         return this;
@@ -1072,10 +1090,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
+        js.append(String.format(Locale.US, ".lastFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys9), wrapQuotes(mode10), angle2, opacity7));
             js.setLength(0);
         }
         return this;
@@ -1099,10 +1117,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lastFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+        js.append(String.format(Locale.US, ".lastFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
             js.setLength(0);
         }
         return this;
@@ -1118,10 +1136,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lastFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+        js.append(String.format(Locale.US, ".lastFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
+            onChangeListener.onChange(String.format(Locale.US, ".lastFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.generateJs() : "null"), opacity8, fx2, fy2));
             js.setLength(0);
         }
         return this;
@@ -1157,10 +1175,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", ((patternFillOrType8 != null) ? patternFillOrType8.generateJs() : "null"), wrapQuotes(color5), thickness2, size2));
+        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %s, %s)", ((patternFillOrType8 != null) ? patternFillOrType8.generateJs() : "null"), wrapQuotes(color5), thickness2, size2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", ((patternFillOrType8 != null) ? patternFillOrType8.generateJs() : "null"), wrapQuotes(color5), thickness2, size2));
+            onChangeListener.onChange(String.format(Locale.US, ".lastHatchFill(%s, %s, %s, %s)", ((patternFillOrType8 != null) ? patternFillOrType8.generateJs() : "null"), wrapQuotes(color5), thickness2, size2));
             js.setLength(0);
         }
         return this;
@@ -1176,10 +1194,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null"), wrapQuotes(color5), thickness2, size2));
+        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %s, %s)", ((patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null"), wrapQuotes(color5), thickness2, size2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", ((patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null"), wrapQuotes(color5), thickness2, size2));
+            onChangeListener.onChange(String.format(Locale.US, ".lastHatchFill(%s, %s, %s, %s)", ((patternFillOrType9 != null) ? patternFillOrType9.generateJs() : "null"), wrapQuotes(color5), thickness2, size2));
             js.setLength(0);
         }
         return this;
@@ -1195,10 +1213,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color5), thickness2, size2));
+        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %s, %s)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color5), thickness2, size2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color5), thickness2, size2));
+            onChangeListener.onChange(String.format(Locale.US, ".lastHatchFill(%s, %s, %s, %s)", ((patternFillOrType10 != null) ? patternFillOrType10.generateJs() : "null"), wrapQuotes(color5), thickness2, size2));
             js.setLength(0);
         }
         return this;
@@ -1214,10 +1232,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType11), wrapQuotes(color5), thickness2, size2));
+        js.append(String.format(Locale.US, ".lastHatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType11), wrapQuotes(color5), thickness2, size2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lastHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType11), wrapQuotes(color5), thickness2, size2));
+            onChangeListener.onChange(String.format(Locale.US, ".lastHatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType11), wrapQuotes(color5), thickness2, size2));
             js.setLength(0);
         }
         return this;
@@ -1396,10 +1414,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lineMarker(%s, %f)", wrapQuotes(lineMarker2), index1));
+        js.append(String.format(Locale.US, ".lineMarker(%s, %s)", wrapQuotes(lineMarker2), index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", wrapQuotes(lineMarker2), index1));
+            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %s)", wrapQuotes(lineMarker2), index1));
             js.setLength(0);
         }
         return this;
@@ -1414,10 +1432,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index1));
+        js.append(String.format(Locale.US, ".lineMarker(%b, %s)", lineMarker3, index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index1));
+            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b, %s)", lineMarker3, index1));
             js.setLength(0);
         }
         return this;
@@ -1505,10 +1523,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxFill(%s, %f)", wrapQuotes(color6), opacity9));
+        js.append(String.format(Locale.US, ".maxFill(%s, %s)", wrapQuotes(color6), opacity9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %f)", wrapQuotes(color6), opacity9));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s)", wrapQuotes(color6), opacity9));
             js.setLength(0);
         }
         return this;
@@ -1531,10 +1549,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity10));
+        js.append(String.format(Locale.US, ".maxFill(%s, %b, %s, %s)", arrayToString(keys12), mode12, angle3, opacity10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %b, %f, %f)", arrayToString(keys12), mode12, angle3, opacity10));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %b, %s, %s)", arrayToString(keys12), mode12, angle3, opacity10));
             js.setLength(0);
         }
         return this;
@@ -1550,10 +1568,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
+        js.append(String.format(Locale.US, ".maxFill(%s, %s, %s, %s)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %s, %s)", arrayToString(keys12), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
             js.setLength(0);
         }
         return this;
@@ -1569,10 +1587,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity10));
+        js.append(String.format(Locale.US, ".maxFill(%s, %s, %s, %s)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity10));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %s, %s)", arrayToString(keys12), wrapQuotes(mode14), angle3, opacity10));
             js.setLength(0);
         }
         return this;
@@ -1588,10 +1606,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity10));
+        js.append(String.format(Locale.US, ".maxFill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity10));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys13), mode12, angle3, opacity10));
             js.setLength(0);
         }
         return this;
@@ -1607,10 +1625,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
+        js.append(String.format(Locale.US, ".maxFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys13), ((mode13 != null) ? mode13.generateJs() : "null"), angle3, opacity10));
             js.setLength(0);
         }
         return this;
@@ -1626,10 +1644,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity10));
+        js.append(String.format(Locale.US, ".maxFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity10));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys13), wrapQuotes(mode14), angle3, opacity10));
             js.setLength(0);
         }
         return this;
@@ -1653,10 +1671,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
+        js.append(String.format(Locale.US, ".maxFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
             js.setLength(0);
         }
         return this;
@@ -1672,10 +1690,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
+        js.append(String.format(Locale.US, ".maxFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
+            onChangeListener.onChange(String.format(Locale.US, ".maxFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.generateJs() : "null"), opacity11, fx3, fy3));
             js.setLength(0);
         }
         return this;
@@ -1711,10 +1729,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", ((patternFillOrType12 != null) ? patternFillOrType12.generateJs() : "null"), wrapQuotes(color7), thickness3, size3));
+        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %s, %s)", ((patternFillOrType12 != null) ? patternFillOrType12.generateJs() : "null"), wrapQuotes(color7), thickness3, size3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", ((patternFillOrType12 != null) ? patternFillOrType12.generateJs() : "null"), wrapQuotes(color7), thickness3, size3));
+            onChangeListener.onChange(String.format(Locale.US, ".maxHatchFill(%s, %s, %s, %s)", ((patternFillOrType12 != null) ? patternFillOrType12.generateJs() : "null"), wrapQuotes(color7), thickness3, size3));
             js.setLength(0);
         }
         return this;
@@ -1730,10 +1748,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", ((patternFillOrType13 != null) ? patternFillOrType13.generateJs() : "null"), wrapQuotes(color7), thickness3, size3));
+        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %s, %s)", ((patternFillOrType13 != null) ? patternFillOrType13.generateJs() : "null"), wrapQuotes(color7), thickness3, size3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", ((patternFillOrType13 != null) ? patternFillOrType13.generateJs() : "null"), wrapQuotes(color7), thickness3, size3));
+            onChangeListener.onChange(String.format(Locale.US, ".maxHatchFill(%s, %s, %s, %s)", ((patternFillOrType13 != null) ? patternFillOrType13.generateJs() : "null"), wrapQuotes(color7), thickness3, size3));
             js.setLength(0);
         }
         return this;
@@ -1749,10 +1767,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", ((patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null"), wrapQuotes(color7), thickness3, size3));
+        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %s, %s)", ((patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null"), wrapQuotes(color7), thickness3, size3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", ((patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null"), wrapQuotes(color7), thickness3, size3));
+            onChangeListener.onChange(String.format(Locale.US, ".maxHatchFill(%s, %s, %s, %s)", ((patternFillOrType14 != null) ? patternFillOrType14.generateJs() : "null"), wrapQuotes(color7), thickness3, size3));
             js.setLength(0);
         }
         return this;
@@ -1768,10 +1786,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType15), wrapQuotes(color7), thickness3, size3));
+        js.append(String.format(Locale.US, ".maxHatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType15), wrapQuotes(color7), thickness3, size3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType15), wrapQuotes(color7), thickness3, size3));
+            onChangeListener.onChange(String.format(Locale.US, ".maxHatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType15), wrapQuotes(color7), thickness3, size3));
             js.setLength(0);
         }
         return this;
@@ -1909,10 +1927,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minFill(%s, %f)", wrapQuotes(color8), opacity12));
+        js.append(String.format(Locale.US, ".minFill(%s, %s)", wrapQuotes(color8), opacity12));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %f)", wrapQuotes(color8), opacity12));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s)", wrapQuotes(color8), opacity12));
             js.setLength(0);
         }
         return this;
@@ -1935,10 +1953,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity13));
+        js.append(String.format(Locale.US, ".minFill(%s, %b, %s, %s)", arrayToString(keys16), mode16, angle4, opacity13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %b, %f, %f)", arrayToString(keys16), mode16, angle4, opacity13));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %b, %s, %s)", arrayToString(keys16), mode16, angle4, opacity13));
             js.setLength(0);
         }
         return this;
@@ -1954,10 +1972,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity13));
+        js.append(String.format(Locale.US, ".minFill(%s, %s, %s, %s)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity13));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %s, %s)", arrayToString(keys16), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity13));
             js.setLength(0);
         }
         return this;
@@ -1973,10 +1991,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity13));
+        js.append(String.format(Locale.US, ".minFill(%s, %s, %s, %s)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity13));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %s, %s)", arrayToString(keys16), wrapQuotes(mode18), angle4, opacity13));
             js.setLength(0);
         }
         return this;
@@ -1992,10 +2010,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity13));
+        js.append(String.format(Locale.US, ".minFill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity13));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys17), mode16, angle4, opacity13));
             js.setLength(0);
         }
         return this;
@@ -2011,10 +2029,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity13));
+        js.append(String.format(Locale.US, ".minFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity13));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys17), ((mode17 != null) ? mode17.generateJs() : "null"), angle4, opacity13));
             js.setLength(0);
         }
         return this;
@@ -2030,10 +2048,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity13));
+        js.append(String.format(Locale.US, ".minFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity13));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys17), wrapQuotes(mode18), angle4, opacity13));
             js.setLength(0);
         }
         return this;
@@ -2057,10 +2075,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity14, fx4, fy4));
+        js.append(String.format(Locale.US, ".minFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity14, fx4, fy4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity14, fx4, fy4));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity14, fx4, fy4));
             js.setLength(0);
         }
         return this;
@@ -2076,10 +2094,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity14, fx4, fy4));
+        js.append(String.format(Locale.US, ".minFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity14, fx4, fy4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity14, fx4, fy4));
+            onChangeListener.onChange(String.format(Locale.US, ".minFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.generateJs() : "null"), opacity14, fx4, fy4));
             js.setLength(0);
         }
         return this;
@@ -2115,10 +2133,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", ((patternFillOrType16 != null) ? patternFillOrType16.generateJs() : "null"), wrapQuotes(color9), thickness4, size4));
+        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %s, %s)", ((patternFillOrType16 != null) ? patternFillOrType16.generateJs() : "null"), wrapQuotes(color9), thickness4, size4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", ((patternFillOrType16 != null) ? patternFillOrType16.generateJs() : "null"), wrapQuotes(color9), thickness4, size4));
+            onChangeListener.onChange(String.format(Locale.US, ".minHatchFill(%s, %s, %s, %s)", ((patternFillOrType16 != null) ? patternFillOrType16.generateJs() : "null"), wrapQuotes(color9), thickness4, size4));
             js.setLength(0);
         }
         return this;
@@ -2134,10 +2152,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", ((patternFillOrType17 != null) ? patternFillOrType17.generateJs() : "null"), wrapQuotes(color9), thickness4, size4));
+        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %s, %s)", ((patternFillOrType17 != null) ? patternFillOrType17.generateJs() : "null"), wrapQuotes(color9), thickness4, size4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", ((patternFillOrType17 != null) ? patternFillOrType17.generateJs() : "null"), wrapQuotes(color9), thickness4, size4));
+            onChangeListener.onChange(String.format(Locale.US, ".minHatchFill(%s, %s, %s, %s)", ((patternFillOrType17 != null) ? patternFillOrType17.generateJs() : "null"), wrapQuotes(color9), thickness4, size4));
             js.setLength(0);
         }
         return this;
@@ -2153,10 +2171,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", ((patternFillOrType18 != null) ? patternFillOrType18.generateJs() : "null"), wrapQuotes(color9), thickness4, size4));
+        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %s, %s)", ((patternFillOrType18 != null) ? patternFillOrType18.generateJs() : "null"), wrapQuotes(color9), thickness4, size4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", ((patternFillOrType18 != null) ? patternFillOrType18.generateJs() : "null"), wrapQuotes(color9), thickness4, size4));
+            onChangeListener.onChange(String.format(Locale.US, ".minHatchFill(%s, %s, %s, %s)", ((patternFillOrType18 != null) ? patternFillOrType18.generateJs() : "null"), wrapQuotes(color9), thickness4, size4));
             js.setLength(0);
         }
         return this;
@@ -2172,10 +2190,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType19), wrapQuotes(color9), thickness4, size4));
+        js.append(String.format(Locale.US, ".minHatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType19), wrapQuotes(color9), thickness4, size4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType19), wrapQuotes(color9), thickness4, size4));
+            onChangeListener.onChange(String.format(Locale.US, ".minHatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType19), wrapQuotes(color9), thickness4, size4));
             js.setLength(0);
         }
         return this;
@@ -2313,10 +2331,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".negativeFill(%s, %f)", wrapQuotes(color10), opacity15));
+        js.append(String.format(Locale.US, ".negativeFill(%s, %s)", wrapQuotes(color10), opacity15));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f)", wrapQuotes(color10), opacity15));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s)", wrapQuotes(color10), opacity15));
             js.setLength(0);
         }
         return this;
@@ -2339,10 +2357,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity16));
+        js.append(String.format(Locale.US, ".negativeFill(%s, %b, %s, %s)", arrayToString(keys20), mode20, angle5, opacity16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToString(keys20), mode20, angle5, opacity16));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %s, %s)", arrayToString(keys20), mode20, angle5, opacity16));
             js.setLength(0);
         }
         return this;
@@ -2358,10 +2376,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys20), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity16));
+        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %s, %s)", arrayToString(keys20), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys20), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity16));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %s, %s)", arrayToString(keys20), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity16));
             js.setLength(0);
         }
         return this;
@@ -2377,10 +2395,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys20), wrapQuotes(mode22), angle5, opacity16));
+        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %s, %s)", arrayToString(keys20), wrapQuotes(mode22), angle5, opacity16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToString(keys20), wrapQuotes(mode22), angle5, opacity16));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %s, %s)", arrayToString(keys20), wrapQuotes(mode22), angle5, opacity16));
             js.setLength(0);
         }
         return this;
@@ -2396,10 +2414,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys21), mode20, angle5, opacity16));
+        js.append(String.format(Locale.US, ".negativeFill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys21), mode20, angle5, opacity16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys21), mode20, angle5, opacity16));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys21), mode20, angle5, opacity16));
             js.setLength(0);
         }
         return this;
@@ -2415,10 +2433,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity16));
+        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys21), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity16));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys21), ((mode21 != null) ? mode21.generateJs() : "null"), angle5, opacity16));
             js.setLength(0);
         }
         return this;
@@ -2434,10 +2452,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), wrapQuotes(mode22), angle5, opacity16));
+        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys21), wrapQuotes(mode22), angle5, opacity16));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys21), wrapQuotes(mode22), angle5, opacity16));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys21), wrapQuotes(mode22), angle5, opacity16));
             js.setLength(0);
         }
         return this;
@@ -2461,10 +2479,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx5, cy5, ((mode23 != null) ? mode23.generateJs() : "null"), opacity17, fx5, fy5));
+        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys22), cx5, cy5, ((mode23 != null) ? mode23.generateJs() : "null"), opacity17, fx5, fy5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx5, cy5, ((mode23 != null) ? mode23.generateJs() : "null"), opacity17, fx5, fy5));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys22), cx5, cy5, ((mode23 != null) ? mode23.generateJs() : "null"), opacity17, fx5, fy5));
             js.setLength(0);
         }
         return this;
@@ -2480,10 +2498,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx5, cy5, ((mode23 != null) ? mode23.generateJs() : "null"), opacity17, fx5, fy5));
+        js.append(String.format(Locale.US, ".negativeFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys23), cx5, cy5, ((mode23 != null) ? mode23.generateJs() : "null"), opacity17, fx5, fy5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx5, cy5, ((mode23 != null) ? mode23.generateJs() : "null"), opacity17, fx5, fy5));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys23), cx5, cy5, ((mode23 != null) ? mode23.generateJs() : "null"), opacity17, fx5, fy5));
             js.setLength(0);
         }
         return this;
@@ -2519,10 +2537,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType20 != null) ? patternFillOrType20.generateJs() : "null"), wrapQuotes(color11), thickness5, size5));
+        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %s, %s)", ((patternFillOrType20 != null) ? patternFillOrType20.generateJs() : "null"), wrapQuotes(color11), thickness5, size5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType20 != null) ? patternFillOrType20.generateJs() : "null"), wrapQuotes(color11), thickness5, size5));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %s, %s)", ((patternFillOrType20 != null) ? patternFillOrType20.generateJs() : "null"), wrapQuotes(color11), thickness5, size5));
             js.setLength(0);
         }
         return this;
@@ -2538,10 +2556,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType21 != null) ? patternFillOrType21.generateJs() : "null"), wrapQuotes(color11), thickness5, size5));
+        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %s, %s)", ((patternFillOrType21 != null) ? patternFillOrType21.generateJs() : "null"), wrapQuotes(color11), thickness5, size5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType21 != null) ? patternFillOrType21.generateJs() : "null"), wrapQuotes(color11), thickness5, size5));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %s, %s)", ((patternFillOrType21 != null) ? patternFillOrType21.generateJs() : "null"), wrapQuotes(color11), thickness5, size5));
             js.setLength(0);
         }
         return this;
@@ -2557,10 +2575,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType22 != null) ? patternFillOrType22.generateJs() : "null"), wrapQuotes(color11), thickness5, size5));
+        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %s, %s)", ((patternFillOrType22 != null) ? patternFillOrType22.generateJs() : "null"), wrapQuotes(color11), thickness5, size5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", ((patternFillOrType22 != null) ? patternFillOrType22.generateJs() : "null"), wrapQuotes(color11), thickness5, size5));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %s, %s)", ((patternFillOrType22 != null) ? patternFillOrType22.generateJs() : "null"), wrapQuotes(color11), thickness5, size5));
             js.setLength(0);
         }
         return this;
@@ -2576,10 +2594,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType23), wrapQuotes(color11), thickness5, size5));
+        js.append(String.format(Locale.US, ".negativeHatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType23), wrapQuotes(color11), thickness5, size5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %f, %f)", wrapQuotes(patternFillOrType23), wrapQuotes(color11), thickness5, size5));
+            onChangeListener.onChange(String.format(Locale.US, ".negativeHatchFill(%s, %s, %s, %s)", wrapQuotes(patternFillOrType23), wrapQuotes(color11), thickness5, size5));
             js.setLength(0);
         }
         return this;
@@ -2696,10 +2714,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
+        js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
+            onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", pointWidth));
             js.setLength(0);
         }
         return this;
@@ -2796,10 +2814,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", wrapQuotes(rangeMarker2), index3));
+        js.append(String.format(Locale.US, ".rangeMarker(%s, %s)", wrapQuotes(rangeMarker2), index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", wrapQuotes(rangeMarker2), index3));
+            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %s)", wrapQuotes(rangeMarker2), index3));
             js.setLength(0);
         }
         return this;
@@ -2814,10 +2832,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index3));
+        js.append(String.format(Locale.US, ".rangeMarker(%b, %s)", rangeMarker3, index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index3));
+            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b, %s)", rangeMarker3, index3));
             js.setLength(0);
         }
         return this;
@@ -2878,10 +2896,28 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color12 != null) ? color12.generateJs() : "null"), thickness6, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", ((color12 != null) ? color12.generateJs() : "null"), thickness6, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color12 != null) ? color12.generateJs() : "null"), thickness6, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", ((color12 != null) ? color12.generateJs() : "null"), thickness6, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * 
+     */
+    public Sparkline setStroke(String json) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".stroke(%s)", wrapQuotes(json)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", wrapQuotes(json)));
             js.setLength(0);
         }
         return this;
@@ -2897,10 +2933,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color13 != null) ? color13.generateJs() : "null"), thickness6, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", ((color13 != null) ? color13.generateJs() : "null"), thickness6, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((color13 != null) ? color13.generateJs() : "null"), thickness6, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", ((color13 != null) ? color13.generateJs() : "null"), thickness6, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -2916,10 +2952,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color14), thickness6, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", wrapQuotes(color14), thickness6, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color14), thickness6, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", wrapQuotes(color14), thickness6, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -2998,10 +3034,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".textMarker(%s, %f)", wrapQuotes(textMarker2), index5));
+        js.append(String.format(Locale.US, ".textMarker(%s, %s)", wrapQuotes(textMarker2), index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", wrapQuotes(textMarker2), index5));
+            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %s)", wrapQuotes(textMarker2), index5));
             js.setLength(0);
         }
         return this;
@@ -3016,10 +3052,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index5));
+        js.append(String.format(Locale.US, ".textMarker(%b, %s)", textMarker3, index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index5));
+            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b, %s)", textMarker3, index5));
             js.setLength(0);
         }
         return this;

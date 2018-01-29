@@ -52,10 +52,10 @@ public class RadialTicks extends VisualBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".length(%f)", length));
+            js.append(String.format(Locale.US, ".length(%s)", length));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".length(%f);", length));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".length(%s);", length));
                 js.setLength(0);
             }
         }
@@ -95,6 +95,42 @@ public class RadialTicks extends VisualBase {
         if (!setStroke.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
             for (Ticks item : setStroke) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
+    private List<Ticks> setStroke1 = new ArrayList<>();
+
+    /**
+     * 
+     */
+    public Ticks setStroke(String json) {
+        if (jsBase == null) {
+        } else {
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            
+            js.append(String.format(Locale.US, "var setStroke1" + ++variableIndex + " = " + jsBase + ".stroke(%s);", wrapQuotes(json)));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s);", wrapQuotes(json)));
+                js.setLength(0);
+            }
+        }
+        Ticks item = new Ticks("setStroke1" + variableIndex);
+        setStroke1.add(item);
+        return item;
+    }
+    private String generateJSsetStroke1() {
+        if (!setStroke1.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (Ticks item : setStroke1) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -144,10 +180,10 @@ The following options are acceptable:
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %f, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".stroke(%s, %s, %s, %s, %s);", wrapQuotes(color), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -174,7 +210,7 @@ The following options are acceptable:
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetStroke());
+        js.append(generateJSsetStroke1());
         
 
         String result = js.toString();

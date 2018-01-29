@@ -136,10 +136,10 @@ public class Image extends Element {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".height(%f)", height));
+            js.append(String.format(Locale.US, ".height(%s)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height));
                 js.setLength(0);
             }
         }
@@ -187,10 +187,10 @@ Set null value for non-display image.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".width(%f)", width));
+            js.append(String.format(Locale.US, ".width(%s)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width));
                 js.setLength(0);
             }
         }
@@ -212,10 +212,10 @@ Set null value for non-display image.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".x(%f)", x));
+            js.append(String.format(Locale.US, ".x(%s)", x));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".x(%f);", x));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".x(%s);", x));
                 js.setLength(0);
             }
         }
@@ -237,10 +237,10 @@ Set null value for non-display image.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".y(%f)", y));
+            js.append(String.format(Locale.US, ".y(%s)", y));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".y(%f);", y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".y(%s);", y));
                 js.setLength(0);
             }
         }

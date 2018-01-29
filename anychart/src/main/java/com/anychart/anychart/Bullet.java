@@ -364,10 +364,10 @@ public class Bullet extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".range(%s, %f)", wrapQuotes(range2), index1));
+        js.append(String.format(Locale.US, ".range(%s, %s)", wrapQuotes(range2), index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".range(%s, %f)", wrapQuotes(range2), index1));
+            onChangeListener.onChange(String.format(Locale.US, ".range(%s, %s)", wrapQuotes(range2), index1));
             js.setLength(0);
         }
         return this;
@@ -382,10 +382,10 @@ public class Bullet extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".range(%b, %f)", range3, index1));
+        js.append(String.format(Locale.US, ".range(%b, %s)", range3, index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".range(%b, %f)", range3, index1));
+            onChangeListener.onChange(String.format(Locale.US, ".range(%b, %s)", range3, index1));
             js.setLength(0);
         }
         return this;

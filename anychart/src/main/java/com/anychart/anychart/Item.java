@@ -34,7 +34,7 @@ public class Item extends JsObject  {
         this.target = target;
         this.text = text;
 
-        js.append(String.format(Locale.US, "{classNames: %s,enabled: %b,eventType: %s,href: %s,iconClass: %s,index: %f,scrollable: %b,subMenu: %s,target: %s,text: %s}",  wrapQuotes(classNames), enabled, wrapQuotes(eventType), wrapQuotes(href), wrapQuotes(iconClass), index, scrollable, arrayToString(subMenu), wrapQuotes(target), wrapQuotes(text)));
+        js.append(String.format(Locale.US, "{classNames: %s,enabled: %b,eventType: %s,href: %s,iconClass: %s,index: %s,scrollable: %b,subMenu: %s,target: %s,text: %s}",  wrapQuotes(classNames), enabled, wrapQuotes(eventType), wrapQuotes(href), wrapQuotes(iconClass), index, scrollable, arrayToString(subMenu), wrapQuotes(target), wrapQuotes(text)));
     }
     public Item(String[] classNames1, Boolean enabled, String eventType, String href, String iconClass, Number index, Boolean scrollable, Item[] subMenu, String target, String text) {
         this.classNames1 = classNames1;
@@ -48,7 +48,7 @@ public class Item extends JsObject  {
         this.target = target;
         this.text = text;
 
-        js.append(String.format(Locale.US, "{classNames: %s,enabled: %b,eventType: %s,href: %s,iconClass: %s,index: %f,scrollable: %b,subMenu: %s,target: %s,text: %s}",  arrayToStringWrapQuotes(classNames1), enabled, wrapQuotes(eventType), wrapQuotes(href), wrapQuotes(iconClass), index, scrollable, arrayToString(subMenu), wrapQuotes(target), wrapQuotes(text)));
+        js.append(String.format(Locale.US, "{classNames: %s,enabled: %b,eventType: %s,href: %s,iconClass: %s,index: %s,scrollable: %b,subMenu: %s,target: %s,text: %s}",  arrayToStringWrapQuotes(classNames1), enabled, wrapQuotes(eventType), wrapQuotes(href), wrapQuotes(iconClass), index, scrollable, arrayToString(subMenu), wrapQuotes(target), wrapQuotes(text)));
     }
 
     @Override

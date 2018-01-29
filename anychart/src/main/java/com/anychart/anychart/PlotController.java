@@ -509,11 +509,11 @@ public class PlotController extends VisualBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setGetAnnotationAt" + ++variableIndex + " = " + jsBase + ".getAnnotationAt(%f);", index));
+            js.append(String.format(Locale.US, "var setGetAnnotationAt" + ++variableIndex + " = " + jsBase + ".getAnnotationAt(%s);", index));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getAnnotationAt(%f);", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getAnnotationAt(%s);", index));
                 js.setLength(0);
             }
         }
@@ -947,10 +947,10 @@ public class PlotController extends VisualBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".removeAnnotationAt(%f)", index1));
+            js.append(String.format(Locale.US, ".removeAnnotationAt(%s)", index1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAnnotationAt(%f);", index1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeAnnotationAt(%s);", index1));
                 js.setLength(0);
             }
         }

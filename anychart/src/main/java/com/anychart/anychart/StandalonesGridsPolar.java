@@ -96,11 +96,11 @@ public class StandalonesGridsPolar extends CoreGridsPolar {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setInnerRadius1" + ++variableIndex + " = " + jsBase + ".innerRadius(%f);", innerRadius1));
+            js.append(String.format(Locale.US, "var setInnerRadius1" + ++variableIndex + " = " + jsBase + ".innerRadius(%s);", innerRadius1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".innerRadius(%f);", innerRadius1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".innerRadius(%s);", innerRadius1));
                 js.setLength(0);
             }
         }

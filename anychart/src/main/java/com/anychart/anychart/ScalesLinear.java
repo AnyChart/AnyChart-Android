@@ -115,10 +115,10 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".compareWith(%f)", compareWith2));
+            js.append(String.format(Locale.US, ".compareWith(%s)", compareWith2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".compareWith(%f);", compareWith2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".compareWith(%s);", compareWith2));
                 js.setLength(0);
             }
         }
@@ -196,10 +196,10 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".maximumGap(%f)", maximumGap));
+            js.append(String.format(Locale.US, ".maximumGap(%s)", maximumGap));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumGap(%f);", maximumGap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumGap(%s);", maximumGap));
                 js.setLength(0);
             }
         }
@@ -221,10 +221,10 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".minimumGap(%f)", minimumGap));
+            js.append(String.format(Locale.US, ".minimumGap(%s)", minimumGap));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumGap(%f);", minimumGap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumGap(%s);", minimumGap));
                 js.setLength(0);
             }
         }
@@ -314,10 +314,10 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".softMaximum(%f)", softMaximum));
+            js.append(String.format(Locale.US, ".softMaximum(%s)", softMaximum));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMaximum(%f);", softMaximum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMaximum(%s);", softMaximum));
                 js.setLength(0);
             }
         }
@@ -339,10 +339,10 @@ public class ScalesLinear extends ScatterBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".softMinimum(%f)", softMinimum));
+            js.append(String.format(Locale.US, ".softMinimum(%s)", softMinimum));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMinimum(%f);", softMinimum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMinimum(%s);", softMinimum));
                 js.setLength(0);
             }
         }

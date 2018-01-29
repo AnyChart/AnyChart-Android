@@ -50,11 +50,11 @@ public class StockScatterDateTime extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".inverseTransform(%f);", ratio));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".inverseTransform(%s);", ratio));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f);", ratio));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%s);", ratio));
                 js.setLength(0);
             }
         }
@@ -79,11 +79,11 @@ public class StockScatterDateTime extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".transform(%f);", transform));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".transform(%s);", transform));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%f);", transform));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%s);", transform));
                 js.setLength(0);
             }
         }

@@ -319,10 +319,10 @@ public class ContextMenu extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".setup(%f)", var_args2));
+            js.append(String.format(Locale.US, ".setup(%s)", var_args2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setup(%f);", var_args2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setup(%s);", var_args2));
                 js.setLength(0);
             }
         }
@@ -377,11 +377,11 @@ public class ContextMenu extends JsObject {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".show(%f, %f);", x, y));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".show(%s, %s);", x, y));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".show(%f, %f);", x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".show(%s, %s);", x, y));
                 js.setLength(0);
             }
         }

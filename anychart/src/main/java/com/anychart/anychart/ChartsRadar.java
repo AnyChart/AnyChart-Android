@@ -367,10 +367,10 @@ public class ChartsRadar extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".innerRadius(%f)", innerRadius));
+        js.append(String.format(Locale.US, ".innerRadius(%s)", innerRadius));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".innerRadius(%f)", innerRadius));
+            onChangeListener.onChange(String.format(Locale.US, ".innerRadius(%s)", innerRadius));
             js.setLength(0);
         }
         return this;
@@ -823,10 +823,10 @@ public class ChartsRadar extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".removeSeries(%f)", id2));
+        js.append(String.format(Locale.US, ".removeSeries(%s)", id2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id2));
+            onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id2));
             js.setLength(0);
         }
         return this;
@@ -860,10 +860,10 @@ public class ChartsRadar extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
+        js.append(String.format(Locale.US, ".removeSeriesAt(%s)", index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
+            onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%s)", index1));
             js.setLength(0);
         }
         return this;
@@ -929,10 +929,10 @@ public class ChartsRadar extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".startAngle(%f)", startAngle1));
+        js.append(String.format(Locale.US, ".startAngle(%s)", startAngle1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".startAngle(%f)", startAngle1));
+            onChangeListener.onChange(String.format(Locale.US, ".startAngle(%s)", startAngle1));
             js.setLength(0);
         }
         return this;
@@ -1061,10 +1061,10 @@ public class ChartsRadar extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index3));
+        js.append(String.format(Locale.US, ".xGrid(%s, %s)", wrapQuotes(xGrid2), index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index3));
+            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %s)", wrapQuotes(xGrid2), index3));
             js.setLength(0);
         }
         return this;
@@ -1079,10 +1079,10 @@ public class ChartsRadar extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index3));
+        js.append(String.format(Locale.US, ".xGrid(%b, %s)", xGrid3, index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index3));
+            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %s)", xGrid3, index3));
             js.setLength(0);
         }
         return this;
@@ -1161,10 +1161,10 @@ public class ChartsRadar extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), index5));
+        js.append(String.format(Locale.US, ".xMinorGrid(%s, %s)", wrapQuotes(xMinorGrid2), index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), index5));
+            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %s)", wrapQuotes(xMinorGrid2), index5));
             js.setLength(0);
         }
         return this;
@@ -1179,10 +1179,10 @@ public class ChartsRadar extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index5));
+        js.append(String.format(Locale.US, ".xMinorGrid(%b, %s)", xMinorGrid3, index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index5));
+            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b, %s)", xMinorGrid3, index5));
             js.setLength(0);
         }
         return this;
@@ -1346,10 +1346,10 @@ public class ChartsRadar extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index7));
+        js.append(String.format(Locale.US, ".yGrid(%s, %s)", wrapQuotes(yGrid2), index7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index7));
+            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %s)", wrapQuotes(yGrid2), index7));
             js.setLength(0);
         }
         return this;
@@ -1364,10 +1364,10 @@ public class ChartsRadar extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index7));
+        js.append(String.format(Locale.US, ".yGrid(%b, %s)", yGrid3, index7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index7));
+            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %s)", yGrid3, index7));
             js.setLength(0);
         }
         return this;
@@ -1446,10 +1446,10 @@ public class ChartsRadar extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), index9));
+        js.append(String.format(Locale.US, ".yMinorGrid(%s, %s)", wrapQuotes(yMinorGrid2), index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), index9));
+            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %s)", wrapQuotes(yMinorGrid2), index9));
             js.setLength(0);
         }
         return this;
@@ -1464,10 +1464,10 @@ public class ChartsRadar extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index9));
+        js.append(String.format(Locale.US, ".yMinorGrid(%b, %s)", yMinorGrid3, index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index9));
+            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b, %s)", yMinorGrid3, index9));
             js.setLength(0);
         }
         return this;

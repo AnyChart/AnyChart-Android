@@ -80,10 +80,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f);", wrapQuotes(color), opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s);", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -128,10 +128,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %b);", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -169,10 +169,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode1.generateJs());
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -210,10 +210,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -251,10 +251,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -292,10 +292,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode1.generateJs());
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -333,10 +333,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -392,10 +392,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode3.generateJs());
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -443,10 +443,10 @@ public class UiDataGrid extends VisualBaseWithBounds {
                 isChain = true;
             }
             js.append(mode3.generateJs());
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -513,10 +513,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(column1.generateJs());
-            js.append(String.format(Locale.US, ".column(%f, %s)", index, ((column1 != null) ? column1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".column(%s, %s)", index, ((column1 != null) ? column1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%f, %s);", index, ((column1 != null) ? column1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".column(%s, %s);", index, ((column1 != null) ? column1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -725,10 +725,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f)", wrapQuotes(color1), opacity3));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s)", wrapQuotes(color1), opacity3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f);", wrapQuotes(color1), opacity3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s);", wrapQuotes(color1), opacity3));
                 js.setLength(0);
             }
         }
@@ -787,10 +787,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %s, %b)", arrayToString(keys4), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %b);", arrayToString(keys4), angle1, opacity4, mode4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %b);", arrayToString(keys4), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -842,10 +842,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode5.generateJs());
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %s, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s);", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -897,10 +897,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %s, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s);", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -952,10 +952,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -1007,10 +1007,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode5.generateJs());
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1062,10 +1062,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1144,10 +1144,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode7.generateJs());
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1218,10 +1218,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode7.generateJs());
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1339,10 +1339,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".endIndex(%f)", endIndex));
+            js.append(String.format(Locale.US, ".endIndex(%s)", endIndex));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".endIndex(%f);", endIndex));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".endIndex(%s);", endIndex));
                 js.setLength(0);
             }
         }
@@ -1364,10 +1364,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".horizontalOffset(%f)", horizontalOffset));
+            js.append(String.format(Locale.US, ".horizontalOffset(%s)", horizontalOffset));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontalOffset(%f);", horizontalOffset));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".horizontalOffset(%s);", horizontalOffset));
                 js.setLength(0);
             }
         }
@@ -1467,10 +1467,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f)", wrapQuotes(color2), opacity6));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s)", wrapQuotes(color2), opacity6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f);", wrapQuotes(color2), opacity6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s);", wrapQuotes(color2), opacity6));
                 js.setLength(0);
             }
         }
@@ -1541,10 +1541,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToString(keys8), angle2, opacity7, mode8));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %s, %b)", arrayToString(keys8), angle2, opacity7, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %b);", arrayToString(keys8), angle2, opacity7, mode8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %s, %b);", arrayToString(keys8), angle2, opacity7, mode8));
                 js.setLength(0);
             }
         }
@@ -1608,10 +1608,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode9.generateJs());
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %s, %s)", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s);", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %s, %s);", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1675,10 +1675,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %s, %s)", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s);", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %s, %s);", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -1742,10 +1742,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
                 js.setLength(0);
             }
         }
@@ -1809,10 +1809,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode9.generateJs());
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1876,10 +1876,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -1973,10 +1973,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode11.generateJs());
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -2062,10 +2062,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode11.generateJs());
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -2133,10 +2133,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowFill(%s, %f)", wrapQuotes(color3), opacity9));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s)", wrapQuotes(color3), opacity9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f);", wrapQuotes(color3), opacity9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s);", wrapQuotes(color3), opacity9));
                 js.setLength(0);
             }
         }
@@ -2219,10 +2219,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %b)", arrayToString(keys12), angle3, opacity10, mode12));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %s, %b)", arrayToString(keys12), angle3, opacity10, mode12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %b);", arrayToString(keys12), angle3, opacity10, mode12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %s, %b);", arrayToString(keys12), angle3, opacity10, mode12));
                 js.setLength(0);
             }
         }
@@ -2298,10 +2298,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode13.generateJs());
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %s, %s)", arrayToString(keys12), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %s);", arrayToString(keys12), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %s, %s);", arrayToString(keys12), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2377,10 +2377,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity10, wrapQuotes(mode14)));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %s, %s)", arrayToString(keys12), angle3, opacity10, wrapQuotes(mode14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %s);", arrayToString(keys12), angle3, opacity10, wrapQuotes(mode14)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %s, %s);", arrayToString(keys12), angle3, opacity10, wrapQuotes(mode14)));
                 js.setLength(0);
             }
         }
@@ -2456,10 +2456,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys13), angle3, opacity10, mode12));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys13), angle3, opacity10, mode12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys13), angle3, opacity10, mode12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys13), angle3, opacity10, mode12));
                 js.setLength(0);
             }
         }
@@ -2535,10 +2535,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode13.generateJs());
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys13), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys13), angle3, opacity10, ((mode13 != null) ? mode13.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2614,10 +2614,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity10, wrapQuotes(mode14)));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity10, wrapQuotes(mode14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys13), angle3, opacity10, wrapQuotes(mode14)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys13), angle3, opacity10, wrapQuotes(mode14)));
                 js.setLength(0);
             }
         }
@@ -2726,10 +2726,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode15.generateJs());
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys14), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -2830,10 +2830,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode15.generateJs());
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys15), cx3, cy3, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity11, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -2905,10 +2905,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f)", wrapQuotes(color4), opacity12));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s)", wrapQuotes(color4), opacity12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f);", wrapQuotes(color4), opacity12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s);", wrapQuotes(color4), opacity12));
                 js.setLength(0);
             }
         }
@@ -3003,10 +3003,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %b)", arrayToString(keys16), angle4, opacity13, mode16));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %b)", arrayToString(keys16), angle4, opacity13, mode16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %b);", arrayToString(keys16), angle4, opacity13, mode16));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %s, %b);", arrayToString(keys16), angle4, opacity13, mode16));
                 js.setLength(0);
             }
         }
@@ -3094,10 +3094,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode17.generateJs());
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToString(keys16), angle4, opacity13, ((mode17 != null) ? mode17.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s)", arrayToString(keys16), angle4, opacity13, ((mode17 != null) ? mode17.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %s);", arrayToString(keys16), angle4, opacity13, ((mode17 != null) ? mode17.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %s, %s);", arrayToString(keys16), angle4, opacity13, ((mode17 != null) ? mode17.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3185,10 +3185,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToString(keys16), angle4, opacity13, wrapQuotes(mode18)));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s)", arrayToString(keys16), angle4, opacity13, wrapQuotes(mode18)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %s);", arrayToString(keys16), angle4, opacity13, wrapQuotes(mode18)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %s, %s);", arrayToString(keys16), angle4, opacity13, wrapQuotes(mode18)));
                 js.setLength(0);
             }
         }
@@ -3276,10 +3276,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys17), angle4, opacity13, mode16));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys17), angle4, opacity13, mode16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys17), angle4, opacity13, mode16));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys17), angle4, opacity13, mode16));
                 js.setLength(0);
             }
         }
@@ -3367,10 +3367,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode17.generateJs());
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity13, ((mode17 != null) ? mode17.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity13, ((mode17 != null) ? mode17.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys17), angle4, opacity13, ((mode17 != null) ? mode17.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys17), angle4, opacity13, ((mode17 != null) ? mode17.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3458,10 +3458,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity13, wrapQuotes(mode18)));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity13, wrapQuotes(mode18)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys17), angle4, opacity13, wrapQuotes(mode18)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys17), angle4, opacity13, wrapQuotes(mode18)));
                 js.setLength(0);
             }
         }
@@ -3585,10 +3585,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode19.generateJs());
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity14, fx4, fy4));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity14, fx4, fy4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity14, fx4, fy4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys18), cx4, cy4, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity14, fx4, fy4));
                 js.setLength(0);
             }
         }
@@ -3704,10 +3704,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode19.generateJs());
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity14, fx4, fy4));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity14, fx4, fy4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity14, fx4, fy4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys19), cx4, cy4, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity14, fx4, fy4));
                 js.setLength(0);
             }
         }
@@ -3783,10 +3783,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f)", wrapQuotes(color5), opacity15));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s)", wrapQuotes(color5), opacity15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f);", wrapQuotes(color5), opacity15));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s);", wrapQuotes(color5), opacity15));
                 js.setLength(0);
             }
         }
@@ -3893,10 +3893,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToString(keys20), angle5, opacity16, mode20));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %s, %b)", arrayToString(keys20), angle5, opacity16, mode20));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %b);", arrayToString(keys20), angle5, opacity16, mode20));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %s, %b);", arrayToString(keys20), angle5, opacity16, mode20));
                 js.setLength(0);
             }
         }
@@ -3996,10 +3996,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode21.generateJs());
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys20), angle5, opacity16, ((mode21 != null) ? mode21.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %s, %s)", arrayToString(keys20), angle5, opacity16, ((mode21 != null) ? mode21.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s);", arrayToString(keys20), angle5, opacity16, ((mode21 != null) ? mode21.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %s, %s);", arrayToString(keys20), angle5, opacity16, ((mode21 != null) ? mode21.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -4099,10 +4099,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys20), angle5, opacity16, wrapQuotes(mode22)));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %s, %s)", arrayToString(keys20), angle5, opacity16, wrapQuotes(mode22)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s);", arrayToString(keys20), angle5, opacity16, wrapQuotes(mode22)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %s, %s);", arrayToString(keys20), angle5, opacity16, wrapQuotes(mode22)));
                 js.setLength(0);
             }
         }
@@ -4202,10 +4202,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys21), angle5, opacity16, mode20));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys21), angle5, opacity16, mode20));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys21), angle5, opacity16, mode20));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys21), angle5, opacity16, mode20));
                 js.setLength(0);
             }
         }
@@ -4305,10 +4305,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode21.generateJs());
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys21), angle5, opacity16, ((mode21 != null) ? mode21.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys21), angle5, opacity16, ((mode21 != null) ? mode21.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys21), angle5, opacity16, ((mode21 != null) ? mode21.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys21), angle5, opacity16, ((mode21 != null) ? mode21.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -4408,10 +4408,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys21), angle5, opacity16, wrapQuotes(mode22)));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys21), angle5, opacity16, wrapQuotes(mode22)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys21), angle5, opacity16, wrapQuotes(mode22)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys21), angle5, opacity16, wrapQuotes(mode22)));
                 js.setLength(0);
             }
         }
@@ -4550,10 +4550,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode23.generateJs());
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx5, cy5, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity17, fx5, fy5));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys22), cx5, cy5, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity17, fx5, fy5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys22), cx5, cy5, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity17, fx5, fy5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys22), cx5, cy5, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity17, fx5, fy5));
                 js.setLength(0);
             }
         }
@@ -4684,10 +4684,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode23.generateJs());
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx5, cy5, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity17, fx5, fy5));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys23), cx5, cy5, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity17, fx5, fy5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys23), cx5, cy5, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity17, fx5, fy5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys23), cx5, cy5, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity17, fx5, fy5));
                 js.setLength(0);
             }
         }
@@ -4767,10 +4767,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f)", wrapQuotes(color6), opacity18));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s)", wrapQuotes(color6), opacity18));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f);", wrapQuotes(color6), opacity18));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s);", wrapQuotes(color6), opacity18));
                 js.setLength(0);
             }
         }
@@ -4865,10 +4865,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %b)", arrayToString(keys24), angle6, mode24));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %b)", arrayToString(keys24), angle6, mode24));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %b);", arrayToString(keys24), angle6, mode24));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %b);", arrayToString(keys24), angle6, mode24));
                 js.setLength(0);
             }
         }
@@ -4957,10 +4957,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode25.generateJs());
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToString(keys24), angle6, ((mode25 != null) ? mode25.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s)", arrayToString(keys24), angle6, ((mode25 != null) ? mode25.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %s);", arrayToString(keys24), angle6, ((mode25 != null) ? mode25.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %s);", arrayToString(keys24), angle6, ((mode25 != null) ? mode25.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -5049,10 +5049,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToString(keys24), angle6, wrapQuotes(mode26)));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s)", arrayToString(keys24), angle6, wrapQuotes(mode26)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %s);", arrayToString(keys24), angle6, wrapQuotes(mode26)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %s);", arrayToString(keys24), angle6, wrapQuotes(mode26)));
                 js.setLength(0);
             }
         }
@@ -5141,10 +5141,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %b)", arrayToStringWrapQuotes(keys25), angle6, mode24));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %b)", arrayToStringWrapQuotes(keys25), angle6, mode24));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %b);", arrayToStringWrapQuotes(keys25), angle6, mode24));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %b);", arrayToStringWrapQuotes(keys25), angle6, mode24));
                 js.setLength(0);
             }
         }
@@ -5233,10 +5233,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode25.generateJs());
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToStringWrapQuotes(keys25), angle6, ((mode25 != null) ? mode25.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s)", arrayToStringWrapQuotes(keys25), angle6, ((mode25 != null) ? mode25.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %s);", arrayToStringWrapQuotes(keys25), angle6, ((mode25 != null) ? mode25.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %s);", arrayToStringWrapQuotes(keys25), angle6, ((mode25 != null) ? mode25.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -5325,10 +5325,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToStringWrapQuotes(keys25), angle6, wrapQuotes(mode26)));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s)", arrayToStringWrapQuotes(keys25), angle6, wrapQuotes(mode26)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %s);", arrayToStringWrapQuotes(keys25), angle6, wrapQuotes(mode26)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %s);", arrayToStringWrapQuotes(keys25), angle6, wrapQuotes(mode26)));
                 js.setLength(0);
             }
         }
@@ -5481,10 +5481,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode27.generateJs());
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx6, cy6, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity19, fx6, fy6));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys26), cx6, cy6, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity19, fx6, fy6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys26), cx6, cy6, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity19, fx6, fy6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys26), cx6, cy6, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity19, fx6, fy6));
                 js.setLength(0);
             }
         }
@@ -5629,10 +5629,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             js.append(mode27.generateJs());
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx6, cy6, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity19, fx6, fy6));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys27), cx6, cy6, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity19, fx6, fy6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys27), cx6, cy6, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity19, fx6, fy6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys27), cx6, cy6, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity19, fx6, fy6));
                 js.setLength(0);
             }
         }
@@ -5655,10 +5655,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".startIndex(%f)", startIndex));
+            js.append(String.format(Locale.US, ".startIndex(%s)", startIndex));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startIndex(%f);", startIndex));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startIndex(%s);", startIndex));
                 js.setLength(0);
             }
         }
@@ -5714,10 +5714,10 @@ Gets column by index or creates a new one if column doesn't exist yet.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".verticalOffset(%f)", verticalOffset));
+            js.append(String.format(Locale.US, ".verticalOffset(%s)", verticalOffset));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticalOffset(%f);", verticalOffset));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticalOffset(%s);", verticalOffset));
                 js.setLength(0);
             }
         }

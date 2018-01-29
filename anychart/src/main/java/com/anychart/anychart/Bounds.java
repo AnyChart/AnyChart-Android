@@ -56,10 +56,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".bottom(%f)", bottom));
+            js.append(String.format(Locale.US, ".bottom(%s)", bottom));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
                 js.setLength(0);
             }
         }
@@ -112,10 +112,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".height(%f)", height));
+            js.append(String.format(Locale.US, ".height(%s)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height));
                 js.setLength(0);
             }
         }
@@ -168,10 +168,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".left(%f)", left));
+            js.append(String.format(Locale.US, ".left(%s)", left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%f);", left));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s);", left));
                 js.setLength(0);
             }
         }
@@ -224,10 +224,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".maxHeight(%f)", maxHeight));
+            js.append(String.format(Locale.US, ".maxHeight(%s)", maxHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%f);", maxHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxHeight(%s);", maxHeight));
                 js.setLength(0);
             }
         }
@@ -280,10 +280,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".maxWidth(%f)", maxWidth));
+            js.append(String.format(Locale.US, ".maxWidth(%s)", maxWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%f);", maxWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxWidth(%s);", maxWidth));
                 js.setLength(0);
             }
         }
@@ -336,10 +336,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".minHeight(%f)", minHeight));
+            js.append(String.format(Locale.US, ".minHeight(%s)", minHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight));
                 js.setLength(0);
             }
         }
@@ -392,10 +392,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".minWidth(%f)", minWidth));
+            js.append(String.format(Locale.US, ".minWidth(%s)", minWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%f);", minWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minWidth(%s);", minWidth));
                 js.setLength(0);
             }
         }
@@ -448,10 +448,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".right(%f)", right));
+            js.append(String.format(Locale.US, ".right(%s)", right));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%f);", right));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s);", right));
                 js.setLength(0);
             }
         }
@@ -658,11 +658,11 @@ public class Bounds extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setToRect" + ++variableIndex + " = " + jsBase + ".toRect(%f, %f, %f, %f);", parentLeftOrRect, parentTop, parentWidth, parentHeight));
+            js.append(String.format(Locale.US, "var setToRect" + ++variableIndex + " = " + jsBase + ".toRect(%s, %s, %s, %s);", parentLeftOrRect, parentTop, parentWidth, parentHeight));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%f, %f, %f, %f);", parentLeftOrRect, parentTop, parentWidth, parentHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%s, %s, %s, %s);", parentLeftOrRect, parentTop, parentWidth, parentHeight));
                 js.setLength(0);
             }
         }
@@ -706,11 +706,11 @@ public class Bounds extends CoreBase {
                 isChain = false;
             }
             js.append(parentLeftOrRect1.generateJs());
-            js.append(String.format(Locale.US, "var setToRect1" + ++variableIndex + " = " + jsBase + ".toRect(%s, %f, %f, %f);", ((parentLeftOrRect1 != null) ? parentLeftOrRect1.getJsBase() : "null"), parentTop, parentWidth, parentHeight));
+            js.append(String.format(Locale.US, "var setToRect1" + ++variableIndex + " = " + jsBase + ".toRect(%s, %s, %s, %s);", ((parentLeftOrRect1 != null) ? parentLeftOrRect1.getJsBase() : "null"), parentTop, parentWidth, parentHeight));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f);", ((parentLeftOrRect1 != null) ? parentLeftOrRect1.getJsBase() : "null"), parentTop, parentWidth, parentHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%s, %s, %s, %s);", ((parentLeftOrRect1 != null) ? parentLeftOrRect1.getJsBase() : "null"), parentTop, parentWidth, parentHeight));
                 js.setLength(0);
             }
         }
@@ -754,11 +754,11 @@ public class Bounds extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setToRect2" + ++variableIndex + " = " + jsBase + ".toRect(%s, %f, %f, %f);", wrapQuotes(parentLeftOrRect2), parentTop, parentWidth, parentHeight));
+            js.append(String.format(Locale.US, "var setToRect2" + ++variableIndex + " = " + jsBase + ".toRect(%s, %s, %s, %s);", wrapQuotes(parentLeftOrRect2), parentTop, parentWidth, parentHeight));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%s, %f, %f, %f);", wrapQuotes(parentLeftOrRect2), parentTop, parentWidth, parentHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toRect(%s, %s, %s, %s);", wrapQuotes(parentLeftOrRect2), parentTop, parentWidth, parentHeight));
                 js.setLength(0);
             }
         }
@@ -796,10 +796,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".top(%f)", top));
+            js.append(String.format(Locale.US, ".top(%s)", top));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%f);", top));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s);", top));
                 js.setLength(0);
             }
         }
@@ -854,10 +854,10 @@ public class Bounds extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".width(%f)", width2));
+            js.append(String.format(Locale.US, ".width(%s)", width2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width2));
                 js.setLength(0);
             }
         }

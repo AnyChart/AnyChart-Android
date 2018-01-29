@@ -267,10 +267,10 @@ As a getter falls back to stage bounds.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
+            js.append(String.format(Locale.US, ".parentBounds(%s, %s, %s, %s)", left, top, width, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBounds(%f, %f, %f, %f);", left, top, width, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
                 js.setLength(0);
             }
         }

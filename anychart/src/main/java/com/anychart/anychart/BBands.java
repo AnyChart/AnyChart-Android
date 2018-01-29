@@ -50,10 +50,10 @@ public class BBands extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".deviation(%f)", deviation));
+            js.append(String.format(Locale.US, ".deviation(%s)", deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".deviation(%f);", deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".deviation(%s);", deviation));
                 js.setLength(0);
             }
         }
@@ -215,10 +215,10 @@ public class BBands extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".period(%f)", period));
+            js.append(String.format(Locale.US, ".period(%s)", period));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%f);", period));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%s);", period));
                 js.setLength(0);
             }
         }

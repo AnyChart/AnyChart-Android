@@ -79,10 +79,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f)", wrapQuotes(color), opacity));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f);", wrapQuotes(color), opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s);", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -127,10 +127,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %b);", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -168,10 +168,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode1.generateJs());
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -209,10 +209,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -250,10 +250,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -291,10 +291,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode1.generateJs());
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -332,10 +332,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -391,10 +391,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode3.generateJs());
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -442,10 +442,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode3.generateJs());
-            js.append(String.format(Locale.US, ".backgroundFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".backgroundFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".backgroundFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -555,10 +555,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baseBarHeight(%f)", baseBarHeight1));
+            js.append(String.format(Locale.US, ".baseBarHeight(%s)", baseBarHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseBarHeight(%f);", baseBarHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseBarHeight(%s);", baseBarHeight1));
                 js.setLength(0);
             }
         }
@@ -611,10 +611,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baseBarOffset(%f)", baseBarOffset1));
+            js.append(String.format(Locale.US, ".baseBarOffset(%s)", baseBarOffset1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseBarOffset(%f);", baseBarOffset1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseBarOffset(%s);", baseBarOffset1));
                 js.setLength(0);
             }
         }
@@ -729,10 +729,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baseFill(%s, %f)", wrapQuotes(color1), opacity3));
+            js.append(String.format(Locale.US, ".baseFill(%s, %s)", wrapQuotes(color1), opacity3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %f);", wrapQuotes(color1), opacity3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %s);", wrapQuotes(color1), opacity3));
                 js.setLength(0);
             }
         }
@@ -791,10 +791,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %b)", arrayToString(keys4), angle1, opacity4, mode4));
+            js.append(String.format(Locale.US, ".baseFill(%s, %s, %s, %b)", arrayToString(keys4), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %f, %f, %b);", arrayToString(keys4), angle1, opacity4, mode4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %s, %s, %b);", arrayToString(keys4), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -846,10 +846,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode5.generateJs());
-            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".baseFill(%s, %s, %s, %s)", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %s, %s, %s);", arrayToString(keys4), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -901,10 +901,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
+            js.append(String.format(Locale.US, ".baseFill(%s, %s, %s, %s)", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %f, %f, %s);", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %s, %s, %s);", arrayToString(keys4), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -956,10 +956,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
+            js.append(String.format(Locale.US, ".baseFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys5), angle1, opacity4, mode4));
                 js.setLength(0);
             }
         }
@@ -1011,10 +1011,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode5.generateJs());
-            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".baseFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, ((mode5 != null) ? mode5.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1066,10 +1066,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
+            js.append(String.format(Locale.US, ".baseFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys5), angle1, opacity4, wrapQuotes(mode6)));
                 js.setLength(0);
             }
         }
@@ -1148,10 +1148,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode7.generateJs());
-            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+            js.append(String.format(Locale.US, ".baseFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1222,10 +1222,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode7.generateJs());
-            js.append(String.format(Locale.US, ".baseFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+            js.append(String.format(Locale.US, ".baseFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.getJsBase() : "null"), opacity5, fx1, fy1));
                 js.setLength(0);
             }
         }
@@ -1335,10 +1335,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", ((baseStroke != null) ? baseStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".baseStroke(%s, %s, %s, %s, %s)", ((baseStroke != null) ? baseStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseStroke(%s, %f, %s, %s, %s);", ((baseStroke != null) ? baseStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseStroke(%s, %s, %s, %s, %s);", ((baseStroke != null) ? baseStroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1372,10 +1372,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", ((baseStroke1 != null) ? baseStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".baseStroke(%s, %s, %s, %s, %s)", ((baseStroke1 != null) ? baseStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseStroke(%s, %f, %s, %s, %s);", ((baseStroke1 != null) ? baseStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseStroke(%s, %s, %s, %s, %s);", ((baseStroke1 != null) ? baseStroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1409,10 +1409,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baseStroke(%s, %f, %s, %s, %s)", wrapQuotes(baseStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".baseStroke(%s, %s, %s, %s, %s)", wrapQuotes(baseStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseStroke(%s, %f, %s, %s, %s);", wrapQuotes(baseStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baseStroke(%s, %s, %s, %s, %s);", wrapQuotes(baseStroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -1546,10 +1546,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baselineBarHeight(%f)", baselineBarHeight1));
+            js.append(String.format(Locale.US, ".baselineBarHeight(%s)", baselineBarHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineBarHeight(%f);", baselineBarHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineBarHeight(%s);", baselineBarHeight1));
                 js.setLength(0);
             }
         }
@@ -1602,10 +1602,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baselineBarOffset(%f)", baselineBarOffset1));
+            js.append(String.format(Locale.US, ".baselineBarOffset(%s)", baselineBarOffset1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineBarOffset(%f);", baselineBarOffset1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineBarOffset(%s);", baselineBarOffset1));
                 js.setLength(0);
             }
         }
@@ -1724,10 +1724,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baselineFill(%s, %f)", wrapQuotes(color2), opacity6));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %s)", wrapQuotes(color2), opacity6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %f);", wrapQuotes(color2), opacity6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %s);", wrapQuotes(color2), opacity6));
                 js.setLength(0);
             }
         }
@@ -1798,10 +1798,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %b)", arrayToString(keys8), angle2, opacity7, mode8));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %s, %b)", arrayToString(keys8), angle2, opacity7, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %f, %f, %b);", arrayToString(keys8), angle2, opacity7, mode8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %s, %s, %b);", arrayToString(keys8), angle2, opacity7, mode8));
                 js.setLength(0);
             }
         }
@@ -1865,10 +1865,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode9.generateJs());
-            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %s, %s)", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %f, %f, %s);", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %s, %s, %s);", arrayToString(keys8), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -1932,10 +1932,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s)", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %s, %s)", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %f, %f, %s);", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %s, %s, %s);", arrayToString(keys8), angle2, opacity7, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -1999,10 +1999,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys9), angle2, opacity7, mode8));
                 js.setLength(0);
             }
         }
@@ -2066,10 +2066,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode9.generateJs());
-            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys9), angle2, opacity7, ((mode9 != null) ? mode9.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2133,10 +2133,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys9), angle2, opacity7, wrapQuotes(mode10)));
                 js.setLength(0);
             }
         }
@@ -2230,10 +2230,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode11.generateJs());
-            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys10), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -2319,10 +2319,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode11.generateJs());
-            js.append(String.format(Locale.US, ".baselineFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
+            js.append(String.format(Locale.US, ".baselineFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys11), cx2, cy2, ((mode11 != null) ? mode11.getJsBase() : "null"), opacity8, fx2, fy2));
                 js.setLength(0);
             }
         }
@@ -2444,10 +2444,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", ((baselineStroke != null) ? baselineStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".baselineStroke(%s, %s, %s, %s, %s)", ((baselineStroke != null) ? baselineStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineStroke(%s, %f, %s, %s, %s);", ((baselineStroke != null) ? baselineStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineStroke(%s, %s, %s, %s, %s);", ((baselineStroke != null) ? baselineStroke.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2493,10 +2493,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", ((baselineStroke1 != null) ? baselineStroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".baselineStroke(%s, %s, %s, %s, %s)", ((baselineStroke1 != null) ? baselineStroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineStroke(%s, %f, %s, %s, %s);", ((baselineStroke1 != null) ? baselineStroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineStroke(%s, %s, %s, %s, %s);", ((baselineStroke1 != null) ? baselineStroke1.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2542,10 +2542,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".baselineStroke(%s, %f, %s, %s, %s)", wrapQuotes(baselineStroke2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".baselineStroke(%s, %s, %s, %s, %s)", wrapQuotes(baselineStroke2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineStroke(%s, %f, %s, %s, %s);", wrapQuotes(baselineStroke2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".baselineStroke(%s, %s, %s, %s, %s);", wrapQuotes(baselineStroke2), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2679,10 +2679,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(opacityOrMode.generateJs());
-            js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", ((connectorFill != null) ? connectorFill.generateJs() : "null"), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
+            js.append(String.format(Locale.US, ".connectorFill(%s, %s, %s, %s, %s, %s, %s)", ((connectorFill != null) ? connectorFill.generateJs() : "null"), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorFill(%s, %f, %f, %s, %f, %f, %f);", ((connectorFill != null) ? connectorFill.generateJs() : "null"), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorFill(%s, %s, %s, %s, %s, %s, %s);", ((connectorFill != null) ? connectorFill.generateJs() : "null"), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -2751,10 +2751,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(opacityOrMode.generateJs());
-            js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(connectorFill1), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
+            js.append(String.format(Locale.US, ".connectorFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(connectorFill1), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(connectorFill1), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(connectorFill1), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -2823,10 +2823,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(opacityOrMode.generateJs());
-            js.append(String.format(Locale.US, ".connectorFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(connectorFill2), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
+            js.append(String.format(Locale.US, ".connectorFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(connectorFill2), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(connectorFill2), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(connectorFill2), cx3, cy3, ((opacityOrMode != null) ? opacityOrMode.getJsBase() : "null"), opacity9, fx3, fy3));
                 js.setLength(0);
             }
         }
@@ -2883,10 +2883,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", ((connectorPreviewStroke != null) ? connectorPreviewStroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %s, %s, %s, %s)", ((connectorPreviewStroke != null) ? connectorPreviewStroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %f, %s, %s, %s);", ((connectorPreviewStroke != null) ? connectorPreviewStroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", ((connectorPreviewStroke != null) ? connectorPreviewStroke.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2936,10 +2936,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", ((connectorPreviewStroke1 != null) ? connectorPreviewStroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %s, %s, %s, %s)", ((connectorPreviewStroke1 != null) ? connectorPreviewStroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %f, %s, %s, %s);", ((connectorPreviewStroke1 != null) ? connectorPreviewStroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", ((connectorPreviewStroke1 != null) ? connectorPreviewStroke1.generateJs() : "null"), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -2989,10 +2989,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorPreviewStroke2), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".connectorPreviewStroke(%s, %s, %s, %s, %s)", wrapQuotes(connectorPreviewStroke2), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %f, %s, %s, %s);", wrapQuotes(connectorPreviewStroke2), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorPreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(connectorPreviewStroke2), thickness2, wrapQuotes(dashpattern2), ((lineJoin2 != null) ? lineJoin2.generateJs() : "null"), ((lineCap2 != null) ? lineCap2.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3053,10 +3053,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".connectorStroke(%s, %s, %s, %s, %s)", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorStroke(%s, %f, %s, %s, %s);", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorStroke(%s, %s, %s, %s, %s);", ((connectorStroke != null) ? connectorStroke.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3110,10 +3110,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".connectorStroke(%s, %s, %s, %s, %s)", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorStroke(%s, %f, %s, %s, %s);", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorStroke(%s, %s, %s, %s, %s);", ((connectorStroke1 != null) ? connectorStroke1.generateJs() : "null"), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3167,10 +3167,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".connectorStroke(%s, %f, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".connectorStroke(%s, %s, %s, %s, %s)", wrapQuotes(connectorStroke2), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorStroke(%s, %f, %s, %s, %s);", wrapQuotes(connectorStroke2), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".connectorStroke(%s, %s, %s, %s, %s);", wrapQuotes(connectorStroke2), thickness3, wrapQuotes(dashpattern3), ((lineJoin3 != null) ? lineJoin3.generateJs() : "null"), ((lineCap3 != null) ? lineCap3.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3238,10 +3238,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f)", wrapQuotes(color3), opacity10));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s)", wrapQuotes(color3), opacity10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %f);", wrapQuotes(color3), opacity10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s);", wrapQuotes(color3), opacity10));
                 js.setLength(0);
             }
         }
@@ -3325,10 +3325,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %b)", arrayToString(keys12), angle3, opacity11, mode12));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %s, %b)", arrayToString(keys12), angle3, opacity11, mode12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %f, %f, %b);", arrayToString(keys12), angle3, opacity11, mode12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s, %s, %b);", arrayToString(keys12), angle3, opacity11, mode12));
                 js.setLength(0);
             }
         }
@@ -3405,10 +3405,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode13.generateJs());
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity11, ((mode13 != null) ? mode13.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %s, %s)", arrayToString(keys12), angle3, opacity11, ((mode13 != null) ? mode13.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %f, %f, %s);", arrayToString(keys12), angle3, opacity11, ((mode13 != null) ? mode13.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s, %s, %s);", arrayToString(keys12), angle3, opacity11, ((mode13 != null) ? mode13.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3485,10 +3485,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s)", arrayToString(keys12), angle3, opacity11, wrapQuotes(mode14)));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %s, %s)", arrayToString(keys12), angle3, opacity11, wrapQuotes(mode14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %f, %f, %s);", arrayToString(keys12), angle3, opacity11, wrapQuotes(mode14)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s, %s, %s);", arrayToString(keys12), angle3, opacity11, wrapQuotes(mode14)));
                 js.setLength(0);
             }
         }
@@ -3565,10 +3565,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys13), angle3, opacity11, mode12));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys13), angle3, opacity11, mode12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys13), angle3, opacity11, mode12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys13), angle3, opacity11, mode12));
                 js.setLength(0);
             }
         }
@@ -3645,10 +3645,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode13.generateJs());
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity11, ((mode13 != null) ? mode13.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity11, ((mode13 != null) ? mode13.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys13), angle3, opacity11, ((mode13 != null) ? mode13.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys13), angle3, opacity11, ((mode13 != null) ? mode13.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -3725,10 +3725,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity11, wrapQuotes(mode14)));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys13), angle3, opacity11, wrapQuotes(mode14)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys13), angle3, opacity11, wrapQuotes(mode14)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys13), angle3, opacity11, wrapQuotes(mode14)));
                 js.setLength(0);
             }
         }
@@ -3842,10 +3842,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode15.generateJs());
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys14), cx4, cy4, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity12, fx4, fy4));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys14), cx4, cy4, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity12, fx4, fy4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys14), cx4, cy4, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity12, fx4, fy4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys14), cx4, cy4, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity12, fx4, fy4));
                 js.setLength(0);
             }
         }
@@ -3951,10 +3951,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode15.generateJs());
-            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys15), cx4, cy4, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity12, fx4, fy4));
+            js.append(String.format(Locale.US, ".editConnectorThumbFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys15), cx4, cy4, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity12, fx4, fy4));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys15), cx4, cy4, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity12, fx4, fy4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys15), cx4, cy4, ((mode15 != null) ? mode15.getJsBase() : "null"), opacity12, fx4, fy4));
                 js.setLength(0);
             }
         }
@@ -4020,10 +4020,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", ((editConnectorThumbStroke != null) ? editConnectorThumbStroke.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %s, %s, %s, %s)", ((editConnectorThumbStroke != null) ? editConnectorThumbStroke.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %f, %s, %s, %s);", ((editConnectorThumbStroke != null) ? editConnectorThumbStroke.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %s, %s, %s, %s);", ((editConnectorThumbStroke != null) ? editConnectorThumbStroke.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4081,10 +4081,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", ((editConnectorThumbStroke1 != null) ? editConnectorThumbStroke1.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %s, %s, %s, %s)", ((editConnectorThumbStroke1 != null) ? editConnectorThumbStroke1.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %f, %s, %s, %s);", ((editConnectorThumbStroke1 != null) ? editConnectorThumbStroke1.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %s, %s, %s, %s);", ((editConnectorThumbStroke1 != null) ? editConnectorThumbStroke1.generateJs() : "null"), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4142,10 +4142,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %f, %s, %s, %s)", wrapQuotes(editConnectorThumbStroke2), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editConnectorThumbStroke(%s, %s, %s, %s, %s)", wrapQuotes(editConnectorThumbStroke2), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %f, %s, %s, %s);", wrapQuotes(editConnectorThumbStroke2), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editConnectorThumbStroke(%s, %s, %s, %s, %s);", wrapQuotes(editConnectorThumbStroke2), thickness4, wrapQuotes(dashpattern4), ((lineJoin4 != null) ? lineJoin4.generateJs() : "null"), ((lineCap4 != null) ? lineCap4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -4167,10 +4167,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editFinishConnectorMarkerHorizontalOffset(%f)", editFinishConnectorMarkerHorizontalOffset));
+            js.append(String.format(Locale.US, ".editFinishConnectorMarkerHorizontalOffset(%s)", editFinishConnectorMarkerHorizontalOffset));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerHorizontalOffset(%f);", editFinishConnectorMarkerHorizontalOffset));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerHorizontalOffset(%s);", editFinishConnectorMarkerHorizontalOffset));
                 js.setLength(0);
             }
         }
@@ -4192,10 +4192,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editFinishConnectorMarkerSize(%f)", editFinishConnectorMarkerSize));
+            js.append(String.format(Locale.US, ".editFinishConnectorMarkerSize(%s)", editFinishConnectorMarkerSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerSize(%f);", editFinishConnectorMarkerSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerSize(%s);", editFinishConnectorMarkerSize));
                 js.setLength(0);
             }
         }
@@ -4273,10 +4273,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editFinishConnectorMarkerVerticalOffset(%f)", editFinishConnectorMarkerVerticalOffset));
+            js.append(String.format(Locale.US, ".editFinishConnectorMarkerVerticalOffset(%s)", editFinishConnectorMarkerVerticalOffset));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerVerticalOffset(%f);", editFinishConnectorMarkerVerticalOffset));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editFinishConnectorMarkerVerticalOffset(%s);", editFinishConnectorMarkerVerticalOffset));
                 js.setLength(0);
             }
         }
@@ -4348,10 +4348,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f)", wrapQuotes(color4), opacity13));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s)", wrapQuotes(color4), opacity13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %f);", wrapQuotes(color4), opacity13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s);", wrapQuotes(color4), opacity13));
                 js.setLength(0);
             }
         }
@@ -4447,10 +4447,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %b)", arrayToString(keys16), angle4, opacity14, mode16));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %s, %b)", arrayToString(keys16), angle4, opacity14, mode16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %f, %f, %b);", arrayToString(keys16), angle4, opacity14, mode16));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s, %s, %b);", arrayToString(keys16), angle4, opacity14, mode16));
                 js.setLength(0);
             }
         }
@@ -4539,10 +4539,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode17.generateJs());
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s)", arrayToString(keys16), angle4, opacity14, ((mode17 != null) ? mode17.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %s, %s)", arrayToString(keys16), angle4, opacity14, ((mode17 != null) ? mode17.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %f, %f, %s);", arrayToString(keys16), angle4, opacity14, ((mode17 != null) ? mode17.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s, %s, %s);", arrayToString(keys16), angle4, opacity14, ((mode17 != null) ? mode17.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -4631,10 +4631,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s)", arrayToString(keys16), angle4, opacity14, wrapQuotes(mode18)));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %s, %s)", arrayToString(keys16), angle4, opacity14, wrapQuotes(mode18)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %f, %f, %s);", arrayToString(keys16), angle4, opacity14, wrapQuotes(mode18)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s, %s, %s);", arrayToString(keys16), angle4, opacity14, wrapQuotes(mode18)));
                 js.setLength(0);
             }
         }
@@ -4723,10 +4723,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys17), angle4, opacity14, mode16));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys17), angle4, opacity14, mode16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys17), angle4, opacity14, mode16));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys17), angle4, opacity14, mode16));
                 js.setLength(0);
             }
         }
@@ -4815,10 +4815,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode17.generateJs());
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity14, ((mode17 != null) ? mode17.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity14, ((mode17 != null) ? mode17.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys17), angle4, opacity14, ((mode17 != null) ? mode17.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys17), angle4, opacity14, ((mode17 != null) ? mode17.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -4907,10 +4907,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity14, wrapQuotes(mode18)));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys17), angle4, opacity14, wrapQuotes(mode18)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys17), angle4, opacity14, wrapQuotes(mode18)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys17), angle4, opacity14, wrapQuotes(mode18)));
                 js.setLength(0);
             }
         }
@@ -5039,10 +5039,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode19.generateJs());
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys18), cx5, cy5, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity15, fx5, fy5));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys18), cx5, cy5, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity15, fx5, fy5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys18), cx5, cy5, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity15, fx5, fy5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys18), cx5, cy5, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity15, fx5, fy5));
                 js.setLength(0);
             }
         }
@@ -5163,10 +5163,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode19.generateJs());
-            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys19), cx5, cy5, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity15, fx5, fy5));
+            js.append(String.format(Locale.US, ".editIntervalThumbFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys19), cx5, cy5, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity15, fx5, fy5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys19), cx5, cy5, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity15, fx5, fy5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys19), cx5, cy5, ((mode19 != null) ? mode19.getJsBase() : "null"), opacity15, fx5, fy5));
                 js.setLength(0);
             }
         }
@@ -5236,10 +5236,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", ((editIntervalThumbStroke != null) ? editIntervalThumbStroke.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %s, %s, %s, %s)", ((editIntervalThumbStroke != null) ? editIntervalThumbStroke.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %f, %s, %s, %s);", ((editIntervalThumbStroke != null) ? editIntervalThumbStroke.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %s, %s, %s, %s);", ((editIntervalThumbStroke != null) ? editIntervalThumbStroke.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5301,10 +5301,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", ((editIntervalThumbStroke1 != null) ? editIntervalThumbStroke1.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %s, %s, %s, %s)", ((editIntervalThumbStroke1 != null) ? editIntervalThumbStroke1.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %f, %s, %s, %s);", ((editIntervalThumbStroke1 != null) ? editIntervalThumbStroke1.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %s, %s, %s, %s);", ((editIntervalThumbStroke1 != null) ? editIntervalThumbStroke1.generateJs() : "null"), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5366,10 +5366,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %f, %s, %s, %s)", wrapQuotes(editIntervalThumbStroke2), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editIntervalThumbStroke(%s, %s, %s, %s, %s)", wrapQuotes(editIntervalThumbStroke2), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %f, %s, %s, %s);", wrapQuotes(editIntervalThumbStroke2), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalThumbStroke(%s, %s, %s, %s, %s);", wrapQuotes(editIntervalThumbStroke2), thickness5, wrapQuotes(dashpattern5), ((lineJoin5 != null) ? lineJoin5.generateJs() : "null"), ((lineCap5 != null) ? lineCap5.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -5391,10 +5391,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editIntervalWidth(%f)", editIntervalWidth));
+            js.append(String.format(Locale.US, ".editIntervalWidth(%s)", editIntervalWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalWidth(%f);", editIntervalWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editIntervalWidth(%s);", editIntervalWidth));
                 js.setLength(0);
             }
         }
@@ -5470,10 +5470,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f)", wrapQuotes(color5), opacity16));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s)", wrapQuotes(color5), opacity16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %f);", wrapQuotes(color5), opacity16));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s);", wrapQuotes(color5), opacity16));
                 js.setLength(0);
             }
         }
@@ -5581,10 +5581,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %b)", arrayToString(keys20), angle5, opacity17, mode20));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %s, %b)", arrayToString(keys20), angle5, opacity17, mode20));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %f, %f, %b);", arrayToString(keys20), angle5, opacity17, mode20));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s, %s, %b);", arrayToString(keys20), angle5, opacity17, mode20));
                 js.setLength(0);
             }
         }
@@ -5685,10 +5685,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode21.generateJs());
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s)", arrayToString(keys20), angle5, opacity17, ((mode21 != null) ? mode21.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %s, %s)", arrayToString(keys20), angle5, opacity17, ((mode21 != null) ? mode21.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %f, %f, %s);", arrayToString(keys20), angle5, opacity17, ((mode21 != null) ? mode21.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s, %s, %s);", arrayToString(keys20), angle5, opacity17, ((mode21 != null) ? mode21.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -5789,10 +5789,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s)", arrayToString(keys20), angle5, opacity17, wrapQuotes(mode22)));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %s, %s)", arrayToString(keys20), angle5, opacity17, wrapQuotes(mode22)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %f, %f, %s);", arrayToString(keys20), angle5, opacity17, wrapQuotes(mode22)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s, %s, %s);", arrayToString(keys20), angle5, opacity17, wrapQuotes(mode22)));
                 js.setLength(0);
             }
         }
@@ -5893,10 +5893,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys21), angle5, opacity17, mode20));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys21), angle5, opacity17, mode20));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys21), angle5, opacity17, mode20));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys21), angle5, opacity17, mode20));
                 js.setLength(0);
             }
         }
@@ -5997,10 +5997,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode21.generateJs());
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys21), angle5, opacity17, ((mode21 != null) ? mode21.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys21), angle5, opacity17, ((mode21 != null) ? mode21.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys21), angle5, opacity17, ((mode21 != null) ? mode21.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys21), angle5, opacity17, ((mode21 != null) ? mode21.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -6101,10 +6101,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys21), angle5, opacity17, wrapQuotes(mode22)));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys21), angle5, opacity17, wrapQuotes(mode22)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys21), angle5, opacity17, wrapQuotes(mode22)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys21), angle5, opacity17, wrapQuotes(mode22)));
                 js.setLength(0);
             }
         }
@@ -6248,10 +6248,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode23.generateJs());
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys22), cx6, cy6, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity18, fx6, fy6));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys22), cx6, cy6, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity18, fx6, fy6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys22), cx6, cy6, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity18, fx6, fy6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys22), cx6, cy6, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity18, fx6, fy6));
                 js.setLength(0);
             }
         }
@@ -6387,10 +6387,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode23.generateJs());
-            js.append(String.format(Locale.US, ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys23), cx6, cy6, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity18, fx6, fy6));
+            js.append(String.format(Locale.US, ".editPreviewFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys23), cx6, cy6, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity18, fx6, fy6));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys23), cx6, cy6, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity18, fx6, fy6));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys23), cx6, cy6, ((mode23 != null) ? mode23.getJsBase() : "null"), opacity18, fx6, fy6));
                 js.setLength(0);
             }
         }
@@ -6464,10 +6464,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", ((editPreviewStroke != null) ? editPreviewStroke.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editPreviewStroke(%s, %s, %s, %s, %s)", ((editPreviewStroke != null) ? editPreviewStroke.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %f, %s, %s, %s);", ((editPreviewStroke != null) ? editPreviewStroke.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %s, %s, %s, %s);", ((editPreviewStroke != null) ? editPreviewStroke.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6533,10 +6533,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", ((editPreviewStroke1 != null) ? editPreviewStroke1.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editPreviewStroke(%s, %s, %s, %s, %s)", ((editPreviewStroke1 != null) ? editPreviewStroke1.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %f, %s, %s, %s);", ((editPreviewStroke1 != null) ? editPreviewStroke1.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %s, %s, %s, %s);", ((editPreviewStroke1 != null) ? editPreviewStroke1.generateJs() : "null"), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6602,10 +6602,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editPreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(editPreviewStroke2), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editPreviewStroke(%s, %s, %s, %s, %s)", wrapQuotes(editPreviewStroke2), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %f, %s, %s, %s);", wrapQuotes(editPreviewStroke2), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editPreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(editPreviewStroke2), thickness6, wrapQuotes(dashpattern6), ((lineJoin6 != null) ? lineJoin6.generateJs() : "null"), ((lineCap6 != null) ? lineCap6.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -6685,10 +6685,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %f)", wrapQuotes(color6), opacity19));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %s)", wrapQuotes(color6), opacity19));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %f);", wrapQuotes(color6), opacity19));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s);", wrapQuotes(color6), opacity19));
                 js.setLength(0);
             }
         }
@@ -6808,10 +6808,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %b)", arrayToString(keys24), angle6, opacity20, mode24));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %s, %b)", arrayToString(keys24), angle6, opacity20, mode24));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %f, %f, %b);", arrayToString(keys24), angle6, opacity20, mode24));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s, %s, %b);", arrayToString(keys24), angle6, opacity20, mode24));
                 js.setLength(0);
             }
         }
@@ -6924,10 +6924,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode25.generateJs());
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s)", arrayToString(keys24), angle6, opacity20, ((mode25 != null) ? mode25.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %s, %s)", arrayToString(keys24), angle6, opacity20, ((mode25 != null) ? mode25.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %f, %f, %s);", arrayToString(keys24), angle6, opacity20, ((mode25 != null) ? mode25.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s, %s, %s);", arrayToString(keys24), angle6, opacity20, ((mode25 != null) ? mode25.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -7040,10 +7040,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s)", arrayToString(keys24), angle6, opacity20, wrapQuotes(mode26)));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %s, %s)", arrayToString(keys24), angle6, opacity20, wrapQuotes(mode26)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %f, %f, %s);", arrayToString(keys24), angle6, opacity20, wrapQuotes(mode26)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s, %s, %s);", arrayToString(keys24), angle6, opacity20, wrapQuotes(mode26)));
                 js.setLength(0);
             }
         }
@@ -7156,10 +7156,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys25), angle6, opacity20, mode24));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys25), angle6, opacity20, mode24));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys25), angle6, opacity20, mode24));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys25), angle6, opacity20, mode24));
                 js.setLength(0);
             }
         }
@@ -7272,10 +7272,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode25.generateJs());
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys25), angle6, opacity20, ((mode25 != null) ? mode25.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys25), angle6, opacity20, ((mode25 != null) ? mode25.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys25), angle6, opacity20, ((mode25 != null) ? mode25.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys25), angle6, opacity20, ((mode25 != null) ? mode25.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -7388,10 +7388,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys25), angle6, opacity20, wrapQuotes(mode26)));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys25), angle6, opacity20, wrapQuotes(mode26)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys25), angle6, opacity20, wrapQuotes(mode26)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys25), angle6, opacity20, wrapQuotes(mode26)));
                 js.setLength(0);
             }
         }
@@ -7550,10 +7550,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode27.generateJs());
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys26), cx7, cy7, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity21, fx7, fy7));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys26), cx7, cy7, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity21, fx7, fy7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys26), cx7, cy7, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity21, fx7, fy7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys26), cx7, cy7, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity21, fx7, fy7));
                 js.setLength(0);
             }
         }
@@ -7704,10 +7704,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode27.generateJs());
-            js.append(String.format(Locale.US, ".editProgressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys27), cx7, cy7, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity21, fx7, fy7));
+            js.append(String.format(Locale.US, ".editProgressFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys27), cx7, cy7, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity21, fx7, fy7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys27), cx7, cy7, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity21, fx7, fy7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys27), cx7, cy7, ((mode27 != null) ? mode27.getJsBase() : "null"), opacity21, fx7, fy7));
                 js.setLength(0);
             }
         }
@@ -7785,10 +7785,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", ((editProgressStroke != null) ? editProgressStroke.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editProgressStroke(%s, %s, %s, %s, %s)", ((editProgressStroke != null) ? editProgressStroke.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %f, %s, %s, %s);", ((editProgressStroke != null) ? editProgressStroke.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %s, %s, %s, %s);", ((editProgressStroke != null) ? editProgressStroke.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7858,10 +7858,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", ((editProgressStroke1 != null) ? editProgressStroke1.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editProgressStroke(%s, %s, %s, %s, %s)", ((editProgressStroke1 != null) ? editProgressStroke1.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %f, %s, %s, %s);", ((editProgressStroke1 != null) ? editProgressStroke1.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %s, %s, %s, %s);", ((editProgressStroke1 != null) ? editProgressStroke1.generateJs() : "null"), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7931,10 +7931,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editProgressStroke(%s, %f, %s, %s, %s)", wrapQuotes(editProgressStroke2), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editProgressStroke(%s, %s, %s, %s, %s)", wrapQuotes(editProgressStroke2), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %f, %s, %s, %s);", wrapQuotes(editProgressStroke2), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editProgressStroke(%s, %s, %s, %s, %s);", wrapQuotes(editProgressStroke2), thickness7, wrapQuotes(dashpattern7), ((lineJoin7 != null) ? lineJoin7.generateJs() : "null"), ((lineCap7 != null) ? lineCap7.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -7956,10 +7956,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStartConnectorMarkerHorizontalOffset(%f)", editStartConnectorMarkerHorizontalOffset));
+            js.append(String.format(Locale.US, ".editStartConnectorMarkerHorizontalOffset(%s)", editStartConnectorMarkerHorizontalOffset));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerHorizontalOffset(%f);", editStartConnectorMarkerHorizontalOffset));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerHorizontalOffset(%s);", editStartConnectorMarkerHorizontalOffset));
                 js.setLength(0);
             }
         }
@@ -7981,10 +7981,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStartConnectorMarkerSize(%f)", editStartConnectorMarkerSize));
+            js.append(String.format(Locale.US, ".editStartConnectorMarkerSize(%s)", editStartConnectorMarkerSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerSize(%f);", editStartConnectorMarkerSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerSize(%s);", editStartConnectorMarkerSize));
                 js.setLength(0);
             }
         }
@@ -8062,10 +8062,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStartConnectorMarkerVerticalOffset(%f)", editStartConnectorMarkerVerticalOffset));
+            js.append(String.format(Locale.US, ".editStartConnectorMarkerVerticalOffset(%s)", editStartConnectorMarkerVerticalOffset));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerVerticalOffset(%f);", editStartConnectorMarkerVerticalOffset));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStartConnectorMarkerVerticalOffset(%s);", editStartConnectorMarkerVerticalOffset));
                 js.setLength(0);
             }
         }
@@ -8146,10 +8146,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s)", ((editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s);", ((editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", ((editStructurePreviewDashStroke != null) ? editStructurePreviewDashStroke.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -8223,10 +8223,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewDashStroke1 != null) ? editStructurePreviewDashStroke1.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s)", ((editStructurePreviewDashStroke1 != null) ? editStructurePreviewDashStroke1.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s);", ((editStructurePreviewDashStroke1 != null) ? editStructurePreviewDashStroke1.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", ((editStructurePreviewDashStroke1 != null) ? editStructurePreviewDashStroke1.generateJs() : "null"), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -8300,10 +8300,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s)", wrapQuotes(editStructurePreviewDashStroke2), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s)", wrapQuotes(editStructurePreviewDashStroke2), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %f, %s, %s, %s);", wrapQuotes(editStructurePreviewDashStroke2), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewDashStroke(%s, %s, %s, %s, %s);", wrapQuotes(editStructurePreviewDashStroke2), thickness8, wrapQuotes(dashpattern8), ((lineJoin8 != null) ? lineJoin8.generateJs() : "null"), ((lineCap8 != null) ? lineCap8.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -8387,10 +8387,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f)", wrapQuotes(color7), opacity22));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s)", wrapQuotes(color7), opacity22));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f);", wrapQuotes(color7), opacity22));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s);", wrapQuotes(color7), opacity22));
                 js.setLength(0);
             }
         }
@@ -8522,10 +8522,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %b)", arrayToString(keys28), angle7, opacity23, mode28));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %s, %b)", arrayToString(keys28), angle7, opacity23, mode28));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %b);", arrayToString(keys28), angle7, opacity23, mode28));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %b);", arrayToString(keys28), angle7, opacity23, mode28));
                 js.setLength(0);
             }
         }
@@ -8650,10 +8650,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode29.generateJs());
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToString(keys28), angle7, opacity23, ((mode29 != null) ? mode29.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %s, %s)", arrayToString(keys28), angle7, opacity23, ((mode29 != null) ? mode29.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %s);", arrayToString(keys28), angle7, opacity23, ((mode29 != null) ? mode29.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s);", arrayToString(keys28), angle7, opacity23, ((mode29 != null) ? mode29.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -8778,10 +8778,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToString(keys28), angle7, opacity23, wrapQuotes(mode30)));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %s, %s)", arrayToString(keys28), angle7, opacity23, wrapQuotes(mode30)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %s);", arrayToString(keys28), angle7, opacity23, wrapQuotes(mode30)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s);", arrayToString(keys28), angle7, opacity23, wrapQuotes(mode30)));
                 js.setLength(0);
             }
         }
@@ -8906,10 +8906,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys29), angle7, opacity23, mode28));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys29), angle7, opacity23, mode28));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys29), angle7, opacity23, mode28));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys29), angle7, opacity23, mode28));
                 js.setLength(0);
             }
         }
@@ -9034,10 +9034,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode29.generateJs());
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys29), angle7, opacity23, ((mode29 != null) ? mode29.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys29), angle7, opacity23, ((mode29 != null) ? mode29.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys29), angle7, opacity23, ((mode29 != null) ? mode29.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys29), angle7, opacity23, ((mode29 != null) ? mode29.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -9162,10 +9162,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys29), angle7, opacity23, wrapQuotes(mode30)));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys29), angle7, opacity23, wrapQuotes(mode30)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys29), angle7, opacity23, wrapQuotes(mode30)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys29), angle7, opacity23, wrapQuotes(mode30)));
                 js.setLength(0);
             }
         }
@@ -9339,10 +9339,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode31.generateJs());
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys30), cx8, cy8, ((mode31 != null) ? mode31.getJsBase() : "null"), opacity24, fx8, fy8));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys30), cx8, cy8, ((mode31 != null) ? mode31.getJsBase() : "null"), opacity24, fx8, fy8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys30), cx8, cy8, ((mode31 != null) ? mode31.getJsBase() : "null"), opacity24, fx8, fy8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys30), cx8, cy8, ((mode31 != null) ? mode31.getJsBase() : "null"), opacity24, fx8, fy8));
                 js.setLength(0);
             }
         }
@@ -9508,10 +9508,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode31.generateJs());
-            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys31), cx8, cy8, ((mode31 != null) ? mode31.getJsBase() : "null"), opacity24, fx8, fy8));
+            js.append(String.format(Locale.US, ".editStructurePreviewFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys31), cx8, cy8, ((mode31 != null) ? mode31.getJsBase() : "null"), opacity24, fx8, fy8));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys31), cx8, cy8, ((mode31 != null) ? mode31.getJsBase() : "null"), opacity24, fx8, fy8));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys31), cx8, cy8, ((mode31 != null) ? mode31.getJsBase() : "null"), opacity24, fx8, fy8));
                 js.setLength(0);
             }
         }
@@ -9597,10 +9597,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %s, %s, %s, %s)", ((editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %f, %s, %s, %s);", ((editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %s, %s, %s, %s);", ((editStructurePreviewStroke != null) ? editStructurePreviewStroke.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -9678,10 +9678,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", ((editStructurePreviewStroke1 != null) ? editStructurePreviewStroke1.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %s, %s, %s, %s)", ((editStructurePreviewStroke1 != null) ? editStructurePreviewStroke1.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %f, %s, %s, %s);", ((editStructurePreviewStroke1 != null) ? editStructurePreviewStroke1.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %s, %s, %s, %s);", ((editStructurePreviewStroke1 != null) ? editStructurePreviewStroke1.generateJs() : "null"), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -9759,10 +9759,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %f, %s, %s, %s)", wrapQuotes(editStructurePreviewStroke2), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".editStructurePreviewStroke(%s, %s, %s, %s, %s)", wrapQuotes(editStructurePreviewStroke2), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %f, %s, %s, %s);", wrapQuotes(editStructurePreviewStroke2), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".editStructurePreviewStroke(%s, %s, %s, %s, %s);", wrapQuotes(editStructurePreviewStroke2), thickness9, wrapQuotes(dashpattern9), ((lineJoin9 != null) ? lineJoin9.generateJs() : "null"), ((lineCap9 != null) ? lineCap9.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10000,10 +10000,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".lineMarker(%f, %s)", index, wrapQuotes(lineMarker2)));
+            js.append(String.format(Locale.US, ".lineMarker(%s, %s)", index, wrapQuotes(lineMarker2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineMarker(%f, %s);", index, wrapQuotes(lineMarker2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineMarker(%s, %s);", index, wrapQuotes(lineMarker2)));
                 js.setLength(0);
             }
         }
@@ -10033,10 +10033,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".lineMarker(%f, %b)", index, lineMarker3));
+            js.append(String.format(Locale.US, ".lineMarker(%s, %b)", index, lineMarker3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineMarker(%f, %b);", index, lineMarker3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineMarker(%s, %b);", index, lineMarker3));
                 js.setLength(0);
             }
         }
@@ -10066,10 +10066,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".lineMarker(%f, %s)", index, ((lineMarker4 != null) ? lineMarker4.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".lineMarker(%s, %s)", index, ((lineMarker4 != null) ? lineMarker4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineMarker(%f, %s);", index, ((lineMarker4 != null) ? lineMarker4.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineMarker(%s, %s);", index, ((lineMarker4 != null) ? lineMarker4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -10250,10 +10250,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %f)", wrapQuotes(color8), opacity25));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %s)", wrapQuotes(color8), opacity25));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %f);", wrapQuotes(color8), opacity25));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %s);", wrapQuotes(color8), opacity25));
                 js.setLength(0);
             }
         }
@@ -10397,10 +10397,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %b)", arrayToString(keys32), angle8, opacity26, mode32));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %s, %b)", arrayToString(keys32), angle8, opacity26, mode32));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %f, %f, %b);", arrayToString(keys32), angle8, opacity26, mode32));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %s, %s, %b);", arrayToString(keys32), angle8, opacity26, mode32));
                 js.setLength(0);
             }
         }
@@ -10537,10 +10537,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode33.generateJs());
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s)", arrayToString(keys32), angle8, opacity26, ((mode33 != null) ? mode33.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %s, %s)", arrayToString(keys32), angle8, opacity26, ((mode33 != null) ? mode33.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %f, %f, %s);", arrayToString(keys32), angle8, opacity26, ((mode33 != null) ? mode33.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %s, %s, %s);", arrayToString(keys32), angle8, opacity26, ((mode33 != null) ? mode33.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -10677,10 +10677,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s)", arrayToString(keys32), angle8, opacity26, wrapQuotes(mode34)));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %s, %s)", arrayToString(keys32), angle8, opacity26, wrapQuotes(mode34)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %f, %f, %s);", arrayToString(keys32), angle8, opacity26, wrapQuotes(mode34)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %s, %s, %s);", arrayToString(keys32), angle8, opacity26, wrapQuotes(mode34)));
                 js.setLength(0);
             }
         }
@@ -10817,10 +10817,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys33), angle8, opacity26, mode32));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys33), angle8, opacity26, mode32));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys33), angle8, opacity26, mode32));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys33), angle8, opacity26, mode32));
                 js.setLength(0);
             }
         }
@@ -10957,10 +10957,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode33.generateJs());
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys33), angle8, opacity26, ((mode33 != null) ? mode33.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys33), angle8, opacity26, ((mode33 != null) ? mode33.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys33), angle8, opacity26, ((mode33 != null) ? mode33.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys33), angle8, opacity26, ((mode33 != null) ? mode33.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -11097,10 +11097,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys33), angle8, opacity26, wrapQuotes(mode34)));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys33), angle8, opacity26, wrapQuotes(mode34)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys33), angle8, opacity26, wrapQuotes(mode34)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys33), angle8, opacity26, wrapQuotes(mode34)));
                 js.setLength(0);
             }
         }
@@ -11289,10 +11289,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode35.generateJs());
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys34), cx9, cy9, ((mode35 != null) ? mode35.getJsBase() : "null"), opacity27, fx9, fy9));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys34), cx9, cy9, ((mode35 != null) ? mode35.getJsBase() : "null"), opacity27, fx9, fy9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys34), cx9, cy9, ((mode35 != null) ? mode35.getJsBase() : "null"), opacity27, fx9, fy9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys34), cx9, cy9, ((mode35 != null) ? mode35.getJsBase() : "null"), opacity27, fx9, fy9));
                 js.setLength(0);
             }
         }
@@ -11473,10 +11473,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode35.generateJs());
-            js.append(String.format(Locale.US, ".milestoneFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys35), cx9, cy9, ((mode35 != null) ? mode35.getJsBase() : "null"), opacity27, fx9, fy9));
+            js.append(String.format(Locale.US, ".milestoneFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys35), cx9, cy9, ((mode35 != null) ? mode35.getJsBase() : "null"), opacity27, fx9, fy9));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys35), cx9, cy9, ((mode35 != null) ? mode35.getJsBase() : "null"), opacity27, fx9, fy9));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys35), cx9, cy9, ((mode35 != null) ? mode35.getJsBase() : "null"), opacity27, fx9, fy9));
                 js.setLength(0);
             }
         }
@@ -11530,10 +11530,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".milestoneHeight(%f)", milestoneHeight1));
+            js.append(String.format(Locale.US, ".milestoneHeight(%s)", milestoneHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneHeight(%f);", milestoneHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneHeight(%s);", milestoneHeight1));
                 js.setLength(0);
             }
         }
@@ -11654,10 +11654,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".milestoneOffset(%f)", milestoneOffset1));
+            js.append(String.format(Locale.US, ".milestoneOffset(%s)", milestoneOffset1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneOffset(%f);", milestoneOffset1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneOffset(%s);", milestoneOffset1));
                 js.setLength(0);
             }
         }
@@ -11801,10 +11801,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", ((milestoneStroke != null) ? milestoneStroke.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".milestoneStroke(%s, %s, %s, %s, %s)", ((milestoneStroke != null) ? milestoneStroke.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneStroke(%s, %f, %s, %s, %s);", ((milestoneStroke != null) ? milestoneStroke.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneStroke(%s, %s, %s, %s, %s);", ((milestoneStroke != null) ? milestoneStroke.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -11885,10 +11885,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", ((milestoneStroke1 != null) ? milestoneStroke1.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".milestoneStroke(%s, %s, %s, %s, %s)", ((milestoneStroke1 != null) ? milestoneStroke1.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneStroke(%s, %f, %s, %s, %s);", ((milestoneStroke1 != null) ? milestoneStroke1.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneStroke(%s, %s, %s, %s, %s);", ((milestoneStroke1 != null) ? milestoneStroke1.generateJs() : "null"), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -11969,10 +11969,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".milestoneStroke(%s, %f, %s, %s, %s)", wrapQuotes(milestoneStroke2), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".milestoneStroke(%s, %s, %s, %s, %s)", wrapQuotes(milestoneStroke2), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneStroke(%s, %f, %s, %s, %s);", wrapQuotes(milestoneStroke2), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".milestoneStroke(%s, %s, %s, %s, %s);", wrapQuotes(milestoneStroke2), thickness10, wrapQuotes(dashpattern10), ((lineJoin10 != null) ? lineJoin10.generateJs() : "null"), ((lineCap10 != null) ? lineCap10.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -12081,10 +12081,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".parentBarHeight(%f)", parentBarHeight1));
+            js.append(String.format(Locale.US, ".parentBarHeight(%s)", parentBarHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBarHeight(%f);", parentBarHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBarHeight(%s);", parentBarHeight1));
                 js.setLength(0);
             }
         }
@@ -12137,10 +12137,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".parentBarOffset(%f)", parentBarOffset1));
+            js.append(String.format(Locale.US, ".parentBarOffset(%s)", parentBarOffset1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBarOffset(%f);", parentBarOffset1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBarOffset(%s);", parentBarOffset1));
                 js.setLength(0);
             }
         }
@@ -12288,10 +12288,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".parentFill(%s, %f)", wrapQuotes(color9), opacity28));
+            js.append(String.format(Locale.US, ".parentFill(%s, %s)", wrapQuotes(color9), opacity28));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %f);", wrapQuotes(color9), opacity28));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %s);", wrapQuotes(color9), opacity28));
                 js.setLength(0);
             }
         }
@@ -12447,10 +12447,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %b)", arrayToString(keys36), angle9, opacity29, mode36));
+            js.append(String.format(Locale.US, ".parentFill(%s, %s, %s, %b)", arrayToString(keys36), angle9, opacity29, mode36));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %f, %f, %b);", arrayToString(keys36), angle9, opacity29, mode36));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %s, %s, %b);", arrayToString(keys36), angle9, opacity29, mode36));
                 js.setLength(0);
             }
         }
@@ -12599,10 +12599,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode37.generateJs());
-            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s)", arrayToString(keys36), angle9, opacity29, ((mode37 != null) ? mode37.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".parentFill(%s, %s, %s, %s)", arrayToString(keys36), angle9, opacity29, ((mode37 != null) ? mode37.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %f, %f, %s);", arrayToString(keys36), angle9, opacity29, ((mode37 != null) ? mode37.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %s, %s, %s);", arrayToString(keys36), angle9, opacity29, ((mode37 != null) ? mode37.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -12751,10 +12751,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s)", arrayToString(keys36), angle9, opacity29, wrapQuotes(mode38)));
+            js.append(String.format(Locale.US, ".parentFill(%s, %s, %s, %s)", arrayToString(keys36), angle9, opacity29, wrapQuotes(mode38)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %f, %f, %s);", arrayToString(keys36), angle9, opacity29, wrapQuotes(mode38)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %s, %s, %s);", arrayToString(keys36), angle9, opacity29, wrapQuotes(mode38)));
                 js.setLength(0);
             }
         }
@@ -12903,10 +12903,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys37), angle9, opacity29, mode36));
+            js.append(String.format(Locale.US, ".parentFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys37), angle9, opacity29, mode36));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys37), angle9, opacity29, mode36));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys37), angle9, opacity29, mode36));
                 js.setLength(0);
             }
         }
@@ -13055,10 +13055,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode37.generateJs());
-            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys37), angle9, opacity29, ((mode37 != null) ? mode37.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".parentFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys37), angle9, opacity29, ((mode37 != null) ? mode37.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys37), angle9, opacity29, ((mode37 != null) ? mode37.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys37), angle9, opacity29, ((mode37 != null) ? mode37.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -13207,10 +13207,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys37), angle9, opacity29, wrapQuotes(mode38)));
+            js.append(String.format(Locale.US, ".parentFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys37), angle9, opacity29, wrapQuotes(mode38)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys37), angle9, opacity29, wrapQuotes(mode38)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys37), angle9, opacity29, wrapQuotes(mode38)));
                 js.setLength(0);
             }
         }
@@ -13414,10 +13414,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode39.generateJs());
-            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys38), cx10, cy10, ((mode39 != null) ? mode39.getJsBase() : "null"), opacity30, fx10, fy10));
+            js.append(String.format(Locale.US, ".parentFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys38), cx10, cy10, ((mode39 != null) ? mode39.getJsBase() : "null"), opacity30, fx10, fy10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys38), cx10, cy10, ((mode39 != null) ? mode39.getJsBase() : "null"), opacity30, fx10, fy10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys38), cx10, cy10, ((mode39 != null) ? mode39.getJsBase() : "null"), opacity30, fx10, fy10));
                 js.setLength(0);
             }
         }
@@ -13613,10 +13613,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode39.generateJs());
-            js.append(String.format(Locale.US, ".parentFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys39), cx10, cy10, ((mode39 != null) ? mode39.getJsBase() : "null"), opacity30, fx10, fy10));
+            js.append(String.format(Locale.US, ".parentFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys39), cx10, cy10, ((mode39 != null) ? mode39.getJsBase() : "null"), opacity30, fx10, fy10));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys39), cx10, cy10, ((mode39 != null) ? mode39.getJsBase() : "null"), opacity30, fx10, fy10));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys39), cx10, cy10, ((mode39 != null) ? mode39.getJsBase() : "null"), opacity30, fx10, fy10));
                 js.setLength(0);
             }
         }
@@ -13778,10 +13778,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", ((parentStroke != null) ? parentStroke.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".parentStroke(%s, %s, %s, %s, %s)", ((parentStroke != null) ? parentStroke.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentStroke(%s, %f, %s, %s, %s);", ((parentStroke != null) ? parentStroke.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentStroke(%s, %s, %s, %s, %s);", ((parentStroke != null) ? parentStroke.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -13867,10 +13867,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", ((parentStroke1 != null) ? parentStroke1.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".parentStroke(%s, %s, %s, %s, %s)", ((parentStroke1 != null) ? parentStroke1.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentStroke(%s, %f, %s, %s, %s);", ((parentStroke1 != null) ? parentStroke1.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentStroke(%s, %s, %s, %s, %s);", ((parentStroke1 != null) ? parentStroke1.generateJs() : "null"), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -13956,10 +13956,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".parentStroke(%s, %f, %s, %s, %s)", wrapQuotes(parentStroke2), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".parentStroke(%s, %s, %s, %s, %s)", wrapQuotes(parentStroke2), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentStroke(%s, %f, %s, %s, %s);", wrapQuotes(parentStroke2), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentStroke(%s, %s, %s, %s, %s);", wrapQuotes(parentStroke2), thickness11, wrapQuotes(dashpattern11), ((lineJoin11 != null) ? lineJoin11.generateJs() : "null"), ((lineCap11 != null) ? lineCap11.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -14068,10 +14068,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".progressBarHeight(%f)", progressBarHeight1));
+            js.append(String.format(Locale.US, ".progressBarHeight(%s)", progressBarHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressBarHeight(%f);", progressBarHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressBarHeight(%s);", progressBarHeight1));
                 js.setLength(0);
             }
         }
@@ -14124,10 +14124,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".progressBarOffset(%f)", progressBarOffset1));
+            js.append(String.format(Locale.US, ".progressBarOffset(%s)", progressBarOffset1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressBarOffset(%f);", progressBarOffset1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressBarOffset(%s);", progressBarOffset1));
                 js.setLength(0);
             }
         }
@@ -14279,10 +14279,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".progressFill(%s, %f)", wrapQuotes(color10), opacity31));
+            js.append(String.format(Locale.US, ".progressFill(%s, %s)", wrapQuotes(color10), opacity31));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %f);", wrapQuotes(color10), opacity31));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %s);", wrapQuotes(color10), opacity31));
                 js.setLength(0);
             }
         }
@@ -14450,10 +14450,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %b)", arrayToString(keys40), angle10, opacity32, mode40));
+            js.append(String.format(Locale.US, ".progressFill(%s, %s, %s, %b)", arrayToString(keys40), angle10, opacity32, mode40));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %f, %f, %b);", arrayToString(keys40), angle10, opacity32, mode40));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %s, %s, %b);", arrayToString(keys40), angle10, opacity32, mode40));
                 js.setLength(0);
             }
         }
@@ -14614,10 +14614,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode41.generateJs());
-            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s)", arrayToString(keys40), angle10, opacity32, ((mode41 != null) ? mode41.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".progressFill(%s, %s, %s, %s)", arrayToString(keys40), angle10, opacity32, ((mode41 != null) ? mode41.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %f, %f, %s);", arrayToString(keys40), angle10, opacity32, ((mode41 != null) ? mode41.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %s, %s, %s);", arrayToString(keys40), angle10, opacity32, ((mode41 != null) ? mode41.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -14778,10 +14778,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s)", arrayToString(keys40), angle10, opacity32, wrapQuotes(mode42)));
+            js.append(String.format(Locale.US, ".progressFill(%s, %s, %s, %s)", arrayToString(keys40), angle10, opacity32, wrapQuotes(mode42)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %f, %f, %s);", arrayToString(keys40), angle10, opacity32, wrapQuotes(mode42)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %s, %s, %s);", arrayToString(keys40), angle10, opacity32, wrapQuotes(mode42)));
                 js.setLength(0);
             }
         }
@@ -14942,10 +14942,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys41), angle10, opacity32, mode40));
+            js.append(String.format(Locale.US, ".progressFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys41), angle10, opacity32, mode40));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys41), angle10, opacity32, mode40));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys41), angle10, opacity32, mode40));
                 js.setLength(0);
             }
         }
@@ -15106,10 +15106,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode41.generateJs());
-            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys41), angle10, opacity32, ((mode41 != null) ? mode41.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".progressFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys41), angle10, opacity32, ((mode41 != null) ? mode41.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys41), angle10, opacity32, ((mode41 != null) ? mode41.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys41), angle10, opacity32, ((mode41 != null) ? mode41.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -15270,10 +15270,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys41), angle10, opacity32, wrapQuotes(mode42)));
+            js.append(String.format(Locale.US, ".progressFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys41), angle10, opacity32, wrapQuotes(mode42)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys41), angle10, opacity32, wrapQuotes(mode42)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys41), angle10, opacity32, wrapQuotes(mode42)));
                 js.setLength(0);
             }
         }
@@ -15492,10 +15492,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode43.generateJs());
-            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys42), cx11, cy11, ((mode43 != null) ? mode43.getJsBase() : "null"), opacity33, fx11, fy11));
+            js.append(String.format(Locale.US, ".progressFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys42), cx11, cy11, ((mode43 != null) ? mode43.getJsBase() : "null"), opacity33, fx11, fy11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys42), cx11, cy11, ((mode43 != null) ? mode43.getJsBase() : "null"), opacity33, fx11, fy11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys42), cx11, cy11, ((mode43 != null) ? mode43.getJsBase() : "null"), opacity33, fx11, fy11));
                 js.setLength(0);
             }
         }
@@ -15706,10 +15706,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode43.generateJs());
-            js.append(String.format(Locale.US, ".progressFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys43), cx11, cy11, ((mode43 != null) ? mode43.getJsBase() : "null"), opacity33, fx11, fy11));
+            js.append(String.format(Locale.US, ".progressFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys43), cx11, cy11, ((mode43 != null) ? mode43.getJsBase() : "null"), opacity33, fx11, fy11));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys43), cx11, cy11, ((mode43 != null) ? mode43.getJsBase() : "null"), opacity33, fx11, fy11));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys43), cx11, cy11, ((mode43 != null) ? mode43.getJsBase() : "null"), opacity33, fx11, fy11));
                 js.setLength(0);
             }
         }
@@ -15875,10 +15875,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", ((progressStroke != null) ? progressStroke.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".progressStroke(%s, %s, %s, %s, %s)", ((progressStroke != null) ? progressStroke.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressStroke(%s, %f, %s, %s, %s);", ((progressStroke != null) ? progressStroke.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressStroke(%s, %s, %s, %s, %s);", ((progressStroke != null) ? progressStroke.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -15968,10 +15968,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", ((progressStroke1 != null) ? progressStroke1.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".progressStroke(%s, %s, %s, %s, %s)", ((progressStroke1 != null) ? progressStroke1.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressStroke(%s, %f, %s, %s, %s);", ((progressStroke1 != null) ? progressStroke1.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressStroke(%s, %s, %s, %s, %s);", ((progressStroke1 != null) ? progressStroke1.generateJs() : "null"), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -16061,10 +16061,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".progressStroke(%s, %f, %s, %s, %s)", wrapQuotes(progressStroke2), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".progressStroke(%s, %s, %s, %s, %s)", wrapQuotes(progressStroke2), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressStroke(%s, %f, %s, %s, %s);", wrapQuotes(progressStroke2), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".progressStroke(%s, %s, %s, %s, %s);", wrapQuotes(progressStroke2), thickness12, wrapQuotes(dashpattern12), ((lineJoin12 != null) ? lineJoin12.generateJs() : "null"), ((lineCap12 != null) ? lineCap12.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -16169,10 +16169,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rangeMarker(%f, %s)", index1, wrapQuotes(rangeMarker2)));
+            js.append(String.format(Locale.US, ".rangeMarker(%s, %s)", index1, wrapQuotes(rangeMarker2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeMarker(%f, %s);", index1, wrapQuotes(rangeMarker2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeMarker(%s, %s);", index1, wrapQuotes(rangeMarker2)));
                 js.setLength(0);
             }
         }
@@ -16205,10 +16205,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rangeMarker(%f, %b)", index1, rangeMarker3));
+            js.append(String.format(Locale.US, ".rangeMarker(%s, %b)", index1, rangeMarker3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeMarker(%f, %b);", index1, rangeMarker3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeMarker(%s, %b);", index1, rangeMarker3));
                 js.setLength(0);
             }
         }
@@ -16241,10 +16241,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rangeMarker(%f, %s)", index1, ((rangeMarker4 != null) ? rangeMarker4.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".rangeMarker(%s, %s)", index1, ((rangeMarker4 != null) ? rangeMarker4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeMarker(%f, %s);", index1, ((rangeMarker4 != null) ? rangeMarker4.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rangeMarker(%s, %s);", index1, ((rangeMarker4 != null) ? rangeMarker4.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -16344,10 +16344,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f)", wrapQuotes(color11), opacity34));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s)", wrapQuotes(color11), opacity34));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f);", wrapQuotes(color11), opacity34));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s);", wrapQuotes(color11), opacity34));
                 js.setLength(0);
             }
         }
@@ -16527,10 +16527,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToString(keys44), angle11, opacity35, mode44));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %s, %b)", arrayToString(keys44), angle11, opacity35, mode44));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %b);", arrayToString(keys44), angle11, opacity35, mode44));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %s, %b);", arrayToString(keys44), angle11, opacity35, mode44));
                 js.setLength(0);
             }
         }
@@ -16703,10 +16703,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode45.generateJs());
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys44), angle11, opacity35, ((mode45 != null) ? mode45.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %s, %s)", arrayToString(keys44), angle11, opacity35, ((mode45 != null) ? mode45.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s);", arrayToString(keys44), angle11, opacity35, ((mode45 != null) ? mode45.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %s, %s);", arrayToString(keys44), angle11, opacity35, ((mode45 != null) ? mode45.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -16879,10 +16879,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToString(keys44), angle11, opacity35, wrapQuotes(mode46)));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %s, %s)", arrayToString(keys44), angle11, opacity35, wrapQuotes(mode46)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s);", arrayToString(keys44), angle11, opacity35, wrapQuotes(mode46)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %s, %s);", arrayToString(keys44), angle11, opacity35, wrapQuotes(mode46)));
                 js.setLength(0);
             }
         }
@@ -17055,10 +17055,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys45), angle11, opacity35, mode44));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys45), angle11, opacity35, mode44));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys45), angle11, opacity35, mode44));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys45), angle11, opacity35, mode44));
                 js.setLength(0);
             }
         }
@@ -17231,10 +17231,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode45.generateJs());
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys45), angle11, opacity35, ((mode45 != null) ? mode45.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys45), angle11, opacity35, ((mode45 != null) ? mode45.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys45), angle11, opacity35, ((mode45 != null) ? mode45.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys45), angle11, opacity35, ((mode45 != null) ? mode45.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -17407,10 +17407,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys45), angle11, opacity35, wrapQuotes(mode46)));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys45), angle11, opacity35, wrapQuotes(mode46)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys45), angle11, opacity35, wrapQuotes(mode46)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys45), angle11, opacity35, wrapQuotes(mode46)));
                 js.setLength(0);
             }
         }
@@ -17644,10 +17644,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode47.generateJs());
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys46), cx12, cy12, ((mode47 != null) ? mode47.getJsBase() : "null"), opacity36, fx12, fy12));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys46), cx12, cy12, ((mode47 != null) ? mode47.getJsBase() : "null"), opacity36, fx12, fy12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys46), cx12, cy12, ((mode47 != null) ? mode47.getJsBase() : "null"), opacity36, fx12, fy12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys46), cx12, cy12, ((mode47 != null) ? mode47.getJsBase() : "null"), opacity36, fx12, fy12));
                 js.setLength(0);
             }
         }
@@ -17873,10 +17873,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode47.generateJs());
-            js.append(String.format(Locale.US, ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys47), cx12, cy12, ((mode47 != null) ? mode47.getJsBase() : "null"), opacity36, fx12, fy12));
+            js.append(String.format(Locale.US, ".rowEvenFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys47), cx12, cy12, ((mode47 != null) ? mode47.getJsBase() : "null"), opacity36, fx12, fy12));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys47), cx12, cy12, ((mode47 != null) ? mode47.getJsBase() : "null"), opacity36, fx12, fy12));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowEvenFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys47), cx12, cy12, ((mode47 != null) ? mode47.getJsBase() : "null"), opacity36, fx12, fy12));
                 js.setLength(0);
             }
         }
@@ -17981,10 +17981,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowFill(%s, %f)", wrapQuotes(color12), opacity37));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s)", wrapQuotes(color12), opacity37));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f);", wrapQuotes(color12), opacity37));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s);", wrapQuotes(color12), opacity37));
                 js.setLength(0);
             }
         }
@@ -18176,10 +18176,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %b)", arrayToString(keys48), angle12, opacity38, mode48));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %s, %b)", arrayToString(keys48), angle12, opacity38, mode48));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %b);", arrayToString(keys48), angle12, opacity38, mode48));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %s, %b);", arrayToString(keys48), angle12, opacity38, mode48));
                 js.setLength(0);
             }
         }
@@ -18364,10 +18364,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode49.generateJs());
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToString(keys48), angle12, opacity38, ((mode49 != null) ? mode49.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %s, %s)", arrayToString(keys48), angle12, opacity38, ((mode49 != null) ? mode49.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %s);", arrayToString(keys48), angle12, opacity38, ((mode49 != null) ? mode49.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %s, %s);", arrayToString(keys48), angle12, opacity38, ((mode49 != null) ? mode49.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -18552,10 +18552,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToString(keys48), angle12, opacity38, wrapQuotes(mode50)));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %s, %s)", arrayToString(keys48), angle12, opacity38, wrapQuotes(mode50)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %s);", arrayToString(keys48), angle12, opacity38, wrapQuotes(mode50)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %s, %s);", arrayToString(keys48), angle12, opacity38, wrapQuotes(mode50)));
                 js.setLength(0);
             }
         }
@@ -18740,10 +18740,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys49), angle12, opacity38, mode48));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys49), angle12, opacity38, mode48));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys49), angle12, opacity38, mode48));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys49), angle12, opacity38, mode48));
                 js.setLength(0);
             }
         }
@@ -18928,10 +18928,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode49.generateJs());
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys49), angle12, opacity38, ((mode49 != null) ? mode49.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys49), angle12, opacity38, ((mode49 != null) ? mode49.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys49), angle12, opacity38, ((mode49 != null) ? mode49.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys49), angle12, opacity38, ((mode49 != null) ? mode49.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -19116,10 +19116,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys49), angle12, opacity38, wrapQuotes(mode50)));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys49), angle12, opacity38, wrapQuotes(mode50)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys49), angle12, opacity38, wrapQuotes(mode50)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys49), angle12, opacity38, wrapQuotes(mode50)));
                 js.setLength(0);
             }
         }
@@ -19368,10 +19368,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode51.generateJs());
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys50), cx13, cy13, ((mode51 != null) ? mode51.getJsBase() : "null"), opacity39, fx13, fy13));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys50), cx13, cy13, ((mode51 != null) ? mode51.getJsBase() : "null"), opacity39, fx13, fy13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys50), cx13, cy13, ((mode51 != null) ? mode51.getJsBase() : "null"), opacity39, fx13, fy13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys50), cx13, cy13, ((mode51 != null) ? mode51.getJsBase() : "null"), opacity39, fx13, fy13));
                 js.setLength(0);
             }
         }
@@ -19612,10 +19612,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode51.generateJs());
-            js.append(String.format(Locale.US, ".rowFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys51), cx13, cy13, ((mode51 != null) ? mode51.getJsBase() : "null"), opacity39, fx13, fy13));
+            js.append(String.format(Locale.US, ".rowFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys51), cx13, cy13, ((mode51 != null) ? mode51.getJsBase() : "null"), opacity39, fx13, fy13));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys51), cx13, cy13, ((mode51 != null) ? mode51.getJsBase() : "null"), opacity39, fx13, fy13));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys51), cx13, cy13, ((mode51 != null) ? mode51.getJsBase() : "null"), opacity39, fx13, fy13));
                 js.setLength(0);
             }
         }
@@ -19724,10 +19724,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f)", wrapQuotes(color13), opacity40));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s)", wrapQuotes(color13), opacity40));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f);", wrapQuotes(color13), opacity40));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s);", wrapQuotes(color13), opacity40));
                 js.setLength(0);
             }
         }
@@ -19931,10 +19931,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %b)", arrayToString(keys52), angle13, opacity41, mode52));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %b)", arrayToString(keys52), angle13, opacity41, mode52));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %b);", arrayToString(keys52), angle13, opacity41, mode52));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %s, %b);", arrayToString(keys52), angle13, opacity41, mode52));
                 js.setLength(0);
             }
         }
@@ -20131,10 +20131,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode53.generateJs());
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToString(keys52), angle13, opacity41, ((mode53 != null) ? mode53.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s)", arrayToString(keys52), angle13, opacity41, ((mode53 != null) ? mode53.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %s);", arrayToString(keys52), angle13, opacity41, ((mode53 != null) ? mode53.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %s, %s);", arrayToString(keys52), angle13, opacity41, ((mode53 != null) ? mode53.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -20331,10 +20331,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToString(keys52), angle13, opacity41, wrapQuotes(mode54)));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s)", arrayToString(keys52), angle13, opacity41, wrapQuotes(mode54)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %s);", arrayToString(keys52), angle13, opacity41, wrapQuotes(mode54)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %s, %s);", arrayToString(keys52), angle13, opacity41, wrapQuotes(mode54)));
                 js.setLength(0);
             }
         }
@@ -20531,10 +20531,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys53), angle13, opacity41, mode52));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys53), angle13, opacity41, mode52));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys53), angle13, opacity41, mode52));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys53), angle13, opacity41, mode52));
                 js.setLength(0);
             }
         }
@@ -20731,10 +20731,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode53.generateJs());
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys53), angle13, opacity41, ((mode53 != null) ? mode53.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys53), angle13, opacity41, ((mode53 != null) ? mode53.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys53), angle13, opacity41, ((mode53 != null) ? mode53.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys53), angle13, opacity41, ((mode53 != null) ? mode53.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -20931,10 +20931,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys53), angle13, opacity41, wrapQuotes(mode54)));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys53), angle13, opacity41, wrapQuotes(mode54)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys53), angle13, opacity41, wrapQuotes(mode54)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys53), angle13, opacity41, wrapQuotes(mode54)));
                 js.setLength(0);
             }
         }
@@ -21198,10 +21198,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode55.generateJs());
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys54), cx14, cy14, ((mode55 != null) ? mode55.getJsBase() : "null"), opacity42, fx14, fy14));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys54), cx14, cy14, ((mode55 != null) ? mode55.getJsBase() : "null"), opacity42, fx14, fy14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys54), cx14, cy14, ((mode55 != null) ? mode55.getJsBase() : "null"), opacity42, fx14, fy14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys54), cx14, cy14, ((mode55 != null) ? mode55.getJsBase() : "null"), opacity42, fx14, fy14));
                 js.setLength(0);
             }
         }
@@ -21457,10 +21457,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode55.generateJs());
-            js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys55), cx14, cy14, ((mode55 != null) ? mode55.getJsBase() : "null"), opacity42, fx14, fy14));
+            js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys55), cx14, cy14, ((mode55 != null) ? mode55.getJsBase() : "null"), opacity42, fx14, fy14));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys55), cx14, cy14, ((mode55 != null) ? mode55.getJsBase() : "null"), opacity42, fx14, fy14));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowHoverFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys55), cx14, cy14, ((mode55 != null) ? mode55.getJsBase() : "null"), opacity42, fx14, fy14));
                 js.setLength(0);
             }
         }
@@ -21572,10 +21572,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f)", wrapQuotes(color14), opacity43));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s)", wrapQuotes(color14), opacity43));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f);", wrapQuotes(color14), opacity43));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s);", wrapQuotes(color14), opacity43));
                 js.setLength(0);
             }
         }
@@ -21791,10 +21791,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToString(keys56), angle14, opacity44, mode56));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %s, %b)", arrayToString(keys56), angle14, opacity44, mode56));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %b);", arrayToString(keys56), angle14, opacity44, mode56));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %s, %b);", arrayToString(keys56), angle14, opacity44, mode56));
                 js.setLength(0);
             }
         }
@@ -22003,10 +22003,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode57.generateJs());
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys56), angle14, opacity44, ((mode57 != null) ? mode57.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %s, %s)", arrayToString(keys56), angle14, opacity44, ((mode57 != null) ? mode57.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s);", arrayToString(keys56), angle14, opacity44, ((mode57 != null) ? mode57.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %s, %s);", arrayToString(keys56), angle14, opacity44, ((mode57 != null) ? mode57.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -22215,10 +22215,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToString(keys56), angle14, opacity44, wrapQuotes(mode58)));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %s, %s)", arrayToString(keys56), angle14, opacity44, wrapQuotes(mode58)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s);", arrayToString(keys56), angle14, opacity44, wrapQuotes(mode58)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %s, %s);", arrayToString(keys56), angle14, opacity44, wrapQuotes(mode58)));
                 js.setLength(0);
             }
         }
@@ -22427,10 +22427,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys57), angle14, opacity44, mode56));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys57), angle14, opacity44, mode56));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys57), angle14, opacity44, mode56));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys57), angle14, opacity44, mode56));
                 js.setLength(0);
             }
         }
@@ -22639,10 +22639,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode57.generateJs());
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys57), angle14, opacity44, ((mode57 != null) ? mode57.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys57), angle14, opacity44, ((mode57 != null) ? mode57.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys57), angle14, opacity44, ((mode57 != null) ? mode57.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys57), angle14, opacity44, ((mode57 != null) ? mode57.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -22851,10 +22851,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys57), angle14, opacity44, wrapQuotes(mode58)));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys57), angle14, opacity44, wrapQuotes(mode58)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys57), angle14, opacity44, wrapQuotes(mode58)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys57), angle14, opacity44, wrapQuotes(mode58)));
                 js.setLength(0);
             }
         }
@@ -23133,10 +23133,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode59.generateJs());
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys58), cx15, cy15, ((mode59 != null) ? mode59.getJsBase() : "null"), opacity45, fx15, fy15));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys58), cx15, cy15, ((mode59 != null) ? mode59.getJsBase() : "null"), opacity45, fx15, fy15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys58), cx15, cy15, ((mode59 != null) ? mode59.getJsBase() : "null"), opacity45, fx15, fy15));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys58), cx15, cy15, ((mode59 != null) ? mode59.getJsBase() : "null"), opacity45, fx15, fy15));
                 js.setLength(0);
             }
         }
@@ -23407,10 +23407,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode59.generateJs());
-            js.append(String.format(Locale.US, ".rowOddFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys59), cx15, cy15, ((mode59 != null) ? mode59.getJsBase() : "null"), opacity45, fx15, fy15));
+            js.append(String.format(Locale.US, ".rowOddFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys59), cx15, cy15, ((mode59 != null) ? mode59.getJsBase() : "null"), opacity45, fx15, fy15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys59), cx15, cy15, ((mode59 != null) ? mode59.getJsBase() : "null"), opacity45, fx15, fy15));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowOddFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys59), cx15, cy15, ((mode59 != null) ? mode59.getJsBase() : "null"), opacity45, fx15, fy15));
                 js.setLength(0);
             }
         }
@@ -23527,10 +23527,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f)", wrapQuotes(color15), opacity46));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s)", wrapQuotes(color15), opacity46));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f);", wrapQuotes(color15), opacity46));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s);", wrapQuotes(color15), opacity46));
                 js.setLength(0);
             }
         }
@@ -23706,10 +23706,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %b)", arrayToString(keys60), angle15, mode60));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %b)", arrayToString(keys60), angle15, mode60));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %b);", arrayToString(keys60), angle15, mode60));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %b);", arrayToString(keys60), angle15, mode60));
                 js.setLength(0);
             }
         }
@@ -23879,10 +23879,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode61.generateJs());
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToString(keys60), angle15, ((mode61 != null) ? mode61.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s)", arrayToString(keys60), angle15, ((mode61 != null) ? mode61.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %s);", arrayToString(keys60), angle15, ((mode61 != null) ? mode61.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %s);", arrayToString(keys60), angle15, ((mode61 != null) ? mode61.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -24052,10 +24052,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToString(keys60), angle15, wrapQuotes(mode62)));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s)", arrayToString(keys60), angle15, wrapQuotes(mode62)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %s);", arrayToString(keys60), angle15, wrapQuotes(mode62)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %s);", arrayToString(keys60), angle15, wrapQuotes(mode62)));
                 js.setLength(0);
             }
         }
@@ -24225,10 +24225,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %b)", arrayToStringWrapQuotes(keys61), angle15, mode60));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %b)", arrayToStringWrapQuotes(keys61), angle15, mode60));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %b);", arrayToStringWrapQuotes(keys61), angle15, mode60));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %b);", arrayToStringWrapQuotes(keys61), angle15, mode60));
                 js.setLength(0);
             }
         }
@@ -24398,10 +24398,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode61.generateJs());
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToStringWrapQuotes(keys61), angle15, ((mode61 != null) ? mode61.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s)", arrayToStringWrapQuotes(keys61), angle15, ((mode61 != null) ? mode61.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %s);", arrayToStringWrapQuotes(keys61), angle15, ((mode61 != null) ? mode61.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %s);", arrayToStringWrapQuotes(keys61), angle15, ((mode61 != null) ? mode61.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -24571,10 +24571,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %s)", arrayToStringWrapQuotes(keys61), angle15, wrapQuotes(mode62)));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s)", arrayToStringWrapQuotes(keys61), angle15, wrapQuotes(mode62)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %s);", arrayToStringWrapQuotes(keys61), angle15, wrapQuotes(mode62)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %s);", arrayToStringWrapQuotes(keys61), angle15, wrapQuotes(mode62)));
                 js.setLength(0);
             }
         }
@@ -24867,10 +24867,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode63.generateJs());
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys62), cx16, cy16, ((mode63 != null) ? mode63.getJsBase() : "null"), opacity47, fx16, fy16));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys62), cx16, cy16, ((mode63 != null) ? mode63.getJsBase() : "null"), opacity47, fx16, fy16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys62), cx16, cy16, ((mode63 != null) ? mode63.getJsBase() : "null"), opacity47, fx16, fy16));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys62), cx16, cy16, ((mode63 != null) ? mode63.getJsBase() : "null"), opacity47, fx16, fy16));
                 js.setLength(0);
             }
         }
@@ -25155,10 +25155,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode63.generateJs());
-            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys63), cx16, cy16, ((mode63 != null) ? mode63.getJsBase() : "null"), opacity47, fx16, fy16));
+            js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys63), cx16, cy16, ((mode63 != null) ? mode63.getJsBase() : "null"), opacity47, fx16, fy16));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys63), cx16, cy16, ((mode63 != null) ? mode63.getJsBase() : "null"), opacity47, fx16, fy16));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rowSelectedFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys63), cx16, cy16, ((mode63 != null) ? mode63.getJsBase() : "null"), opacity47, fx16, fy16));
                 js.setLength(0);
             }
         }
@@ -25297,10 +25297,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectedConnectorStroke(%s, %f, %s, %s, %s)", ((selectedConnectorStroke != null) ? selectedConnectorStroke.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".selectedConnectorStroke(%s, %s, %s, %s, %s)", ((selectedConnectorStroke != null) ? selectedConnectorStroke.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedConnectorStroke(%s, %f, %s, %s, %s);", ((selectedConnectorStroke != null) ? selectedConnectorStroke.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedConnectorStroke(%s, %s, %s, %s, %s);", ((selectedConnectorStroke != null) ? selectedConnectorStroke.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -25394,10 +25394,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectedConnectorStroke(%s, %f, %s, %s, %s)", ((selectedConnectorStroke1 != null) ? selectedConnectorStroke1.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".selectedConnectorStroke(%s, %s, %s, %s, %s)", ((selectedConnectorStroke1 != null) ? selectedConnectorStroke1.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedConnectorStroke(%s, %f, %s, %s, %s);", ((selectedConnectorStroke1 != null) ? selectedConnectorStroke1.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedConnectorStroke(%s, %s, %s, %s, %s);", ((selectedConnectorStroke1 != null) ? selectedConnectorStroke1.generateJs() : "null"), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -25491,10 +25491,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectedConnectorStroke(%s, %f, %s, %s, %s)", wrapQuotes(selectedConnectorStroke2), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".selectedConnectorStroke(%s, %s, %s, %s, %s)", wrapQuotes(selectedConnectorStroke2), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedConnectorStroke(%s, %f, %s, %s, %s);", wrapQuotes(selectedConnectorStroke2), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedConnectorStroke(%s, %s, %s, %s, %s);", wrapQuotes(selectedConnectorStroke2), thickness13, wrapQuotes(dashpattern13), ((lineJoin13 != null) ? lineJoin13.generateJs() : "null"), ((lineCap13 != null) ? lineCap13.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -25613,10 +25613,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f)", wrapQuotes(color16), opacity48));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s)", wrapQuotes(color16), opacity48));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %f);", wrapQuotes(color16), opacity48));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %s);", wrapQuotes(color16), opacity48));
                 js.setLength(0);
             }
         }
@@ -25855,10 +25855,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %b)", arrayToString(keys64), angle16, opacity49, mode64));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %s, %b)", arrayToString(keys64), angle16, opacity49, mode64));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %f, %f, %b);", arrayToString(keys64), angle16, opacity49, mode64));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %s, %s, %b);", arrayToString(keys64), angle16, opacity49, mode64));
                 js.setLength(0);
             }
         }
@@ -26090,10 +26090,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode65.generateJs());
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s)", arrayToString(keys64), angle16, opacity49, ((mode65 != null) ? mode65.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %s, %s)", arrayToString(keys64), angle16, opacity49, ((mode65 != null) ? mode65.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %f, %f, %s);", arrayToString(keys64), angle16, opacity49, ((mode65 != null) ? mode65.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %s, %s, %s);", arrayToString(keys64), angle16, opacity49, ((mode65 != null) ? mode65.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -26325,10 +26325,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s)", arrayToString(keys64), angle16, opacity49, wrapQuotes(mode66)));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %s, %s)", arrayToString(keys64), angle16, opacity49, wrapQuotes(mode66)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %f, %f, %s);", arrayToString(keys64), angle16, opacity49, wrapQuotes(mode66)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %s, %s, %s);", arrayToString(keys64), angle16, opacity49, wrapQuotes(mode66)));
                 js.setLength(0);
             }
         }
@@ -26560,10 +26560,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys65), angle16, opacity49, mode64));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys65), angle16, opacity49, mode64));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys65), angle16, opacity49, mode64));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys65), angle16, opacity49, mode64));
                 js.setLength(0);
             }
         }
@@ -26795,10 +26795,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode65.generateJs());
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys65), angle16, opacity49, ((mode65 != null) ? mode65.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys65), angle16, opacity49, ((mode65 != null) ? mode65.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys65), angle16, opacity49, ((mode65 != null) ? mode65.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys65), angle16, opacity49, ((mode65 != null) ? mode65.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -27030,10 +27030,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys65), angle16, opacity49, wrapQuotes(mode66)));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys65), angle16, opacity49, wrapQuotes(mode66)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys65), angle16, opacity49, wrapQuotes(mode66)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys65), angle16, opacity49, wrapQuotes(mode66)));
                 js.setLength(0);
             }
         }
@@ -27341,10 +27341,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode67.generateJs());
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys66), cx17, cy17, ((mode67 != null) ? mode67.getJsBase() : "null"), opacity50, fx17, fy17));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys66), cx17, cy17, ((mode67 != null) ? mode67.getJsBase() : "null"), opacity50, fx17, fy17));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys66), cx17, cy17, ((mode67 != null) ? mode67.getJsBase() : "null"), opacity50, fx17, fy17));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys66), cx17, cy17, ((mode67 != null) ? mode67.getJsBase() : "null"), opacity50, fx17, fy17));
                 js.setLength(0);
             }
         }
@@ -27644,10 +27644,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             js.append(mode67.generateJs());
-            js.append(String.format(Locale.US, ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys67), cx17, cy17, ((mode67 != null) ? mode67.getJsBase() : "null"), opacity50, fx17, fy17));
+            js.append(String.format(Locale.US, ".selectedElementFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys67), cx17, cy17, ((mode67 != null) ? mode67.getJsBase() : "null"), opacity50, fx17, fy17));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys67), cx17, cy17, ((mode67 != null) ? mode67.getJsBase() : "null"), opacity50, fx17, fy17));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys67), cx17, cy17, ((mode67 != null) ? mode67.getJsBase() : "null"), opacity50, fx17, fy17));
                 js.setLength(0);
             }
         }
@@ -27753,10 +27753,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null"), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %s, %s, %s, %s)", ((selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null"), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementStroke(%s, %f, %s, %s, %s);", ((selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null"), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementStroke(%s, %s, %s, %s, %s);", ((selectedElementStroke != null) ? selectedElementStroke.generateJs() : "null"), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -27854,10 +27854,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", ((selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null"), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %s, %s, %s, %s)", ((selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null"), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementStroke(%s, %f, %s, %s, %s);", ((selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null"), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementStroke(%s, %s, %s, %s, %s);", ((selectedElementStroke1 != null) ? selectedElementStroke1.generateJs() : "null"), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -27955,10 +27955,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %f, %s, %s, %s)", wrapQuotes(selectedElementStroke2), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".selectedElementStroke(%s, %s, %s, %s, %s)", wrapQuotes(selectedElementStroke2), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementStroke(%s, %f, %s, %s, %s);", wrapQuotes(selectedElementStroke2), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectedElementStroke(%s, %s, %s, %s, %s);", wrapQuotes(selectedElementStroke2), thickness14, wrapQuotes(dashpattern14), ((lineJoin14 != null) ? lineJoin14.generateJs() : "null"), ((lineCap14 != null) ? lineCap14.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -28064,10 +28064,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".textMarker(%f, %s)", index2, wrapQuotes(textMarker2)));
+            js.append(String.format(Locale.US, ".textMarker(%s, %s)", index2, wrapQuotes(textMarker2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textMarker(%f, %s);", index2, wrapQuotes(textMarker2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textMarker(%s, %s);", index2, wrapQuotes(textMarker2)));
                 js.setLength(0);
             }
         }
@@ -28101,10 +28101,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".textMarker(%f, %b)", index2, textMarker3));
+            js.append(String.format(Locale.US, ".textMarker(%s, %b)", index2, textMarker3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textMarker(%f, %b);", index2, textMarker3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textMarker(%s, %b);", index2, textMarker3));
                 js.setLength(0);
             }
         }
@@ -28138,10 +28138,10 @@ public class UiTimeline extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".textMarker(%f, %s)", index2, ((textMarker4 != null) ? textMarker4.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".textMarker(%s, %s)", index2, ((textMarker4 != null) ? textMarker4.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textMarker(%f, %s);", index2, ((textMarker4 != null) ? textMarker4.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textMarker(%s, %s);", index2, ((textMarker4 != null) ? textMarker4.generateJs() : "null")));
                 js.setLength(0);
             }
         }

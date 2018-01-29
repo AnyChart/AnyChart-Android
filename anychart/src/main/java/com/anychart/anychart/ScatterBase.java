@@ -52,11 +52,11 @@ public class ScatterBase extends ScalesBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".inverseTransform(%f);", ratio));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".inverseTransform(%s);", ratio));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f);", ratio));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%s);", ratio));
                 js.setLength(0);
             }
         }
@@ -77,10 +77,10 @@ public class ScatterBase extends ScalesBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".maxTicksCount(%f)", maxTicksCount));
+            js.append(String.format(Locale.US, ".maxTicksCount(%s)", maxTicksCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxTicksCount(%f);", maxTicksCount));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxTicksCount(%s);", maxTicksCount));
                 js.setLength(0);
             }
         }
@@ -102,10 +102,10 @@ public class ScatterBase extends ScalesBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".maximum(%f)", maximum));
+            js.append(String.format(Locale.US, ".maximum(%s)", maximum));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximum(%f);", maximum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximum(%s);", maximum));
                 js.setLength(0);
             }
         }
@@ -127,10 +127,10 @@ public class ScatterBase extends ScalesBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".minimum(%f)", minimum));
+            js.append(String.format(Locale.US, ".minimum(%s)", minimum));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimum(%f);", minimum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimum(%s);", minimum));
                 js.setLength(0);
             }
         }

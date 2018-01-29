@@ -264,10 +264,10 @@ public class SettingsWithMargin extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
+            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", value1, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %f);", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %s);", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }

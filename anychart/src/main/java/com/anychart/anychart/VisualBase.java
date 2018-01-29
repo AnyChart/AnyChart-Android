@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -131,10 +136,10 @@ public class VisualBase extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".zIndex(%f)", zIndex));
+            js.append(String.format(Locale.US, ".zIndex(%s)", zIndex));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%f);", zIndex));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".zIndex(%s);", zIndex));
                 js.setLength(0);
             }
         }

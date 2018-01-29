@@ -50,10 +50,10 @@ public class DateTimeTicks extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".count(%f)", count));
+            js.append(String.format(Locale.US, ".count(%s)", count));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%f);", count));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%s);", count));
                 js.setLength(0);
             }
         }
@@ -110,10 +110,10 @@ public class DateTimeTicks extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".interval(%s, %f)", ((unit != null) ? unit.generateJs() : "null"), count1));
+            js.append(String.format(Locale.US, ".interval(%s, %s)", ((unit != null) ? unit.generateJs() : "null"), count1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%s, %f);", ((unit != null) ? unit.generateJs() : "null"), count1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%s, %s);", ((unit != null) ? unit.generateJs() : "null"), count1));
                 js.setLength(0);
             }
         }
@@ -142,10 +142,10 @@ public class DateTimeTicks extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".interval(%s, %f)", wrapQuotes(unit1), count1));
+            js.append(String.format(Locale.US, ".interval(%s, %s)", wrapQuotes(unit1), count1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%s, %f);", wrapQuotes(unit1), count1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%s, %s);", wrapQuotes(unit1), count1));
                 js.setLength(0);
             }
         }
@@ -183,10 +183,10 @@ public class DateTimeTicks extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".interval(%f, %f, %f, %f, %f, %f)", years, months, days, hours, minutes, seconds));
+            js.append(String.format(Locale.US, ".interval(%s, %s, %s, %s, %s, %s)", years, months, days, hours, minutes, seconds));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%f, %f, %f, %f, %f, %f);", years, months, days, hours, minutes, seconds));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%s, %s, %s, %s, %s, %s);", years, months, days, hours, minutes, seconds));
                 js.setLength(0);
             }
         }

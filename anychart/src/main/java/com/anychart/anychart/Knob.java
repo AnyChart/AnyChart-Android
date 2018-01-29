@@ -54,10 +54,10 @@ public class Knob extends GaugePointersBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".bottomRadius(%f)", bottomRadius));
+            js.append(String.format(Locale.US, ".bottomRadius(%s)", bottomRadius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottomRadius(%f);", bottomRadius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottomRadius(%s);", bottomRadius));
                 js.setLength(0);
             }
         }
@@ -106,10 +106,10 @@ public class Knob extends GaugePointersBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".bottomRatio(%f)", bottomRatio));
+            js.append(String.format(Locale.US, ".bottomRatio(%s)", bottomRatio));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottomRatio(%f);", bottomRatio));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottomRatio(%s);", bottomRatio));
                 js.setLength(0);
             }
         }
@@ -135,10 +135,10 @@ public class Knob extends GaugePointersBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".topRadius(%f)", topRadius));
+            js.append(String.format(Locale.US, ".topRadius(%s)", topRadius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".topRadius(%f);", topRadius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".topRadius(%s);", topRadius));
                 js.setLength(0);
             }
         }
@@ -187,10 +187,10 @@ public class Knob extends GaugePointersBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".topRatio(%f)", topRatio));
+            js.append(String.format(Locale.US, ".topRatio(%s)", topRatio));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".topRatio(%f);", topRatio));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".topRatio(%s);", topRatio));
                 js.setLength(0);
             }
         }
@@ -212,10 +212,10 @@ public class Knob extends GaugePointersBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".verticesCount(%f)", verticesCount));
+            js.append(String.format(Locale.US, ".verticesCount(%s)", verticesCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticesCount(%f);", verticesCount));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticesCount(%s);", verticesCount));
                 js.setLength(0);
             }
         }
@@ -237,10 +237,10 @@ public class Knob extends GaugePointersBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".verticesCurvature(%f)", verticesCurvature));
+            js.append(String.format(Locale.US, ".verticesCurvature(%s)", verticesCurvature));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticesCurvature(%f);", verticesCurvature));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".verticesCurvature(%s);", verticesCurvature));
                 js.setLength(0);
             }
         }

@@ -140,10 +140,10 @@ Error mode defines the rule to parse values for series with error.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".valueError(%f)", valueError1));
+            js.append(String.format(Locale.US, ".valueError(%s)", valueError1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueError(%f);", valueError1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueError(%s);", valueError1));
                 js.setLength(0);
             }
         }
@@ -183,10 +183,10 @@ Error mode defines the rule to parse values for series with error.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".valueErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".valueErrorStroke(%s, %s, %s, %s, %s)", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueErrorStroke(%s, %f, %s, %s, %s);", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueErrorStroke(%s, %s, %s, %s, %s);", ((strokeOrFill != null) ? strokeOrFill.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -219,10 +219,10 @@ Error mode defines the rule to parse values for series with error.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".valueErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".valueErrorStroke(%s, %s, %s, %s, %s)", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueErrorStroke(%s, %f, %s, %s, %s);", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueErrorStroke(%s, %s, %s, %s, %s);", ((strokeOrFill1 != null) ? strokeOrFill1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -255,10 +255,10 @@ Error mode defines the rule to parse values for series with error.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".valueErrorStroke(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".valueErrorStroke(%s, %s, %s, %s, %s)", wrapQuotes(strokeOrFill2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueErrorStroke(%s, %f, %s, %s, %s);", wrapQuotes(strokeOrFill2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueErrorStroke(%s, %s, %s, %s, %s);", wrapQuotes(strokeOrFill2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -280,10 +280,10 @@ Error mode defines the rule to parse values for series with error.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".valueErrorWidth(%f)", valueErrorWidth));
+            js.append(String.format(Locale.US, ".valueErrorWidth(%s)", valueErrorWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueErrorWidth(%f);", valueErrorWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueErrorWidth(%s);", valueErrorWidth));
                 js.setLength(0);
             }
         }
@@ -336,10 +336,10 @@ Error mode defines the rule to parse values for series with error.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".valueLowerError(%f)", valueLowerError1));
+            js.append(String.format(Locale.US, ".valueLowerError(%s)", valueLowerError1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueLowerError(%f);", valueLowerError1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueLowerError(%s);", valueLowerError1));
                 js.setLength(0);
             }
         }
@@ -392,10 +392,10 @@ Error mode defines the rule to parse values for series with error.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".valueUpperError(%f)", valueUpperError1));
+            js.append(String.format(Locale.US, ".valueUpperError(%s)", valueUpperError1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueUpperError(%f);", valueUpperError1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".valueUpperError(%s);", valueUpperError1));
                 js.setLength(0);
             }
         }
@@ -448,10 +448,10 @@ Error mode defines the rule to parse values for series with error.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".xError(%f)", xError1));
+            js.append(String.format(Locale.US, ".xError(%s)", xError1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xError(%f);", xError1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xError(%s);", xError1));
                 js.setLength(0);
             }
         }
@@ -507,10 +507,10 @@ Error mode defines the rule to parse values for series with error.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".xErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill3 != null) ? strokeOrFill3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".xErrorStroke(%s, %s, %s, %s, %s)", ((strokeOrFill3 != null) ? strokeOrFill3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %f, %s, %s, %s);", ((strokeOrFill3 != null) ? strokeOrFill3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", ((strokeOrFill3 != null) ? strokeOrFill3.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -559,10 +559,10 @@ Error mode defines the rule to parse values for series with error.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".xErrorStroke(%s, %f, %s, %s, %s)", ((strokeOrFill4 != null) ? strokeOrFill4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".xErrorStroke(%s, %s, %s, %s, %s)", ((strokeOrFill4 != null) ? strokeOrFill4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %f, %s, %s, %s);", ((strokeOrFill4 != null) ? strokeOrFill4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", ((strokeOrFill4 != null) ? strokeOrFill4.generateJs() : "null"), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -611,10 +611,10 @@ Error mode defines the rule to parse values for series with error.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".xErrorStroke(%s, %f, %s, %s, %s)", wrapQuotes(strokeOrFill5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".xErrorStroke(%s, %s, %s, %s, %s)", wrapQuotes(strokeOrFill5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %f, %s, %s, %s);", wrapQuotes(strokeOrFill5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xErrorStroke(%s, %s, %s, %s, %s);", wrapQuotes(strokeOrFill5), thickness1, wrapQuotes(dashpattern1), ((lineJoin1 != null) ? lineJoin1.generateJs() : "null"), ((lineCap1 != null) ? lineCap1.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -636,10 +636,10 @@ Error mode defines the rule to parse values for series with error.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".xErrorWidth(%f)", xErrorWidth));
+            js.append(String.format(Locale.US, ".xErrorWidth(%s)", xErrorWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xErrorWidth(%f);", xErrorWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xErrorWidth(%s);", xErrorWidth));
                 js.setLength(0);
             }
         }
@@ -692,10 +692,10 @@ Error mode defines the rule to parse values for series with error.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".xLowerError(%f)", xLowerError1));
+            js.append(String.format(Locale.US, ".xLowerError(%s)", xLowerError1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xLowerError(%f);", xLowerError1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xLowerError(%s);", xLowerError1));
                 js.setLength(0);
             }
         }
@@ -748,10 +748,10 @@ Error mode defines the rule to parse values for series with error.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".xUpperError(%f)", xUpperError1));
+            js.append(String.format(Locale.US, ".xUpperError(%s)", xUpperError1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xUpperError(%f);", xUpperError1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xUpperError(%s);", xUpperError1));
                 js.setLength(0);
             }
         }

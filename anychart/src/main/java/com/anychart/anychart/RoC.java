@@ -51,10 +51,10 @@ public class RoC extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".period(%f)", period));
+            js.append(String.format(Locale.US, ".period(%s)", period));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%f);", period));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%s);", period));
                 js.setLength(0);
             }
         }

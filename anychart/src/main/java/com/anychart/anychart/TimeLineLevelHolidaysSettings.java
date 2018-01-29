@@ -75,30 +75,24 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
         return "";
     }
 
-    private String color;
-    private Number opacity;
     private List<CoreResourceTimeline> setFill1 = new ArrayList<>();
 
     /**
-     * Fill color with opacity.
+     * 
      */
-    public CoreResourceTimeline fill(String color, Number opacity) {
+    public CoreResourceTimeline setFill(String json) {
         if (jsBase == null) {
-            this.color = color;
-            this.opacity = opacity;
         } else {
-            this.color = color;
-            this.opacity = opacity;
             if (isChain) {
                 js.append(";");
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setFill1" + ++variableIndex + " = " + jsBase + ".fill(%s, %f);", wrapQuotes(color), opacity));
+            js.append(String.format(Locale.US, "var setFill1" + ++variableIndex + " = " + jsBase + ".fill(%s);", wrapQuotes(json)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f);", wrapQuotes(color), opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s);", wrapQuotes(json)));
                 js.setLength(0);
             }
         }
@@ -117,6 +111,48 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
         return "";
     }
 
+    private String color;
+    private Number opacity;
+    private List<CoreResourceTimeline> setFill2 = new ArrayList<>();
+
+    /**
+     * Fill color with opacity.
+     */
+    public CoreResourceTimeline fill(String color, Number opacity) {
+        if (jsBase == null) {
+            this.color = color;
+            this.opacity = opacity;
+        } else {
+            this.color = color;
+            this.opacity = opacity;
+            if (isChain) {
+                js.append(";");
+                isChain = false;
+            }
+            
+            js.append(String.format(Locale.US, "var setFill2" + ++variableIndex + " = " + jsBase + ".fill(%s, %s);", wrapQuotes(color), opacity));
+            
+
+            if (isRendered) {
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s);", wrapQuotes(color), opacity));
+                js.setLength(0);
+            }
+        }
+        CoreResourceTimeline item = new CoreResourceTimeline("setFill2" + variableIndex);
+        setFill2.add(item);
+        return item;
+    }
+    private String generateJSsetFill2() {
+        if (!setFill2.isEmpty()) {
+            StringBuilder resultJs = new StringBuilder();
+            for (CoreResourceTimeline item : setFill2) {
+                resultJs.append(item.generateJs());
+            }
+            return resultJs.toString();
+        }
+        return "";
+    }
+
     private GradientKey[] keys;
     private String[] keys1;
     private Number angle;
@@ -124,7 +160,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
     private VectorRect mode1;
     private String mode2;
     private Number opacity1;
-    private List<CoreResourceTimeline> setFill2 = new ArrayList<>();
+    private List<CoreResourceTimeline> setFill3 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -156,22 +192,22 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setFill2" + ++variableIndex + " = " + jsBase + ".fill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
+            js.append(String.format(Locale.US, "var setFill3" + ++variableIndex + " = " + jsBase + ".fill(%s, %s, %s, %b);", arrayToString(keys), angle, opacity1, mode));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %b);", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
-        CoreResourceTimeline item = new CoreResourceTimeline("setFill2" + variableIndex);
-        setFill2.add(item);
+        CoreResourceTimeline item = new CoreResourceTimeline("setFill3" + variableIndex);
+        setFill3.add(item);
         return item;
     }
-    private String generateJSsetFill2() {
-        if (!setFill2.isEmpty()) {
+    private String generateJSsetFill3() {
+        if (!setFill3.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CoreResourceTimeline item : setFill2) {
+            for (CoreResourceTimeline item : setFill3) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -179,7 +215,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
         return "";
     }
 
-    private List<CoreResourceTimeline> setFill3 = new ArrayList<>();
+    private List<CoreResourceTimeline> setFill4 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -211,22 +247,22 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
                 isChain = false;
             }
             js.append(mode1.generateJs());
-            js.append(String.format(Locale.US, "var setFill3" + ++variableIndex + " = " + jsBase + ".fill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, "var setFill4" + ++variableIndex + " = " + jsBase + ".fill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
-        CoreResourceTimeline item = new CoreResourceTimeline("setFill3" + variableIndex);
-        setFill3.add(item);
+        CoreResourceTimeline item = new CoreResourceTimeline("setFill4" + variableIndex);
+        setFill4.add(item);
         return item;
     }
-    private String generateJSsetFill3() {
-        if (!setFill3.isEmpty()) {
+    private String generateJSsetFill4() {
+        if (!setFill4.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CoreResourceTimeline item : setFill3) {
+            for (CoreResourceTimeline item : setFill4) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -234,7 +270,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
         return "";
     }
 
-    private List<CoreResourceTimeline> setFill4 = new ArrayList<>();
+    private List<CoreResourceTimeline> setFill5 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -266,22 +302,22 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setFill4" + ++variableIndex + " = " + jsBase + ".fill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+            js.append(String.format(Locale.US, "var setFill5" + ++variableIndex + " = " + jsBase + ".fill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
-        CoreResourceTimeline item = new CoreResourceTimeline("setFill4" + variableIndex);
-        setFill4.add(item);
+        CoreResourceTimeline item = new CoreResourceTimeline("setFill5" + variableIndex);
+        setFill5.add(item);
         return item;
     }
-    private String generateJSsetFill4() {
-        if (!setFill4.isEmpty()) {
+    private String generateJSsetFill5() {
+        if (!setFill5.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CoreResourceTimeline item : setFill4) {
+            for (CoreResourceTimeline item : setFill5) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -289,7 +325,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
         return "";
     }
 
-    private List<CoreResourceTimeline> setFill5 = new ArrayList<>();
+    private List<CoreResourceTimeline> setFill6 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -321,22 +357,22 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setFill5" + ++variableIndex + " = " + jsBase + ".fill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+            js.append(String.format(Locale.US, "var setFill6" + ++variableIndex + " = " + jsBase + ".fill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
-        CoreResourceTimeline item = new CoreResourceTimeline("setFill5" + variableIndex);
-        setFill5.add(item);
+        CoreResourceTimeline item = new CoreResourceTimeline("setFill6" + variableIndex);
+        setFill6.add(item);
         return item;
     }
-    private String generateJSsetFill5() {
-        if (!setFill5.isEmpty()) {
+    private String generateJSsetFill6() {
+        if (!setFill6.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CoreResourceTimeline item : setFill5) {
+            for (CoreResourceTimeline item : setFill6) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -344,7 +380,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
         return "";
     }
 
-    private List<CoreResourceTimeline> setFill6 = new ArrayList<>();
+    private List<CoreResourceTimeline> setFill7 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -376,22 +412,22 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
                 isChain = false;
             }
             js.append(mode1.generateJs());
-            js.append(String.format(Locale.US, "var setFill6" + ++variableIndex + " = " + jsBase + ".fill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, "var setFill7" + ++variableIndex + " = " + jsBase + ".fill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
-        CoreResourceTimeline item = new CoreResourceTimeline("setFill6" + variableIndex);
-        setFill6.add(item);
+        CoreResourceTimeline item = new CoreResourceTimeline("setFill7" + variableIndex);
+        setFill7.add(item);
         return item;
     }
-    private String generateJSsetFill6() {
-        if (!setFill6.isEmpty()) {
+    private String generateJSsetFill7() {
+        if (!setFill7.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CoreResourceTimeline item : setFill6) {
+            for (CoreResourceTimeline item : setFill7) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -399,7 +435,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
         return "";
     }
 
-    private List<CoreResourceTimeline> setFill7 = new ArrayList<>();
+    private List<CoreResourceTimeline> setFill8 = new ArrayList<>();
 
     /**
      * Linear gradient fill.
@@ -431,22 +467,22 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setFill7" + ++variableIndex + " = " + jsBase + ".fill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+            js.append(String.format(Locale.US, "var setFill8" + ++variableIndex + " = " + jsBase + ".fill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
-        CoreResourceTimeline item = new CoreResourceTimeline("setFill7" + variableIndex);
-        setFill7.add(item);
+        CoreResourceTimeline item = new CoreResourceTimeline("setFill8" + variableIndex);
+        setFill8.add(item);
         return item;
     }
-    private String generateJSsetFill7() {
-        if (!setFill7.isEmpty()) {
+    private String generateJSsetFill8() {
+        if (!setFill8.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CoreResourceTimeline item : setFill7) {
+            for (CoreResourceTimeline item : setFill8) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -462,7 +498,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
     private Number opacity2;
     private Number fx;
     private Number fy;
-    private List<CoreResourceTimeline> setFill8 = new ArrayList<>();
+    private List<CoreResourceTimeline> setFill9 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -504,22 +540,22 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
                 isChain = false;
             }
             js.append(mode3.generateJs());
-            js.append(String.format(Locale.US, "var setFill8" + ++variableIndex + " = " + jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+            js.append(String.format(Locale.US, "var setFill9" + ++variableIndex + " = " + jsBase + ".fill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
-        CoreResourceTimeline item = new CoreResourceTimeline("setFill8" + variableIndex);
-        setFill8.add(item);
+        CoreResourceTimeline item = new CoreResourceTimeline("setFill9" + variableIndex);
+        setFill9.add(item);
         return item;
     }
-    private String generateJSsetFill8() {
-        if (!setFill8.isEmpty()) {
+    private String generateJSsetFill9() {
+        if (!setFill9.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CoreResourceTimeline item : setFill8) {
+            for (CoreResourceTimeline item : setFill9) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -527,7 +563,7 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
         return "";
     }
 
-    private List<CoreResourceTimeline> setFill9 = new ArrayList<>();
+    private List<CoreResourceTimeline> setFill10 = new ArrayList<>();
 
     /**
      * Radial gradient fill.
@@ -569,22 +605,22 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
                 isChain = false;
             }
             js.append(mode3.generateJs());
-            js.append(String.format(Locale.US, "var setFill9" + ++variableIndex + " = " + jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+            js.append(String.format(Locale.US, "var setFill10" + ++variableIndex + " = " + jsBase + ".fill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
-        CoreResourceTimeline item = new CoreResourceTimeline("setFill9" + variableIndex);
-        setFill9.add(item);
+        CoreResourceTimeline item = new CoreResourceTimeline("setFill10" + variableIndex);
+        setFill10.add(item);
         return item;
     }
-    private String generateJSsetFill9() {
-        if (!setFill9.isEmpty()) {
+    private String generateJSsetFill10() {
+        if (!setFill10.isEmpty()) {
             StringBuilder resultJs = new StringBuilder();
-            for (CoreResourceTimeline item : setFill9) {
+            for (CoreResourceTimeline item : setFill10) {
                 resultJs.append(item.generateJs());
             }
             return resultJs.toString();
@@ -879,11 +915,11 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setPadding4" + ++variableIndex + " = " + jsBase + ".padding(%f, %f, %f, %f);", value1, value3, value5, value7));
+            js.append(String.format(Locale.US, "var setPadding4" + ++variableIndex + " = " + jsBase + ".padding(%s, %s, %s, %s);", value1, value3, value5, value7));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
@@ -930,16 +966,10 @@ public class TimeLineLevelHolidaysSettings extends CoreBase {
 
         js.append(generateJsGetters());
 
-        js.append(generateJSsetFill());
         js.append(generateJSsetFill1());
         js.append(generateJSsetFill2());
-        js.append(generateJSsetFill3());
-        js.append(generateJSsetFill4());
-        js.append(generateJSsetFill5());
-        js.append(generateJSsetFill6());
-        js.append(generateJSsetFill7());
         js.append(generateJSsetFill8());
-        js.append(generateJSsetFill9());
+        js.append(generateJSsetFill10());
         js.append(generateJSsetPadding());
         js.append(generateJSsetPadding1());
         js.append(generateJSsetPadding2());

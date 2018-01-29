@@ -120,10 +120,10 @@ public class Led extends LineargaugePointersBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".count(%f)", count));
+            js.append(String.format(Locale.US, ".count(%s)", count));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%f);", count));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%s);", count));
                 js.setLength(0);
             }
         }
@@ -149,10 +149,10 @@ public class Led extends LineargaugePointersBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".gap(%f)", gap));
+            js.append(String.format(Locale.US, ".gap(%s)", gap));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".gap(%f);", gap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".gap(%s);", gap));
                 js.setLength(0);
             }
         }
@@ -205,10 +205,10 @@ public class Led extends LineargaugePointersBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".size(%f)", size));
+            js.append(String.format(Locale.US, ".size(%s)", size));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".size(%f);", size));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".size(%s);", size));
                 js.setLength(0);
             }
         }

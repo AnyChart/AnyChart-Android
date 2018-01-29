@@ -576,10 +576,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
+        js.append(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%f)", maxPointWidth));
+            onChangeListener.onChange(String.format(Locale.US, ".maxPointWidth(%s)", maxPointWidth));
             js.setLength(0);
         }
         return this;
@@ -614,10 +614,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
+        js.append(String.format(Locale.US, ".minPointLength(%s)", minPointLength));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%f)", minPointLength));
+            onChangeListener.onChange(String.format(Locale.US, ".minPointLength(%s)", minPointLength));
             js.setLength(0);
         }
         return this;
@@ -683,10 +683,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
+        js.append(String.format(Locale.US, ".pointWidth(%s)", pointWidth));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%f)", pointWidth));
+            onChangeListener.onChange(String.format(Locale.US, ".pointWidth(%s)", pointWidth));
             js.setLength(0);
         }
         return this;
@@ -814,10 +814,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xAxis(%s, %f)", wrapQuotes(xAxis2), index1));
+        js.append(String.format(Locale.US, ".xAxis(%s, %s)", wrapQuotes(xAxis2), index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s, %f)", wrapQuotes(xAxis2), index1));
+            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s, %s)", wrapQuotes(xAxis2), index1));
             js.setLength(0);
         }
         return this;
@@ -832,10 +832,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index1));
+        js.append(String.format(Locale.US, ".xAxis(%b, %s)", xAxis3, index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index1));
+            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b, %s)", xAxis3, index1));
             js.setLength(0);
         }
         return this;
@@ -914,10 +914,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index3));
+        js.append(String.format(Locale.US, ".xGrid(%s, %s)", wrapQuotes(xGrid2), index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index3));
+            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %s)", wrapQuotes(xGrid2), index3));
             js.setLength(0);
         }
         return this;
@@ -932,10 +932,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index3));
+        js.append(String.format(Locale.US, ".xGrid(%b, %s)", xGrid3, index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index3));
+            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %s)", xGrid3, index3));
             js.setLength(0);
         }
         return this;
@@ -1014,10 +1014,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), index5));
+        js.append(String.format(Locale.US, ".xMinorGrid(%s, %s)", wrapQuotes(xMinorGrid2), index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), index5));
+            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %s)", wrapQuotes(xMinorGrid2), index5));
             js.setLength(0);
         }
         return this;
@@ -1032,10 +1032,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index5));
+        js.append(String.format(Locale.US, ".xMinorGrid(%b, %s)", xMinorGrid3, index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index5));
+            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b, %s)", xMinorGrid3, index5));
             js.setLength(0);
         }
         return this;
@@ -1187,10 +1187,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index7));
+        js.append(String.format(Locale.US, ".yAxis(%s, %s)", wrapQuotes(yAxis2), index7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index7));
+            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %s)", wrapQuotes(yAxis2), index7));
             js.setLength(0);
         }
         return this;
@@ -1205,10 +1205,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index7));
+        js.append(String.format(Locale.US, ".yAxis(%b, %s)", yAxis3, index7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index7));
+            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %s)", yAxis3, index7));
             js.setLength(0);
         }
         return this;
@@ -1287,10 +1287,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index9));
+        js.append(String.format(Locale.US, ".yGrid(%s, %s)", wrapQuotes(yGrid2), index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index9));
+            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %s)", wrapQuotes(yGrid2), index9));
             js.setLength(0);
         }
         return this;
@@ -1305,10 +1305,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index9));
+        js.append(String.format(Locale.US, ".yGrid(%b, %s)", yGrid3, index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index9));
+            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %s)", yGrid3, index9));
             js.setLength(0);
         }
         return this;
@@ -1387,10 +1387,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), index11));
+        js.append(String.format(Locale.US, ".yMinorGrid(%s, %s)", wrapQuotes(yMinorGrid2), index11));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), index11));
+            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %s)", wrapQuotes(yMinorGrid2), index11));
             js.setLength(0);
         }
         return this;
@@ -1405,10 +1405,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index11));
+        js.append(String.format(Locale.US, ".yMinorGrid(%b, %s)", yMinorGrid3, index11));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index11));
+            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b, %s)", yMinorGrid3, index11));
             js.setLength(0);
         }
         return this;
@@ -1497,10 +1497,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zAngle(%f)", zAngle));
+        js.append(String.format(Locale.US, ".zAngle(%s)", zAngle));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zAngle(%f)", zAngle));
+            onChangeListener.onChange(String.format(Locale.US, ".zAngle(%s)", zAngle));
             js.setLength(0);
         }
         return this;
@@ -1517,10 +1517,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zAspect(%f)", zAspect));
+        js.append(String.format(Locale.US, ".zAspect(%s)", zAspect));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zAspect(%f)", zAspect));
+            onChangeListener.onChange(String.format(Locale.US, ".zAspect(%s)", zAspect));
             js.setLength(0);
         }
         return this;
@@ -1573,10 +1573,10 @@ public class Cartesian3d extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zPadding(%f)", zPadding));
+        js.append(String.format(Locale.US, ".zPadding(%s)", zPadding));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zPadding(%f)", zPadding));
+            onChangeListener.onChange(String.format(Locale.US, ".zPadding(%s)", zPadding));
             js.setLength(0);
         }
         return this;

@@ -34,7 +34,7 @@ public class TextParsingSettings extends JsObject  {
         this.minLength = minLength;
         this.rowsSeparator = rowsSeparator;
 
-        js.append(String.format(Locale.US, "{mode: %s,columnsSeparator: %s,cutLength: %f,ignoreFirstRow: %b,ignoreItems: %s,ignoreTrailingSpaces: %b,maxItems: %f,maxLength: %f,minLength: %f,rowsSeparator: %s}",  ((mode != null) ? mode.generateJs() : "null"), wrapQuotes(columnsSeparator), cutLength, ignoreFirstRow, arrayToStringWrapQuotes(ignoreItems), ignoreTrailingSpaces, maxItems, maxLength, minLength, wrapQuotes(rowsSeparator)));
+        js.append(String.format(Locale.US, "{mode: %s,columnsSeparator: %s,cutLength: %s,ignoreFirstRow: %b,ignoreItems: %s,ignoreTrailingSpaces: %b,maxItems: %s,maxLength: %s,minLength: %s,rowsSeparator: %s}",  ((mode != null) ? mode.generateJs() : "null"), wrapQuotes(columnsSeparator), cutLength, ignoreFirstRow, arrayToStringWrapQuotes(ignoreItems), ignoreTrailingSpaces, maxItems, maxLength, minLength, wrapQuotes(rowsSeparator)));
     }
     public TextParsingSettings(String mode1, String columnsSeparator, Number cutLength, Boolean ignoreFirstRow, String[] ignoreItems, Boolean ignoreTrailingSpaces, Number maxItems, Number maxLength, Number minLength, String rowsSeparator) {
         this.mode1 = mode1;
@@ -48,7 +48,7 @@ public class TextParsingSettings extends JsObject  {
         this.minLength = minLength;
         this.rowsSeparator = rowsSeparator;
 
-        js.append(String.format(Locale.US, "{mode: %s,columnsSeparator: %s,cutLength: %f,ignoreFirstRow: %b,ignoreItems: %s,ignoreTrailingSpaces: %b,maxItems: %f,maxLength: %f,minLength: %f,rowsSeparator: %s}",  wrapQuotes(mode1), wrapQuotes(columnsSeparator), cutLength, ignoreFirstRow, arrayToStringWrapQuotes(ignoreItems), ignoreTrailingSpaces, maxItems, maxLength, minLength, wrapQuotes(rowsSeparator)));
+        js.append(String.format(Locale.US, "{mode: %s,columnsSeparator: %s,cutLength: %s,ignoreFirstRow: %b,ignoreItems: %s,ignoreTrailingSpaces: %b,maxItems: %s,maxLength: %s,minLength: %s,rowsSeparator: %s}",  wrapQuotes(mode1), wrapQuotes(columnsSeparator), cutLength, ignoreFirstRow, arrayToStringWrapQuotes(ignoreItems), ignoreTrailingSpaces, maxItems, maxLength, minLength, wrapQuotes(rowsSeparator)));
     }
 
     @Override

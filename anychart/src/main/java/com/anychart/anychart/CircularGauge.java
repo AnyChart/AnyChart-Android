@@ -108,10 +108,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".axis(%s, %f)", wrapQuotes(axis2), index));
+        js.append(String.format(Locale.US, ".axis(%s, %s)", wrapQuotes(axis2), index));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".axis(%s, %f)", wrapQuotes(axis2), index));
+            onChangeListener.onChange(String.format(Locale.US, ".axis(%s, %s)", wrapQuotes(axis2), index));
             js.setLength(0);
         }
         return this;
@@ -126,10 +126,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".axis(%b, %f)", axis3, index));
+        js.append(String.format(Locale.US, ".axis(%b, %s)", axis3, index));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".axis(%b, %f)", axis3, index));
+            onChangeListener.onChange(String.format(Locale.US, ".axis(%b, %s)", axis3, index));
             js.setLength(0);
         }
         return this;
@@ -208,10 +208,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".bar(%s, %f)", wrapQuotes(bar2), index2));
+        js.append(String.format(Locale.US, ".bar(%s, %s)", wrapQuotes(bar2), index2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".bar(%s, %f)", wrapQuotes(bar2), index2));
+            onChangeListener.onChange(String.format(Locale.US, ".bar(%s, %s)", wrapQuotes(bar2), index2));
             js.setLength(0);
         }
         return this;
@@ -226,10 +226,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".bar(%b, %f)", bar3, index2));
+        js.append(String.format(Locale.US, ".bar(%b, %s)", bar3, index2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".bar(%b, %f)", bar3, index2));
+            onChangeListener.onChange(String.format(Locale.US, ".bar(%b, %s)", bar3, index2));
             js.setLength(0);
         }
         return this;
@@ -296,10 +296,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".circularPadding(%f)", circularPadding));
+        js.append(String.format(Locale.US, ".circularPadding(%s)", circularPadding));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".circularPadding(%f)", circularPadding));
+            onChangeListener.onChange(String.format(Locale.US, ".circularPadding(%s)", circularPadding));
             js.setLength(0);
         }
         return this;
@@ -425,18 +425,17 @@ public class CircularGauge extends Chart {
 
 
     /**
-     * Setter for fill settings using an array or a string.
-{docs:Graphics/Fill_Settings}Learn more about coloring.{docs}
+     * 
      */
-    public CircularGauge setFill(String fill1) {
+    public CircularGauge setFill(String json) {
         if (!isChain) {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s)", wrapQuotes(fill1)));
+        js.append(String.format(Locale.US, ".fill(%s)", wrapQuotes(json)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", wrapQuotes(fill1)));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s)", wrapQuotes(json)));
             js.setLength(0);
         }
         return this;
@@ -453,10 +452,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
+        js.append(String.format(Locale.US, ".fill(%s, %s)", wrapQuotes(color), opacity));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f)", wrapQuotes(color), opacity));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s)", wrapQuotes(color), opacity));
             js.setLength(0);
         }
         return this;
@@ -479,10 +478,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %b, %s, %s)", arrayToString(keys), mode, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %s, %s)", arrayToString(keys), mode, angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -498,10 +497,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -517,10 +516,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -536,10 +535,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -555,10 +554,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -574,10 +573,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -601,10 +600,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             js.setLength(0);
         }
         return this;
@@ -620,10 +619,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+        js.append(String.format(Locale.US, ".fill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".fill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             js.setLength(0);
         }
         return this;
@@ -703,10 +702,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".knob(%s, %f)", wrapQuotes(knob2), index4));
+        js.append(String.format(Locale.US, ".knob(%s, %s)", wrapQuotes(knob2), index4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".knob(%s, %f)", wrapQuotes(knob2), index4));
+            onChangeListener.onChange(String.format(Locale.US, ".knob(%s, %s)", wrapQuotes(knob2), index4));
             js.setLength(0);
         }
         return this;
@@ -721,10 +720,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".knob(%b, %f)", knob3, index4));
+        js.append(String.format(Locale.US, ".knob(%b, %s)", knob3, index4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".knob(%b, %f)", knob3, index4));
+            onChangeListener.onChange(String.format(Locale.US, ".knob(%b, %s)", knob3, index4));
             js.setLength(0);
         }
         return this;
@@ -803,10 +802,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".marker(%s, %f)", wrapQuotes(marker2), index6));
+        js.append(String.format(Locale.US, ".marker(%s, %s)", wrapQuotes(marker2), index6));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".marker(%s, %f)", wrapQuotes(marker2), index6));
+            onChangeListener.onChange(String.format(Locale.US, ".marker(%s, %s)", wrapQuotes(marker2), index6));
             js.setLength(0);
         }
         return this;
@@ -821,10 +820,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".marker(%b, %f)", marker3, index6));
+        js.append(String.format(Locale.US, ".marker(%b, %s)", marker3, index6));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".marker(%b, %f)", marker3, index6));
+            onChangeListener.onChange(String.format(Locale.US, ".marker(%b, %s)", marker3, index6));
             js.setLength(0);
         }
         return this;
@@ -903,10 +902,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".needle(%s, %f)", wrapQuotes(needle2), index8));
+        js.append(String.format(Locale.US, ".needle(%s, %s)", wrapQuotes(needle2), index8));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".needle(%s, %f)", wrapQuotes(needle2), index8));
+            onChangeListener.onChange(String.format(Locale.US, ".needle(%s, %s)", wrapQuotes(needle2), index8));
             js.setLength(0);
         }
         return this;
@@ -921,10 +920,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".needle(%b, %f)", needle3, index8));
+        js.append(String.format(Locale.US, ".needle(%b, %s)", needle3, index8));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".needle(%b, %f)", needle3, index8));
+            onChangeListener.onChange(String.format(Locale.US, ".needle(%b, %s)", needle3, index8));
             js.setLength(0);
         }
         return this;
@@ -1003,10 +1002,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".range(%s, %f)", wrapQuotes(range2), index10));
+        js.append(String.format(Locale.US, ".range(%s, %s)", wrapQuotes(range2), index10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".range(%s, %f)", wrapQuotes(range2), index10));
+            onChangeListener.onChange(String.format(Locale.US, ".range(%s, %s)", wrapQuotes(range2), index10));
             js.setLength(0);
         }
         return this;
@@ -1021,10 +1020,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".range(%b, %f)", range3, index10));
+        js.append(String.format(Locale.US, ".range(%b, %s)", range3, index10));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".range(%b, %f)", range3, index10));
+            onChangeListener.onChange(String.format(Locale.US, ".range(%b, %s)", range3, index10));
             js.setLength(0);
         }
         return this;
@@ -1059,10 +1058,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".startAngle(%f)", startAngle1));
+        js.append(String.format(Locale.US, ".startAngle(%s)", startAngle1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".startAngle(%f)", startAngle1));
+            onChangeListener.onChange(String.format(Locale.US, ".startAngle(%s)", startAngle1));
             js.setLength(0);
         }
         return this;
@@ -1085,10 +1084,28 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", ((stroke != null) ? stroke.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.setLength(0);
+        }
+        return this;
+    }
+
+
+    /**
+     * 
+     */
+    public CircularGauge setStroke(String json) {
+        if (!isChain) {
+            js.append(jsBase);
+            isChain = true;
+        }
+        js.append(String.format(Locale.US, ".stroke(%s)", wrapQuotes(json)));
+
+        if (isRendered) {
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s)", wrapQuotes(json)));
             js.setLength(0);
         }
         return this;
@@ -1104,10 +1121,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", ((stroke1 != null) ? stroke1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1123,10 +1140,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+        js.append(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %f, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, ".stroke(%s, %s, %s, %s, %s)", wrapQuotes(stroke2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         return this;
@@ -1161,10 +1178,10 @@ public class CircularGauge extends Chart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".sweepAngle(%f)", sweepAngle1));
+        js.append(String.format(Locale.US, ".sweepAngle(%s)", sweepAngle1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".sweepAngle(%f)", sweepAngle1));
+            onChangeListener.onChange(String.format(Locale.US, ".sweepAngle(%s)", sweepAngle1));
             js.setLength(0);
         }
         return this;

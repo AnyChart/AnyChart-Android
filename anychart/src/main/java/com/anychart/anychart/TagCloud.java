@@ -75,10 +75,10 @@ public class TagCloud extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".anglesCount(%f)", anglesCount));
+        js.append(String.format(Locale.US, ".anglesCount(%s)", anglesCount));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".anglesCount(%f)", anglesCount));
+            onChangeListener.onChange(String.format(Locale.US, ".anglesCount(%s)", anglesCount));
             js.setLength(0);
         }
         return this;
@@ -300,10 +300,10 @@ public class TagCloud extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".fromAngle(%f)", fromAngle));
+        js.append(String.format(Locale.US, ".fromAngle(%s)", fromAngle));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".fromAngle(%f)", fromAngle));
+            onChangeListener.onChange(String.format(Locale.US, ".fromAngle(%s)", fromAngle));
             js.setLength(0);
         }
         return this;
@@ -331,10 +331,10 @@ public class TagCloud extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".hover(%f)", index1));
+        js.append(String.format(Locale.US, ".hover(%s)", index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".hover(%f)", index1));
+            onChangeListener.onChange(String.format(Locale.US, ".hover(%s)", index1));
             js.setLength(0);
         }
         return this;
@@ -640,10 +640,10 @@ public class TagCloud extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".select(%f)", index3));
+        js.append(String.format(Locale.US, ".select(%s)", index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".select(%f)", index3));
+            onChangeListener.onChange(String.format(Locale.US, ".select(%s)", index3));
             js.setLength(0);
         }
         return this;
@@ -710,10 +710,10 @@ public class TagCloud extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".textSpacing(%f)", textSpacing));
+        js.append(String.format(Locale.US, ".textSpacing(%s)", textSpacing));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".textSpacing(%f)", textSpacing));
+            onChangeListener.onChange(String.format(Locale.US, ".textSpacing(%s)", textSpacing));
             js.setLength(0);
         }
         return this;
@@ -729,10 +729,10 @@ public class TagCloud extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".toAngle(%f)", toAngle));
+        js.append(String.format(Locale.US, ".toAngle(%s)", toAngle));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".toAngle(%f)", toAngle));
+            onChangeListener.onChange(String.format(Locale.US, ".toAngle(%s)", toAngle));
             js.setLength(0);
         }
         return this;
@@ -749,10 +749,10 @@ public class TagCloud extends SeparateChart {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unselect(%f);", indexOrIndexes));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".unselect(%s);", indexOrIndexes));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselect(%f)", indexOrIndexes));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselect(%s)", indexOrIndexes));
             js.setLength(0);
         }
     }

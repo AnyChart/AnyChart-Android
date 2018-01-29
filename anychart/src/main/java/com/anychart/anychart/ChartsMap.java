@@ -289,10 +289,10 @@ public class ChartsMap extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".callout(%s, %f)", wrapQuotes(callout2), index1));
+        js.append(String.format(Locale.US, ".callout(%s, %s)", wrapQuotes(callout2), index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".callout(%s, %f)", wrapQuotes(callout2), index1));
+            onChangeListener.onChange(String.format(Locale.US, ".callout(%s, %s)", wrapQuotes(callout2), index1));
             js.setLength(0);
         }
         return this;
@@ -307,10 +307,10 @@ public class ChartsMap extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".callout(%b, %f)", callout3, index1));
+        js.append(String.format(Locale.US, ".callout(%b, %s)", callout3, index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".callout(%b, %f)", callout3, index1));
+            onChangeListener.onChange(String.format(Locale.US, ".callout(%b, %s)", callout3, index1));
             js.setLength(0);
         }
         return this;
@@ -606,10 +606,10 @@ public class ChartsMap extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".crsAnimation(%b, %f)", crsAnimation, duration));
+        js.append(String.format(Locale.US, ".crsAnimation(%b, %s)", crsAnimation, duration));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".crsAnimation(%b, %f)", crsAnimation, duration));
+            onChangeListener.onChange(String.format(Locale.US, ".crsAnimation(%b, %s)", crsAnimation, duration));
             js.setLength(0);
         }
         return this;
@@ -624,10 +624,10 @@ public class ChartsMap extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".crsAnimation(%s, %f)", wrapQuotes(crsAnimation1), duration));
+        js.append(String.format(Locale.US, ".crsAnimation(%s, %s)", wrapQuotes(crsAnimation1), duration));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".crsAnimation(%s, %f)", wrapQuotes(crsAnimation1), duration));
+            onChangeListener.onChange(String.format(Locale.US, ".crsAnimation(%s, %s)", wrapQuotes(crsAnimation1), duration));
             js.setLength(0);
         }
         return this;
@@ -743,10 +743,10 @@ Set the transitions to drill down.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".featureScaleFactor(%s, %f)", wrapQuotes(id4), ratio));
+        js.append(String.format(Locale.US, ".featureScaleFactor(%s, %s)", wrapQuotes(id4), ratio));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".featureScaleFactor(%s, %f)", wrapQuotes(id4), ratio));
+            onChangeListener.onChange(String.format(Locale.US, ".featureScaleFactor(%s, %s)", wrapQuotes(id4), ratio));
             js.setLength(0);
         }
         return this;
@@ -765,10 +765,10 @@ Set the transitions to drill down.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".featureTranslation(%s, %f, %f)", wrapQuotes(id6), dx, dy));
+        js.append(String.format(Locale.US, ".featureTranslation(%s, %s, %s)", wrapQuotes(id6), dx, dy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".featureTranslation(%s, %f, %f)", wrapQuotes(id6), dx, dy));
+            onChangeListener.onChange(String.format(Locale.US, ".featureTranslation(%s, %s, %s)", wrapQuotes(id6), dx, dy));
             js.setLength(0);
         }
         return this;
@@ -780,15 +780,15 @@ Set the transitions to drill down.
     /**
      * Setter for the geo data.
      */
-    public void setGeoData(String data12, String data13) {
+    public void setGeoData(String data12) {
         if (isChain) {
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".geoData(%s, %s);", wrapQuotes(data12), wrapQuotes(data13)));
+        js.append(String.format(Locale.US, "var geoData" + ++variableIndex + " = " + jsBase + ".geoData(%s);", wrapQuotes(data12)));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".geoData(%s, %s)", wrapQuotes(data12), wrapQuotes(data13)));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".geoData(%s)", wrapQuotes(data12)));
             js.setLength(0);
         }
     }
@@ -1022,10 +1022,10 @@ Set the transitions to drill down.
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".inverseTransform(%f, %f);", x, y));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".inverseTransform(%s, %s);", x, y));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%f, %f)", x, y));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".inverseTransform(%s, %s)", x, y));
             js.setLength(0);
         }
     }
@@ -1256,10 +1256,10 @@ Set the transitions to drill down.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxBubbleSize(%f)", maxBubbleSize));
+        js.append(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxBubbleSize(%f)", maxBubbleSize));
+            onChangeListener.onChange(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize));
             js.setLength(0);
         }
         return this;
@@ -1293,10 +1293,10 @@ Set the transitions to drill down.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxZoomLevel(%f)", maxZoomLevel));
+        js.append(String.format(Locale.US, ".maxZoomLevel(%s)", maxZoomLevel));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxZoomLevel(%f)", maxZoomLevel));
+            onChangeListener.onChange(String.format(Locale.US, ".maxZoomLevel(%s)", maxZoomLevel));
             js.setLength(0);
         }
         return this;
@@ -1313,10 +1313,10 @@ Set the transitions to drill down.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minBubbleSize(%f)", minBubbleSize));
+        js.append(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%f)", minBubbleSize));
+            onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize));
             js.setLength(0);
         }
         return this;
@@ -1352,10 +1352,10 @@ Set the transitions to drill down.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".move(%f, %f)", dx1, dy1));
+        js.append(String.format(Locale.US, ".move(%s, %s)", dx1, dy1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".move(%f, %f)", dx1, dy1));
+            onChangeListener.onChange(String.format(Locale.US, ".move(%s, %s)", dx1, dy1));
             js.setLength(0);
         }
         return this;
@@ -1554,10 +1554,10 @@ Set the transitions to drill down.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".removeSeries(%f)", id9));
+        js.append(String.format(Locale.US, ".removeSeries(%s)", id9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id9));
+            onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id9));
             js.setLength(0);
         }
         return this;
@@ -1591,10 +1591,10 @@ Set the transitions to drill down.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index3));
+        js.append(String.format(Locale.US, ".removeSeriesAt(%s)", index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index3));
+            onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%s)", index3));
             js.setLength(0);
         }
         return this;
@@ -1722,10 +1722,10 @@ Set the transitions to drill down.
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".transform(%f, %f);", xLong, yLat));
+        js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".transform(%s, %s);", xLong, yLat));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%f, %f)", xLong, yLat));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".transform(%s, %s)", xLong, yLat));
             js.setLength(0);
         }
     }
@@ -1743,10 +1743,10 @@ Set the transitions to drill down.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".translateFeature(%s, %f, %f)", wrapQuotes(id11), dx2, dy2));
+        js.append(String.format(Locale.US, ".translateFeature(%s, %s, %s)", wrapQuotes(id11), dx2, dy2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".translateFeature(%s, %f, %f)", wrapQuotes(id11), dx2, dy2));
+            onChangeListener.onChange(String.format(Locale.US, ".translateFeature(%s, %s, %s)", wrapQuotes(id11), dx2, dy2));
             js.setLength(0);
         }
         return this;
@@ -1835,10 +1835,10 @@ Set the transitions to drill down.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoom(%f, %f, %f, %f)", zoom, cx, cy, duration1));
+        js.append(String.format(Locale.US, ".zoom(%s, %s, %s, %s)", zoom, cx, cy, duration1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoom(%f, %f, %f, %f)", zoom, cx, cy, duration1));
+            onChangeListener.onChange(String.format(Locale.US, ".zoom(%s, %s, %s, %s)", zoom, cx, cy, duration1));
             js.setLength(0);
         }
         return this;
@@ -1856,10 +1856,10 @@ Set the transitions to drill down.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomTo(%f, %f, %f)", zoomTo, cx1, cy1));
+        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %s)", zoomTo, cx1, cy1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%f, %f, %f)", zoomTo, cx1, cy1));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %s)", zoomTo, cx1, cy1));
             js.setLength(0);
         }
         return this;

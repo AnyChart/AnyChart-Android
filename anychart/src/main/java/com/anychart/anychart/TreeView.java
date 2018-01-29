@@ -192,11 +192,11 @@ public class TreeView extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setAddChildAt" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %f);", wrapQuotes(child3), index));
+            js.append(String.format(Locale.US, "var setAddChildAt" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %s);", wrapQuotes(child3), index));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", wrapQuotes(child3), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %s);", wrapQuotes(child3), index));
                 js.setLength(0);
             }
         }
@@ -239,11 +239,11 @@ public class TreeView extends CoreBase {
                 isChain = false;
             }
             js.append(child4.generateJs());
-            js.append(String.format(Locale.US, "var setAddChildAt1" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %f);", ((child4 != null) ? child4.getJsBase() : "null"), index));
+            js.append(String.format(Locale.US, "var setAddChildAt1" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %s);", ((child4 != null) ? child4.getJsBase() : "null"), index));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((child4 != null) ? child4.getJsBase() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %s);", ((child4 != null) ? child4.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -286,11 +286,11 @@ public class TreeView extends CoreBase {
                 isChain = false;
             }
             js.append(child5.generateJs());
-            js.append(String.format(Locale.US, "var setAddChildAt2" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %f);", ((child5 != null) ? child5.getJsBase() : "null"), index));
+            js.append(String.format(Locale.US, "var setAddChildAt2" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %s);", ((child5 != null) ? child5.getJsBase() : "null"), index));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((child5 != null) ? child5.getJsBase() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %s);", ((child5 != null) ? child5.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -594,11 +594,11 @@ public class TreeView extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setRemoveChildAt" + ++variableIndex + " = " + jsBase + ".removeChildAt(%f);", index1));
+            js.append(String.format(Locale.US, "var setRemoveChildAt" + ++variableIndex + " = " + jsBase + ".removeChildAt(%s);", index1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f);", index1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%s);", index1));
                 js.setLength(0);
             }
         }
@@ -691,11 +691,11 @@ public class TreeView extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setSearch1" + ++variableIndex + " = " + jsBase + ".search(%s, %f, %s);", wrapQuotes(soughtField), search1, wrapQuotes(comparisonFn)));
+            js.append(String.format(Locale.US, "var setSearch1" + ++variableIndex + " = " + jsBase + ".search(%s, %s, %s);", wrapQuotes(soughtField), search1, wrapQuotes(comparisonFn)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %f, %s);", wrapQuotes(soughtField), search1, wrapQuotes(comparisonFn)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %s, %s);", wrapQuotes(soughtField), search1, wrapQuotes(comparisonFn)));
                 js.setLength(0);
             }
         }
@@ -831,11 +831,11 @@ public class TreeView extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".searchItems(%s, %f, %s);", wrapQuotes(soughtField1), searchItems1, wrapQuotes(comparisonFn1)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".searchItems(%s, %s, %s);", wrapQuotes(soughtField1), searchItems1, wrapQuotes(comparisonFn1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %f, %s);", wrapQuotes(soughtField1), searchItems1, wrapQuotes(comparisonFn1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %s, %s);", wrapQuotes(soughtField1), searchItems1, wrapQuotes(comparisonFn1)));
                 js.setLength(0);
             }
         }

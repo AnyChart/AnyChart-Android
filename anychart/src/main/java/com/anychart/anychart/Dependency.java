@@ -25,19 +25,19 @@ public class Dependency extends JsObject  {
         this.from = from;
         this.to1 = to1;
 
-        js.append(String.format(Locale.US, "{from: %s,to: %f}",  wrapQuotes(from), to1));
+        js.append(String.format(Locale.US, "{from: %s,to: %s}",  wrapQuotes(from), to1));
     }
     public Dependency(Number from1, String to) {
         this.from1 = from1;
         this.to = to;
 
-        js.append(String.format(Locale.US, "{from: %f,to: %s}",  from1, wrapQuotes(to)));
+        js.append(String.format(Locale.US, "{from: %s,to: %s}",  from1, wrapQuotes(to)));
     }
     public Dependency(Number from1, Number to1) {
         this.from1 = from1;
         this.to1 = to1;
 
-        js.append(String.format(Locale.US, "{from: %f,to: %f}",  from1, to1));
+        js.append(String.format(Locale.US, "{from: %s,to: %s}",  from1, to1));
     }
 
     @Override

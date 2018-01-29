@@ -19,7 +19,7 @@ public class Tick extends JsObject  {
         this.holiday = holiday;
         this.start = start;
 
-        js.append(String.format(Locale.US, "{end: %f,holiday: %b,start: %f}",  end, holiday, start));
+        js.append(String.format(Locale.US, "{end: %s,holiday: %b,start: %s}",  end, holiday, start));
     }
 
     @Override

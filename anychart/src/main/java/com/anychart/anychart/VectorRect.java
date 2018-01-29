@@ -88,10 +88,10 @@ public class VectorRect extends Shape {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".cut(%f)", radiusAll1));
+            js.append(String.format(Locale.US, ".cut(%s)", radiusAll1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cut(%f);", radiusAll1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cut(%s);", radiusAll1));
                 js.setLength(0);
             }
         }
@@ -122,10 +122,10 @@ public class VectorRect extends Shape {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".cut(%f, %f, %f, %f)", radiusLeftTop, radiusRightTop, radiusRightBottom, radiusLeftBottom));
+            js.append(String.format(Locale.US, ".cut(%s, %s, %s, %s)", radiusLeftTop, radiusRightTop, radiusRightBottom, radiusLeftBottom));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cut(%f, %f, %f, %f);", radiusLeftTop, radiusRightTop, radiusRightBottom, radiusLeftBottom));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cut(%s, %s, %s, %s);", radiusLeftTop, radiusRightTop, radiusRightBottom, radiusLeftBottom));
                 js.setLength(0);
             }
         }
@@ -182,10 +182,10 @@ public class VectorRect extends Shape {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".round(%f)", radiusAll3));
+            js.append(String.format(Locale.US, ".round(%s)", radiusAll3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".round(%f);", radiusAll3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".round(%s);", radiusAll3));
                 js.setLength(0);
             }
         }
@@ -228,10 +228,10 @@ public class VectorRect extends Shape {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".round(%f, %f, %f, %f)", radiusLeftTop1, radiusRightTop1, radiusRightBottom1, radiusLeftBottom1));
+            js.append(String.format(Locale.US, ".round(%s, %s, %s, %s)", radiusLeftTop1, radiusRightTop1, radiusRightBottom1, radiusLeftBottom1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".round(%f, %f, %f, %f);", radiusLeftTop1, radiusRightTop1, radiusRightBottom1, radiusLeftBottom1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".round(%s, %s, %s, %s);", radiusLeftTop1, radiusRightTop1, radiusRightBottom1, radiusLeftBottom1));
                 js.setLength(0);
             }
         }
@@ -292,10 +292,10 @@ public class VectorRect extends Shape {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".roundInner(%f)", radiusAll5));
+            js.append(String.format(Locale.US, ".roundInner(%s)", radiusAll5));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roundInner(%f);", radiusAll5));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roundInner(%s);", radiusAll5));
                 js.setLength(0);
             }
         }
@@ -342,10 +342,10 @@ public class VectorRect extends Shape {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".roundInner(%f, %f, %f, %f)", radiusLeftTop2, radiusRightTop2, radiusRightBottom2, radiusLeftBottom2));
+            js.append(String.format(Locale.US, ".roundInner(%s, %s, %s, %s)", radiusLeftTop2, radiusRightTop2, radiusRightBottom2, radiusLeftBottom2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roundInner(%f, %f, %f, %f);", radiusLeftTop2, radiusRightTop2, radiusRightBottom2, radiusLeftBottom2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".roundInner(%s, %s, %s, %s);", radiusLeftTop2, radiusRightTop2, radiusRightBottom2, radiusLeftBottom2));
                 js.setLength(0);
             }
         }
@@ -393,10 +393,10 @@ public class VectorRect extends Shape {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".setHeight(%f)", setHeight));
+            js.append(String.format(Locale.US, ".setHeight(%s)", setHeight));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setHeight(%f);", setHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setHeight(%s);", setHeight));
                 js.setLength(0);
             }
         }
@@ -418,10 +418,10 @@ public class VectorRect extends Shape {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".setWidth(%f)", setWidth));
+            js.append(String.format(Locale.US, ".setWidth(%s)", setWidth));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setWidth(%f);", setWidth));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setWidth(%s);", setWidth));
                 js.setLength(0);
             }
         }
@@ -443,10 +443,10 @@ public class VectorRect extends Shape {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".setX(%f)", setX));
+            js.append(String.format(Locale.US, ".setX(%s)", setX));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setX(%f);", setX));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setX(%s);", setX));
                 js.setLength(0);
             }
         }
@@ -468,10 +468,10 @@ public class VectorRect extends Shape {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".setY(%f)", setY));
+            js.append(String.format(Locale.US, ".setY(%s)", setY));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setY(%f);", setY));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".setY(%s);", setY));
                 js.setLength(0);
             }
         }

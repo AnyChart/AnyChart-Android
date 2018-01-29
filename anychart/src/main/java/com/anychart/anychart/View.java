@@ -164,10 +164,10 @@ public class View extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".meta(%f, %s)", index, wrapQuotes(name)));
+            js.append(String.format(Locale.US, ".meta(%s, %s)", index, wrapQuotes(name)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%f, %s);", index, wrapQuotes(name)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".meta(%s, %s);", index, wrapQuotes(name)));
                 js.setLength(0);
             }
         }
@@ -189,11 +189,11 @@ public class View extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".row(%f);", rowIndex));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".row(%s);", rowIndex));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".row(%f);", rowIndex));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".row(%s);", rowIndex));
                 js.setLength(0);
             }
         }
@@ -224,10 +224,10 @@ public class View extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".set(%f, %s)", rowIndex1, wrapQuotes(fieldName2)));
+            js.append(String.format(Locale.US, ".set(%s, %s)", rowIndex1, wrapQuotes(fieldName2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%f, %s);", rowIndex1, wrapQuotes(fieldName2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".set(%s, %s);", rowIndex1, wrapQuotes(fieldName2)));
                 js.setLength(0);
             }
         }

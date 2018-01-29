@@ -113,10 +113,10 @@ public class Paginator extends CoreText {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".currentPage(%f)", currentPage));
+            js.append(String.format(Locale.US, ".currentPage(%s)", currentPage));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".currentPage(%f);", currentPage));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".currentPage(%s);", currentPage));
                 js.setLength(0);
             }
         }
@@ -324,10 +324,10 @@ public class Paginator extends CoreText {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left1));
+            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %f);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %s);", spaceOrTopOrTopAndBottom1, rightOrRightAndLeft1, bottom1, left1));
                 js.setLength(0);
             }
         }
@@ -529,10 +529,10 @@ public class Paginator extends CoreText {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", spaceOrTopOrTopAndBottom6, rightOrRightAndLeft3, bottom3, left3));
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", spaceOrTopOrTopAndBottom6, rightOrRightAndLeft3, bottom3, left3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", spaceOrTopOrTopAndBottom6, rightOrRightAndLeft3, bottom3, left3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", spaceOrTopOrTopAndBottom6, rightOrRightAndLeft3, bottom3, left3));
                 js.setLength(0);
             }
         }

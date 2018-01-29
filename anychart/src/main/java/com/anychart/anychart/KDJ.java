@@ -107,10 +107,10 @@ public class KDJ extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".dMultiplier(%f)", dMultiplier));
+            js.append(String.format(Locale.US, ".dMultiplier(%s)", dMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dMultiplier(%f);", dMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dMultiplier(%s);", dMultiplier));
                 js.setLength(0);
             }
         }
@@ -132,10 +132,10 @@ public class KDJ extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".dPeriod(%f)", dPeriod));
+            js.append(String.format(Locale.US, ".dPeriod(%s)", dPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dPeriod(%f);", dPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dPeriod(%s);", dPeriod));
                 js.setLength(0);
             }
         }
@@ -364,10 +364,10 @@ public class KDJ extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".kMultiplier(%f)", kMultiplier));
+            js.append(String.format(Locale.US, ".kMultiplier(%s)", kMultiplier));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kMultiplier(%f);", kMultiplier));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kMultiplier(%s);", kMultiplier));
                 js.setLength(0);
             }
         }
@@ -389,10 +389,10 @@ public class KDJ extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".kPeriod(%f)", kPeriod));
+            js.append(String.format(Locale.US, ".kPeriod(%s)", kPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kPeriod(%f);", kPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".kPeriod(%s);", kPeriod));
                 js.setLength(0);
             }
         }

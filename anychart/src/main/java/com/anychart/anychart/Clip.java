@@ -194,10 +194,10 @@ public class Clip extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".shape(%f, %f, %f, %f)", left, top, width, height));
+            js.append(String.format(Locale.US, ".shape(%s, %s, %s, %s)", left, top, width, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shape(%f, %f, %f, %f);", left, top, width, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shape(%s, %s, %s, %s);", left, top, width, height));
                 js.setLength(0);
             }
         }

@@ -78,11 +78,11 @@ public class Iterator extends JsObject {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".select(%f);", index));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".select(%s);", index));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%f);", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%s);", index));
                 js.setLength(0);
             }
         }

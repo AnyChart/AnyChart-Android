@@ -615,10 +615,10 @@ public class ChartsMekko extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".pointsPadding(%f)", pointsPadding));
+        js.append(String.format(Locale.US, ".pointsPadding(%s)", pointsPadding));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".pointsPadding(%f)", pointsPadding));
+            onChangeListener.onChange(String.format(Locale.US, ".pointsPadding(%s)", pointsPadding));
             js.setLength(0);
         }
         return this;
@@ -635,10 +635,10 @@ public class ChartsMekko extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".removeSeries(%f)", id2));
+        js.append(String.format(Locale.US, ".removeSeries(%s)", id2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id2));
+            onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id2));
             js.setLength(0);
         }
         return this;
@@ -672,10 +672,10 @@ public class ChartsMekko extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
+        js.append(String.format(Locale.US, ".removeSeriesAt(%s)", index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index1));
+            onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%s)", index1));
             js.setLength(0);
         }
         return this;
@@ -754,10 +754,10 @@ public class ChartsMekko extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xAxis(%s, %f)", wrapQuotes(xAxis2), index3));
+        js.append(String.format(Locale.US, ".xAxis(%s, %s)", wrapQuotes(xAxis2), index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s, %f)", wrapQuotes(xAxis2), index3));
+            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s, %s)", wrapQuotes(xAxis2), index3));
             js.setLength(0);
         }
         return this;
@@ -772,10 +772,10 @@ public class ChartsMekko extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index3));
+        js.append(String.format(Locale.US, ".xAxis(%b, %s)", xAxis3, index3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index3));
+            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b, %s)", xAxis3, index3));
             js.setLength(0);
         }
         return this;
@@ -927,10 +927,10 @@ public class ChartsMekko extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index5));
+        js.append(String.format(Locale.US, ".yAxis(%s, %s)", wrapQuotes(yAxis2), index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index5));
+            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %s)", wrapQuotes(yAxis2), index5));
             js.setLength(0);
         }
         return this;
@@ -945,10 +945,10 @@ public class ChartsMekko extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index5));
+        js.append(String.format(Locale.US, ".yAxis(%b, %s)", yAxis3, index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index5));
+            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %s)", yAxis3, index5));
             js.setLength(0);
         }
         return this;

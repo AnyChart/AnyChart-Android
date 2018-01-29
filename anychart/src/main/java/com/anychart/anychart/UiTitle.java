@@ -186,10 +186,10 @@ public class UiTitle extends CoreText {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".height(%f)", height));
+            js.append(String.format(Locale.US, ".height(%s)", height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height));
                 js.setLength(0);
             }
         }
@@ -431,10 +431,10 @@ Learn more about margins at {@link anychart.core.Chart#margin}.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
+            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", value1, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %f);", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %s);", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
@@ -769,10 +769,10 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value9, value11, value13, value15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value9, value11, value13, value15));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value9, value11, value13, value15));
                 js.setLength(0);
             }
         }
@@ -794,10 +794,10 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".rotation(%f)", rotation));
+            js.append(String.format(Locale.US, ".rotation(%s)", rotation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotation(%f);", rotation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".rotation(%s);", rotation));
                 js.setLength(0);
             }
         }
@@ -848,10 +848,10 @@ Learn more about paddings at {@link anychart.core.Chart#padding}.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".width(%f)", width));
+            js.append(String.format(Locale.US, ".width(%s)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width));
                 js.setLength(0);
             }
         }

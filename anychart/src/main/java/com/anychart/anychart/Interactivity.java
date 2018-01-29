@@ -190,10 +190,10 @@ Size of the area under cursor in pixels for radius hovering.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".spotRadius(%f)", spotRadius));
+            js.append(String.format(Locale.US, ".spotRadius(%s)", spotRadius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spotRadius(%f);", spotRadius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".spotRadius(%s);", spotRadius));
                 js.setLength(0);
             }
         }

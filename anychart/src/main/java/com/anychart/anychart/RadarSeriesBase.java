@@ -60,11 +60,11 @@ public class RadarSeriesBase extends AnychartSeriesBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".excludePoint(%f);", indexes));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".excludePoint(%s);", indexes));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%f);", indexes));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%s);", indexes));
                 js.setLength(0);
             }
         }
@@ -118,11 +118,11 @@ public class RadarSeriesBase extends AnychartSeriesBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".includePoint(%f);", indexes2));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".includePoint(%s);", indexes2));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%f);", indexes2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%s);", indexes2));
                 js.setLength(0);
             }
         }
@@ -180,11 +180,11 @@ public class RadarSeriesBase extends AnychartSeriesBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".keepOnlyPoints(%f);", indexes4));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".keepOnlyPoints(%s);", indexes4));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f);", indexes4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s);", indexes4));
                 js.setLength(0);
             }
         }
@@ -236,11 +236,11 @@ public class RadarSeriesBase extends AnychartSeriesBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".transformXY(%f);", xSubRangeRatio));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".transformXY(%s);", xSubRangeRatio));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".transformXY(%f);", xSubRangeRatio));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".transformXY(%s);", xSubRangeRatio));
                 js.setLength(0);
             }
         }

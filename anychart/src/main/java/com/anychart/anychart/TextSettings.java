@@ -156,10 +156,10 @@ public class TextSettings extends SettingsWithMargin {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
+            js.append(String.format(Locale.US, ".fontOpacity(%s)", fontOpacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%s);", fontOpacity));
                 js.setLength(0);
             }
         }
@@ -212,10 +212,10 @@ public class TextSettings extends SettingsWithMargin {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontSize(%f)", fontSize1));
+            js.append(String.format(Locale.US, ".fontSize(%s)", fontSize1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize1));
                 js.setLength(0);
             }
         }
@@ -380,10 +380,10 @@ public class TextSettings extends SettingsWithMargin {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
+            js.append(String.format(Locale.US, ".fontWeight(%s)", fontWeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight1));
                 js.setLength(0);
             }
         }
@@ -492,10 +492,10 @@ public class TextSettings extends SettingsWithMargin {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing1));
+            js.append(String.format(Locale.US, ".letterSpacing(%s)", letterSpacing1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%s);", letterSpacing1));
                 js.setLength(0);
             }
         }
@@ -548,10 +548,10 @@ public class TextSettings extends SettingsWithMargin {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
+            js.append(String.format(Locale.US, ".lineHeight(%s)", lineHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight1));
                 js.setLength(0);
             }
         }
@@ -654,10 +654,10 @@ public class TextSettings extends SettingsWithMargin {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
+            js.append(String.format(Locale.US, ".textIndent(%s)", textIndent));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%s);", textIndent));
                 js.setLength(0);
             }
         }

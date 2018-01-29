@@ -53,10 +53,10 @@ public class DistinctColors extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index, ((color != null) ? color.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".itemAt(%s, %s)", index, ((color != null) ? color.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%f, %s);", index, ((color != null) ? color.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%s, %s);", index, ((color != null) ? color.generateJs() : "null")));
                 js.setLength(0);
             }
         }

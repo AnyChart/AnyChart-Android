@@ -51,10 +51,10 @@ public class AMA extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fastPeriod(%f)", fastPeriod));
+            js.append(String.format(Locale.US, ".fastPeriod(%s)", fastPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fastPeriod(%f);", fastPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fastPeriod(%s);", fastPeriod));
                 js.setLength(0);
             }
         }
@@ -76,10 +76,10 @@ public class AMA extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".period(%f)", period));
+            js.append(String.format(Locale.US, ".period(%s)", period));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%f);", period));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%s);", period));
                 js.setLength(0);
             }
         }
@@ -169,10 +169,10 @@ public class AMA extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".slowPeriod(%f)", slowPeriod));
+            js.append(String.format(Locale.US, ".slowPeriod(%s)", slowPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".slowPeriod(%f);", slowPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".slowPeriod(%s);", slowPeriod));
                 js.setLength(0);
             }
         }

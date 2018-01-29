@@ -53,10 +53,10 @@ public class Markers extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index, wrapQuotes(type)));
+            js.append(String.format(Locale.US, ".itemAt(%s, %s)", index, wrapQuotes(type)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%f, %s);", index, wrapQuotes(type)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%s, %s);", index, wrapQuotes(type)));
                 js.setLength(0);
             }
         }

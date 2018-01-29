@@ -403,10 +403,10 @@ Double value from 0 to 1.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontOpacity(%f)", fontOpacity));
+            js.append(String.format(Locale.US, ".fontOpacity(%s)", fontOpacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%f);", fontOpacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontOpacity(%s);", fontOpacity));
                 js.setLength(0);
             }
         }
@@ -432,10 +432,10 @@ Double value from 0 to 1.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontSize(%f)", fontSize));
+            js.append(String.format(Locale.US, ".fontSize(%s)", fontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%f);", fontSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontSize(%s);", fontSize));
                 js.setLength(0);
             }
         }
@@ -627,10 +627,10 @@ Double value from 0 to 1.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fontWeight(%f)", fontWeight1));
+            js.append(String.format(Locale.US, ".fontWeight(%s)", fontWeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%f);", fontWeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fontWeight(%s);", fontWeight1));
                 js.setLength(0);
             }
         }
@@ -708,10 +708,10 @@ Double value from 0 to 1.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".letterSpacing(%f)", letterSpacing));
+            js.append(String.format(Locale.US, ".letterSpacing(%s)", letterSpacing));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%f);", letterSpacing));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".letterSpacing(%s);", letterSpacing));
                 js.setLength(0);
             }
         }
@@ -764,10 +764,10 @@ Double value from 0 to 1.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".lineHeight(%f)", lineHeight1));
+            js.append(String.format(Locale.US, ".lineHeight(%s)", lineHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%f);", lineHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".lineHeight(%s);", lineHeight1));
                 js.setLength(0);
             }
         }
@@ -793,10 +793,10 @@ Double value from 0 to 1.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".maxFontSize(%f)", maxFontSize));
+            js.append(String.format(Locale.US, ".maxFontSize(%s)", maxFontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxFontSize(%f);", maxFontSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxFontSize(%s);", maxFontSize));
                 js.setLength(0);
             }
         }
@@ -849,10 +849,10 @@ Double value from 0 to 1.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".minFontSize(%f)", minFontSize));
+            js.append(String.format(Locale.US, ".minFontSize(%s)", minFontSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minFontSize(%f);", minFontSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minFontSize(%s);", minFontSize));
                 js.setLength(0);
             }
         }
@@ -907,10 +907,10 @@ Arrows show offsets layout.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".offsetX(%f)", offsetX));
+            js.append(String.format(Locale.US, ".offsetX(%s)", offsetX));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetX(%f);", offsetX));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetX(%s);", offsetX));
                 js.setLength(0);
             }
         }
@@ -966,10 +966,10 @@ See illustration in {@link anychart.core.annotations.Label#offsetX}.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".offsetY(%f)", offsetY));
+            js.append(String.format(Locale.US, ".offsetY(%s)", offsetY));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetY(%f);", offsetY));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".offsetY(%s);", offsetY));
                 js.setLength(0);
             }
         }
@@ -1233,10 +1233,10 @@ See illustration in {@link anychart.core.annotations.Label#offsetX}.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value1, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
@@ -1364,10 +1364,10 @@ See illustration in {@link anychart.core.annotations.Label#offsetX}.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".textIndent(%f)", textIndent));
+            js.append(String.format(Locale.US, ".textIndent(%s)", textIndent));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%f);", textIndent));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".textIndent(%s);", textIndent));
                 js.setLength(0);
             }
         }

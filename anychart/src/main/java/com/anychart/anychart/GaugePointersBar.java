@@ -110,10 +110,10 @@ public class GaugePointersBar extends GaugePointersBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".radius(%f)", radius));
+            js.append(String.format(Locale.US, ".radius(%s)", radius));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radius(%f);", radius));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".radius(%s);", radius));
                 js.setLength(0);
             }
         }
@@ -166,10 +166,10 @@ public class GaugePointersBar extends GaugePointersBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".width(%f)", width));
+            js.append(String.format(Locale.US, ".width(%s)", width));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%f);", width));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".width(%s);", width));
                 js.setLength(0);
             }
         }

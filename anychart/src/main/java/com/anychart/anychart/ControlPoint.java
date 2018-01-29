@@ -19,7 +19,7 @@ public class ControlPoint extends JsObject  {
         this.left = left;
         this.right = right;
 
-        js.append(String.format(Locale.US, "{height: %f,left: %f,right: %f}",  height, left, right));
+        js.append(String.format(Locale.US, "{height: %s,left: %s,right: %s}",  height, left, right));
     }
 
     @Override

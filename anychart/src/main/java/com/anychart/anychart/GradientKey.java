@@ -19,7 +19,7 @@ public class GradientKey extends JsObject  {
         this.offset = offset;
         this.opacity = opacity;
 
-        js.append(String.format(Locale.US, "{color: %s,offset: %f,opacity: %f}",  wrapQuotes(color), offset, opacity));
+        js.append(String.format(Locale.US, "{color: %s,offset: %s,opacity: %s}",  wrapQuotes(color), offset, opacity));
     }
 
     @Override

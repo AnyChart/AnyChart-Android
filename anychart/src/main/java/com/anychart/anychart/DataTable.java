@@ -112,10 +112,10 @@ public class DataTable extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".addData(%s, %s, %f)", arrayToStringWrapQuotes(rawData), wrapQuotes(csvSettings), removeFromStart1));
+            js.append(String.format(Locale.US, ".addData(%s, %s, %s)", arrayToStringWrapQuotes(rawData), wrapQuotes(csvSettings), removeFromStart1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addData(%s, %s, %f);", arrayToStringWrapQuotes(rawData), wrapQuotes(csvSettings), removeFromStart1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addData(%s, %s, %s);", arrayToStringWrapQuotes(rawData), wrapQuotes(csvSettings), removeFromStart1));
                 js.setLength(0);
             }
         }
@@ -180,10 +180,10 @@ public class DataTable extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".addData(%s, %s, %f)", wrapQuotes(rawData1), wrapQuotes(csvSettings), removeFromStart1));
+            js.append(String.format(Locale.US, ".addData(%s, %s, %s)", wrapQuotes(rawData1), wrapQuotes(csvSettings), removeFromStart1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addData(%s, %s, %f);", wrapQuotes(rawData1), wrapQuotes(csvSettings), removeFromStart1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addData(%s, %s, %s);", wrapQuotes(rawData1), wrapQuotes(csvSettings), removeFromStart1));
                 js.setLength(0);
             }
         }
@@ -336,10 +336,10 @@ The fields can be added to table mappings after the mapping is created using its
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".remove(%f, %f)", startKey, endKey));
+            js.append(String.format(Locale.US, ".remove(%s, %s)", startKey, endKey));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%f, %f);", startKey, endKey));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%s, %s);", startKey, endKey));
                 js.setLength(0);
             }
         }
@@ -368,10 +368,10 @@ The fields can be added to table mappings after the mapping is created using its
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".remove(%f, %s)", startKey, wrapQuotes(endKey1)));
+            js.append(String.format(Locale.US, ".remove(%s, %s)", startKey, wrapQuotes(endKey1)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%f, %s);", startKey, wrapQuotes(endKey1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%s, %s);", startKey, wrapQuotes(endKey1)));
                 js.setLength(0);
             }
         }
@@ -400,10 +400,10 @@ The fields can be added to table mappings after the mapping is created using its
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".remove(%s, %f)", wrapQuotes(startKey1), endKey));
+            js.append(String.format(Locale.US, ".remove(%s, %s)", wrapQuotes(startKey1), endKey));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%s, %f);", wrapQuotes(startKey1), endKey));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%s, %s);", wrapQuotes(startKey1), endKey));
                 js.setLength(0);
             }
         }
@@ -457,10 +457,10 @@ The fields can be added to table mappings after the mapping is created using its
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".removeFirst(%f)", count));
+            js.append(String.format(Locale.US, ".removeFirst(%s)", count));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeFirst(%f);", count));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeFirst(%s);", count));
                 js.setLength(0);
             }
         }

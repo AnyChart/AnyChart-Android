@@ -333,10 +333,10 @@ public class StandalonesColorRange extends UiColorRange {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value1, value3, value5, value7));
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value1, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
@@ -437,10 +437,10 @@ As a getter falls back to stage bounds.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
+            js.append(String.format(Locale.US, ".parentBounds(%s, %s, %s, %s)", left, top, width, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBounds(%f, %f, %f, %f);", left, top, width, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
                 js.setLength(0);
             }
         }

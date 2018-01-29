@@ -33,7 +33,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %f,starts: %f,to: %f,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, from, on, starts, to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, from, on, starts, to, isWorking));
     }
     public Availability(AvailabilityPeriod each, Number ends, Number from, Number on, Number starts, String to1, Boolean isWorking) {
         this.each = each;
@@ -44,7 +44,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %f,starts: %f,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, from, on, starts, wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, from, on, starts, wrapQuotes(to1), isWorking));
     }
     public Availability(AvailabilityPeriod each, Number ends, Number from, Number on, String starts1, Number to, Boolean isWorking) {
         this.each = each;
@@ -55,7 +55,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %f,starts: %s,to: %f,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, from, on, wrapQuotes(starts1), to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, from, on, wrapQuotes(starts1), to, isWorking));
     }
     public Availability(AvailabilityPeriod each, Number ends, Number from, Number on, String starts1, String to1, Boolean isWorking) {
         this.each = each;
@@ -66,7 +66,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %f,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, from, on, wrapQuotes(starts1), wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, from, on, wrapQuotes(starts1), wrapQuotes(to1), isWorking));
     }
     public Availability(AvailabilityPeriod each, Number ends, Number from, String on1, Number starts, Number to, Boolean isWorking) {
         this.each = each;
@@ -77,7 +77,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %s,starts: %f,to: %f,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, from, wrapQuotes(on1), starts, to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, from, wrapQuotes(on1), starts, to, isWorking));
     }
     public Availability(AvailabilityPeriod each, Number ends, Number from, String on1, Number starts, String to1, Boolean isWorking) {
         this.each = each;
@@ -88,7 +88,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %s,starts: %f,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, from, wrapQuotes(on1), starts, wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, from, wrapQuotes(on1), starts, wrapQuotes(to1), isWorking));
     }
     public Availability(AvailabilityPeriod each, Number ends, Number from, String on1, String starts1, Number to, Boolean isWorking) {
         this.each = each;
@@ -99,7 +99,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %s,starts: %s,to: %f,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, from, wrapQuotes(on1), wrapQuotes(starts1), to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, from, wrapQuotes(on1), wrapQuotes(starts1), to, isWorking));
     }
     public Availability(AvailabilityPeriod each, Number ends, Number from, String on1, String starts1, String to1, Boolean isWorking) {
         this.each = each;
@@ -110,7 +110,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, from, wrapQuotes(on1), wrapQuotes(starts1), wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, from, wrapQuotes(on1), wrapQuotes(starts1), wrapQuotes(to1), isWorking));
     }
     public Availability(AvailabilityPeriod each, Number ends, String from1, Number on, Number starts, Number to, Boolean isWorking) {
         this.each = each;
@@ -121,7 +121,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %f,starts: %f,to: %f,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, wrapQuotes(from1), on, starts, to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, wrapQuotes(from1), on, starts, to, isWorking));
     }
     public Availability(AvailabilityPeriod each, Number ends, String from1, Number on, Number starts, String to1, Boolean isWorking) {
         this.each = each;
@@ -132,7 +132,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %f,starts: %f,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, wrapQuotes(from1), on, starts, wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, wrapQuotes(from1), on, starts, wrapQuotes(to1), isWorking));
     }
     public Availability(AvailabilityPeriod each, Number ends, String from1, Number on, String starts1, Number to, Boolean isWorking) {
         this.each = each;
@@ -143,7 +143,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %f,starts: %s,to: %f,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, wrapQuotes(from1), on, wrapQuotes(starts1), to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, wrapQuotes(from1), on, wrapQuotes(starts1), to, isWorking));
     }
     public Availability(AvailabilityPeriod each, Number ends, String from1, Number on, String starts1, String to1, Boolean isWorking) {
         this.each = each;
@@ -154,7 +154,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %f,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, wrapQuotes(from1), on, wrapQuotes(starts1), wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, wrapQuotes(from1), on, wrapQuotes(starts1), wrapQuotes(to1), isWorking));
     }
     public Availability(AvailabilityPeriod each, Number ends, String from1, String on1, Number starts, Number to, Boolean isWorking) {
         this.each = each;
@@ -165,7 +165,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %s,starts: %f,to: %f,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, wrapQuotes(from1), wrapQuotes(on1), starts, to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, wrapQuotes(from1), wrapQuotes(on1), starts, to, isWorking));
     }
     public Availability(AvailabilityPeriod each, Number ends, String from1, String on1, Number starts, String to1, Boolean isWorking) {
         this.each = each;
@@ -176,7 +176,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %s,starts: %f,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, wrapQuotes(from1), wrapQuotes(on1), starts, wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, wrapQuotes(from1), wrapQuotes(on1), starts, wrapQuotes(to1), isWorking));
     }
     public Availability(AvailabilityPeriod each, Number ends, String from1, String on1, String starts1, Number to, Boolean isWorking) {
         this.each = each;
@@ -187,7 +187,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %s,starts: %s,to: %f,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, wrapQuotes(from1), wrapQuotes(on1), wrapQuotes(starts1), to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, wrapQuotes(from1), wrapQuotes(on1), wrapQuotes(starts1), to, isWorking));
     }
     public Availability(AvailabilityPeriod each, Number ends, String from1, String on1, String starts1, String to1, Boolean isWorking) {
         this.each = each;
@@ -198,7 +198,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, wrapQuotes(from1), wrapQuotes(on1), wrapQuotes(starts1), wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), ends, wrapQuotes(from1), wrapQuotes(on1), wrapQuotes(starts1), wrapQuotes(to1), isWorking));
     }
     public Availability(AvailabilityPeriod each, String ends1, Number from, Number on, Number starts, Number to, Boolean isWorking) {
         this.each = each;
@@ -209,7 +209,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %f,starts: %f,to: %f,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), from, on, starts, to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), from, on, starts, to, isWorking));
     }
     public Availability(AvailabilityPeriod each, String ends1, Number from, Number on, Number starts, String to1, Boolean isWorking) {
         this.each = each;
@@ -220,7 +220,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %f,starts: %f,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), from, on, starts, wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), from, on, starts, wrapQuotes(to1), isWorking));
     }
     public Availability(AvailabilityPeriod each, String ends1, Number from, Number on, String starts1, Number to, Boolean isWorking) {
         this.each = each;
@@ -231,7 +231,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %f,starts: %s,to: %f,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), from, on, wrapQuotes(starts1), to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), from, on, wrapQuotes(starts1), to, isWorking));
     }
     public Availability(AvailabilityPeriod each, String ends1, Number from, Number on, String starts1, String to1, Boolean isWorking) {
         this.each = each;
@@ -242,7 +242,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %f,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), from, on, wrapQuotes(starts1), wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), from, on, wrapQuotes(starts1), wrapQuotes(to1), isWorking));
     }
     public Availability(AvailabilityPeriod each, String ends1, Number from, String on1, Number starts, Number to, Boolean isWorking) {
         this.each = each;
@@ -253,7 +253,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %s,starts: %f,to: %f,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), from, wrapQuotes(on1), starts, to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), from, wrapQuotes(on1), starts, to, isWorking));
     }
     public Availability(AvailabilityPeriod each, String ends1, Number from, String on1, Number starts, String to1, Boolean isWorking) {
         this.each = each;
@@ -264,7 +264,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %s,starts: %f,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), from, wrapQuotes(on1), starts, wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), from, wrapQuotes(on1), starts, wrapQuotes(to1), isWorking));
     }
     public Availability(AvailabilityPeriod each, String ends1, Number from, String on1, String starts1, Number to, Boolean isWorking) {
         this.each = each;
@@ -275,7 +275,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %s,starts: %s,to: %f,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), from, wrapQuotes(on1), wrapQuotes(starts1), to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), from, wrapQuotes(on1), wrapQuotes(starts1), to, isWorking));
     }
     public Availability(AvailabilityPeriod each, String ends1, Number from, String on1, String starts1, String to1, Boolean isWorking) {
         this.each = each;
@@ -286,7 +286,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), from, wrapQuotes(on1), wrapQuotes(starts1), wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), from, wrapQuotes(on1), wrapQuotes(starts1), wrapQuotes(to1), isWorking));
     }
     public Availability(AvailabilityPeriod each, String ends1, String from1, Number on, Number starts, Number to, Boolean isWorking) {
         this.each = each;
@@ -297,7 +297,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %f,starts: %f,to: %f,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), wrapQuotes(from1), on, starts, to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), wrapQuotes(from1), on, starts, to, isWorking));
     }
     public Availability(AvailabilityPeriod each, String ends1, String from1, Number on, Number starts, String to1, Boolean isWorking) {
         this.each = each;
@@ -308,7 +308,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %f,starts: %f,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), wrapQuotes(from1), on, starts, wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), wrapQuotes(from1), on, starts, wrapQuotes(to1), isWorking));
     }
     public Availability(AvailabilityPeriod each, String ends1, String from1, Number on, String starts1, Number to, Boolean isWorking) {
         this.each = each;
@@ -319,7 +319,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %f,starts: %s,to: %f,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), wrapQuotes(from1), on, wrapQuotes(starts1), to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), wrapQuotes(from1), on, wrapQuotes(starts1), to, isWorking));
     }
     public Availability(AvailabilityPeriod each, String ends1, String from1, Number on, String starts1, String to1, Boolean isWorking) {
         this.each = each;
@@ -330,7 +330,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %f,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), wrapQuotes(from1), on, wrapQuotes(starts1), wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), wrapQuotes(from1), on, wrapQuotes(starts1), wrapQuotes(to1), isWorking));
     }
     public Availability(AvailabilityPeriod each, String ends1, String from1, String on1, Number starts, Number to, Boolean isWorking) {
         this.each = each;
@@ -341,7 +341,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %f,to: %f,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), wrapQuotes(from1), wrapQuotes(on1), starts, to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), wrapQuotes(from1), wrapQuotes(on1), starts, to, isWorking));
     }
     public Availability(AvailabilityPeriod each, String ends1, String from1, String on1, Number starts, String to1, Boolean isWorking) {
         this.each = each;
@@ -352,7 +352,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %f,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), wrapQuotes(from1), wrapQuotes(on1), starts, wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), wrapQuotes(from1), wrapQuotes(on1), starts, wrapQuotes(to1), isWorking));
     }
     public Availability(AvailabilityPeriod each, String ends1, String from1, String on1, String starts1, Number to, Boolean isWorking) {
         this.each = each;
@@ -363,7 +363,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %f,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), wrapQuotes(from1), wrapQuotes(on1), wrapQuotes(starts1), to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  ((each != null) ? each.generateJs() : "null"), wrapQuotes(ends1), wrapQuotes(from1), wrapQuotes(on1), wrapQuotes(starts1), to, isWorking));
     }
     public Availability(AvailabilityPeriod each, String ends1, String from1, String on1, String starts1, String to1, Boolean isWorking) {
         this.each = each;
@@ -385,7 +385,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %f,starts: %f,to: %f,isWorking: %b}",  wrapQuotes(each1), ends, from, on, starts, to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, from, on, starts, to, isWorking));
     }
     public Availability(String each1, Number ends, Number from, Number on, Number starts, String to1, Boolean isWorking) {
         this.each1 = each1;
@@ -396,7 +396,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %f,starts: %f,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, from, on, starts, wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, from, on, starts, wrapQuotes(to1), isWorking));
     }
     public Availability(String each1, Number ends, Number from, Number on, String starts1, Number to, Boolean isWorking) {
         this.each1 = each1;
@@ -407,7 +407,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %f,starts: %s,to: %f,isWorking: %b}",  wrapQuotes(each1), ends, from, on, wrapQuotes(starts1), to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, from, on, wrapQuotes(starts1), to, isWorking));
     }
     public Availability(String each1, Number ends, Number from, Number on, String starts1, String to1, Boolean isWorking) {
         this.each1 = each1;
@@ -418,7 +418,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %f,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, from, on, wrapQuotes(starts1), wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, from, on, wrapQuotes(starts1), wrapQuotes(to1), isWorking));
     }
     public Availability(String each1, Number ends, Number from, String on1, Number starts, Number to, Boolean isWorking) {
         this.each1 = each1;
@@ -429,7 +429,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %s,starts: %f,to: %f,isWorking: %b}",  wrapQuotes(each1), ends, from, wrapQuotes(on1), starts, to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, from, wrapQuotes(on1), starts, to, isWorking));
     }
     public Availability(String each1, Number ends, Number from, String on1, Number starts, String to1, Boolean isWorking) {
         this.each1 = each1;
@@ -440,7 +440,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %s,starts: %f,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, from, wrapQuotes(on1), starts, wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, from, wrapQuotes(on1), starts, wrapQuotes(to1), isWorking));
     }
     public Availability(String each1, Number ends, Number from, String on1, String starts1, Number to, Boolean isWorking) {
         this.each1 = each1;
@@ -451,7 +451,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %s,starts: %s,to: %f,isWorking: %b}",  wrapQuotes(each1), ends, from, wrapQuotes(on1), wrapQuotes(starts1), to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, from, wrapQuotes(on1), wrapQuotes(starts1), to, isWorking));
     }
     public Availability(String each1, Number ends, Number from, String on1, String starts1, String to1, Boolean isWorking) {
         this.each1 = each1;
@@ -462,7 +462,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %f,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, from, wrapQuotes(on1), wrapQuotes(starts1), wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, from, wrapQuotes(on1), wrapQuotes(starts1), wrapQuotes(to1), isWorking));
     }
     public Availability(String each1, Number ends, String from1, Number on, Number starts, Number to, Boolean isWorking) {
         this.each1 = each1;
@@ -473,7 +473,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %f,starts: %f,to: %f,isWorking: %b}",  wrapQuotes(each1), ends, wrapQuotes(from1), on, starts, to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, wrapQuotes(from1), on, starts, to, isWorking));
     }
     public Availability(String each1, Number ends, String from1, Number on, Number starts, String to1, Boolean isWorking) {
         this.each1 = each1;
@@ -484,7 +484,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %f,starts: %f,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, wrapQuotes(from1), on, starts, wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, wrapQuotes(from1), on, starts, wrapQuotes(to1), isWorking));
     }
     public Availability(String each1, Number ends, String from1, Number on, String starts1, Number to, Boolean isWorking) {
         this.each1 = each1;
@@ -495,7 +495,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %f,starts: %s,to: %f,isWorking: %b}",  wrapQuotes(each1), ends, wrapQuotes(from1), on, wrapQuotes(starts1), to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, wrapQuotes(from1), on, wrapQuotes(starts1), to, isWorking));
     }
     public Availability(String each1, Number ends, String from1, Number on, String starts1, String to1, Boolean isWorking) {
         this.each1 = each1;
@@ -506,7 +506,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %f,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, wrapQuotes(from1), on, wrapQuotes(starts1), wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, wrapQuotes(from1), on, wrapQuotes(starts1), wrapQuotes(to1), isWorking));
     }
     public Availability(String each1, Number ends, String from1, String on1, Number starts, Number to, Boolean isWorking) {
         this.each1 = each1;
@@ -517,7 +517,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %s,starts: %f,to: %f,isWorking: %b}",  wrapQuotes(each1), ends, wrapQuotes(from1), wrapQuotes(on1), starts, to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, wrapQuotes(from1), wrapQuotes(on1), starts, to, isWorking));
     }
     public Availability(String each1, Number ends, String from1, String on1, Number starts, String to1, Boolean isWorking) {
         this.each1 = each1;
@@ -528,7 +528,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %s,starts: %f,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, wrapQuotes(from1), wrapQuotes(on1), starts, wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, wrapQuotes(from1), wrapQuotes(on1), starts, wrapQuotes(to1), isWorking));
     }
     public Availability(String each1, Number ends, String from1, String on1, String starts1, Number to, Boolean isWorking) {
         this.each1 = each1;
@@ -539,7 +539,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %s,starts: %s,to: %f,isWorking: %b}",  wrapQuotes(each1), ends, wrapQuotes(from1), wrapQuotes(on1), wrapQuotes(starts1), to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, wrapQuotes(from1), wrapQuotes(on1), wrapQuotes(starts1), to, isWorking));
     }
     public Availability(String each1, Number ends, String from1, String on1, String starts1, String to1, Boolean isWorking) {
         this.each1 = each1;
@@ -550,7 +550,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %f,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, wrapQuotes(from1), wrapQuotes(on1), wrapQuotes(starts1), wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), ends, wrapQuotes(from1), wrapQuotes(on1), wrapQuotes(starts1), wrapQuotes(to1), isWorking));
     }
     public Availability(String each1, String ends1, Number from, Number on, Number starts, Number to, Boolean isWorking) {
         this.each1 = each1;
@@ -561,7 +561,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %f,starts: %f,to: %f,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), from, on, starts, to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), from, on, starts, to, isWorking));
     }
     public Availability(String each1, String ends1, Number from, Number on, Number starts, String to1, Boolean isWorking) {
         this.each1 = each1;
@@ -572,7 +572,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %f,starts: %f,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), from, on, starts, wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), from, on, starts, wrapQuotes(to1), isWorking));
     }
     public Availability(String each1, String ends1, Number from, Number on, String starts1, Number to, Boolean isWorking) {
         this.each1 = each1;
@@ -583,7 +583,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %f,starts: %s,to: %f,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), from, on, wrapQuotes(starts1), to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), from, on, wrapQuotes(starts1), to, isWorking));
     }
     public Availability(String each1, String ends1, Number from, Number on, String starts1, String to1, Boolean isWorking) {
         this.each1 = each1;
@@ -594,7 +594,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %f,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), from, on, wrapQuotes(starts1), wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), from, on, wrapQuotes(starts1), wrapQuotes(to1), isWorking));
     }
     public Availability(String each1, String ends1, Number from, String on1, Number starts, Number to, Boolean isWorking) {
         this.each1 = each1;
@@ -605,7 +605,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %s,starts: %f,to: %f,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), from, wrapQuotes(on1), starts, to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), from, wrapQuotes(on1), starts, to, isWorking));
     }
     public Availability(String each1, String ends1, Number from, String on1, Number starts, String to1, Boolean isWorking) {
         this.each1 = each1;
@@ -616,7 +616,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %s,starts: %f,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), from, wrapQuotes(on1), starts, wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), from, wrapQuotes(on1), starts, wrapQuotes(to1), isWorking));
     }
     public Availability(String each1, String ends1, Number from, String on1, String starts1, Number to, Boolean isWorking) {
         this.each1 = each1;
@@ -627,7 +627,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %s,starts: %s,to: %f,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), from, wrapQuotes(on1), wrapQuotes(starts1), to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), from, wrapQuotes(on1), wrapQuotes(starts1), to, isWorking));
     }
     public Availability(String each1, String ends1, Number from, String on1, String starts1, String to1, Boolean isWorking) {
         this.each1 = each1;
@@ -638,7 +638,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %f,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), from, wrapQuotes(on1), wrapQuotes(starts1), wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), from, wrapQuotes(on1), wrapQuotes(starts1), wrapQuotes(to1), isWorking));
     }
     public Availability(String each1, String ends1, String from1, Number on, Number starts, Number to, Boolean isWorking) {
         this.each1 = each1;
@@ -649,7 +649,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %f,starts: %f,to: %f,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), wrapQuotes(from1), on, starts, to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), wrapQuotes(from1), on, starts, to, isWorking));
     }
     public Availability(String each1, String ends1, String from1, Number on, Number starts, String to1, Boolean isWorking) {
         this.each1 = each1;
@@ -660,7 +660,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %f,starts: %f,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), wrapQuotes(from1), on, starts, wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), wrapQuotes(from1), on, starts, wrapQuotes(to1), isWorking));
     }
     public Availability(String each1, String ends1, String from1, Number on, String starts1, Number to, Boolean isWorking) {
         this.each1 = each1;
@@ -671,7 +671,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %f,starts: %s,to: %f,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), wrapQuotes(from1), on, wrapQuotes(starts1), to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), wrapQuotes(from1), on, wrapQuotes(starts1), to, isWorking));
     }
     public Availability(String each1, String ends1, String from1, Number on, String starts1, String to1, Boolean isWorking) {
         this.each1 = each1;
@@ -682,7 +682,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %f,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), wrapQuotes(from1), on, wrapQuotes(starts1), wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), wrapQuotes(from1), on, wrapQuotes(starts1), wrapQuotes(to1), isWorking));
     }
     public Availability(String each1, String ends1, String from1, String on1, Number starts, Number to, Boolean isWorking) {
         this.each1 = each1;
@@ -693,7 +693,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %f,to: %f,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), wrapQuotes(from1), wrapQuotes(on1), starts, to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), wrapQuotes(from1), wrapQuotes(on1), starts, to, isWorking));
     }
     public Availability(String each1, String ends1, String from1, String on1, Number starts, String to1, Boolean isWorking) {
         this.each1 = each1;
@@ -704,7 +704,7 @@ public class Availability extends JsObject  {
         this.to1 = to1;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %f,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), wrapQuotes(from1), wrapQuotes(on1), starts, wrapQuotes(to1), isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), wrapQuotes(from1), wrapQuotes(on1), starts, wrapQuotes(to1), isWorking));
     }
     public Availability(String each1, String ends1, String from1, String on1, String starts1, Number to, Boolean isWorking) {
         this.each1 = each1;
@@ -715,7 +715,7 @@ public class Availability extends JsObject  {
         this.to = to;
         this.isWorking = isWorking;
 
-        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %f,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), wrapQuotes(from1), wrapQuotes(on1), wrapQuotes(starts1), to, isWorking));
+        js.append(String.format(Locale.US, "{each: %s,ends: %s,from: %s,on: %s,starts: %s,to: %s,isWorking: %b}",  wrapQuotes(each1), wrapQuotes(ends1), wrapQuotes(from1), wrapQuotes(on1), wrapQuotes(starts1), to, isWorking));
     }
     public Availability(String each1, String ends1, String from1, String on1, String starts1, String to1, Boolean isWorking) {
         this.each1 = each1;

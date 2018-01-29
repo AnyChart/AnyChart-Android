@@ -269,10 +269,10 @@ public class Set extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".insert(%f)", index));
+            js.append(String.format(Locale.US, ".insert(%s)", index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".insert(%f);", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".insert(%s);", index));
                 js.setLength(0);
             }
         }
@@ -334,10 +334,10 @@ Default mapping is shown in {@link anychart.data.Set} constructor samples.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".remove(%f)", index1));
+            js.append(String.format(Locale.US, ".remove(%s)", index1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%f);", index1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".remove(%s);", index1));
                 js.setLength(0);
             }
         }
@@ -359,11 +359,11 @@ Default mapping is shown in {@link anychart.data.Set} constructor samples.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".row(%f);", rowIndex));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".row(%s);", rowIndex));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".row(%f);", rowIndex));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".row(%s);", rowIndex));
                 js.setLength(0);
             }
         }

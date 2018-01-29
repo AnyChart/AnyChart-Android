@@ -54,10 +54,10 @@ public class TablePadding extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".bottom(%f)", bottom));
+            js.append(String.format(Locale.US, ".bottom(%s)", bottom));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%f);", bottom));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".bottom(%s);", bottom));
                 js.setLength(0);
             }
         }
@@ -110,10 +110,10 @@ public class TablePadding extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".left(%f)", left));
+            js.append(String.format(Locale.US, ".left(%s)", left));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%f);", left));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".left(%s);", left));
                 js.setLength(0);
             }
         }
@@ -166,10 +166,10 @@ public class TablePadding extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".right(%f)", right));
+            js.append(String.format(Locale.US, ".right(%s)", right));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%f);", right));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".right(%s);", right));
                 js.setLength(0);
             }
         }
@@ -222,10 +222,10 @@ public class TablePadding extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".top(%f)", top));
+            js.append(String.format(Locale.US, ".top(%s)", top));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%f);", top));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".top(%s);", top));
                 js.setLength(0);
             }
         }

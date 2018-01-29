@@ -60,11 +60,11 @@ public class RenderingsettingsContext extends JsObject {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getShapesGroup(%s, %f, %s);", ((state != null) ? state.generateJs() : "null"), baseZIndex, wrapQuotes(restrictShapes)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getShapesGroup(%s, %s, %s);", ((state != null) ? state.generateJs() : "null"), baseZIndex, wrapQuotes(restrictShapes)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s);", ((state != null) ? state.generateJs() : "null"), baseZIndex, wrapQuotes(restrictShapes)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %s, %s);", ((state != null) ? state.generateJs() : "null"), baseZIndex, wrapQuotes(restrictShapes)));
                 js.setLength(0);
             }
         }
@@ -91,11 +91,11 @@ public class RenderingsettingsContext extends JsObject {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getShapesGroup(%s, %f, %s);", wrapQuotes(state1), baseZIndex, wrapQuotes(restrictShapes)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getShapesGroup(%s, %s, %s);", wrapQuotes(state1), baseZIndex, wrapQuotes(restrictShapes)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %f, %s);", wrapQuotes(state1), baseZIndex, wrapQuotes(restrictShapes)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getShapesGroup(%s, %s, %s);", wrapQuotes(state1), baseZIndex, wrapQuotes(restrictShapes)));
                 js.setLength(0);
             }
         }

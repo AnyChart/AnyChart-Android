@@ -203,10 +203,10 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".error(%f)", error3));
+            js.append(String.format(Locale.US, ".error(%s)", error3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".error(%f);", error3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".error(%s);", error3));
                 js.setLength(0);
             }
         }
@@ -232,11 +232,11 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".excludePoint(%f);", indexes));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".excludePoint(%s);", indexes));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%f);", indexes));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".excludePoint(%s);", indexes));
                 js.setLength(0);
             }
         }
@@ -290,11 +290,11 @@ public class CartesianSeriesBase extends AnychartSeriesBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".includePoint(%f);", indexes2));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".includePoint(%s);", indexes2));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%f);", indexes2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".includePoint(%s);", indexes2));
                 js.setLength(0);
             }
         }
@@ -378,11 +378,11 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".keepOnlyPoints(%f);", indexes4));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".keepOnlyPoints(%s);", indexes4));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%f);", indexes4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".keepOnlyPoints(%s);", indexes4));
                 js.setLength(0);
             }
         }
@@ -497,11 +497,11 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".transformX(%f);", subRangeRatio));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".transformX(%s);", subRangeRatio));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".transformX(%f);", subRangeRatio));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".transformX(%s);", subRangeRatio));
                 js.setLength(0);
             }
         }
@@ -526,11 +526,11 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".transformY(%f);", subRangeRatio1));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".transformY(%s);", subRangeRatio1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".transformY(%f);", subRangeRatio1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".transformY(%s);", subRangeRatio1));
                 js.setLength(0);
             }
         }
@@ -551,10 +551,10 @@ Set it to null to reset to the default. {docs:Basic_Charts/Vertical/Overview}Lea
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".xPointPosition(%f)", position));
+            js.append(String.format(Locale.US, ".xPointPosition(%s)", position));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xPointPosition(%f);", position));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".xPointPosition(%s);", position));
                 js.setLength(0);
             }
         }

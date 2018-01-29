@@ -1,6 +1,11 @@
 package com.anychart.anychart;
 
 import java.util.Locale;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
+import android.text.TextUtils;
 
 // class
 /**
@@ -212,10 +217,10 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".innerRadius(%f)", innerRadius1));
+            js.append(String.format(Locale.US, ".innerRadius(%s)", innerRadius1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".innerRadius(%f);", innerRadius1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".innerRadius(%s);", innerRadius1));
                 js.setLength(0);
             }
         }
@@ -315,10 +320,10 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
+            js.append(String.format(Locale.US, ".parentBounds(%s, %s, %s, %s)", left, top, width, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBounds(%f, %f, %f, %f);", left, top, width, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
                 js.setLength(0);
             }
         }
@@ -371,10 +376,10 @@ public class StandalonesAxesRadial extends CoreAxesRadial {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".startAngle(%f)", startAngle1));
+            js.append(String.format(Locale.US, ".startAngle(%s)", startAngle1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startAngle(%f);", startAngle1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startAngle(%s);", startAngle1));
                 js.setLength(0);
             }
         }

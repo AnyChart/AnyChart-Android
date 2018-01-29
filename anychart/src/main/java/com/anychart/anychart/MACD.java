@@ -51,10 +51,10 @@ public class MACD extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".fastPeriod(%f)", fastPeriod));
+            js.append(String.format(Locale.US, ".fastPeriod(%s)", fastPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fastPeriod(%f);", fastPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".fastPeriod(%s);", fastPeriod));
                 js.setLength(0);
             }
         }
@@ -216,10 +216,10 @@ public class MACD extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".signalPeriod(%f)", signalPeriod));
+            js.append(String.format(Locale.US, ".signalPeriod(%s)", signalPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".signalPeriod(%f);", signalPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".signalPeriod(%s);", signalPeriod));
                 js.setLength(0);
             }
         }

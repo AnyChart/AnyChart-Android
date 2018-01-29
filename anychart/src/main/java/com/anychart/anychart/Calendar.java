@@ -76,10 +76,10 @@ public class Calendar extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".timezoneOffset(%f)", var_value));
+            js.append(String.format(Locale.US, ".timezoneOffset(%s)", var_value));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".timezoneOffset(%f);", var_value));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".timezoneOffset(%s);", var_value));
                 js.setLength(0);
             }
         }

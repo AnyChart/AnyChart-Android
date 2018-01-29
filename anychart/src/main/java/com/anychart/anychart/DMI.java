@@ -50,10 +50,10 @@ public class DMI extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".adxPeriod(%f)", adxPeriod));
+            js.append(String.format(Locale.US, ".adxPeriod(%s)", adxPeriod));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adxPeriod(%f);", adxPeriod));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".adxPeriod(%s);", adxPeriod));
                 js.setLength(0);
             }
         }
@@ -291,10 +291,10 @@ public class DMI extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".period(%f)", period));
+            js.append(String.format(Locale.US, ".period(%s)", period));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%f);", period));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".period(%s);", period));
                 js.setLength(0);
             }
         }

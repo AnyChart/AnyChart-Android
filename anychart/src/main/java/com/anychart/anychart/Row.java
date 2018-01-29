@@ -82,11 +82,11 @@ public class Row extends TableBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setCellBorder" + ++variableIndex + " = " + jsBase + ".cellBorder(%s, %f, %s, %s, %s);", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, "var setCellBorder" + ++variableIndex + " = " + jsBase + ".cellBorder(%s, %s, %s, %s, %s);", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", ((color != null) ? color.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -133,11 +133,11 @@ public class Row extends TableBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setCellBorder1" + ++variableIndex + " = " + jsBase + ".cellBorder(%s, %f, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, "var setCellBorder1" + ++variableIndex + " = " + jsBase + ".cellBorder(%s, %s, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -184,11 +184,11 @@ public class Row extends TableBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setCellBorder2" + ++variableIndex + " = " + jsBase + ".cellBorder(%s, %f, %s, %s, %s);", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, "var setCellBorder2" + ++variableIndex + " = " + jsBase + ".cellBorder(%s, %s, %s, %s, %s);", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %f, %s, %s, %s);", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellBorder(%s, %s, %s, %s, %s);", wrapQuotes(color2), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -271,11 +271,11 @@ public class Row extends TableBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setCellFill1" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %f);", wrapQuotes(color3), opacity));
+            js.append(String.format(Locale.US, "var setCellFill1" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %s);", wrapQuotes(color3), opacity));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f);", wrapQuotes(color3), opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s);", wrapQuotes(color3), opacity));
                 js.setLength(0);
             }
         }
@@ -333,11 +333,11 @@ public class Row extends TableBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setCellFill2" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
+            js.append(String.format(Locale.US, "var setCellFill2" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %s, %s, %b);", arrayToString(keys), angle, opacity1, mode));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %s, %b);", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -388,11 +388,11 @@ public class Row extends TableBase {
                 isChain = false;
             }
             js.append(mode1.generateJs());
-            js.append(String.format(Locale.US, "var setCellFill3" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, "var setCellFill3" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -443,11 +443,11 @@ public class Row extends TableBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setCellFill4" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+            js.append(String.format(Locale.US, "var setCellFill4" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -498,11 +498,11 @@ public class Row extends TableBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setCellFill5" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+            js.append(String.format(Locale.US, "var setCellFill5" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -553,11 +553,11 @@ public class Row extends TableBase {
                 isChain = false;
             }
             js.append(mode1.generateJs());
-            js.append(String.format(Locale.US, "var setCellFill6" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, "var setCellFill6" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -608,11 +608,11 @@ public class Row extends TableBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setCellFill7" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+            js.append(String.format(Locale.US, "var setCellFill7" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -681,11 +681,11 @@ public class Row extends TableBase {
                 isChain = false;
             }
             js.append(mode3.generateJs());
-            js.append(String.format(Locale.US, "var setCellFill8" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+            js.append(String.format(Locale.US, "var setCellFill8" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -746,11 +746,11 @@ public class Row extends TableBase {
                 isChain = false;
             }
             js.append(mode3.generateJs());
-            js.append(String.format(Locale.US, "var setCellFill9" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+            js.append(String.format(Locale.US, "var setCellFill9" + ++variableIndex + " = " + jsBase + ".cellFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -1056,11 +1056,11 @@ public class Row extends TableBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setCellPadding4" + ++variableIndex + " = " + jsBase + ".cellPadding(%f, %f, %f, %f);", value1, value3, value5, value7));
+            js.append(String.format(Locale.US, "var setCellPadding4" + ++variableIndex + " = " + jsBase + ".cellPadding(%s, %s, %s, %s);", value1, value3, value5, value7));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%f, %f, %f, %f);", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".cellPadding(%s, %s, %s, %s);", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
@@ -1095,11 +1095,11 @@ public class Row extends TableBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setGetCell" + ++variableIndex + " = " + jsBase + ".getCell(%f);", col));
+            js.append(String.format(Locale.US, "var setGetCell" + ++variableIndex + " = " + jsBase + ".getCell(%s);", col));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getCell(%f);", col));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getCell(%s);", col));
                 js.setLength(0);
             }
         }
@@ -1164,10 +1164,10 @@ public class Row extends TableBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".height(%f)", height1));
+            js.append(String.format(Locale.US, ".height(%s)", height1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%f);", height1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".height(%s);", height1));
                 js.setLength(0);
             }
         }
@@ -1242,10 +1242,10 @@ public class Row extends TableBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".minHeight(%f)", minHeight1));
+            js.append(String.format(Locale.US, ".minHeight(%s)", minHeight1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%f);", minHeight1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minHeight(%s);", minHeight1));
                 js.setLength(0);
             }
         }

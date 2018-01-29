@@ -100,11 +100,11 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setAddChildAt" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %f);", wrapQuotes(child1), index));
+            js.append(String.format(Locale.US, "var setAddChildAt" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %s);", wrapQuotes(child1), index));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", wrapQuotes(child1), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %s);", wrapQuotes(child1), index));
                 js.setLength(0);
             }
         }
@@ -145,11 +145,11 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
             js.append(child2.generateJs());
-            js.append(String.format(Locale.US, "var setAddChildAt1" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %f);", ((child2 != null) ? child2.getJsBase() : "null"), index));
+            js.append(String.format(Locale.US, "var setAddChildAt1" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %s);", ((child2 != null) ? child2.getJsBase() : "null"), index));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((child2 != null) ? child2.getJsBase() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %s);", ((child2 != null) ? child2.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -190,11 +190,11 @@ public class Tree extends CoreBase {
                 isChain = false;
             }
             js.append(child3.generateJs());
-            js.append(String.format(Locale.US, "var setAddChildAt2" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %f);", ((child3 != null) ? child3.getJsBase() : "null"), index));
+            js.append(String.format(Locale.US, "var setAddChildAt2" + ++variableIndex + " = " + jsBase + ".addChildAt(%s, %s);", ((child3 != null) ? child3.getJsBase() : "null"), index));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((child3 != null) ? child3.getJsBase() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %s);", ((child3 != null) ? child3.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -535,11 +535,11 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setRemoveChildAt" + ++variableIndex + " = " + jsBase + ".removeChildAt(%f);", index1));
+            js.append(String.format(Locale.US, "var setRemoveChildAt" + ++variableIndex + " = " + jsBase + ".removeChildAt(%s);", index1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f);", index1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%s);", index1));
                 js.setLength(0);
             }
         }
@@ -655,11 +655,11 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setSearch1" + ++variableIndex + " = " + jsBase + ".search(%s, %f);", wrapQuotes(soughtField), search1));
+            js.append(String.format(Locale.US, "var setSearch1" + ++variableIndex + " = " + jsBase + ".search(%s, %s);", wrapQuotes(soughtField), search1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %f);", wrapQuotes(soughtField), search1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".search(%s, %s);", wrapQuotes(soughtField), search1));
                 js.setLength(0);
             }
         }
@@ -782,11 +782,11 @@ It can't be indexed by 'parent' or 'children' fields because these fields are no
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".searchItems(%s, %f);", wrapQuotes(soughtField1), searchItems1));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".searchItems(%s, %s);", wrapQuotes(soughtField1), searchItems1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %f);", wrapQuotes(soughtField1), searchItems1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".searchItems(%s, %s);", wrapQuotes(soughtField1), searchItems1));
                 js.setLength(0);
             }
         }

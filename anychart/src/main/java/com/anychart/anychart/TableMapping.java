@@ -63,10 +63,10 @@ public class TableMapping extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".addField(%s, %f, %s, %f)", wrapQuotes(name), column, ((type != null) ? type.generateJs() : "null"), weightsColumn));
+            js.append(String.format(Locale.US, ".addField(%s, %s, %s, %s)", wrapQuotes(name), column, ((type != null) ? type.generateJs() : "null"), weightsColumn));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addField(%s, %f, %s, %f);", wrapQuotes(name), column, ((type != null) ? type.generateJs() : "null"), weightsColumn));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addField(%s, %s, %s, %s);", wrapQuotes(name), column, ((type != null) ? type.generateJs() : "null"), weightsColumn));
                 js.setLength(0);
             }
         }
@@ -96,10 +96,10 @@ public class TableMapping extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".addField(%s, %f, %s, %f)", wrapQuotes(name), column, wrapQuotes(type1), weightsColumn));
+            js.append(String.format(Locale.US, ".addField(%s, %s, %s, %s)", wrapQuotes(name), column, wrapQuotes(type1), weightsColumn));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addField(%s, %f, %s, %f);", wrapQuotes(name), column, wrapQuotes(type1), weightsColumn));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addField(%s, %s, %s, %s);", wrapQuotes(name), column, wrapQuotes(type1), weightsColumn));
                 js.setLength(0);
             }
         }

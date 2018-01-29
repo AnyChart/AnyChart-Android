@@ -599,10 +599,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".hover(%f)", index));
+            js.append(String.format(Locale.US, ".hover(%s)", index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hover(%f);", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".hover(%s);", index));
                 js.setLength(0);
             }
         }
@@ -717,10 +717,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".id(%f)", id1));
+            js.append(String.format(Locale.US, ".id(%s)", id1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".id(%f);", id1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".id(%s);", id1));
                 js.setLength(0);
             }
         }
@@ -983,10 +983,10 @@ public class AnychartSeriesBase extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".select(%f)", index1));
+            js.append(String.format(Locale.US, ".select(%s)", index1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%f);", index1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".select(%s);", index1));
                 js.setLength(0);
             }
         }
@@ -1205,10 +1205,10 @@ To select multiple points, press "ctrl" and click on them.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".unhover(%f)", indexOrIndexes));
+            js.append(String.format(Locale.US, ".unhover(%s)", indexOrIndexes));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unhover(%f);", indexOrIndexes));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unhover(%s);", indexOrIndexes));
                 js.setLength(0);
             }
         }
@@ -1261,10 +1261,10 @@ To select multiple points, press "ctrl" and click on them.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".unselect(%f)", index2));
+            js.append(String.format(Locale.US, ".unselect(%s)", index2));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselect(%f);", index2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unselect(%s);", index2));
                 js.setLength(0);
             }
         }

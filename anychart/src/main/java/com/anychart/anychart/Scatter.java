@@ -643,10 +643,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lineMarker(%s, %f)", wrapQuotes(lineMarker2), index2));
+        js.append(String.format(Locale.US, ".lineMarker(%s, %s)", wrapQuotes(lineMarker2), index2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %f)", wrapQuotes(lineMarker2), index2));
+            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%s, %s)", wrapQuotes(lineMarker2), index2));
             js.setLength(0);
         }
         return this;
@@ -661,10 +661,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index2));
+        js.append(String.format(Locale.US, ".lineMarker(%b, %s)", lineMarker3, index2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b, %f)", lineMarker3, index2));
+            onChangeListener.onChange(String.format(Locale.US, ".lineMarker(%b, %s)", lineMarker3, index2));
             js.setLength(0);
         }
         return this;
@@ -846,10 +846,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".maxBubbleSize(%f)", maxBubbleSize));
+        js.append(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".maxBubbleSize(%f)", maxBubbleSize));
+            onChangeListener.onChange(String.format(Locale.US, ".maxBubbleSize(%s)", maxBubbleSize));
             js.setLength(0);
         }
         return this;
@@ -884,10 +884,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".minBubbleSize(%f)", minBubbleSize));
+        js.append(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%f)", minBubbleSize));
+            onChangeListener.onChange(String.format(Locale.US, ".minBubbleSize(%s)", minBubbleSize));
             js.setLength(0);
         }
         return this;
@@ -1144,10 +1144,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rangeMarker(%s, %f)", wrapQuotes(rangeMarker2), index4));
+        js.append(String.format(Locale.US, ".rangeMarker(%s, %s)", wrapQuotes(rangeMarker2), index4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %f)", wrapQuotes(rangeMarker2), index4));
+            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%s, %s)", wrapQuotes(rangeMarker2), index4));
             js.setLength(0);
         }
         return this;
@@ -1162,10 +1162,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index4));
+        js.append(String.format(Locale.US, ".rangeMarker(%b, %s)", rangeMarker3, index4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b, %f)", rangeMarker3, index4));
+            onChangeListener.onChange(String.format(Locale.US, ".rangeMarker(%b, %s)", rangeMarker3, index4));
             js.setLength(0);
         }
         return this;
@@ -1182,10 +1182,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".removeSeries(%f)", id2));
+        js.append(String.format(Locale.US, ".removeSeries(%s)", id2));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%f)", id2));
+            onChangeListener.onChange(String.format(Locale.US, ".removeSeries(%s)", id2));
             js.setLength(0);
         }
         return this;
@@ -1219,10 +1219,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".removeSeriesAt(%f)", index5));
+        js.append(String.format(Locale.US, ".removeSeriesAt(%s)", index5));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%f)", index5));
+            onChangeListener.onChange(String.format(Locale.US, ".removeSeriesAt(%s)", index5));
             js.setLength(0);
         }
         return this;
@@ -1332,10 +1332,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".textMarker(%s, %f)", wrapQuotes(textMarker2), index7));
+        js.append(String.format(Locale.US, ".textMarker(%s, %s)", wrapQuotes(textMarker2), index7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %f)", wrapQuotes(textMarker2), index7));
+            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%s, %s)", wrapQuotes(textMarker2), index7));
             js.setLength(0);
         }
         return this;
@@ -1350,10 +1350,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index7));
+        js.append(String.format(Locale.US, ".textMarker(%b, %s)", textMarker3, index7));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b, %f)", textMarker3, index7));
+            onChangeListener.onChange(String.format(Locale.US, ".textMarker(%b, %s)", textMarker3, index7));
             js.setLength(0);
         }
         return this;
@@ -1432,10 +1432,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xAxis(%s, %f)", wrapQuotes(xAxis2), index9));
+        js.append(String.format(Locale.US, ".xAxis(%s, %s)", wrapQuotes(xAxis2), index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s, %f)", wrapQuotes(xAxis2), index9));
+            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%s, %s)", wrapQuotes(xAxis2), index9));
             js.setLength(0);
         }
         return this;
@@ -1450,10 +1450,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index9));
+        js.append(String.format(Locale.US, ".xAxis(%b, %s)", xAxis3, index9));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b, %f)", xAxis3, index9));
+            onChangeListener.onChange(String.format(Locale.US, ".xAxis(%b, %s)", xAxis3, index9));
             js.setLength(0);
         }
         return this;
@@ -1532,10 +1532,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index11));
+        js.append(String.format(Locale.US, ".xGrid(%s, %s)", wrapQuotes(xGrid2), index11));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %f)", wrapQuotes(xGrid2), index11));
+            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%s, %s)", wrapQuotes(xGrid2), index11));
             js.setLength(0);
         }
         return this;
@@ -1550,10 +1550,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index11));
+        js.append(String.format(Locale.US, ".xGrid(%b, %s)", xGrid3, index11));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %f)", xGrid3, index11));
+            onChangeListener.onChange(String.format(Locale.US, ".xGrid(%b, %s)", xGrid3, index11));
             js.setLength(0);
         }
         return this;
@@ -1632,10 +1632,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), index13));
+        js.append(String.format(Locale.US, ".xMinorGrid(%s, %s)", wrapQuotes(xMinorGrid2), index13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %f)", wrapQuotes(xMinorGrid2), index13));
+            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%s, %s)", wrapQuotes(xMinorGrid2), index13));
             js.setLength(0);
         }
         return this;
@@ -1650,10 +1650,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index13));
+        js.append(String.format(Locale.US, ".xMinorGrid(%b, %s)", xMinorGrid3, index13));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b, %f)", xMinorGrid3, index13));
+            onChangeListener.onChange(String.format(Locale.US, ".xMinorGrid(%b, %s)", xMinorGrid3, index13));
             js.setLength(0);
         }
         return this;
@@ -1805,10 +1805,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index15));
+        js.append(String.format(Locale.US, ".yAxis(%s, %s)", wrapQuotes(yAxis2), index15));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %f)", wrapQuotes(yAxis2), index15));
+            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%s, %s)", wrapQuotes(yAxis2), index15));
             js.setLength(0);
         }
         return this;
@@ -1823,10 +1823,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index15));
+        js.append(String.format(Locale.US, ".yAxis(%b, %s)", yAxis3, index15));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %f)", yAxis3, index15));
+            onChangeListener.onChange(String.format(Locale.US, ".yAxis(%b, %s)", yAxis3, index15));
             js.setLength(0);
         }
         return this;
@@ -1905,10 +1905,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index17));
+        js.append(String.format(Locale.US, ".yGrid(%s, %s)", wrapQuotes(yGrid2), index17));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %f)", wrapQuotes(yGrid2), index17));
+            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%s, %s)", wrapQuotes(yGrid2), index17));
             js.setLength(0);
         }
         return this;
@@ -1923,10 +1923,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index17));
+        js.append(String.format(Locale.US, ".yGrid(%b, %s)", yGrid3, index17));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %f)", yGrid3, index17));
+            onChangeListener.onChange(String.format(Locale.US, ".yGrid(%b, %s)", yGrid3, index17));
             js.setLength(0);
         }
         return this;
@@ -2005,10 +2005,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), index19));
+        js.append(String.format(Locale.US, ".yMinorGrid(%s, %s)", wrapQuotes(yMinorGrid2), index19));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %f)", wrapQuotes(yMinorGrid2), index19));
+            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%s, %s)", wrapQuotes(yMinorGrid2), index19));
             js.setLength(0);
         }
         return this;
@@ -2023,10 +2023,10 @@ public class Scatter extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index19));
+        js.append(String.format(Locale.US, ".yMinorGrid(%b, %s)", yMinorGrid3, index19));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b, %f)", yMinorGrid3, index19));
+            onChangeListener.onChange(String.format(Locale.US, ".yMinorGrid(%b, %s)", yMinorGrid3, index19));
             js.setLength(0);
         }
         return this;

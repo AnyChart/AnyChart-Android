@@ -189,10 +189,10 @@ public class Chart extends VisualBaseWithBounds {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".animation(%b, %f)", enabled, duration));
+            js.append(String.format(Locale.US, ".animation(%b, %s)", enabled, duration));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".animation(%b, %f);", enabled, duration));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".animation(%b, %s);", enabled, duration));
                 js.setLength(0);
             }
         }
@@ -624,11 +624,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getJpgBase64String(%s, %f, %f, %f, %b);", wrapQuotes(onSuccessOrOptions), width, height, quality, forceTransparentWhite));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getJpgBase64String(%s, %s, %s, %s, %b);", wrapQuotes(onSuccessOrOptions), width, height, quality, forceTransparentWhite));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %f, %f, %f, %b);", wrapQuotes(onSuccessOrOptions), width, height, quality, forceTransparentWhite));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getJpgBase64String(%s, %s, %s, %s, %b);", wrapQuotes(onSuccessOrOptions), width, height, quality, forceTransparentWhite));
                 js.setLength(0);
             }
         }
@@ -672,11 +672,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%s, %f, %f, %f, %f);", wrapQuotes(onSuccessOrOptions1), paperSizeOrWidth, x, landscapeOrWidth, y));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions1), paperSizeOrWidth, x, landscapeOrWidth, y));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %f, %f);", wrapQuotes(onSuccessOrOptions1), paperSizeOrWidth, x, landscapeOrWidth, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions1), paperSizeOrWidth, x, landscapeOrWidth, y));
                 js.setLength(0);
             }
         }
@@ -713,11 +713,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%s, %f, %f, %b, %f);", wrapQuotes(onSuccessOrOptions1), paperSizeOrWidth, x, landscapeOrWidth1, y));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%s, %s, %s, %b, %s);", wrapQuotes(onSuccessOrOptions1), paperSizeOrWidth, x, landscapeOrWidth1, y));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %f, %f, %b, %f);", wrapQuotes(onSuccessOrOptions1), paperSizeOrWidth, x, landscapeOrWidth1, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %b, %s);", wrapQuotes(onSuccessOrOptions1), paperSizeOrWidth, x, landscapeOrWidth1, y));
                 js.setLength(0);
             }
         }
@@ -754,11 +754,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%s, %s, %f, %f, %f);", wrapQuotes(onSuccessOrOptions1), wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth, y));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions1), wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth, y));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %f, %f, %f);", wrapQuotes(onSuccessOrOptions1), wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions1), wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth, y));
                 js.setLength(0);
             }
         }
@@ -795,11 +795,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%s, %s, %f, %b, %f);", wrapQuotes(onSuccessOrOptions1), wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth1, y));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPdfBase64String(%s, %s, %s, %b, %s);", wrapQuotes(onSuccessOrOptions1), wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth1, y));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %f, %b, %f);", wrapQuotes(onSuccessOrOptions1), wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth1, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPdfBase64String(%s, %s, %s, %b, %s);", wrapQuotes(onSuccessOrOptions1), wrapQuotes(paperSizeOrWidth1), x, landscapeOrWidth1, y));
                 js.setLength(0);
             }
         }
@@ -842,11 +842,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPngBase64String(%s, %f, %f, %f);", wrapQuotes(onSuccessOrOptions2), width1, height1, quality1));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getPngBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions2), width1, height1, quality1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %f, %f, %f);", wrapQuotes(onSuccessOrOptions2), width1, height1, quality1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getPngBase64String(%s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions2), width1, height1, quality1));
                 js.setLength(0);
             }
         }
@@ -970,11 +970,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getSvgBase64String(%s, %f, %b);", wrapQuotes(onSuccessOrOptions3), paperSizeOrWidth3, landscapeOrHeight));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getSvgBase64String(%s, %s, %b);", wrapQuotes(onSuccessOrOptions3), paperSizeOrWidth3, landscapeOrHeight));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %f, %b);", wrapQuotes(onSuccessOrOptions3), paperSizeOrWidth3, landscapeOrHeight));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %b);", wrapQuotes(onSuccessOrOptions3), paperSizeOrWidth3, landscapeOrHeight));
                 js.setLength(0);
             }
         }
@@ -1011,11 +1011,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getSvgBase64String(%s, %f, %s);", wrapQuotes(onSuccessOrOptions3), paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getSvgBase64String(%s, %s, %s);", wrapQuotes(onSuccessOrOptions3), paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %f, %s);", wrapQuotes(onSuccessOrOptions3), paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getSvgBase64String(%s, %s, %s);", wrapQuotes(onSuccessOrOptions3), paperSizeOrWidth3, wrapQuotes(landscapeOrHeight1)));
                 js.setLength(0);
             }
         }
@@ -1040,11 +1040,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".globalToLocal(%f, %f);", xCoord, yCoord));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".globalToLocal(%s, %s);", xCoord, yCoord));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".globalToLocal(%f, %f);", xCoord, yCoord));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".globalToLocal(%s, %s);", xCoord, yCoord));
                 js.setLength(0);
             }
         }
@@ -1234,10 +1234,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".label(%f, %b)", index1, label3));
+            js.append(String.format(Locale.US, ".label(%s, %b)", index1, label3));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f, %b);", index1, label3));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %b);", index1, label3));
                 js.setLength(0);
             }
         }
@@ -1270,10 +1270,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".label(%f, %s)", index1, wrapQuotes(label4)));
+            js.append(String.format(Locale.US, ".label(%s, %s)", index1, wrapQuotes(label4)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%f, %s);", index1, wrapQuotes(label4)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".label(%s, %s);", index1, wrapQuotes(label4)));
                 js.setLength(0);
             }
         }
@@ -1305,11 +1305,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".localToGlobal(%f, %f);", xCoord1, yCoord1));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".localToGlobal(%s, %s);", xCoord1, yCoord1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".localToGlobal(%f, %f);", xCoord1, yCoord1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".localToGlobal(%s, %s);", xCoord1, yCoord1));
                 js.setLength(0);
             }
         }
@@ -1545,10 +1545,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".margin(%f, %f, %f, %f)", value1, value3, value5, value7));
+            js.append(String.format(Locale.US, ".margin(%s, %s, %s, %s)", value1, value3, value5, value7));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%f, %f, %f, %f);", value1, value3, value5, value7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".margin(%s, %s, %s, %s);", value1, value3, value5, value7));
                 js.setLength(0);
             }
         }
@@ -1887,10 +1887,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".padding(%f, %f, %f, %f)", value9, value11, value13, value15));
+            js.append(String.format(Locale.US, ".padding(%s, %s, %s, %s)", value9, value11, value13, value15));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%f, %f, %f, %f);", value9, value11, value13, value15));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".padding(%s, %s, %s, %s);", value9, value11, value13, value15));
                 js.setLength(0);
             }
         }
@@ -2010,11 +2010,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsJpg(%f, %f, %f, %b, %s);", width2, height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsJpg(%s, %s, %s, %b, %s);", width2, height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%f, %f, %f, %b, %s);", width2, height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%s, %s, %s, %b, %s);", width2, height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
                 js.setLength(0);
             }
         }
@@ -2061,11 +2061,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsJpg(%s, %f, %f, %b, %s);", wrapQuotes(width3), height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsJpg(%s, %s, %s, %b, %s);", wrapQuotes(width3), height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%s, %f, %f, %b, %s);", wrapQuotes(width3), height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsJpg(%s, %s, %s, %b, %s);", wrapQuotes(width3), height2, quality2, forceTransparentWhite1, wrapQuotes(filename1)));
                 js.setLength(0);
             }
         }
@@ -2144,11 +2144,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsPdf(%f, %b, %f, %f, %s);", paperSizeOrWidthOrOptions, landscape, x1, y1, wrapQuotes(filename3)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsPdf(%s, %b, %s, %s, %s);", paperSizeOrWidthOrOptions, landscape, x1, y1, wrapQuotes(filename3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%f, %b, %f, %f, %s);", paperSizeOrWidthOrOptions, landscape, x1, y1, wrapQuotes(filename3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %s, %s, %s);", paperSizeOrWidthOrOptions, landscape, x1, y1, wrapQuotes(filename3)));
                 js.setLength(0);
             }
         }
@@ -2191,11 +2191,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsPdf(%s, %b, %f, %f, %s);", wrapQuotes(paperSizeOrWidthOrOptions1), landscape, x1, y1, wrapQuotes(filename3)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsPdf(%s, %b, %s, %s, %s);", wrapQuotes(paperSizeOrWidthOrOptions1), landscape, x1, y1, wrapQuotes(filename3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %f, %f, %s);", wrapQuotes(paperSizeOrWidthOrOptions1), landscape, x1, y1, wrapQuotes(filename3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPdf(%s, %b, %s, %s, %s);", wrapQuotes(paperSizeOrWidthOrOptions1), landscape, x1, y1, wrapQuotes(filename3)));
                 js.setLength(0);
             }
         }
@@ -2249,11 +2249,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsPng(%f, %f, %f, %s);", width4, height3, quality3, wrapQuotes(filename4)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsPng(%s, %s, %s, %s);", width4, height3, quality3, wrapQuotes(filename4)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%f, %f, %f, %s);", width4, height3, quality3, wrapQuotes(filename4)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%s, %s, %s, %s);", width4, height3, quality3, wrapQuotes(filename4)));
                 js.setLength(0);
             }
         }
@@ -2302,11 +2302,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsPng(%s, %f, %f, %s);", wrapQuotes(width5), height3, quality3, wrapQuotes(filename4)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsPng(%s, %s, %s, %s);", wrapQuotes(width5), height3, quality3, wrapQuotes(filename4)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%s, %f, %f, %s);", wrapQuotes(width5), height3, quality3, wrapQuotes(filename4)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsPng(%s, %s, %s, %s);", wrapQuotes(width5), height3, quality3, wrapQuotes(filename4)));
                 js.setLength(0);
             }
         }
@@ -2389,11 +2389,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsSvg(%f, %f);", width6, height4));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".saveAsSvg(%s, %s);", width6, height4));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%f, %f);", width6, height4));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".saveAsSvg(%s, %s);", width6, height4));
                 js.setLength(0);
             }
         }
@@ -2558,10 +2558,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f)", wrapQuotes(color), opacity));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s)", wrapQuotes(color), opacity));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %f);", wrapQuotes(color), opacity));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %s);", wrapQuotes(color), opacity));
                 js.setLength(0);
             }
         }
@@ -2606,10 +2606,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %b)", arrayToString(keys), angle, opacity1, mode));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %s, %b)", arrayToString(keys), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %f, %f, %b);", arrayToString(keys), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %s, %s, %b);", arrayToString(keys), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -2647,10 +2647,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = true;
             }
             js.append(mode1.generateJs());
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %s, %s)", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2688,10 +2688,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %s, %s)", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %f, %f, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %s, %s, %s);", arrayToString(keys), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -2729,10 +2729,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %s, %b)", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %f, %f, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %s, %s, %b);", arrayToStringWrapQuotes(keys1), angle, opacity1, mode));
                 js.setLength(0);
             }
         }
@@ -2770,10 +2770,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = true;
             }
             js.append(mode1.generateJs());
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, ((mode1 != null) ? mode1.getJsBase() : "null")));
                 js.setLength(0);
             }
         }
@@ -2811,10 +2811,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %f, %f, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %s, %s, %s);", arrayToStringWrapQuotes(keys1), angle, opacity1, wrapQuotes(mode2)));
                 js.setLength(0);
             }
         }
@@ -2870,10 +2870,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = true;
             }
             js.append(mode3.generateJs());
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %s, %s, %s, %s, %s, %s);", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -2921,10 +2921,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = true;
             }
             js.append(mode3.generateJs());
-            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+            js.append(String.format(Locale.US, ".selectMarqueeFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %f, %f, %s, %f, %f, %f);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeFill(%s, %s, %s, %s, %s, %s, %s);", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.getJsBase() : "null"), opacity2, fx, fy));
                 js.setLength(0);
             }
         }
@@ -2967,10 +2967,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %s, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeStroke(%s, %f, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeStroke(%s, %s, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3005,10 +3005,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %s, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeStroke(%s, %f, %s, %s, %s);", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeStroke(%s, %s, %s, %s, %s);", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3043,10 +3043,10 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".selectMarqueeStroke(%s, %s, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeStroke(%s, %f, %s, %s, %s);", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".selectMarqueeStroke(%s, %s, %s, %s, %s);", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
                 js.setLength(0);
             }
         }
@@ -3128,11 +3128,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsJpg(%s, %b, %f, %f, %f, %b, %s);", wrapQuotes(onSuccessOrOptions4), asBase, width7, height5, quality4, forceTransparentWhite2, wrapQuotes(filename8)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsJpg(%s, %b, %s, %s, %s, %b, %s);", wrapQuotes(onSuccessOrOptions4), asBase, width7, height5, quality4, forceTransparentWhite2, wrapQuotes(filename8)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %b, %f, %f, %f, %b, %s);", wrapQuotes(onSuccessOrOptions4), asBase, width7, height5, quality4, forceTransparentWhite2, wrapQuotes(filename8)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsJpg(%s, %b, %s, %s, %s, %b, %s);", wrapQuotes(onSuccessOrOptions4), asBase, width7, height5, quality4, forceTransparentWhite2, wrapQuotes(filename8)));
                 js.setLength(0);
             }
         }
@@ -3214,11 +3214,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%s, %b, %f, %f, %f, %f, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, paperSizeOrWidth4, x2, landscapeOrWidth2, y2, wrapQuotes(filename9)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%s, %b, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, paperSizeOrWidth4, x2, landscapeOrWidth2, y2, wrapQuotes(filename9)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %f, %f, %f, %f, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, paperSizeOrWidth4, x2, landscapeOrWidth2, y2, wrapQuotes(filename9)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, paperSizeOrWidth4, x2, landscapeOrWidth2, y2, wrapQuotes(filename9)));
                 js.setLength(0);
             }
         }
@@ -3291,11 +3291,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%s, %b, %f, %f, %b, %f, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, paperSizeOrWidth4, x2, landscapeOrWidth3, y2, wrapQuotes(filename9)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%s, %b, %s, %s, %b, %s, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, paperSizeOrWidth4, x2, landscapeOrWidth3, y2, wrapQuotes(filename9)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %f, %f, %b, %f, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, paperSizeOrWidth4, x2, landscapeOrWidth3, y2, wrapQuotes(filename9)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %s, %s, %b, %s, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, paperSizeOrWidth4, x2, landscapeOrWidth3, y2, wrapQuotes(filename9)));
                 js.setLength(0);
             }
         }
@@ -3368,11 +3368,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%s, %b, %s, %f, %f, %f, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth2, y2, wrapQuotes(filename9)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%s, %b, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth2, y2, wrapQuotes(filename9)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %s, %f, %f, %f, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth2, y2, wrapQuotes(filename9)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %s, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth2, y2, wrapQuotes(filename9)));
                 js.setLength(0);
             }
         }
@@ -3445,11 +3445,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%s, %b, %s, %f, %b, %f, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth3, y2, wrapQuotes(filename9)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPdf(%s, %b, %s, %s, %b, %s, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth3, y2, wrapQuotes(filename9)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %s, %f, %b, %f, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth3, y2, wrapQuotes(filename9)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPdf(%s, %b, %s, %s, %b, %s, %s);", wrapQuotes(onSuccessOrOptions5), asBase1, wrapQuotes(paperSizeOrWidth5), x2, landscapeOrWidth3, y2, wrapQuotes(filename9)));
                 js.setLength(0);
             }
         }
@@ -3534,11 +3534,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPng(%s, %b, %f, %f, %f, %s);", wrapQuotes(onSuccessOrOptions6), asBase2, width8, height6, quality5, wrapQuotes(filename10)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsPng(%s, %b, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions6), asBase2, width8, height6, quality5, wrapQuotes(filename10)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPng(%s, %b, %f, %f, %f, %s);", wrapQuotes(onSuccessOrOptions6), asBase2, width8, height6, quality5, wrapQuotes(filename10)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsPng(%s, %b, %s, %s, %s, %s);", wrapQuotes(onSuccessOrOptions6), asBase2, width8, height6, quality5, wrapQuotes(filename10)));
                 js.setLength(0);
             }
         }
@@ -3760,11 +3760,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsSvg(%s, %b, %f, %s, %b);", wrapQuotes(onSuccessOrOptions7), asBase3, paperSizeOrWidth7, wrapQuotes(filename11), landscapeOrHeight2));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsSvg(%s, %b, %s, %s, %b);", wrapQuotes(onSuccessOrOptions7), asBase3, paperSizeOrWidth7, wrapQuotes(filename11), landscapeOrHeight2));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %f, %s, %b);", wrapQuotes(onSuccessOrOptions7), asBase3, paperSizeOrWidth7, wrapQuotes(filename11), landscapeOrHeight2));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %s, %s, %b);", wrapQuotes(onSuccessOrOptions7), asBase3, paperSizeOrWidth7, wrapQuotes(filename11), landscapeOrHeight2));
                 js.setLength(0);
             }
         }
@@ -3833,11 +3833,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsSvg(%s, %b, %f, %s, %s);", wrapQuotes(onSuccessOrOptions7), asBase3, paperSizeOrWidth7, wrapQuotes(filename11), wrapQuotes(landscapeOrHeight3)));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".shareAsSvg(%s, %b, %s, %s, %s);", wrapQuotes(onSuccessOrOptions7), asBase3, paperSizeOrWidth7, wrapQuotes(filename11), wrapQuotes(landscapeOrHeight3)));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %f, %s, %s);", wrapQuotes(onSuccessOrOptions7), asBase3, paperSizeOrWidth7, wrapQuotes(filename11), wrapQuotes(landscapeOrHeight3)));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".shareAsSvg(%s, %b, %s, %s, %s);", wrapQuotes(onSuccessOrOptions7), asBase3, paperSizeOrWidth7, wrapQuotes(filename11), wrapQuotes(landscapeOrHeight3)));
                 js.setLength(0);
             }
         }
@@ -4325,11 +4325,11 @@ Flag whether to automatically call chart.draw() on any changes or not.
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".toSvg(%f, %f);", width9, height7));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".toSvg(%s, %s);", width9, height7));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%f, %f);", width9, height7));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".toSvg(%s, %s);", width9, height7));
                 js.setLength(0);
             }
         }

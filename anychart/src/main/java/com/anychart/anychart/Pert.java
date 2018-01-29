@@ -149,10 +149,10 @@ public class Pert extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".horizontalSpacing(%f)", horizontalSpacing));
+        js.append(String.format(Locale.US, ".horizontalSpacing(%s)", horizontalSpacing));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".horizontalSpacing(%f)", horizontalSpacing));
+            onChangeListener.onChange(String.format(Locale.US, ".horizontalSpacing(%s)", horizontalSpacing));
             js.setLength(0);
         }
         return this;
@@ -249,10 +249,10 @@ public class Pert extends SeparateChart {
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".verticalSpacing(%f)", verticalSpacing));
+        js.append(String.format(Locale.US, ".verticalSpacing(%s)", verticalSpacing));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".verticalSpacing(%f)", verticalSpacing));
+            onChangeListener.onChange(String.format(Locale.US, ".verticalSpacing(%s)", verticalSpacing));
             js.setLength(0);
         }
         return this;

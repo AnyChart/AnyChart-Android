@@ -51,11 +51,11 @@ public class CycledQueue extends JsObject {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".clear(%f);", newLengthLimit));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".clear(%s);", newLengthLimit));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".clear(%f);", newLengthLimit));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".clear(%s);", newLengthLimit));
                 js.setLength(0);
             }
         }
@@ -77,11 +77,11 @@ The index can be negative - that is interpreted as the index from the end of the
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".get(%f);", index));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".get(%s);", index));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%f);", index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".get(%s);", index));
                 js.setLength(0);
             }
         }

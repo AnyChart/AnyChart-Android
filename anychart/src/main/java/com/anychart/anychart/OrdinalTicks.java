@@ -51,10 +51,10 @@ Passed value is rounded and defaults to 1 in case of incorrect settings.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".interval(%f)", interval));
+            js.append(String.format(Locale.US, ".interval(%s)", interval));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%f);", interval));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".interval(%s);", interval));
                 js.setLength(0);
             }
         }
@@ -76,10 +76,10 @@ Passed value is rounded and defaults to 1 in case of incorrect settings.
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".maxCount(%f)", maxCount));
+            js.append(String.format(Locale.US, ".maxCount(%s)", maxCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxCount(%f);", maxCount));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxCount(%s);", maxCount));
                 js.setLength(0);
             }
         }

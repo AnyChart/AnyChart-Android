@@ -51,10 +51,10 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".count(%f)", count));
+            js.append(String.format(Locale.US, ".count(%s)", count));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%f);", count));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%s);", count));
                 js.setLength(0);
             }
         }
@@ -79,10 +79,10 @@ public class RangeColors extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".itemAt(%f, %s)", index, ((color != null) ? color.generateJs() : "null")));
+            js.append(String.format(Locale.US, ".itemAt(%s, %s)", index, ((color != null) ? color.generateJs() : "null")));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%f, %s);", index, ((color != null) ? color.generateJs() : "null")));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".itemAt(%s, %s);", index, ((color != null) ? color.generateJs() : "null")));
                 js.setLength(0);
             }
         }

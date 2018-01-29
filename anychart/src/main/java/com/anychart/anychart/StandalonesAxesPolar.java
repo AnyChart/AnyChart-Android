@@ -264,10 +264,10 @@ public class StandalonesAxesPolar extends CoreAxesPolar {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".parentBounds(%f, %f, %f, %f)", left, top, width, height));
+            js.append(String.format(Locale.US, ".parentBounds(%s, %s, %s, %s)", left, top, width, height));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBounds(%f, %f, %f, %f);", left, top, width, height));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".parentBounds(%s, %s, %s, %s);", left, top, width, height));
                 js.setLength(0);
             }
         }
@@ -320,10 +320,10 @@ public class StandalonesAxesPolar extends CoreAxesPolar {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".startAngle(%f)", startAngle1));
+            js.append(String.format(Locale.US, ".startAngle(%s)", startAngle1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startAngle(%f);", startAngle1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".startAngle(%s);", startAngle1));
                 js.setLength(0);
             }
         }

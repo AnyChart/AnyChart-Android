@@ -119,10 +119,10 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", wrapQuotes(child2), index));
+            js.append(String.format(Locale.US, ".addChildAt(%s, %s)", wrapQuotes(child2), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", wrapQuotes(child2), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %s);", wrapQuotes(child2), index));
                 js.setLength(0);
             }
         }
@@ -152,10 +152,10 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
                 isChain = true;
             }
             js.append(child3.generateJs());
-            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child3 != null) ? child3.getJsBase() : "null"), index));
+            js.append(String.format(Locale.US, ".addChildAt(%s, %s)", ((child3 != null) ? child3.getJsBase() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((child3 != null) ? child3.getJsBase() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %s);", ((child3 != null) ? child3.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -185,10 +185,10 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
                 isChain = true;
             }
             js.append(child4.generateJs());
-            js.append(String.format(Locale.US, ".addChildAt(%s, %f)", ((child4 != null) ? child4.getJsBase() : "null"), index));
+            js.append(String.format(Locale.US, ".addChildAt(%s, %s)", ((child4 != null) ? child4.getJsBase() : "null"), index));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %f);", ((child4 != null) ? child4.getJsBase() : "null"), index));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".addChildAt(%s, %s);", ((child4 != null) ? child4.getJsBase() : "null"), index));
                 js.setLength(0);
             }
         }
@@ -294,10 +294,10 @@ Please make sure that child has not inner cycles to avoid stack overflow excepti
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".removeChildAt(%f)", index1));
+            js.append(String.format(Locale.US, ".removeChildAt(%s)", index1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%f);", index1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".removeChildAt(%s);", index1));
                 js.setLength(0);
             }
         }

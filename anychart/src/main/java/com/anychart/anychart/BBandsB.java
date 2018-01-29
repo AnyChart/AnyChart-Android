@@ -50,10 +50,10 @@ public class BBandsB extends JsObject {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".deviation(%f)", deviation));
+            js.append(String.format(Locale.US, ".deviation(%s)", deviation));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".deviation(%f);", deviation));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".deviation(%s);", deviation));
                 js.setLength(0);
             }
         }

@@ -62,10 +62,10 @@ public class DateTimeWithCalendar extends ScatterBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".count(%f)", count));
+            js.append(String.format(Locale.US, ".count(%s)", count));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%f);", count));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".count(%s);", count));
                 js.setLength(0);
             }
         }
@@ -87,11 +87,11 @@ public class DateTimeWithCalendar extends ScatterBase {
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".dateToPix(%f);", date));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".dateToPix(%s);", date));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dateToPix(%f);", date));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".dateToPix(%s);", date));
                 js.setLength(0);
             }
         }
@@ -129,11 +129,11 @@ with a passed interval. Ticks fill space from the fromPix pixel to the toPix pix
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getTicks(%f, %f, %s, %f);", fromPix, toPix, ((unit != null) ? unit.generateJs() : "null"), count1));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getTicks(%s, %s, %s, %s);", fromPix, toPix, ((unit != null) ? unit.generateJs() : "null"), count1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%f, %f, %s, %f);", fromPix, toPix, ((unit != null) ? unit.generateJs() : "null"), count1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %s, %s, %s);", fromPix, toPix, ((unit != null) ? unit.generateJs() : "null"), count1));
                 js.setLength(0);
             }
         }
@@ -166,11 +166,11 @@ with a passed interval. Ticks fill space from the fromPix pixel to the toPix pix
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getTicks(%f, %f, %s, %f);", fromPix, toPix, wrapQuotes(unit1), count1));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".getTicks(%s, %s, %s, %s);", fromPix, toPix, wrapQuotes(unit1), count1));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%f, %f, %s, %f);", fromPix, toPix, wrapQuotes(unit1), count1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".getTicks(%s, %s, %s, %s);", fromPix, toPix, wrapQuotes(unit1), count1));
                 js.setLength(0);
             }
         }
@@ -192,11 +192,11 @@ with a passed interval. Ticks fill space from the fromPix pixel to the toPix pix
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setMaximumGap" + ++variableIndex + " = " + jsBase + ".maximumGap(%f);", maximumGap));
+            js.append(String.format(Locale.US, "var setMaximumGap" + ++variableIndex + " = " + jsBase + ".maximumGap(%s);", maximumGap));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumGap(%f);", maximumGap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumGap(%s);", maximumGap));
                 js.setLength(0);
             }
         }
@@ -231,11 +231,11 @@ with a passed interval. Ticks fill space from the fromPix pixel to the toPix pix
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setMinimumGap" + ++variableIndex + " = " + jsBase + ".minimumGap(%f);", minimumGap));
+            js.append(String.format(Locale.US, "var setMinimumGap" + ++variableIndex + " = " + jsBase + ".minimumGap(%s);", minimumGap));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumGap(%f);", minimumGap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumGap(%s);", minimumGap));
                 js.setLength(0);
             }
         }
@@ -269,11 +269,11 @@ with a passed interval. Ticks fill space from the fromPix pixel to the toPix pix
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".pixToDate(%f);", pix));
+            js.append(String.format(Locale.US, "var " + ++variableIndex + " = " + jsBase + ".pixToDate(%s);", pix));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pixToDate(%f);", pix));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".pixToDate(%s);", pix));
                 js.setLength(0);
             }
         }
@@ -320,11 +320,11 @@ with a passed interval. Ticks fill space from the fromPix pixel to the toPix pix
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setSoftMaximum" + ++variableIndex + " = " + jsBase + ".softMaximum(%f);", softMaximum));
+            js.append(String.format(Locale.US, "var setSoftMaximum" + ++variableIndex + " = " + jsBase + ".softMaximum(%s);", softMaximum));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMaximum(%f);", softMaximum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMaximum(%s);", softMaximum));
                 js.setLength(0);
             }
         }
@@ -359,11 +359,11 @@ with a passed interval. Ticks fill space from the fromPix pixel to the toPix pix
                 isChain = false;
             }
             
-            js.append(String.format(Locale.US, "var setSoftMinimum" + ++variableIndex + " = " + jsBase + ".softMinimum(%f);", softMinimum));
+            js.append(String.format(Locale.US, "var setSoftMinimum" + ++variableIndex + " = " + jsBase + ".softMinimum(%s);", softMinimum));
             
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMinimum(%f);", softMinimum));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".softMinimum(%s);", softMinimum));
                 js.setLength(0);
             }
         }
@@ -461,10 +461,10 @@ with a passed interval. Ticks fill space from the fromPix pixel to the toPix pix
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".unitPixSize(%f)", unitPixSize));
+            js.append(String.format(Locale.US, ".unitPixSize(%s)", unitPixSize));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unitPixSize(%f);", unitPixSize));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".unitPixSize(%s);", unitPixSize));
                 js.setLength(0);
             }
         }

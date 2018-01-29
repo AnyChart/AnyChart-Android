@@ -90,10 +90,10 @@ public class ChoroplethPoint extends SeriesPoint {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".middleX(%f)", middleX));
+            js.append(String.format(Locale.US, ".middleX(%s)", middleX));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".middleX(%f);", middleX));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".middleX(%s);", middleX));
                 js.setLength(0);
             }
         }
@@ -116,10 +116,10 @@ public class ChoroplethPoint extends SeriesPoint {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".middleY(%f)", middleY));
+            js.append(String.format(Locale.US, ".middleY(%s)", middleY));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".middleY(%f);", middleY));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".middleY(%s);", middleY));
                 js.setLength(0);
             }
         }
@@ -142,10 +142,10 @@ public class ChoroplethPoint extends SeriesPoint {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".scaleFactor(%f)", scale));
+            js.append(String.format(Locale.US, ".scaleFactor(%s)", scale));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scaleFactor(%f);", scale));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".scaleFactor(%s);", scale));
                 js.setLength(0);
             }
         }
@@ -171,10 +171,10 @@ public class ChoroplethPoint extends SeriesPoint {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".translate(%f, %f)", dx, dy));
+            js.append(String.format(Locale.US, ".translate(%s, %s)", dx, dy));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".translate(%f, %f);", dx, dy));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".translate(%s, %s);", dx, dy));
                 js.setLength(0);
             }
         }
@@ -206,10 +206,10 @@ public class ChoroplethPoint extends SeriesPoint {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".translation(%f, %f)", dx1, dy1));
+            js.append(String.format(Locale.US, ".translation(%s, %s)", dx1, dy1));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".translation(%f, %f);", dx1, dy1));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".translation(%s, %s);", dx1, dy1));
                 js.setLength(0);
             }
         }

@@ -25,7 +25,7 @@ public class BbandswidthContext extends JsObject  {
         this.prevDeviation = prevDeviation;
         this.prevResult = prevResult;
 
-        js.append(String.format(Locale.US, "{dequeuedValue: %f,deviation: %f,highQueue: %s,period: %f,prevDeviation: %f,prevResult: %f}",  dequeuedValue, deviation, ((highQueue != null) ? highQueue.generateJs() : "null"), period, prevDeviation, prevResult));
+        js.append(String.format(Locale.US, "{dequeuedValue: %s,deviation: %s,highQueue: %s,period: %s,prevDeviation: %s,prevResult: %s}",  dequeuedValue, deviation, ((highQueue != null) ? highQueue.generateJs() : "null"), period, prevDeviation, prevResult));
     }
 
     @Override

@@ -368,10 +368,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".plot(%s, %f)", wrapQuotes(plot2), index1));
+        js.append(String.format(Locale.US, ".plot(%s, %s)", wrapQuotes(plot2), index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".plot(%s, %f)", wrapQuotes(plot2), index1));
+            onChangeListener.onChange(String.format(Locale.US, ".plot(%s, %s)", wrapQuotes(plot2), index1));
             js.setLength(0);
         }
         return this;
@@ -386,10 +386,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".plot(%b, %f)", plot3, index1));
+        js.append(String.format(Locale.US, ".plot(%b, %s)", plot3, index1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".plot(%b, %f)", plot3, index1));
+            onChangeListener.onChange(String.format(Locale.US, ".plot(%b, %s)", plot3, index1));
             js.setLength(0);
         }
         return this;
@@ -554,10 +554,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%f, %f, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %f, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -572,10 +572,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%f, %f, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %f, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -590,10 +590,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%f, %f, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %f, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -608,10 +608,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%f, %s, %s, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %s, %s, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -626,10 +626,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%f, %s, %s, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %s, %s, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -644,10 +644,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%f, %s, %b, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), anchorOrDispatchEvent2, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), anchorOrDispatchEvent2, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %s, %b, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), anchorOrDispatchEvent2, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", typeOrUnitOrStart, wrapQuotes(endOrCountOrDispatchEvent1), anchorOrDispatchEvent2, dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -662,10 +662,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%f, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -680,10 +680,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%f, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %s, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -698,10 +698,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%f, %b, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%f, %b, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %b, %b, %b)", typeOrUnitOrStart, endOrCountOrDispatchEvent2, anchorOrDispatchEvent2, dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -716,10 +716,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -734,10 +734,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -752,10 +752,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", wrapQuotes(typeOrUnitOrStart1), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -878,10 +878,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -896,10 +896,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -914,10 +914,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", ((typeOrUnitOrStart2 != null) ? typeOrUnitOrStart2.generateJs() : "null"), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -1040,10 +1040,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, ((anchorOrDispatchEvent != null) ? anchorOrDispatchEvent.generateJs() : "null"), dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -1058,10 +1058,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %s, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, wrapQuotes(anchorOrDispatchEvent1), dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -1076,10 +1076,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+        js.append(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %f, %b, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
+            onChangeListener.onChange(String.format(Locale.US, ".selectRange(%s, %s, %b, %b)", ((typeOrUnitOrStart4 != null) ? typeOrUnitOrStart4.generateJs() : "null"), endOrCountOrDispatchEvent, anchorOrDispatchEvent2, dispatchEvent));
             js.setLength(0);
         }
         return this;
@@ -1276,10 +1276,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %f)", wrapQuotes(color), opacity));
+        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s)", wrapQuotes(color), opacity));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %f)", wrapQuotes(color), opacity));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %s)", wrapQuotes(color), opacity));
             js.setLength(0);
         }
         return this;
@@ -1302,10 +1302,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %b, %s, %s)", arrayToString(keys), mode, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %b, %s, %s)", arrayToString(keys), mode, angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -1321,10 +1321,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %s, %s)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %s, %s)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -1340,10 +1340,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %s, %s)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %s, %s)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -1359,10 +1359,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -1378,10 +1378,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -1397,10 +1397,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -1424,10 +1424,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             js.setLength(0);
         }
         return this;
@@ -1443,10 +1443,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+        js.append(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomMarqueeFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             js.setLength(0);
         }
         return this;
@@ -1471,10 +1471,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setZoomMarqueeStroke" + ++variableIndex + " = " + jsBase + ".zoomMarqueeStroke(%s, %f, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+        js.append(String.format(Locale.US, "var setZoomMarqueeStroke" + ++variableIndex + " = " + jsBase + ".zoomMarqueeStroke(%s, %s, %s, %s, %s);", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomMarqueeStroke(%s, %f, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomMarqueeStroke(%s, %s, %s, %s, %s)", ((color1 != null) ? color1.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         Chart item = new Chart("setZoomMarqueeStroke" + variableIndex);
@@ -1503,10 +1503,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setZoomMarqueeStroke1" + ++variableIndex + " = " + jsBase + ".zoomMarqueeStroke(%s, %f, %s, %s, %s);", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+        js.append(String.format(Locale.US, "var setZoomMarqueeStroke1" + ++variableIndex + " = " + jsBase + ".zoomMarqueeStroke(%s, %s, %s, %s, %s);", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomMarqueeStroke(%s, %f, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomMarqueeStroke(%s, %s, %s, %s, %s)", ((color2 != null) ? color2.generateJs() : "null"), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         Chart item = new Chart("setZoomMarqueeStroke1" + variableIndex);
@@ -1535,10 +1535,10 @@ The plot crosshair settings have a higher priority than the chart crosshair sett
             js.append(";");
             isChain = false;
         }
-        js.append(String.format(Locale.US, "var setZoomMarqueeStroke2" + ++variableIndex + " = " + jsBase + ".zoomMarqueeStroke(%s, %f, %s, %s, %s);", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+        js.append(String.format(Locale.US, "var setZoomMarqueeStroke2" + ++variableIndex + " = " + jsBase + ".zoomMarqueeStroke(%s, %s, %s, %s, %s);", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomMarqueeStroke(%s, %f, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
+            onChangeListener.onChange(String.format(Locale.US, jsBase + ".zoomMarqueeStroke(%s, %s, %s, %s, %s)", wrapQuotes(color3), thickness, wrapQuotes(dashpattern), ((lineJoin != null) ? lineJoin.generateJs() : "null"), ((lineCap != null) ? lineCap.generateJs() : "null")));
             js.setLength(0);
         }
         Chart item = new Chart("setZoomMarqueeStroke2" + variableIndex);

@@ -53,10 +53,10 @@ public class Geo extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".extendDataRange(%f, %f)", x, y));
+            js.append(String.format(Locale.US, ".extendDataRange(%s, %s)", x, y));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".extendDataRange(%f, %f);", x, y));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".extendDataRange(%s, %s);", x, y));
                 js.setLength(0);
             }
         }
@@ -78,10 +78,10 @@ public class Geo extends CoreBase {
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".gap(%f)", gap));
+            js.append(String.format(Locale.US, ".gap(%s)", gap));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".gap(%f);", gap));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".gap(%s);", gap));
                 js.setLength(0);
             }
         }
@@ -105,10 +105,10 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".maxTicksCount(%f)", maxTicksCount));
+            js.append(String.format(Locale.US, ".maxTicksCount(%s)", maxTicksCount));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxTicksCount(%f);", maxTicksCount));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maxTicksCount(%s);", maxTicksCount));
                 js.setLength(0);
             }
         }
@@ -130,10 +130,10 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".maximumX(%f)", maximumX));
+            js.append(String.format(Locale.US, ".maximumX(%s)", maximumX));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumX(%f);", maximumX));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumX(%s);", maximumX));
                 js.setLength(0);
             }
         }
@@ -155,10 +155,10 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".maximumY(%f)", maximumY));
+            js.append(String.format(Locale.US, ".maximumY(%s)", maximumY));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumY(%f);", maximumY));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".maximumY(%s);", maximumY));
                 js.setLength(0);
             }
         }
@@ -180,10 +180,10 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".minimumX(%f)", minimumX));
+            js.append(String.format(Locale.US, ".minimumX(%s)", minimumX));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumX(%f);", minimumX));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumX(%s);", minimumX));
                 js.setLength(0);
             }
         }
@@ -205,10 +205,10 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".minimumY(%f)", minimumY));
+            js.append(String.format(Locale.US, ".minimumY(%s)", minimumY));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumY(%f);", minimumY));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".minimumY(%s);", minimumY));
                 js.setLength(0);
             }
         }
@@ -258,10 +258,10 @@ If the number of ticks is greater than set in maxTicksCount(), the scale calcula
                 isChain = true;
             }
             
-            js.append(String.format(Locale.US, ".precision(%f, %f)", xPrecision, yPrecision));
+            js.append(String.format(Locale.US, ".precision(%s, %s)", xPrecision, yPrecision));
 
             if (isRendered) {
-                onChangeListener.onChange(String.format(Locale.US, jsBase + ".precision(%f, %f);", xPrecision, yPrecision));
+                onChangeListener.onChange(String.format(Locale.US, jsBase + ".precision(%s, %s);", xPrecision, yPrecision));
                 js.setLength(0);
             }
         }

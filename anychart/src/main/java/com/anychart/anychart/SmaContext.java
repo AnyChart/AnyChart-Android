@@ -21,7 +21,7 @@ public class SmaContext extends JsObject  {
         this.prevResult = prevResult;
         this.queue = queue;
 
-        js.append(String.format(Locale.US, "{dequeuedValue: %f,period: %f,prevResult: %f,queue: %s}",  dequeuedValue, period, prevResult, ((queue != null) ? queue.generateJs() : "null")));
+        js.append(String.format(Locale.US, "{dequeuedValue: %s,period: %s,prevResult: %s,queue: %s}",  dequeuedValue, period, prevResult, ((queue != null) ? queue.generateJs() : "null")));
     }
 
     @Override

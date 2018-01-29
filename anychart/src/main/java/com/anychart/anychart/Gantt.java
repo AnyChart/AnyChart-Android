@@ -205,10 +205,10 @@ The collapseTask() method should be used after drawing a chart.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".defaultRowHeight(%f)", defaultRowHeight));
+        js.append(String.format(Locale.US, ".defaultRowHeight(%s)", defaultRowHeight));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".defaultRowHeight(%f)", defaultRowHeight));
+            onChangeListener.onChange(String.format(Locale.US, ".defaultRowHeight(%s)", defaultRowHeight));
             js.setLength(0);
         }
         return this;
@@ -295,10 +295,10 @@ The expandTask() method should be used after drawing a chart.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".headerHeight(%f)", headerHeight));
+        js.append(String.format(Locale.US, ".headerHeight(%s)", headerHeight));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".headerHeight(%f)", headerHeight));
+            onChangeListener.onChange(String.format(Locale.US, ".headerHeight(%s)", headerHeight));
             js.setLength(0);
         }
         return this;
@@ -448,10 +448,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %f)", wrapQuotes(color), opacity));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s)", wrapQuotes(color), opacity));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f)", wrapQuotes(color), opacity));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s)", wrapQuotes(color), opacity));
             js.setLength(0);
         }
         return this;
@@ -474,10 +474,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %s, %s)", arrayToString(keys), mode, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToString(keys), mode, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %s, %s)", arrayToString(keys), mode, angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -493,10 +493,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s)", arrayToString(keys), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -512,10 +512,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s)", arrayToString(keys), wrapQuotes(mode2), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -531,10 +531,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys1), mode, angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -550,10 +550,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), ((mode1 != null) ? mode1.generateJs() : "null"), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -569,10 +569,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys1), wrapQuotes(mode2), angle, opacity1));
             js.setLength(0);
         }
         return this;
@@ -596,10 +596,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys2), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             js.setLength(0);
         }
         return this;
@@ -615,10 +615,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+        js.append(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
+            onChangeListener.onChange(String.format(Locale.US, ".rowHoverFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys3), cx, cy, ((mode3 != null) ? mode3.generateJs() : "null"), opacity2, fx, fy));
             js.setLength(0);
         }
         return this;
@@ -656,10 +656,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f)", wrapQuotes(color1), opacity3));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s)", wrapQuotes(color1), opacity3));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f)", wrapQuotes(color1), opacity3));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s)", wrapQuotes(color1), opacity3));
             js.setLength(0);
         }
         return this;
@@ -682,10 +682,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %s, %s)", arrayToString(keys4), mode4, angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f, %f)", arrayToString(keys4), mode4, angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %s, %s)", arrayToString(keys4), mode4, angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -701,10 +701,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s, %s)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s, %s)", arrayToString(keys4), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -720,10 +720,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s, %s)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s, %s)", arrayToString(keys4), wrapQuotes(mode6), angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -739,10 +739,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %f, %f)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %b, %s, %s)", arrayToStringWrapQuotes(keys5), mode4, angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -758,10 +758,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys5), ((mode5 != null) ? mode5.generateJs() : "null"), angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -777,10 +777,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %f, %f)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s, %s)", arrayToStringWrapQuotes(keys5), wrapQuotes(mode6), angle1, opacity4));
             js.setLength(0);
         }
         return this;
@@ -804,10 +804,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s, %s, %s, %s, %s)", arrayToString(keys6), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
             js.setLength(0);
         }
         return this;
@@ -823,10 +823,10 @@ Fill as a string or an object.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+        js.append(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %f, %f, %s, %f, %f, %f)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
+            onChangeListener.onChange(String.format(Locale.US, ".rowSelectedFill(%s, %s, %s, %s, %s, %s, %s)", arrayToStringWrapQuotes(keys7), cx1, cy1, ((mode7 != null) ? mode7.generateJs() : "null"), opacity5, fx1, fy1));
             js.setLength(0);
         }
         return this;
@@ -881,10 +881,10 @@ The scrollTo() method should be used after drawing a chart.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".scrollTo(%f)", pxOffset));
+        js.append(String.format(Locale.US, ".scrollTo(%s)", pxOffset));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".scrollTo(%f)", pxOffset));
+            onChangeListener.onChange(String.format(Locale.US, ".scrollTo(%s)", pxOffset));
             js.setLength(0);
         }
         return this;
@@ -901,10 +901,10 @@ The scrollToEnd() method should be used after drawing a chart.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".scrollToEnd(%f)", index));
+        js.append(String.format(Locale.US, ".scrollToEnd(%s)", index));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".scrollToEnd(%f)", index));
+            onChangeListener.onChange(String.format(Locale.US, ".scrollToEnd(%s)", index));
             js.setLength(0);
         }
         return this;
@@ -920,10 +920,10 @@ The scrollToEnd() method should be used after drawing a chart.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".scrollToRow(%f)", rowIndex));
+        js.append(String.format(Locale.US, ".scrollToRow(%s)", rowIndex));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".scrollToRow(%f)", rowIndex));
+            onChangeListener.onChange(String.format(Locale.US, ".scrollToRow(%s)", rowIndex));
             js.setLength(0);
         }
         return this;
@@ -958,10 +958,10 @@ The scrollToEnd() method should be used after drawing a chart.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".splitterPosition(%f)", splitterPosition1));
+        js.append(String.format(Locale.US, ".splitterPosition(%s)", splitterPosition1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".splitterPosition(%f)", splitterPosition1));
+            onChangeListener.onChange(String.format(Locale.US, ".splitterPosition(%s)", splitterPosition1));
             js.setLength(0);
         }
         return this;
@@ -1008,10 +1008,10 @@ The scrollToEnd() method should be used after drawing a chart.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomIn(%f)", zoomFactor));
+        js.append(String.format(Locale.US, ".zoomIn(%s)", zoomFactor));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomIn(%f)", zoomFactor));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomIn(%s)", zoomFactor));
             js.setLength(0);
         }
         return this;
@@ -1027,10 +1027,10 @@ The scrollToEnd() method should be used after drawing a chart.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomOut(%f)", zoomFactor1));
+        js.append(String.format(Locale.US, ".zoomOut(%s)", zoomFactor1));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomOut(%f)", zoomFactor1));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomOut(%s)", zoomFactor1));
             js.setLength(0);
         }
         return this;
@@ -1047,10 +1047,10 @@ The scrollToEnd() method should be used after drawing a chart.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomTo(%f, %f)", startDate, endDate));
+        js.append(String.format(Locale.US, ".zoomTo(%s, %s)", startDate, endDate));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%f, %f)", startDate, endDate));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s)", startDate, endDate));
             js.setLength(0);
         }
         return this;
@@ -1070,10 +1070,10 @@ The scrollToEnd() method should be used after drawing a chart.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", ((unit != null) ? unit.generateJs() : "null"), ((anchor != null) ? anchor.generateJs() : "null"), count));
+        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %s)", ((unit != null) ? unit.generateJs() : "null"), ((anchor != null) ? anchor.generateJs() : "null"), count));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", ((unit != null) ? unit.generateJs() : "null"), ((anchor != null) ? anchor.generateJs() : "null"), count));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %s)", ((unit != null) ? unit.generateJs() : "null"), ((anchor != null) ? anchor.generateJs() : "null"), count));
             js.setLength(0);
         }
         return this;
@@ -1088,10 +1088,10 @@ The scrollToEnd() method should be used after drawing a chart.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", ((unit != null) ? unit.generateJs() : "null"), wrapQuotes(anchor1), count));
+        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %s)", ((unit != null) ? unit.generateJs() : "null"), wrapQuotes(anchor1), count));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", ((unit != null) ? unit.generateJs() : "null"), wrapQuotes(anchor1), count));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %s)", ((unit != null) ? unit.generateJs() : "null"), wrapQuotes(anchor1), count));
             js.setLength(0);
         }
         return this;
@@ -1106,10 +1106,10 @@ The scrollToEnd() method should be used after drawing a chart.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", wrapQuotes(unit1), ((anchor != null) ? anchor.generateJs() : "null"), count));
+        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %s)", wrapQuotes(unit1), ((anchor != null) ? anchor.generateJs() : "null"), count));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", wrapQuotes(unit1), ((anchor != null) ? anchor.generateJs() : "null"), count));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %s)", wrapQuotes(unit1), ((anchor != null) ? anchor.generateJs() : "null"), count));
             js.setLength(0);
         }
         return this;
@@ -1124,10 +1124,10 @@ The scrollToEnd() method should be used after drawing a chart.
             js.append(jsBase);
             isChain = true;
         }
-        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %f)", wrapQuotes(unit1), wrapQuotes(anchor1), count));
+        js.append(String.format(Locale.US, ".zoomTo(%s, %s, %s)", wrapQuotes(unit1), wrapQuotes(anchor1), count));
 
         if (isRendered) {
-            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %f)", wrapQuotes(unit1), wrapQuotes(anchor1), count));
+            onChangeListener.onChange(String.format(Locale.US, ".zoomTo(%s, %s, %s)", wrapQuotes(unit1), wrapQuotes(anchor1), count));
             js.setLength(0);
         }
         return this;
