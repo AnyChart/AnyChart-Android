@@ -63,7 +63,7 @@ public class DataEntry {
             if (value.getClass().isArray()) {
                 String sValue;
                 if (value instanceof Number[]) {
-                    sValue = toString((Integer[]) value);
+                    sValue = toString((Number[]) value);
                 } else {
                     sValue = toString((String[]) value);
                 }
