@@ -33,4 +33,8 @@
     <string name="hilo_chart">Hilo Chart</string>
     <string name="ohlc_chart">OHLC Chart</string>
     <string name="quadrant_chart">Quadrant Chart</string>
+    <string name="bubble_map">Bubble Map</string>
+    <string name="choropleth_map">Choropleth Map</string>
+    <string name="point_map">Point Map</string>
+    <string name="connector_map">Connector Map</string>
 </resources>
