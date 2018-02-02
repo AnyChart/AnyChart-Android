@@ -517,6 +517,66 @@ public class MainActivityTest {
         pressBack();
     }
 
+    @Test
+    public void bubbleMapTest() {
+        ViewInteraction recyclerView = onView(
+                allOf(withId(R.id.recycler_view),
+                        childAtPosition(
+                                withId(android.R.id.content),
+                                0)));
+        recyclerView.perform(actionOnItemAtPosition(32, click()));
+
+        onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
+        onView(withId(R.id.web_view)).check(matches(isEnabled()));
+
+        pressBack();
+    }
+
+    @Test
+    public void choroplethMapTest() {
+        ViewInteraction recyclerView = onView(
+                allOf(withId(R.id.recycler_view),
+                        childAtPosition(
+                                withId(android.R.id.content),
+                                0)));
+        recyclerView.perform(actionOnItemAtPosition(33, click()));
+
+        onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
+        onView(withId(R.id.web_view)).check(matches(isEnabled()));
+
+        pressBack();
+    }
+
+    @Test
+    public void pointMapTest() {
+        ViewInteraction recyclerView = onView(
+                allOf(withId(R.id.recycler_view),
+                        childAtPosition(
+                                withId(android.R.id.content),
+                                0)));
+        recyclerView.perform(actionOnItemAtPosition(34, click()));
+
+        onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
+        onView(withId(R.id.web_view)).check(matches(isEnabled()));
+
+        pressBack();
+    }
+
+    @Test
+    public void connectorMapTest() {
+        ViewInteraction recyclerView = onView(
+                allOf(withId(R.id.recycler_view),
+                        childAtPosition(
+                                withId(android.R.id.content),
+                                0)));
+        recyclerView.perform(actionOnItemAtPosition(35, click()));
+
+        onWebView().withElement(findElement(Locator.ID, "container")).perform(webClick());
+        onView(withId(R.id.web_view)).check(matches(isEnabled()));
+
+        pressBack();
+    }
+
     private static Matcher<View> childAtPosition(
             final Matcher<View> parentMatcher, final int position) {
 
