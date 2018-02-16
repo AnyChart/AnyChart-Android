@@ -1,6 +1,5 @@
 package com.anychart.anychart;
 
-import com.anychart.anychart.application.MyApplication;
 import com.anychart.anychart.chart.common.ListenersInterface;
 
 import java.util.Locale;
@@ -42,7 +41,7 @@ public class Pareto extends SeparateChart {
         }
         js.append("});");
 
-        MyApplication.getInstance().getJavaScriptInterface().setOnClickListener(listener);
+        ListenersInterface.getInstance().setOnClickListener(listener);
     }
 
     

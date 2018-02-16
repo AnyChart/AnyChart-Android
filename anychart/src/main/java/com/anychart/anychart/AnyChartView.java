@@ -17,7 +17,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
-import com.anychart.anychart.application.MyApplication;
+import com.anychart.anychart.chart.common.ListenersInterface;
 
 import static com.anychart.anychart.JsObject.isRendered;
 
@@ -139,8 +139,7 @@ public final class AnyChartView extends FrameLayout {
                 });
             }
         });
-
-        webView.addJavascriptInterface(MyApplication.getInstance().getJavaScriptInterface(), "android");
+        webView.addJavascriptInterface(ListenersInterface.getInstance(), "android");
     }
 
     private void loadHtml() {

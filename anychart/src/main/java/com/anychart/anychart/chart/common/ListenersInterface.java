@@ -8,6 +8,21 @@ import java.util.Map;
 
 public class ListenersInterface {
 
+    private static volatile ListenersInterface instance = null;
+
+    private ListenersInterface() {}
+
+    public static ListenersInterface getInstance() {
+        if (instance == null) {
+            synchronized(ListenersInterface.class) {
+                if (instance == null) {
+                    instance = new ListenersInterface();
+                }
+            }
+        }
+        return instance;
+    }
+
     private OnClickListener listener;
 
     private interface ClickListener {
