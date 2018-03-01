@@ -66,9 +66,7 @@ public class ScatterChartActivity extends AppCompatActivity {
                 .setStroke("anychart.color.darken(gold)", null, null, null, null);
         marker.getTooltip()
                 .setHAlign(TextHAlign.START)
-                .setFormat("function() {\n" +
-                        "      return 'Waiting time: ' + this.value + ' min.\\nDuration: ' + this.x + ' min.';\n" +
-                        "    }");
+                .setFormat("Waiting time: ${%Value} min.\\nDuration: ${%X} min.");
 
         ScatterSeriesLine scatterSeriesLine = scatter.line(getLineData());
 
