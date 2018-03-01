@@ -32,6 +32,8 @@ public final class AnyChartView extends FrameLayout {
 
     protected StringBuilder js = new StringBuilder();
 
+    private String licenceKey = "";
+
     public AnyChartView(Context context) {
         super(context);
         init();
@@ -110,11 +112,15 @@ public final class AnyChartView extends FrameLayout {
                             .toString();
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    webView.evaluateJavascript("anychart.onDocumentReady(function () {\n" +
+                    webView.evaluateJavascript(
+                            "anychart.licenseKey(\"" + licenceKey + "\");" +
+                            "anychart.onDocumentReady(function () {\n" +
                             resultJs +
                             "});", null);
                 } else {
-                    webView.loadUrl("javascript:anychart.onDocumentReady(function () {\n" +
+                    webView.loadUrl(
+                            "anychart.licenseKey(\"" + licenceKey + "\");" +
+                            "javascript:anychart.onDocumentReady(function () {\n" +
                             resultJs +
                             "});");
                 }
@@ -170,6 +176,10 @@ public final class AnyChartView extends FrameLayout {
         scripts.append("<script src=\"")
                 .append(url)
                 .append("\"></script>\n");
+    }
+
+    public void setLicenceKey(String key) {
+        licenceKey = key;
     }
 
     public void setChart(Chart chart) {
