@@ -182,6 +182,11 @@ public final class AnyChartView extends FrameLayout {
         licenceKey = key;
     }
 
+    public void setZoomEnabled(Boolean value) {
+        webView.getSettings().setBuiltInZoomControls(value);
+        webView.getSettings().setDisplayZoomControls(!value);
+    }
+
     public void setChart(Chart chart) {
         this.chart = chart;
         loadHtml();
