@@ -125,7 +125,7 @@ public final class AnyChartView extends FrameLayout {
                             "});");
                 }
 
-                isRendered = true;
+//                isRendered = true;
 
                 chart.setOnChangeListener(new Chart.OnChange() {
                     @Override
@@ -188,6 +188,8 @@ public final class AnyChartView extends FrameLayout {
     }
 
     public void setChart(Chart chart) {
+        js.setLength(0);
+        isRestored = false;
         this.chart = chart;
         loadHtml();
     }
