@@ -40,8 +40,8 @@ public class HiloChartActivity extends AppCompatActivity {
         StockSeriesHilo hilo = plot.hilo(mapping);
         hilo.setName("Temperature");
 
-        hilo.getTooltip().setFormat("Max: {%High}&deg;<br/>Min: {%Low}&deg;")
-                .setUseHtml(true);
+        hilo.getTooltip().setFormat("Max: {%High}&deg;<br/>Min: {%Low}&deg;");
+        stock.getTooltip().setUseHtml(true);
 
         anyChartView.setChart(stock);
     }
