@@ -80,6 +80,13 @@ public final class AnyChartView extends FrameLayout {
         webSettings.setLoadsImagesAutomatically(true);
         webSettings.setJavaScriptEnabled(true);
         webSettings.setLoadWithOverviewMode(true);
+        webView.setLongClickable(true);
+        webView.setOnLongClickListener(new OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                return true;
+            }
+        });
 
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
