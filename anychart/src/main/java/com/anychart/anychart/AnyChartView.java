@@ -2,6 +2,9 @@ package com.anychart.anychart;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -17,7 +20,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
+import com.anychart.anychart.chart.common.CapturePictureListener;
 import com.anychart.anychart.chart.common.ListenersInterface;
+
+import java.lang.ref.WeakReference;
 
 import static com.anychart.anychart.JsObject.isRendered;
 
@@ -115,21 +121,21 @@ public final class AnyChartView extends FrameLayout {
                 String resultJs = (isRestored)
                         ? js.toString()
                         : js.append("chart.container(\"container\");")
-                            .append("chart.draw();")
-                            .toString();
+                        .append("chart.draw();")
+                        .toString();
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                     webView.evaluateJavascript(
                             "anychart.licenseKey(\"" + licenceKey + "\");" +
-                            "anychart.onDocumentReady(function () {\n" +
-                            resultJs +
-                            "});", null);
+                                    "anychart.onDocumentReady(function () {\n" +
+                                    resultJs +
+                                    "});", null);
                 } else {
                     webView.loadUrl(
                             "anychart.licenseKey(\"" + licenceKey + "\");" +
-                            "javascript:anychart.onDocumentReady(function () {\n" +
-                            resultJs +
-                            "});");
+                                    "javascript:anychart.onDocumentReady(function () {\n" +
+                                    resultJs +
+                                    "});");
                 }
 
 //                isRendered = true;
@@ -199,6 +205,40 @@ public final class AnyChartView extends FrameLayout {
         isRestored = false;
         this.chart = chart;
         loadHtml();
+    }
+
+    public void capturePicture(CapturePictureListener listener) {
+        new CapturePictureAsyncTask(webView, listener).execute();
+    }
+
+    private static class CapturePictureAsyncTask extends AsyncTask<Void, Void, Bitmap> {
+        private WeakReference<WebView> webViewReference;
+        private CapturePictureListener listener;
+
+        CapturePictureAsyncTask(WebView webView, CapturePictureListener listener) {
+            webViewReference = new WeakReference<>(webView);
+            this.listener = listener;
+        }
+
+        @Override
+        protected Bitmap doInBackground(Void... params) {
+            WebView webView = webViewReference.get();
+            if (webView == null) return null;
+            try {
+                Bitmap bitmap = Bitmap.createBitmap(webView.getWidth(), webView.getHeight(), Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(bitmap);
+                webView.draw(canvas);
+                return bitmap;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap bitmap) {
+            listener.onDone(bitmap);
+        }
     }
 
 }
